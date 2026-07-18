@@ -3,3 +3,5 @@ __pycache__/
 .DS_Store
 # Upstream clones are reproducible via scripts/update_repos.sh — don't vendor them.
 sources/repos/
+# PRIVATE personal notes — never published. See private/README.md.
+private/

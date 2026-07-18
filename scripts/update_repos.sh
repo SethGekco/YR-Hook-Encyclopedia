@@ -11,6 +11,7 @@ declare -A URLS=(
   [Antares]=https://github.com/Phobos-developers/Antares.git
   [Phobos]=https://github.com/Phobos-developers/Phobos.git
   [Kratos]=https://github.com/ra2diy/KratosPP.git
+  [AggressiveStance]=https://github.com/Aephiex/YRAggressiveStance.git
 )
 
 for name in "${!URLS[@]}"; do

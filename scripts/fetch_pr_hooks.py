@@ -29,6 +29,7 @@ REPOS = {
     "Phobos-developers/Phobos": "Phobos",
     "ra2diy/KratosPP": "Kratos",
     "CnCRAZER/Ares": "Ares (CnCRAZER fork)",
+    "Aephiex/YRAggressiveStance": "AggressiveStance",
     # Antares & Ares upstream have 0 open PRs today, but listing them is cheap
     # and future-proofs the sweep.
     "Phobos-developers/Antares": "Antares",

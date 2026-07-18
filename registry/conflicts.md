@@ -6,7 +6,7 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 
 **Excluded** from this list: overlaps that only occur between mutually-exclusive frameworks (Antares vs Ares), which you never load together — those are almost all inherited code, counted separately below. Loose PR hooks are excluded too; see `pr-hooks.md`.
 
-**301** real (co-loadable) conflicts. _(989 additional inherited Ares↔Antares-only overlaps, not shown.)_
+**306** real (co-loadable) conflicts. _(989 additional inherited Ares↔Antares-only overlaps, not shown.)_
 
 | Address | Frameworks | Functions |
 |---|---|---|
@@ -117,6 +117,7 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x4C25CB` | Antares, Ares, Kratos | `Antares`: EBolt_Draw_Color2<br>`Ares`: EBolt_Draw_Color2<br>`Kratos`: EBolt_Draw_Color2 |
 | `0x4C26C7` | Antares, Ares, Kratos | `Antares`: EBolt_Draw_Color3<br>`Ares`: EBolt_Draw_Color3<br>`Kratos`: EBolt_Draw_Color3 |
 | `0x4C2951` | Antares, Ares, Kratos, Phobos | `Antares`: EBolt_DTOR<br>`Ares`: EBolt_DTOR<br>`Kratos`: EBolt_DTOR<br>`Phobos`: EBolt_DTOR |
+| `0x4C6CC8` | AggressiveStance, Phobos | `AggressiveStance`: Networking_RespondToEvent<br>`Phobos`: Networking_RespondToEvent |
 | `0x4CA07A` | Antares, Ares, Phobos | `Antares`: FactoryClass_AbandonProduction<br>`Ares`: FactoryClass_AbandonProduction<br>`Phobos`: FactoryClass_AbandonProduction_Phobos |
 | `0x4CF3D0` | Antares, Ares, Phobos | `Antares`: FlyLocomotionClass_sub_4CEFB0_HunterSeeker<br>`Ares`: FlyLocomotionClass_sub_4CEFB0_HunterSeeker<br>`Phobos`: FlyLocomotionClass_FlightUpdate_SetFlightLevel |
 | `0x4D7221` | Antares, Ares, Phobos | `Antares`: FootClass_Put_Prereqs<br>`Ares`: FootClass_Put_Prereqs<br>`Phobos`: FootClass_Unlimbo_LaserTrails |
@@ -144,12 +145,16 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x51E63A` | Antares, Ares, Phobos | `Antares`: InfantryClass_GetCursorOverObject_EngineerOverFriendlyBuilding<br>`Ares`: InfantryClass_GetCursorOverObject_EngineerOverFriendlyBuilding<br>`Phobos`: InfantryClass_WhatAction_Grinding_Engineer |
 | `0x51EAE0` | Kratos, Phobos | `Kratos`: InfantryClass_WhatAction_Cursor<br>`Phobos`: TechnoClass_WhatAction_AllowAirstrike |
 | `0x51EE6B` | Antares, Ares, Phobos | `Antares`: InfantryClass_GetCursorOverObject_Saboteur<br>`Ares`: InfantryClass_GetCursorOverObject_Saboteur<br>`Phobos`: InfantryClass_WhatAction_ObjectClass_InfiltrateForceAttack |
-| `0x52F639` | Antares, Ares, Kratos, Phobos | `Antares`: _YR_CmdLineParse<br>`Ares`: _YR_CmdLineParse<br>`Kratos`: YR_CmdLineParse<br>`Phobos`: _YR_CmdLineParse |
+| `0x52F639` | AggressiveStance, Antares, Ares, Kratos, Phobos | `AggressiveStance`: _YR_CmdLineParse<br>`Antares`: _YR_CmdLineParse<br>`Ares`: _YR_CmdLineParse<br>`Kratos`: YR_CmdLineParse<br>`Phobos`: _YR_CmdLineParse |
+| `0x533066` | AggressiveStance, Phobos | `AggressiveStance`: CommandClassCallback_Register<br>`Phobos`: CommandClassCallback_Register |
 | `0x54D600` | Kratos, Phobos | `Kratos`: JumpjetLocomotionClass_MovingUpdate_DontTurnInCell<br>`Phobos`: JumpjetLocomotionClass_MovementAI_JumpjetStraightAscend |
 | `0x550D1F` | Kratos, Phobos | `Kratos`: LaserDrawClass_DrawInHouseColor_Context_Set<br>`Phobos`: LaserDrawClass_DrawInHouseColor_Context_Set |
 | `0x550F47` | Kratos, Phobos | `Kratos`: LaserDrawClass_DrawInHouseColor_BetterDrawing<br>`Phobos`: LaserDrawClass_DrawInHouseColor_BetterDrawing |
 | `0x55AFB3` | Antares, Ares, Kratos | `Antares`: LogicClass_Update<br>`Antares`: LogicClass_Update_1000<br>`Ares`: LogicClass_Update<br>`Ares`: LogicClass_Update_1000<br>`Kratos`: LogicClass_Update |
 | `0x5FACDF` | Antares, Ares, Phobos | `Antares`: _Options_LoadFromINI<br>`Ares`: _Options_LoadFromINI<br>`Phobos`: OptionsClass_LoadSettings_LoadPhobosSettings |
+| `0x64B6FE` | AggressiveStance, Phobos | `AggressiveStance`: sub_64B660_GetEventSize<br>`Phobos`: sub_64B660_GetEventSize |
+| `0x64BE7D` | AggressiveStance, Phobos | `AggressiveStance`: sub_64BDD0_GetEventSize1<br>`Phobos`: sub_64BDD0_GetEventSize1 |
+| `0x64C30E` | AggressiveStance, Phobos | `AggressiveStance`: sub_64BDD0_GetEventSize2<br>`Phobos`: sub_64BDD0_GetEventSize2 |
 | `0x65E97F` | Kratos, Phobos | `Kratos`: HouseClass_CreateAirstrike_SetTargetForUnit<br>`Phobos`: HouseClass_CreateAirstrike_SetTargetForUnit |
 | `0x65E997` | Kratos, Phobos | `Kratos`: Airstrike_Supported_Reinforcements_Put<br>`Phobos`: HouseClass_SendAirstrike_PlaceAircraft |
 | `0x6622E0` | Antares, Ares, Kratos | `Antares`: RocketLocomotionClass_ILocomotion_Process_CustomMissile<br>`Ares`: RocketLocomotionClass_ILocomotion_Process_CustomMissile<br>`Kratos`: RocketLocomotionClass_Update_Freezing |
@@ -310,4 +315,4 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x772EB0` | Antares, Ares, Kratos, Phobos | `Antares`: WeaponTypeClass_SaveLoad_Prefix<br>`Ares`: WeaponTypeClass_SaveLoad_Prefix<br>`Kratos`: WeaponTypeClass_SaveLoad_Prefix<br>`Phobos`: WeaponTypeClass_SaveLoad_Prefix |
 | `0x772F8C` | Antares, Ares, Kratos, Phobos | `Antares`: WeaponTypeClass_Save<br>`Ares`: WeaponTypeClass_Save<br>`Kratos`: WeaponTypeClass_Save_Suffix<br>`Phobos`: WeaponTypeClass_Save |
 | `0x77311D` | Antares, Ares, Kratos, Phobos | `Antares`: WeaponTypeClass_SDDTOR<br>`Ares`: WeaponTypeClass_SDDTOR<br>`Kratos`: WeaponTypeClass_SDDTOR<br>`Phobos`: WeaponTypeClass_SDDTOR |
-| `0x7CD810` | Antares, Ares, Kratos, Phobos | `Antares`: ExeRun<br>`Ares`: ExeRun<br>`Kratos`: ExeRun<br>`Phobos`: ExeRun |
+| `0x7CD810` | AggressiveStance, Antares, Ares, Kratos, Phobos | `AggressiveStance`: ExeRun<br>`Antares`: ExeRun<br>`Ares`: ExeRun<br>`Kratos`: ExeRun<br>`Phobos`: ExeRun |

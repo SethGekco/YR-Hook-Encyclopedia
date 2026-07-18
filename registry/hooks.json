@@ -21784,12 +21784,21 @@
   },
   "0x4C6CC8": {
     "release_frameworks": [
+      "AggressiveStance",
       "Phobos"
     ],
     "pr_frameworks": [],
-    "release_shared": false,
-    "real_conflict": false,
+    "release_shared": true,
+    "real_conflict": true,
     "consumers": [
+      {
+        "framework": "AggressiveStance",
+        "channel": "release",
+        "function": "Networking_RespondToEvent",
+        "stolen_bytes": "0x5",
+        "subsystem": "Ext/Event",
+        "source_file": "src/Ext/Event/Body.cpp"
+      },
       {
         "framework": "Phobos",
         "channel": "release",
@@ -33517,6 +33526,7 @@
   },
   "0x52F639": {
     "release_frameworks": [
+      "AggressiveStance",
       "Antares",
       "Ares",
       "Kratos",
@@ -33526,6 +33536,14 @@
     "release_shared": true,
     "real_conflict": true,
     "consumers": [
+      {
+        "framework": "AggressiveStance",
+        "channel": "release",
+        "function": "_YR_CmdLineParse",
+        "stolen_bytes": "0x5",
+        "subsystem": ".",
+        "source_file": "src/YRAggressiveStance.cpp"
+      },
       {
         "framework": "Antares",
         "channel": "release",
@@ -33832,12 +33850,21 @@
   },
   "0x533066": {
     "release_frameworks": [
+      "AggressiveStance",
       "Phobos"
     ],
     "pr_frameworks": [],
-    "release_shared": false,
-    "real_conflict": false,
+    "release_shared": true,
+    "real_conflict": true,
     "consumers": [
+      {
+        "framework": "AggressiveStance",
+        "channel": "release",
+        "function": "CommandClassCallback_Register",
+        "stolen_bytes": "0x6",
+        "subsystem": "Commands",
+        "source_file": "src/Commands/Commands.cpp"
+      },
       {
         "framework": "Phobos",
         "channel": "release",
@@ -41220,12 +41247,21 @@
   },
   "0x64B6FE": {
     "release_frameworks": [
+      "AggressiveStance",
       "Phobos"
     ],
     "pr_frameworks": [],
-    "release_shared": false,
-    "real_conflict": false,
+    "release_shared": true,
+    "real_conflict": true,
     "consumers": [
+      {
+        "framework": "AggressiveStance",
+        "channel": "release",
+        "function": "sub_64B660_GetEventSize",
+        "stolen_bytes": "0x6",
+        "subsystem": "Ext/Event",
+        "source_file": "src/Ext/Event/Body.cpp"
+      },
       {
         "framework": "Phobos",
         "channel": "release",
@@ -41238,12 +41274,21 @@
   },
   "0x64BE7D": {
     "release_frameworks": [
+      "AggressiveStance",
       "Phobos"
     ],
     "pr_frameworks": [],
-    "release_shared": false,
-    "real_conflict": false,
+    "release_shared": true,
+    "real_conflict": true,
     "consumers": [
+      {
+        "framework": "AggressiveStance",
+        "channel": "release",
+        "function": "sub_64BDD0_GetEventSize1",
+        "stolen_bytes": "0x6",
+        "subsystem": "Ext/Event",
+        "source_file": "src/Ext/Event/Body.cpp"
+      },
       {
         "framework": "Phobos",
         "channel": "release",
@@ -41256,12 +41301,21 @@
   },
   "0x64C30E": {
     "release_frameworks": [
+      "AggressiveStance",
       "Phobos"
     ],
     "pr_frameworks": [],
-    "release_shared": false,
-    "real_conflict": false,
+    "release_shared": true,
+    "real_conflict": true,
     "consumers": [
+      {
+        "framework": "AggressiveStance",
+        "channel": "release",
+        "function": "sub_64BDD0_GetEventSize2",
+        "stolen_bytes": "0x6",
+        "subsystem": "Ext/Event",
+        "source_file": "src/Ext/Event/Body.cpp"
+      },
       {
         "framework": "Phobos",
         "channel": "release",
@@ -54306,6 +54360,24 @@
         "stolen_bytes": "0x6",
         "subsystem": "Misc",
         "source_file": "src/Misc/Hooks.BugFixes.cpp"
+      }
+    ]
+  },
+  "0x6F858F": {
+    "release_frameworks": [
+      "AggressiveStance"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "AggressiveStance",
+        "channel": "release",
+        "function": "TechnoClass_EvaluateObject_AggressiveStance",
+        "stolen_bytes": "0x7",
+        "subsystem": "Ext/Techno",
+        "source_file": "src/Ext/Techno/Hooks.TargetEvaluation.cpp"
       }
     ]
   },
@@ -73972,6 +74044,7 @@
   },
   "0x7CD810": {
     "release_frameworks": [
+      "AggressiveStance",
       "Antares",
       "Ares",
       "Kratos",
@@ -73981,6 +74054,14 @@
     "release_shared": true,
     "real_conflict": true,
     "consumers": [
+      {
+        "framework": "AggressiveStance",
+        "channel": "release",
+        "function": "ExeRun",
+        "stolen_bytes": "0x9",
+        "subsystem": ".",
+        "source_file": "src/YRAggressiveStance.cpp"
+      },
       {
         "framework": "Antares",
         "channel": "release",

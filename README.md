@@ -87,6 +87,7 @@ still tells you it exists and who hooks it.
 | Antares | ✅ | n/a (0 open) | cloned `Phobos-developers/Antares` |
 | Phobos  | ✅ | ✅ open PRs | cloned `Phobos-developers/Phobos` |
 | Kratos  | ✅ | ✅ open PRs | cloned `ra2diy/KratosPP` |
+| AggressiveStance | ✅ | n/a (0 open) | cloned `Aephiex/YRAggressiveStance` — small standalone Syringe DLL |
 | CnCRAZER/Ares fork | ⏳ | ✅ open PRs | fork of Ares; PR-only for now |
 | Vanilla-RE'd, Syringe core, CnCNet spawner, other | ⏳ | ⏳ | future tiers |
 

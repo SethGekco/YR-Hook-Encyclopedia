@@ -70,6 +70,20 @@ not conflicts, and are excluded from `conflicts.md` (counted separately in
   skip Phobos behaviour; those appear in `registry/conflicts.md`.
 - **Dialect:** `0x`-prefixed, same as Phobos.
 
+### AggressiveStance (YRAggressiveStance)
+- **In registry via:** cloned `Aephiex/YRAggressiveStance`. A small, standalone
+  **Syringe DLL** (uses YRpp headers; loads alongside `Ares.dll`/Phobos — it is
+  **co-loadable with everything**, so not in any exclusive group).
+- **What it is:** enables an "Aggressive Stance" so armed units/buildings
+  passively engage unarmed enemy buildings. 8 hooks.
+- **Dialect:** `0x`-prefixed.
+- **Note on its "conflicts":** most of its shared addresses (`0x7CD810` ExeRun,
+  `0x52F639` CmdLineParse, `0x533066` CommandClassCallback, the `0x64Bxxx`/
+  `0x4C6CC8` networking-event-size hooks) are the **standard Syringe/extension
+  bootstrap sites that every DLL hooks** — Syringe chains multiple DLLs at these,
+  so they are shared-but-benign, not real incompatibilities. Its one substantive
+  hook, `0x6F858F` (the `EvaluateObject` building gate), collides with nothing.
+
 ### CnCRAZER/Ares (fork)
 - A fork of classic Ares with open PRs. Currently included at the **PR channel
   only** (its open PRs are swept). Its release divergence from classic Ares is

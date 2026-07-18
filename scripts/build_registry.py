@@ -43,7 +43,9 @@ PR_JSON = os.path.join(ROOT, "sources", "pr_hooks.json")
 
 # Frameworks whose release hooks come from a cloned upstream repo.
 # Order = display priority. Each has a src/ subdir under sources/repos/<name>/.
-FRAMEWORKS = ["Ares", "Antares", "Phobos", "Kratos"]
+# AggressiveStance is a small standalone Syringe DLL (loads alongside Ares/Phobos;
+# co-loadable with everything, so not in any exclusive group).
+FRAMEWORKS = ["Ares", "Antares", "Phobos", "Kratos", "AggressiveStance"]
 
 # Mutually-exclusive frameworks: you load at most ONE from each group at a time,
 # so two of them hooking the same address is NOT a real conflict — it's usually

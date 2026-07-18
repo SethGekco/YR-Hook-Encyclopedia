@@ -1458,6 +1458,7 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x4C2AE7,Kratos,release,EBolt_Fire_DisableParticle,0x6,Hooks,src/Hooks/EBoltExtHook.cpp
 0x4C6185,Phobos,release,EvadeClass_CarryOverShit_Globals,0x0,Ext/Scenario,src/Ext/Scenario/Hooks.Variables.cpp
 0x4C6217,Phobos,release,EvadeClass_DoShit_Globals,0x0,Ext/Scenario,src/Ext/Scenario/Hooks.Variables.cpp
+0x4C6CC8,AggressiveStance,release,Networking_RespondToEvent,0x5,Ext/Event,src/Ext/Event/Body.cpp
 0x4C6CC8,Phobos,release,Networking_RespondToEvent,0x5,Ext/Event,src/Ext/Event/Body.cpp
 0x4C6CCD,Antares,release,Networking_RespondToEvent,0x0,Misc,src/Misc/Network.cpp
 0x4C6CCD,Ares,release,Networking_RespondToEvent,0x0,Misc,src/Misc/Network.cpp
@@ -2236,6 +2237,7 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x52F191,Ares,release,CampaignMenu_InitializeMoreButtons,0x5,Misc,src/Misc/Interface.cpp
 0x52F232,Antares,release,CampaignMenu_hDlg_StartCampaign,0x6,Misc,src/Misc/Interface.cpp
 0x52F232,Ares,release,CampaignMenu_hDlg_StartCampaign,0x6,Misc,src/Misc/Interface.cpp
+0x52F639,AggressiveStance,release,_YR_CmdLineParse,0x5,.,src/YRAggressiveStance.cpp
 0x52F639,Antares,release,_YR_CmdLineParse,0x5,.,src/Ares.cpp
 0x52F639,Ares,release,_YR_CmdLineParse,0x5,.,src/Ares.cpp
 0x52F639,Kratos,release,YR_CmdLineParse,0x5,Hooks,src/Hooks/GeneralHook.cpp
@@ -2260,6 +2262,7 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x5320C2,Ares,release,Main_hDlg_WWOnlineButtonClick,0x6,Misc,src/Misc/Interface.Buttons.cpp
 0x533058,Antares,release,CommandClassCallback_Register,0x7,.,src/Ares.Commands.cpp
 0x533058,Ares,release,CommandClassCallback_Register,0x7,.,src/Ares.Commands.cpp
+0x533066,AggressiveStance,release,CommandClassCallback_Register,0x6,Commands,src/Commands/Commands.cpp
 0x533066,Phobos,release,CommandClassCallback_Register,0x6,Commands,src/Commands/Commands.cpp
 0x533F50,Phobos,release,Game_ScrollSidebar_Skip,0x5,Commands,src/Commands/Commands.cpp
 0x5349A5,Phobos,release,Map_ClearVectors_Veinhole,0x5,Misc,src/Misc/Hooks.VeinholeMonster.cpp
@@ -2738,8 +2741,11 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x64580A,Phobos,release,ParticleTypeClass_Save_Suffix,0x7,Ext/ParticleType,src/Ext/ParticleType/Body.cpp
 0x64736D,Phobos,release,Queue_AI_WriteDesyncLog,0x5,Misc,src/Misc/SyncLogging.cpp
 0x647C4D,Phobos,PR#2092,Queue_AI_Multiplayer_CustomFPSCalculation,0x1F,Misc,src/Misc/Hooks.Gamespeed.cpp
+0x64B6FE,AggressiveStance,release,sub_64B660_GetEventSize,0x6,Ext/Event,src/Ext/Event/Body.cpp
 0x64B6FE,Phobos,release,sub_64B660_GetEventSize,0x6,Ext/Event,src/Ext/Event/Body.cpp
+0x64BE7D,AggressiveStance,release,sub_64BDD0_GetEventSize1,0x6,Ext/Event,src/Ext/Event/Body.cpp
 0x64BE7D,Phobos,release,sub_64BDD0_GetEventSize1,0x6,Ext/Event,src/Ext/Event/Body.cpp
+0x64C30E,AggressiveStance,release,sub_64BDD0_GetEventSize2,0x6,Ext/Event,src/Ext/Event/Body.cpp
 0x64C30E,Phobos,release,sub_64BDD0_GetEventSize2,0x6,Ext/Event,src/Ext/Event/Body.cpp
 0x64CCBF,Antares,release,DoList_ReplaceReconMessage,0x6,Misc,src/Misc/Network.cpp
 0x64CCBF,Ares,release,DoList_ReplaceReconMessage,0x6,Misc,src/Misc/Network.cpp
@@ -3614,6 +3620,7 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x6F826E,Ares,release,TechnoClass_CanAutoTargetObject_CivilianEnemy,0x5,Ext/Techno,src/Ext/Techno/Hooks.cpp
 0x6F833E,Phobos,release,TechnoClass_CanAutoTargetObject_Garrisonable,0x6,Misc,src/Misc/Hooks.BugFixes.cpp
 0x6F845D,Phobos,release,TechnoClass_CanAutoTargetObject_Garrisonable,0x6,Misc,src/Misc/Hooks.BugFixes.cpp
+0x6F858F,AggressiveStance,release,TechnoClass_EvaluateObject_AggressiveStance,0x7,Ext/Techno,src/Ext/Techno/Hooks.TargetEvaluation.cpp
 0x6F85AB,Phobos,release,TechnoClass_CanAutoTargetObject_AggressiveAttackMove,0x6,Ext/Techno,src/Ext/Techno/Hooks.TargetEvaluation.cpp
 0x6F85C8,Phobos,PR#1801,TechnoClass_EvaluateObject_RemovingWhatMakesGuardModeAutotargetSelectionUnableToTargetStructures,0x7,Ext/Techno,src/Ext/Techno/Hooks.TargetEvaluation.cpp
 0x6F85CF,Phobos,release,TechnoClass_CanAutoTarget_AttackNoThreatBuildings,0xA,Ext/Techno,src/Ext/Techno/Hooks.cpp
@@ -4897,6 +4904,7 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x7B9510,Ares,release,WWMouseClass_DrawCursor_V1,0x6,Misc,src/Misc/Surfaces.cpp
 0x7C89D4,Antares,release,DirectDrawCreate,0x6,Misc,src/Misc/Surfaces.cpp
 0x7C89D4,Ares,release,DirectDrawCreate,0x6,Misc,src/Misc/Surfaces.cpp
+0x7CD810,AggressiveStance,release,ExeRun,0x9,.,src/YRAggressiveStance.cpp
 0x7CD810,Antares,release,ExeRun,0x9,.,src/Ares.cpp
 0x7CD810,Ares,release,ExeRun,0x9,.,src/Ares.cpp
 0x7CD810,Kratos,release,ExeRun,0x9,Hooks,src/Hooks/GeneralHook.cpp

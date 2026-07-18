@@ -14,8 +14,12 @@ Hooks in `AircraftClass` and aircraft rendering. Entries sorted by address.
 
 **What it does.** This address sits at the point in `AircraftClass::Draw` where
 the game is about to draw the aircraft's ground shadow. Phobos hooks it to run
-its own matrix-based shadow rendering (voxel-correct shadow orientation), i.e.
-Phobos *replaces* the vanilla shadow drawing here.
+its own **matrix-based** shadow rendering: it pulls the locomotor's shadow matrix
+(`loco->Shadow_Matrix`) and applies height-based scaling driven by RulesExt
+globals (`AirShadowBaseScale_log`, `HeightShadowScaling`, per-type
+`ShadowSizeCharacteristicHeight`). So Phobos *replaces* the vanilla shadow draw
+with a scaled, locomotor-aware one, and returns `0x4148A5` (past the whole shadow
+block) when the aircraft should have no shadow.
 
 **What it does *not* do — easily mistaken.**
 - It is **not** a general "draw the aircraft" hook — it is specifically the
@@ -47,14 +51,16 @@ not the benign "everyone hooks the same call site" case — Kratos hooks it
   obvious the moment you group by address.
 
 **Confirmed via.**
-- Kratos behaviour: read directly from `KratosPP_meep/src/Hooks/AircraftExtHook.cpp`
+- Kratos behaviour: read directly from `Kratos/src/Hooks/AircraftExtHook.cpp`
   (the `return 0x4148A5;` / `return 0x4147FF;` branches and the
   `AllowTakeoverPhobosShadowMaker` gate). **Confirmed.**
-- Phobos owning `0x4147F9` as `AircraftClass_Draw_Shadow`: from the registry
-  (Antares+Phobos CSV). The *internal* matrix-shadow detail is inferred from the
-  function name and Kratos's comments — **verify against upstream Phobos
-  `Hooks.MatrixOp.cpp`** at a matching version before relying on it. The local
-  "BASED ON WP" Phobos checkout predates this hook and cannot confirm it (see
-  `sources.md`).
-- Vanilla return addresses `0x4148A5` / `0x4147FF`: as used by Kratos;
-  not independently re-derived from `gamemd.exe` here. **Partly unverified.**
+- Phobos behaviour: read directly from cloned upstream
+  `Phobos/src/Ext/TechnoType/Hooks.MatrixOp.cpp` (the `DEFINE_HOOK(0x4147F9, …)`
+  body — matrix shadow, RulesExt scaling, and the `FinishDrawing = 0x4148A5`
+  skip on cloak/sink/`NoShadow`/no-shadow-locomotor). **Confirmed.** Note Phobos
+  and Kratos independently use the *same* skip conditions and the *same*
+  `0x4148A5` exit, which cross-validates both.
+- Return address `0x4148A5`: confirmed as the shadow-block exit by **both**
+  Phobos and Kratos source. `0x4147FF` (skip-Phobos-only) is Kratos-specific and
+  is the instruction right after the hooked bytes. Not re-derived from
+  `gamemd.exe` disassembly here, but corroborated across two frameworks.

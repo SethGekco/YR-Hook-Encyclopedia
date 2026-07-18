@@ -25,18 +25,40 @@ automatically (see `registry/conflicts.md`).
 README.md                 You are here.
 sources.md                Provenance: where each framework's data comes from.
 registry/                 TIER 1 — the complete, mechanical index (all known hooks).
-  hooks.csv               One row per (address, framework) consumer. Sorted by address.
-  hooks.json              Address-keyed. Each address lists every framework hooking it.
-  conflicts.md            Auto-generated: addresses hooked by 2+ frameworks.
-  STATS.md                Auto-generated counts.
+  hooks.csv               One row per (address, framework, channel) consumer.
+  hooks.json              Address-keyed. Each address lists every consumer.
+  conflicts.md            Auto: addresses hooked by 2+ CO-LOADABLE frameworks (release).
+  pr-hooks.md             Auto: loose hooks from unmerged PRs, grouped by framework/PR.
+  PROVENANCE.md           Auto: exact upstream commit each framework was read from.
+  STATS.md                Auto: counts.
 encyclopedia/             TIER 2 — curated prose entries, one page per subsystem.
   README.md               Index + the entry workflow.
   _TEMPLATE.md            The entry format (does / does-not / used-by).
   Ext-Aircraft.md         ... one page per subsystem, filled in over time.
 scripts/
-  build_registry.py       Regenerates everything under registry/ from the sources.
-sources/raw/              Unmodified upstream dumps (e.g. the Ares+Phobos CSV).
+  update_repos.sh         Clone/update the upstream framework repos (release source).
+  fetch_pr_hooks.py       Sweep open PRs for loose hooks -> sources/pr_hooks.json.
+  build_registry.py       Regenerate everything under registry/ from the sources.
+sources/
+  repos/                  Cloned upstream repos (gitignored; reproducible).
+  pr_hooks.json           Extracted loose-PR hooks (input to the builder).
+  raw/                    Legacy pre-extracted dumps (e.g. the old Antares+Phobos CSV).
 ```
+
+### Channels
+
+Each hook consumer is tagged with a **channel**:
+- **`release`** — the hook is in the framework's mainline source (a real shipped hook).
+- **`PR#NNNN`** — the hook exists *only* in an unmerged pull request: a "loose"
+  or proposed hook that may change address, be rewritten, or never merge.
+
+### Conflicts vs. inherited overlap
+
+A shared address is only a **real conflict** when the frameworks involved can be
+**loaded at the same time**. Ares and Antares are mutually exclusive (Antares
+*continues* Ares; you run one or the other), so an address they both hook is
+inherited code, not a conflict — the builder separates those out and keeps
+`conflicts.md` to genuine, co-loadable collisions.
 
 ## Two tiers, on purpose
 
@@ -46,7 +68,9 @@ subsystem, and source file. It is generated mechanically, so it is cheap to keep
 current and never goes stale silently. Regenerate it any time with:
 
 ```
-python3 scripts/build_registry.py
+scripts/update_repos.sh          # refresh upstream framework clones (release hooks)
+python3 scripts/fetch_pr_hooks.py   # (optional, slow) refresh loose PR hooks
+python3 scripts/build_registry.py   # rebuild registry/ from both
 ```
 
 **Tier 2 — the Encyclopedia** is the slow, valuable part: hand-written prose for
@@ -57,13 +81,14 @@ still tells you it exists and who hooks it.
 
 ## Coverage
 
-| Framework | Status | Source |
-|---|---|---|
-| Antares | ✅ in registry | pre-extracted CSV (see `sources.md`) |
-| Phobos  | ✅ in registry | pre-extracted CSV (see `sources.md`) |
-| Kratos  | ✅ in registry | extracted live from source |
-| **Ares (classic)** | ⏳ not yet | distinct from Antares — closed past v0.A; see `sources.md` |
-| Vanilla-RE'd, Syringe core, CnCNet spawner, other | ⏳ not yet | future tiers |
+| Framework | Release | PRs | Source |
+|---|---|---|---|
+| Ares (classic) | ✅ | n/a (0 open) | cloned `Ares-Developers/Ares` (frozen at last-open, 2016) |
+| Antares | ✅ | n/a (0 open) | cloned `Phobos-developers/Antares` |
+| Phobos  | ✅ | ✅ open PRs | cloned `Phobos-developers/Phobos` |
+| Kratos  | ✅ | ✅ open PRs | cloned `ra2diy/KratosPP` |
+| CnCRAZER/Ares fork | ⏳ | ✅ open PRs | fork of Ares; PR-only for now |
+| Vanilla-RE'd, Syringe core, CnCNet spawner, other | ⏳ | ⏳ | future tiers |
 
 > **Antares ≠ Ares.** Antares is a Phobos-developers open-source *reimplementation*
 > of newer, closed Ares — and is deliberately incompatible with Ares itself.

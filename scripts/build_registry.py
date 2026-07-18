@@ -34,8 +34,14 @@ ARES_PHOBOS_CSV = os.path.join(ROOT, "sources", "raw", "All-Hooks-Phobos-Antares
 # Kratos is extracted live from its source tree.
 KRATOS_SRC = "/home/rex/KratosPP_meep/src"
 
-# Framework label normalisation. The CSV calls Ares "Antares".
-FRAMEWORK_RENAME = {"Antares": "Ares"}
+# Framework label normalisation.
+# NOTE: "Antares" is NOT an alias for Ares. It is a distinct open-source
+# reimplementation of newer (closed) Ares by the Phobos-developers community,
+# and is intentionally incompatible with Ares (Ares.dll must be removed to run
+# it). The CSV's "Antares" rows are genuinely Antares, so we keep the label.
+# Classic Ares (Ares-Developers/Ares, open only through v0.A) is a separate,
+# not-yet-included source. See sources.md.
+FRAMEWORK_RENAME = {}
 
 
 def norm_addr(a):

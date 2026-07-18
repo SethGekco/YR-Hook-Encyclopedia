@@ -9,9 +9,11 @@ Every claim should be confirmable; mark anything you did not verify as such.
 **Framework names**
 | Framework | Function name | Stolen | Source file |
 |---|---|---|---|
-| Ares   | … | 0x? | Ares.cpp |
-| Phobos | … | 0x? | Ext/…/Hooks.cpp |
-| Kratos | … | 0x? | Hooks/…Hook.cpp |
+| Antares | … | 0x? | Ares.cpp |
+| Phobos  | … | 0x? | Ext/…/Hooks.cpp |
+| Kratos  | … | 0x? | Hooks/…Hook.cpp |
+<!-- List only frameworks that actually hook this address (from the registry).
+     Antares ≠ Ares — see README. Add an Ares row only once classic Ares is in the registry. -->
 
 **What it does.** The concrete behaviour changed at this address — the vanilla
 code being intercepted and what the hook makes happen instead.

@@ -51,7 +51,7 @@ not the benign "everyone hooks the same call site" case — Kratos hooks it
   (the `return 0x4148A5;` / `return 0x4147FF;` branches and the
   `AllowTakeoverPhobosShadowMaker` gate). **Confirmed.**
 - Phobos owning `0x4147F9` as `AircraftClass_Draw_Shadow`: from the registry
-  (Ares+Phobos CSV). The *internal* matrix-shadow detail is inferred from the
+  (Antares+Phobos CSV). The *internal* matrix-shadow detail is inferred from the
   function name and Kratos's comments — **verify against upstream Phobos
   `Hooks.MatrixOp.cpp`** at a matching version before relying on it. The local
   "BASED ON WP" Phobos checkout predates this hook and cannot confirm it (see

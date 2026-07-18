@@ -8,8 +8,8 @@ known hook:
 - **What it does *not* do** — the things people reasonably but wrongly assume it
   covers. This is the part every other hook list omits, and it's where the
   hours get lost.
-- **Who uses it** — which public frameworks (Ares, Phobos, Kratos, …) patch this
-  address, and how their versions relate.
+- **Who uses it** — which public frameworks (Antares, Phobos, Kratos, Ares, …)
+  patch this address, and how their versions relate.
 
 ## The one idea that organises everything
 
@@ -59,10 +59,16 @@ still tells you it exists and who hooks it.
 
 | Framework | Status | Source |
 |---|---|---|
-| Ares    | ✅ in registry | pre-extracted CSV (see `sources.md`) |
+| Antares | ✅ in registry | pre-extracted CSV (see `sources.md`) |
 | Phobos  | ✅ in registry | pre-extracted CSV (see `sources.md`) |
 | Kratos  | ✅ in registry | extracted live from source |
+| **Ares (classic)** | ⏳ not yet | distinct from Antares — closed past v0.A; see `sources.md` |
 | Vanilla-RE'd, Syringe core, CnCNet spawner, other | ⏳ not yet | future tiers |
+
+> **Antares ≠ Ares.** Antares is a Phobos-developers open-source *reimplementation*
+> of newer, closed Ares — and is deliberately incompatible with Ares itself.
+> The registry's `Antares` rows are Antares, not classic Ares. Classic Ares is a
+> separate framework still to be added. Don't conflate them.
 
 ## Scope & neutrality
 

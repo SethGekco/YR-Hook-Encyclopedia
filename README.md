@@ -31,6 +31,7 @@ registry/                 TIER 1 — the complete, mechanical index (all known h
   pr-hooks.md             Auto: loose hooks from unmerged PRs, grouped by framework/PR.
   tags.csv                Auto: framework INI tags -> where parsed + candidate-hook count.
   tag-hooks.md / .json    Auto: framework tag -> candidate hooks (HEURISTIC, see below).
+  vanilla-tags.md/.json/.csv  Auto: vanilla tag -> candidate read site in gamemd.exe (HEURISTIC).
   PROVENANCE.md           Auto: exact upstream commit each framework was read from.
   STATS.md                Auto: counts.
 encyclopedia/             TIER 2 — curated prose entries, one page per subsystem.
@@ -41,7 +42,8 @@ scripts/
   update_repos.sh         Clone/update the upstream framework repos (release source).
   fetch_pr_hooks.py       Sweep open PRs for loose hooks -> sources/pr_hooks.json.
   build_registry.py       Regenerate the hook registry under registry/ from the sources.
-  build_tag_index.py      Regenerate the tag->hook cross-reference (needs hooks.json).
+  build_tag_index.py      Regenerate the framework tag->hook cross-reference (needs hooks.json).
+  build_vanilla_tag_candidates.py  Regenerate vanilla tag->read-site index (needs gamemd.exe).
 sources/
   repos/                  Cloned upstream repos (gitignored; reproducible).
   pr_hooks.json           Extracted loose-PR hooks (input to the builder).
@@ -90,10 +92,16 @@ Two ways to go from "I want behaviour X" to "which hook is it":
   (a big net, treat with care). The narrowing is the value: a shortlist of 6 — or
   even 60 — beats reading 1,700 hooks blind. ⚠ **Treat all of it as unverified**
   until you confirm against the source or in-game.
-- **Vanilla tags → hooks** (Phase D, planned): original game tags aren't in any
-  framework source. Their strings live in `gamemd.exe`, so Ghidra can cross-
-  reference a tag string to the function that reads it and hand back candidate
-  addresses. Also unverified, but a real starting point instead of a blank slate.
+- **Vanilla tags → read sites** (`registry/vanilla-tags.csv`, `.md`, `.json`,
+  built by `build_vanilla_tag_candidates.py`). Original game tags aren't in any
+  source — but the engine reads a tag by pushing its string address as a call
+  argument (`push offset "Tag"` = `68 <VA>` on x86). The builder finds each tag's
+  string in `gamemd.exe` and scans `.text` for that push, giving the **exact code
+  address(es) where the tag is read** — a candidate hook site. ~91% of vanilla
+  tags resolve this way (no Ghidra needed). It also flags when a read site sits
+  within `0x400` of an already-registered framework hook, linking vanilla tags
+  back to documented hooks. ⚠ Still **unverified**: a read site is where the tag
+  is *parsed*, which anchors you near the behaviour but isn't proof of it.
 
 **Tier 2 — the Encyclopedia** is the slow, valuable part: hand-written prose for
 hooks that are widely used, widely *misunderstood*, or conflict-prone. It grows

@@ -29,6 +29,8 @@ registry/                 TIER 1 — the complete, mechanical index (all known h
   hooks.json              Address-keyed. Each address lists every consumer.
   conflicts.md            Auto: addresses hooked by 2+ CO-LOADABLE frameworks (release).
   pr-hooks.md             Auto: loose hooks from unmerged PRs, grouped by framework/PR.
+  tags.csv                Auto: framework INI tags -> where parsed + candidate-hook count.
+  tag-hooks.md / .json    Auto: framework tag -> candidate hooks (HEURISTIC, see below).
   PROVENANCE.md           Auto: exact upstream commit each framework was read from.
   STATS.md                Auto: counts.
 encyclopedia/             TIER 2 — curated prose entries, one page per subsystem.
@@ -38,7 +40,8 @@ encyclopedia/             TIER 2 — curated prose entries, one page per subsyst
 scripts/
   update_repos.sh         Clone/update the upstream framework repos (release source).
   fetch_pr_hooks.py       Sweep open PRs for loose hooks -> sources/pr_hooks.json.
-  build_registry.py       Regenerate everything under registry/ from the sources.
+  build_registry.py       Regenerate the hook registry under registry/ from the sources.
+  build_tag_index.py      Regenerate the tag->hook cross-reference (needs hooks.json).
 sources/
   repos/                  Cloned upstream repos (gitignored; reproducible).
   pr_hooks.json           Extracted loose-PR hooks (input to the builder).
@@ -70,8 +73,27 @@ current and never goes stale silently. Regenerate it any time with:
 ```
 scripts/update_repos.sh          # refresh upstream framework clones (release hooks)
 python3 scripts/fetch_pr_hooks.py   # (optional, slow) refresh loose PR hooks
-python3 scripts/build_registry.py   # rebuild registry/ from both
+python3 scripts/build_registry.py   # rebuild the hook registry from both
+python3 scripts/build_tag_index.py  # rebuild the tag->hook cross-reference
 ```
+
+## Finding what a hook does (the tag → hook index)
+
+Two ways to go from "I want behaviour X" to "which hook is it":
+
+- **Framework tags → hooks** (`registry/tags.csv`, `tag-hooks.md/.json`, built by
+  `build_tag_index.py`). For every INI tag a framework *adds*, this lists where
+  the tag is parsed and a **shortlist of candidate hooks** likely to implement it.
+  It's built from source structure, so it's a **triage shortlist, not proof** —
+  every link is labelled `member-referenced` (the parsed field's name appears in
+  the hook's file — fairly strong), `same-subsystem` (a wider net), or `broad`
+  (a big net, treat with care). The narrowing is the value: a shortlist of 6 — or
+  even 60 — beats reading 1,700 hooks blind. ⚠ **Treat all of it as unverified**
+  until you confirm against the source or in-game.
+- **Vanilla tags → hooks** (Phase D, planned): original game tags aren't in any
+  framework source. Their strings live in `gamemd.exe`, so Ghidra can cross-
+  reference a tag string to the function that reads it and hand back candidate
+  addresses. Also unverified, but a real starting point instead of a blank slate.
 
 **Tier 2 — the Encyclopedia** is the slow, valuable part: hand-written prose for
 hooks that are widely used, widely *misunderstood*, or conflict-prone. It grows

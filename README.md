@@ -142,7 +142,13 @@ functions and the public frameworks only. It does **not** catalogue anyone's
 private or personal mods. A specific mod or private DLL is named **only** when it
 is the sole known consumer of an otherwise-undocumented hook — and never as the
 organising frame for a page. If you find a private project referenced as a
-page's subject rather than as an incidental consumer, that's a bug to fix.
+page's subject rather than as an incidental consumer, that's a bug to fix. 
+This is not affiliated with any listed project under Coverage and is not intended
+to steal anyone's work; it's goal is simply to provide a middleman for vibecoders
+to not unintentionally conflict with an existing project as well help save tokens
+looking for the correct, known, hooks for everything. This project has both 
+confirmed and speculated hooks listed, as information evolves this library will
+hopefully evolve with it. 
 
 ## How to add knowledge
 

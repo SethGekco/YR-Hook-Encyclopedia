@@ -31,7 +31,8 @@ registry/                 TIER 1 — the complete, mechanical index (all known h
   pr-hooks.md             Auto: loose hooks from unmerged PRs, grouped by framework/PR.
   tags.csv                Auto: framework INI tags -> where parsed + candidate-hook count.
   tag-hooks.md / .json    Auto: framework tag -> candidate hooks (HEURISTIC, see below).
-  vanilla-tags.md/.json/.csv  Auto: vanilla tag -> candidate read site in gamemd.exe (HEURISTIC).
+  vanilla-tags.md/.json/.csv  Auto: vanilla (rules) tag -> candidate read site in gamemd.exe.
+  engine-string-surface.*  Auto: EVERY string the engine reads (rules/art/ai/…) + read sites.
   PROVENANCE.md           Auto: exact upstream commit each framework was read from.
   STATS.md                Auto: counts.
 encyclopedia/             TIER 2 — curated prose entries, one page per subsystem.
@@ -43,7 +44,8 @@ scripts/
   fetch_pr_hooks.py       Sweep open PRs for loose hooks -> sources/pr_hooks.json.
   build_registry.py       Regenerate the hook registry under registry/ from the sources.
   build_tag_index.py      Regenerate the framework tag->hook cross-reference (needs hooks.json).
-  build_vanilla_tag_candidates.py  Regenerate vanilla tag->read-site index (needs gamemd.exe).
+  build_vanilla_tag_candidates.py  Regenerate vanilla (rules) tag->read-site index (needs gamemd.exe).
+  build_engine_string_surface.py   Regenerate the full engine string surface (all INIs; needs gamemd.exe).
 sources/
   repos/                  Cloned upstream repos (gitignored; reproducible).
   pr_hooks.json           Extracted loose-PR hooks (input to the builder).
@@ -102,6 +104,13 @@ Two ways to go from "I want behaviour X" to "which hook is it":
   within `0x400` of an already-registered framework hook, linking vanilla tags
   back to documented hooks. ⚠ Still **unverified**: a read site is where the tag
   is *parsed*, which anchors you near the behaviour but isn't proof of it.
+- **The whole engine surface** (`registry/engine-string-surface.*`, built by
+  `build_engine_string_surface.py`). The reverse of the above: instead of looking
+  up known tags, it enumerates **every identifier string the engine pushes** and
+  classifies each — `tag` (a key in rules/art/ai), `file`, `code` (object id), or
+  `unclassified`. This is how art/AI/sound/etc. tags get read sites too (not just
+  rules), and the **918 `unclassified`** strings are a lead list of possible
+  *undocumented* tags the engine reads. Superset of the rules-only view above.
 
 **Tier 2 — the Encyclopedia** is the slow, valuable part: hand-written prose for
 hooks that are widely used, widely *misunderstood*, or conflict-prone. It grows

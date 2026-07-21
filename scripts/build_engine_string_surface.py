@@ -55,6 +55,20 @@ INI_UNIVERSES = {
     "mp":      [f"{_INIDIR}/{n}md.ini" for n in
                 ("mpmodes", "mpbattle", "mpcoop", "mpduel", "mpfreeforall",
                  "mpmeat", "mpmw", "mpnaval", "mpsiege", "mpteam", "mpunholy")],
+    # Map/scenario files are INI text too ([Basic]/[Map]/[SpecialFlags]/lighting/
+    # trigger sections) and carry scenario keys the engine reads that appear in no
+    # other INI (HomeCell, CarryOverMoney, NextScenario, IceGrowthEnabled, ...).
+    # A few representative vanilla maps give the common key set; .mmx are packed but
+    # their plaintext headers still contribute. Add more maps here to widen coverage.
+    "map": [
+        "/mnt/wwn-0x50014ee6b383afb8-part1/(3) Games Data/RA2 & Yuri's Revenge/RA2/ra2 oringanal/all08u.map",
+        "/mnt/wwn-0x50014ee6b383afb8-part1/(3) Games Data/RA2 & Yuri's Revenge/RA2/ra2 oringanal/all09t.map",
+        "/mnt/wwn-0x50014ee6b383afb8-part1/(3) Games Data/RA2 & Yuri's Revenge/RA2/ra2 oringanal/ISLEOFWAR.mpr",
+        "/mnt/wwn-0x50014ee6b383afb8-part1/(3) Games Data/RA2 & Yuri's Revenge/RA2/ra2 oringanal/malibucliffs.mpr",
+        "/mnt/wwn-0x50014ee6b383afb8-part1/(3) Games Data/RA2 & Yuri's Revenge/000-RA2YR Vanilla/Battleroyale.yrm",
+        "/mnt/wwn-0x50014ee6b383afb8-part1/(3) Games Data/RA2 & Yuri's Revenge/000-RA2YR Vanilla/HailMary.mmx",
+        "/mnt/wwn-0x50014ee6b383afb8-part1/(3) Games Data/RA2 & Yuri's Revenge/000-RA2YR Vanilla/BayOPigs.mmx",
+    ],
 }
 
 FILE_EXT = re.compile(r"\.(INI|MIX|PAL|SHP|VXL|HVA|PCX|WAV|AUD|CSF|BAG|IDX|TXT|BIN|MAP|PKT|TMP|DLL|EXE)$", re.I)

@@ -102,6 +102,7 @@
     "kind": "tag",
     "domains": [
       "ai",
+      "map",
       "rules",
       "theme"
     ],
@@ -335,7 +336,8 @@
     "string": "Theater",
     "kind": "tag",
     "domains": [
-      "art"
+      "art",
+      "map"
     ],
     "string_va": "0x818658",
     "read_sites": [
@@ -585,6 +587,7 @@
     "kind": "tag",
     "domains": [
       "art",
+      "map",
       "rules"
     ],
     "string_va": "0x81859c",
@@ -1015,6 +1018,7 @@
     "kind": "tag",
     "domains": [
       "art",
+      "map",
       "rules"
     ],
     "string_va": "0x818410",
@@ -1125,6 +1129,7 @@
     "kind": "tag",
     "domains": [
       "art",
+      "map",
       "rules"
     ],
     "string_va": "0x8183b4",
@@ -1241,8 +1246,10 @@
   },
   "PercentBuilt": {
     "string": "PercentBuilt",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x8189a0",
     "read_sites": [
       "0x42ec04",
@@ -1255,8 +1262,10 @@
   },
   "NodeCount": {
     "string": "NodeCount",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x818994",
     "read_sites": [
       "0x42ec13",
@@ -1415,6 +1424,7 @@
     "kind": "tag",
     "domains": [
       "art",
+      "map",
       "rules"
     ],
     "string_va": "0x819420",
@@ -1598,6 +1608,7 @@
     "string": "Capturable",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81ae34",
@@ -1612,6 +1623,7 @@
     "string": "Powered",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81ae2c",
@@ -1722,6 +1734,7 @@
     "string": "ClickRepairable",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81adcc",
@@ -1736,6 +1749,7 @@
     "string": "CanBeOccupied",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81adbc",
@@ -1776,6 +1790,7 @@
     "string": "MaxNumberOccupants",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81ad84",
@@ -1804,6 +1819,7 @@
     "string": "ProduceCashStartup",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81ad58",
@@ -1818,6 +1834,7 @@
     "string": "ProduceCashAmount",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81ad44",
@@ -1832,6 +1849,7 @@
     "string": "ProduceCashDelay",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81ad30",
@@ -1888,6 +1906,7 @@
     "string": "BaseNormal",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81ace4",
@@ -1972,6 +1991,7 @@
     "string": "Wall",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81ac58",
@@ -2136,8 +2156,10 @@
   },
   "SecretBuilding": {
     "string": "SecretBuilding",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x81abd4",
     "read_sites": [
       "0x46064b"
@@ -2683,6 +2705,7 @@
     "string": "LightVisibility",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81a92c",
@@ -2695,6 +2718,7 @@
     "string": "LightIntensity",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81a91c",
@@ -2707,6 +2731,7 @@
     "string": "LightRedTint",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81a90c",
@@ -2719,6 +2744,7 @@
     "string": "LightGreenTint",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81a8fc",
@@ -2731,6 +2757,7 @@
     "string": "LightBlueTint",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81a8ec",
@@ -2916,6 +2943,7 @@
     "kind": "tag",
     "domains": [
       "ai",
+      "map",
       "rules"
     ],
     "string_va": "0x81a7ec",
@@ -2955,6 +2983,7 @@
     "string": "Power",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81938c",
@@ -2983,6 +3012,7 @@
     "kind": "tag",
     "domains": [
       "art",
+      "map",
       "rules"
     ],
     "string_va": "0x81a7a8",
@@ -5578,6 +5608,7 @@
     "string": "Color",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81b138",
@@ -5705,6 +5736,7 @@
     "string": "Level",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81b0d4",
@@ -6064,6 +6096,7 @@
     "kind": "tag",
     "domains": [
       "battle",
+      "map",
       "mapsel"
     ],
     "string_va": "0x81b1a4",
@@ -6718,6 +6751,7 @@
     "string": "Size",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x820178",
@@ -6822,8 +6856,10 @@
   },
   "LocalSize": {
     "string": "LocalSize",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x820164",
     "read_sites": [
       "0x4ad76b",
@@ -6960,8 +6996,10 @@
   },
   "Intro": {
     "string": "Intro",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x8241c0",
     "read_sites": [
       "0x4f1d0a",
@@ -6993,8 +7031,10 @@
   },
   "Theme": {
     "string": "Theme",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x824194",
     "read_sites": [
       "0x4f1fbd",
@@ -7208,8 +7248,10 @@
   },
   "Country": {
     "string": "Country",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x824d4c",
     "read_sites": [
       "0x5009fd",
@@ -7228,6 +7270,7 @@
     "kind": "tag",
     "domains": [
       "ai",
+      "map",
       "mp",
       "rules"
     ],
@@ -7251,8 +7294,10 @@
   },
   "Credits": {
     "string": "Credits",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x824e38",
     "read_sites": [
       "0x500ba6",
@@ -7269,8 +7314,10 @@
   },
   "PlayerControl": {
     "string": "PlayerControl",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x824e28",
     "read_sites": [
       "0x500bbe",
@@ -7331,8 +7378,10 @@
   },
   "Edge": {
     "string": "Edge",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x824dd0",
     "read_sites": [
       "0x500dcc",
@@ -7345,8 +7394,10 @@
   },
   "Allies": {
     "string": "Allies",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x824d5c",
     "read_sites": [
       "0x5010a8",
@@ -7402,6 +7453,7 @@
     "string": "Suffix",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x8254ac",
@@ -7414,8 +7466,10 @@
   },
   "ParentCountry": {
     "string": "ParentCountry",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82549c",
     "read_sites": [
       "0x5118da"
@@ -7428,6 +7482,7 @@
     "string": "Prefix",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x825494",
@@ -7488,6 +7543,7 @@
     "string": "Armor",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81d9d4",
@@ -7506,6 +7562,7 @@
     "string": "ROF",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x825478",
@@ -7524,6 +7581,7 @@
     "string": "Cost",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x825470",
@@ -7572,6 +7630,7 @@
     "string": "MultiplayPassive",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x825444",
@@ -7598,6 +7657,7 @@
     "string": "SmartAI",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x825430",
@@ -7682,8 +7742,10 @@
   },
   "CostUnitsMult": {
     "string": "CostUnitsMult",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x8253ac",
     "read_sites": [
       "0x511b91"
@@ -7876,6 +7938,7 @@
     "string": "Side",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x817334",
@@ -10465,6 +10528,7 @@
     "string": "Width",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x82bbe4",
@@ -10900,8 +10964,10 @@
   },
   "Player": {
     "string": "Player",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82bfa4",
     "read_sites": [
       "0x599854",
@@ -11017,8 +11083,10 @@
   },
   "Ambient": {
     "string": "Ambient",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82bf94",
     "read_sites": [
       "0x59989e",
@@ -11137,8 +11205,10 @@
   },
   "Ground": {
     "string": "Ground",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x81db84",
     "read_sites": [
       "0x5998fa",
@@ -11151,8 +11221,10 @@
   },
   "IonAmbient": {
     "string": "IonAmbient",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82bf5c",
     "read_sites": [
       "0x599951",
@@ -11165,8 +11237,10 @@
   },
   "IonRed": {
     "string": "IonRed",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82bf54",
     "read_sites": [
       "0x59996e",
@@ -11179,8 +11253,10 @@
   },
   "IonGreen": {
     "string": "IonGreen",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82bf48",
     "read_sites": [
       "0x59998b",
@@ -11193,8 +11269,10 @@
   },
   "IonBlue": {
     "string": "IonBlue",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82bf40",
     "read_sites": [
       "0x5999a4",
@@ -11207,8 +11285,10 @@
   },
   "IonGround": {
     "string": "IonGround",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82bf34",
     "read_sites": [
       "0x5999b9",
@@ -11221,8 +11301,10 @@
   },
   "IonLevel": {
     "string": "IonLevel",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82bf28",
     "read_sites": [
       "0x5999ce",
@@ -12157,6 +12239,7 @@
     "string": "RadarInvisible",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x832b9c",
@@ -12199,6 +12282,7 @@
     "string": "Strength",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x832b78",
@@ -12229,6 +12313,7 @@
     "string": "Insignificant",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x832b60",
@@ -18020,6 +18105,7 @@
     "string": "SoloCrateMoney",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83ac30",
@@ -18964,6 +19050,7 @@
     "string": "TiberiumExplosive",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83ad2c",
@@ -20735,6 +20822,7 @@
     "string": "ParachuteMaxFallRate",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83c83c",
@@ -21153,6 +21241,7 @@
     "string": "SpyMoneyStealPercent",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83c654",
@@ -21293,6 +21382,7 @@
     "string": "TeamDelays",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83c5c8",
@@ -21405,6 +21495,7 @@
     "string": "TotalAITeamCap",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83c4f4",
@@ -21441,6 +21532,7 @@
     "string": "AISafeDistance",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83c4b4",
@@ -21995,6 +22087,7 @@
     "string": "AllyParaDropInf",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83c0e4",
@@ -22009,6 +22102,7 @@
     "string": "AllyParaDropNum",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83c0d4",
@@ -22023,6 +22117,7 @@
     "string": "SovParaDropInf",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83c0c4",
@@ -22037,6 +22132,7 @@
     "string": "SovParaDropNum",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83c0b4",
@@ -22051,6 +22147,7 @@
     "string": "YuriParaDropInf",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83c0a4",
@@ -22065,6 +22162,7 @@
     "string": "YuriParaDropNum",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83c094",
@@ -24221,6 +24319,7 @@
     "string": "TiberiumGrows",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83d000",
@@ -24346,6 +24445,7 @@
     "string": "FogOfWar",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x83cf78",
@@ -25398,6 +25498,7 @@
     "string": "Speed",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81d9cc",
@@ -25482,8 +25583,10 @@
   },
   "Brief": {
     "string": "Brief",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83d8a8",
     "read_sites": [
       "0x683c8d",
@@ -25524,8 +25627,10 @@
   },
   "InitTime": {
     "string": "InitTime",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83dc68",
     "read_sites": [
       "0x686c19",
@@ -25537,8 +25642,10 @@
   },
   "Official": {
     "string": "Official",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83dc5c",
     "read_sites": [
       "0x686c31",
@@ -25571,6 +25678,7 @@
     "string": "Briefing",
     "kind": "tag",
     "domains": [
+      "map",
       "mission"
     ],
     "string_va": "0x839718",
@@ -25791,8 +25899,10 @@
   },
   "StartX": {
     "string": "StartX",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83de70",
     "read_sites": [
       "0x689d81",
@@ -25859,8 +25969,10 @@
   },
   "StartY": {
     "string": "StartY",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83de60",
     "read_sites": [
       "0x689d9f",
@@ -25875,8 +25987,10 @@
   },
   "NumberStartingPoints": {
     "string": "NumberStartingPoints",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83de48",
     "read_sites": [
       "0x689df9",
@@ -25907,8 +26021,10 @@
   },
   "NextScenario": {
     "string": "NextScenario",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e19c",
     "read_sites": [
       "0x689fca",
@@ -25921,8 +26037,10 @@
   },
   "AltNextScenario": {
     "string": "AltNextScenario",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e18c",
     "read_sites": [
       "0x689fe8",
@@ -25935,8 +26053,10 @@
   },
   "Win": {
     "string": "Win",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e188",
     "read_sites": [
       "0x68a03c",
@@ -25951,8 +26071,10 @@
   },
   "Lose": {
     "string": "Lose",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e180",
     "read_sites": [
       "0x68a05a",
@@ -25969,6 +26091,7 @@
     "string": "Action",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x817270",
@@ -25985,8 +26108,10 @@
   },
   "PostScore": {
     "string": "PostScore",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e174",
     "read_sites": [
       "0x68a096",
@@ -25999,8 +26124,10 @@
   },
   "PreMapSelect": {
     "string": "PreMapSelect",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e164",
     "read_sites": [
       "0x68a0b4",
@@ -26013,8 +26140,10 @@
   },
   "MultiplayerOnly": {
     "string": "MultiplayerOnly",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e154",
     "read_sites": [
       "0x68a0d2",
@@ -26026,8 +26155,10 @@
   },
   "TimerInherit": {
     "string": "TimerInherit",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e144",
     "read_sites": [
       "0x68a0f0",
@@ -26040,8 +26171,10 @@
   },
   "EndOfGame": {
     "string": "EndOfGame",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e138",
     "read_sites": [
       "0x68a10e",
@@ -26054,8 +26187,10 @@
   },
   "NewINIFormat": {
     "string": "NewINIFormat",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e128",
     "read_sites": [
       "0x68a13f",
@@ -26068,8 +26203,10 @@
   },
   "CarryOverMoney": {
     "string": "CarryOverMoney",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e118",
     "read_sites": [
       "0x68a169",
@@ -26082,8 +26219,10 @@
   },
   "CarryOverCap": {
     "string": "CarryOverCap",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e108",
     "read_sites": [
       "0x68a1a6",
@@ -26096,8 +26235,10 @@
   },
   "SkipScore": {
     "string": "SkipScore",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e0fc",
     "read_sites": [
       "0x68a1c4",
@@ -26110,8 +26251,10 @@
   },
   "OneTimeOnly": {
     "string": "OneTimeOnly",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e0f0",
     "read_sites": [
       "0x68a1e2",
@@ -26124,8 +26267,10 @@
   },
   "SkipMapSelect": {
     "string": "SkipMapSelect",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e0e0",
     "read_sites": [
       "0x68a200",
@@ -26138,8 +26283,10 @@
   },
   "TruckCrate": {
     "string": "TruckCrate",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e0d4",
     "read_sites": [
       "0x68a21e",
@@ -26152,8 +26299,10 @@
   },
   "TrainCrate": {
     "string": "TrainCrate",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e0c8",
     "read_sites": [
       "0x68a23c",
@@ -26166,8 +26315,10 @@
   },
   "FillSilos": {
     "string": "FillSilos",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e0bc",
     "read_sites": [
       "0x68a25a",
@@ -26180,8 +26331,10 @@
   },
   "IgnoreGlobalAITriggers": {
     "string": "IgnoreGlobalAITriggers",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e0a4",
     "read_sites": [
       "0x68a278",
@@ -26194,8 +26347,10 @@
   },
   "Percent": {
     "string": "Percent",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e09c",
     "read_sites": [
       "0x68a296",
@@ -26208,8 +26363,10 @@
   },
   "StartingDropships": {
     "string": "StartingDropships",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e088",
     "read_sites": [
       "0x68a2b4",
@@ -26247,8 +26404,10 @@
   },
   "TiberiumGrowthEnabled": {
     "string": "TiberiumGrowthEnabled",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e048",
     "read_sites": [
       "0x68a57a",
@@ -26258,8 +26417,10 @@
   },
   "VeinGrowthEnabled": {
     "string": "VeinGrowthEnabled",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e034",
     "read_sites": [
       "0x68a596",
@@ -26269,8 +26430,10 @@
   },
   "IceGrowthEnabled": {
     "string": "IceGrowthEnabled",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e020",
     "read_sites": [
       "0x68a5b0",
@@ -26280,8 +26443,10 @@
   },
   "TiberiumDeathToVisceroid": {
     "string": "TiberiumDeathToVisceroid",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83e004",
     "read_sites": [
       "0x68a5d2",
@@ -26291,8 +26456,10 @@
   },
   "FreeRadar": {
     "string": "FreeRadar",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83dff8",
     "read_sites": [
       "0x68a5f0",
@@ -26302,8 +26469,10 @@
   },
   "HomeCell": {
     "string": "HomeCell",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83dfec",
     "read_sites": [
       "0x68a60a",
@@ -26313,8 +26482,10 @@
   },
   "AltHomeCell": {
     "string": "AltHomeCell",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83dfe0",
     "read_sites": [
       "0x68a62c",
@@ -26337,8 +26508,10 @@
   },
   "ParTimeEasy": {
     "string": "ParTimeEasy",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83dfcc",
     "read_sites": [
       "0x68a74a",
@@ -26371,8 +26544,10 @@
   },
   "ParTimeMedium": {
     "string": "ParTimeMedium",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83dfb4",
     "read_sites": [
       "0x68a766",
@@ -26382,8 +26557,10 @@
   },
   "ParTimeHard": {
     "string": "ParTimeHard",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83dfa8",
     "read_sites": [
       "0x68a780",
@@ -26393,8 +26570,10 @@
   },
   "UnderParTitle": {
     "string": "UnderParTitle",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83df84",
     "read_sites": [
       "0x68a7a9",
@@ -26404,8 +26583,10 @@
   },
   "UnderParMessage": {
     "string": "UnderParMessage",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83df5c",
     "read_sites": [
       "0x68a7c8",
@@ -26415,8 +26596,10 @@
   },
   "OverParTitle": {
     "string": "OverParTitle",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83df38",
     "read_sites": [
       "0x68a7e7",
@@ -26426,8 +26609,10 @@
   },
   "OverParMessage": {
     "string": "OverParMessage",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83df10",
     "read_sites": [
       "0x68a806",
@@ -26439,6 +26624,7 @@
     "string": "Red",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x820538",
@@ -26452,6 +26638,7 @@
     "string": "Green",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x82053c",
@@ -26463,8 +26650,10 @@
   },
   "Blue": {
     "string": "Blue",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x8207dc",
     "read_sites": [
       "0x68a8e5",
@@ -26819,8 +27008,10 @@
   },
   "GameMode": {
     "string": "GameMode",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83efd0",
     "read_sites": [
       "0x697f31",
@@ -27429,8 +27620,10 @@
   },
   "MinPlayers": {
     "string": "MinPlayers",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83f3fc",
     "read_sites": [
       "0x6997d6",
@@ -27442,8 +27635,10 @@
   },
   "MaxPlayers": {
     "string": "MaxPlayers",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83f3f0",
     "read_sites": [
       "0x6997f8",
@@ -27557,6 +27752,7 @@
     "string": "TiberiumSpreads",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x84025c",
@@ -27573,6 +27769,7 @@
     "string": "DestroyableBridges",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x840248",
@@ -27587,8 +27784,10 @@
   },
   "MCVDeploy": {
     "string": "MCVDeploy",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x84023c",
     "read_sites": [
       "0x6b8bb5",
@@ -27603,6 +27802,7 @@
     "string": "InitialVeteran",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x84022c",
@@ -27617,8 +27817,10 @@
   },
   "FixedAlliance": {
     "string": "FixedAlliance",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x84021c",
     "read_sites": [
       "0x6b8bea",
@@ -27633,6 +27835,7 @@
     "string": "HarvesterImmune",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x84020c",
@@ -27647,8 +27850,10 @@
   },
   "Inert": {
     "string": "Inert",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x840204",
     "read_sites": [
       "0x6b8c3c",
@@ -27663,6 +27868,7 @@
     "string": "IonStorms",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x8401f8",
@@ -27679,6 +27885,7 @@
     "string": "Meteorites",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x8401ec",
@@ -27695,6 +27902,7 @@
     "string": "Visceroids",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x8401e0",
@@ -28341,6 +28549,7 @@
     "string": "Range",
     "kind": "tag",
     "domains": [
+      "map",
       "rules",
       "sound"
     ],
@@ -28425,6 +28634,7 @@
     "string": "RechargeTime",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x842634",
@@ -28470,7 +28680,8 @@
     "string": "Group",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x842dc4",
     "read_sites": [
@@ -28526,7 +28737,8 @@
     "string": "House",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x8173e8",
     "read_sites": [
@@ -28541,7 +28753,8 @@
     "string": "VeteranLevel",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x8430ec",
     "read_sites": [
@@ -28556,7 +28769,8 @@
     "string": "MindControlDecision",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x8430d8",
     "read_sites": [
@@ -28572,7 +28786,8 @@
     "string": "Loadable",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x8430cc",
     "read_sites": [
@@ -28588,7 +28803,8 @@
     "string": "Full",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x8430c4",
     "read_sites": [
@@ -28604,7 +28820,8 @@
     "string": "Annoyance",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x8430b8",
     "read_sites": [
@@ -28620,7 +28837,8 @@
     "string": "GuardSlower",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x8430ac",
     "read_sites": [
@@ -28636,7 +28854,8 @@
     "string": "Autocreate",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x8430a0",
     "read_sites": [
@@ -28652,7 +28871,8 @@
     "string": "Prebuild",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x843094",
     "read_sites": [
@@ -28668,7 +28888,8 @@
     "string": "Reinforce",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x843088",
     "read_sites": [
@@ -28684,7 +28905,8 @@
     "string": "Droppod",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x843080",
     "read_sites": [
@@ -28700,7 +28922,8 @@
     "string": "UseTransportOrigin",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x84306c",
     "read_sites": [
@@ -28716,7 +28939,8 @@
     "string": "Recruiter",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x843060",
     "read_sites": [
@@ -28732,7 +28956,8 @@
     "string": "Whiner",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x843058",
     "read_sites": [
@@ -28749,6 +28974,7 @@
     "kind": "tag",
     "domains": [
       "ai",
+      "map",
       "rules"
     ],
     "string_va": "0x843050",
@@ -28767,7 +28993,8 @@
     "string": "LooseRecruit",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x843040",
     "read_sites": [
@@ -28783,7 +29010,8 @@
     "string": "Aggressive",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x843034",
     "read_sites": [
@@ -28799,7 +29027,8 @@
     "string": "OnTransOnly",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x843028",
     "read_sites": [
@@ -28817,6 +29046,7 @@
     "domains": [
       "ai",
       "eva",
+      "map",
       "sound"
     ],
     "string_va": "0x84301c",
@@ -28838,7 +29068,8 @@
     "string": "Max",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x843018",
     "read_sites": [
@@ -28852,8 +29083,10 @@
   },
   "Tag": {
     "string": "Tag",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x81728c",
     "read_sites": [
       "0x6f1339",
@@ -28868,7 +29101,8 @@
     "string": "AvoidThreats",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x843008",
     "read_sites": [
@@ -28884,7 +29118,8 @@
     "string": "IonImmune",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x842ffc",
     "read_sites": [
@@ -28900,7 +29135,8 @@
     "string": "OnlyTargetHouseEnemy",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x842fe4",
     "read_sites": [
@@ -28916,7 +29152,8 @@
     "string": "TransportsReturnOnUnload",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x842fc8",
     "read_sites": [
@@ -28932,7 +29169,8 @@
     "string": "AreTeamMembersRecruitable",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x842fac",
     "read_sites": [
@@ -28946,8 +29184,10 @@
   },
   "Waypoint": {
     "string": "Waypoint",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x817244",
     "read_sites": [
       "0x6f1426",
@@ -28960,8 +29200,10 @@
   },
   "TransportWaypoint": {
     "string": "TransportWaypoint",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x842f98",
     "read_sites": [
       "0x6f1459",
@@ -28976,7 +29218,8 @@
     "string": "Script",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x817348",
     "read_sites": [
@@ -28992,7 +29235,8 @@
     "string": "TaskForce",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "map"
     ],
     "string_va": "0x8172fc",
     "read_sites": [
@@ -29406,6 +29650,7 @@
     "string": "MaxDebris",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x84439c",
@@ -29552,6 +29797,7 @@
     "string": "Primary",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x8442f8",
@@ -29566,6 +29812,7 @@
     "string": "Secondary",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x8442ec",
@@ -29862,6 +30109,7 @@
     "string": "Storage",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x8441ac",
@@ -30212,6 +30460,7 @@
     "string": "Explosion",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x81da00",
@@ -30398,6 +30647,7 @@
     "string": "Nominal",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x843ecc",
@@ -30653,6 +30903,7 @@
     "string": "Sight",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x843d88",
@@ -31287,6 +31538,7 @@
     "string": "DistributedFire",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x843a64",
@@ -31455,6 +31707,7 @@
     "string": "Points",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x8439a8",
@@ -31471,6 +31724,7 @@
     "string": "ThreatPosed",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x84399c",
@@ -33162,6 +33416,7 @@
     "string": "Value",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x8448ec",
@@ -36274,6 +36529,7 @@
     "string": "IsLaser",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x8493e0",
@@ -36316,6 +36572,7 @@
     "string": "IsHouseColor",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x8493c8",
@@ -36454,6 +36711,7 @@
     "string": "LaserOuterSpread",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x84932c",
@@ -36468,6 +36726,7 @@
     "string": "LaserDuration",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x84931c",
@@ -36632,6 +36891,7 @@
     "string": "Projectile",
     "kind": "tag",
     "domains": [
+      "map",
       "rules"
     ],
     "string_va": "0x849268",

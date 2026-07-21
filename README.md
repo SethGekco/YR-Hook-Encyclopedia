@@ -108,9 +108,12 @@ Two ways to go from "I want behaviour X" to "which hook is it":
   `build_engine_string_surface.py`). The reverse of the above: instead of looking
   up known tags, it enumerates **every identifier string the engine pushes** and
   classifies each — `tag` (a key in rules/art/ai), `file`, `code` (object id), or
-  `unclassified`. This is how art/AI/sound/etc. tags get read sites too (not just
-  rules), and the **918 `unclassified`** strings are a lead list of possible
-  *undocumented* tags the engine reads. Superset of the rules-only view above.
+  `unclassified`. Strings are classed against **30 vanilla INI files** (rules,
+  art, ai, sound, eva, theme, ui, rmg, the theater tile-control files, the MP
+  game-mode files, mission/mapsel/battle/coop). This is how art/AI/sound/theater/
+  etc. tags get read sites too (not just rules); **1,732** classify as tags. The
+  **788 `unclassified`** strings are a lead list of possible *undocumented* tags
+  the engine reads. Superset of the rules-only view above.
 
 **Tier 2 — the Encyclopedia** is the slow, valuable part: hand-written prose for
 hooks that are widely used, widely *misunderstood*, or conflict-prone. It grows

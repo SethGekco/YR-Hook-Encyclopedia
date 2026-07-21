@@ -26,6 +26,7 @@ import json
 import os
 import re
 import struct
+import sys
 from collections import defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -33,13 +34,27 @@ ROOT = os.path.dirname(HERE)
 REG = os.path.join(ROOT, "registry")
 
 EXE = "/home/rex/gamemd.exe"
+_INIDIR = "/mnt/wwn-0x50014ee6b383afb8-part1/(3) Games Data/RA2 & Yuri's Revenge/Tools/0 INI FILES"
+# domain -> list of INI files that define that domain's keys. Cross-referenced to
+# label which strings the engine pushes are real tags (and of what kind). All vanilla.
 INI_UNIVERSES = {
-    "rules": "/mnt/wwn-0x50014ee6b383afb8-part1/(3) Games Data/RA2 & Yuri's Revenge/"
-             "Tools/0 INI FILES/Patched YR/Uneditted Rules/rulesmd.ini",
-    "art": "/mnt/wwn-0x50014ee6b383afb8-part1/(3) Games Data/RA2 & Yuri's Revenge/"
-           "Tools/0 INI FILES/artmd.ini",
-    "ai": "/mnt/wwn-0x50014ee6b383afb8-part1/(3) Games Data/RA2 & Yuri's Revenge/"
-          "Tools/0 INI FILES/aimd.ini",
+    "rules":   [f"{_INIDIR}/Patched YR/Uneditted Rules/rulesmd.ini"],
+    "art":     [f"{_INIDIR}/artmd.ini"],
+    "ai":      [f"{_INIDIR}/aimd.ini"],
+    "sound":   [f"{_INIDIR}/soundmd.ini"],
+    "eva":     [f"{_INIDIR}/evamd.ini"],
+    "theme":   [f"{_INIDIR}/thememd.ini"],
+    "ui":      [f"{_INIDIR}/uimd.ini"],
+    "rmg":     [f"{_INIDIR}/rmgmd.ini"],
+    "battle":  [f"{_INIDIR}/battlemd.ini"],
+    "mission": [f"{_INIDIR}/missionmd.ini"],
+    "mapsel":  [f"{_INIDIR}/mapselmd.ini"],
+    "coop":    [f"{_INIDIR}/coopcampmd.ini"],
+    "theater": [f"{_INIDIR}/{n}md.ini" for n in
+                ("desert", "lunar", "snow", "temperat", "urban", "urbann")],
+    "mp":      [f"{_INIDIR}/{n}md.ini" for n in
+                ("mpmodes", "mpbattle", "mpcoop", "mpduel", "mpfreeforall",
+                 "mpmeat", "mpmw", "mpnaval", "mpsiege", "mpteam", "mpunholy")],
 }
 
 FILE_EXT = re.compile(r"\.(INI|MIX|PAL|SHP|VXL|HVA|PCX|WAV|AUD|CSF|BAG|IDX|TXT|BIN|MAP|PKT|TMP|DLL|EXE)$", re.I)
@@ -62,14 +77,16 @@ def parse_pe(data):
     return imgbase, secs
 
 
-def load_keys(path):
+def load_keys(paths):
     keys = set()
-    if not os.path.exists(path):
-        return keys
-    for line in open(path, encoding="latin1"):
-        m = re.match(r"\s*([A-Za-z][A-Za-z0-9._]*)\s*=", line)
-        if m:
-            keys.add(m.group(1))
+    for path in paths:
+        if not os.path.exists(path):
+            print(f"WARN: missing INI universe {path}", file=sys.stderr)
+            continue
+        for line in open(path, encoding="latin1"):
+            m = re.match(r"\s*([A-Za-z][A-Za-z0-9._]*)\s*=", line)
+            if m:
+                keys.add(m.group(1))
     return keys
 
 

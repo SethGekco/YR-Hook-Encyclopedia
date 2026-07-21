@@ -102,7 +102,8 @@
     "kind": "tag",
     "domains": [
       "ai",
-      "rules"
+      "rules",
+      "theme"
     ],
     "string_va": "0x817854",
     "read_sites": [
@@ -130,6 +131,7 @@
     "string": "UIName",
     "kind": "tag",
     "domains": [
+      "mission",
       "rules"
     ],
     "string_va": "0x81784c",
@@ -6014,8 +6016,10 @@
   },
   "FinalMovie": {
     "string": "FinalMovie",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "battle"
+    ],
     "string_va": "0x81b1c8",
     "read_sites": [
       "0x46cd1e"
@@ -6026,8 +6030,11 @@
   },
   "Scenario": {
     "string": "Scenario",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "battle",
+      "mapsel"
+    ],
     "string_va": "0x81b1bc",
     "read_sites": [
       "0x46cd38",
@@ -6040,8 +6047,10 @@
   },
   "DebugOnly": {
     "string": "DebugOnly",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "battle"
+    ],
     "string_va": "0x81b1b0",
     "read_sites": [
       "0x46cd58"
@@ -6052,8 +6061,11 @@
   },
   "Description": {
     "string": "Description",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "battle",
+      "mapsel"
+    ],
     "string_va": "0x81b1a4",
     "read_sites": [
       "0x46cd73",
@@ -6217,8 +6229,10 @@
   },
   "Normal": {
     "string": "Normal",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theme"
+    ],
     "string_va": "0x81bb60",
     "read_sites": [
       "0x4775f4",
@@ -6572,8 +6586,10 @@
   },
   "NumberOfCampaignMaps": {
     "string": "NumberOfCampaignMaps",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "coop"
+    ],
     "string_va": "0x81f39c",
     "read_sites": [
       "0x49dc57"
@@ -6582,8 +6598,10 @@
   },
   "CampaignName": {
     "string": "CampaignName",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "coop"
+    ],
     "string_va": "0x81f38c",
     "read_sites": [
       "0x49dc7b"
@@ -6592,8 +6610,10 @@
   },
   "CampaignLoadScreen": {
     "string": "CampaignLoadScreen",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "coop"
+    ],
     "string_va": "0x81f35c",
     "read_sites": [
       "0x49dce0"
@@ -6602,8 +6622,10 @@
   },
   "CampaignLoadScreenPallet": {
     "string": "CampaignLoadScreenPallet",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "coop"
+    ],
     "string_va": "0x81f340",
     "read_sites": [
       "0x49dd11"
@@ -6627,8 +6649,10 @@
   },
   "CampaignAI": {
     "string": "CampaignAI",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "coop"
+    ],
     "string_va": "0x81f334",
     "read_sites": [
       "0x49dd45"
@@ -6997,7 +7021,8 @@
     "string": "Palette",
     "kind": "tag",
     "domains": [
-      "art"
+      "art",
+      "mapsel"
     ],
     "string_va": "0x824254",
     "read_sites": [
@@ -7035,8 +7060,10 @@
   },
   "Loop": {
     "string": "Loop",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "sound"
+    ],
     "string_va": "0x824238",
     "read_sites": [
       "0x4f2e70",
@@ -7091,7 +7118,9 @@
     "string": "Type",
     "kind": "tag",
     "domains": [
-      "rules"
+      "eva",
+      "rules",
+      "sound"
     ],
     "string_va": "0x824314",
     "read_sites": [
@@ -7199,6 +7228,7 @@
     "kind": "tag",
     "domains": [
       "ai",
+      "mp",
       "rules"
     ],
     "string_va": "0x824e40",
@@ -9249,8 +9279,10 @@
   },
   "RampBase": {
     "string": "RampBase",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8295dc",
     "read_sites": [
       "0x54553d"
@@ -9261,8 +9293,10 @@
   },
   "RampSmooth": {
     "string": "RampSmooth",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8295d0",
     "read_sites": [
       "0x545564"
@@ -9273,8 +9307,10 @@
   },
   "MMRampBase": {
     "string": "MMRampBase",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8295c4",
     "read_sites": [
       "0x54557f"
@@ -9285,8 +9321,10 @@
   },
   "ClearTile": {
     "string": "ClearTile",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8295b8",
     "read_sites": [
       "0x54559a"
@@ -9297,8 +9335,10 @@
   },
   "RoughTile": {
     "string": "RoughTile",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8295ac",
     "read_sites": [
       "0x5455b5"
@@ -9309,8 +9349,10 @@
   },
   "SandTile": {
     "string": "SandTile",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8295a0",
     "read_sites": [
       "0x5455d0"
@@ -9321,8 +9363,10 @@
   },
   "GreenTile": {
     "string": "GreenTile",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829594",
     "read_sites": [
       "0x5455eb"
@@ -9333,8 +9377,10 @@
   },
   "PaveTile": {
     "string": "PaveTile",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829588",
     "read_sites": [
       "0x545606"
@@ -9345,8 +9391,10 @@
   },
   "MiscPaveTile": {
     "string": "MiscPaveTile",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829578",
     "read_sites": [
       "0x545621"
@@ -9357,8 +9405,10 @@
   },
   "ClearToRoughLat": {
     "string": "ClearToRoughLat",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829568",
     "read_sites": [
       "0x545638"
@@ -9369,8 +9419,10 @@
   },
   "ClearToSandLat": {
     "string": "ClearToSandLat",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829558",
     "read_sites": [
       "0x545657"
@@ -9381,8 +9433,10 @@
   },
   "ClearToGreenLat": {
     "string": "ClearToGreenLat",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829548",
     "read_sites": [
       "0x545672"
@@ -9393,8 +9447,10 @@
   },
   "ClearToPaveLat": {
     "string": "ClearToPaveLat",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829538",
     "read_sites": [
       "0x54568d"
@@ -9405,8 +9461,10 @@
   },
   "HeightBase": {
     "string": "HeightBase",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x82952c",
     "read_sites": [
       "0x5456a8"
@@ -9417,8 +9475,10 @@
   },
   "BlackTile": {
     "string": "BlackTile",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829520",
     "read_sites": [
       "0x5456c3"
@@ -9429,8 +9489,10 @@
   },
   "BridgeSet": {
     "string": "BridgeSet",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829514",
     "read_sites": [
       "0x5456de"
@@ -9441,8 +9503,10 @@
   },
   "WoodBridgeSet": {
     "string": "WoodBridgeSet",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829504",
     "read_sites": [
       "0x5456f9"
@@ -9453,8 +9517,10 @@
   },
   "CliffSet": {
     "string": "CliffSet",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8294f8",
     "read_sites": [
       "0x545714"
@@ -9465,8 +9531,10 @@
   },
   "ShorePieces": {
     "string": "ShorePieces",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8294ec",
     "read_sites": [
       "0x54572f"
@@ -9477,8 +9545,10 @@
   },
   "WaterSet": {
     "string": "WaterSet",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8294e0",
     "read_sites": [
       "0x54574a"
@@ -9489,8 +9559,10 @@
   },
   "SlopeSetPieces": {
     "string": "SlopeSetPieces",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8294d0",
     "read_sites": [
       "0x545765"
@@ -9501,8 +9573,10 @@
   },
   "SlopeSetPieces2": {
     "string": "SlopeSetPieces2",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8294c0",
     "read_sites": [
       "0x545780"
@@ -9513,8 +9587,10 @@
   },
   "MonorailSlopes": {
     "string": "MonorailSlopes",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8294b0",
     "read_sites": [
       "0x54579b"
@@ -9525,8 +9601,10 @@
   },
   "Tunnels": {
     "string": "Tunnels",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8294a8",
     "read_sites": [
       "0x5457b9"
@@ -9537,8 +9615,10 @@
   },
   "TrackTunnels": {
     "string": "TrackTunnels",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829498",
     "read_sites": [
       "0x5457d1"
@@ -9549,8 +9629,10 @@
   },
   "DirtTunnels": {
     "string": "DirtTunnels",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x82948c",
     "read_sites": [
       "0x5457ec"
@@ -9561,8 +9643,10 @@
   },
   "DirtTrackTunnels": {
     "string": "DirtTrackTunnels",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829478",
     "read_sites": [
       "0x545807"
@@ -9573,8 +9657,10 @@
   },
   "WaterfallEast": {
     "string": "WaterfallEast",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829468",
     "read_sites": [
       "0x545822"
@@ -9585,8 +9671,10 @@
   },
   "WaterfallWest": {
     "string": "WaterfallWest",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829458",
     "read_sites": [
       "0x54583d"
@@ -9597,8 +9685,10 @@
   },
   "WaterfallNorth": {
     "string": "WaterfallNorth",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829448",
     "read_sites": [
       "0x545858"
@@ -9609,8 +9699,10 @@
   },
   "WaterfallSouth": {
     "string": "WaterfallSouth",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829438",
     "read_sites": [
       "0x545873"
@@ -9621,8 +9713,10 @@
   },
   "CliffRamps": {
     "string": "CliffRamps",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x82942c",
     "read_sites": [
       "0x54588e"
@@ -9633,8 +9727,10 @@
   },
   "PavedRoads": {
     "string": "PavedRoads",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829420",
     "read_sites": [
       "0x5458a9"
@@ -9645,8 +9741,10 @@
   },
   "PavedRoadEnds": {
     "string": "PavedRoadEnds",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829410",
     "read_sites": [
       "0x5458c4"
@@ -9657,8 +9755,10 @@
   },
   "Medians": {
     "string": "Medians",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829408",
     "read_sites": [
       "0x5458df"
@@ -9669,8 +9769,10 @@
   },
   "RoughGround": {
     "string": "RoughGround",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8293fc",
     "read_sites": [
       "0x5458fa"
@@ -9681,8 +9783,10 @@
   },
   "DirtRoadJunction": {
     "string": "DirtRoadJunction",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8293e8",
     "read_sites": [
       "0x545911"
@@ -9693,8 +9797,10 @@
   },
   "DirtRoadCurve": {
     "string": "DirtRoadCurve",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8293d8",
     "read_sites": [
       "0x545930"
@@ -9705,8 +9811,10 @@
   },
   "DirtRoadStraight": {
     "string": "DirtRoadStraight",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8293c4",
     "read_sites": [
       "0x54594b"
@@ -9717,8 +9825,10 @@
   },
   "DestroyableCliffs": {
     "string": "DestroyableCliffs",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8293b0",
     "read_sites": [
       "0x545967"
@@ -9729,8 +9839,10 @@
   },
   "WaterCaves": {
     "string": "WaterCaves",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8293a4",
     "read_sites": [
       "0x545982"
@@ -9741,8 +9853,10 @@
   },
   "WaterCliffs": {
     "string": "WaterCliffs",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829398",
     "read_sites": [
       "0x54599d"
@@ -9753,8 +9867,10 @@
   },
   "PavedRoadSlopes": {
     "string": "PavedRoadSlopes",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829388",
     "read_sites": [
       "0x5459b8"
@@ -9765,8 +9881,10 @@
   },
   "DirtRoadSlopes": {
     "string": "DirtRoadSlopes",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829378",
     "read_sites": [
       "0x5459d3"
@@ -9777,8 +9895,10 @@
   },
   "Rocks": {
     "string": "Rocks",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829370",
     "read_sites": [
       "0x5459ee"
@@ -9789,8 +9909,10 @@
   },
   "WaterBridge": {
     "string": "WaterBridge",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829364",
     "read_sites": [
       "0x545a09"
@@ -9801,8 +9923,10 @@
   },
   "BridgeTopLeft1": {
     "string": "BridgeTopLeft1",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829354",
     "read_sites": [
       "0x545ab7"
@@ -9813,8 +9937,10 @@
   },
   "BridgeTopLeft2": {
     "string": "BridgeTopLeft2",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829344",
     "read_sites": [
       "0x545b5c"
@@ -9825,8 +9951,10 @@
   },
   "BridgeBottomRight1": {
     "string": "BridgeBottomRight1",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829330",
     "read_sites": [
       "0x545b75"
@@ -9837,8 +9965,10 @@
   },
   "BridgeBottomRight2": {
     "string": "BridgeBottomRight2",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x82931c",
     "read_sites": [
       "0x545b8e"
@@ -9849,8 +9979,10 @@
   },
   "BridgeTopRight1": {
     "string": "BridgeTopRight1",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x82930c",
     "read_sites": [
       "0x545ba7"
@@ -9861,8 +9993,10 @@
   },
   "BridgeTopRight2": {
     "string": "BridgeTopRight2",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8292fc",
     "read_sites": [
       "0x545bc0"
@@ -9873,8 +10007,10 @@
   },
   "BridgeBottomLeft1": {
     "string": "BridgeBottomLeft1",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8292e8",
     "read_sites": [
       "0x545bd9"
@@ -9885,8 +10021,10 @@
   },
   "BridgeBottomLeft2": {
     "string": "BridgeBottomLeft2",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8292d4",
     "read_sites": [
       "0x545bf2"
@@ -9897,8 +10035,10 @@
   },
   "BridgeMiddle1": {
     "string": "BridgeMiddle1",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8292c4",
     "read_sites": [
       "0x545c0b"
@@ -9909,8 +10049,10 @@
   },
   "BridgeMiddle2": {
     "string": "BridgeMiddle2",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8292b4",
     "read_sites": [
       "0x545c24"
@@ -9921,8 +10063,10 @@
   },
   "TilesInSet": {
     "string": "TilesInSet",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x82929c",
     "read_sites": [
       "0x545fca"
@@ -9945,8 +10089,10 @@
   },
   "SetName": {
     "string": "SetName",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x82927c",
     "read_sites": [
       "0x5460b6"
@@ -9969,8 +10115,10 @@
   },
   "FileName": {
     "string": "FileName",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829268",
     "read_sites": [
       "0x5460db"
@@ -9981,8 +10129,10 @@
   },
   "MarbleMadness": {
     "string": "MarbleMadness",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829258",
     "read_sites": [
       "0x5460fa"
@@ -9993,8 +10143,10 @@
   },
   "NonMarbleMadness": {
     "string": "NonMarbleMadness",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829244",
     "read_sites": [
       "0x546111"
@@ -10005,8 +10157,10 @@
   },
   "Morphable": {
     "string": "Morphable",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829238",
     "read_sites": [
       "0x54612e"
@@ -10017,8 +10171,10 @@
   },
   "AllowToPlace": {
     "string": "AllowToPlace",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829228",
     "read_sites": [
       "0x546155"
@@ -10029,8 +10185,10 @@
   },
   "AllowBurrowing": {
     "string": "AllowBurrowing",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829218",
     "read_sites": [
       "0x546169"
@@ -10041,8 +10199,10 @@
   },
   "AllowTiberium": {
     "string": "AllowTiberium",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x829208",
     "read_sites": [
       "0x546188"
@@ -10053,8 +10213,10 @@
   },
   "RequiredForRMG": {
     "string": "RequiredForRMG",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8291f8",
     "read_sites": [
       "0x5461a7"
@@ -10065,8 +10227,10 @@
   },
   "ToSnowTheater": {
     "string": "ToSnowTheater",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8291e8",
     "read_sites": [
       "0x5461ba"
@@ -10077,8 +10241,10 @@
   },
   "ToTemperateTheater": {
     "string": "ToTemperateTheater",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theater"
+    ],
     "string_va": "0x8291d4",
     "read_sites": [
       "0x5461d9"
@@ -10508,8 +10674,10 @@
   },
   "RMGMinimumTiberium": {
     "string": "RMGMinimumTiberium",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bdb8",
     "read_sites": [
       "0x5982c8"
@@ -10520,8 +10688,10 @@
   },
   "RMGMaximumTiberium": {
     "string": "RMGMaximumTiberium",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bda4",
     "read_sites": [
       "0x5982e7"
@@ -10532,8 +10702,10 @@
   },
   "RMGLevelLightSettings": {
     "string": "RMGLevelLightSettings",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bd8c",
     "read_sites": [
       "0x59830d"
@@ -10544,8 +10716,10 @@
   },
   "RMGVegetationMinimums": {
     "string": "RMGVegetationMinimums",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bd74",
     "read_sites": [
       "0x598372"
@@ -10556,8 +10730,10 @@
   },
   "RMGVegetationMaximums": {
     "string": "RMGVegetationMaximums",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bd5c",
     "read_sites": [
       "0x5983d8"
@@ -10568,8 +10744,10 @@
   },
   "TemperateAmbientLight": {
     "string": "TemperateAmbientLight",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bd44",
     "read_sites": [
       "0x59843e"
@@ -10580,8 +10758,10 @@
   },
   "SnowAmbientLight": {
     "string": "SnowAmbientLight",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bd30",
     "read_sites": [
       "0x5984a4"
@@ -10592,8 +10772,10 @@
   },
   "TemperateAmbientRed": {
     "string": "TemperateAmbientRed",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bd1c",
     "read_sites": [
       "0x59850a"
@@ -10604,8 +10786,10 @@
   },
   "TemperateAmbientGreen": {
     "string": "TemperateAmbientGreen",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bd04",
     "read_sites": [
       "0x598570"
@@ -10616,8 +10800,10 @@
   },
   "TemperateAmbientBlue": {
     "string": "TemperateAmbientBlue",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bcec",
     "read_sites": [
       "0x5985d6"
@@ -10628,8 +10814,10 @@
   },
   "SnowAmbientRed": {
     "string": "SnowAmbientRed",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bcdc",
     "read_sites": [
       "0x59863c"
@@ -10640,8 +10828,10 @@
   },
   "SnowAmbientGreen": {
     "string": "SnowAmbientGreen",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bcc8",
     "read_sites": [
       "0x5986a2"
@@ -10652,8 +10842,10 @@
   },
   "SnowAmbientBlue": {
     "string": "SnowAmbientBlue",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bcb8",
     "read_sites": [
       "0x598718"
@@ -10662,8 +10854,10 @@
   },
   "MaxTrees": {
     "string": "MaxTrees",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bcac",
     "read_sites": [
       "0x598772"
@@ -10672,8 +10866,10 @@
   },
   "TemperateOrePatchLamps": {
     "string": "TemperateOrePatchLamps",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bc94",
     "read_sites": [
       "0x59879d"
@@ -10682,8 +10878,10 @@
   },
   "SnowOrePatchLamps": {
     "string": "SnowOrePatchLamps",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "rmg"
+    ],
     "string_va": "0x82bc80",
     "read_sites": [
       "0x598871"
@@ -11298,8 +11496,10 @@
   },
   "Anims": {
     "string": "Anims",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mapsel"
+    ],
     "string_va": "0x8302fc",
     "read_sites": [
       "0x5cf0e5"
@@ -11308,8 +11508,10 @@
   },
   "TextRect": {
     "string": "TextRect",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mapsel"
+    ],
     "string_va": "0x8302f0",
     "read_sites": [
       "0x5cf13c",
@@ -11319,8 +11521,11 @@
   },
   "Sounds": {
     "string": "Sounds",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mapsel",
+      "sound"
+    ],
     "string_va": "0x8302cc",
     "read_sites": [
       "0x5cf403",
@@ -11332,8 +11537,10 @@
   },
   "VoiceOver": {
     "string": "VoiceOver",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mapsel"
+    ],
     "string_va": "0x8304d4",
     "read_sites": [
       "0x5cface"
@@ -11342,8 +11549,10 @@
   },
   "MapVQ": {
     "string": "MapVQ",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mapsel"
+    ],
     "string_va": "0x8304cc",
     "read_sites": [
       "0x5cfb41"
@@ -11352,8 +11561,10 @@
   },
   "Overlays": {
     "string": "Overlays",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mapsel"
+    ],
     "string_va": "0x8304c0",
     "read_sites": [
       "0x5cfbc9"
@@ -11362,8 +11573,10 @@
   },
   "ClickMap": {
     "string": "ClickMap",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mapsel"
+    ],
     "string_va": "0x8304b4",
     "read_sites": [
       "0x5cfcce",
@@ -11373,8 +11586,10 @@
   },
   "Targets": {
     "string": "Targets",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mapsel"
+    ],
     "string_va": "0x8304a4",
     "read_sites": [
       "0x5cfe2a"
@@ -11415,8 +11630,10 @@
   },
   "WonlineTournamentAllowed": {
     "string": "WonlineTournamentAllowed",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mp"
+    ],
     "string_va": "0x8308dc",
     "read_sites": [
       "0x5d5ca7"
@@ -11425,8 +11642,10 @@
   },
   "WonlineClanTournamentAllowed": {
     "string": "WonlineClanTournamentAllowed",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mp"
+    ],
     "string_va": "0x8308bc",
     "read_sites": [
       "0x5d5cc4"
@@ -11437,6 +11656,7 @@
     "string": "AlliesAllowed",
     "kind": "tag",
     "domains": [
+      "mp",
       "rules"
     ],
     "string_va": "0x8308ac",
@@ -11448,8 +11668,10 @@
   },
   "MustAlly": {
     "string": "MustAlly",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mp"
+    ],
     "string_va": "0x8308a0",
     "read_sites": [
       "0x5d5cf7"
@@ -24064,6 +24286,7 @@
     "string": "AllyChangeAllowed",
     "kind": "tag",
     "domains": [
+      "mp",
       "rules"
     ],
     "string_va": "0x83cfb4",
@@ -25346,8 +25569,10 @@
   },
   "Briefing": {
     "string": "Briefing",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mission"
+    ],
     "string_va": "0x839718",
     "read_sites": [
       "0x686e19",
@@ -25362,8 +25587,10 @@
   },
   "LSLoadMessage": {
     "string": "LSLoadMessage",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mission"
+    ],
     "string_va": "0x83dc28",
     "read_sites": [
       "0x68702d",
@@ -25376,8 +25603,10 @@
   },
   "LSLoadBriefing": {
     "string": "LSLoadBriefing",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mission"
+    ],
     "string_va": "0x83dc18",
     "read_sites": [
       "0x687098",
@@ -25390,8 +25619,10 @@
   },
   "LS640BriefLocX": {
     "string": "LS640BriefLocX",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mission"
+    ],
     "string_va": "0x83dc08",
     "read_sites": [
       "0x6870f6",
@@ -25404,8 +25635,10 @@
   },
   "LS640BriefLocY": {
     "string": "LS640BriefLocY",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mission"
+    ],
     "string_va": "0x83dbf8",
     "read_sites": [
       "0x68715b",
@@ -25418,8 +25651,10 @@
   },
   "LS800BriefLocX": {
     "string": "LS800BriefLocX",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mission"
+    ],
     "string_va": "0x83dbe8",
     "read_sites": [
       "0x6871c0",
@@ -25432,8 +25667,10 @@
   },
   "LS800BriefLocY": {
     "string": "LS800BriefLocY",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mission"
+    ],
     "string_va": "0x83dbd8",
     "read_sites": [
       "0x687225",
@@ -25446,8 +25683,10 @@
   },
   "LS640BkgdName": {
     "string": "LS640BkgdName",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mission"
+    ],
     "string_va": "0x83dbc8",
     "read_sites": [
       "0x687295",
@@ -25460,8 +25699,10 @@
   },
   "LS800BkgdName": {
     "string": "LS800BkgdName",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mission"
+    ],
     "string_va": "0x83dbb8",
     "read_sites": [
       "0x687301",
@@ -25474,8 +25715,10 @@
   },
   "LS800BkgdPal": {
     "string": "LS800BkgdPal",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "mission"
+    ],
     "string_va": "0x83dba8",
     "read_sites": [
       "0x68736c",
@@ -28098,7 +28341,8 @@
     "string": "Range",
     "kind": "tag",
     "domains": [
-      "rules"
+      "rules",
+      "sound"
     ],
     "string_va": "0x842690",
     "read_sites": [
@@ -28571,7 +28815,9 @@
     "string": "Priority",
     "kind": "tag",
     "domains": [
-      "ai"
+      "ai",
+      "eva",
+      "sound"
     ],
     "string_va": "0x84301c",
     "read_sites": [
@@ -30382,6 +30628,7 @@
     "string": "Prerequisite",
     "kind": "tag",
     "domains": [
+      "mp",
       "rules"
     ],
     "string_va": "0x843da8",
@@ -31456,6 +31703,7 @@
     "string": "AllowedToStartInMultiplayer",
     "kind": "tag",
     "domains": [
+      "mp",
       "rules"
     ],
     "string_va": "0x8438b0",
@@ -32818,8 +33066,10 @@
   },
   "Sound": {
     "string": "Sound",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theme"
+    ],
     "string_va": "0x844748",
     "read_sites": [
       "0x7204b7"
@@ -32828,8 +33078,10 @@
   },
   "Repeat": {
     "string": "Repeat",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "theme"
+    ],
     "string_va": "0x844740",
     "read_sites": [
       "0x72052d"
@@ -32866,6 +33118,7 @@
     "string": "SpreadPercentage",
     "kind": "tag",
     "domains": [
+      "mp",
       "rules"
     ],
     "string_va": "0x844910",
@@ -32894,6 +33147,7 @@
     "string": "GrowthPercentage",
     "kind": "tag",
     "domains": [
+      "mp",
       "rules"
     ],
     "string_va": "0x8448f4",
@@ -32952,6 +33206,7 @@
     "string": "CrateGoodie",
     "kind": "tag",
     "domains": [
+      "mp",
       "rules"
     ],
     "string_va": "0x845e20",
@@ -33888,8 +34143,10 @@
   },
   "Volume": {
     "string": "Volume",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "sound"
+    ],
     "string_va": "0x846568",
     "read_sites": [
       "0x7504fc",
@@ -33903,8 +34160,10 @@
   },
   "VShift": {
     "string": "VShift",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "sound"
+    ],
     "string_va": "0x846560",
     "read_sites": [
       "0x750561"
@@ -33915,8 +34174,10 @@
   },
   "MinVolume": {
     "string": "MinVolume",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "sound"
+    ],
     "string_va": "0x846554",
     "read_sites": [
       "0x750597",
@@ -33943,8 +34204,10 @@
   },
   "Attack": {
     "string": "Attack",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "sound"
+    ],
     "string_va": "0x816e64",
     "read_sites": [
       "0x75064c"
@@ -33955,8 +34218,10 @@
   },
   "Decay": {
     "string": "Decay",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "sound"
+    ],
     "string_va": "0x84654c",
     "read_sites": [
       "0x750676"
@@ -33967,8 +34232,10 @@
   },
   "Control": {
     "string": "Control",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "sound"
+    ],
     "string_va": "0x846544",
     "read_sites": [
       "0x7506ad",
@@ -33980,8 +34247,10 @@
   },
   "Limit": {
     "string": "Limit",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "sound"
+    ],
     "string_va": "0x84653c",
     "read_sites": [
       "0x7507a5",
@@ -33993,8 +34262,10 @@
   },
   "Delay": {
     "string": "Delay",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "sound"
+    ],
     "string_va": "0x846534",
     "read_sites": [
       "0x750834"
@@ -34005,8 +34276,10 @@
   },
   "FShift": {
     "string": "FShift",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "sound"
+    ],
     "string_va": "0x84652c",
     "read_sites": [
       "0x7508ad"
@@ -34131,8 +34404,10 @@
   },
   "Yuri": {
     "string": "Yuri",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "eva"
+    ],
     "string_va": "0x846798",
     "read_sites": [
       "0x752f55"
@@ -34143,8 +34418,10 @@
   },
   "Russian": {
     "string": "Russian",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "eva"
+    ],
     "string_va": "0x846790",
     "read_sites": [
       "0x752f87"
@@ -34155,8 +34432,10 @@
   },
   "Allied": {
     "string": "Allied",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "eva"
+    ],
     "string_va": "0x846788",
     "read_sites": [
       "0x752fb9"

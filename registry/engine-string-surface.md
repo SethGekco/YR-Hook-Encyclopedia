@@ -22,548 +22,548 @@ Tag domains (a string may be in more than one): ra2 1478, rules 1390, ts 987, ts
 
 Full data in `engine-string-surface.csv` / `.json`. Rules tags also have a cleaner, cross-linked view in `vanilla-tags.md` (Phase D).
 
-## How to read this — provenance & confidence
+## How to read this — provenance, not verdicts
 
-Every domain claim below is tagged with **how it was obtained**, so you can weigh it (and reconcile it against your own findings). Strongest to weakest:
+Each domain claim below is tagged with **how it was obtained**. We deliberately **do not pick a favourite** between competing claims — until someone verifies a tag experimentally, every documented claim is shown side by side so you can weigh them and reconcile them against your own findings. The methods, and what each is worth knowing:
 
-| Source | What it means | Trust |
+| Source | What it means | Nature of the evidence |
 |---|---|---|
-| `ini-direct` | The string is literally a key/section in a vanilla INI we parsed. | Certain (it's a fact). |
-| `modenc` | Documented on the [ModEnc](https://modenc.renegadeprojects.com) community wiki; we parsed its `{{flag}}` `files=` field. Cites the page URL. | High — human-curated, but a wiki: can be wrong, dated, or contested. |
-| `readsite-consensus` | Inferred from the binary: the known tags whose read sites cluster within ±128 bytes of this tag's read site **unanimously** share a domain. | Heuristic. ~100% on leave-one-out, but has real misses where art/rules loaders interleave (see conflicts). |
-| `framework-source` | The literal appears in a framework's C++ source — corroboration it's a real tag, and *who* reads it. | Evidence of use, not of domain. |
+| `ini-direct` | The string is literally a key/section in a vanilla INI we parsed. | A fact — it is that key. |
+| `modenc` | Documented on the [ModEnc](https://modenc.renegadeprojects.com) community wiki; we parsed its `{{flag}}` `files=` field. Cites the page URL. | Human-curated, but a wiki: can be wrong, dated, or contested. |
+| `readsite-consensus` | Inferred from the binary: the known tags whose read sites cluster within ±128 bytes of this tag's read site **unanimously** share a domain. | A heuristic. ~100% on leave-one-out, but with real misses where art/rules loaders interleave. |
+| `framework-source` | The literal appears in a framework's C++ source. | Corroboration it's a real tag, and *who* reads it — not evidence of domain. |
 
-When ModEnc and read-site consensus **disagree**, both are kept and the row is flagged ⚠ — ModEnc (documented) is treated as stronger, but the conflict is left visible on purpose.
+Where two claims **disagree**, both are kept and the row is marked ⚠ in the `≟` column. That is a *flag for someone to test*, not a ruling in ModEnc's or the heuristic's favour.
 
 ## Unnamed engine tags — `tag-unlisted` (514)
 
 _CamelCase keys the binary reads that appear in **no** INI we have — real engine tags vanilla content never sets. The best lead-list of undocumented tags._
 
-Domain now sourced for **203/514**: `modenc` 177, `readsite-consensus` 26 — of these **177** are documented on ModEnc. **3** ModEnc↔read-site conflicts. (Run `scripts/fetch_modenc.py` to widen ModEnc coverage.)
+**203/514** have at least one domain claim (`modenc` 177, `readsite-consensus` 96); **177** are documented on ModEnc. **3** have claims that disagree (marked ⚠ below). (Run `scripts/fetch_modenc.py` to widen ModEnc coverage.)
 
-### ⚠ Conflicts — read-site consensus vs ModEnc (3)
+### ⚠ Disagreements — competing claims to test (3)
 
-_Where our binary heuristic and the wiki disagree. Prime targets to verify by hand._
+_The methods name different domains here. Both are shown; neither is chosen. Prime candidates for hands-on verification._
 
-| String | read-site says | ModEnc says | ModEnc page |
-|---|---|---|---|
-| `BarrelStartPitch` | `rules` | **art** | [page](https://modenc.renegadeprojects.com/BarrelStartPitch) |
-| `CustomRotor` | `rules` | **art** | [page](https://modenc.renegadeprojects.com/CustomRotor) |
-| `TargetDistanceCoefficient` | `art` | **rules** | [page](https://modenc.renegadeprojects.com/TargetDistanceCoefficient) |
+| String | Claims | ModEnc page |
+|---|---|---|
+| `BarrelStartPitch` | `art` (modenc), `rules` (readsite-consensus) | [page](https://modenc.renegadeprojects.com/BarrelStartPitch) |
+| `CustomRotor` | `art` (modenc), `rules` (readsite-consensus) | [page](https://modenc.renegadeprojects.com/CustomRotor) |
+| `TargetDistanceCoefficient` | `rules` (modenc), `art` (readsite-consensus) | [page](https://modenc.renegadeprojects.com/TargetDistanceCoefficient) |
 
-| String | Likely domain | How derived | ModEnc | Read site(s) |
-|---|---|---|---|---|
-| `AIUseTurbineUpgradeProbability` | **rules** | ModEnc (documented) | [General — *ra2-obsolete*](https://modenc.renegadeprojects.com/AIUseTurbineUpgradeProbability) | `0x66fe19` |
-| `Accessibility` | — | — | [RandomMap](https://modenc.renegadeprojects.com/Accessibility) | `0x597902` `0x597bff` |
-| `ActiveAnimFourGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/ActiveAnimFourGarrisoned) | `0x4620c6` |
-| `ActiveAnimFourPowered` | **art** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/ActiveAnimFourPowered) | `0x4621fd` |
-| `ActiveAnimFourPoweredEffect` | **art** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/ActiveAnimFourPoweredEffect) | `0x462237` |
-| `ActiveAnimFourPoweredLight` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimFourPoweredLight) | `0x46221a` |
-| `ActiveAnimFourPoweredSpecial` | — | — | [no page](https://modenc.renegadeprojects.com/ActiveAnimFourPoweredSpecial) | `0x462254` |
-| `ActiveAnimFourX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimFourX) | `0x462189` |
-| `ActiveAnimFourY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimFourY) | `0x4621a6` |
-| `ActiveAnimPoweredEffect` | **art** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/ActiveAnimPoweredEffect) | `0x461a2d` |
-| `ActiveAnimThreeGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/ActiveAnimThreeGarrisoned) | `0x461e18` |
-| `ActiveAnimThreePoweredEffect` | **art** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/ActiveAnimThreePoweredEffect) | `0x461f89` |
-| `ActiveAnimThreePoweredSpecial` | — | — | [no page](https://modenc.renegadeprojects.com/ActiveAnimThreePoweredSpecial) | `0x461fa6` |
-| `ActiveAnimThreeX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimThreeX) | `0x461edb` |
-| `ActiveAnimThreeY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimThreeY) | `0x461ef8` |
-| `ActiveAnimTwoGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/ActiveAnimTwoGarrisoned) | `0x461b6a` |
-| `ActiveAnimTwoPoweredEffect` | **art** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/ActiveAnimTwoPoweredEffect) | `0x461cdb` |
-| `ActiveAnimTwoPoweredSpecial` | — | — | [no page](https://modenc.renegadeprojects.com/ActiveAnimTwoPoweredSpecial) | `0x461cf8` |
-| `ActiveAnimTwoX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimTwoX) | `0x461c2d` |
-| `ActiveAnimTwoY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimTwoY) | `0x461c4a` |
-| `ActiveAnimX` | **art** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/ActiveAnimX) | `0x46197f` |
-| `AddMatchBuddies` | — | — | [no page](https://modenc.renegadeprojects.com/AddMatchBuddies) | `0x779a01` `0x779b0f` |
-| `AllowFind` | — | — | [documented](https://modenc.renegadeprojects.com/AllowFind) | `0x77def2` `0x77e006` |
-| `AllowHiResModes` | **ra2/sun** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/AllowHiResModes) | `0x5fa942` |
-| `AllowModeToggle` | — | — | [documented](https://modenc.renegadeprojects.com/AllowModeToggle) | `0x5fa981` `0x6bc0e8` |
-| `AllowPage` | — | — | [documented](https://modenc.renegadeprojects.com/AllowPage) | `0x77ded2` `0x77dfee` |
-| `AllowVRAMSidebar` | — | — | [documented](https://modenc.renegadeprojects.com/AllowVRAMSidebar) | `0x5fa999` |
-| `AllowableUnitMaximums` | — | — | [Basic](https://modenc.renegadeprojects.com/AllowableUnitMaximums) | `0x68a4ad` `0x68b241` |
-| `AllowableUnits` | — | — | [Basic](https://modenc.renegadeprojects.com/AllowableUnits) | `0x68a352` `0x68b227` |
-| `AnimAux1` | **art** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/AnimAux1) | `0x461706` |
-| `AnimAux2` | **art** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/AnimAux2) | `0x461780` |
-| `AnimIdle` | **art** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/AnimIdle) | `0x461612` |
-| `Animations` | — | — | — | `0x6728ba` `0x6728db` `0x6728e8` |
-| `ArmorAircraftMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/ArmorAircraftMult) | `0x511b15` |
-| `ArmorBuildingsMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/ArmorBuildingsMult) | `0x511b34` |
-| `ArmorDefensesMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/ArmorDefensesMult) | `0x511b53` |
-| `ArmorInfantryMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/ArmorInfantryMult) | `0x511ad7` |
-| `ArmorUnitsMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/ArmorUnitsMult) | `0x511af6` |
-| `Ask` | — | — | [no page](https://modenc.renegadeprojects.com/Ask) | `0x7797f6` `0x779904` `0x779a06` (+1) |
-| `AttachedSystem` | **rules** | ModEnc (documented) | [Projectiles, VoxelAnims](https://modenc.renegadeprojects.com/AttachedSystem) | `0x74b45e` |
-| `AttachedTo` | — | — | [no page](https://modenc.renegadeprojects.com/AttachedTo) | `0x5bba7d` |
-| `AttackFriendlies` | — | — | [Technoes](https://modenc.renegadeprojects.com/AttackFriendlies) | `0x71522e` |
-| `Audio` | — | — | [no page](https://modenc.renegadeprojects.com/Audio) | `0x5fa9c3` `0x5faa23` `0x5faa98` (+11) |
-| `AuthenticAMD` | — | — | [no page](https://modenc.renegadeprojects.com/AuthenticAMD) | `0x4e61da` |
-| `AutoLogin` | — | — | [no page](https://modenc.renegadeprojects.com/AutoLogin) | `0x7797f1` `0x7798ff` `0x779c0d` (+1) |
-| `AutoScroll` | — | — | [documented](https://modenc.renegadeprojects.com/AutoScroll) | `0x5fa741` `0x5fadbe` |
-| `Back` | — | — | [no page](https://modenc.renegadeprojects.com/Back) | `0x68d37c` `0x68fdd9` |
-| `BackButton` | — | — | [no page](https://modenc.renegadeprojects.com/BackButton) | `0x768abd` |
-| `BackButtonDepressedFrame` | — | — | [no page](https://modenc.renegadeprojects.com/BackButtonDepressedFrame) | `0x768a80` |
-| `BackButtonHighlighted` | — | — | [no page](https://modenc.renegadeprojects.com/BackButtonHighlighted) | `0x768b60` |
-| `BackButtonNormalFrame` | — | — | [no page](https://modenc.renegadeprojects.com/BackButtonNormalFrame) | `0x768a4e` |
-| `BackButtonOrigin` | — | — | [no page](https://modenc.renegadeprojects.com/BackButtonOrigin) | `0x76897b` |
-| `BackButtonPalette` | — | — | [no page](https://modenc.renegadeprojects.com/BackButtonPalette) | `0x7689fd` |
-| `BackButtonRectangle` | — | — | [no page](https://modenc.renegadeprojects.com/BackButtonRectangle) | `0x768932` |
-| `BackTextRect` | — | — | [no page](https://modenc.renegadeprojects.com/BackTextRect) | `0x7685a6` |
-| `BarGraph` | — | — | [no page](https://modenc.renegadeprojects.com/BarGraph) | `0x68d29e` `0x68f608` |
-| `BarrelStartPitch` | **art** | ModEnc (documented) ⚠ read-site said `rules` | [documented](https://modenc.renegadeprojects.com/BarrelStartPitch) | `0x460c56` |
-| `Battle` | — | — | [no page](https://modenc.renegadeprojects.com/Battle) | `0x5d7d3c` |
-| `Battles` | — | — | [no page](https://modenc.renegadeprojects.com/Battles) | `0x46ce17` `0x46ce41` `0x46ce50` |
-| `Baud` | — | — | [documented](https://modenc.renegadeprojects.com/Baud) | `0x698519` `0x699295` |
-| `BestBox` | — | — | [no page](https://modenc.renegadeprojects.com/BestBox) | `0x68d1c0` `0x68e272` |
-| `BlueTint` | — | — | [no page](https://modenc.renegadeprojects.com/BlueTint) | `0x5998e5` |
-| `BounceAnim` | **art/rules** | ModEnc (documented) | [Animations, VoxelAnims](https://modenc.renegadeprojects.com/BounceAnim) | `0x42840d` `0x74b330` |
-| `BuildOffAlly` | **rules** | ModEnc (documented) | [MultiplayerDialogSettings](https://modenc.renegadeprojects.com/BuildOffAlly) | `0x6721c7` `0x697ff0` `0x699025` |
-| `BuildTimeAircraftMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/BuildTimeAircraftMult) | `0x511ca8` |
-| `BuildTimeBuildingsMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/BuildTimeBuildingsMult) | `0x511cc5` |
-| `BuildTimeDefensesMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/BuildTimeDefensesMult) | `0x511ce6` |
-| `BuildTimeInfantryMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/BuildTimeInfantryMult) | `0x511c6a` |
-| `BuildTimeUnitsMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/BuildTimeUnitsMult) | `0x511c89` |
-| `BuildingAbandonedSound` | **rules** | ModEnc (documented) | [AudioVisual](https://modenc.renegadeprojects.com/BuildingAbandonedSound) | `0x669c38` |
-| `BuildupSound` | **rules** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/BuildupSound) | `0x460750` |
-| `Built1` | — | — | [no page](https://modenc.renegadeprojects.com/Built1) | `0x49c3ac` `0x49c9b7` |
-| `Built2` | — | — | [no page](https://modenc.renegadeprojects.com/Built2) | `0x49c3c3` `0x49c9d0` |
-| `Bummer` | — | — | [no page](https://modenc.renegadeprojects.com/Bummer) | `0x4c84a0` |
-| `CLDisableRed` | **rules** | ModEnc (documented) | [Warheads](https://modenc.renegadeprojects.com/CLDisableRed) | `0x75d619` |
-| `CallWaitString` | — | — | [documented](https://modenc.renegadeprojects.com/CallWaitString) | `0x69861d` `0x699221` |
-| `CallWaitStringIndex` | — | — | [documented](https://modenc.renegadeprojects.com/CallWaitStringIndex) | `0x6985ef` `0x699239` |
-| `Camera` | **rules** | ModEnc (documented) | [Weapons](https://modenc.renegadeprojects.com/Camera) | `0x772611` |
-| `CampDifficulty` | — | — | [documented](https://modenc.renegadeprojects.com/CampDifficulty) | `0x5fa6b1` `0x5fad6d` |
-| `CampaignID` | — | — | [no page](https://modenc.renegadeprojects.com/CampaignID) | `0x764ac0` `0x764e15` `0x765121` (+1) |
-| `CampaignType` | — | — | [no page](https://modenc.renegadeprojects.com/CampaignType) | `0x49c30a` `0x49c850` |
-| `Campaigns` | — | — | [no page](https://modenc.renegadeprojects.com/Campaigns) | `0x49db6c` `0x49dc1e` `0x49dc42` |
-| `CanBeach` | **rules** | ModEnc (documented) | [VehicleTypes — *ra2-obsolete*](https://modenc.renegadeprojects.com/CanBeach) | `0x747855` |
-| `CanRecalcApproachTarget` | **rules** | read-site ±26b (via `RequiresStolenThirdTech`) | [documented](https://modenc.renegadeprojects.com/CanRecalcApproachTarget) | `0x7144c1` |
-| `Canceled` | — | — | [no page](https://modenc.renegadeprojects.com/Canceled) | `0x76ceab` |
-| `Cell` | — | — | — | `0x698be3` |
-| `CheckHeap` | — | — | [no page](https://modenc.renegadeprojects.com/CheckHeap) | `0x69823c` |
-| `CivEvac` | — | — | [Basic](https://modenc.renegadeprojects.com/CivEvac) | `0x68a63f` `0x68ad98` |
-| `Class` | — | — | [no page](https://modenc.renegadeprojects.com/Class) | `0x5bb8a3` |
-| `Clear` | — | — | — | `0x4acf36` |
-| `ClearAllWeapons` | **rules** | ModEnc (documented) | [Technos](https://modenc.renegadeprojects.com/ClearAllWeapons) | `0x71289f` |
-| `CloakStop` | **rules** | ModEnc (documented) | [AircraftTypes, InfantryTypes, VehicleTypes — *ra2-obsolete*](https://modenc.renegadeprojects.com/CloakStop) | `0x713116` |
-| `Color1` | — | — | [no page](https://modenc.renegadeprojects.com/Color1) | `0x49c337` `0x49c8eb` |
-| `Color2` | — | — | [no page](https://modenc.renegadeprojects.com/Color2) | `0x49c367` `0x49c953` |
-| `ColorEx` | — | — | [documented](https://modenc.renegadeprojects.com/ColorEx) | `0x69830a` `0x699154` |
-| `ComboDropWin` | — | — | [no page](https://modenc.renegadeprojects.com/ComboDropWin) | `0x6181fe` |
-| `Community` | — | — | [no page](https://modenc.renegadeprojects.com/Community) | `0x79839c` `0x7987c7` `0x798ce9` |
-| `Compression` | — | — | [documented](https://modenc.renegadeprojects.com/Compression) | `0x698535` `0x6992ec` |
-| `Computer` | — | — | [no page](https://modenc.renegadeprojects.com/Computer) | `0x50a628` `0x64ca27` `0x688225` |
-| `ConditionRedSparkingProbability` | **rules** | ModEnc (documented) | [General](https://modenc.renegadeprojects.com/ConditionRedSparkingProbability) | `0x6718c5` |
-| `ConditionYellowSparkingProbability` | **rules** | ModEnc (documented) | [General](https://modenc.renegadeprojects.com/ConditionYellowSparkingProbability) | `0x67189e` |
-| `ConflictSelected` | — | — | [no page](https://modenc.renegadeprojects.com/ConflictSelected) | `0x76d2e2` |
-| `Connected` | — | — | [no page](https://modenc.renegadeprojects.com/Connected) | `0x5f300b` |
-| `Cooperative` | — | — | [no page](https://modenc.renegadeprojects.com/Cooperative) | `0x5d7e24` |
-| `Coord` | — | — | [no page](https://modenc.renegadeprojects.com/Coord) | `0x698b76` |
-| `CostAircraftMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/CostAircraftMult) | `0x511bb0` |
-| `CostBuildingsMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/CostBuildingsMult) | `0x511bcf` |
-| `CostDefensesMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/CostDefensesMult) | `0x511bee` |
-| `CostInfantryMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/CostInfantryMult) | `0x511b72` |
-| `CratesAppear` | — | — | [documented](https://modenc.renegadeprojects.com/CratesAppear) | `0x698029` `0x699049` |
-| `CurVer` | — | — | [no page](https://modenc.renegadeprojects.com/CurVer) | `0x6bb5c2` |
-| `CurrentMap` | — | — | [no page](https://modenc.renegadeprojects.com/CurrentMap) | `0x49c2de` `0x49c837` `0x49d5b0` |
-| `CustomRotor` | **art** | ModEnc (documented) ⚠ read-site said `rules` | [AircraftTypes](https://modenc.renegadeprojects.com/CustomRotor) | `0x41ccde` |
-| `CyrixInstead` | — | — | [no page](https://modenc.renegadeprojects.com/CyrixInstead) | `0x4e61fa` |
-| `DamSmkOffScrnRel` | **rules** | ModEnc (documented) | [TechnoTypes](https://modenc.renegadeprojects.com/DamSmkOffScrnRel) | `0x713e49` |
-| `DamageReducesReadiness` | **rules** | read-site ±59b (via `BerserkFriendly`) | [Technos](https://modenc.renegadeprojects.com/DamageReducesReadiness) | `0x7148bf` |
-| `DeathAnims` | **rules** | ModEnc (documented) | [InfantryTypes](https://modenc.renegadeprojects.com/DeathAnims) | `0x5242e1` |
-| `DefaultChronoSound` | — | — | [documented](https://modenc.renegadeprojects.com/DefaultChronoSound) | `0x669693` |
-| `DefaultPalette` | — | — | [no page](https://modenc.renegadeprojects.com/DefaultPalette) | `0x768c9f` |
-| `DefaultPersona` | — | — | [no page](https://modenc.renegadeprojects.com/DefaultPersona) | `0x779c1b` `0x779d6c` `0x779e9b` (+1) |
-| `Defaults` | — | — | [no page](https://modenc.renegadeprojects.com/Defaults) | `0x7510fb` `0x751139` `0x75115c` (+5) |
-| `Degenerates` | **rules** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/Degenerates) | `0x46c157` |
-| `DeployFireWeapon` | **rules** | ModEnc (documented) | [InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/DeployFireWeapon) | `0x7147d5` |
-| `DescriptionText` | — | — | [no page](https://modenc.renegadeprojects.com/DescriptionText) | `0x69a4ec` `0x69a517` |
-| `DestNet` | — | — | [no page](https://modenc.renegadeprojects.com/DestNet) | `0x5faccb` `0x5faf8f` `0x6bc196` |
-| `DestroyParticleSystems` | **rules** | ModEnc (documented) | [Technoes](https://modenc.renegadeprojects.com/DestroyParticleSystems) | `0x713d2c` |
-| `DestroySmokeOffset` | **rules** | ModEnc (documented) | [Technoes](https://modenc.renegadeprojects.com/DestroySmokeOffset) | `0x713e62` |
-| `DetectionDistance` | **rules** | ModEnc (documented) | [InfantryTypes — *ra2-obsolete*](https://modenc.renegadeprojects.com/DetectionDistance) | `0x524505` |
-| `DialMethod` | — | — | [documented](https://modenc.renegadeprojects.com/DialMethod) | `0x698580` `0x69927d` |
-| `DialogList` | — | — | — | `0x75300c` `0x753029` `0x753059` (+1) |
-| `Difficult` | — | — | — | `0x668f19` `0x67452c` |
-| `Difficulty` | **ra2/sun** | ModEnc (documented) | [Options](https://modenc.renegadeprojects.com/Difficulty) | `0x5fa669` `0x5fad53` |
-| `DirectRocker` | **rules** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/DirectRocker) | `0x75d5cb` |
-| `Disableable` | — | — | [documented](https://modenc.renegadeprojects.com/Disableable) | `0x714bc7` |
-| `Disconnects` | — | — | [no page](https://modenc.renegadeprojects.com/Disconnects) | `0x778d4c` `0x77a355` |
-| `DisplayAsian` | — | — | [documented](https://modenc.renegadeprojects.com/DisplayAsian) | `0x77df5e` `0x77e07e` |
-| `DisplayBuddies` | — | — | [no page](https://modenc.renegadeprojects.com/DisplayBuddies) | `0x77df94` `0x77e0b0` |
-| `DisplayClan` | — | — | [no page](https://modenc.renegadeprojects.com/DisplayClan) | `0x77dfaf` `0x77e0d0` |
-| `DisplayLatin` | — | — | [documented](https://modenc.renegadeprojects.com/DisplayLatin) | `0x77df79` `0x77e09a` |
-| `DistributedWeaponFire` | **art/rules** | ModEnc (documented) | [*ra2-obsolete*](https://modenc.renegadeprojects.com/DistributedWeaponFire) | `0x772711` |
-| `DllGetVersion` | — | — | [no page](https://modenc.renegadeprojects.com/DllGetVersion) | `0x4aece4` |
-| `DllRegisterServer` | — | — | [no page](https://modenc.renegadeprojects.com/DllRegisterServer) | `0x6bc38b` |
-| `DominatorAmbient` | — | — | [Lighting](https://modenc.renegadeprojects.com/DominatorAmbient) | `0x68ab17` `0x68b7b0` |
-| `DominatorAmbientChangeRate` | — | — | [Lighting](https://modenc.renegadeprojects.com/DominatorAmbientChangeRate) | `0x68ac73` `0x68b882` |
-| `DominatorBlue` | — | — | [Lighting](https://modenc.renegadeprojects.com/DominatorBlue) | `0x68abc5` `0x68b819` |
-| `DominatorGreen` | — | — | [Lighting](https://modenc.renegadeprojects.com/DominatorGreen) | `0x68ab8b` `0x68b7f6` |
-| `DominatorGround` | — | — | [Lighting](https://modenc.renegadeprojects.com/DominatorGround) | `0x68abff` `0x68b83c` |
-| `DominatorLevel` | — | — | [Lighting](https://modenc.renegadeprojects.com/DominatorLevel) | `0x68ac39` `0x68b85f` |
-| `DominatorRed` | — | — | [Lighting](https://modenc.renegadeprojects.com/DominatorRed) | `0x68ab51` `0x68b7d3` |
-| `DoubleOwned` | **rules** | ModEnc (documented) | [Technoes](https://modenc.renegadeprojects.com/DoubleOwned) | `0x712291` |
-| `DownReport` | **rules** | ModEnc (documented) | [Weapons](https://modenc.renegadeprojects.com/DownReport) | `0x7723f8` |
-| `Draw` | — | — | [no page](https://modenc.renegadeprojects.com/Draw) | `0x7705c6` `0x770ed3` |
-| `DrawBoltAsLaser` | **rules** | read-site ±126b (via `IsMagBeam`) | [documented](https://modenc.renegadeprojects.com/DrawBoltAsLaser) | `0x772872` |
-| `Easy` | **coop** | read-site ±40b (via `CampaignLoadScreenPallet`) | — | `0x49dd39` `0x668ef5` `0x674508` |
-| `Efficiency` | — | — | [no page](https://modenc.renegadeprojects.com/Efficiency) | `0x68d22f` `0x68d55c` |
-| `ElitePBarrelLength` | **art** | ModEnc (documented) | [BuildingTypes, VehicleTypes](https://modenc.renegadeprojects.com/ElitePBarrelLength) | `0x715ed8` |
-| `ElitePBarrelThickness` | **art** | read-site ±36b (via `EliteSecondaryFireFLH`) | [no page](https://modenc.renegadeprojects.com/ElitePBarrelThickness) | `0x715efc` |
-| `EliteSBarrelLength` | **art** | ModEnc (documented) | [BuildingTypes, VehicleTypes](https://modenc.renegadeprojects.com/EliteSBarrelLength) | `0x715f5d` |
-| `EliteSBarrelThickness` | **art** | read-site ±97b (via `EliteSecondaryFireFLH`) | [no page](https://modenc.renegadeprojects.com/EliteSBarrelThickness) | `0x715f81` |
-| `Emblem` | — | — | [no page](https://modenc.renegadeprojects.com/Emblem) | `0x68d151` `0x68dcb3` |
-| `Emphasis` | — | — | [no page](https://modenc.renegadeprojects.com/Emphasis) | `0x7711c9` |
-| `EmptyReload` | **rules** | read-site ±111b (via `BerserkFriendly`) | [Technos](https://modenc.renegadeprojects.com/EmptyReload) | `0x71488b` |
-| `ErrorCorrection` | — | — | [documented](https://modenc.renegadeprojects.com/ErrorCorrection) | `0x698551` `0x699309` |
-| `Europe` | — | — | [no page](https://modenc.renegadeprojects.com/Europe) | `0x78830a` |
-| `Evacuate` | — | — | [no page](https://modenc.renegadeprojects.com/Evacuate) | `0x7703f2` |
-| `Exit` | — | — | [no page](https://modenc.renegadeprojects.com/Exit) | `0x7a17c1` |
-| `Fail` | — | — | [no page](https://modenc.renegadeprojects.com/Fail) | `0x7a16c0` |
-| `Fill` | — | — | [no page](https://modenc.renegadeprojects.com/Fill) | `0x4acf3b` |
-| `FirePower` | **rules** | ModEnc (documented) | [Difficulty](https://modenc.renegadeprojects.com/FirePower) | `0x66d295` |
-| `FirewallDelta` | — | — | [documented](https://modenc.renegadeprojects.com/FirewallDelta) | `0x5d9021` `0x5d9393` `0x5d93eb` |
-| `FirewallSettings` | — | — | [documented](https://modenc.renegadeprojects.com/FirewallSettings) | `0x5d9007` `0x5d9379` `0x5d93d5` |
-| `Flamer` | **art** | ModEnc (documented) | [Animations — *ra2-obsolete*](https://modenc.renegadeprojects.com/Flamer) | `0x427e55` |
-| `ForcePortBase` | — | — | [documented](https://modenc.renegadeprojects.com/ForcePortBase) | `0x698185` |
-| `Frame` | — | — | — | `0x698a3c` |
-| `FreeForAll` | — | — | [no page](https://modenc.renegadeprojects.com/FreeForAll) | `0x5d7df8` |
-| `FriendlyName` | — | — | [no page](https://modenc.renegadeprojects.com/FriendlyName) | `0x7743b0` |
-| `Game` | — | — | [no page](https://modenc.renegadeprojects.com/Game) | `0x7703cb` |
-| `GetActiveWindow` | — | — | [no page](https://modenc.renegadeprojects.com/GetActiveWindow) | `0x7daed4` |
-| `GetDiskFreeSpaceExA` | — | — | [no page](https://modenc.renegadeprojects.com/GetDiskFreeSpaceExA) | `0x48dd74` |
-| `GetLastActivePopup` | — | — | [no page](https://modenc.renegadeprojects.com/GetLastActivePopup) | `0x7daedc` |
-| `GreenTint` | — | — | [no page](https://modenc.renegadeprojects.com/GreenTint) | `0x5998cc` |
-| `HTMLPath` | — | — | [no page](https://modenc.renegadeprojects.com/HTMLPath) | `0x773744` `0x7739b6` `0x773c0d` |
-| `HalfDamageSmokeLocation` | — | — | [documented](https://modenc.renegadeprojects.com/HalfDamageSmokeLocation) | `0x74776f` |
-| `HalfDamageSmokeLocation2` | **rules** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/HalfDamageSmokeLocation2) | `0x45ff33` |
-| `Handle` | — | — | [documented](https://modenc.renegadeprojects.com/Handle) | `0x6982ba` `0x69911a` |
-| `HarvesterDumpRate` | **rules** | ModEnc (documented) | [General](https://modenc.renegadeprojects.com/HarvesterDumpRate) | `0x670cd4` |
-| `HarvesterLoadRate` | **rules** | ModEnc (documented) | [General](https://modenc.renegadeprojects.com/HarvesterLoadRate) | `0x670cf4` |
-| `HelpBar` | — | — | [no page](https://modenc.renegadeprojects.com/HelpBar) | `0x7688b4` |
-| `HelpBarSize` | — | — | [no page](https://modenc.renegadeprojects.com/HelpBarSize) | `0x7683f2` |
-| `History` | — | — | [no page](https://modenc.renegadeprojects.com/History) | `0x770356` |
-| `Hotkey` | — | — | — | `0x533d80` `0x533db1` `0x533dc7` (+2) |
-| `House1` | — | — | [no page](https://modenc.renegadeprojects.com/House1) | `0x49c31f` `0x49c8c8` |
-| `House2` | — | — | [no page](https://modenc.renegadeprojects.com/House2) | `0x49c352` `0x49c92f` |
-| `HoverPad` | **rules** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/HoverPad) | `0x46057a` |
-| `IFVTransformSound` | **rules** | ModEnc (documented) | [AudioVisual — *ra2-obsolete*](https://modenc.renegadeprojects.com/IFVTransformSound) | `0x66a48d` |
-| `IdleAnimGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/IdleAnimGarrisoned) | `0x464076` |
-| `IdleAnimPoweredEffect` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/IdleAnimPoweredEffect) | `0x4641e7` |
-| `IdleAnimPoweredLight` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/IdleAnimPoweredLight) | `0x4641ca` |
-| `IdleAnimPoweredSpecial` | — | — | [no page](https://modenc.renegadeprojects.com/IdleAnimPoweredSpecial) | `0x464204` |
-| `IdleAnimX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/IdleAnimX) | `0x464139` |
-| `IdleAnimY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/IdleAnimY) | `0x464156` |
-| `InGameMusic` | — | — | [documented](https://modenc.renegadeprojects.com/InGameMusic) | `0x5fab88` `0x5faf40` |
-| `IncomeMult` | **rules** | ModEnc (documented) | [Countries, Houses](https://modenc.renegadeprojects.com/IncomeMult) | `0x511d05` |
-| `InitStringIndex` | — | — | [documented](https://modenc.renegadeprojects.com/InitStringIndex) | `0x6985de` `0x699256` |
-| `InitStrings` | — | — | [documented](https://modenc.renegadeprojects.com/InitStrings) | `0x69865b` `0x698696` `0x6986a9` (+2) |
-| `InitialAmmo` | — | — | [Technoes](https://modenc.renegadeprojects.com/InitialAmmo) | `0x714755` |
-| `InprocServer32` | — | — | [no page](https://modenc.renegadeprojects.com/InprocServer32) | `0x6bb87a` |
-| `Invisible` | **rules** | ModEnc (documented) | [AircraftTypes, BuildingTypes, InfantryTypes, TechnoTypes, VehicleTypes](https://modenc.renegadeprojects.com/Invisible) | `0x714a9e` |
-| `IonSensitive` | **rules** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/IonSensitive) | `0x772824` |
-| `IsProcessorFeaturePresent` | — | — | [no page](https://modenc.renegadeprojects.com/IsProcessorFeaturePresent) | `0x7ceb0e` |
-| `IsScoreRepeat` | — | — | [documented](https://modenc.renegadeprojects.com/IsScoreRepeat) | `0x5fab05` `0x5faef3` |
-| `IsScoreShuffle` | — | — | [documented](https://modenc.renegadeprojects.com/IsScoreShuffle) | `0x5fab49` `0x5faf0b` |
-| `JumpjetAccel` | **rules** | ModEnc (documented) | [AircraftTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/JumpjetAccel) | `0x715165` |
-| `JumpjetTurnRate` | **rules** | ModEnc (documented) | [Technos](https://modenc.renegadeprojects.com/JumpjetTurnRate) | `0x7150af` |
-| `Kills1` | — | — | [no page](https://modenc.renegadeprojects.com/Kills1) | `0x49c37e` `0x49c985` |
-| `Kills2` | — | — | [no page](https://modenc.renegadeprojects.com/Kills2) | `0x49c398` `0x49c99e` |
-| `LANScrollText` | — | — | [documented](https://modenc.renegadeprojects.com/LANScrollText) | `0x6983d0` `0x6994c1` |
-| `LANTaunts` | — | — | [documented](https://modenc.renegadeprojects.com/LANTaunts) | `0x69838e` `0x699486` |
-| `LangFilter` | — | — | [documented](https://modenc.renegadeprojects.com/LangFilter) | `0x77df0d` `0x77e028` |
-| `LastDay` | — | — | [no page](https://modenc.renegadeprojects.com/LastDay) | `0x764e70` `0x765103` `0x7652e1` |
-| `LastNickSlot` | — | — | [documented](https://modenc.renegadeprojects.com/LastNickSlot) | `0x698279` `0x6990fa` |
-| `LastTilesInSet` | — | — | [TileSets](https://modenc.renegadeprojects.com/LastTilesInSet) | `0x545fed` |
-| `LastValid` | — | — | [no page](https://modenc.renegadeprojects.com/LastValid) | `0x779e8d` `0x779fde` |
-| `LeptonMindControlOffset` | **rules** | ModEnc (documented) | [TechnoTypes](https://modenc.renegadeprojects.com/LeptonMindControlOffset) | `0x71414c` |
-| `LightningPrintText` | **rules** | ModEnc (documented) | [General](https://modenc.renegadeprojects.com/LightningPrintText) | `0x67107f` |
-| `LightningRod` | **rules** | ModEnc (documented) | [Technoes — *ra2-obsolete*](https://modenc.renegadeprojects.com/LightningRod) | `0x713330` |
-| `ListBox` | — | — | [no page](https://modenc.renegadeprojects.com/ListBox) | `0x60f418` |
-| `LobMusic` | — | — | [documented](https://modenc.renegadeprojects.com/LobMusic) | `0x77df28` `0x77e044` |
-| `Locale` | — | — | [documented](https://modenc.renegadeprojects.com/Locale) | `0x778861` `0x778be1` `0x77a1de` |
-| `LocaleVerified` | — | — | [no page](https://modenc.renegadeprojects.com/LocaleVerified) | `0x778c0f` `0x77a20d` |
-| `Logo` | — | — | [no page](https://modenc.renegadeprojects.com/Logo) | `0x768cf3` |
-| `LosingThreshold` | — | — | [no page](https://modenc.renegadeprojects.com/LosingThreshold) | `0x76c9e9` |
-| `Losses` | — | — | [no page](https://modenc.renegadeprojects.com/Losses) | `0x778d1c` `0x77a326` |
-| `Lost1` | — | — | [no page](https://modenc.renegadeprojects.com/Lost1) | `0x49c3dd` `0x49c9e9` |
-| `Lost2` | — | — | [no page](https://modenc.renegadeprojects.com/Lost2) | `0x49c3f1` `0x49ca02` |
-| `LowPowerGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/LowPowerGarrisoned) | `0x4638e4` |
-| `LowPowerPoweredEffect` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerPoweredEffect) | `0x463a55` |
-| `LowPowerPoweredLight` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerPoweredLight) | `0x463a38` |
-| `LowPowerPoweredSpecial` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerPoweredSpecial) | `0x463a72` |
-| `LowPowerX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerX) | `0x4639a7` |
-| `LowPowerY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerY) | `0x4639c4` |
-| `LowPowerYSort` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerYSort) | `0x4639fe` |
-| `LowPowerZAdjust` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerZAdjust) | `0x4639e1` |
-| `MCVRepacks` | — | — | [documented](https://modenc.renegadeprojects.com/MCVRepacks) | `0x69800a` `0x699038` |
-| `ManBattle` | — | — | [no page](https://modenc.renegadeprojects.com/ManBattle) | `0x5d7d74` |
-| `ManualReload` | **rules** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/ManualReload) | `0x71334a` |
-| `MapEnter` | — | — | [no page](https://modenc.renegadeprojects.com/MapEnter) | `0x76d093` `0x76dfd6` |
-| `MapLeave` | — | — | [no page](https://modenc.renegadeprojects.com/MapLeave) | `0x76d019` `0x76e096` |
-| `MapType` | — | — | [documented](https://modenc.renegadeprojects.com/MapType) | `0x59788a` `0x597b7d` |
-| `MatchByRes` | — | — | [no page](https://modenc.renegadeprojects.com/MatchByRes) | `0x778d7e` `0x77a384` |
-| `MegaLosingThreshold` | — | — | [no page](https://modenc.renegadeprojects.com/MegaLosingThreshold) | `0x76ca1a` |
-| `MegaWinningThreshold` | — | — | [no page](https://modenc.renegadeprojects.com/MegaWinningThreshold) | `0x76c9b8` |
-| `MessageBoxA` | — | — | [no page](https://modenc.renegadeprojects.com/MessageBoxA) | `0x7daec3` |
-| `MindControlRingOffset` | **rules** | ModEnc (documented) | [TechnoTypes](https://modenc.renegadeprojects.com/MindControlRingOffset) | `0x714350` |
-| `MobileFire` | **rules** | ModEnc (documented) | [VehicleTypes](https://modenc.renegadeprojects.com/MobileFire) | `0x714823` |
-| `Model` | — | — | [no page](https://modenc.renegadeprojects.com/Model) | `0x5bba1b` |
-| `Modem` | — | — | [no page](https://modenc.renegadeprojects.com/Modem) | `0x5bb8bb` |
-| `ModemName` | — | — | [documented](https://modenc.renegadeprojects.com/ModemName) | `0x698499` `0x699329` |
-| `MouseCancel` | — | — | [no page](https://modenc.renegadeprojects.com/MouseCancel) | `0x76d1db` `0x76e1a1` |
-| `MultiMaps` | — | — | [no page](https://modenc.renegadeprojects.com/MultiMaps) | `0x699a08` `0x699a36` `0x699a45` (+6) |
-| `MultiPlayer` | — | — | [no page](https://modenc.renegadeprojects.com/MultiPlayer) | `0x52f5b2` `0x52f5c9` `0x560b8a` (+41) |
-| `MyEffectivenessCoefficient` | **rules** | ModEnc (documented) | [TechnoTypes](https://modenc.renegadeprojects.com/MyEffectivenessCoefficient) | `0x71556b` |
-| `NameKeyPrefix` | — | — | [no page](https://modenc.renegadeprojects.com/NameKeyPrefix) | `0x768c5a` |
-| `NaturalParticleLocation` | **rules** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/NaturalParticleLocation) | `0x713bfc` |
-| `NaturalParticleSystem` | **rules** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/NaturalParticleSystem) | `0x713b9a` |
-| `NetCard` | — | — | [documented](https://modenc.renegadeprojects.com/NetCard) | `0x5facaa` `0x5faf72` |
-| `NetID` | — | — | [documented](https://modenc.renegadeprojects.com/NetID) | `0x5faba9` `0x5fafec` |
-| `Network` | — | — | [no page](https://modenc.renegadeprojects.com/Network) | `0x5fabae` `0x5fac92` `0x5facaf` (+7) |
-| `NoAutoFire` | **rules** | read-site ±66b (via `RadarVisible`) | [documented](https://modenc.renegadeprojects.com/NoAutoFire) | `0x714afa` |
-| `NorthAmerica` | — | — | [no page](https://modenc.renegadeprojects.com/NorthAmerica) | `0x788303` |
-| `NotInsertable` | — | — | [no page](https://modenc.renegadeprojects.com/NotInsertable) | `0x6bb859` |
-| `Note` | — | — | [no page](https://modenc.renegadeprojects.com/Note) | `0x4a3de1` `0x7b1e36` |
-| `NukeAmbientChangeRate` | — | — | [Lighting](https://modenc.renegadeprojects.com/NukeAmbientChangeRate) | `0x68aae9` |
-| `NumCoopHumanStartSpots` | — | — | [no page](https://modenc.renegadeprojects.com/NumCoopHumanStartSpots) | `0x689e13` `0x689f4d` `0x68afa7` |
-| `NumLoopFrames` | **rules** | ModEnc (documented) | [Particles](https://modenc.renegadeprojects.com/NumLoopFrames) | `0x64508e` |
-| `NumPlayers` | — | — | [documented](https://modenc.renegadeprojects.com/NumPlayers) | `0x59785a` `0x597b4a` `0x5c1410` (+1) |
-| `ObserverMode` | — | — | [documented](https://modenc.renegadeprojects.com/ObserverMode) | `0x5ee192` `0x5ee1ce` |
-| `OldCycle` | — | — | [no page](https://modenc.renegadeprojects.com/OldCycle) | `0x770332` |
-| `Opening` | — | — | [no page](https://modenc.renegadeprojects.com/Opening) | `0x76861f` |
-| `OverlayPalette` | — | — | [no page](https://modenc.renegadeprojects.com/OverlayPalette) | `0x768beb` |
-| `OverlayPrefix` | — | — | [no page](https://modenc.renegadeprojects.com/OverlayPrefix) | `0x768ba6` |
-| `PackupSound` | **rules** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/PackupSound) | `0x460786` |
-| `ParticleSystems` | — | — | — | `0x672a7a` `0x672a9b` `0x672aa8` |
-| `Particles` | — | — | — | `0x672a0a` `0x672a2b` `0x672a38` |
-| `PhoneBook` | — | — | [no page](https://modenc.renegadeprojects.com/PhoneBook) | `0x698711` `0x698761` `0x698771` (+2) |
-| `PhoneIndex` | — | — | [documented](https://modenc.renegadeprojects.com/PhoneIndex) | `0x698219` `0x6990c2` |
-| `PingFail` | — | — | [no page](https://modenc.renegadeprojects.com/PingFail) | `0x7a16ea` |
-| `PipWrap` | **rules** | read-site ±26b (via `PixelSelectionBracketDelta`) | [Technoes](https://modenc.renegadeprojects.com/PipWrap) | `0x714180` |
-| `Play` | — | — | [documented](https://modenc.renegadeprojects.com/Play) | `0x6bdf65` `0x6bdfee` |
-| `PlayerFaction` | — | — | [no page](https://modenc.renegadeprojects.com/PlayerFaction) | `0x764ec1` `0x7654f6` |
-| `PnPAttachedTo` | — | — | [no page](https://modenc.renegadeprojects.com/PnPAttachedTo) | `0x5bbaac` |
-| `Port` | — | — | [documented](https://modenc.renegadeprojects.com/Port) | `0x6984e7` `0x6992cf` |
-| `PortBase` | — | — | [documented](https://modenc.renegadeprojects.com/PortBase) | `0x52f5ad` `0x69816f` |
-| `PortNumberOverride` | — | — | [no page](https://modenc.renegadeprojects.com/PortNumberOverride) | `0x560ba2` `0x6981fe` |
-| `PortPool` | — | — | [documented](https://modenc.renegadeprojects.com/PortPool) | `0x52f5c4` `0x6981c1` |
-| `PreProductionAnimDamaged` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/PreProductionAnimDamaged) | `0x46428a` |
-| `PreProductionAnimGarrisoned` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/PreProductionAnimGarrisoned) | `0x464324` |
-| `PreProductionAnimX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/PreProductionAnimX) | `0x4643e3` |
-| `PreProductionAnimY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/PreProductionAnimY) | `0x464400` |
-| `PreProductionAnimYSort` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/PreProductionAnimYSort) | `0x46443a` |
-| `PrintCRC` | — | — | [documented](https://modenc.renegadeprojects.com/PrintCRC) | `0x698c5a` |
-| `PrivateKey` | — | — | [no page](https://modenc.renegadeprojects.com/PrivateKey) | `0x52a651` `0x52a6ec` |
-| `ProductionAnimGarrisoned` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/ProductionAnimGarrisoned) | `0x463e40` |
-| `ProgID` | — | — | [no page](https://modenc.renegadeprojects.com/ProgID) | `0x6bb808` |
-| `PsychicSensorDetectSound` | — | — | [documented](https://modenc.renegadeprojects.com/PsychicSensorDetectSound) | `0x66a4ce` |
-| `PublicKey` | — | — | [no page](https://modenc.renegadeprojects.com/PublicKey) | `0x52a633` `0x52a716` |
-| `Pushy` | **rules** | ModEnc (documented) | [Technos](https://modenc.renegadeprojects.com/Pushy) | `0x71492c` |
-| `Radius` | **rules** | ModEnc (documented) | [Particles](https://modenc.renegadeprojects.com/Radius) | `0x64511c` |
-| `RailgunDamageRadius` | **rules** | ModEnc (documented) | [CombatDamage](https://modenc.renegadeprojects.com/RailgunDamageRadius) | `0x66bc24` |
-| `RandomMap` | — | — | — | `0x5961f4` `0x597817` `0x59782f` (+35) |
-| `Rank` | — | — | [no page](https://modenc.renegadeprojects.com/Rank) | `0x778c89` `0x77a299` |
-| `RankFail` | — | — | [no page](https://modenc.renegadeprojects.com/RankFail) | `0x7a1732` |
-| `RatioAITriggerTeam` | — | — | [Houses](https://modenc.renegadeprojects.com/RatioAITriggerTeam) | `0x500d18` |
-| `RatioTeamAircraft` | — | — | [Houses — *ra2-obsolete*](https://modenc.renegadeprojects.com/RatioTeamAircraft) | `0x500d31` |
-| `RatioTeamInfantry` | — | — | [Houses — *ra2-obsolete*](https://modenc.renegadeprojects.com/RatioTeamInfantry) | `0x500d44` |
-| `RatioTeamUnits` | — | — | [Houses — *ra2-obsolete*](https://modenc.renegadeprojects.com/RatioTeamUnits) | `0x500d5d` |
-| `ReadinessReductionMultiplier` | **rules** | read-site ±26b (via `BerserkFriendly`) | [Technos](https://modenc.renegadeprojects.com/ReadinessReductionMultiplier) | `0x7148e0` |
-| `RedTint` | — | — | [no page](https://modenc.renegadeprojects.com/RedTint) | `0x5998b3` |
-| `RegPath` | — | — | [no page](https://modenc.renegadeprojects.com/RegPath) | `0x785633` |
-| `RegionSize` | — | — | [documented](https://modenc.renegadeprojects.com/RegionSize) | `0x5978d2` `0x597bcb` |
-| `ReloadIncrement` | **rules** | read-site ±85b (via `BerserkFriendly`) | [Technoes](https://modenc.renegadeprojects.com/ReloadIncrement) | `0x7148a5` |
-| `Resources` | — | — | [documented](https://modenc.renegadeprojects.com/Resources) | `0x597992` `0x597c9b` |
-| `RevealByHeight` | **rules** | ModEnc (documented) | [General](https://modenc.renegadeprojects.com/RevealByHeight) | `0x66eaf0` |
-| `RollAngle` | **rules** | ModEnc (documented) | [TechnoTypes](https://modenc.renegadeprojects.com/RollAngle) | `0x7123a2` |
-| `RotCount` | **art** | ModEnc (documented) | [VehicleTypes — *ra2-obsolete*](https://modenc.renegadeprojects.com/RotCount) | `0x7158a1` |
-| `Rotors` | **art** | ModEnc (documented) | [AircraftTypes](https://modenc.renegadeprojects.com/Rotors) | `0x41ccbc` |
-| `Rubble` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/Rubble) | `0x45f65d` |
-| `Ruggedness` | — | — | [documented](https://modenc.renegadeprojects.com/Ruggedness) | `0x5978ea` `0x597be6` |
-| `SBarrelThickness` | — | — | [no page](https://modenc.renegadeprojects.com/SBarrelThickness) | `0x715e7d` |
-| `ScenIndex` | — | — | [documented](https://modenc.renegadeprojects.com/ScenIndex) | `0x697f40` `0x698fb9` |
-| `Score` | — | — | [no page](https://modenc.renegadeprojects.com/Score) | `0x49c2f2` |
-| `Score1` | — | — | [no page](https://modenc.renegadeprojects.com/Score1) | `0x49c408` `0x49ca1b` |
-| `Score2` | — | — | [no page](https://modenc.renegadeprojects.com/Score2) | `0x49c422` `0x49ca34` |
-| `ScoreVolume` | — | — | [documented](https://modenc.renegadeprojects.com/ScoreVolume) | `0x5faa93` `0x5faedb` |
-| `ScreenHeight` | — | — | [documented](https://modenc.renegadeprojects.com/ScreenHeight) | `0x5fa8c9` `0x5fae67` `0x6bc128` |
-| `ScreenWidth` | — | — | [documented](https://modenc.renegadeprojects.com/ScreenWidth) | `0x5fa8b3` `0x5fae4d` `0x6bc108` |
-| `ScrollMethod` | — | — | [documented](https://modenc.renegadeprojects.com/ScrollMethod) | `0x5fa6f4` `0x5fad87` |
-| `ScrollRate` | — | — | [documented](https://modenc.renegadeprojects.com/ScrollRate) | `0x5fa71d` `0x5fada1` |
-| `Scrollbar` | — | — | [no page](https://modenc.renegadeprojects.com/Scrollbar) | `0x60e728` `0x61bcba` |
-| `SecondaryFirePixelOffset` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SecondaryFirePixelOffset) | `0x461326` |
-| `SecretUnit` | **rules** | read-site ±75b (via `SecretInfantry`) | [BuildingTypes](https://modenc.renegadeprojects.com/SecretUnit) | `0x460618` |
-| `Seed` | — | — | [documented](https://modenc.renegadeprojects.com/Seed) | `0x597872` `0x597b63` |
-| `SelectSound` | — | — | [no page](https://modenc.renegadeprojects.com/SelectSound) | `0x4f39a5` `0x4f39f1` |
-| `SelectVQ` | — | — | [no page](https://modenc.renegadeprojects.com/SelectVQ) | `0x4f33ae` |
-| `SendDelay` | — | — | [no page](https://modenc.renegadeprojects.com/SendDelay) | `0x560b85` `0x6981e8` |
-| `Serial` | — | — | [no page](https://modenc.renegadeprojects.com/Serial) | `0x5dc245` |
-| `SerialDefaults` | — | — | [no page](https://modenc.renegadeprojects.com/SerialDefaults) | `0x69849e` `0x6984ec` `0x698502` (+18) |
-| `Server` | — | — | [no page](https://modenc.renegadeprojects.com/Server) | `0x778829` `0x778bad` `0x77a1b0` |
-| `ShareBarrelData` | — | — | [VoxelAnims](https://modenc.renegadeprojects.com/ShareBarrelData) | `0x74b268` |
-| `ShareBodyData` | — | — | [VoxelAnims](https://modenc.renegadeprojects.com/ShareBodyData) | `0x74b240` |
-| `Shortcut` | — | — | [no page](https://modenc.renegadeprojects.com/Shortcut) | `0x4f3939` |
-| `ShowAll` | — | — | [documented](https://modenc.renegadeprojects.com/ShowAll) | `0x77df43` `0x77e05c` |
-| `ShowHidden` | — | — | [documented](https://modenc.renegadeprojects.com/ShowHidden) | `0x5fa840` `0x5fae20` |
-| `ShowOccupantPips` | **rules** | read-site ±26b (via `CanOccupyFire`) | [BuildingTypes](https://modenc.renegadeprojects.com/ShowOccupantPips) | `0x460106` |
-| `SideBar` | — | — | [no page](https://modenc.renegadeprojects.com/SideBar) | `0x7687f6` |
-| `SideBarSize` | — | — | [no page](https://modenc.renegadeprojects.com/SideBarSize) | `0x7683ab` |
-| `SideEx` | — | — | [documented](https://modenc.renegadeprojects.com/SideEx) | `0x69834c` `0x69918c` |
-| `SidebarCameoText` | — | — | [documented](https://modenc.renegadeprojects.com/SidebarCameoText) | `0x5fa7d7` `0x5fadeb` |
-| `Siege` | — | — | [no page](https://modenc.renegadeprojects.com/Siege) | `0x5d7da0` |
-| `Skirmish` | — | — | [no page](https://modenc.renegadeprojects.com/Skirmish) | `0x698441` `0x6991c5` |
-| `SnmpExtensionInit` | — | — | [no page](https://modenc.renegadeprojects.com/SnmpExtensionInit) | `0x795824` |
-| `SnmpExtensionQuery` | — | — | [no page](https://modenc.renegadeprojects.com/SnmpExtensionQuery) | `0x795831` |
-| `SnmpUtilMemAlloc` | — | — | [no page](https://modenc.renegadeprojects.com/SnmpUtilMemAlloc) | `0x79583e` |
-| `SnmpUtilMemFree` | — | — | [no page](https://modenc.renegadeprojects.com/SnmpUtilMemFree) | `0x79584b` |
-| `Socket` | — | — | [documented](https://modenc.renegadeprojects.com/Socket) | `0x5fac8d` `0x5faf5d` `0x6bc143` |
-| `SoundLatency` | — | — | [documented](https://modenc.renegadeprojects.com/SoundLatency) | `0x5fac60` `0x5faf23` |
-| `SoundList` | — | — | — | `0x751291` `0x7512aa` `0x7512d3` (+1) |
-| `SoundVolume` | — | — | [documented](https://modenc.renegadeprojects.com/SoundVolume) | `0x5fa9be` `0x5faea1` |
-| `SpawnDirection` | — | — | [documented](https://modenc.renegadeprojects.com/SpawnDirection) | `0x64446e` |
-| `SpecialAnimFourGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/SpecialAnimFourGarrisoned) | `0x463636` |
-| `SpecialAnimFourPowered` | **art** | read-site ±58b (via `SpecialAnimFourZAdjust`) | [no page](https://modenc.renegadeprojects.com/SpecialAnimFourPowered) | `0x46376d` |
-| `SpecialAnimFourPoweredEffect` | **art** | read-site ±69b (via `LowPower`) | [no page](https://modenc.renegadeprojects.com/SpecialAnimFourPoweredEffect) | `0x4637a7` |
-| `SpecialAnimFourPoweredLight` | **art** | read-site ±87b (via `SpecialAnimFourZAdjust`) | [no page](https://modenc.renegadeprojects.com/SpecialAnimFourPoweredLight) | `0x46378a` |
-| `SpecialAnimFourPoweredSpecial` | **art** | read-site ±40b (via `LowPower`) | [no page](https://modenc.renegadeprojects.com/SpecialAnimFourPoweredSpecial) | `0x4637c4` |
-| `SpecialAnimFourX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimFourX) | `0x4636f9` |
-| `SpecialAnimFourY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimFourY) | `0x463716` |
-| `SpecialAnimFourYSort` | **art** | read-site ±29b (via `SpecialAnimFourZAdjust`) | [no page](https://modenc.renegadeprojects.com/SpecialAnimFourYSort) | `0x463750` |
-| `SpecialAnimGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/SpecialAnimGarrisoned) | `0x462e2c` |
-| `SpecialAnimPoweredEffect` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimPoweredEffect) | `0x462f9d` |
-| `SpecialAnimPoweredSpecial` | — | — | [no page](https://modenc.renegadeprojects.com/SpecialAnimPoweredSpecial) | `0x462fba` |
-| `SpecialAnimThreeGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/SpecialAnimThreeGarrisoned) | `0x463388` |
-| `SpecialAnimThreePowered` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimThreePowered) | `0x4634bf` |
-| `SpecialAnimThreePoweredEffect` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimThreePoweredEffect) | `0x4634f9` |
-| `SpecialAnimThreePoweredLight` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimThreePoweredLight) | `0x4634dc` |
-| `SpecialAnimThreePoweredSpecial` | **art** | read-site ±40b (via `SpecialAnimFour`) | [no page](https://modenc.renegadeprojects.com/SpecialAnimThreePoweredSpecial) | `0x463516` |
-| `SpecialAnimThreeX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimThreeX) | `0x46344b` |
-| `SpecialAnimThreeY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimThreeY) | `0x463468` |
-| `SpecialAnimTwoGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/SpecialAnimTwoGarrisoned) | `0x4630da` |
-| `SpecialAnimTwoPowered` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimTwoPowered) | `0x463211` |
-| `SpecialAnimTwoPoweredEffect` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimTwoPoweredEffect) | `0x46324b` |
-| `SpecialAnimTwoPoweredLight` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimTwoPoweredLight) | `0x46322e` |
-| `SpecialAnimTwoPoweredSpecial` | — | — | [no page](https://modenc.renegadeprojects.com/SpecialAnimTwoPoweredSpecial) | `0x463268` |
-| `SpecialAnimTwoX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimTwoX) | `0x46319d` |
-| `SpecialAnimTwoY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimTwoY) | `0x4631ba` |
-| `SpecialAnimX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimX) | `0x462eef` |
-| `SpecialAnimY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimY) | `0x462f0c` |
-| `SpecialZOverlayZAdjust` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialZOverlayZAdjust) | `0x461389` |
-| `SpeedAircraftMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/SpeedAircraftMult) | `0x511c4b` |
-| `SpeedInfantryMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/SpeedInfantryMult) | `0x511c0d` |
-| `SpeedUnitsMult` | **rules** | ModEnc (documented) | [Countries](https://modenc.renegadeprojects.com/SpeedUnitsMult) | `0x511c2c` |
-| `SpotlightRadius` | **rules** | ModEnc (documented) | [General](https://modenc.renegadeprojects.com/SpotlightRadius) | `0x671809` |
-| `SprayAttack` | **rules** | ModEnc (documented) | [Technos](https://modenc.renegadeprojects.com/SprayAttack) | `0x714912` |
-| `Startup` | — | — | [no page](https://modenc.renegadeprojects.com/Startup) | `0x770603` |
-| `Status` | — | — | [no page](https://modenc.renegadeprojects.com/Status) | `0x77037d` |
-| `StretchMovies` | — | — | [documented](https://modenc.renegadeprojects.com/StretchMovies) | `0x5fa8fb` `0x5fae7f` |
-| `Strong` | **rules** | read-site ±63b (via `None`) | [no page](https://modenc.renegadeprojects.com/Strong) | `0x477616` |
-| `SuperAnimFourGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/SuperAnimFourGarrisoned) | `0x462b7e` |
-| `SuperAnimFourPoweredEffect` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimFourPoweredEffect) | `0x462cef` |
-| `SuperAnimFourPoweredLight` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimFourPoweredLight) | `0x462cd2` |
-| `SuperAnimFourPoweredSpecial` | **art** | read-site ±87b (via `SuperAnimFourPowered`) | [no page](https://modenc.renegadeprojects.com/SuperAnimFourPoweredSpecial) | `0x462d0c` |
-| `SuperAnimFourX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimFourX) | `0x462c41` |
-| `SuperAnimFourY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimFourY) | `0x462c5e` |
-| `SuperAnimGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/SuperAnimGarrisoned) | `0x462374` |
-| `SuperAnimPoweredEffect` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimPoweredEffect) | `0x4624e5` |
-| `SuperAnimPoweredLight` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimPoweredLight) | `0x4624c8` |
-| `SuperAnimPoweredSpecial` | **art** | read-site ±87b (via `SuperAnimPowered`) | [no page](https://modenc.renegadeprojects.com/SuperAnimPoweredSpecial) | `0x462502` |
-| `SuperAnimThreeGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/SuperAnimThreeGarrisoned) | `0x4628d0` |
-| `SuperAnimThreePoweredLight` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimThreePoweredLight) | `0x462a24` |
-| `SuperAnimThreePoweredSpecial` | **art** | read-site ±29b (via `SuperAnimThreePoweredEffect`) | [no page](https://modenc.renegadeprojects.com/SuperAnimThreePoweredSpecial) | `0x462a5e` |
-| `SuperAnimThreeX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimThreeX) | `0x462993` |
-| `SuperAnimThreeY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimThreeY) | `0x4629b0` |
-| `SuperAnimTwoGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/SuperAnimTwoGarrisoned) | `0x462622` |
-| `SuperAnimTwoPoweredEffect` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimTwoPoweredEffect) | `0x462793` |
-| `SuperAnimTwoPoweredLight` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimTwoPoweredLight) | `0x462776` |
-| `SuperAnimTwoPoweredSpecial` | **art** | read-site ±87b (via `SuperAnimTwoPowered`) | [no page](https://modenc.renegadeprojects.com/SuperAnimTwoPoweredSpecial) | `0x4627b0` |
-| `SuperAnimTwoX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimTwoX) | `0x4626e5` |
-| `SuperAnimTwoY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimTwoY) | `0x462702` |
-| `SuperAnimX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimX) | `0x462437` |
-| `SuperAnimY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimY) | `0x462454` |
-| `SuperLowPowerGarrisoned` | — | — | [no page](https://modenc.renegadeprojects.com/SuperLowPowerGarrisoned) | `0x463b92` |
-| `SuperLowPowerPoweredEffect` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperLowPowerPoweredEffect) | `0x463d03` |
-| `SuperLowPowerPoweredLight` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperLowPowerPoweredLight) | `0x463ce6` |
-| `SuperLowPowerPoweredSpecial` | **art** | read-site ±87b (via `SuperLowPowerPowered`) | [no page](https://modenc.renegadeprojects.com/SuperLowPowerPoweredSpecial) | `0x463d20` |
-| `SuperLowPowerX` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperLowPowerX) | `0x463c55` |
-| `SuperLowPowerY` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperLowPowerY) | `0x463c72` |
-| `SuperLowPowerYSort` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperLowPowerYSort) | `0x463cac` |
-| `SuperLowPowerZAdjust` | **art** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/SuperLowPowerZAdjust) | `0x463c8f` |
-| `SuperWeaponsAllowed` | **ra2/rules** | ModEnc (documented) | [LAN, MultiplayerDialogSettings, Skirmish, WonlinePref](https://modenc.renegadeprojects.com/SuperWeaponsAllowed) | `0x6721a7` `0x697fd3` `0x699016` |
-| `Supress` | **rules** | ModEnc (documented) | [documented](https://modenc.renegadeprojects.com/Supress) | `0x7722a7` |
-| `SyncBug` | — | — | [no page](https://modenc.renegadeprojects.com/SyncBug) | `0x698a41` `0x698a6a` `0x698b7b` (+3) |
-| `TalkBubbleTime` | **rules** | ModEnc (documented) | [General](https://modenc.renegadeprojects.com/TalkBubbleTime) | `0x671e69` |
-| `Target` | — | — | [no page](https://modenc.renegadeprojects.com/Target) | `0x698bb5` `0x76ccfa` |
-| `TargetDistanceCoefficient` | **rules** | ModEnc (documented) ⚠ read-site said `art` | [AircraftTypes, BuildingTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/TargetDistanceCoefficient) | `0x71570c` |
-| `TargetDividingFrame` | — | — | [no page](https://modenc.renegadeprojects.com/TargetDividingFrame) | `0x76cd4e` |
-| `TargetEffectivenessCoefficient` | **rules** | ModEnc (documented) | [AircraftTypes, BuildingTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/TargetEffectivenessCoefficient) | `0x7155d8` |
-| `TargetPalette` | — | — | [no page](https://modenc.renegadeprojects.com/TargetPalette) | `0x76cca8` |
-| `TargetSpecialThreatCoefficient` | **rules** | ModEnc (documented) | [AircraftTypes, BuildingTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/TargetSpecialThreatCoefficient) | `0x71563f` |
-| `TargetStrengthCoefficient` | **rules** | ModEnc (documented) | [AircraftTypes, BuildingTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/TargetStrengthCoefficient) | `0x7156a6` |
-| `TargetZoom` | — | — | [no page](https://modenc.renegadeprojects.com/TargetZoom) | `0x76d93b` |
-| `Territory` | — | — | [no page](https://modenc.renegadeprojects.com/Territory) | `0x7703a4` |
-| `TerritorySelect` | — | — | [no page](https://modenc.renegadeprojects.com/TerritorySelect) | `0x770722` |
-| `Themes` | — | — | — | `0x72059d` `0x7205ca` `0x7205d7` |
-| `Thief` | **rules** | ModEnc (documented) | [InfantryTypes](https://modenc.renegadeprojects.com/Thief) | `0x5245bf` |
-| `TibPass99` | — | — | [no page](https://modenc.renegadeprojects.com/TibPass99) | `0x788be3` `0x79765d` |
-| `TibSun` | — | — | [no page](https://modenc.renegadeprojects.com/TibSun) | `0x788be8` `0x797662` |
-| `TiberiumLayout` | — | — | [documented](https://modenc.renegadeprojects.com/TiberiumLayout) | `0x59794a` `0x597c4d` |
-| `Time` | — | — | — | `0x49c436` `0x49c96c` `0x5978ba` (+1) |
-| `TitleRect` | — | — | [no page](https://modenc.renegadeprojects.com/TitleRect) | `0x768547` |
-| `ToolTips` | — | — | [documented](https://modenc.renegadeprojects.com/ToolTips) | `0x5fa87c` `0x5fae33` |
-| `TooltipRect` | — | — | [no page](https://modenc.renegadeprojects.com/TooltipRect) | `0x7684e8` |
-| `TurretAnimDamaged` | — | — | [documented](https://modenc.renegadeprojects.com/TurretAnimDamaged) | `0x4644b4` |
-| `TurretAnimGarrisoned` | **rules** | ModEnc (documented) | [BuildingTypes](https://modenc.renegadeprojects.com/TurretAnimGarrisoned) | `0x46454b` |
-| `TurretAnimYSort` | — | — | [documented](https://modenc.renegadeprojects.com/TurretAnimYSort) | `0x464625` |
-| `TurretCompressFrames` | — | — | [documented](https://modenc.renegadeprojects.com/TurretCompressFrames) | `0x7152bc` |
-| `TurretHoldFrames` | — | — | [documented](https://modenc.renegadeprojects.com/TurretHoldFrames) | `0x7152e0` |
-| `TurretRecoverFrames` | — | — | [documented](https://modenc.renegadeprojects.com/TurretRecoverFrames) | `0x715304` |
-| `Typelib` | — | — | [no page](https://modenc.renegadeprojects.com/Typelib) | `0x6bb8a6` |
-| `Unholy` | — | — | [no page](https://modenc.renegadeprojects.com/Unholy) | `0x5d7dcc` |
-| `UnitActionLines` | — | — | [documented](https://modenc.renegadeprojects.com/UnitActionLines) | `0x5fa80e` `0x5fae08` |
-| `UnitEnterSound` | — | — | [documented](https://modenc.renegadeprojects.com/UnitEnterSound) | `0x46084c` |
-| `UnitExitSound` | — | — | [documented](https://modenc.renegadeprojects.com/UnitExitSound) | `0x460816` |
-| `UpdateDate` | — | — | [no page](https://modenc.renegadeprojects.com/UpdateDate) | `0x778934` `0x778e02` `0x77a418` |
-| `UpdateTime` | — | — | [no page](https://modenc.renegadeprojects.com/UpdateTime) | `0x7788ea` `0x778daf` `0x77a3c7` |
-| `UrbanPresence` | — | — | [documented](https://modenc.renegadeprojects.com/UrbanPresence) | `0x59797a` `0x597c82` |
-| `Vegetation` | — | — | [documented](https://modenc.renegadeprojects.com/Vegetation) | `0x597962` `0x597c67` |
-| `VeinGrowthRate` | — | — | [no page](https://modenc.renegadeprojects.com/VeinGrowthRate) | `0x66b4fd` |
-| `VeinholeMonsterStrength` | **rules** | ModEnc (documented) | [AudioVisual](https://modenc.renegadeprojects.com/VeinholeMonsterStrength) | `0x671c93` |
-| `VersionIndependentProgID` | — | — | [no page](https://modenc.renegadeprojects.com/VersionIndependentProgID) | `0x6bb834` |
-| `VeteranAircraft` | **rules** | ModEnc (documented) | [Countries, Houses](https://modenc.renegadeprojects.com/VeteranAircraft) | `0x511f68` |
-| `VeteranInfantry` | **rules** | ModEnc (documented) | [Countries, Houses](https://modenc.renegadeprojects.com/VeteranInfantry) | `0x511d25` |
-| `VeteranUnits` | **rules** | ModEnc (documented) | [Countries, Houses](https://modenc.renegadeprojects.com/VeteranUnits) | `0x511e32` |
-| `Video` | — | — | [no page](https://modenc.renegadeprojects.com/Video) | `0x5fa8b8` `0x5fa8ce` `0x5fa900` (+10) |
-| `VideoBackBuffer` | — | — | [documented](https://modenc.renegadeprojects.com/VideoBackBuffer) | `0x6bc0cd` |
-| `VisibleLoad` | **art** | ModEnc (documented) | [VehicleTypes](https://modenc.renegadeprojects.com/VisibleLoad) | `0x71590d` |
-| `VoiceComment` | **rules** | ModEnc (documented) | [InfantryTypes](https://modenc.renegadeprojects.com/VoiceComment) | `0x524193` |
-| `VoiceFalling` | **rules** | ModEnc (documented) | [AircraftTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/VoiceFalling) | `0x712fec` |
-| `VoiceOvers` | — | — | [no page](https://modenc.renegadeprojects.com/VoiceOvers) | `0x76c4b1` |
-| `VoicePrimaryEliteWeaponAttack` | **rules** | ModEnc (documented) | [Technoes](https://modenc.renegadeprojects.com/VoicePrimaryEliteWeaponAttack) | `0x7136d0` |
-| `VoicePrimaryWeaponAttack` | **rules** | ModEnc (documented) | [Technoes](https://modenc.renegadeprojects.com/VoicePrimaryWeaponAttack) | `0x71368e` |
-| `VoiceSecondaryEliteWeaponAttack` | **rules** | ModEnc (documented) | [Technoes](https://modenc.renegadeprojects.com/VoiceSecondaryEliteWeaponAttack) | `0x713742` |
-| `VoiceSinking` | **rules** | ModEnc (documented) | [TechnoTypes](https://modenc.renegadeprojects.com/VoiceSinking) | `0x713064` |
-| `VoiceUndeploy` | **rules** | ModEnc (documented) | [InfantryTypes](https://modenc.renegadeprojects.com/VoiceUndeploy) | `0x7137ba` |
-| `VoiceVolume` | — | — | [documented](https://modenc.renegadeprojects.com/VoiceVolume) | `0x5faa1e` `0x5faebe` |
-| `VoxelAnims` | — | — | — | `0x67292a` `0x67294b` `0x672958` |
-| `VoxelIndex` | **rules** | ModEnc (documented) | [VoxelAnims](https://modenc.renegadeprojects.com/VoxelIndex) | `0x74b284` |
-| `WDTSideFail` | — | — | [no page](https://modenc.renegadeprojects.com/WDTSideFail) | `0x7a177a` |
-| `WOLLimitResolution` | — | — | [documented](https://modenc.renegadeprojects.com/WOLLimitResolution) | `0x698263` `0x6990dd` |
-| `WOLScrollText` | — | — | [documented](https://modenc.renegadeprojects.com/WOLScrollText) | `0x6983ae` `0x6994a6` |
-| `WOLTaunts` | — | — | [documented](https://modenc.renegadeprojects.com/WOLTaunts) | `0x69836d` `0x699470` |
-| `WOnline` | — | — | [no page](https://modenc.renegadeprojects.com/WOnline) | `0x77ded7` `0x77def7` `0x77df12` (+15) |
-| `WallOwner` | **rules** | ModEnc (documented) | [Countries, Houses](https://modenc.renegadeprojects.com/WallOwner) | `0x511a9c` |
-| `WantsExtraSpace` | **rules** | read-site ±104b (via `PoweredSpecial`) | [documented](https://modenc.renegadeprojects.com/WantsExtraSpace) | `0x46006a` |
-| `Warheads` | — | — | — | `0x668d86` `0x668da7` `0x668db4` (+3) |
-| `Warpable` | **rules** | ModEnc (documented) | [Technos](https://modenc.renegadeprojects.com/Warpable) | `0x714f65` |
-| `Water` | — | — | — | `0x4acf5b` |
-| `WaterAmount` | — | — | [documented](https://modenc.renegadeprojects.com/WaterAmount) | `0x59791a` `0x597c19` |
-| `WinningThreshold` | — | — | [no page](https://modenc.renegadeprojects.com/WinningThreshold) | `0x76c987` |
-| `Wins` | — | — | [no page](https://modenc.renegadeprojects.com/Wins) | `0x778cec` `0x77a2f7` |
-| `Wipe` | — | — | [no page](https://modenc.renegadeprojects.com/Wipe) | `0x68d0e2` `0x68d44a` |
-| `WonlinePref` | — | — | [no page](https://modenc.renegadeprojects.com/WonlinePref) | `0x698473` `0x6991ef` |
-| `Working` | — | — | [no page](https://modenc.renegadeprojects.com/Working) | `0x7a183a` |
-| `ZFudgeCliff` | **rules** | ModEnc (documented) | [AircraftTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/ZFudgeCliff) | `0x715423` |
-| `ZoomInFactor` | **rules** | ModEnc (documented) | [General](https://modenc.renegadeprojects.com/ZoomInFactor) | `0x66ead0` |
-| `ZoomingTarget` | — | — | [no page](https://modenc.renegadeprojects.com/ZoomingTarget) | `0x76cc30` |
+| String | ModEnc domain | read-site domain | ≟ | ModEnc page | Read site(s) |
+|---|---|---|---|---|---|
+| `AIUseTurbineUpgradeProbability` | rules | — |  | [General — *ra2-obsolete*](https://modenc.renegadeprojects.com/AIUseTurbineUpgradeProbability) | `0x66fe19` |
+| `Accessibility` | — | — |  | [RandomMap](https://modenc.renegadeprojects.com/Accessibility) | `0x597902` `0x597bff` |
+| `ActiveAnimFourGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/ActiveAnimFourGarrisoned) | `0x4620c6` |
+| `ActiveAnimFourPowered` | art | — |  | [documented](https://modenc.renegadeprojects.com/ActiveAnimFourPowered) | `0x4621fd` |
+| `ActiveAnimFourPoweredEffect` | art | — |  | [documented](https://modenc.renegadeprojects.com/ActiveAnimFourPoweredEffect) | `0x462237` |
+| `ActiveAnimFourPoweredLight` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimFourPoweredLight) | `0x46221a` |
+| `ActiveAnimFourPoweredSpecial` | — | — |  | [no page](https://modenc.renegadeprojects.com/ActiveAnimFourPoweredSpecial) | `0x462254` |
+| `ActiveAnimFourX` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimFourX) | `0x462189` |
+| `ActiveAnimFourY` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimFourY) | `0x4621a6` |
+| `ActiveAnimPoweredEffect` | art | art (±29b via `ActiveAnimPoweredSpecial`) | ✓ | [documented](https://modenc.renegadeprojects.com/ActiveAnimPoweredEffect) | `0x461a2d` |
+| `ActiveAnimThreeGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/ActiveAnimThreeGarrisoned) | `0x461e18` |
+| `ActiveAnimThreePoweredEffect` | art | — |  | [documented](https://modenc.renegadeprojects.com/ActiveAnimThreePoweredEffect) | `0x461f89` |
+| `ActiveAnimThreePoweredSpecial` | — | — |  | [no page](https://modenc.renegadeprojects.com/ActiveAnimThreePoweredSpecial) | `0x461fa6` |
+| `ActiveAnimThreeX` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimThreeX) | `0x461edb` |
+| `ActiveAnimThreeY` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimThreeY) | `0x461ef8` |
+| `ActiveAnimTwoGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/ActiveAnimTwoGarrisoned) | `0x461b6a` |
+| `ActiveAnimTwoPoweredEffect` | art | — |  | [documented](https://modenc.renegadeprojects.com/ActiveAnimTwoPoweredEffect) | `0x461cdb` |
+| `ActiveAnimTwoPoweredSpecial` | — | — |  | [no page](https://modenc.renegadeprojects.com/ActiveAnimTwoPoweredSpecial) | `0x461cf8` |
+| `ActiveAnimTwoX` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimTwoX) | `0x461c2d` |
+| `ActiveAnimTwoY` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/ActiveAnimTwoY) | `0x461c4a` |
+| `ActiveAnimX` | art | — |  | [documented](https://modenc.renegadeprojects.com/ActiveAnimX) | `0x46197f` |
+| `AddMatchBuddies` | — | — |  | [no page](https://modenc.renegadeprojects.com/AddMatchBuddies) | `0x779a01` `0x779b0f` |
+| `AllowFind` | — | — |  | [documented](https://modenc.renegadeprojects.com/AllowFind) | `0x77def2` `0x77e006` |
+| `AllowHiResModes` | ra2/sun | — |  | [documented](https://modenc.renegadeprojects.com/AllowHiResModes) | `0x5fa942` |
+| `AllowModeToggle` | — | — |  | [documented](https://modenc.renegadeprojects.com/AllowModeToggle) | `0x5fa981` `0x6bc0e8` |
+| `AllowPage` | — | — |  | [documented](https://modenc.renegadeprojects.com/AllowPage) | `0x77ded2` `0x77dfee` |
+| `AllowVRAMSidebar` | — | — |  | [documented](https://modenc.renegadeprojects.com/AllowVRAMSidebar) | `0x5fa999` |
+| `AllowableUnitMaximums` | — | — |  | [Basic](https://modenc.renegadeprojects.com/AllowableUnitMaximums) | `0x68a4ad` `0x68b241` |
+| `AllowableUnits` | — | — |  | [Basic](https://modenc.renegadeprojects.com/AllowableUnits) | `0x68a352` `0x68b227` |
+| `AnimAux1` | art | — |  | [documented](https://modenc.renegadeprojects.com/AnimAux1) | `0x461706` |
+| `AnimAux2` | art | — |  | [documented](https://modenc.renegadeprojects.com/AnimAux2) | `0x461780` |
+| `AnimIdle` | art | — |  | [documented](https://modenc.renegadeprojects.com/AnimIdle) | `0x461612` |
+| `Animations` | — | — |  | — | `0x6728ba` `0x6728db` `0x6728e8` |
+| `ArmorAircraftMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/ArmorAircraftMult) | `0x511b15` |
+| `ArmorBuildingsMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/ArmorBuildingsMult) | `0x511b34` |
+| `ArmorDefensesMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/ArmorDefensesMult) | `0x511b53` |
+| `ArmorInfantryMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/ArmorInfantryMult) | `0x511ad7` |
+| `ArmorUnitsMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/ArmorUnitsMult) | `0x511af6` |
+| `Ask` | — | — |  | [no page](https://modenc.renegadeprojects.com/Ask) | `0x7797f6` `0x779904` `0x779a06` (+1) |
+| `AttachedSystem` | rules | — |  | [Projectiles, VoxelAnims](https://modenc.renegadeprojects.com/AttachedSystem) | `0x74b45e` |
+| `AttachedTo` | — | — |  | [no page](https://modenc.renegadeprojects.com/AttachedTo) | `0x5bba7d` |
+| `AttackFriendlies` | — | — |  | [Technoes](https://modenc.renegadeprojects.com/AttackFriendlies) | `0x71522e` |
+| `Audio` | — | — |  | [no page](https://modenc.renegadeprojects.com/Audio) | `0x5fa9c3` `0x5faa23` `0x5faa98` (+11) |
+| `AuthenticAMD` | — | — |  | [no page](https://modenc.renegadeprojects.com/AuthenticAMD) | `0x4e61da` |
+| `AutoLogin` | — | — |  | [no page](https://modenc.renegadeprojects.com/AutoLogin) | `0x7797f1` `0x7798ff` `0x779c0d` (+1) |
+| `AutoScroll` | — | — |  | [documented](https://modenc.renegadeprojects.com/AutoScroll) | `0x5fa741` `0x5fadbe` |
+| `Back` | — | — |  | [no page](https://modenc.renegadeprojects.com/Back) | `0x68d37c` `0x68fdd9` |
+| `BackButton` | — | — |  | [no page](https://modenc.renegadeprojects.com/BackButton) | `0x768abd` |
+| `BackButtonDepressedFrame` | — | — |  | [no page](https://modenc.renegadeprojects.com/BackButtonDepressedFrame) | `0x768a80` |
+| `BackButtonHighlighted` | — | — |  | [no page](https://modenc.renegadeprojects.com/BackButtonHighlighted) | `0x768b60` |
+| `BackButtonNormalFrame` | — | — |  | [no page](https://modenc.renegadeprojects.com/BackButtonNormalFrame) | `0x768a4e` |
+| `BackButtonOrigin` | — | — |  | [no page](https://modenc.renegadeprojects.com/BackButtonOrigin) | `0x76897b` |
+| `BackButtonPalette` | — | — |  | [no page](https://modenc.renegadeprojects.com/BackButtonPalette) | `0x7689fd` |
+| `BackButtonRectangle` | — | — |  | [no page](https://modenc.renegadeprojects.com/BackButtonRectangle) | `0x768932` |
+| `BackTextRect` | — | — |  | [no page](https://modenc.renegadeprojects.com/BackTextRect) | `0x7685a6` |
+| `BarGraph` | — | — |  | [no page](https://modenc.renegadeprojects.com/BarGraph) | `0x68d29e` `0x68f608` |
+| `BarrelStartPitch` | art | rules (±32b via `DeployFacing`) | ⚠ | [documented](https://modenc.renegadeprojects.com/BarrelStartPitch) | `0x460c56` |
+| `Battle` | — | — |  | [no page](https://modenc.renegadeprojects.com/Battle) | `0x5d7d3c` |
+| `Battles` | — | — |  | [no page](https://modenc.renegadeprojects.com/Battles) | `0x46ce17` `0x46ce41` `0x46ce50` |
+| `Baud` | — | — |  | [documented](https://modenc.renegadeprojects.com/Baud) | `0x698519` `0x699295` |
+| `BestBox` | — | — |  | [no page](https://modenc.renegadeprojects.com/BestBox) | `0x68d1c0` `0x68e272` |
+| `BlueTint` | — | — |  | [no page](https://modenc.renegadeprojects.com/BlueTint) | `0x5998e5` |
+| `BounceAnim` | art/rules | — |  | [Animations, VoxelAnims](https://modenc.renegadeprojects.com/BounceAnim) | `0x42840d` `0x74b330` |
+| `BuildOffAlly` | rules | — |  | [MultiplayerDialogSettings](https://modenc.renegadeprojects.com/BuildOffAlly) | `0x6721c7` `0x697ff0` `0x699025` |
+| `BuildTimeAircraftMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/BuildTimeAircraftMult) | `0x511ca8` |
+| `BuildTimeBuildingsMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/BuildTimeBuildingsMult) | `0x511cc5` |
+| `BuildTimeDefensesMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/BuildTimeDefensesMult) | `0x511ce6` |
+| `BuildTimeInfantryMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/BuildTimeInfantryMult) | `0x511c6a` |
+| `BuildTimeUnitsMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/BuildTimeUnitsMult) | `0x511c89` |
+| `BuildingAbandonedSound` | rules | — |  | [AudioVisual](https://modenc.renegadeprojects.com/BuildingAbandonedSound) | `0x669c38` |
+| `BuildupSound` | rules | rules (±67b via `DefensesCostBonus`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/BuildupSound) | `0x460750` |
+| `Built1` | — | — |  | [no page](https://modenc.renegadeprojects.com/Built1) | `0x49c3ac` `0x49c9b7` |
+| `Built2` | — | — |  | [no page](https://modenc.renegadeprojects.com/Built2) | `0x49c3c3` `0x49c9d0` |
+| `Bummer` | — | — |  | [no page](https://modenc.renegadeprojects.com/Bummer) | `0x4c84a0` |
+| `CLDisableRed` | rules | — |  | [Warheads](https://modenc.renegadeprojects.com/CLDisableRed) | `0x75d619` |
+| `CallWaitString` | — | — |  | [documented](https://modenc.renegadeprojects.com/CallWaitString) | `0x69861d` `0x699221` |
+| `CallWaitStringIndex` | — | — |  | [documented](https://modenc.renegadeprojects.com/CallWaitStringIndex) | `0x6985ef` `0x699239` |
+| `Camera` | rules | rules (±43b via `OpenToppedAnim`) | ✓ | [Weapons](https://modenc.renegadeprojects.com/Camera) | `0x772611` |
+| `CampDifficulty` | — | — |  | [documented](https://modenc.renegadeprojects.com/CampDifficulty) | `0x5fa6b1` `0x5fad6d` |
+| `CampaignID` | — | — |  | [no page](https://modenc.renegadeprojects.com/CampaignID) | `0x764ac0` `0x764e15` `0x765121` (+1) |
+| `CampaignType` | — | — |  | [no page](https://modenc.renegadeprojects.com/CampaignType) | `0x49c30a` `0x49c850` |
+| `Campaigns` | — | — |  | [no page](https://modenc.renegadeprojects.com/Campaigns) | `0x49db6c` `0x49dc1e` `0x49dc42` |
+| `CanBeach` | rules | — |  | [VehicleTypes — *ra2-obsolete*](https://modenc.renegadeprojects.com/CanBeach) | `0x747855` |
+| `CanRecalcApproachTarget` | — | rules (±26b via `RequiresStolenThirdTech`) |  | [documented](https://modenc.renegadeprojects.com/CanRecalcApproachTarget) | `0x7144c1` |
+| `Canceled` | — | — |  | [no page](https://modenc.renegadeprojects.com/Canceled) | `0x76ceab` |
+| `Cell` | — | — |  | — | `0x698be3` |
+| `CheckHeap` | — | — |  | [no page](https://modenc.renegadeprojects.com/CheckHeap) | `0x69823c` |
+| `CivEvac` | — | — |  | [Basic](https://modenc.renegadeprojects.com/CivEvac) | `0x68a63f` `0x68ad98` |
+| `Class` | — | — |  | [no page](https://modenc.renegadeprojects.com/Class) | `0x5bb8a3` |
+| `Clear` | — | — |  | — | `0x4acf36` |
+| `ClearAllWeapons` | rules | — |  | [Technos](https://modenc.renegadeprojects.com/ClearAllWeapons) | `0x71289f` |
+| `CloakStop` | rules | — |  | [AircraftTypes, InfantryTypes, VehicleTypes — *ra2-obsolete*](https://modenc.renegadeprojects.com/CloakStop) | `0x713116` |
+| `Color1` | — | — |  | [no page](https://modenc.renegadeprojects.com/Color1) | `0x49c337` `0x49c8eb` |
+| `Color2` | — | — |  | [no page](https://modenc.renegadeprojects.com/Color2) | `0x49c367` `0x49c953` |
+| `ColorEx` | — | — |  | [documented](https://modenc.renegadeprojects.com/ColorEx) | `0x69830a` `0x699154` |
+| `ComboDropWin` | — | — |  | [no page](https://modenc.renegadeprojects.com/ComboDropWin) | `0x6181fe` |
+| `Community` | — | — |  | [no page](https://modenc.renegadeprojects.com/Community) | `0x79839c` `0x7987c7` `0x798ce9` |
+| `Compression` | — | — |  | [documented](https://modenc.renegadeprojects.com/Compression) | `0x698535` `0x6992ec` |
+| `Computer` | — | — |  | [no page](https://modenc.renegadeprojects.com/Computer) | `0x50a628` `0x64ca27` `0x688225` |
+| `ConditionRedSparkingProbability` | rules | — |  | [General](https://modenc.renegadeprojects.com/ConditionRedSparkingProbability) | `0x6718c5` |
+| `ConditionYellowSparkingProbability` | rules | — |  | [General](https://modenc.renegadeprojects.com/ConditionYellowSparkingProbability) | `0x67189e` |
+| `ConflictSelected` | — | — |  | [no page](https://modenc.renegadeprojects.com/ConflictSelected) | `0x76d2e2` |
+| `Connected` | — | — |  | [no page](https://modenc.renegadeprojects.com/Connected) | `0x5f300b` |
+| `Cooperative` | — | — |  | [no page](https://modenc.renegadeprojects.com/Cooperative) | `0x5d7e24` |
+| `Coord` | — | — |  | [no page](https://modenc.renegadeprojects.com/Coord) | `0x698b76` |
+| `CostAircraftMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/CostAircraftMult) | `0x511bb0` |
+| `CostBuildingsMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/CostBuildingsMult) | `0x511bcf` |
+| `CostDefensesMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/CostDefensesMult) | `0x511bee` |
+| `CostInfantryMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/CostInfantryMult) | `0x511b72` |
+| `CratesAppear` | — | — |  | [documented](https://modenc.renegadeprojects.com/CratesAppear) | `0x698029` `0x699049` |
+| `CurVer` | — | — |  | [no page](https://modenc.renegadeprojects.com/CurVer) | `0x6bb5c2` |
+| `CurrentMap` | — | — |  | [no page](https://modenc.renegadeprojects.com/CurrentMap) | `0x49c2de` `0x49c837` `0x49d5b0` |
+| `CustomRotor` | art | rules (±125b via `FlyBy`) | ⚠ | [AircraftTypes](https://modenc.renegadeprojects.com/CustomRotor) | `0x41ccde` |
+| `CyrixInstead` | — | — |  | [no page](https://modenc.renegadeprojects.com/CyrixInstead) | `0x4e61fa` |
+| `DamSmkOffScrnRel` | rules | rules (±74b via `RefinerySmokeOffsetOne`) | ✓ | [TechnoTypes](https://modenc.renegadeprojects.com/DamSmkOffScrnRel) | `0x713e49` |
+| `DamageReducesReadiness` | — | rules (±59b via `BerserkFriendly`) |  | [Technos](https://modenc.renegadeprojects.com/DamageReducesReadiness) | `0x7148bf` |
+| `DeathAnims` | rules | — |  | [InfantryTypes](https://modenc.renegadeprojects.com/DeathAnims) | `0x5242e1` |
+| `DefaultChronoSound` | — | — |  | [documented](https://modenc.renegadeprojects.com/DefaultChronoSound) | `0x669693` |
+| `DefaultPalette` | — | — |  | [no page](https://modenc.renegadeprojects.com/DefaultPalette) | `0x768c9f` |
+| `DefaultPersona` | — | — |  | [no page](https://modenc.renegadeprojects.com/DefaultPersona) | `0x779c1b` `0x779d6c` `0x779e9b` (+1) |
+| `Defaults` | — | — |  | [no page](https://modenc.renegadeprojects.com/Defaults) | `0x7510fb` `0x751139` `0x75115c` (+5) |
+| `Degenerates` | rules | — |  | [documented](https://modenc.renegadeprojects.com/Degenerates) | `0x46c157` |
+| `DeployFireWeapon` | rules | rules (±52b via `DeployToLand`) | ✓ | [InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/DeployFireWeapon) | `0x7147d5` |
+| `DescriptionText` | — | — |  | [no page](https://modenc.renegadeprojects.com/DescriptionText) | `0x69a4ec` `0x69a517` |
+| `DestNet` | — | — |  | [no page](https://modenc.renegadeprojects.com/DestNet) | `0x5faccb` `0x5faf8f` `0x6bc196` |
+| `DestroyParticleSystems` | rules | — |  | [Technoes](https://modenc.renegadeprojects.com/DestroyParticleSystems) | `0x713d2c` |
+| `DestroySmokeOffset` | rules | rules (±49b via `RefinerySmokeOffsetOne`) | ✓ | [Technoes](https://modenc.renegadeprojects.com/DestroySmokeOffset) | `0x713e62` |
+| `DetectionDistance` | rules | rules (±30b via `HarvestRate`) | ✓ | [InfantryTypes — *ra2-obsolete*](https://modenc.renegadeprojects.com/DetectionDistance) | `0x524505` |
+| `DialMethod` | — | — |  | [documented](https://modenc.renegadeprojects.com/DialMethod) | `0x698580` `0x69927d` |
+| `DialogList` | — | — |  | — | `0x75300c` `0x753029` `0x753059` (+1) |
+| `Difficult` | — | — |  | — | `0x668f19` `0x67452c` |
+| `Difficulty` | ra2/sun | — |  | [Options](https://modenc.renegadeprojects.com/Difficulty) | `0x5fa669` `0x5fad53` |
+| `DirectRocker` | rules | — |  | [documented](https://modenc.renegadeprojects.com/DirectRocker) | `0x75d5cb` |
+| `Disableable` | — | — |  | [documented](https://modenc.renegadeprojects.com/Disableable) | `0x714bc7` |
+| `Disconnects` | — | — |  | [no page](https://modenc.renegadeprojects.com/Disconnects) | `0x778d4c` `0x77a355` |
+| `DisplayAsian` | — | — |  | [documented](https://modenc.renegadeprojects.com/DisplayAsian) | `0x77df5e` `0x77e07e` |
+| `DisplayBuddies` | — | — |  | [no page](https://modenc.renegadeprojects.com/DisplayBuddies) | `0x77df94` `0x77e0b0` |
+| `DisplayClan` | — | — |  | [no page](https://modenc.renegadeprojects.com/DisplayClan) | `0x77dfaf` `0x77e0d0` |
+| `DisplayLatin` | — | — |  | [documented](https://modenc.renegadeprojects.com/DisplayLatin) | `0x77df79` `0x77e09a` |
+| `DistributedWeaponFire` | art/rules | — |  | [*ra2-obsolete*](https://modenc.renegadeprojects.com/DistributedWeaponFire) | `0x772711` |
+| `DllGetVersion` | — | — |  | [no page](https://modenc.renegadeprojects.com/DllGetVersion) | `0x4aece4` |
+| `DllRegisterServer` | — | — |  | [no page](https://modenc.renegadeprojects.com/DllRegisterServer) | `0x6bc38b` |
+| `DominatorAmbient` | — | — |  | [Lighting](https://modenc.renegadeprojects.com/DominatorAmbient) | `0x68ab17` `0x68b7b0` |
+| `DominatorAmbientChangeRate` | — | — |  | [Lighting](https://modenc.renegadeprojects.com/DominatorAmbientChangeRate) | `0x68ac73` `0x68b882` |
+| `DominatorBlue` | — | — |  | [Lighting](https://modenc.renegadeprojects.com/DominatorBlue) | `0x68abc5` `0x68b819` |
+| `DominatorGreen` | — | — |  | [Lighting](https://modenc.renegadeprojects.com/DominatorGreen) | `0x68ab8b` `0x68b7f6` |
+| `DominatorGround` | — | — |  | [Lighting](https://modenc.renegadeprojects.com/DominatorGround) | `0x68abff` `0x68b83c` |
+| `DominatorLevel` | — | — |  | [Lighting](https://modenc.renegadeprojects.com/DominatorLevel) | `0x68ac39` `0x68b85f` |
+| `DominatorRed` | — | — |  | [Lighting](https://modenc.renegadeprojects.com/DominatorRed) | `0x68ab51` `0x68b7d3` |
+| `DoubleOwned` | rules | — |  | [Technoes](https://modenc.renegadeprojects.com/DoubleOwned) | `0x712291` |
+| `DownReport` | rules | — |  | [Weapons](https://modenc.renegadeprojects.com/DownReport) | `0x7723f8` |
+| `Draw` | — | — |  | [no page](https://modenc.renegadeprojects.com/Draw) | `0x7705c6` `0x770ed3` |
+| `DrawBoltAsLaser` | — | rules (±126b via `IsMagBeam`) |  | [documented](https://modenc.renegadeprojects.com/DrawBoltAsLaser) | `0x772872` |
+| `Easy` | — | coop (±40b via `CampaignLoadScreenPallet`) |  | — | `0x49dd39` `0x668ef5` `0x674508` |
+| `Efficiency` | — | — |  | [no page](https://modenc.renegadeprojects.com/Efficiency) | `0x68d22f` `0x68d55c` |
+| `ElitePBarrelLength` | art | art (±72b via `EliteSecondaryFireFLH`) | ✓ | [BuildingTypes, VehicleTypes](https://modenc.renegadeprojects.com/ElitePBarrelLength) | `0x715ed8` |
+| `ElitePBarrelThickness` | — | art (±36b via `EliteSecondaryFireFLH`) |  | [no page](https://modenc.renegadeprojects.com/ElitePBarrelThickness) | `0x715efc` |
+| `EliteSBarrelLength` | art | art (±61b via `EliteSecondaryFireFLH`) | ✓ | [BuildingTypes, VehicleTypes](https://modenc.renegadeprojects.com/EliteSBarrelLength) | `0x715f5d` |
+| `EliteSBarrelThickness` | — | art (±97b via `EliteSecondaryFireFLH`) |  | [no page](https://modenc.renegadeprojects.com/EliteSBarrelThickness) | `0x715f81` |
+| `Emblem` | — | — |  | [no page](https://modenc.renegadeprojects.com/Emblem) | `0x68d151` `0x68dcb3` |
+| `Emphasis` | — | — |  | [no page](https://modenc.renegadeprojects.com/Emphasis) | `0x7711c9` |
+| `EmptyReload` | — | rules (±111b via `BerserkFriendly`) |  | [Technos](https://modenc.renegadeprojects.com/EmptyReload) | `0x71488b` |
+| `ErrorCorrection` | — | — |  | [documented](https://modenc.renegadeprojects.com/ErrorCorrection) | `0x698551` `0x699309` |
+| `Europe` | — | — |  | [no page](https://modenc.renegadeprojects.com/Europe) | `0x78830a` |
+| `Evacuate` | — | — |  | [no page](https://modenc.renegadeprojects.com/Evacuate) | `0x7703f2` |
+| `Exit` | — | — |  | [no page](https://modenc.renegadeprojects.com/Exit) | `0x7a17c1` |
+| `Fail` | — | — |  | [no page](https://modenc.renegadeprojects.com/Fail) | `0x7a16c0` |
+| `Fill` | — | — |  | [no page](https://modenc.renegadeprojects.com/Fill) | `0x4acf3b` |
+| `FirePower` | rules | — |  | [Difficulty](https://modenc.renegadeprojects.com/FirePower) | `0x66d295` |
+| `FirewallDelta` | — | — |  | [documented](https://modenc.renegadeprojects.com/FirewallDelta) | `0x5d9021` `0x5d9393` `0x5d93eb` |
+| `FirewallSettings` | — | — |  | [documented](https://modenc.renegadeprojects.com/FirewallSettings) | `0x5d9007` `0x5d9379` `0x5d93d5` |
+| `Flamer` | art | art (±52b via `DoubleThick`) | ✓ | [Animations — *ra2-obsolete*](https://modenc.renegadeprojects.com/Flamer) | `0x427e55` |
+| `ForcePortBase` | — | — |  | [documented](https://modenc.renegadeprojects.com/ForcePortBase) | `0x698185` |
+| `Frame` | — | — |  | — | `0x698a3c` |
+| `FreeForAll` | — | — |  | [no page](https://modenc.renegadeprojects.com/FreeForAll) | `0x5d7df8` |
+| `FriendlyName` | — | — |  | [no page](https://modenc.renegadeprojects.com/FriendlyName) | `0x7743b0` |
+| `Game` | — | — |  | [no page](https://modenc.renegadeprojects.com/Game) | `0x7703cb` |
+| `GetActiveWindow` | — | — |  | [no page](https://modenc.renegadeprojects.com/GetActiveWindow) | `0x7daed4` |
+| `GetDiskFreeSpaceExA` | — | — |  | [no page](https://modenc.renegadeprojects.com/GetDiskFreeSpaceExA) | `0x48dd74` |
+| `GetLastActivePopup` | — | — |  | [no page](https://modenc.renegadeprojects.com/GetLastActivePopup) | `0x7daedc` |
+| `GreenTint` | — | — |  | [no page](https://modenc.renegadeprojects.com/GreenTint) | `0x5998cc` |
+| `HTMLPath` | — | — |  | [no page](https://modenc.renegadeprojects.com/HTMLPath) | `0x773744` `0x7739b6` `0x773c0d` |
+| `HalfDamageSmokeLocation` | — | — |  | [documented](https://modenc.renegadeprojects.com/HalfDamageSmokeLocation) | `0x74776f` |
+| `HalfDamageSmokeLocation2` | rules | rules (±97b via `AntiAirValue`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/HalfDamageSmokeLocation2) | `0x45ff33` |
+| `Handle` | — | — |  | [documented](https://modenc.renegadeprojects.com/Handle) | `0x6982ba` `0x69911a` |
+| `HarvesterDumpRate` | rules | rules (±117b via `ThirdSurvivorDivisor`) | ✓ | [General](https://modenc.renegadeprojects.com/HarvesterDumpRate) | `0x670cd4` |
+| `HarvesterLoadRate` | rules | — |  | [General](https://modenc.renegadeprojects.com/HarvesterLoadRate) | `0x670cf4` |
+| `HelpBar` | — | — |  | [no page](https://modenc.renegadeprojects.com/HelpBar) | `0x7688b4` |
+| `HelpBarSize` | — | — |  | [no page](https://modenc.renegadeprojects.com/HelpBarSize) | `0x7683f2` |
+| `History` | — | — |  | [no page](https://modenc.renegadeprojects.com/History) | `0x770356` |
+| `Hotkey` | — | — |  | — | `0x533d80` `0x533db1` `0x533dc7` (+2) |
+| `House1` | — | — |  | [no page](https://modenc.renegadeprojects.com/House1) | `0x49c31f` `0x49c8c8` |
+| `House2` | — | — |  | [no page](https://modenc.renegadeprojects.com/House2) | `0x49c352` `0x49c92f` |
+| `HoverPad` | rules | rules (±83b via `SecretInfantry`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/HoverPad) | `0x46057a` |
+| `IFVTransformSound` | rules | — |  | [AudioVisual — *ra2-obsolete*](https://modenc.renegadeprojects.com/IFVTransformSound) | `0x66a48d` |
+| `IdleAnimGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/IdleAnimGarrisoned) | `0x464076` |
+| `IdleAnimPoweredEffect` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/IdleAnimPoweredEffect) | `0x4641e7` |
+| `IdleAnimPoweredLight` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/IdleAnimPoweredLight) | `0x4641ca` |
+| `IdleAnimPoweredSpecial` | — | — |  | [no page](https://modenc.renegadeprojects.com/IdleAnimPoweredSpecial) | `0x464204` |
+| `IdleAnimX` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/IdleAnimX) | `0x464139` |
+| `IdleAnimY` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/IdleAnimY) | `0x464156` |
+| `InGameMusic` | — | — |  | [documented](https://modenc.renegadeprojects.com/InGameMusic) | `0x5fab88` `0x5faf40` |
+| `IncomeMult` | rules | — |  | [Countries, Houses](https://modenc.renegadeprojects.com/IncomeMult) | `0x511d05` |
+| `InitStringIndex` | — | — |  | [documented](https://modenc.renegadeprojects.com/InitStringIndex) | `0x6985de` `0x699256` |
+| `InitStrings` | — | — |  | [documented](https://modenc.renegadeprojects.com/InitStrings) | `0x69865b` `0x698696` `0x6986a9` (+2) |
+| `InitialAmmo` | — | — |  | [Technoes](https://modenc.renegadeprojects.com/InitialAmmo) | `0x714755` |
+| `InprocServer32` | — | — |  | [no page](https://modenc.renegadeprojects.com/InprocServer32) | `0x6bb87a` |
+| `Invisible` | rules | rules (±26b via `RadarVisible`) | ✓ | [AircraftTypes, BuildingTypes, InfantryTypes, TechnoTypes, VehicleTypes](https://modenc.renegadeprojects.com/Invisible) | `0x714a9e` |
+| `IonSensitive` | rules | — |  | [documented](https://modenc.renegadeprojects.com/IonSensitive) | `0x772824` |
+| `IsProcessorFeaturePresent` | — | — |  | [no page](https://modenc.renegadeprojects.com/IsProcessorFeaturePresent) | `0x7ceb0e` |
+| `IsScoreRepeat` | — | — |  | [documented](https://modenc.renegadeprojects.com/IsScoreRepeat) | `0x5fab05` `0x5faef3` |
+| `IsScoreShuffle` | — | — |  | [documented](https://modenc.renegadeprojects.com/IsScoreShuffle) | `0x5fab49` `0x5faf0b` |
+| `JumpjetAccel` | rules | — |  | [AircraftTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/JumpjetAccel) | `0x715165` |
+| `JumpjetTurnRate` | rules | rules (±99b via `ImmuneToPoison`) | ✓ | [Technos](https://modenc.renegadeprojects.com/JumpjetTurnRate) | `0x7150af` |
+| `Kills1` | — | — |  | [no page](https://modenc.renegadeprojects.com/Kills1) | `0x49c37e` `0x49c985` |
+| `Kills2` | — | — |  | [no page](https://modenc.renegadeprojects.com/Kills2) | `0x49c398` `0x49c99e` |
+| `LANScrollText` | — | — |  | [documented](https://modenc.renegadeprojects.com/LANScrollText) | `0x6983d0` `0x6994c1` |
+| `LANTaunts` | — | — |  | [documented](https://modenc.renegadeprojects.com/LANTaunts) | `0x69838e` `0x699486` |
+| `LangFilter` | — | — |  | [documented](https://modenc.renegadeprojects.com/LangFilter) | `0x77df0d` `0x77e028` |
+| `LastDay` | — | — |  | [no page](https://modenc.renegadeprojects.com/LastDay) | `0x764e70` `0x765103` `0x7652e1` |
+| `LastNickSlot` | — | — |  | [documented](https://modenc.renegadeprojects.com/LastNickSlot) | `0x698279` `0x6990fa` |
+| `LastTilesInSet` | — | — |  | [TileSets](https://modenc.renegadeprojects.com/LastTilesInSet) | `0x545fed` |
+| `LastValid` | — | — |  | [no page](https://modenc.renegadeprojects.com/LastValid) | `0x779e8d` `0x779fde` |
+| `LeptonMindControlOffset` | rules | rules (±26b via `PipsDrawForAll`) | ✓ | [TechnoTypes](https://modenc.renegadeprojects.com/LeptonMindControlOffset) | `0x71414c` |
+| `LightningPrintText` | rules | rules (±32b via `ForceShieldRadius`) | ✓ | [General](https://modenc.renegadeprojects.com/LightningPrintText) | `0x67107f` |
+| `LightningRod` | rules | rules (±26b via `PoweredUnit`) | ✓ | [Technoes — *ra2-obsolete*](https://modenc.renegadeprojects.com/LightningRod) | `0x713330` |
+| `ListBox` | — | — |  | [no page](https://modenc.renegadeprojects.com/ListBox) | `0x60f418` |
+| `LobMusic` | — | — |  | [documented](https://modenc.renegadeprojects.com/LobMusic) | `0x77df28` `0x77e044` |
+| `Locale` | — | — |  | [documented](https://modenc.renegadeprojects.com/Locale) | `0x778861` `0x778be1` `0x77a1de` |
+| `LocaleVerified` | — | — |  | [no page](https://modenc.renegadeprojects.com/LocaleVerified) | `0x778c0f` `0x77a20d` |
+| `Logo` | — | — |  | [no page](https://modenc.renegadeprojects.com/Logo) | `0x768cf3` |
+| `LosingThreshold` | — | — |  | [no page](https://modenc.renegadeprojects.com/LosingThreshold) | `0x76c9e9` |
+| `Losses` | — | — |  | [no page](https://modenc.renegadeprojects.com/Losses) | `0x778d1c` `0x77a326` |
+| `Lost1` | — | — |  | [no page](https://modenc.renegadeprojects.com/Lost1) | `0x49c3dd` `0x49c9e9` |
+| `Lost2` | — | — |  | [no page](https://modenc.renegadeprojects.com/Lost2) | `0x49c3f1` `0x49ca02` |
+| `LowPowerGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/LowPowerGarrisoned) | `0x4638e4` |
+| `LowPowerPoweredEffect` | art | art (±58b via `LowPowerPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerPoweredEffect) | `0x463a55` |
+| `LowPowerPoweredLight` | art | art (±29b via `LowPowerPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerPoweredLight) | `0x463a38` |
+| `LowPowerPoweredSpecial` | art | art (±40b via `SuperLowPower`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerPoweredSpecial) | `0x463a72` |
+| `LowPowerX` | art | art (±116b via `LowPowerPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerX) | `0x4639a7` |
+| `LowPowerY` | art | art (±87b via `LowPowerPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerY) | `0x4639c4` |
+| `LowPowerYSort` | art | art (±29b via `LowPowerPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerYSort) | `0x4639fe` |
+| `LowPowerZAdjust` | art | art (±58b via `LowPowerPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/LowPowerZAdjust) | `0x4639e1` |
+| `MCVRepacks` | — | — |  | [documented](https://modenc.renegadeprojects.com/MCVRepacks) | `0x69800a` `0x699038` |
+| `ManBattle` | — | — |  | [no page](https://modenc.renegadeprojects.com/ManBattle) | `0x5d7d74` |
+| `ManualReload` | rules | rules (±22b via `TurretSpins`) | ✓ | [documented](https://modenc.renegadeprojects.com/ManualReload) | `0x71334a` |
+| `MapEnter` | — | — |  | [no page](https://modenc.renegadeprojects.com/MapEnter) | `0x76d093` `0x76dfd6` |
+| `MapLeave` | — | — |  | [no page](https://modenc.renegadeprojects.com/MapLeave) | `0x76d019` `0x76e096` |
+| `MapType` | — | — |  | [documented](https://modenc.renegadeprojects.com/MapType) | `0x59788a` `0x597b7d` |
+| `MatchByRes` | — | — |  | [no page](https://modenc.renegadeprojects.com/MatchByRes) | `0x778d7e` `0x77a384` |
+| `MegaLosingThreshold` | — | — |  | [no page](https://modenc.renegadeprojects.com/MegaLosingThreshold) | `0x76ca1a` |
+| `MegaWinningThreshold` | — | — |  | [no page](https://modenc.renegadeprojects.com/MegaWinningThreshold) | `0x76c9b8` |
+| `MessageBoxA` | — | — |  | [no page](https://modenc.renegadeprojects.com/MessageBoxA) | `0x7daec3` |
+| `MindControlRingOffset` | rules | rules (±33b via `BuildTimeMultiplier`) | ✓ | [TechnoTypes](https://modenc.renegadeprojects.com/MindControlRingOffset) | `0x714350` |
+| `MobileFire` | rules | rules (±26b via `DeployToLand`) | ✓ | [VehicleTypes](https://modenc.renegadeprojects.com/MobileFire) | `0x714823` |
+| `Model` | — | — |  | [no page](https://modenc.renegadeprojects.com/Model) | `0x5bba1b` |
+| `Modem` | — | — |  | [no page](https://modenc.renegadeprojects.com/Modem) | `0x5bb8bb` |
+| `ModemName` | — | — |  | [documented](https://modenc.renegadeprojects.com/ModemName) | `0x698499` `0x699329` |
+| `MouseCancel` | — | — |  | [no page](https://modenc.renegadeprojects.com/MouseCancel) | `0x76d1db` `0x76e1a1` |
+| `MultiMaps` | — | — |  | [no page](https://modenc.renegadeprojects.com/MultiMaps) | `0x699a08` `0x699a36` `0x699a45` (+6) |
+| `MultiPlayer` | — | — |  | [no page](https://modenc.renegadeprojects.com/MultiPlayer) | `0x52f5b2` `0x52f5c9` `0x560b8a` (+41) |
+| `MyEffectivenessCoefficient` | rules | — |  | [TechnoTypes](https://modenc.renegadeprojects.com/MyEffectivenessCoefficient) | `0x71556b` |
+| `NameKeyPrefix` | — | — |  | [no page](https://modenc.renegadeprojects.com/NameKeyPrefix) | `0x768c5a` |
+| `NaturalParticleLocation` | rules | rules (±47b via `RefinerySmokeParticleSystem`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/NaturalParticleLocation) | `0x713bfc` |
+| `NaturalParticleSystem` | rules | rules (±51b via `RefinerySmokeParticleSystem`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/NaturalParticleSystem) | `0x713b9a` |
+| `NetCard` | — | — |  | [documented](https://modenc.renegadeprojects.com/NetCard) | `0x5facaa` `0x5faf72` |
+| `NetID` | — | — |  | [documented](https://modenc.renegadeprojects.com/NetID) | `0x5faba9` `0x5fafec` |
+| `Network` | — | — |  | [no page](https://modenc.renegadeprojects.com/Network) | `0x5fabae` `0x5fac92` `0x5facaf` (+7) |
+| `NoAutoFire` | — | rules (±66b via `RadarVisible`) |  | [documented](https://modenc.renegadeprojects.com/NoAutoFire) | `0x714afa` |
+| `NorthAmerica` | — | — |  | [no page](https://modenc.renegadeprojects.com/NorthAmerica) | `0x788303` |
+| `NotInsertable` | — | — |  | [no page](https://modenc.renegadeprojects.com/NotInsertable) | `0x6bb859` |
+| `Note` | — | — |  | [no page](https://modenc.renegadeprojects.com/Note) | `0x4a3de1` `0x7b1e36` |
+| `NukeAmbientChangeRate` | — | — |  | [Lighting](https://modenc.renegadeprojects.com/NukeAmbientChangeRate) | `0x68aae9` |
+| `NumCoopHumanStartSpots` | — | — |  | [no page](https://modenc.renegadeprojects.com/NumCoopHumanStartSpots) | `0x689e13` `0x689f4d` `0x68afa7` |
+| `NumLoopFrames` | rules | — |  | [Particles](https://modenc.renegadeprojects.com/NumLoopFrames) | `0x64508e` |
+| `NumPlayers` | — | — |  | [documented](https://modenc.renegadeprojects.com/NumPlayers) | `0x59785a` `0x597b4a` `0x5c1410` (+1) |
+| `ObserverMode` | — | — |  | [documented](https://modenc.renegadeprojects.com/ObserverMode) | `0x5ee192` `0x5ee1ce` |
+| `OldCycle` | — | — |  | [no page](https://modenc.renegadeprojects.com/OldCycle) | `0x770332` |
+| `Opening` | — | — |  | [no page](https://modenc.renegadeprojects.com/Opening) | `0x76861f` |
+| `OverlayPalette` | — | — |  | [no page](https://modenc.renegadeprojects.com/OverlayPalette) | `0x768beb` |
+| `OverlayPrefix` | — | — |  | [no page](https://modenc.renegadeprojects.com/OverlayPrefix) | `0x768ba6` |
+| `PackupSound` | rules | rules (±121b via `DefensesCostBonus`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/PackupSound) | `0x460786` |
+| `ParticleSystems` | — | — |  | — | `0x672a7a` `0x672a9b` `0x672aa8` |
+| `Particles` | — | — |  | — | `0x672a0a` `0x672a2b` `0x672a38` |
+| `PhoneBook` | — | — |  | [no page](https://modenc.renegadeprojects.com/PhoneBook) | `0x698711` `0x698761` `0x698771` (+2) |
+| `PhoneIndex` | — | — |  | [documented](https://modenc.renegadeprojects.com/PhoneIndex) | `0x698219` `0x6990c2` |
+| `PingFail` | — | — |  | [no page](https://modenc.renegadeprojects.com/PingFail) | `0x7a16ea` |
+| `PipWrap` | — | rules (±26b via `PixelSelectionBracketDelta`) |  | [Technoes](https://modenc.renegadeprojects.com/PipWrap) | `0x714180` |
+| `Play` | — | — |  | [documented](https://modenc.renegadeprojects.com/Play) | `0x6bdf65` `0x6bdfee` |
+| `PlayerFaction` | — | — |  | [no page](https://modenc.renegadeprojects.com/PlayerFaction) | `0x764ec1` `0x7654f6` |
+| `PnPAttachedTo` | — | — |  | [no page](https://modenc.renegadeprojects.com/PnPAttachedTo) | `0x5bbaac` |
+| `Port` | — | — |  | [documented](https://modenc.renegadeprojects.com/Port) | `0x6984e7` `0x6992cf` |
+| `PortBase` | — | — |  | [documented](https://modenc.renegadeprojects.com/PortBase) | `0x52f5ad` `0x69816f` |
+| `PortNumberOverride` | — | — |  | [no page](https://modenc.renegadeprojects.com/PortNumberOverride) | `0x560ba2` `0x6981fe` |
+| `PortPool` | — | — |  | [documented](https://modenc.renegadeprojects.com/PortPool) | `0x52f5c4` `0x6981c1` |
+| `PreProductionAnimDamaged` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/PreProductionAnimDamaged) | `0x46428a` |
+| `PreProductionAnimGarrisoned` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/PreProductionAnimGarrisoned) | `0x464324` |
+| `PreProductionAnimX` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/PreProductionAnimX) | `0x4643e3` |
+| `PreProductionAnimY` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/PreProductionAnimY) | `0x464400` |
+| `PreProductionAnimYSort` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/PreProductionAnimYSort) | `0x46443a` |
+| `PrintCRC` | — | — |  | [documented](https://modenc.renegadeprojects.com/PrintCRC) | `0x698c5a` |
+| `PrivateKey` | — | — |  | [no page](https://modenc.renegadeprojects.com/PrivateKey) | `0x52a651` `0x52a6ec` |
+| `ProductionAnimGarrisoned` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/ProductionAnimGarrisoned) | `0x463e40` |
+| `ProgID` | — | — |  | [no page](https://modenc.renegadeprojects.com/ProgID) | `0x6bb808` |
+| `PsychicSensorDetectSound` | — | — |  | [documented](https://modenc.renegadeprojects.com/PsychicSensorDetectSound) | `0x66a4ce` |
+| `PublicKey` | — | — |  | [no page](https://modenc.renegadeprojects.com/PublicKey) | `0x52a633` `0x52a716` |
+| `Pushy` | rules | rules (±26b via `Natural`) | ✓ | [Technos](https://modenc.renegadeprojects.com/Pushy) | `0x71492c` |
+| `Radius` | rules | — |  | [Particles](https://modenc.renegadeprojects.com/Radius) | `0x64511c` |
+| `RailgunDamageRadius` | rules | — |  | [CombatDamage](https://modenc.renegadeprojects.com/RailgunDamageRadius) | `0x66bc24` |
+| `RandomMap` | — | — |  | — | `0x5961f4` `0x597817` `0x59782f` (+35) |
+| `Rank` | — | — |  | [no page](https://modenc.renegadeprojects.com/Rank) | `0x778c89` `0x77a299` |
+| `RankFail` | — | — |  | [no page](https://modenc.renegadeprojects.com/RankFail) | `0x7a1732` |
+| `RatioAITriggerTeam` | — | — |  | [Houses](https://modenc.renegadeprojects.com/RatioAITriggerTeam) | `0x500d18` |
+| `RatioTeamAircraft` | — | — |  | [Houses — *ra2-obsolete*](https://modenc.renegadeprojects.com/RatioTeamAircraft) | `0x500d31` |
+| `RatioTeamInfantry` | — | — |  | [Houses — *ra2-obsolete*](https://modenc.renegadeprojects.com/RatioTeamInfantry) | `0x500d44` |
+| `RatioTeamUnits` | — | — |  | [Houses — *ra2-obsolete*](https://modenc.renegadeprojects.com/RatioTeamUnits) | `0x500d5d` |
+| `ReadinessReductionMultiplier` | — | rules (±26b via `BerserkFriendly`) |  | [Technos](https://modenc.renegadeprojects.com/ReadinessReductionMultiplier) | `0x7148e0` |
+| `RedTint` | — | — |  | [no page](https://modenc.renegadeprojects.com/RedTint) | `0x5998b3` |
+| `RegPath` | — | — |  | [no page](https://modenc.renegadeprojects.com/RegPath) | `0x785633` |
+| `RegionSize` | — | — |  | [documented](https://modenc.renegadeprojects.com/RegionSize) | `0x5978d2` `0x597bcb` |
+| `ReloadIncrement` | — | rules (±85b via `BerserkFriendly`) |  | [Technoes](https://modenc.renegadeprojects.com/ReloadIncrement) | `0x7148a5` |
+| `Resources` | — | — |  | [documented](https://modenc.renegadeprojects.com/Resources) | `0x597992` `0x597c9b` |
+| `RevealByHeight` | rules | — |  | [General](https://modenc.renegadeprojects.com/RevealByHeight) | `0x66eaf0` |
+| `RollAngle` | rules | — |  | [TechnoTypes](https://modenc.renegadeprojects.com/RollAngle) | `0x7123a2` |
+| `RotCount` | art | — |  | [VehicleTypes — *ra2-obsolete*](https://modenc.renegadeprojects.com/RotCount) | `0x7158a1` |
+| `Rotors` | art | — |  | [AircraftTypes](https://modenc.renegadeprojects.com/Rotors) | `0x41ccbc` |
+| `Rubble` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/Rubble) | `0x45f65d` |
+| `Ruggedness` | — | — |  | [documented](https://modenc.renegadeprojects.com/Ruggedness) | `0x5978ea` `0x597be6` |
+| `SBarrelThickness` | — | — |  | [no page](https://modenc.renegadeprojects.com/SBarrelThickness) | `0x715e7d` |
+| `ScenIndex` | — | — |  | [documented](https://modenc.renegadeprojects.com/ScenIndex) | `0x697f40` `0x698fb9` |
+| `Score` | — | — |  | [no page](https://modenc.renegadeprojects.com/Score) | `0x49c2f2` |
+| `Score1` | — | — |  | [no page](https://modenc.renegadeprojects.com/Score1) | `0x49c408` `0x49ca1b` |
+| `Score2` | — | — |  | [no page](https://modenc.renegadeprojects.com/Score2) | `0x49c422` `0x49ca34` |
+| `ScoreVolume` | — | — |  | [documented](https://modenc.renegadeprojects.com/ScoreVolume) | `0x5faa93` `0x5faedb` |
+| `ScreenHeight` | — | — |  | [documented](https://modenc.renegadeprojects.com/ScreenHeight) | `0x5fa8c9` `0x5fae67` `0x6bc128` |
+| `ScreenWidth` | — | — |  | [documented](https://modenc.renegadeprojects.com/ScreenWidth) | `0x5fa8b3` `0x5fae4d` `0x6bc108` |
+| `ScrollMethod` | — | — |  | [documented](https://modenc.renegadeprojects.com/ScrollMethod) | `0x5fa6f4` `0x5fad87` |
+| `ScrollRate` | — | — |  | [documented](https://modenc.renegadeprojects.com/ScrollRate) | `0x5fa71d` `0x5fada1` |
+| `Scrollbar` | — | — |  | [no page](https://modenc.renegadeprojects.com/Scrollbar) | `0x60e728` `0x61bcba` |
+| `SecondaryFirePixelOffset` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/SecondaryFirePixelOffset) | `0x461326` |
+| `SecretUnit` | — | rules (±75b via `SecretInfantry`) |  | [BuildingTypes](https://modenc.renegadeprojects.com/SecretUnit) | `0x460618` |
+| `Seed` | — | — |  | [documented](https://modenc.renegadeprojects.com/Seed) | `0x597872` `0x597b63` |
+| `SelectSound` | — | — |  | [no page](https://modenc.renegadeprojects.com/SelectSound) | `0x4f39a5` `0x4f39f1` |
+| `SelectVQ` | — | — |  | [no page](https://modenc.renegadeprojects.com/SelectVQ) | `0x4f33ae` |
+| `SendDelay` | — | — |  | [no page](https://modenc.renegadeprojects.com/SendDelay) | `0x560b85` `0x6981e8` |
+| `Serial` | — | — |  | [no page](https://modenc.renegadeprojects.com/Serial) | `0x5dc245` |
+| `SerialDefaults` | — | — |  | [no page](https://modenc.renegadeprojects.com/SerialDefaults) | `0x69849e` `0x6984ec` `0x698502` (+18) |
+| `Server` | — | — |  | [no page](https://modenc.renegadeprojects.com/Server) | `0x778829` `0x778bad` `0x77a1b0` |
+| `ShareBarrelData` | — | — |  | [VoxelAnims](https://modenc.renegadeprojects.com/ShareBarrelData) | `0x74b268` |
+| `ShareBodyData` | — | — |  | [VoxelAnims](https://modenc.renegadeprojects.com/ShareBodyData) | `0x74b240` |
+| `Shortcut` | — | — |  | [no page](https://modenc.renegadeprojects.com/Shortcut) | `0x4f3939` |
+| `ShowAll` | — | — |  | [documented](https://modenc.renegadeprojects.com/ShowAll) | `0x77df43` `0x77e05c` |
+| `ShowHidden` | — | — |  | [documented](https://modenc.renegadeprojects.com/ShowHidden) | `0x5fa840` `0x5fae20` |
+| `ShowOccupantPips` | — | rules (±26b via `CanOccupyFire`) |  | [BuildingTypes](https://modenc.renegadeprojects.com/ShowOccupantPips) | `0x460106` |
+| `SideBar` | — | — |  | [no page](https://modenc.renegadeprojects.com/SideBar) | `0x7687f6` |
+| `SideBarSize` | — | — |  | [no page](https://modenc.renegadeprojects.com/SideBarSize) | `0x7683ab` |
+| `SideEx` | — | — |  | [documented](https://modenc.renegadeprojects.com/SideEx) | `0x69834c` `0x69918c` |
+| `SidebarCameoText` | — | — |  | [documented](https://modenc.renegadeprojects.com/SidebarCameoText) | `0x5fa7d7` `0x5fadeb` |
+| `Siege` | — | — |  | [no page](https://modenc.renegadeprojects.com/Siege) | `0x5d7da0` |
+| `Skirmish` | — | — |  | [no page](https://modenc.renegadeprojects.com/Skirmish) | `0x698441` `0x6991c5` |
+| `SnmpExtensionInit` | — | — |  | [no page](https://modenc.renegadeprojects.com/SnmpExtensionInit) | `0x795824` |
+| `SnmpExtensionQuery` | — | — |  | [no page](https://modenc.renegadeprojects.com/SnmpExtensionQuery) | `0x795831` |
+| `SnmpUtilMemAlloc` | — | — |  | [no page](https://modenc.renegadeprojects.com/SnmpUtilMemAlloc) | `0x79583e` |
+| `SnmpUtilMemFree` | — | — |  | [no page](https://modenc.renegadeprojects.com/SnmpUtilMemFree) | `0x79584b` |
+| `Socket` | — | — |  | [documented](https://modenc.renegadeprojects.com/Socket) | `0x5fac8d` `0x5faf5d` `0x6bc143` |
+| `SoundLatency` | — | — |  | [documented](https://modenc.renegadeprojects.com/SoundLatency) | `0x5fac60` `0x5faf23` |
+| `SoundList` | — | — |  | — | `0x751291` `0x7512aa` `0x7512d3` (+1) |
+| `SoundVolume` | — | — |  | [documented](https://modenc.renegadeprojects.com/SoundVolume) | `0x5fa9be` `0x5faea1` |
+| `SpawnDirection` | — | — |  | [documented](https://modenc.renegadeprojects.com/SpawnDirection) | `0x64446e` |
+| `SpecialAnimFourGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/SpecialAnimFourGarrisoned) | `0x463636` |
+| `SpecialAnimFourPowered` | — | art (±58b via `SpecialAnimFourZAdjust`) |  | [no page](https://modenc.renegadeprojects.com/SpecialAnimFourPowered) | `0x46376d` |
+| `SpecialAnimFourPoweredEffect` | — | art (±69b via `LowPower`) |  | [no page](https://modenc.renegadeprojects.com/SpecialAnimFourPoweredEffect) | `0x4637a7` |
+| `SpecialAnimFourPoweredLight` | — | art (±87b via `SpecialAnimFourZAdjust`) |  | [no page](https://modenc.renegadeprojects.com/SpecialAnimFourPoweredLight) | `0x46378a` |
+| `SpecialAnimFourPoweredSpecial` | — | art (±40b via `LowPower`) |  | [no page](https://modenc.renegadeprojects.com/SpecialAnimFourPoweredSpecial) | `0x4637c4` |
+| `SpecialAnimFourX` | art | art (±58b via `SpecialAnimFourZAdjust`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimFourX) | `0x4636f9` |
+| `SpecialAnimFourY` | art | art (±29b via `SpecialAnimFourZAdjust`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimFourY) | `0x463716` |
+| `SpecialAnimFourYSort` | — | art (±29b via `SpecialAnimFourZAdjust`) |  | [no page](https://modenc.renegadeprojects.com/SpecialAnimFourYSort) | `0x463750` |
+| `SpecialAnimGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/SpecialAnimGarrisoned) | `0x462e2c` |
+| `SpecialAnimPoweredEffect` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimPoweredEffect) | `0x462f9d` |
+| `SpecialAnimPoweredSpecial` | — | — |  | [no page](https://modenc.renegadeprojects.com/SpecialAnimPoweredSpecial) | `0x462fba` |
+| `SpecialAnimThreeGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/SpecialAnimThreeGarrisoned) | `0x463388` |
+| `SpecialAnimThreePowered` | art | art (±127b via `SpecialAnimFour`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimThreePowered) | `0x4634bf` |
+| `SpecialAnimThreePoweredEffect` | art | art (±69b via `SpecialAnimFour`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimThreePoweredEffect) | `0x4634f9` |
+| `SpecialAnimThreePoweredLight` | art | art (±98b via `SpecialAnimFour`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimThreePoweredLight) | `0x4634dc` |
+| `SpecialAnimThreePoweredSpecial` | — | art (±40b via `SpecialAnimFour`) |  | [no page](https://modenc.renegadeprojects.com/SpecialAnimThreePoweredSpecial) | `0x463516` |
+| `SpecialAnimThreeX` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimThreeX) | `0x46344b` |
+| `SpecialAnimThreeY` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimThreeY) | `0x463468` |
+| `SpecialAnimTwoGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/SpecialAnimTwoGarrisoned) | `0x4630da` |
+| `SpecialAnimTwoPowered` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimTwoPowered) | `0x463211` |
+| `SpecialAnimTwoPoweredEffect` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimTwoPoweredEffect) | `0x46324b` |
+| `SpecialAnimTwoPoweredLight` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimTwoPoweredLight) | `0x46322e` |
+| `SpecialAnimTwoPoweredSpecial` | — | — |  | [no page](https://modenc.renegadeprojects.com/SpecialAnimTwoPoweredSpecial) | `0x463268` |
+| `SpecialAnimTwoX` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimTwoX) | `0x46319d` |
+| `SpecialAnimTwoY` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimTwoY) | `0x4631ba` |
+| `SpecialAnimX` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimX) | `0x462eef` |
+| `SpecialAnimY` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialAnimY) | `0x462f0c` |
+| `SpecialZOverlayZAdjust` | art | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/SpecialZOverlayZAdjust) | `0x461389` |
+| `SpeedAircraftMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/SpeedAircraftMult) | `0x511c4b` |
+| `SpeedInfantryMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/SpeedInfantryMult) | `0x511c0d` |
+| `SpeedUnitsMult` | rules | — |  | [Countries](https://modenc.renegadeprojects.com/SpeedUnitsMult) | `0x511c2c` |
+| `SpotlightRadius` | rules | — |  | [General](https://modenc.renegadeprojects.com/SpotlightRadius) | `0x671809` |
+| `SprayAttack` | rules | rules (±24b via `BerserkFriendly`) | ✓ | [Technos](https://modenc.renegadeprojects.com/SprayAttack) | `0x714912` |
+| `Startup` | — | — |  | [no page](https://modenc.renegadeprojects.com/Startup) | `0x770603` |
+| `Status` | — | — |  | [no page](https://modenc.renegadeprojects.com/Status) | `0x77037d` |
+| `StretchMovies` | — | — |  | [documented](https://modenc.renegadeprojects.com/StretchMovies) | `0x5fa8fb` `0x5fae7f` |
+| `Strong` | — | rules (±63b via `None`) |  | [no page](https://modenc.renegadeprojects.com/Strong) | `0x477616` |
+| `SuperAnimFourGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/SuperAnimFourGarrisoned) | `0x462b7e` |
+| `SuperAnimFourPoweredEffect` | art | art (±58b via `SuperAnimFourPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimFourPoweredEffect) | `0x462cef` |
+| `SuperAnimFourPoweredLight` | art | art (±29b via `SuperAnimFourPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimFourPoweredLight) | `0x462cd2` |
+| `SuperAnimFourPoweredSpecial` | — | art (±87b via `SuperAnimFourPowered`) |  | [no page](https://modenc.renegadeprojects.com/SuperAnimFourPoweredSpecial) | `0x462d0c` |
+| `SuperAnimFourX` | art | art (±116b via `SuperAnimFourPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimFourX) | `0x462c41` |
+| `SuperAnimFourY` | art | art (±87b via `SuperAnimFourPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimFourY) | `0x462c5e` |
+| `SuperAnimGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/SuperAnimGarrisoned) | `0x462374` |
+| `SuperAnimPoweredEffect` | art | art (±58b via `SuperAnimPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimPoweredEffect) | `0x4624e5` |
+| `SuperAnimPoweredLight` | art | art (±29b via `SuperAnimPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimPoweredLight) | `0x4624c8` |
+| `SuperAnimPoweredSpecial` | — | art (±87b via `SuperAnimPowered`) |  | [no page](https://modenc.renegadeprojects.com/SuperAnimPoweredSpecial) | `0x462502` |
+| `SuperAnimThreeGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/SuperAnimThreeGarrisoned) | `0x4628d0` |
+| `SuperAnimThreePoweredLight` | art | art (±29b via `SuperAnimThreePowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimThreePoweredLight) | `0x462a24` |
+| `SuperAnimThreePoweredSpecial` | — | art (±29b via `SuperAnimThreePoweredEffect`) |  | [no page](https://modenc.renegadeprojects.com/SuperAnimThreePoweredSpecial) | `0x462a5e` |
+| `SuperAnimThreeX` | art | art (±116b via `SuperAnimThreePowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimThreeX) | `0x462993` |
+| `SuperAnimThreeY` | art | art (±87b via `SuperAnimThreePowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimThreeY) | `0x4629b0` |
+| `SuperAnimTwoGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/SuperAnimTwoGarrisoned) | `0x462622` |
+| `SuperAnimTwoPoweredEffect` | art | art (±58b via `SuperAnimTwoPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimTwoPoweredEffect) | `0x462793` |
+| `SuperAnimTwoPoweredLight` | art | art (±29b via `SuperAnimTwoPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimTwoPoweredLight) | `0x462776` |
+| `SuperAnimTwoPoweredSpecial` | — | art (±87b via `SuperAnimTwoPowered`) |  | [no page](https://modenc.renegadeprojects.com/SuperAnimTwoPoweredSpecial) | `0x4627b0` |
+| `SuperAnimTwoX` | art | art (±116b via `SuperAnimTwoPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimTwoX) | `0x4626e5` |
+| `SuperAnimTwoY` | art | art (±87b via `SuperAnimTwoPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimTwoY) | `0x462702` |
+| `SuperAnimX` | art | art (±116b via `SuperAnimPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimX) | `0x462437` |
+| `SuperAnimY` | art | art (±87b via `SuperAnimPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperAnimY) | `0x462454` |
+| `SuperLowPowerGarrisoned` | — | — |  | [no page](https://modenc.renegadeprojects.com/SuperLowPowerGarrisoned) | `0x463b92` |
+| `SuperLowPowerPoweredEffect` | art | art (±58b via `SuperLowPowerPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperLowPowerPoweredEffect) | `0x463d03` |
+| `SuperLowPowerPoweredLight` | art | art (±29b via `SuperLowPowerPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperLowPowerPoweredLight) | `0x463ce6` |
+| `SuperLowPowerPoweredSpecial` | — | art (±87b via `SuperLowPowerPowered`) |  | [no page](https://modenc.renegadeprojects.com/SuperLowPowerPoweredSpecial) | `0x463d20` |
+| `SuperLowPowerX` | art | art (±116b via `SuperLowPowerPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperLowPowerX) | `0x463c55` |
+| `SuperLowPowerY` | art | art (±87b via `SuperLowPowerPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperLowPowerY) | `0x463c72` |
+| `SuperLowPowerYSort` | art | art (±29b via `SuperLowPowerPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperLowPowerYSort) | `0x463cac` |
+| `SuperLowPowerZAdjust` | art | art (±58b via `SuperLowPowerPowered`) | ✓ | [BuildingTypes](https://modenc.renegadeprojects.com/SuperLowPowerZAdjust) | `0x463c8f` |
+| `SuperWeaponsAllowed` | ra2/rules | — |  | [LAN, MultiplayerDialogSettings, Skirmish, WonlinePref](https://modenc.renegadeprojects.com/SuperWeaponsAllowed) | `0x6721a7` `0x697fd3` `0x699016` |
+| `Supress` | rules | rules (±78b via `FireInTransport`) | ✓ | [documented](https://modenc.renegadeprojects.com/Supress) | `0x7722a7` |
+| `SyncBug` | — | — |  | [no page](https://modenc.renegadeprojects.com/SyncBug) | `0x698a41` `0x698a6a` `0x698b7b` (+3) |
+| `TalkBubbleTime` | rules | — |  | [General](https://modenc.renegadeprojects.com/TalkBubbleTime) | `0x671e69` |
+| `Target` | — | — |  | [no page](https://modenc.renegadeprojects.com/Target) | `0x698bb5` `0x76ccfa` |
+| `TargetDistanceCoefficient` | rules | art (±106b via `UseBuffer`) | ⚠ | [AircraftTypes, BuildingTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/TargetDistanceCoefficient) | `0x71570c` |
+| `TargetDividingFrame` | — | — |  | [no page](https://modenc.renegadeprojects.com/TargetDividingFrame) | `0x76cd4e` |
+| `TargetEffectivenessCoefficient` | rules | — |  | [AircraftTypes, BuildingTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/TargetEffectivenessCoefficient) | `0x7155d8` |
+| `TargetPalette` | — | — |  | [no page](https://modenc.renegadeprojects.com/TargetPalette) | `0x76cca8` |
+| `TargetSpecialThreatCoefficient` | rules | — |  | [AircraftTypes, BuildingTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/TargetSpecialThreatCoefficient) | `0x71563f` |
+| `TargetStrengthCoefficient` | rules | — |  | [AircraftTypes, BuildingTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/TargetStrengthCoefficient) | `0x7156a6` |
+| `TargetZoom` | — | — |  | [no page](https://modenc.renegadeprojects.com/TargetZoom) | `0x76d93b` |
+| `Territory` | — | — |  | [no page](https://modenc.renegadeprojects.com/Territory) | `0x7703a4` |
+| `TerritorySelect` | — | — |  | [no page](https://modenc.renegadeprojects.com/TerritorySelect) | `0x770722` |
+| `Themes` | — | — |  | — | `0x72059d` `0x7205ca` `0x7205d7` |
+| `Thief` | rules | rules (±104b via `DeployedCrushable`) | ✓ | [InfantryTypes](https://modenc.renegadeprojects.com/Thief) | `0x5245bf` |
+| `TibPass99` | — | — |  | [no page](https://modenc.renegadeprojects.com/TibPass99) | `0x788be3` `0x79765d` |
+| `TibSun` | — | — |  | [no page](https://modenc.renegadeprojects.com/TibSun) | `0x788be8` `0x797662` |
+| `TiberiumLayout` | — | — |  | [documented](https://modenc.renegadeprojects.com/TiberiumLayout) | `0x59794a` `0x597c4d` |
+| `Time` | — | — |  | — | `0x49c436` `0x49c96c` `0x5978ba` (+1) |
+| `TitleRect` | — | — |  | [no page](https://modenc.renegadeprojects.com/TitleRect) | `0x768547` |
+| `ToolTips` | — | — |  | [documented](https://modenc.renegadeprojects.com/ToolTips) | `0x5fa87c` `0x5fae33` |
+| `TooltipRect` | — | — |  | [no page](https://modenc.renegadeprojects.com/TooltipRect) | `0x7684e8` |
+| `TurretAnimDamaged` | — | — |  | [documented](https://modenc.renegadeprojects.com/TurretAnimDamaged) | `0x4644b4` |
+| `TurretAnimGarrisoned` | rules | — |  | [BuildingTypes](https://modenc.renegadeprojects.com/TurretAnimGarrisoned) | `0x46454b` |
+| `TurretAnimYSort` | — | — |  | [documented](https://modenc.renegadeprojects.com/TurretAnimYSort) | `0x464625` |
+| `TurretCompressFrames` | — | — |  | [documented](https://modenc.renegadeprojects.com/TurretCompressFrames) | `0x7152bc` |
+| `TurretHoldFrames` | — | — |  | [documented](https://modenc.renegadeprojects.com/TurretHoldFrames) | `0x7152e0` |
+| `TurretRecoverFrames` | — | — |  | [documented](https://modenc.renegadeprojects.com/TurretRecoverFrames) | `0x715304` |
+| `Typelib` | — | — |  | [no page](https://modenc.renegadeprojects.com/Typelib) | `0x6bb8a6` |
+| `Unholy` | — | — |  | [no page](https://modenc.renegadeprojects.com/Unholy) | `0x5d7dcc` |
+| `UnitActionLines` | — | — |  | [documented](https://modenc.renegadeprojects.com/UnitActionLines) | `0x5fa80e` `0x5fae08` |
+| `UnitEnterSound` | — | — |  | [documented](https://modenc.renegadeprojects.com/UnitEnterSound) | `0x46084c` |
+| `UnitExitSound` | — | — |  | [documented](https://modenc.renegadeprojects.com/UnitExitSound) | `0x460816` |
+| `UpdateDate` | — | — |  | [no page](https://modenc.renegadeprojects.com/UpdateDate) | `0x778934` `0x778e02` `0x77a418` |
+| `UpdateTime` | — | — |  | [no page](https://modenc.renegadeprojects.com/UpdateTime) | `0x7788ea` `0x778daf` `0x77a3c7` |
+| `UrbanPresence` | — | — |  | [documented](https://modenc.renegadeprojects.com/UrbanPresence) | `0x59797a` `0x597c82` |
+| `Vegetation` | — | — |  | [documented](https://modenc.renegadeprojects.com/Vegetation) | `0x597962` `0x597c67` |
+| `VeinGrowthRate` | — | — |  | [no page](https://modenc.renegadeprojects.com/VeinGrowthRate) | `0x66b4fd` |
+| `VeinholeMonsterStrength` | rules | — |  | [AudioVisual](https://modenc.renegadeprojects.com/VeinholeMonsterStrength) | `0x671c93` |
+| `VersionIndependentProgID` | — | — |  | [no page](https://modenc.renegadeprojects.com/VersionIndependentProgID) | `0x6bb834` |
+| `VeteranAircraft` | rules | — |  | [Countries, Houses](https://modenc.renegadeprojects.com/VeteranAircraft) | `0x511f68` |
+| `VeteranInfantry` | rules | — |  | [Countries, Houses](https://modenc.renegadeprojects.com/VeteranInfantry) | `0x511d25` |
+| `VeteranUnits` | rules | — |  | [Countries, Houses](https://modenc.renegadeprojects.com/VeteranUnits) | `0x511e32` |
+| `Video` | — | — |  | [no page](https://modenc.renegadeprojects.com/Video) | `0x5fa8b8` `0x5fa8ce` `0x5fa900` (+10) |
+| `VideoBackBuffer` | — | — |  | [documented](https://modenc.renegadeprojects.com/VideoBackBuffer) | `0x6bc0cd` |
+| `VisibleLoad` | art | — |  | [VehicleTypes](https://modenc.renegadeprojects.com/VisibleLoad) | `0x71590d` |
+| `VoiceComment` | rules | rules (±61b via `EliteOccupyWeapon`) | ✓ | [InfantryTypes](https://modenc.renegadeprojects.com/VoiceComment) | `0x524193` |
+| `VoiceFalling` | rules | — |  | [AircraftTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/VoiceFalling) | `0x712fec` |
+| `VoiceOvers` | — | — |  | [no page](https://modenc.renegadeprojects.com/VoiceOvers) | `0x76c4b1` |
+| `VoicePrimaryEliteWeaponAttack` | rules | rules (±54b via `VoiceSecondaryWeaponAttack`) | ✓ | [Technoes](https://modenc.renegadeprojects.com/VoicePrimaryEliteWeaponAttack) | `0x7136d0` |
+| `VoicePrimaryWeaponAttack` | rules | rules (±60b via `VoiceHarvest`) | ✓ | [Technoes](https://modenc.renegadeprojects.com/VoicePrimaryWeaponAttack) | `0x71368e` |
+| `VoiceSecondaryEliteWeaponAttack` | rules | rules (±60b via `VoiceSecondaryWeaponAttack`) | ✓ | [Technoes](https://modenc.renegadeprojects.com/VoiceSecondaryEliteWeaponAttack) | `0x713742` |
+| `VoiceSinking` | rules | — |  | [TechnoTypes](https://modenc.renegadeprojects.com/VoiceSinking) | `0x713064` |
+| `VoiceUndeploy` | rules | rules (±54b via `VoiceDeploy`) | ✓ | [InfantryTypes](https://modenc.renegadeprojects.com/VoiceUndeploy) | `0x7137ba` |
+| `VoiceVolume` | — | — |  | [documented](https://modenc.renegadeprojects.com/VoiceVolume) | `0x5faa1e` `0x5faebe` |
+| `VoxelAnims` | — | — |  | — | `0x67292a` `0x67294b` `0x672958` |
+| `VoxelIndex` | rules | — |  | [VoxelAnims](https://modenc.renegadeprojects.com/VoxelIndex) | `0x74b284` |
+| `WDTSideFail` | — | — |  | [no page](https://modenc.renegadeprojects.com/WDTSideFail) | `0x7a177a` |
+| `WOLLimitResolution` | — | — |  | [documented](https://modenc.renegadeprojects.com/WOLLimitResolution) | `0x698263` `0x6990dd` |
+| `WOLScrollText` | — | — |  | [documented](https://modenc.renegadeprojects.com/WOLScrollText) | `0x6983ae` `0x6994a6` |
+| `WOLTaunts` | — | — |  | [documented](https://modenc.renegadeprojects.com/WOLTaunts) | `0x69836d` `0x699470` |
+| `WOnline` | — | — |  | [no page](https://modenc.renegadeprojects.com/WOnline) | `0x77ded7` `0x77def7` `0x77df12` (+15) |
+| `WallOwner` | rules | — |  | [Countries, Houses](https://modenc.renegadeprojects.com/WallOwner) | `0x511a9c` |
+| `WantsExtraSpace` | — | rules (±104b via `PoweredSpecial`) |  | [documented](https://modenc.renegadeprojects.com/WantsExtraSpace) | `0x46006a` |
+| `Warheads` | — | — |  | — | `0x668d86` `0x668da7` `0x668db4` (+3) |
+| `Warpable` | rules | rules (±99b via `ImmuneToPsionicWeapons`) | ✓ | [Technos](https://modenc.renegadeprojects.com/Warpable) | `0x714f65` |
+| `Water` | — | — |  | — | `0x4acf5b` |
+| `WaterAmount` | — | — |  | [documented](https://modenc.renegadeprojects.com/WaterAmount) | `0x59791a` `0x597c19` |
+| `WinningThreshold` | — | — |  | [no page](https://modenc.renegadeprojects.com/WinningThreshold) | `0x76c987` |
+| `Wins` | — | — |  | [no page](https://modenc.renegadeprojects.com/Wins) | `0x778cec` `0x77a2f7` |
+| `Wipe` | — | — |  | [no page](https://modenc.renegadeprojects.com/Wipe) | `0x68d0e2` `0x68d44a` |
+| `WonlinePref` | — | — |  | [no page](https://modenc.renegadeprojects.com/WonlinePref) | `0x698473` `0x6991ef` |
+| `Working` | — | — |  | [no page](https://modenc.renegadeprojects.com/Working) | `0x7a183a` |
+| `ZFudgeCliff` | rules | — |  | [AircraftTypes, InfantryTypes, VehicleTypes](https://modenc.renegadeprojects.com/ZFudgeCliff) | `0x715423` |
+| `ZoomInFactor` | rules | — |  | [General](https://modenc.renegadeprojects.com/ZoomInFactor) | `0x66ead0` |
+| `ZoomingTarget` | — | — |  | [no page](https://modenc.renegadeprojects.com/ZoomingTarget) | `0x76cc30` |

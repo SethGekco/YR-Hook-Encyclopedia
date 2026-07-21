@@ -1,4 +1,4 @@
-String,Kind,Domains,DomainSource,DomainGuess,GuessVia,GuessDist,ModEncINI,ModEncTypes,ModEncStatus,Conflict,Frameworks,ModEncURL,ReadSites,StringVA
+String,Kind,Domains,DomainSources,DomainGuess,GuessVia,GuessDist,ModEncINI,ModEncTypes,ModEncStatus,Conflict,Frameworks,ModEncURL,ReadSites,StringVA
 AALimit,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x673c1f,0x83d23c
 AARate,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x5b38d5,0x82c27c
 AARatio,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x673bfe,0x83d244
@@ -84,7 +84,7 @@ ActiveAnimFourYSort,tag,art|ra2,ini-direct,,,,,,,,,,0x4621e0,0x81a270
 ActiveAnimFourZAdjust,tag,art|ra2|ts,ini-direct,,,,,,,,,,0x4621c3,0x81a284
 ActiveAnimGarrisoned,tag,art|ra2,ini-direct,,,,,,,,,,0x4618bc,0x81a5a4
 ActiveAnimPowered,tag,art|ra2|ts,ini-direct,,,,,,,,,,0x4619f3,0x81a554
-ActiveAnimPoweredEffect,tag-unlisted,,modenc,art,ActiveAnimPoweredSpecial,29,art,,,,,https://modenc.renegadeprojects.com/ActiveAnimPoweredEffect,0x461a2d,0x81a524
+ActiveAnimPoweredEffect,tag-unlisted,,modenc|readsite-consensus,art,ActiveAnimPoweredSpecial,29,art,,,,,https://modenc.renegadeprojects.com/ActiveAnimPoweredEffect,0x461a2d,0x81a524
 ActiveAnimPoweredLight,tag,art|ra2,ini-direct,,,,,,,,,,0x461a10,0x81a53c
 ActiveAnimPoweredSpecial,tag,art,ini-direct,,,,,,,,,,0x461a4a,0x81a508
 ActiveAnimThree,tag,art|ra2|ts|tsfs,ini-direct,,,,,,,,,,0x461d20,0x81a400
@@ -271,7 +271,7 @@ BarrelExplode,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66d6b7,0x83cf3c
 BarrelHoldFrames,tag,ra2|rules,ini-direct,,,,,,,,,,0x715392,0x843568
 BarrelParticle,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66d7ed,0x83cf1c
 BarrelRecoverFrames,tag,ra2|rules,ini-direct,,,,,,,,,,0x7153ba,0x843554
-BarrelStartPitch,tag-unlisted,,modenc,rules,DeployFacing,32,art,,,consensus=rules vs modenc=art,,https://modenc.renegadeprojects.com/BarrelStartPitch,0x460c56,0x81a94c
+BarrelStartPitch,tag-unlisted,,modenc|readsite-consensus,rules,DeployFacing,32,art,,,modenc=art; readsite-consensus=rules,,https://modenc.renegadeprojects.com/BarrelStartPitch,0x460c56,0x81a94c
 BarrelTravel,tag,ra2|rules,ini-direct,,,,,,,,,,0x71533b,0x843594
 BaseBias,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x670b4d,0x83bf18
 BaseDefenseDelay,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x670b92,0x83bef0
@@ -364,7 +364,7 @@ BuildingRepairedSound,tag,ra2|rules,ini-direct,,,,,,,,Phobos,,0x669c79,0x83a8cc
 BuildingSlam,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66aa9f,0x83a4c0
 BuildingsCostBonus,tag,rules,ini-direct,,,,,,,,,,0x4606ee,0x81ab88
 Buildup,tag,art|ra2|ts|tsfs,ini-direct,,,,,,,,,,0x46155a,0x81a60c
-BuildupSound,tag-unlisted,,modenc,rules,DefensesCostBonus,67,rules,BuildingTypes,,,,https://modenc.renegadeprojects.com/BuildupSound,0x460750,0x81ab58
+BuildupSound,tag-unlisted,,modenc|readsite-consensus,rules,DefensesCostBonus,67,rules,BuildingTypes,,,,https://modenc.renegadeprojects.com/BuildupSound,0x460750,0x81ab58
 BuildupTime,tag,ra2|rules|ts,ini-direct,,,,,,,,Antares|Ares,,0x670cad,0x83be60
 Built1,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/Built1,0x49c3ac 0x49c9b7,0x81f14c
 Built2,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/Built2,0x49c3c3 0x49c9d0,0x81f144
@@ -426,7 +426,7 @@ C_SHADOW.SHP,file,,,,,,,,,,,,0x5451e2,0x82960c
 CallWaitString,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/CallWaitString,0x69861d 0x699221,0x83f068
 CallWaitStringIndex,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/CallWaitStringIndex,0x6985ef 0x699239,0x83f078
 Cameo,tag,art|ra2|ts|tsfs,ini-direct,,,,,,,,,,0x71599f 0x716c8b 0x716cc9,0x843350
-Camera,tag-unlisted,,modenc,rules,OpenToppedAnim,43,rules,Weapons,,,,https://modenc.renegadeprojects.com/Camera,0x772611,0x8493e8
+Camera,tag-unlisted,,modenc|readsite-consensus,rules,OpenToppedAnim,43,rules,Weapons,,,,https://modenc.renegadeprojects.com/Camera,0x772611,0x8493e8
 CameraRange,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66f2db,0x83c860
 CampDifficulty,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/CampDifficulty,0x5fa6b1 0x5fad6d,0x8332a8
 CampaignAI,tag,coop|ra2,ini-direct,,,,,,,,,,0x49dd45,0x81f334
@@ -615,7 +615,7 @@ CurVer,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/CurVer,0x6bb5c
 CurleyShuffle,tag,ra2|rules|ts,ini-direct,,,,,,,,Kratos|Phobos,,0x66fd42,0x83c5e4
 CurrentMap,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/CurrentMap,0x49c2de 0x49c837 0x49d5b0,0x81f19c
 CurrentStrengthDamage,tag,rules,ini-direct,,,,,,,,,,0x66c9e3,0x83af18
-CustomRotor,tag-unlisted,,modenc,rules,FlyBy,125,art,AircraftTypes,,consensus=rules vs modenc=art,,https://modenc.renegadeprojects.com/CustomRotor,0x41ccde,0x818014
+CustomRotor,tag-unlisted,,modenc|readsite-consensus,rules,FlyBy,125,art,AircraftTypes,,modenc=art; readsite-consensus=rules,,https://modenc.renegadeprojects.com/CustomRotor,0x41ccde,0x818014
 Cyborg,tag,ts|tsfs,ini-direct,,,,,,,,,,0x5243b0,0x825a0c
 CyrixInstead,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/CyrixInstead,0x4e61fa,0x822cc8
 DATE,code,,,,,,,,,,,,0x6c7829,0x842060
@@ -639,7 +639,7 @@ DMislWarhead,tag,ra2|rules,ini-direct,,,,,,,,,,0x66c3db,0x83b1a8
 DPOD.HVA,file,,,,,,,,,,,,0x5317d4,0x8268d8
 DPOD.VXL,file,,,,,,,,,,,,0x531761,0x826900
 DURA,code,,,,,,,,,,,,0x6c714a,0x8420f4
-DamSmkOffScrnRel,tag-unlisted,,modenc,rules,RefinerySmokeOffsetOne,74,rules,TechnoTypes,,,,https://modenc.renegadeprojects.com/DamSmkOffScrnRel,0x713e49,0x843f4c
+DamSmkOffScrnRel,tag-unlisted,,modenc|readsite-consensus,rules,RefinerySmokeOffsetOne,74,rules,TechnoTypes,,,,https://modenc.renegadeprojects.com/DamSmkOffScrnRel,0x713e49,0x843f4c
 Damage,tag,art|map|ra2|rules|ts|tsfs,ini-direct,,,,,,,,Antares|Ares|Kratos,,0x427fa7 0x645021 0x74b3df 0x7722db,0x81859c
 DamageDelay,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x670d42,0x83be20
 DamageFireTypes,tag,ra2|rules,ini-direct,,,,,,,,,,0x66d573,0x83cf58
@@ -698,7 +698,7 @@ DeleteOnStateLimit,tag,ra2|rules|ts|tsfs,ini-direct,,,,,,,,,,0x645134,0x8371d8
 DeployDir,tag,rules,ini-direct,,,,,,,,Phobos,,0x66927f,0x83abac
 DeployFacing,tag,rules,ini-direct,,,,,,,,,,0x460c76,0x81a93c
 DeployFire,tag,ra2|rules,ini-direct,,,,,,,,,,0x7147ef,0x843aa0
-DeployFireWeapon,tag-unlisted,,modenc,rules,DeployToLand,52,rules,InfantryTypes|VehicleTypes,,,Phobos,https://modenc.renegadeprojects.com/DeployFireWeapon,0x7147d5,0x843aac
+DeployFireWeapon,tag-unlisted,,modenc|readsite-consensus,rules,DeployToLand,52,rules,InfantryTypes|VehicleTypes,,,Phobos,https://modenc.renegadeprojects.com/DeployFireWeapon,0x7147d5,0x843aac
 DeploySound,tag,ra2|rules|ts,ini-direct,,,,,,,,Phobos,,0x713568,0x8440b0
 DeployTime,tag,ra2|rules|ts|tsfs,ini-direct,,,,,,,,,,0x714b85,0x843904
 DeployToFire,tag,ts|tsfs,ini-direct,,,,,,,,,,0x747672,0x845e10
@@ -712,7 +712,7 @@ DescriptionText,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/Descr
 DestNet,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/DestNet,0x5faccb 0x5faf8f 0x6bc196,0x83300c
 DestroyAnim,tag,ra2|rules,ini-direct,,,,,,,,Phobos,,0x713a97,0x843ff0
 DestroyParticleSystems,tag-unlisted,,modenc,,,,rules,Technoes,,,Antares|Ares,https://modenc.renegadeprojects.com/DestroyParticleSystems,0x713d2c,0x843f74
-DestroySmokeOffset,tag-unlisted,,modenc,rules,RefinerySmokeOffsetOne,49,rules,Technoes,,,,https://modenc.renegadeprojects.com/DestroySmokeOffset,0x713e62,0x843f38
+DestroySmokeOffset,tag-unlisted,,modenc|readsite-consensus,rules,RefinerySmokeOffsetOne,49,rules,Technoes,,,,https://modenc.renegadeprojects.com/DestroySmokeOffset,0x713e62,0x843f38
 DestroyWalls,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66d376,0x83b3c0
 DestroyableBridges,tag,map|ra2|rules|ts,ini-direct,,,,,,,,,,0x6b8b98 0x6b8e1f,0x840248
 DestroyableCliffs,tag,ra2|theater|ts,ini-direct,,,,,,,,,,0x545967,0x8293b0
@@ -722,7 +722,7 @@ DetailMinFrameRateMovie,tag,ra2|rules,ini-direct,,,,,,,,,,0x66922f,0x83abd8
 DetailMinFrameRateNormal,tag,ra2|rules,ini-direct,,,,,,,,,,0x669216,0x83abf0
 DetectDisguise,tag,ra2|rules,ini-direct,,,,,,,,,,0x71443f,0x843c78
 DetectDisguiseRange,tag,ra2|rules,ini-direct,,,,,,,,,,0x714302,0x843d3c
-DetectionDistance,tag-unlisted,,modenc,rules,HarvestRate,30,rules,InfantryTypes,ra2-obsolete,,,https://modenc.renegadeprojects.com/DetectionDistance,0x524505,0x825988
+DetectionDistance,tag-unlisted,,modenc|readsite-consensus,rules,HarvestRate,30,rules,InfantryTypes,ra2-obsolete,,,https://modenc.renegadeprojects.com/DetectionDistance,0x524505,0x825988
 DetonationAltitude,tag,ra2|rules,ini-direct,,,,,,,,,,0x46c337,0x81b018
 DialMethod,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/DialMethod,0x698580 0x69927d,0x83f09c
 "Dial_Modem
@@ -838,11 +838,11 @@ EliteAirstrikeTeam,tag,rules,ini-direct,,,,,,,,,,0x71459f,0x843b70
 EliteAirstrikeTeamType,tag,rules,ini-direct,,,,,,,,,,0x7145f8,0x843b44
 EliteFlashTimer,tag,ra2|rules,ini-direct,,,,,,,,,,0x66b273,0x83a3b4
 EliteOccupyWeapon,tag,rules,ini-direct,,,,,,,,,,0x524156,0x825a3c
-ElitePBarrelLength,tag-unlisted,,modenc,art,EliteSecondaryFireFLH,72,art,BuildingTypes|VehicleTypes,,,,https://modenc.renegadeprojects.com/ElitePBarrelLength,0x715ed8,0x843274
+ElitePBarrelLength,tag-unlisted,,modenc|readsite-consensus,art,EliteSecondaryFireFLH,72,art,BuildingTypes|VehicleTypes,,,,https://modenc.renegadeprojects.com/ElitePBarrelLength,0x715ed8,0x843274
 ElitePBarrelThickness,tag-unlisted,,readsite-consensus,art,EliteSecondaryFireFLH,36,,,,,,https://modenc.renegadeprojects.com/ElitePBarrelThickness,0x715efc,0x84325c
 ElitePrimary,tag,ra2|rules,ini-direct,,,,,,,,Antares|Ares,,0x712a32,0x8442dc
 ElitePrimaryFireFLH,tag,art|ra2,ini-direct,,,,,,,,Kratos,,0x715e95,0x843288
-EliteSBarrelLength,tag-unlisted,,modenc,art,EliteSecondaryFireFLH,61,art,BuildingTypes|VehicleTypes,,,,https://modenc.renegadeprojects.com/EliteSBarrelLength,0x715f5d,0x843230
+EliteSBarrelLength,tag-unlisted,,modenc|readsite-consensus,art,EliteSecondaryFireFLH,61,art,BuildingTypes|VehicleTypes,,,,https://modenc.renegadeprojects.com/EliteSBarrelLength,0x715f5d,0x843230
 EliteSBarrelThickness,tag-unlisted,,readsite-consensus,art,EliteSecondaryFireFLH,97,,,,,,https://modenc.renegadeprojects.com/EliteSBarrelThickness,0x715f81,0x843218
 EliteSecondary,tag,ra2|rules,ini-direct,,,,,,,,Antares|Ares,,0x712a5f,0x8442cc
 EliteSecondaryFireFLH,tag,art,ini-direct,,,,,,,,Kratos,,0x715f20,0x843244
@@ -924,7 +924,7 @@ FlakTurretIndex,tag,ra2|rules,ini-direct,,,,,,,,,,0x747c54,0x845c04
 FlakTurretWeapon,tag,ra2|rules,ini-direct,,,,,,,,,,0x747c63,0x845bf0
 FlameDamage,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66c2a1,0x83b1f0
 FlameDamage2,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66c2e0,0x83b1e0
-Flamer,tag-unlisted,,modenc,art,DoubleThick,52,art,Animations,ra2-obsolete,,,https://modenc.renegadeprojects.com/Flamer,0x427e55,0x81861c
+Flamer,tag-unlisted,,modenc|readsite-consensus,art,DoubleThick,52,art,Animations,ra2-obsolete,,,https://modenc.renegadeprojects.com/Flamer,0x427e55,0x81861c
 FlamingInfantry,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66e37d,0x83cd44
 FlashFrameTime,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x671979,0x83b750
 FlashSidebarTabFrames,tag,rules,ini-direct,,,,,,,,,,0x6ceae1,0x8426dc
@@ -1030,11 +1030,11 @@ HSVC,code,,,,,,,,,,,,0x76adda 0x76af4b,0x848cc0
 HTMLPath,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/HTMLPath,0x773744 0x7739b6 0x773c0d,0x849640
 HalfDamageSmokeLocation,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/HalfDamageSmokeLocation,0x74776f,0x845db0
 HalfDamageSmokeLocation1,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x45ff04,0x81ae84
-HalfDamageSmokeLocation2,tag-unlisted,,modenc,rules,AntiAirValue,97,rules,BuildingTypes,,,,https://modenc.renegadeprojects.com/HalfDamageSmokeLocation2,0x45ff33,0x81ae68
+HalfDamageSmokeLocation2,tag-unlisted,,modenc|readsite-consensus,rules,AntiAirValue,97,rules,BuildingTypes,,,,https://modenc.renegadeprojects.com/HalfDamageSmokeLocation2,0x45ff33,0x81ae68
 Handle,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/Handle,0x6982ba 0x69911a,0x83f158
 HarvestRate,tag,rules,ini-direct,,,,,,,,,,0x524523,0x82597c
 Harvester,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x67438c 0x7476a6,0x83d4cc
-HarvesterDumpRate,tag-unlisted,,modenc,rules,ThirdSurvivorDivisor,117,rules,General,,,Phobos,https://modenc.renegadeprojects.com/HarvesterDumpRate,0x670cd4,0x83be4c
+HarvesterDumpRate,tag-unlisted,,modenc|readsite-consensus,rules,ThirdSurvivorDivisor,117,rules,General,,,Phobos,https://modenc.renegadeprojects.com/HarvesterDumpRate,0x670cd4,0x83be4c
 HarvesterImmune,tag,map|ra2|rules|ts,ini-direct,,,,,,,,,,0x6b8c07 0x6b8ebf,0x84020c
 HarvesterLoadRate,tag-unlisted,,modenc,,,,rules,General,,,Phobos,https://modenc.renegadeprojects.com/HarvesterLoadRate,0x670cf4,0x83be38
 HarvesterTooFarDistance,tag,ra2|rules,ini-direct,,,,,,,,,,0x66ffe3,0x83c480
@@ -1075,7 +1075,7 @@ HoverBoost,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66ee31,0x83ca04
 HoverBrake,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66ee7d,0x83c9e4
 HoverDampen,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66edc5,0x83ca28
 HoverHeight,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66ee0b,0x83ca10
-HoverPad,tag-unlisted,,modenc,rules,SecretInfantry,83,rules,BuildingTypes,,,,https://modenc.renegadeprojects.com/HoverPad,0x46057a,0x81ac14
+HoverPad,tag-unlisted,,modenc|readsite-consensus,rules,SecretInfantry,83,rules,BuildingTypes,,,,https://modenc.renegadeprojects.com/HoverPad,0x46057a,0x81ac14
 HunterSeeker,tag,ts,ini-direct,,,,,,,,Antares|Ares,,0x714cae,0x843888
 ICBMLauncher,tag,ts,ini-direct,,,,,,,,,,0x460f29,0x81a834
 IDNO,code,,,,,,,,,,,,0x6c6fc6,0x842124
@@ -1152,7 +1152,7 @@ InitiateTurretWeapon,tag,rules,ini-direct,,,,,,,,,,0x747dfd,0x845a40
 InprocServer32,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/InprocServer32,0x6bb87a,0x840ae8
 Insignificant,tag,map|ra2|rules|ts|tsfs,ini-direct,,,,,,,,,,0x5f950a,0x832b60
 Intro,tag,map,ini-direct,,,,,,,,,,0x4f1d0a 0x4f2158 0x683c72 0x68a002 0x68b2c9 0x6bdf6a 0x6bdff3,0x8241c0
-Invisible,tag-unlisted,,modenc,rules,RadarVisible,26,rules,AircraftTypes|BuildingTypes|InfantryTypes|TechnoTypes|VehicleTypes,,,,https://modenc.renegadeprojects.com/Invisible,0x714a9e,0x843944
+Invisible,tag-unlisted,,modenc|readsite-consensus,rules,RadarVisible,26,rules,AircraftTypes|BuildingTypes|InfantryTypes|TechnoTypes|VehicleTypes,,,,https://modenc.renegadeprojects.com/Invisible,0x714a9e,0x843944
 InvisibleInGame,tag,ra2|rules|ts|tsfs,ini-direct,,,,,,,,,,0x460df2,0x81a8cc
 Inviso,tag,ra2|rules|ts|tsfs,ini-direct,,,,,,,,,,0x46c0a1,0x81b0cc
 IonAmbient,tag,map|ts,ini-direct,,,,,,,,,,0x599951 0x68a993 0x68b6de,0x82bf5c
@@ -1226,7 +1226,7 @@ JumpjetDeviation,tag,ra2|rules,ini-direct,,,,,,,,Phobos,,0x7151cb,0x843648
 JumpjetHeight,tag,ra2|rules,ini-direct,,,,,,,,Phobos,,0x71513f,0x843690
 JumpjetNoWobbles,tag,ra2|rules,ini-direct,,,,,,,,Phobos,,0x7151ac,0x84365c
 JumpjetSpeed,tag,ra2|rules,ini-direct,,,,,,,,Phobos,,0x7150d0,0x8436c0
-JumpjetTurnRate,tag-unlisted,,modenc,rules,ImmuneToPoison,99,rules,Technos,,,Phobos,https://modenc.renegadeprojects.com/JumpjetTurnRate,0x7150af,0x8436d0
+JumpjetTurnRate,tag-unlisted,,modenc|readsite-consensus,rules,ImmuneToPoison,99,rules,Technos,,,Phobos,https://modenc.renegadeprojects.com/JumpjetTurnRate,0x7150af,0x8436d0
 JumpjetWobbles,tag,ra2|rules,ini-direct,,,,,,,,Phobos,,0x71518b,0x843670
 KERNEL32,code,,,,,,,,,,,,0x7ceaff,0x7f988c
 KERNEL32.DLL,file,,,,,,,,,,,,0x48dd61,0x81d820
@@ -1286,7 +1286,7 @@ LeaveRubble,tag,ra2|rules,ini-direct,,,,,,,,,,0x460ef5,0x81a854
 LeaveTransportSound,tag,ra2|rules,ini-direct,,,,,,,,,,0x713432,0x8440d4
 LeaveWaterSound,tag,ra2|rules,ini-direct,,,,,,,,,,0x524439,0x8259e0
 LegalTarget,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x5f94a6,0x832b84
-LeptonMindControlOffset,tag-unlisted,,modenc,rules,PipsDrawForAll,26,rules,TechnoTypes,,,,https://modenc.renegadeprojects.com/LeptonMindControlOffset,0x71414c,0x843ddc
+LeptonMindControlOffset,tag-unlisted,,modenc|readsite-consensus,rules,PipsDrawForAll,26,rules,TechnoTypes,,,,https://modenc.renegadeprojects.com/LeptonMindControlOffset,0x71414c,0x843ddc
 LeptonsPerSightIncrease,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x670f43,0x83bd44
 LetsDoTheTimeWarpInAgain,tag,rules,ini-direct,,,,,,,,,,0x66a325,0x83a684
 LetsDoTheTimeWarpOutAgain,tag,rules,ini-direct,,,,,,,,,,0x66a2e3,0x83a6a0
@@ -1303,8 +1303,8 @@ LightningCellSpread,tag,ra2|rules,ini-direct,,,,,,,,,,0x671020,0x83bcb0
 LightningDamage,tag,ra2|rules,ini-direct,,,,,,,,,,0x670fa2,0x83bd08
 LightningDeferment,tag,ra2|rules,ini-direct,,,,,,,,,,0x670f82,0x83bd18
 LightningHitDelay,tag,ra2|rules,ini-direct,,,,,,,,,,0x670fe1,0x83bcdc
-LightningPrintText,tag-unlisted,,modenc,rules,ForceShieldRadius,32,rules,General,,,,https://modenc.renegadeprojects.com/LightningPrintText,0x67107f,0x83bc74
-LightningRod,tag-unlisted,,modenc,rules,PoweredUnit,26,rules,Technoes,ra2-obsolete,,,https://modenc.renegadeprojects.com/LightningRod,0x713330,0x844148
+LightningPrintText,tag-unlisted,,modenc|readsite-consensus,rules,ForceShieldRadius,32,rules,General,,,,https://modenc.renegadeprojects.com/LightningPrintText,0x67107f,0x83bc74
+LightningRod,tag-unlisted,,modenc|readsite-consensus,rules,PoweredUnit,26,rules,Technoes,ra2-obsolete,,,https://modenc.renegadeprojects.com/LightningRod,0x713330,0x844148
 LightningScatterDelay,tag,ra2|rules,ini-direct,,,,,,,,,,0x671001,0x83bcc4
 LightningSeparation,tag,ra2|rules,ini-direct,,,,,,,,,,0x671040,0x83bc9c
 LightningSounds,tag,ra2|rules,ini-direct,,,,,,,,,,0x66aef7,0x83a3f0
@@ -1345,13 +1345,13 @@ LowPowerDamaged,tag,art,ini-direct,,,,,,,,,,0x46384a,0x819a28
 LowPowerGarrisoned,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/LowPowerGarrisoned,0x4638e4,0x819a14
 LowPowerPenaltyModifier,tag,ra2|rules,ini-direct,,,,,,,,,,0x66eb9f,0x83cafc
 LowPowerPowered,tag,art,ini-direct,,,,,,,,,,0x463a1b,0x8199cc
-LowPowerPoweredEffect,tag-unlisted,,modenc,art,LowPowerPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerPoweredEffect,0x463a55,0x81999c
-LowPowerPoweredLight,tag-unlisted,,modenc,art,LowPowerPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerPoweredLight,0x463a38,0x8199b4
-LowPowerPoweredSpecial,tag-unlisted,,modenc,art,SuperLowPower,40,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerPoweredSpecial,0x463a72,0x819984
-LowPowerX,tag-unlisted,,modenc,art,LowPowerPowered,116,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerX,0x4639a7,0x819a08
-LowPowerY,tag-unlisted,,modenc,art,LowPowerPowered,87,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerY,0x4639c4,0x8199fc
-LowPowerYSort,tag-unlisted,,modenc,art,LowPowerPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerYSort,0x4639fe,0x8199dc
-LowPowerZAdjust,tag-unlisted,,modenc,art,LowPowerPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerZAdjust,0x4639e1,0x8199ec
+LowPowerPoweredEffect,tag-unlisted,,modenc|readsite-consensus,art,LowPowerPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerPoweredEffect,0x463a55,0x81999c
+LowPowerPoweredLight,tag-unlisted,,modenc|readsite-consensus,art,LowPowerPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerPoweredLight,0x463a38,0x8199b4
+LowPowerPoweredSpecial,tag-unlisted,,modenc|readsite-consensus,art,SuperLowPower,40,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerPoweredSpecial,0x463a72,0x819984
+LowPowerX,tag-unlisted,,modenc|readsite-consensus,art,LowPowerPowered,116,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerX,0x4639a7,0x819a08
+LowPowerY,tag-unlisted,,modenc|readsite-consensus,art,LowPowerPowered,87,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerY,0x4639c4,0x8199fc
+LowPowerYSort,tag-unlisted,,modenc|readsite-consensus,art,LowPowerPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerYSort,0x4639fe,0x8199dc
+LowPowerZAdjust,tag-unlisted,,modenc|readsite-consensus,art,LowPowerPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/LowPowerZAdjust,0x4639e1,0x8199ec
 MAIN.MIX,file,,,,,,,,,,,,0x4793b1,0x81c314
 MAPS,code,,,,,,,,,,,,0x768203,0x848b34
 MAPSELMD.INI,file,,,,,,,,,,,,0x5cef62,0x830370
@@ -1380,7 +1380,7 @@ MakeInfantry,tag,art,ini-direct,,,,,,,,,,0x4281be,0x8184d0
 MakesDisguise,tag,ra2|rules,ini-direct,,,,,,,,,,0x75d956,0x847d00
 ManBattle,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/ManBattle,0x5d7d74,0x830bf4
 ManualControl,tag,ts,ini-direct,,,,,,,,,,0x6ced4b,0x842644
-ManualReload,tag-unlisted,,modenc,rules,TurretSpins,22,rules,,,,,https://modenc.renegadeprojects.com/ManualReload,0x71334a,0x844138
+ManualReload,tag-unlisted,,modenc|readsite-consensus,rules,TurretSpins,22,rules,,,,,https://modenc.renegadeprojects.com/ManualReload,0x71334a,0x844138
 Map,tag,map,ini-direct,,,,,,,,,,0x4aceb1 0x4acf16 0x4acf40 0x4acfde 0x4ad774 0x5997cc 0x5997e8 0x599800 0x599817 0x687485 0x68750e 0x687639,0x81fff0
 MapCheck.txt,file,,,,,,,,,,,,0x587c5c,0x82af00
 MapEnter,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/MapEnter,0x76d093 0x76dfd6,0x848f00
@@ -1437,7 +1437,7 @@ MindClearedSound,tag,rules,ini-direct,,,,,,,,,,0x66a0d6 0x71395e,0x83a744
 MindControl,tag,ra2|rules,ini-direct,,,,,,,,,,0x75d7cf,0x81bbc8
 MindControlAttackLineFrames,tag,rules,ini-direct,,,,,,,,,,0x66c921,0x83af88
 MindControlDecision,tag,ai|map,ini-direct,,,,,,,,,,0x6f1139 0x6f15b7,0x8430d8
-MindControlRingOffset,tag-unlisted,,modenc,rules,BuildTimeMultiplier,33,rules,TechnoTypes,,,,https://modenc.renegadeprojects.com/MindControlRingOffset,0x714350,0x843d04
+MindControlRingOffset,tag-unlisted,,modenc|readsite-consensus,rules,BuildTimeMultiplier,33,rules,TechnoTypes,,,,https://modenc.renegadeprojects.com/MindControlRingOffset,0x714350,0x843d04
 MinimumAIDefensiveTeams,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66febd,0x83c51c
 MinimumRange,tag,ra2|rules|ts|tsfs,ini-direct,,,,,,,,,,0x772343,0x849428
 MiscPaveTile,tag,ra2|theater|ts,ini-direct,,,,,,,,,,0x545621,0x829578
@@ -1445,7 +1445,7 @@ MissileROTVar,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66ec2f,0x83cab4
 MissileSafetyAltitude,tag,ra2|rules,ini-direct,,,,,,,,,,0x66ec4f,0x83ca9c
 MissileSpawn,tag,ra2|rules,ini-direct,,,,,,,,,,0x714f23,0x843798
 MissileSpeedVar,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66ec76,0x83ca8c
-MobileFire,tag-unlisted,,modenc,rules,DeployToLand,26,rules,VehicleTypes,,,Kratos,https://modenc.renegadeprojects.com/MobileFire,0x714823,0x843a84
+MobileFire,tag-unlisted,,modenc|readsite-consensus,rules,DeployToLand,26,rules,VehicleTypes,,,Kratos,https://modenc.renegadeprojects.com/MobileFire,0x714823,0x843a84
 Model,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/Model,0x5bba1b,0x82cec4
 Modem,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/Modem,0x5bb8bb,0x82cecc
 ModemName,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/ModemName,0x698499 0x699329,0x83f0e8
@@ -1490,8 +1490,8 @@ Name,tag,ai|map|ra2|rules|theme|ts|tsfs,ini-direct,,,,,,,,Antares|Ares,,0x410a98
 NameKeyPrefix,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/NameKeyPrefix,0x768c5a,0x8489f0
 NamedCivilians,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x66b465,0x83a30c
 Natural,tag,rules,ini-direct,,,,,,,,,,0x714946,0x8439dc
-NaturalParticleLocation,tag-unlisted,,modenc,rules,RefinerySmokeParticleSystem,47,rules,BuildingTypes,,,,https://modenc.renegadeprojects.com/NaturalParticleLocation,0x713bfc,0x843fa4
-NaturalParticleSystem,tag-unlisted,,modenc,rules,RefinerySmokeParticleSystem,51,rules,BuildingTypes,,,,https://modenc.renegadeprojects.com/NaturalParticleSystem,0x713b9a,0x843fd8
+NaturalParticleLocation,tag-unlisted,,modenc|readsite-consensus,rules,RefinerySmokeParticleSystem,47,rules,BuildingTypes,,,,https://modenc.renegadeprojects.com/NaturalParticleLocation,0x713bfc,0x843fa4
+NaturalParticleSystem,tag-unlisted,,modenc|readsite-consensus,rules,RefinerySmokeParticleSystem,51,rules,BuildingTypes,,,,https://modenc.renegadeprojects.com/NaturalParticleSystem,0x713b9a,0x843fd8
 Naval,tag,ra2|rules,ini-direct,,,,,,,,,,0x714a6a,0x84395c
 NavalTargeting,tag,ra2|rules,ini-direct,,,,,,,,,,0x7121be,0x844510
 NeedsEngineer,tag,ra2|rules,ini-direct,,,,,,,,,,0x46023e,0x81aca0
@@ -1622,7 +1622,7 @@ PROC,code,,,,,,,,,,Antares|Ares,,0x47732b,0x81c1c0
 PROGBAR2.SHP,file,,,,,,,,,,,,0x598a02,0x82bf18
 PROGBARM.SHP,file,,,,,,,,,,,,0x6847f6 0x69429d 0x694c81,0x83da30
 PSIWARN,code,,,,,,,,,,Antares|Ares,,0x6cdb86,0x81907c
-PackupSound,tag-unlisted,,modenc,rules,DefensesCostBonus,121,rules,BuildingTypes,,,,https://modenc.renegadeprojects.com/PackupSound,0x460786,0x81ab4c
+PackupSound,tag-unlisted,,modenc|readsite-consensus,rules,DefensesCostBonus,121,rules,BuildingTypes,,,,https://modenc.renegadeprojects.com/PackupSound,0x460786,0x81ab4c
 PadAircraft,tag,ra2|rules|ts,ini-direct,,,,,,,,Antares|Ares|Kratos,,0x66f9d8,0x83c748
 Palette,tag,art|mapsel|ra2|ts|tsfs,ini-direct,,,,,,,,Phobos,,0x4f2d40 0x5cf25e 0x715839 0x716d82,0x824254
 ParTimeEasy,tag,map,ini-direct,,,,,,,,,,0x68a74a 0x68b54b,0x83dfcc
@@ -1767,7 +1767,7 @@ PsychicRevealRadius,tag,rules,ini-direct,,,,,,,,,,0x66c65d,0x83b0a4
 PsychicSensorDetectSound,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/PsychicSensorDetectSound,0x66a4ce,0x83a600
 PublicKey,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/PublicKey,0x52a633 0x52a716,0x825c14
 PurifierBonus,tag,ra2|rules,ini-direct,,,,,,,,,,0x66fc6a,0x83c62c
-Pushy,tag-unlisted,,modenc,rules,Natural,26,rules,Technos,,,,https://modenc.renegadeprojects.com/Pushy,0x71492c,0x8439e4
+Pushy,tag-unlisted,,modenc|readsite-consensus,rules,Natural,26,rules,Technos,,,,https://modenc.renegadeprojects.com/Pushy,0x71492c,0x8439e4
 QUEUE,code,,,,,,,,,,,,0x752e31,0x8467cc
 QUEUED_INTERRUPT,code,,,,,,,,,,,,0x752e8a,0x8467ac
 QueueingCell,tag,art|ra2,ini-direct,,,,,,,,,,0x461506,0x81a614
@@ -2119,8 +2119,8 @@ SpecialAnimFourPowered,tag-unlisted,,readsite-consensus,art,SpecialAnimFourZAdju
 SpecialAnimFourPoweredEffect,tag-unlisted,,readsite-consensus,art,LowPower,69,,,,,,https://modenc.renegadeprojects.com/SpecialAnimFourPoweredEffect,0x4637a7,0x819a64
 SpecialAnimFourPoweredLight,tag-unlisted,,readsite-consensus,art,SpecialAnimFourZAdjust,87,,,,,,https://modenc.renegadeprojects.com/SpecialAnimFourPoweredLight,0x46378a,0x819a84
 SpecialAnimFourPoweredSpecial,tag-unlisted,,readsite-consensus,art,LowPower,40,,,,,,https://modenc.renegadeprojects.com/SpecialAnimFourPoweredSpecial,0x4637c4,0x819a44
-SpecialAnimFourX,tag-unlisted,,modenc,art,SpecialAnimFourZAdjust,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SpecialAnimFourX,0x4636f9,0x819afc
-SpecialAnimFourY,tag-unlisted,,modenc,art,SpecialAnimFourZAdjust,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SpecialAnimFourY,0x463716,0x819ae8
+SpecialAnimFourX,tag-unlisted,,modenc|readsite-consensus,art,SpecialAnimFourZAdjust,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SpecialAnimFourX,0x4636f9,0x819afc
+SpecialAnimFourY,tag-unlisted,,modenc|readsite-consensus,art,SpecialAnimFourZAdjust,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SpecialAnimFourY,0x463716,0x819ae8
 SpecialAnimFourYSort,tag-unlisted,,readsite-consensus,art,SpecialAnimFourZAdjust,29,,,,,,https://modenc.renegadeprojects.com/SpecialAnimFourYSort,0x463750,0x819ab8
 SpecialAnimFourZAdjust,tag,art,ini-direct,,,,,,,,,,0x463733,0x819ad0
 SpecialAnimGarrisoned,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/SpecialAnimGarrisoned,0x462e2c,0x819e18
@@ -2131,9 +2131,9 @@ SpecialAnimPoweredSpecial,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects
 SpecialAnimThree,tag,art|ra2|ts,ini-direct,,,,,,,,,,0x463290,0x819c58
 SpecialAnimThreeDamaged,tag,art|ra2,ini-direct,,,,,,,,,,0x4632ee,0x819c40
 SpecialAnimThreeGarrisoned,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/SpecialAnimThreeGarrisoned,0x463388,0x819c24
-SpecialAnimThreePowered,tag-unlisted,,modenc,art,SpecialAnimFour,127,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SpecialAnimThreePowered,0x4634bf,0x819bb4
-SpecialAnimThreePoweredEffect,tag-unlisted,,modenc,art,SpecialAnimFour,69,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SpecialAnimThreePoweredEffect,0x4634f9,0x819b74
-SpecialAnimThreePoweredLight,tag-unlisted,,modenc,art,SpecialAnimFour,98,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SpecialAnimThreePoweredLight,0x4634dc,0x819b94
+SpecialAnimThreePowered,tag-unlisted,,modenc|readsite-consensus,art,SpecialAnimFour,127,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SpecialAnimThreePowered,0x4634bf,0x819bb4
+SpecialAnimThreePoweredEffect,tag-unlisted,,modenc|readsite-consensus,art,SpecialAnimFour,69,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SpecialAnimThreePoweredEffect,0x4634f9,0x819b74
+SpecialAnimThreePoweredLight,tag-unlisted,,modenc|readsite-consensus,art,SpecialAnimFour,98,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SpecialAnimThreePoweredLight,0x4634dc,0x819b94
 SpecialAnimThreePoweredSpecial,tag-unlisted,,readsite-consensus,art,SpecialAnimFour,40,,,,,,https://modenc.renegadeprojects.com/SpecialAnimThreePoweredSpecial,0x463516,0x819b54
 SpecialAnimThreeX,tag-unlisted,,modenc,,,,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SpecialAnimThreeX,0x46344b,0x819c10
 SpecialAnimThreeY,tag-unlisted,,modenc,,,,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SpecialAnimThreeY,0x463468,0x819bfc
@@ -2172,7 +2172,7 @@ SpotlightLocationRadius,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x671775,0x83b898
 SpotlightMovementRadius,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x671755,0x83b8b0
 SpotlightRadius,tag-unlisted,,modenc,,,,rules,General,,,,https://modenc.renegadeprojects.com/SpotlightRadius,0x671809,0x83b850
 SpotlightSpeed,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x67179c,0x83b888
-SprayAttack,tag-unlisted,,modenc,rules,BerserkFriendly,24,rules,Technos,,,,https://modenc.renegadeprojects.com/SprayAttack,0x714912,0x8439ec
+SprayAttack,tag-unlisted,,modenc|readsite-consensus,rules,BerserkFriendly,24,rules,Technos,,,,https://modenc.renegadeprojects.com/SprayAttack,0x714912,0x8439ec
 Spread,tag,ra2|rules|ts|tsfs,ini-direct,,,,,,,,,,0x721a83,0x844924
 SpreadPercentage,tag,mp|ra2|rules|ts,ini-direct,,,,,,,,,,0x721a9e,0x844910
 SpyMoneyStealPercent,tag,map|ra2|rules,ini-direct,,,,,,,,,,0x66fc25,0x83c654
@@ -2225,42 +2225,42 @@ SuperAnimFour,tag,art|ra2,ini-direct,,,,,,,,,,0x462a86,0x819f38
 SuperAnimFourDamaged,tag,art|ra2,ini-direct,,,,,,,,,,0x462ae4,0x819f20
 SuperAnimFourGarrisoned,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/SuperAnimFourGarrisoned,0x462b7e,0x819f08
 SuperAnimFourPowered,tag,art,ini-direct,,,,,,,,,,0x462cb5,0x819ea4
-SuperAnimFourPoweredEffect,tag-unlisted,,modenc,art,SuperAnimFourPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimFourPoweredEffect,0x462cef,0x819e6c
-SuperAnimFourPoweredLight,tag-unlisted,,modenc,art,SuperAnimFourPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimFourPoweredLight,0x462cd2,0x819e88
+SuperAnimFourPoweredEffect,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimFourPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimFourPoweredEffect,0x462cef,0x819e6c
+SuperAnimFourPoweredLight,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimFourPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimFourPoweredLight,0x462cd2,0x819e88
 SuperAnimFourPoweredSpecial,tag-unlisted,,readsite-consensus,art,SuperAnimFourPowered,87,,,,,,https://modenc.renegadeprojects.com/SuperAnimFourPoweredSpecial,0x462d0c,0x819e50
-SuperAnimFourX,tag-unlisted,,modenc,art,SuperAnimFourPowered,116,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimFourX,0x462c41,0x819ef8
-SuperAnimFourY,tag-unlisted,,modenc,art,SuperAnimFourPowered,87,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimFourY,0x462c5e,0x819ee8
+SuperAnimFourX,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimFourPowered,116,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimFourX,0x462c41,0x819ef8
+SuperAnimFourY,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimFourPowered,87,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimFourY,0x462c5e,0x819ee8
 SuperAnimFourYSort,tag,art|ra2,ini-direct,,,,,,,,,,0x462c98,0x819ebc
 SuperAnimFourZAdjust,tag,art|ra2,ini-direct,,,,,,,,,,0x462c7b,0x819ed0
 SuperAnimGarrisoned,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/SuperAnimGarrisoned,0x462374,0x81a1cc
 SuperAnimPowered,tag,art,ini-direct,,,,,,,,,,0x4624ab,0x81a17c
-SuperAnimPoweredEffect,tag-unlisted,,modenc,art,SuperAnimPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimPoweredEffect,0x4624e5,0x81a14c
-SuperAnimPoweredLight,tag-unlisted,,modenc,art,SuperAnimPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimPoweredLight,0x4624c8,0x81a164
+SuperAnimPoweredEffect,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimPoweredEffect,0x4624e5,0x81a14c
+SuperAnimPoweredLight,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimPoweredLight,0x4624c8,0x81a164
 SuperAnimPoweredSpecial,tag-unlisted,,readsite-consensus,art,SuperAnimPowered,87,,,,,,https://modenc.renegadeprojects.com/SuperAnimPoweredSpecial,0x462502,0x81a134
 SuperAnimThree,tag,art|ra2,ini-direct,,,,,,,,,,0x4627d8,0x81a038
 SuperAnimThreeDamaged,tag,art|ra2,ini-direct,,,,,,,,,,0x462836,0x81a020
 SuperAnimThreeGarrisoned,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/SuperAnimThreeGarrisoned,0x4628d0,0x81a004
 SuperAnimThreePowered,tag,art,ini-direct,,,,,,,,,,0x462a07,0x819fa0
 SuperAnimThreePoweredEffect,tag,art,ini-direct,,,,,,,,,,0x462a41,0x819f68
-SuperAnimThreePoweredLight,tag-unlisted,,modenc,art,SuperAnimThreePowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimThreePoweredLight,0x462a24,0x819f84
+SuperAnimThreePoweredLight,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimThreePowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimThreePoweredLight,0x462a24,0x819f84
 SuperAnimThreePoweredSpecial,tag-unlisted,,readsite-consensus,art,SuperAnimThreePoweredEffect,29,,,,,,https://modenc.renegadeprojects.com/SuperAnimThreePoweredSpecial,0x462a5e,0x819f48
-SuperAnimThreeX,tag-unlisted,,modenc,art,SuperAnimThreePowered,116,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimThreeX,0x462993,0x819ff4
-SuperAnimThreeY,tag-unlisted,,modenc,art,SuperAnimThreePowered,87,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimThreeY,0x4629b0,0x819fe4
+SuperAnimThreeX,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimThreePowered,116,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimThreeX,0x462993,0x819ff4
+SuperAnimThreeY,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimThreePowered,87,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimThreeY,0x4629b0,0x819fe4
 SuperAnimThreeYSort,tag,art|ra2,ini-direct,,,,,,,,,,0x4629ea,0x819fb8
 SuperAnimThreeZAdjust,tag,art|ra2,ini-direct,,,,,,,,,,0x4629cd,0x819fcc
 SuperAnimTwo,tag,art|ra2,ini-direct,,,,,,,,,,0x46252a,0x81a124
 SuperAnimTwoDamaged,tag,art|ra2,ini-direct,,,,,,,,,,0x462588,0x81a110
 SuperAnimTwoGarrisoned,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/SuperAnimTwoGarrisoned,0x462622,0x81a0f8
 SuperAnimTwoPowered,tag,art,ini-direct,,,,,,,,,,0x462759,0x81a09c
-SuperAnimTwoPoweredEffect,tag-unlisted,,modenc,art,SuperAnimTwoPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimTwoPoweredEffect,0x462793,0x81a064
-SuperAnimTwoPoweredLight,tag-unlisted,,modenc,art,SuperAnimTwoPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimTwoPoweredLight,0x462776,0x81a080
+SuperAnimTwoPoweredEffect,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimTwoPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimTwoPoweredEffect,0x462793,0x81a064
+SuperAnimTwoPoweredLight,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimTwoPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimTwoPoweredLight,0x462776,0x81a080
 SuperAnimTwoPoweredSpecial,tag-unlisted,,readsite-consensus,art,SuperAnimTwoPowered,87,,,,,,https://modenc.renegadeprojects.com/SuperAnimTwoPoweredSpecial,0x4627b0,0x81a048
-SuperAnimTwoX,tag-unlisted,,modenc,art,SuperAnimTwoPowered,116,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimTwoX,0x4626e5,0x81a0e8
-SuperAnimTwoY,tag-unlisted,,modenc,art,SuperAnimTwoPowered,87,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimTwoY,0x462702,0x81a0d8
+SuperAnimTwoX,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimTwoPowered,116,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimTwoX,0x4626e5,0x81a0e8
+SuperAnimTwoY,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimTwoPowered,87,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimTwoY,0x462702,0x81a0d8
 SuperAnimTwoYSort,tag,art|ra2,ini-direct,,,,,,,,,,0x46273c,0x81a0b0
 SuperAnimTwoZAdjust,tag,art|ra2,ini-direct,,,,,,,,,,0x46271f,0x81a0c4
-SuperAnimX,tag-unlisted,,modenc,art,SuperAnimPowered,116,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimX,0x462437,0x81a1c0
-SuperAnimY,tag-unlisted,,modenc,art,SuperAnimPowered,87,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimY,0x462454,0x81a1b4
+SuperAnimX,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimPowered,116,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimX,0x462437,0x81a1c0
+SuperAnimY,tag-unlisted,,modenc|readsite-consensus,art,SuperAnimPowered,87,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperAnimY,0x462454,0x81a1b4
 SuperAnimYSort,tag,art|ra2,ini-direct,,,,,,,,,,0x46248e,0x81a190
 SuperAnimZAdjust,tag,art|ra2,ini-direct,,,,,,,,,,0x462471,0x81a1a0
 SuperGapRadiusInCells,tag,ra2|rules,ini-direct,,,,,,,,,,0x713fd1,0x843e6c
@@ -2268,19 +2268,19 @@ SuperLowPower,tag,art,ini-direct,,,,,,,,,,0x463a9a,0x819974
 SuperLowPowerDamaged,tag,art,ini-direct,,,,,,,,,,0x463af8,0x81995c
 SuperLowPowerGarrisoned,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/SuperLowPowerGarrisoned,0x463b92,0x819944
 SuperLowPowerPowered,tag,art,ini-direct,,,,,,,,,,0x463cc9,0x8198e0
-SuperLowPowerPoweredEffect,tag-unlisted,,modenc,art,SuperLowPowerPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperLowPowerPoweredEffect,0x463d03,0x8198a8
-SuperLowPowerPoweredLight,tag-unlisted,,modenc,art,SuperLowPowerPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperLowPowerPoweredLight,0x463ce6,0x8198c4
+SuperLowPowerPoweredEffect,tag-unlisted,,modenc|readsite-consensus,art,SuperLowPowerPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperLowPowerPoweredEffect,0x463d03,0x8198a8
+SuperLowPowerPoweredLight,tag-unlisted,,modenc|readsite-consensus,art,SuperLowPowerPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperLowPowerPoweredLight,0x463ce6,0x8198c4
 SuperLowPowerPoweredSpecial,tag-unlisted,,readsite-consensus,art,SuperLowPowerPowered,87,,,,,,https://modenc.renegadeprojects.com/SuperLowPowerPoweredSpecial,0x463d20,0x81988c
-SuperLowPowerX,tag-unlisted,,modenc,art,SuperLowPowerPowered,116,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperLowPowerX,0x463c55,0x819934
-SuperLowPowerY,tag-unlisted,,modenc,art,SuperLowPowerPowered,87,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperLowPowerY,0x463c72,0x819924
-SuperLowPowerYSort,tag-unlisted,,modenc,art,SuperLowPowerPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperLowPowerYSort,0x463cac,0x8198f8
-SuperLowPowerZAdjust,tag-unlisted,,modenc,art,SuperLowPowerPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperLowPowerZAdjust,0x463c8f,0x81990c
+SuperLowPowerX,tag-unlisted,,modenc|readsite-consensus,art,SuperLowPowerPowered,116,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperLowPowerX,0x463c55,0x819934
+SuperLowPowerY,tag-unlisted,,modenc|readsite-consensus,art,SuperLowPowerPowered,87,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperLowPowerY,0x463c72,0x819924
+SuperLowPowerYSort,tag-unlisted,,modenc|readsite-consensus,art,SuperLowPowerPowered,29,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperLowPowerYSort,0x463cac,0x8198f8
+SuperLowPowerZAdjust,tag-unlisted,,modenc|readsite-consensus,art,SuperLowPowerPowered,58,art,BuildingTypes,,,,https://modenc.renegadeprojects.com/SuperLowPowerZAdjust,0x463c8f,0x81990c
 SuperWeapon,tag,ra2|rules|ts|tsfs,ini-direct,,,,,,,,,,0x460bb8,0x817204
 SuperWeapon2,tag,ts,ini-direct,,,,,,,,,,0x460bd0,0x81a9a8
 SuperWeapons,tag,ra2|rules|ts,ini-direct,,,,,,,,Antares|Ares|Phobos,,0x67428f,0x83d4fc
 SuperWeaponsAllowed,tag-unlisted,,modenc,,,,ra2|rules,LAN|MultiplayerDialogSettings|Skirmish|WonlinePref,,,,https://modenc.renegadeprojects.com/SuperWeaponsAllowed,0x6721a7 0x697fd3 0x699016,0x83cf94
 SuppressionThreshold,tag,ra2|rules,ini-direct,,,,,,,,,,0x71506d,0x8436ec
-Supress,tag-unlisted,,modenc,rules,FireInTransport,78,rules,,,,,https://modenc.renegadeprojects.com/Supress,0x7722a7,0x849440
+Supress,tag-unlisted,,modenc|readsite-consensus,rules,FireInTransport,78,rules,,,,,https://modenc.renegadeprojects.com/Supress,0x7722a7,0x849440
 SurvivorRate,tag,ra2|rules|ts|tsfs,ini-direct,,,,,,,,,,0x670c00,0x83bec0
 SuspendDelay,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x670bd9,0x83bed0
 SuspendPriority,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x670bb2,0x83bee0
@@ -2308,7 +2308,7 @@ Tag,tag,map,ini-direct,,,,,,,,,,0x6f1339 0x6f17de,0x81728c
 TalkBubbleTime,tag-unlisted,,modenc,,,,rules,General,,,,https://modenc.renegadeprojects.com/TalkBubbleTime,0x671e69,0x83b404
 Target,tag-unlisted,,,,,,,,,,Kratos,https://modenc.renegadeprojects.com/Target,0x698bb5 0x76ccfa,0x83efec
 TargetCoordOffset,tag,ra2|rules,ini-direct,,,,,,,,,,0x460f70,0x81a814
-TargetDistanceCoefficient,tag-unlisted,,modenc,art,UseBuffer,106,rules,AircraftTypes|BuildingTypes|InfantryTypes|VehicleTypes,,consensus=art vs modenc=rules,,https://modenc.renegadeprojects.com/TargetDistanceCoefficient,0x71570c,0x843440
+TargetDistanceCoefficient,tag-unlisted,,modenc|readsite-consensus,art,UseBuffer,106,rules,AircraftTypes|BuildingTypes|InfantryTypes|VehicleTypes,,modenc=rules; readsite-consensus=art,,https://modenc.renegadeprojects.com/TargetDistanceCoefficient,0x71570c,0x843440
 TargetDistanceCoefficientDefault,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x671b8a,0x83b5d4
 TargetDividingFrame,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/TargetDividingFrame,0x76cd4e,0x848ecc
 TargetEffectivenessCoefficient,tag-unlisted,,modenc,,,,rules,AircraftTypes|BuildingTypes|InfantryTypes|VehicleTypes,,,,https://modenc.renegadeprojects.com/TargetEffectivenessCoefficient,0x7155d8,0x843498
@@ -2351,7 +2351,7 @@ TextRect,tag,mapsel|ra2|ts|tsfs,ini-direct,,,,,,,,,,0x5cf13c 0x76848c,0x8302f0
 Theater,tag,art|map|ra2|ts|tsfs,ini-direct,,,,,,,,,,0x427da9 0x4acfd9 0x4ad815 0x5978a2 0x597b98 0x5997c7 0x5f95e9 0x687634,0x818658
 Theme,tag,map|ts,ini-direct,,,,,,,,,,0x4f1fbd 0x68a12c 0x68b25b 0x76cafb,0x824194
 Themes,tag-unlisted,,,,,,,,,,,,0x72059d 0x7205ca 0x7205d7,0x844760
-Thief,tag-unlisted,,modenc,rules,DeployedCrushable,104,rules,InfantryTypes,,,,https://modenc.renegadeprojects.com/Thief,0x5245bf,0x82594c
+Thief,tag-unlisted,,modenc|readsite-consensus,rules,DeployedCrushable,104,rules,InfantryTypes,,,,https://modenc.renegadeprojects.com/Thief,0x5245bf,0x82594c
 ThirdBaseDefenseCounts,tag,rules,ini-direct,,,,,,,,,,0x6700a0,0x83c41c
 ThirdBaseDefenses,tag,rules,ini-direct,,,,,,,,Antares|Ares,,0x673216,0x83d41c
 ThirdCrew,tag,rules,ini-direct,,,,,,,,,,0x66fd23,0x83c5f4
@@ -2549,7 +2549,7 @@ Visceroids,tag,map|ra2|rules|ts,ini-direct,,,,,,,,,,0x6b8c8e 0x6b8d84,0x8401e0
 VisibleLoad,tag-unlisted,,modenc,,,,art,VehicleTypes,,,,https://modenc.renegadeprojects.com/VisibleLoad,0x71590d,0x84338c
 VoiceAttack,tag,ra2|rules|ts|tsfs,ini-direct,,,,,,,,,,0x712c74,0x84427c
 VoiceCapture,tag,ra2|rules,ini-direct,,,,,,,,,,0x7130e8,0x8441c0
-VoiceComment,tag-unlisted,,modenc,rules,EliteOccupyWeapon,61,rules,InfantryTypes,,,,https://modenc.renegadeprojects.com/VoiceComment,0x524193,0x825a2c
+VoiceComment,tag-unlisted,,modenc|readsite-consensus,rules,EliteOccupyWeapon,61,rules,InfantryTypes,,,,https://modenc.renegadeprojects.com/VoiceComment,0x524193,0x825a2c
 VoiceCrashing,tag,ra2|rules,ini-direct,,,,,,,,,,0x713034,0x8441ec
 VoiceDeploy,tag,rules,ini-direct,,,,,,,,,,0x713784,0x84400c
 VoiceDie,tag,ts|tsfs,ini-direct,,,,,,,,,,0x712d48,0x84425c
@@ -2561,16 +2561,16 @@ VoiceIFVRepair,tag,rules,ini-direct,,,,,,,,Antares|Ares|Phobos,,0x669d80,0x83a87
 VoiceMove,tag,ra2|rules|ts|tsfs,ini-direct,,,,,,,,,,0x712acc,0x8442c0
 VoiceOver,tag,mapsel|ra2|ts,ini-direct,,,,,,,,,,0x5cface,0x8304d4
 VoiceOvers,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/VoiceOvers,0x76c4b1,0x848e0c
-VoicePrimaryEliteWeaponAttack,tag-unlisted,,modenc,rules,VoiceSecondaryWeaponAttack,54,rules,Technoes,,,,https://modenc.renegadeprojects.com/VoicePrimaryEliteWeaponAttack,0x7136d0,0x844054
-VoicePrimaryWeaponAttack,tag-unlisted,,modenc,rules,VoiceHarvest,60,rules,Technoes,,,,https://modenc.renegadeprojects.com/VoicePrimaryWeaponAttack,0x71368e,0x844074
-VoiceSecondaryEliteWeaponAttack,tag-unlisted,,modenc,rules,VoiceSecondaryWeaponAttack,60,rules,Technoes,,,,https://modenc.renegadeprojects.com/VoiceSecondaryEliteWeaponAttack,0x713742,0x844018
+VoicePrimaryEliteWeaponAttack,tag-unlisted,,modenc|readsite-consensus,rules,VoiceSecondaryWeaponAttack,54,rules,Technoes,,,,https://modenc.renegadeprojects.com/VoicePrimaryEliteWeaponAttack,0x7136d0,0x844054
+VoicePrimaryWeaponAttack,tag-unlisted,,modenc|readsite-consensus,rules,VoiceHarvest,60,rules,Technoes,,,,https://modenc.renegadeprojects.com/VoicePrimaryWeaponAttack,0x71368e,0x844074
+VoiceSecondaryEliteWeaponAttack,tag-unlisted,,modenc|readsite-consensus,rules,VoiceSecondaryWeaponAttack,60,rules,Technoes,,,,https://modenc.renegadeprojects.com/VoiceSecondaryEliteWeaponAttack,0x713742,0x844018
 VoiceSecondaryWeaponAttack,tag,rules,ini-direct,,,,,,,,,,0x713706,0x844038
 VoiceSelect,tag,ra2|rules|ts|tsfs,ini-direct,,,,,,,,,,0x712b36,0x8442b4
 VoiceSelectDeactivated,tag,rules,ini-direct,,,,,,,,,,0x712c0a,0x844288
 VoiceSelectEnslaved,tag,rules,ini-direct,,,,,,,,,,0x712ba0,0x8442a0
 VoiceSinking,tag-unlisted,,modenc,,,,rules,TechnoTypes,,,,https://modenc.renegadeprojects.com/VoiceSinking,0x713064,0x8441dc
 VoiceSpecialAttack,tag,ra2|rules,ini-direct,,,,,,,,,,0x712cde,0x844268
-VoiceUndeploy,tag-unlisted,,modenc,rules,VoiceDeploy,54,rules,InfantryTypes,,,,https://modenc.renegadeprojects.com/VoiceUndeploy,0x7137ba,0x843ffc
+VoiceUndeploy,tag-unlisted,,modenc|readsite-consensus,rules,VoiceDeploy,54,rules,InfantryTypes,,,,https://modenc.renegadeprojects.com/VoiceUndeploy,0x7137ba,0x843ffc
 VoiceVolume,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/VoiceVolume,0x5faa1e 0x5faebe,0x8330a8
 Volume,tag,ra2|sound,ini-direct,,,,,,,,,,0x7504fc 0x751134 0x752df3,0x846568
 Voxel,tag,art|ra2|ts|tsfs,ini-direct,,,,,,,,,,0x5f9623,0x832aec
@@ -2620,7 +2620,7 @@ Warheads,tag-unlisted,,,,,,,,,,Antares|Ares,,0x668d86 0x668da7 0x668db4 0x67299a
 WarpAway,tag,ra2|rules,ini-direct,,,,,,,,Kratos|Phobos,,0x66e205,0x83cdb8
 WarpIn,tag,ra2|rules,ini-direct,,,,,,,,Kratos|Phobos,,0x66e188,0x83cdcc
 WarpOut,tag,ra2|rules,ini-direct,,,,,,,,Kratos|Phobos,,0x66e1c6,0x83cdc4
-Warpable,tag-unlisted,,modenc,rules,ImmuneToPsionicWeapons,99,rules,Technos,,,,https://modenc.renegadeprojects.com/Warpable,0x714f65,0x843778
+Warpable,tag-unlisted,,modenc|readsite-consensus,rules,ImmuneToPsionicWeapons,99,rules,Technos,,,,https://modenc.renegadeprojects.com/Warpable,0x714f65,0x843778
 Water,tag-unlisted,,,,,,,,,,Kratos,,0x4acf5b,0x81bae8
 WaterAmount,tag-unlisted,,,,,,,,,,,https://modenc.renegadeprojects.com/WaterAmount,0x59791a 0x597c19,0x82bb94
 WaterBound,tag,ra2|rules|ts,ini-direct,,,,,,,,,,0x45ff94 0x71df1c,0x81ae4c

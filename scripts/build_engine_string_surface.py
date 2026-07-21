@@ -349,14 +349,15 @@ def main():
             v["domain_guess_via"] = ev[1]
             v["domain_guess_dist"] = ev[0]
 
-    # ---- provenance: attach every INDEPENDENT source of evidence per string --------
-    # Each string can carry facts from several methods of DIFFERENT reliability. We
-    # record them all, tagged with how they were obtained, and set `domain_source` to
-    # the strongest available. When two sources disagree we flag it rather than pick a
-    # winner silently — so readers (and conflicting reports) can adjudicate.
-    #   ini-direct        (certain)  : the string is literally a key/section in an INI.
-    #   modenc            (documented): community wiki, human-curated; cites a URL.
-    #   readsite-consensus(inferred) : our binary read-site clustering heuristic.
+    # ---- provenance: attach every INDEPENDENT domain claim per string ---------------
+    # A string can carry a domain opinion from several methods of DIFFERENT reliability.
+    # We record ALL of them, each tagged with how it was obtained, and DO NOT pick a
+    # favourite — until someone verifies experimentally, competing documented claims
+    # are shown side by side. `domain_claims` is the full list; `domain_conflict` just
+    # marks where two claims disagree (so it's easy to find), without resolving it.
+    #   ini-direct        (certain)     : the string is literally a key/section in an INI.
+    #   modenc            (documented)  : ModEnc community wiki; human-curated; cites URL.
+    #   readsite-consensus(inferred)    : our binary read-site clustering heuristic.
     #   framework-source  (corroboration): a framework's C++ references the literal.
     modenc = load_modenc()
     fwlits = framework_literals()
@@ -371,20 +372,21 @@ def main():
                            "url": me.get("url")}
         elif me and me.get("present") is False:
             v["modenc"] = {"missing": True, "url": me.get("url")}  # no ModEnc page exists
-        # resolve the strongest domain source
+        # collect every method's domain claim — no ranking, no winner
+        claims = []
         if v["domains"]:
-            v["domain_source"] = "ini-direct"
-        elif me and me.get("flag") and me.get("ini"):
-            v["domain_source"] = "modenc"
-        elif v.get("domain_guess"):
-            v["domain_source"] = "readsite-consensus"
-        else:
-            v["domain_source"] = None
-        # explicit conflict record: our inferred guess vs ModEnc's documented file(s)
-        if v.get("domain_guess") and me and me.get("flag") and me.get("ini") \
-                and v["domain_guess"] not in me["ini"]:
-            v["domain_conflict"] = {"readsite_consensus": v["domain_guess"],
-                                    "modenc": me["ini"]}
+            claims.append({"source": "ini-direct", "domain": list(v["domains"])})
+        if me and me.get("flag") and me.get("ini"):
+            claims.append({"source": "modenc", "domain": list(me["ini"])})
+        if v.get("domain_guess"):
+            claims.append({"source": "readsite-consensus", "domain": [v["domain_guess"]]})
+        if claims:
+            v["domain_claims"] = claims
+            v["domain_sources"] = [c["source"] for c in claims]  # methods with an opinion
+        # flag (don't resolve) where two claims name different domains
+        distinct = {d for c in claims for d in c["domain"]}
+        if len(claims) > 1 and len(distinct) > 1:
+            v["domain_conflict"] = {c["source"]: c["domain"] for c in claims}
 
     os.makedirs(REG, exist_ok=True)
     with open(os.path.join(REG, "engine-string-surface.json"), "w", encoding="utf-8") as fh:
@@ -394,7 +396,7 @@ def main():
     order = sorted(surface)
     with open(os.path.join(REG, "engine-string-surface.csv"), "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
-        w.writerow(["String", "Kind", "Domains", "DomainSource", "DomainGuess", "GuessVia",
+        w.writerow(["String", "Kind", "Domains", "DomainSources", "DomainGuess", "GuessVia",
                     "GuessDist", "ModEncINI", "ModEncTypes", "ModEncStatus", "Conflict",
                     "Frameworks", "ModEncURL", "ReadSites", "StringVA"])
         for s in order:
@@ -402,12 +404,11 @@ def main():
             me = v.get("modenc") or {}
             conf = v.get("domain_conflict")
             w.writerow([
-                s, v["kind"], "|".join(v["domains"]), v.get("domain_source") or "",
+                s, v["kind"], "|".join(v["domains"]), "|".join(v.get("domain_sources", [])),
                 v.get("domain_guess", ""), v.get("domain_guess_via", ""),
                 v.get("domain_guess_dist", ""), "|".join(me.get("ini", [])),
                 "|".join(me.get("types", [])), "|".join(me.get("status", [])),
-                (f"consensus={conf['readsite_consensus']} vs modenc={'|'.join(conf['modenc'])}"
-                 if conf else ""),
+                ("; ".join(f"{src}={'/'.join(dm)}" for src, dm in conf.items()) if conf else ""),
                 "|".join(v.get("frameworks", [])), me.get("url", ""),
                 " ".join(v["read_sites"]), v["string_va"]])
 
@@ -434,25 +435,21 @@ def main():
             fh.write(f"| `{s}` | {sites_cell(v)} | {hint} |\n")
 
     def write_unlisted_table(fh, rows):
-        # Provenance-forward: WHAT the domain is + HOW we know it + the source's own view.
-        fh.write("| String | Likely domain | How derived | ModEnc | Read site(s) |\n"
-                 "|---|---|---|---|---|\n")
+        # Every source's domain claim shown SIDE BY SIDE — no winner is chosen. The
+        # `≟` column marks where two claims disagree (a lead to verify), not a verdict.
+        fh.write("| String | ModEnc domain | read-site domain | ≟ | ModEnc page | Read site(s) |\n"
+                 "|---|---|---|---|---|---|\n")
         for s in rows:
             v = surface[s]
-            src = v.get("domain_source")
             me = v.get("modenc") or {}
-            conf = v.get("domain_conflict")
-            if src == "modenc":
-                dom_cell = "**" + "/".join(me.get("ini", [])) + "**"
-                how = "ModEnc (documented)"
-                if conf:
-                    how += f" ⚠ read-site said `{conf['readsite_consensus']}`"
-            elif src == "readsite-consensus":
-                dom_cell = f"**{v['domain_guess']}**"
-                how = f"read-site ±{v['domain_guess_dist']}b (via `{v['domain_guess_via']}`)"
+            me_dom = "/".join(me.get("ini", [])) if me.get("ini") else "—"
+            rs_dom = v.get("domain_guess") or "—"
+            if me.get("ini") and v.get("domain_guess"):
+                flag = "✓" if v["domain_guess"] in me["ini"] else "⚠"
             else:
-                dom_cell = "—"
-                how = "—"
+                flag = ""
+            rs_cell = (f"{rs_dom} (±{v['domain_guess_dist']}b via `{v['domain_guess_via']}`)"
+                       if v.get("domain_guess") else "—")
             if me.get("missing"):
                 me_cell = f"[no page]({me['url']})"
             elif me:
@@ -464,7 +461,7 @@ def main():
                 me_cell = f"[{' — '.join(bits) or 'documented'}]({me['url']})"
             else:
                 me_cell = "—"
-            fh.write(f"| `{s}` | {dom_cell} | {how} | {me_cell} | {sites_cell(v)} |\n")
+            fh.write(f"| `{s}` | {me_dom} | {rs_cell} | {flag} | {me_cell} | {sites_cell(v)} |\n")
 
     with open(os.path.join(REG, "engine-string-surface.md"), "w", encoding="utf-8") as fh:
         fh.write("# Engine string-key surface (Phase E)\n\n")
@@ -490,42 +487,49 @@ def main():
         fh.write("Full data in `engine-string-surface.csv` / `.json`. Rules tags also have a "
                  "cleaner, cross-linked view in `vanilla-tags.md` (Phase D).\n\n")
 
-        # -- provenance summary: how each domain claim is sourced, weakest to strongest --
+        # -- provenance summary: every method's claim is shown; none is anointed --------
+        n_sourced = sum(1 for s in tag_unlisted if surface[s].get("domain_sources"))
         src_count = defaultdict(int)
         for s in tag_unlisted:
-            src_count[surface[s].get("domain_source") or "none"] += 1
+            for src in surface[s].get("domain_sources", []):
+                src_count[src] += 1
         me_named = sum(1 for s in tag_unlisted if (surface[s].get("modenc") or {}).get("ini"))
         conflicts = sorted(s for s in tag_unlisted if surface[s].get("domain_conflict"))
         fw_any = sum(1 for v in surface.values() if v.get("frameworks"))
-        fh.write("## How to read this — provenance & confidence\n\n")
-        fh.write("Every domain claim below is tagged with **how it was obtained**, so you can "
-                 "weigh it (and reconcile it against your own findings). Strongest to weakest:\n\n")
-        fh.write("| Source | What it means | Trust |\n|---|---|---|\n")
-        fh.write("| `ini-direct` | The string is literally a key/section in a vanilla INI we parsed. | Certain (it's a fact). |\n")
-        fh.write("| `modenc` | Documented on the [ModEnc](https://modenc.renegadeprojects.com) community wiki; we parsed its `{{flag}}` `files=` field. Cites the page URL. | High — human-curated, but a wiki: can be wrong, dated, or contested. |\n")
+        fh.write("## How to read this — provenance, not verdicts\n\n")
+        fh.write("Each domain claim below is tagged with **how it was obtained**. We deliberately "
+                 "**do not pick a favourite** between competing claims — until someone verifies a "
+                 "tag experimentally, every documented claim is shown side by side so you can weigh "
+                 "them and reconcile them against your own findings. The methods, and what each is "
+                 "worth knowing:\n\n")
+        fh.write("| Source | What it means | Nature of the evidence |\n|---|---|---|\n")
+        fh.write("| `ini-direct` | The string is literally a key/section in a vanilla INI we parsed. | A fact — it is that key. |\n")
+        fh.write("| `modenc` | Documented on the [ModEnc](https://modenc.renegadeprojects.com) community wiki; we parsed its `{{flag}}` `files=` field. Cites the page URL. | Human-curated, but a wiki: can be wrong, dated, or contested. |\n")
         fh.write("| `readsite-consensus` | Inferred from the binary: the known tags whose read sites cluster within "
-                 f"±{DGWIN} bytes of this tag's read site **unanimously** share a domain. | Heuristic. ~100% on leave-one-out, but has real misses where art/rules loaders interleave (see conflicts). |\n")
-        fh.write("| `framework-source` | The literal appears in a framework's C++ source — corroboration it's a real tag, and *who* reads it. | Evidence of use, not of domain. |\n\n")
-        fh.write("When ModEnc and read-site consensus **disagree**, both are kept and the row is "
-                 "flagged ⚠ — ModEnc (documented) is treated as stronger, but the conflict is left "
-                 "visible on purpose.\n\n")
+                 f"±{DGWIN} bytes of this tag's read site **unanimously** share a domain. | A heuristic. ~100% on leave-one-out, but with real misses where art/rules loaders interleave. |\n")
+        fh.write("| `framework-source` | The literal appears in a framework's C++ source. | Corroboration it's a real tag, and *who* reads it — not evidence of domain. |\n\n")
+        fh.write("Where two claims **disagree**, both are kept and the row is marked ⚠ in the `≟` "
+                 "column. That is a *flag for someone to test*, not a ruling in ModEnc's or the "
+                 "heuristic's favour.\n\n")
 
         fh.write(f"## Unnamed engine tags — `tag-unlisted` ({len(tag_unlisted)})\n\n")
         fh.write("_CamelCase keys the binary reads that appear in **no** INI we have — real "
                  "engine tags vanilla content never sets. The best lead-list of undocumented tags._\n\n")
-        fh.write(f"Domain now sourced for **{len(tag_unlisted) - src_count['none']}/{len(tag_unlisted)}**: "
-                 + ", ".join(f"`{k}` {n}" for k, n in sorted(src_count.items(), key=lambda x: -x[1]) if k != "none")
-                 + f" — of these **{me_named}** are documented on ModEnc. "
-                 f"**{len(conflicts)}** ModEnc↔read-site conflicts. "
+        fh.write(f"**{n_sourced}/{len(tag_unlisted)}** have at least one domain claim "
+                 + "(" + ", ".join(f"`{k}` {n}" for k, n in sorted(src_count.items(), key=lambda x: -x[1])) + ")"
+                 + f"; **{me_named}** are documented on ModEnc. "
+                 f"**{len(conflicts)}** have claims that disagree (marked ⚠ below). "
                  f"(Run `scripts/fetch_modenc.py` to widen ModEnc coverage.)\n\n")
         if conflicts:
-            fh.write(f"### ⚠ Conflicts — read-site consensus vs ModEnc ({len(conflicts)})\n\n")
-            fh.write("_Where our binary heuristic and the wiki disagree. Prime targets to verify by hand._\n\n")
-            fh.write("| String | read-site says | ModEnc says | ModEnc page |\n|---|---|---|---|\n")
+            fh.write(f"### ⚠ Disagreements — competing claims to test ({len(conflicts)})\n\n")
+            fh.write("_The methods name different domains here. Both are shown; neither is chosen. "
+                     "Prime candidates for hands-on verification._\n\n")
+            fh.write("| String | Claims | ModEnc page |\n|---|---|---|\n")
             for s in conflicts:
                 c = surface[s]["domain_conflict"]
                 me = surface[s].get("modenc") or {}
-                fh.write(f"| `{s}` | `{c['readsite_consensus']}` | **{'/'.join(c['modenc'])}** | [page]({me.get('url','')}) |\n")
+                claim_str = ", ".join(f"`{'/'.join(dm)}` ({src})" for src, dm in c.items())
+                fh.write(f"| `{s}` | {claim_str} | [page]({me.get('url','')}) |\n")
             fh.write("\n")
         write_unlisted_table(fh, tag_unlisted)
         if unclassified:
@@ -533,12 +537,10 @@ def main():
             fh.write("_Leftovers that fit neither a tag, file, nor code shape. Probe individually._\n\n")
             write_table(fh, unclassified)
 
-    named = len(tag_unlisted) - src_count["none"]
     print(f"OK: {len(surface)} pushed identifier strings. Kinds: {dict(kinds)}")
     print(f"  tag domains: {dict(dom)}")
-    print(f"  tag-unlisted: {len(tag_unlisted)}; domain sourced: {named} "
-          f"({ {k: v for k, v in src_count.items() if k != 'none'} }); "
-          f"ModEnc-named {me_named}; conflicts {len(conflicts)}")
+    print(f"  tag-unlisted: {len(tag_unlisted)}; with >=1 domain claim: {n_sourced} "
+          f"({dict(src_count)}); ModEnc-named {me_named}; disagreements {len(conflicts)}")
     print(f"  strings with framework-source corroboration: {fw_any}")
     print(f"  unclassified (ambiguous residual): {len(unclassified)}")
 

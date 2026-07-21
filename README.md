@@ -119,9 +119,11 @@ Two ways to go from "I want behaviour X" to "which hook is it":
     in **no** INI we have: real engine tags vanilla content never sets (rare or
     defaulted rules/art keys — `ActiveAnimTwoX`, `ShowOccupantPips`, `CustomRotor`,
     `AIUseTurbineUpgradeProbability`). The richest lead-list of *undocumented* tags.
-    **514**. Each is then **domain-sourced from multiple independent methods, and
-    every claim is tagged with how it was obtained** so readers can weigh it and
-    reconcile conflicting findings (strongest → weakest):
+    **514**. Each is then **domain-sourced from multiple independent methods, every
+    claim tagged with how it was obtained** — and we **don't pick a favourite**:
+    competing documented claims are shown side by side until someone verifies a tag
+    experimentally, so readers can weigh them and reconcile conflicting findings.
+    The methods:
     - `modenc` — parsed from the [ModEnc](https://modenc.renegadeprojects.com) wiki's
       `{{flag}}` template via `scripts/fetch_modenc.py` (cached with the source URL).
       **177** get a documented INI; another **117** have a ModEnc page with type info
@@ -133,11 +135,11 @@ Two ways to go from "I want behaviour X" to "which hook is it":
     - `framework-source` — the literal appears in a framework's C++ (corroboration
       it's a real tag, and *who* reads it): **25**.
 
-    Net **203/514** carry a sourced domain. Where ModEnc and read-site consensus
-    **disagree** (3 cases, e.g. `CustomRotor`: read-site said `rules`, ModEnc says
-    `art`), both are kept and the row is flagged ⚠ — the conflict is left visible,
-    not silently resolved. See `engine-string-surface.md`'s "provenance & confidence"
-    table and the conflicts list.
+    Net **203/514** carry at least one domain claim. Where two methods **disagree**
+    (3 cases, e.g. `CustomRotor`: read-site says `rules`, ModEnc says `art`), both
+    claims are shown side by side and the row is marked ⚠ in a `≟` column — a flag
+    for someone to test, **not** a ruling for either source. See the "provenance,
+    not verdicts" table and the disagreements list in `engine-string-surface.md`.
   - `file` (319, filenames/resources), `code` (146, RTTI/abstract types, UI ids,
     value literals, function/debug strings — not tags), and `unclassified`
     (ambiguous residual — now **0**).

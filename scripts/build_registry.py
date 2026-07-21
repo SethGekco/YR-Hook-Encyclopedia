@@ -45,7 +45,10 @@ PR_JSON = os.path.join(ROOT, "sources", "pr_hooks.json")
 # Order = display priority. Each has a src/ subdir under sources/repos/<name>/.
 # AggressiveStance is a small standalone Syringe DLL (loads alongside Ares/Phobos;
 # co-loadable with everything, so not in any exclusive group).
-FRAMEWORKS = ["Ares", "Antares", "Phobos", "Kratos", "AggressiveStance"]
+# CnCNet-Spawner is CnCNet's online spawner DLL (repo `CnCNet/yrpp-spawner`): a
+# Syringe DLL built on the same YRpp framework, so it co-loads like Phobos — its
+# hooks are the network/online layer (spawn.ini launch, netcode, online QoL/balance).
+FRAMEWORKS = ["Ares", "Antares", "Phobos", "Kratos", "AggressiveStance", "CnCNet-Spawner"]
 
 # Mutually-exclusive frameworks: you load at most ONE from each group at a time,
 # so two of them hooking the same address is NOT a real conflict — it's usually
@@ -307,7 +310,8 @@ def main():
                 fh.write(f"\nPR data fetched: {meta['fetched']}\n")
 
     print(f"OK: {len(rows)} rows, {len(by_addr)} addresses, "
-          f"{len(shared)} release-shared, {len(pr_rows)} loose PR hooks.")
+          f"{len(conflicts) + len(inherited)} release-shared ({len(conflicts)} real conflicts), "
+          f"{len(pr_rows)} loose PR hooks.")
     for fw in sorted(per, key=lambda f: -per[f]["release"]):
         print(f"  {fw}: release={per[fw]['release']} pr={per[fw]['pr']}")
 

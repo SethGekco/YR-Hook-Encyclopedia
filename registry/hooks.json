@@ -943,11 +943,12 @@
   "0x41668B": {
     "release_frameworks": [
       "Antares",
-      "Ares"
+      "Ares",
+      "CnCNet-Spawner"
     ],
     "pr_frameworks": [],
     "release_shared": true,
-    "real_conflict": false,
+    "real_conflict": true,
     "consumers": [
       {
         "framework": "Antares",
@@ -964,6 +965,14 @@
         "stolen_bytes": "0x6",
         "subsystem": "Ext/Techno",
         "source_file": "src/Ext/Techno/Hooks.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "AircraftClass_ReceiveDamage",
+        "stolen_bytes": "0x6",
+        "subsystem": "CnCNetYR",
+        "source_file": "src/CnCNetYR/Misc.cpp"
       }
     ]
   },
@@ -3540,11 +3549,12 @@
   "0x422FCC": {
     "release_frameworks": [
       "Antares",
-      "Ares"
+      "Ares",
+      "CnCNet-Spawner"
     ],
     "pr_frameworks": [],
     "release_shared": true,
-    "real_conflict": false,
+    "real_conflict": true,
     "consumers": [
       {
         "framework": "Antares",
@@ -3556,6 +3566,14 @@
       },
       {
         "framework": "Ares",
+        "channel": "release",
+        "function": "AnimClass_Draw_Details",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Perf.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
         "channel": "release",
         "function": "AnimClass_Draw_Details",
         "stolen_bytes": "0x5",
@@ -9570,6 +9588,24 @@
       }
     ]
   },
+  "0x448524": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "BuildingClass_Captured_SendStatistics",
+        "stolen_bytes": "0x7",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
   "0x4485DB": {
     "release_frameworks": [
       "Phobos"
@@ -12297,12 +12333,21 @@
   },
   "0x45455B": {
     "release_frameworks": [
+      "CnCNet-Spawner",
       "Phobos"
     ],
     "pr_frameworks": [],
-    "release_shared": false,
-    "real_conflict": false,
+    "release_shared": true,
+    "real_conflict": true,
     "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "BuildingClass_VisualCharacter_CloakVisibility",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
+      },
       {
         "framework": "Phobos",
         "channel": "release",
@@ -19629,11 +19674,12 @@
   "0x48A634": {
     "release_frameworks": [
       "Antares",
-      "Ares"
+      "Ares",
+      "CnCNet-Spawner"
     ],
     "pr_frameworks": [],
     "release_shared": true,
-    "real_conflict": false,
+    "real_conflict": true,
     "consumers": [
       {
         "framework": "Antares",
@@ -19647,6 +19693,14 @@
         "framework": "Ares",
         "channel": "release",
         "function": "FlashbangWarheadAt_Details",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Perf.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "FlashBangWarheadAt_Details",
         "stolen_bytes": "0x5",
         "subsystem": "Misc",
         "source_file": "src/Misc/Bugfixes.Perf.cpp"
@@ -19695,6 +19749,78 @@
         "stolen_bytes": "0x5",
         "subsystem": "Misc",
         "source_file": "src/Misc/Hooks.UI.cpp"
+      }
+    ]
+  },
+  "0x48CE8A": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SomeFunc_InterceptMainLoop",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
+  "0x48D92B": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "NetworkCallBack_NetMessage_Print",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/InGameChat.cpp"
+      }
+    ]
+  },
+  "0x48D95B": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "NetworkCallBack_NetMessage_SetColor",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/InGameChat.cpp"
+      }
+    ]
+  },
+  "0x48D97E": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "NetworkCallBack_NetMessage_Sound",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/InGameChat.cpp"
       }
     ]
   },
@@ -19794,6 +19920,24 @@
         "stolen_bytes": "0x8",
         "subsystem": "Misc",
         "source_file": "src/Misc/CopyProtection.cpp"
+      }
+    ]
+  },
+  "0x4A1BEF": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "CrateClass_Get_Crate_RecalcAttributes",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
       }
     ]
   },
@@ -20043,11 +20187,12 @@
   "0x4A3B4B": {
     "release_frameworks": [
       "Antares",
-      "Ares"
+      "Ares",
+      "CnCNet-Spawner"
     ],
     "pr_frameworks": [],
     "release_shared": true,
-    "real_conflict": false,
+    "real_conflict": true,
     "consumers": [
       {
         "framework": "Antares",
@@ -20059,6 +20204,14 @@
       },
       {
         "framework": "Ares",
+        "channel": "release",
+        "function": "FetchResource",
+        "stolen_bytes": "0x9",
+        "subsystem": "UI",
+        "source_file": "src/UI/Dialogs.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
         "channel": "release",
         "function": "FetchResource",
         "stolen_bytes": "0x9",
@@ -20460,6 +20613,24 @@
       }
     ]
   },
+  "0x4ABE3C": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "DisplayClass_MouseLeftRelease_Cloak",
+        "stolen_bytes": "0xA",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
+      }
+    ]
+  },
   "0x4ABE58": {
     "release_frameworks": [
       "Antares",
@@ -20757,6 +20928,24 @@
         "stolen_bytes": "0x6",
         "subsystem": "Misc",
         "source_file": "src/Misc/PhobosToolTip.cpp"
+      }
+    ]
+  },
+  "0x4AE62B": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "DisplayClass_HelpText_Cloak",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
       }
     ]
   },
@@ -21785,6 +21974,7 @@
   "0x4C6CC8": {
     "release_frameworks": [
       "AggressiveStance",
+      "CnCNet-Spawner",
       "Phobos"
     ],
     "pr_frameworks": [],
@@ -21793,6 +21983,14 @@
     "consumers": [
       {
         "framework": "AggressiveStance",
+        "channel": "release",
+        "function": "Networking_RespondToEvent",
+        "stolen_bytes": "0x5",
+        "subsystem": "Ext/Event",
+        "source_file": "src/Ext/Event/Body.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
         "channel": "release",
         "function": "Networking_RespondToEvent",
         "stolen_bytes": "0x5",
@@ -22036,6 +22234,42 @@
         "stolen_bytes": "0x6",
         "subsystem": "Ext/Unit",
         "source_file": "src/Ext/Unit/Hooks.DeployFire.cpp"
+      }
+    ]
+  },
+  "0x4C7A14": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "EventClass_RespondToEvent_SaveGame",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
+  "0x4C8011": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "EventClassExecute__ProtocolZero",
+        "stolen_bytes": "0x8",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/ProtocolZero.Hook.cpp"
       }
     ]
   },
@@ -24510,6 +24744,24 @@
       }
     ]
   },
+  "0x4DEDC3": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "FootClass_GetImageData_Disguise",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
+      }
+    ]
+  },
   "0x4DEFC6": {
     "release_frameworks": [
       "Phobos"
@@ -24938,6 +25190,24 @@
         "stolen_bytes": "0x6",
         "subsystem": "Ext/Sidebar",
         "source_file": "src/Ext/Sidebar/Hooks.cpp"
+      }
+    ]
+  },
+  "0x4E20BA": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "GameControlsClass__SomeDialog",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
       }
     ]
   },
@@ -26460,6 +26730,42 @@
       }
     ]
   },
+  "0x4FBF3C": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "HouseClass_Flag_Remove_RecalcAttributes",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x4FC0B6": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "HouseClass__MPlayerDefeated_SaveArgument",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
   "0x4FC1FF": {
     "release_frameworks": [],
     "pr_frameworks": [
@@ -26478,6 +26784,78 @@
         "pr_title": "Refactor Fog of War round 2",
         "pr_author": "ayylmaoRotE",
         "pr_url": "https://github.com/Phobos-developers/Phobos/pull/1872"
+      }
+    ]
+  },
+  "0x4FC262": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "HouseClass__MPlayerDefeated_SkipObserver",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
+  "0x4FC332": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "HouseClass__MPlayerDefeated_SkipObserver",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
+  "0x4FC551": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "HouseClass__MPlayerDefeated_NoEnemies",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
+  "0x4FC57C": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "HouseClass__MPlayerDefeated_CheckAliveAndHumans",
+        "stolen_bytes": "0x7",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
       }
     ]
   },
@@ -31453,6 +31831,24 @@
       }
     ]
   },
+  "0x51F2F3": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "InfantryClass_FullName_Disguise",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
+      }
+    ]
+  },
   "0x51F543": {
     "release_frameworks": [],
     "pr_frameworks": [
@@ -33281,6 +33677,24 @@
       }
     ]
   },
+  "0x52DAEF": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "Game_Start_ResetGlobal",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
   "0x52DDBA": {
     "release_frameworks": [
       "Antares",
@@ -33529,6 +33943,7 @@
       "AggressiveStance",
       "Antares",
       "Ares",
+      "CnCNet-Spawner",
       "Kratos",
       "Phobos"
     ],
@@ -33559,6 +33974,14 @@
         "stolen_bytes": "0x5",
         "subsystem": ".",
         "source_file": "src/Ares.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ParseCommandLine",
+        "stolen_bytes": "0x5",
+        "subsystem": ".",
+        "source_file": "src/Main.Hook.cpp"
       },
       {
         "framework": "Kratos",
@@ -35612,11 +36035,12 @@
   "0x550BCA": {
     "release_frameworks": [
       "Antares",
-      "Ares"
+      "Ares",
+      "CnCNet-Spawner"
     ],
     "pr_frameworks": [],
     "release_shared": true,
-    "real_conflict": false,
+    "real_conflict": true,
     "consumers": [
       {
         "framework": "Antares",
@@ -35628,6 +36052,14 @@
       },
       {
         "framework": "Ares",
+        "channel": "release",
+        "function": "LaserDrawClass_Draw_InHouseColor_Details",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Perf.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
         "channel": "release",
         "function": "LaserDrawClass_Draw_InHouseColor_Details",
         "stolen_bytes": "0x5",
@@ -35690,6 +36122,42 @@
       }
     ]
   },
+  "0x5519BB": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LayerClass_Submit_NullPointerCrash",
+        "stolen_bytes": "0x5",
+        "subsystem": "Utilities",
+        "source_file": "src/Utilities/Debug.cpp"
+      }
+    ]
+  },
+  "0x551A1A": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LayerClass_Submit_NullPointerCrash2",
+        "stolen_bytes": "0x5",
+        "subsystem": "Utilities",
+        "source_file": "src/Utilities/Debug.cpp"
+      }
+    ]
+  },
   "0x552F79": {
     "release_frameworks": [
       "Phobos"
@@ -35723,6 +36191,24 @@
         "stolen_bytes": "0x6",
         "subsystem": "Misc",
         "source_file": "src/Misc/Hooks.PCX.cpp"
+      }
+    ]
+  },
+  "0x5533E0": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LoadProgressMgr__Draw_SetBackground",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
       }
     ]
   },
@@ -35768,6 +36254,24 @@
         "stolen_bytes": "0x6",
         "subsystem": "Misc",
         "source_file": "src/Misc/Hooks.PCX.cpp"
+      }
+    ]
+  },
+  "0x5536A0": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LoadProgressMgr__Draw_CountryName",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
       }
     ]
   },
@@ -35822,6 +36326,24 @@
         "stolen_bytes": "0x5",
         "subsystem": "Ext/Side",
         "source_file": "src/Ext/Side/Hooks.cpp"
+      }
+    ]
+  },
+  "0x5539E4": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LoadProgressMgr__Draw_LoadBriefing",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
       }
     ]
   },
@@ -35975,6 +36497,114 @@
         "stolen_bytes": "0x5",
         "subsystem": "Misc",
         "source_file": "src/Misc/RetryDialog.cpp"
+      }
+    ]
+  },
+  "0x5592D2": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LoadOptionsClass_Dialog_SGInSubdir",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/SavedGamesInSubdir.cpp"
+      }
+    ]
+  },
+  "0x55961C": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LoadOptionsClass_RandomFilename_SGInSubdir",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/SavedGamesInSubdir.cpp"
+      }
+    ]
+  },
+  "0x559886": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LoadOptionsClass_FillList_SGInSubdir",
+        "stolen_bytes": "0x8",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/SavedGamesInSubdir.cpp"
+      }
+    ]
+  },
+  "0x559921": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LoadOptionsClass_FillList_FilterFiles",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/SavedGamesInSubdir.cpp"
+      }
+    ]
+  },
+  "0x559C98": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LoadOptionsClass_HasSaves_SGInSubdir",
+        "stolen_bytes": "0xB",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/SavedGamesInSubdir.cpp"
+      }
+    ]
+  },
+  "0x559EB0": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "DeleteSave_SGInSubdir",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/SavedGamesInSubdir.cpp"
       }
     ]
   },
@@ -36185,6 +36815,24 @@
       }
     ]
   },
+  "0x55D0FB": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "AuxLoop_SendStatistics_1",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
   "0x55D14F": {
     "release_frameworks": [
       "Phobos"
@@ -36200,6 +36848,24 @@
         "stolen_bytes": "0x5",
         "subsystem": "Misc",
         "source_file": "src/Misc/Hooks.UI.cpp"
+      }
+    ]
+  },
+  "0x55D189": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "AuxLoop_SendStatistics_2",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
       }
     ]
   },
@@ -36296,14 +36962,41 @@
       }
     ]
   },
-  "0x55DDA0": {
+  "0x55DC85": {
     "release_frameworks": [
-      "Phobos"
+      "CnCNet-Spawner"
     ],
     "pr_frameworks": [],
     "release_shared": false,
     "real_conflict": false,
     "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MainLoop_SaveGame_SanitizeFilename",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/SavedGamesInSubdir.cpp"
+      }
+    ]
+  },
+  "0x55DDA0": {
+    "release_frameworks": [
+      "CnCNet-Spawner",
+      "Phobos"
+    ],
+    "pr_frameworks": [],
+    "release_shared": true,
+    "real_conflict": true,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MainLoop_AfterRender__ProtocolZero",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/ProtocolZero.Hook.cpp"
+      },
       {
         "framework": "Phobos",
         "channel": "release",
@@ -36311,6 +37004,24 @@
         "stolen_bytes": "0x5",
         "subsystem": "Misc",
         "source_file": "src/Misc/MessageColumn.cpp"
+      }
+    ]
+  },
+  "0x55DDA5": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MainLoop_AfterRender_DisableChat",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/InGameChat.cpp"
       }
     ]
   },
@@ -36347,6 +37058,24 @@
         "stolen_bytes": "0x6",
         "subsystem": "Commands",
         "source_file": "src/Commands/FrameByFrame.cpp"
+      }
+    ]
+  },
+  "0x55E08F": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "KeyboardProcess_PressTab",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.cpp"
       }
     ]
   },
@@ -36476,6 +37205,60 @@
         "stolen_bytes": "0x5",
         "subsystem": "Misc",
         "source_file": "src/Misc/Hooks.MessageList.cpp"
+      }
+    ]
+  },
+  "0x55EDD2": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MessageInput_Write",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/InGameChat.cpp"
+      }
+    ]
+  },
+  "0x55EF38": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MessageSend_DisableChat",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/InGameChat.cpp"
+      }
+    ]
+  },
+  "0x55F0A8": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MessageInput_Print",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/InGameChat.cpp"
       }
     ]
   },
@@ -36818,6 +37601,420 @@
         "stolen_bytes": "0x5",
         "subsystem": "Misc",
         "source_file": "src/Misc/Hooks.Crates.cpp"
+      }
+    ]
+  },
+  "0x56C1DA": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapClass_Remove_Crate_RecalcAttributes",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x56EFF2": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_56EF50_RecalcCell",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x56F392": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_56F2F0_RecalcCell",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x56F712": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_56F690_Damaged_EAX_F1",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x56F71B": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_56F690_Damaged_EAX_E1",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x56F822": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_56F7A0_Damaged_EAX_F2",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x56F82B": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_56F7A0_Damaged_EAX_D2",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x56F956": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_Destroy_56F8B0_RecalcCell",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x56FD26": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_56FCC0_RecalcCell",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x572101": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_572100_Damaged_ESI",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x5721C2": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_572100_RecalcCell_A",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x5724E2": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_572480_RecalcCell",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x572882": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_572820_RecalcCell",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x572C02": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_572BC0_Damaged_EAX_F3",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x572C0B": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_572BC0_Damaged_EAX_E3",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x572D12": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_572CD0_Damaged_EAX_F4",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x572D1B": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_572CD0_Damaged_EAX_D4",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x572E46": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_572DE0_RecalcCell",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x573216": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_5731B0_RecalcCell",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x576721": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_576200_RecalcCell",
+        "stolen_bytes": "0xA",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x57779F": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_577740_RecalcCell",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x5777FC": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_577740_Damaged_ESI",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x5778BB": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapBridge_577860_RecalcCell",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
       }
     ]
   },
@@ -37298,6 +38495,24 @@
       }
     ]
   },
+  "0x597B76": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapSeedClass_LoadMap_RandomMap",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/RandomMap.cpp"
+      }
+    ]
+  },
   "0x5982D5": {
     "release_frameworks": [
       "Antares",
@@ -37349,6 +38564,24 @@
         "stolen_bytes": "0x5",
         "subsystem": "Misc",
         "source_file": "src/Misc/RMG.cpp"
+      }
+    ]
+  },
+  "0x5997AB": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MapGeneratorClass_Init_RandomMap",
+        "stolen_bytes": "0x9",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/RandomMap.cpp"
       }
     ]
   },
@@ -37805,6 +39038,42 @@
       }
     ]
   },
+  "0x5C9720": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MPScore_Present_SkipScoreScreen",
+        "stolen_bytes": "0x8",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/SkipScoreScreen.cpp"
+      }
+    ]
+  },
+  "0x5C98E5": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MultiplayerScore__5C98A0_SkipObserverScore",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
+      }
+    ]
+  },
   "0x5C9B75": {
     "release_frameworks": [
       "Antares",
@@ -37943,6 +39212,24 @@
         "stolen_bytes": "0x5",
         "subsystem": "Misc",
         "source_file": "src/Misc/TextInput.cpp"
+      }
+    ]
+  },
+  "0x5D69BF": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MPGameMode__AssignStartingPositions_SetObserverSpawn",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
       }
     ]
   },
@@ -39190,11 +40477,12 @@
   "0x5FF86E": {
     "release_frameworks": [
       "Antares",
-      "Ares"
+      "Ares",
+      "CnCNet-Spawner"
     ],
     "pr_frameworks": [],
     "release_shared": true,
-    "real_conflict": false,
+    "real_conflict": true,
     "consumers": [
       {
         "framework": "Antares",
@@ -39206,6 +40494,14 @@
       },
       {
         "framework": "Ares",
+        "channel": "release",
+        "function": "SpotlightClass_Draw_Details",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Perf.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
         "channel": "release",
         "function": "SpotlightClass_Draw_Details",
         "stolen_bytes": "0x5",
@@ -39298,11 +40594,12 @@
   "0x60411B": {
     "release_frameworks": [
       "Antares",
-      "Ares"
+      "Ares",
+      "CnCNet-Spawner"
     ],
     "pr_frameworks": [],
     "release_shared": true,
-    "real_conflict": false,
+    "real_conflict": true,
     "consumers": [
       {
         "framework": "Antares",
@@ -39314,6 +40611,14 @@
       },
       {
         "framework": "Ares",
+        "channel": "release",
+        "function": "Game_DialogFunc_Subtext_Load",
+        "stolen_bytes": "0x5",
+        "subsystem": "UI",
+        "source_file": "src/UI/Dialogs.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
         "channel": "release",
         "function": "Game_DialogFunc_Subtext_Load",
         "stolen_bytes": "0x5",
@@ -39325,11 +40630,12 @@
   "0x604136": {
     "release_frameworks": [
       "Antares",
-      "Ares"
+      "Ares",
+      "CnCNet-Spawner"
     ],
     "pr_frameworks": [],
     "release_shared": true,
-    "real_conflict": false,
+    "real_conflict": true,
     "consumers": [
       {
         "framework": "Antares",
@@ -39341,6 +40647,14 @@
       },
       {
         "framework": "Ares",
+        "channel": "release",
+        "function": "Game_DialogFunc_Subtext_Propagate",
+        "stolen_bytes": "0x5",
+        "subsystem": "UI",
+        "source_file": "src/UI/Dialogs.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
         "channel": "release",
         "function": "Game_DialogFunc_Subtext_Propagate",
         "stolen_bytes": "0x5",
@@ -39421,6 +40735,60 @@
       }
     ]
   },
+  "0x6076A4": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ScoreScreen_Draw__SkipAnim",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/VideoMode.cpp"
+      }
+    ]
+  },
+  "0x608206": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SomeFunc_InterceptMainLoop",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
+  "0x609299": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "UI_IsStaticAndOrOwnerDraw_MultiplayerGameOptionsDialog",
+        "stolen_bytes": "0x5",
+        "subsystem": "UI",
+        "source_file": "src/UI/Hooks.cpp"
+      }
+    ]
+  },
   "0x60A90A": {
     "release_frameworks": [
       "Antares",
@@ -39445,6 +40813,42 @@
         "stolen_bytes": "0x5",
         "subsystem": "Misc",
         "source_file": "src/Misc/Interface.cpp"
+      }
+    ]
+  },
+  "0x60C43B": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "EnumChildProc_60C0C0",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/VideoMode.cpp"
+      }
+    ]
+  },
+  "0x60D407": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SomeFunc_InterceptMainLoop",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
       }
     ]
   },
@@ -40168,6 +41572,42 @@
       }
     ]
   },
+  "0x623125": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "OwnerDrawLoop_HandleRageQuit",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/QuickExit.cpp"
+      }
+    ]
+  },
+  "0x62314E": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SomeFunc_InterceptMainLoop",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
   "0x623A9F": {
     "release_frameworks": [
       "Phobos"
@@ -40183,6 +41623,42 @@
         "stolen_bytes": "0x5",
         "subsystem": "Misc",
         "source_file": "src/Misc/MessageColumn.cpp"
+      }
+    ]
+  },
+  "0x623D72": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SomeFunc_InterceptMainLoop",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
+  "0x624271": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SomeFunc_InterceptMainLoop",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
       }
     ]
   },
@@ -40615,11 +42091,12 @@
   "0x62CEC9": {
     "release_frameworks": [
       "Antares",
-      "Ares"
+      "Ares",
+      "CnCNet-Spawner"
     ],
     "pr_frameworks": [],
     "release_shared": true,
-    "real_conflict": false,
+    "real_conflict": true,
     "consumers": [
       {
         "framework": "Antares",
@@ -40631,6 +42108,14 @@
       },
       {
         "framework": "Ares",
+        "channel": "release",
+        "function": "ParticleClass_Draw_Details",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Perf.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
         "channel": "release",
         "function": "ParticleClass_Draw_Details",
         "stolen_bytes": "0x5",
@@ -40819,6 +42304,24 @@
       }
     ]
   },
+  "0x640CE2": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "PreviewClass_DrawMap",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/VideoMode.cpp"
+      }
+    ]
+  },
   "0x640E78": {
     "release_frameworks": [
       "Phobos"
@@ -40900,6 +42403,24 @@
       }
     ]
   },
+  "0x642B60": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ProgressScreenClass__LoadTextColor3",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
+      }
+    ]
+  },
   "0x642B91": {
     "release_frameworks": [
       "Antares",
@@ -40924,6 +42445,60 @@
         "stolen_bytes": "0x5",
         "subsystem": "Ext/Side",
         "source_file": "src/Ext/Side/Hooks.cpp"
+      }
+    ]
+  },
+  "0x642BC3": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ProgressScreenClass__GetPlayerColorSchemes",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
+      }
+    ]
+  },
+  "0x6439F4": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ProgressScreenClass__643720",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
+      }
+    ]
+  },
+  "0x643AA5": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ProgressScreenClass_643720_HideName",
+        "stolen_bytes": "0x8",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/QuickMatch.cpp"
       }
     ]
   },
@@ -41224,6 +42799,78 @@
       }
     ]
   },
+  "0x6476CB": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "QueueAIMultiplayer__ProtocolZero_ResponseTime",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/ProtocolZero.Hook.cpp"
+      }
+    ]
+  },
+  "0x64771D": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "QueueAIMultiplayer__ProtocolZero_SetTiming",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/ProtocolZero.Hook.cpp"
+      }
+    ]
+  },
+  "0x647AE8": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "QueueAIMultiplayer_SendStatistics_1",
+        "stolen_bytes": "0x7",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
+  "0x647BEB": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "QueueAIMultiplayer__ProtocolZero1",
+        "stolen_bytes": "0x9",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/ProtocolZero.Hook.cpp"
+      }
+    ]
+  },
   "0x647C4D": {
     "release_frameworks": [],
     "pr_frameworks": [
@@ -41245,9 +42892,226 @@
       }
     ]
   },
+  "0x647CC5": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "QueueAIMultiplayer__ProtocolZero_ResponseTime",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/ProtocolZero.Hook.cpp"
+      }
+    ]
+  },
+  "0x647DF2": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "QueueAIMultiplayer__ProtocolZero3",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/ProtocolZero.Hook.cpp"
+      }
+    ]
+  },
+  "0x647E6B": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "QueueAIMultiplayer__ProtocolZero_SetTiming",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/ProtocolZero.Hook.cpp"
+      }
+    ]
+  },
+  "0x647EB4": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "QueueAIMultiplayer__ProtocolZero2",
+        "stolen_bytes": "0x8",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/ProtocolZero.Hook.cpp"
+      }
+    ]
+  },
+  "0x648089": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "QueueAIMultiplayer_SendStatistics_4",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
+  "0x64823C": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "QueueAIMultiplayer_SendStatistics_2",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
+  "0x64827D": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "QueueAIMultiplayer_SendStatistics_3",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
+  "0x648CCC": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "WaitForPlayers_RemoveFocusFromLeaveGameBtn",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.cpp"
+      }
+    ]
+  },
+  "0x648EA8": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "WaitForPlayers_HideName",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/QuickMatch.cpp"
+      }
+    ]
+  },
+  "0x649851": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "WaitForPlayers_OnlineOptimizations",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.cpp"
+      }
+    ]
+  },
+  "0x64B156": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ModeLessDialog_64AE50_HideName",
+        "stolen_bytes": "0x9",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/QuickMatch.cpp"
+      }
+    ]
+  },
+  "0x64B2E4": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "KickPlayerNow_SendStatistics",
+        "stolen_bytes": "0x7",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
   "0x64B6FE": {
     "release_frameworks": [
       "AggressiveStance",
+      "CnCNet-Spawner",
       "Phobos"
     ],
     "pr_frameworks": [],
@@ -41256,6 +43120,14 @@
     "consumers": [
       {
         "framework": "AggressiveStance",
+        "channel": "release",
+        "function": "sub_64B660_GetEventSize",
+        "stolen_bytes": "0x6",
+        "subsystem": "Ext/Event",
+        "source_file": "src/Ext/Event/Body.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
         "channel": "release",
         "function": "sub_64B660_GetEventSize",
         "stolen_bytes": "0x6",
@@ -41275,6 +43147,7 @@
   "0x64BE7D": {
     "release_frameworks": [
       "AggressiveStance",
+      "CnCNet-Spawner",
       "Phobos"
     ],
     "pr_frameworks": [],
@@ -41283,6 +43156,14 @@
     "consumers": [
       {
         "framework": "AggressiveStance",
+        "channel": "release",
+        "function": "sub_64BDD0_GetEventSize1",
+        "stolen_bytes": "0x6",
+        "subsystem": "Ext/Event",
+        "source_file": "src/Ext/Event/Body.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
         "channel": "release",
         "function": "sub_64BDD0_GetEventSize1",
         "stolen_bytes": "0x6",
@@ -41302,6 +43183,7 @@
   "0x64C30E": {
     "release_frameworks": [
       "AggressiveStance",
+      "CnCNet-Spawner",
       "Phobos"
     ],
     "pr_frameworks": [],
@@ -41317,12 +43199,92 @@
         "source_file": "src/Ext/Event/Body.cpp"
       },
       {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "sub_64BDD0_GetEventSize2",
+        "stolen_bytes": "0x6",
+        "subsystem": "Ext/Event",
+        "source_file": "src/Ext/Event/Body.cpp"
+      },
+      {
         "framework": "Phobos",
         "channel": "release",
         "function": "sub_64BDD0_GetEventSize2",
         "stolen_bytes": "0x6",
         "subsystem": "Ext/Event",
         "source_file": "src/Ext/Event/Body.cpp"
+      }
+    ]
+  },
+  "0x64C598": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ExecuteDoList__ProtocolZero",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/ProtocolZero.Hook.cpp"
+      }
+    ]
+  },
+  "0x64C7FA": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ExecuteDoList_SendStatistics_1",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
+  "0x64C81E": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ExecuteDoList_SendStatistics_2",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
+  "0x64C84B": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ExecuteDoList_SendStatistics_3",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
       }
     ]
   },
@@ -41620,6 +43582,114 @@
         "stolen_bytes": "0x6",
         "subsystem": "Ext/Building",
         "source_file": "src/Ext/Building/Hooks.Foundation.cpp"
+      }
+    ]
+  },
+  "0x657F8E": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "RadarClass_Diplomacy_DisableChatToggleUI",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/InGameChat.cpp"
+      }
+    ]
+  },
+  "0x657FDB": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "RadarClass_Diplomacy_ForceDisabledChatVisualOff",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/InGameChat.cpp"
+      }
+    ]
+  },
+  "0x65812E": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "RadarClass__DiplomacyDialog_UIGameMode",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
+  "0x65837A": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "RadarClass_658330_HideName",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/QuickMatch.cpp"
+      }
+    ]
+  },
+  "0x6583B2": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "RadarClass__658330_SetObserverColorScheme",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
+      }
+    ]
+  },
+  "0x658473": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "RadarClass__658330_SetObserverFlag",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
       }
     ]
   },
@@ -42037,6 +44107,24 @@
       }
     ]
   },
+  "0x65DC17": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "DoReinforcements_FixCrash",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.CommonCrashes.cpp"
+      }
+    ]
+  },
   "0x65DE82": {
     "release_frameworks": [
       "Phobos"
@@ -42241,6 +44329,24 @@
         "stolen_bytes": "0x6",
         "subsystem": "Misc",
         "source_file": "src/Misc/Bugfixes.cpp"
+      }
+    ]
+  },
+  "0x65F57F": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "BriefingDialog_MissionININame",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
       }
     ]
   },
@@ -43503,6 +45609,24 @@
       }
     ]
   },
+  "0x67CF11": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SaveGame_SGInSubdir",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/SavedGamesInSubdir.cpp"
+      }
+    ]
+  },
   "0x67CF16": {
     "release_frameworks": [
       "Phobos"
@@ -43581,6 +45705,24 @@
         "stolen_bytes": "0x7",
         "subsystem": ".",
         "source_file": "src/Phobos.Ext.cpp"
+      }
+    ]
+  },
+  "0x67D2E3": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SaveGame_AdditionalInfoForClient",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/SavedGamesInSubdir.cpp"
       }
     ]
   },
@@ -43804,6 +45946,42 @@
       }
     ]
   },
+  "0x67E475": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LoadGame_SGInSubdir",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/SavedGamesInSubdir.cpp"
+      }
+    ]
+  },
+  "0x67E4DC": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LoadGame_AdditionalInfoForClient",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/SavedGamesInSubdir.cpp"
+      }
+    ]
+  },
   "0x67E68A": {
     "release_frameworks": [
       "Phobos"
@@ -43824,12 +46002,21 @@
   },
   "0x67E6DA": {
     "release_frameworks": [
+      "CnCNet-Spawner",
       "Phobos"
     ],
     "pr_frameworks": [],
-    "release_shared": false,
-    "real_conflict": false,
+    "release_shared": true,
+    "real_conflict": true,
     "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LoadGame_AfterInit",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      },
       {
         "framework": "Phobos",
         "channel": "release",
@@ -43842,12 +46029,21 @@
   },
   "0x67E720": {
     "release_frameworks": [
+      "CnCNet-Spawner",
       "Kratos"
     ],
     "pr_frameworks": [],
-    "release_shared": false,
-    "real_conflict": false,
+    "release_shared": true,
+    "real_conflict": true,
     "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LoadGame_After",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
+      },
       {
         "framework": "Kratos",
         "channel": "release",
@@ -44034,6 +46230,24 @@
         "pr_title": "New trajectory system",
         "pr_author": "TaranDahl",
         "pr_url": "https://github.com/Phobos-developers/Phobos/pull/2060"
+      }
+    ]
+  },
+  "0x67FD26": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "LoadOptionsClass_ReadSaveInfo_SGInSubdir",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/SavedGamesInSubdir.cpp"
       }
     ]
   },
@@ -44262,6 +46476,24 @@
         "stolen_bytes": "0x6",
         "subsystem": "Ext/Side",
         "source_file": "src/Ext/Side/Hooks.cpp"
+      }
+    ]
+  },
+  "0x6849C9": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ReadScenario_RandomMap",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/RandomMap.cpp"
       }
     ]
   },
@@ -44506,6 +46738,42 @@
       }
     ]
   },
+  "0x686A9E": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ReadScenario_InitSomeThings_SpecialHouseIsAlly",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
+  "0x686B20": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "INIClass_ReadScenario_AutoSave",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
   "0x686B4F": {
     "release_frameworks": [
       "Antares",
@@ -44551,6 +46819,42 @@
         "pr_title": "Refactor Fog of War round 2",
         "pr_author": "ayylmaoRotE",
         "pr_url": "https://github.com/Phobos-developers/Phobos/pull/1872"
+      }
+    ]
+  },
+  "0x686C48": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ReadScenarioINI_RandomMap",
+        "stolen_bytes": "0x8",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/RandomMap.cpp"
+      }
+    ]
+  },
+  "0x686D46": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ReadScenarioINI_MissionININame",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
       }
     ]
   },
@@ -45043,6 +47347,24 @@
       }
     ]
   },
+  "0x688564": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ScenStruct_ScenStruct_RandomMap",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/RandomMap.cpp"
+      }
+    ]
+  },
   "0x688B37": {
     "release_frameworks": [
       "Antares",
@@ -45162,12 +47484,21 @@
   },
   "0x689669": {
     "release_frameworks": [
+      "CnCNet-Spawner",
       "Phobos"
     ],
     "pr_frameworks": [],
-    "release_shared": false,
-    "real_conflict": false,
+    "release_shared": true,
+    "real_conflict": true,
     "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ScenarioClass_Load_Suffix",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      },
       {
         "framework": "Phobos",
         "channel": "release",
@@ -45649,6 +47980,60 @@
       }
     ]
   },
+  "0x692540": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ScrollClass_Coordthing_TechnoClass_Cloak",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
+      }
+    ]
+  },
+  "0x6925AA": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ScrollClass_Coordthing_BuildingClass_Cloak",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
+      }
+    ]
+  },
+  "0x692686": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "DisplayClass_WhatAction_Cloak",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
+      }
+    ]
+  },
   "0x69281E": {
     "release_frameworks": [
       "Antares",
@@ -45718,6 +48103,60 @@
         "stolen_bytes": "0x6",
         "subsystem": "Misc",
         "source_file": "src/Misc/Hooks.BugFixes.cpp"
+      }
+    ]
+  },
+  "0x692DD8": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ScrollClass_DisableEdgeScrolling1",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/DisableEdgeScrolling.cpp"
+      }
+    ]
+  },
+  "0x692DFA": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ScrollClass_DisableEdgeScrolling2",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/DisableEdgeScrolling.cpp"
+      }
+    ]
+  },
+  "0x692E34": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ScrollClass_DisableEdgeScrolling3",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/DisableEdgeScrolling.cpp"
       }
     ]
   },
@@ -46612,6 +49051,60 @@
         "stolen_bytes": "0x6",
         "subsystem": "Ext/House",
         "source_file": "src/Ext/House/Hooks.cpp"
+      }
+    ]
+  },
+  "0x6A557A": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SidebarClass__InitIO",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
+      }
+    ]
+  },
+  "0x6A55AB": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SidebarClass__InitIO_ShowHouseOnObserverSidebar1",
+        "stolen_bytes": "0xA",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
+      }
+    ]
+  },
+  "0x6A57E2": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SidebarClass__InitIO_ShowHouseOnObserverSidebar2",
+        "stolen_bytes": "0xA",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.cpp"
       }
     ]
   },
@@ -49123,6 +51616,24 @@
       }
     ]
   },
+  "0x6BC0D7": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "WinMain_LoadSettings",
+        "stolen_bytes": "0x5",
+        "subsystem": ".",
+        "source_file": "src/Main.Hook.cpp"
+      }
+    ]
+  },
   "0x6BC141": {
     "release_frameworks": [],
     "pr_frameworks": [
@@ -49144,6 +51655,24 @@
       }
     ]
   },
+  "0x6BC14D": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "WinMain_ReadScreenResolutionFromIni",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/VideoMode.cpp"
+      }
+    ]
+  },
   "0x6BD68D": {
     "release_frameworks": [
       "Phobos"
@@ -49159,6 +51688,76 @@
         "stolen_bytes": "0x6",
         "subsystem": ".",
         "source_file": "src/Phobos.COM.cpp"
+      }
+    ]
+  },
+  "0x6BD7C5": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "WinMain_SpawnerInit",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Spawner.Hook.cpp"
+      }
+    ]
+  },
+  "0x6BD7CB": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "WinMain_NoCDPatches",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/NoCD.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "WinMain_Ra2ModePatches",
+        "stolen_bytes": "0x5",
+        "subsystem": "CnCNetYR",
+        "source_file": "src/CnCNetYR/Ra2Mode.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "WinMain_VideoModePatches",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/VideoMode.cpp"
+      }
+    ]
+  },
+  "0x6BD7DC": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "InitBootstrapMixFiles_CustomMixes",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/CustomMixes.cpp"
       }
     ]
   },
@@ -49237,14 +51836,33 @@
       }
     ]
   },
+  "0x6BE068": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TopLevelExceptionHandler",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.ExceptionCatch.cpp"
+      }
+    ]
+  },
   "0x6BE9BD": {
     "release_frameworks": [
       "Antares",
-      "Ares"
+      "Ares",
+      "CnCNet-Spawner"
     ],
     "pr_frameworks": [],
     "release_shared": true,
-    "real_conflict": false,
+    "real_conflict": true,
     "consumers": [
       {
         "framework": "Antares",
@@ -49261,6 +51879,14 @@
         "stolen_bytes": "0x6",
         "subsystem": "Misc",
         "source_file": "src/Misc/Bugfixes.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ProgEnd_CustomMixes",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/CustomMixes.cpp"
       }
     ]
   },
@@ -49279,6 +51905,132 @@
         "stolen_bytes": "0x6",
         "subsystem": "Ext/Scenario",
         "source_file": "src/Ext/Scenario/Body.cpp"
+      }
+    ]
+  },
+  "0x6C7053": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SendStatisticsPacket_SaveGameStockKeepingUnit",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
+  "0x6C735E": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SendStatisticsPacket_AddField_HASH",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
+  "0x6C73F8": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SendStatisticsPacket_HouseFilter",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
+  "0x6C7921": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SendStatisticsPacket_AddField_MyId",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
+  "0x6C7989": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SendStatisticsPacket_AddField_ALY",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
+  "0x6C856C": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "SendStatisticsPacket_WriteStatisticsDump",
+        "stolen_bytes": "0x5",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
+      }
+    ]
+  },
+  "0x6C882A": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "RegisterGameEndTime_CorrectDuration",
+        "stolen_bytes": "0x6",
+        "subsystem": "Spawner",
+        "source_file": "src/Spawner/Statistics.cpp"
       }
     ]
   },
@@ -50644,6 +53396,24 @@
       }
     ]
   },
+  "0x6D4934": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "Tactical_Render_OverlapForeignMap",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.ClampTacticalPos.cpp"
+      }
+    ]
+  },
   "0x6D4992": {
     "release_frameworks": [
       "Phobos"
@@ -50968,11 +53738,12 @@
   "0x6D7847": {
     "release_frameworks": [
       "Antares",
-      "Ares"
+      "Ares",
+      "CnCNet-Spawner"
     ],
     "pr_frameworks": [],
     "release_shared": true,
-    "real_conflict": false,
+    "real_conflict": true,
     "consumers": [
       {
         "framework": "Antares",
@@ -50984,6 +53755,14 @@
       },
       {
         "framework": "Ares",
+        "channel": "release",
+        "function": "TacticalClass_DrawPixelEffects_Details",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Perf.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
         "channel": "release",
         "function": "TacticalClass_DrawPixelEffects_Details",
         "stolen_bytes": "0x5",
@@ -51095,6 +53874,24 @@
         "pr_title": "Techno attachment logic",
         "pr_author": "Metadorius",
         "pr_url": "https://github.com/Phobos-developers/Phobos/pull/352"
+      }
+    ]
+  },
+  "0x6DA412": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "Tactical_SelectAt_Cloak",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
       }
     ]
   },
@@ -52990,6 +55787,24 @@
       }
     ]
   },
+  "0x6F49D8": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TechnoClass_Revealed_FixCrash",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.CommonCrashes.cpp"
+      }
+    ]
+  },
   "0x6F4A1D": {
     "release_frameworks": [
       "Antares",
@@ -53095,6 +55910,24 @@
         "stolen_bytes": "0x5",
         "subsystem": "Ext/Building",
         "source_file": "src/Ext/Building/Hooks.cpp"
+      }
+    ]
+  },
+  "0x6F4F19": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TechnoClass_6F4EB0_Cloak",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
       }
     ]
   },
@@ -53447,6 +56280,24 @@
       }
     ]
   },
+  "0x6F677D": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TechnoClass_DrawSelection_Observer1",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
+      }
+    ]
+  },
   "0x6F67E8": {
     "release_frameworks": [
       "Phobos"
@@ -53538,6 +56389,7 @@
     "release_frameworks": [
       "Antares",
       "Ares",
+      "CnCNet-Spawner",
       "Phobos"
     ],
     "pr_frameworks": [],
@@ -53559,6 +56411,14 @@
         "stolen_bytes": "0x6",
         "subsystem": "Ext/Techno",
         "source_file": "src/Ext/Techno/Hooks.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TechnoClass_DrawSelection_Observer2",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
       },
       {
         "framework": "Phobos",
@@ -56062,12 +58922,21 @@
   },
   "0x6FCA26": {
     "release_frameworks": [
+      "CnCNet-Spawner",
       "Phobos"
     ],
     "pr_frameworks": [],
-    "release_shared": false,
-    "real_conflict": false,
+    "release_shared": true,
+    "real_conflict": true,
     "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TechnoClass_CanFire_RevertAresOpenTopCloakFix",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.OpenTopCloak.cpp"
+      },
       {
         "framework": "Phobos",
         "channel": "release",
@@ -56218,12 +59087,21 @@
   },
   "0x6FCD1D": {
     "release_frameworks": [
+      "CnCNet-Spawner",
       "Phobos"
     ],
     "pr_frameworks": [],
-    "release_shared": false,
-    "real_conflict": false,
+    "release_shared": true,
+    "real_conflict": true,
     "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TechnoClass_CanFire_OpenTopCloakFix",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.OpenTopCloak.cpp"
+      },
       {
         "framework": "Phobos",
         "channel": "release",
@@ -58132,6 +61010,24 @@
       }
     ]
   },
+  "0x700594": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TechnoClass_WhatAction__AllowAlliesRepair",
+        "stolen_bytes": "0x5",
+        "subsystem": "CnCNetYR",
+        "source_file": "src/CnCNetYR/Ra2Mode.cpp"
+      }
+    ]
+  },
   "0x70076E": {
     "release_frameworks": [],
     "pr_frameworks": [
@@ -59514,12 +62410,21 @@
   },
   "0x703A09": {
     "release_frameworks": [
+      "CnCNet-Spawner",
       "Phobos"
     ],
     "pr_frameworks": [],
-    "release_shared": false,
-    "real_conflict": false,
+    "release_shared": true,
+    "real_conflict": true,
     "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TechnoClass_VisualCharacter_CloakVisibility",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
+      },
       {
         "framework": "Phobos",
         "channel": "release",
@@ -60759,6 +63664,24 @@
       }
     ]
   },
+  "0x70AF6C": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TechnoClass_70AF50_FixCrash",
+        "stolen_bytes": "0x9",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.CommonCrashes.cpp"
+      }
+    ]
+  },
   "0x70AF87": {
     "release_frameworks": [
       "Phobos"
@@ -61326,6 +64249,24 @@
       }
     ]
   },
+  "0x70D386": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TechnoClass_Radar_Cloak",
+        "stolen_bytes": "0xA",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
+      }
+    ]
+  },
   "0x70D4A0": {
     "release_frameworks": [
       "Phobos"
@@ -61689,6 +64630,24 @@
       }
     ]
   },
+  "0x70EE6A": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TechnoClass_DisguiseBeenSeen",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
+      }
+    ]
+  },
   "0x70EFD0": {
     "release_frameworks": [
       "Kratos"
@@ -61722,6 +64681,42 @@
         "stolen_bytes": "0x6",
         "subsystem": "Ext/Techno",
         "source_file": "src/Ext/Techno/Hooks.cpp"
+      }
+    ]
+  },
+  "0x70F1E3": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TechnoClass_DrawBehind_InvisibleDesyncFix",
+        "stolen_bytes": "0x8",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x70F82A": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TechnoClass_GetMyOwner_FixCrash",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.CommonCrashes.cpp"
       }
     ]
   },
@@ -64187,6 +67182,24 @@
       }
     ]
   },
+  "0x71F1A2": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TEventClass_Execute_AllDestroyed",
+        "stolen_bytes": "0x6",
+        "subsystem": "CnCNetYR",
+        "source_file": "src/CnCNetYR/Ra2Mode.cpp"
+      }
+    ]
+  },
   "0x71F1C9": {
     "release_frameworks": [
       "Antares",
@@ -65481,6 +68494,24 @@
         "pr_title": "Trigger Action can use more than one string as parameter",
         "pr_author": "ststl-s",
         "pr_url": "https://github.com/Phobos-developers/Phobos/pull/706"
+      }
+    ]
+  },
+  "0x727B44": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "TriggerTypeClass_ComputeCRC_FixCrash",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.CommonCrashes.cpp"
       }
     ]
   },
@@ -67367,11 +70398,12 @@
   "0x737F97": {
     "release_frameworks": [
       "Antares",
-      "Ares"
+      "Ares",
+      "CnCNet-Spawner"
     ],
     "pr_frameworks": [],
     "release_shared": true,
-    "real_conflict": false,
+    "real_conflict": true,
     "consumers": [
       {
         "framework": "Antares",
@@ -67388,6 +70420,14 @@
         "stolen_bytes": "0x0",
         "subsystem": "Ext/Techno",
         "source_file": "src/Ext/Techno/Hooks.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "UnitClass_ReceiveDamage",
+        "stolen_bytes": "0x0",
+        "subsystem": "CnCNetYR",
+        "source_file": "src/CnCNetYR/Misc.cpp"
       }
     ]
   },
@@ -69568,12 +72608,21 @@
   },
   "0x73E3DB": {
     "release_frameworks": [
+      "CnCNet-Spawner",
       "Phobos"
     ],
     "pr_frameworks": [],
-    "release_shared": false,
-    "real_conflict": false,
+    "release_shared": true,
+    "real_conflict": true,
     "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "UnitClass_MissionUnload__CheckPowerBeforeOrePurifier",
+        "stolen_bytes": "0x6",
+        "subsystem": "CnCNetYR",
+        "source_file": "src/CnCNetYR/Ra2Mode.cpp"
+      },
       {
         "framework": "Phobos",
         "channel": "release",
@@ -70112,6 +73161,24 @@
       }
     ]
   },
+  "0x740006": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "UnitClass_WhatAction__AllowRepairFlyMZone_Prefix",
+        "stolen_bytes": "0x5",
+        "subsystem": "CnCNetYR",
+        "source_file": "src/CnCNetYR/Ra2Mode.cpp"
+      }
+    ]
+  },
   "0x74000B": {
     "release_frameworks": [
       "Kratos"
@@ -70193,6 +73260,24 @@
       }
     ]
   },
+  "0x74012A": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "UnitClass_WhatAction__AllowRepairFlyMZone_Prefix",
+        "stolen_bytes": "0x6",
+        "subsystem": "CnCNetYR",
+        "source_file": "src/CnCNetYR/Ra2Mode.cpp"
+      }
+    ]
+  },
   "0x740134": {
     "release_frameworks": [
       "Phobos"
@@ -70208,6 +73293,24 @@
         "stolen_bytes": "0x0",
         "subsystem": "Ext/Building",
         "source_file": "src/Ext/Building/Hooks.Grinding.cpp"
+      }
+    ]
+  },
+  "0x7401C1": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "UnitClass_WhatAction__AllowRepairFlyMZone_Suffix",
+        "stolen_bytes": "0x6",
+        "subsystem": "CnCNetYR",
+        "source_file": "src/CnCNetYR/Ra2Mode.cpp"
       }
     ]
   },
@@ -71336,6 +74439,24 @@
       }
     ]
   },
+  "0x7467CA": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "UnitClass_CantTargetDisguise",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Observers.Visibility.cpp"
+      }
+    ]
+  },
   "0x74689B": {
     "release_frameworks": [
       "Antares",
@@ -72146,6 +75267,42 @@
         "stolen_bytes": "0x5",
         "subsystem": "Ext/VoxelAnimType",
         "source_file": "src/Ext/VoxelAnimType/Body.cpp"
+      }
+    ]
+  },
+  "0x74C775": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "VeinholeMonster_Constructor_RecalcAttributes",
+        "stolen_bytes": "0x6",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
+      }
+    ]
+  },
+  "0x74CBEE": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "VeinholeArea_Bridge_RecalcCell",
+        "stolen_bytes": "0x7",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/Bugfixes.Desyncs.cpp"
       }
     ]
   },
@@ -73871,6 +77028,24 @@
       }
     ]
   },
+  "0x77786B": {
+    "release_frameworks": [
+      "CnCNet-Spawner"
+    ],
+    "pr_frameworks": [],
+    "release_shared": false,
+    "real_conflict": false,
+    "consumers": [
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "MainWindowProc_HandleRageQuit",
+        "stolen_bytes": "0x5",
+        "subsystem": "Misc",
+        "source_file": "src/Misc/QuickExit.cpp"
+      }
+    ]
+  },
   "0x777998": {
     "release_frameworks": [
       "Phobos"
@@ -74047,6 +77222,7 @@
       "AggressiveStance",
       "Antares",
       "Ares",
+      "CnCNet-Spawner",
       "Kratos",
       "Phobos"
     ],
@@ -74077,6 +77253,14 @@
         "stolen_bytes": "0x9",
         "subsystem": ".",
         "source_file": "src/Ares.cpp"
+      },
+      {
+        "framework": "CnCNet-Spawner",
+        "channel": "release",
+        "function": "ExeRun",
+        "stolen_bytes": "0x9",
+        "subsystem": ".",
+        "source_file": "src/Main.Hook.cpp"
       },
       {
         "framework": "Kratos",

@@ -12,6 +12,9 @@ declare -A URLS=(
   [Phobos]=https://github.com/Phobos-developers/Phobos.git
   [Kratos]=https://github.com/ra2diy/KratosPP.git
   [AggressiveStance]=https://github.com/Aephiex/YRAggressiveStance.git
+  # CnCNet's online spawner (netcode + online QoL/balance patches). Repo is
+  # `yrpp-spawner`; cloned under the dir name that matches its framework label.
+  [CnCNet-Spawner]=https://github.com/CnCNet/yrpp-spawner.git
 )
 
 for name in "${!URLS[@]}"; do

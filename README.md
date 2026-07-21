@@ -8,7 +8,8 @@ known hook:
 - **What it does *not* do** — the things people reasonably but wrongly assume it
   covers. This is the part every other hook list omits, and it's where the
   hours get lost.
-- **Who uses it** — which public frameworks (Antares, Phobos, Kratos, Ares, …)
+- **Who uses it** — which public frameworks (Antares, Phobos, Kratos, Ares,
+  CnCNet-Spawner, …)
   patch this address, and how their versions relate.
 
 ## The one idea that organises everything
@@ -195,8 +196,24 @@ still tells you it exists and who hooks it.
 | Phobos  | ✅ | ✅ open PRs | cloned `Phobos-developers/Phobos` |
 | Kratos  | ✅ | ✅ open PRs | cloned `ra2diy/KratosPP` |
 | AggressiveStance | ✅ | n/a (0 open) | cloned `Aephiex/YRAggressiveStance` — small standalone Syringe DLL |
+| CnCNet-Spawner | ✅ | ⏳ | cloned `CnCNet/yrpp-spawner` — CnCNet's online spawner (192 hooks): the **network layer** |
 | CnCRAZER/Ares fork | ⏳ | ✅ open PRs | fork of Ares; PR-only for now |
-| Vanilla-RE'd, Syringe core, CnCNet spawner, other | ⏳ | ⏳ | future tiers |
+| Vanilla-RE'd, Syringe core, other | ⏳ | ⏳ | future tiers |
+
+> **CnCNet-Spawner is the network layer.** `CnCNet/yrpp-spawner` (build output
+> `CnCNet-Spawner.dll`) is a Syringe DLL — built on the same Ares/Phobos/YRpp
+> framework — that launches the game straight into an online battle from `spawn.ini`
+> and carries CnCNet's netcode: **Protocol Zero** low-latency send (`*__ProtocolZero`),
+> ladder/stat reporting (`SendStatistics*`), observer mode, online save-in-subdir,
+> and custom network-event sizing (`GetEventSize` @`0x64B6xx`, shared with
+> AggressiveStance + Phobos). Because it descends from the Ares/Phobos lineage,
+> **~20 of its 28 shared-address "conflicts" are identical hooks copied from that
+> lineage** (`ExeRun`, `ParseCommandLine`, `ReceiveDamage`, draw fixes), not
+> independent collisions. The substantive one is `0x55DDA0` — CnCNet's
+> `MainLoop_AfterRender__ProtocolZero` vs Phobos's message-list management at the
+> same main-loop point. (Which real-world DLL combinations actually co-load is not
+> verified here; read the shared addresses as "both patch this," not "always run
+> together.")
 
 > **Antares ≠ Ares.** Antares is a Phobos-developers open-source *reimplementation*
 > of newer, closed Ares — and is deliberately incompatible with Ares itself.

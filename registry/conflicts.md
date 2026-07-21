@@ -6,12 +6,13 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 
 **Excluded** from this list: overlaps that only occur between mutually-exclusive frameworks (Antares vs Ares), which you never load together — those are almost all inherited code, counted separately below. Loose PR hooks are excluded too; see `pr-hooks.md`.
 
-**306** real (co-loadable) conflicts. _(989 additional inherited Ares↔Antares-only overlaps, not shown.)_
+**327** real (co-loadable) conflicts. _(977 additional inherited Ares↔Antares-only overlaps, not shown.)_
 
 | Address | Frameworks | Functions |
 |---|---|---|
 | `0x4101F0` | Antares, Ares, Kratos | `Antares`: AbstractClass_DTOR<br>`Ares`: AbstractClass_DTOR<br>`Kratos`: AbstractClass_DTOR |
 | `0x4147F9` | Kratos, Phobos | `Kratos`: AircraftClass_Draw_Shadow_SkipPhobos<br>`Phobos`: AircraftClass_Draw_Shadow |
+| `0x41668B` | Antares, Ares, CnCNet-Spawner | `Antares`: AircraftClass_ReceiveDamage<br>`Ares`: AircraftClass_ReceiveDamage<br>`CnCNet-Spawner`: AircraftClass_ReceiveDamage |
 | `0x418478` | Antares, Ares, Kratos | `Antares`: AircraftClass_Mi_Attack_Untarget1<br>`Ares`: AircraftClass_Mi_Attack_Untarget1<br>`Kratos`: AircraftClass_Mission_Attack_Fire_Imcoming_0 |
 | `0x418506` | Kratos, Phobos | `Kratos`: AircraftClass_Mission_Attack_FireDone<br>`Phobos`: AircraftClass_Mission_Attack_Delay1B |
 | `0x4186B6` | Kratos, Phobos | `Kratos`: AircraftClass_Mission_Attack5_HoverFireTwice<br>`Phobos`: AircraftClass_Mission_Attack_FireAtTarget2_BurstFix |
@@ -31,6 +32,7 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x422126` | Kratos, Phobos | `Kratos`: AnimClass_CTOR<br>`Phobos`: AnimClass_CTOR_NullType |
 | `0x4228D2` | Kratos, Phobos | `Kratos`: AnimClass_CTOR<br>`Phobos`: AnimClass_CTOR_Load |
 | `0x422967` | Kratos, Phobos | `Kratos`: AnimClass_DTOR<br>`Phobos`: AnimClass_DTOR |
+| `0x422FCC` | Antares, Ares, CnCNet-Spawner | `Antares`: AnimClass_Draw_Details<br>`Ares`: AnimClass_Draw_Details<br>`CnCNet-Spawner`: AnimClass_Draw_Details |
 | `0x4242E1` | Kratos, Phobos | `Kratos`: AnimClass_Trailer_Remap<br>`Phobos`: AnimClass_AI_TrailerAnim |
 | `0x424807` | Kratos, Phobos | `Kratos`: AnimClass_Next<br>`Phobos`: AnimClass_AI_Next |
 | `0x425280` | Kratos, Phobos | `Kratos`: AnimClass_SaveLoad_Prefix<br>`Phobos`: AnimClass_SaveLoad_Prefix |
@@ -69,6 +71,7 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x45417E` | Antares, Ares, Phobos | `Antares`: BuildingClass_Load_Suffix<br>`Ares`: BuildingClass_Load_Suffix<br>`Phobos`: BuildingClass_Load_Suffix |
 | `0x454190` | Antares, Ares, Phobos | `Antares`: BuildingClass_SaveLoad_Prefix<br>`Ares`: BuildingClass_SaveLoad_Prefix<br>`Phobos`: BuildingClass_SaveLoad_Prefix |
 | `0x454244` | Antares, Ares, Phobos | `Antares`: BuildingClass_Save_Suffix<br>`Ares`: BuildingClass_Save_Suffix<br>`Phobos`: BuildingClass_Save_Suffix |
+| `0x45455B` | CnCNet-Spawner, Phobos | `CnCNet-Spawner`: BuildingClass_VisualCharacter_CloakVisibility<br>`Phobos`: BuildingClass_VisualCharacter_CloakVisibility |
 | `0x456E5A` | Kratos, Phobos | `Kratos`: BuildingClass_Flash_Airstrike<br>`Phobos`: BuildingClass_Flash_Airstrike |
 | `0x45E50C` | Antares, Ares, Phobos | `Antares`: BuildingTypeClass_CTOR<br>`Ares`: BuildingTypeClass_CTOR<br>`Phobos`: BuildingTypeClass_CTOR |
 | `0x45E707` | Antares, Ares, Phobos | `Antares`: BuildingTypeClass_DTOR<br>`Ares`: BuildingTypeClass_DTOR<br>`Phobos`: BuildingTypeClass_DTOR |
@@ -110,6 +113,8 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x483226` | Antares, Ares, Kratos | `Antares`: CellClass_CrateBeingCollected_Firepower2<br>`Ares`: CellClass_CrateBeingCollected_Firepower2<br>`Kratos`: CellClass_CrateBeingCollected_Firepower2 |
 | `0x4899DA` | Antares, Ares, Phobos | `Antares`: DamageArea_Damage_MaxAffect<br>`Ares`: DamageArea_Damage_MaxAffect<br>`Phobos`: DamageArea_DamageBuilding_CauseMergeBuildingDamage<br>`Phobos`: MapClass_DamageArea_DamageUnderGround |
 | `0x48A551` | Kratos, Phobos | `Kratos`: WarheadTypeClass_AnimList_SplashList<br>`Phobos`: WarheadTypeClass_AnimList_SplashList |
+| `0x48A634` | Antares, Ares, CnCNet-Spawner | `Antares`: FlashbangWarheadAt_Details<br>`Ares`: FlashbangWarheadAt_Details<br>`CnCNet-Spawner`: FlashBangWarheadAt_Details |
+| `0x4A3B4B` | Antares, Ares, CnCNet-Spawner | `Antares`: FetchResource<br>`Ares`: FetchResource<br>`CnCNet-Spawner`: FetchResource |
 | `0x4AE95E` | Kratos, Phobos | `Kratos`: DisplayClass_sub_4AE750_DisallowBuildingNonAttackPlanning<br>`Phobos`: DisplayClass_sub_4AE750_DisallowBuildingNonAttackPlanning |
 | `0x4C1E42` | Kratos, Phobos | `Kratos`: EBolt_CTOR<br>`Phobos`: EBolt_CTOR |
 | `0x4C20BC` | Kratos, Phobos | `Kratos`: EBolt_Draw_Arcs<br>`Phobos`: EBolt_DrawArcs |
@@ -117,7 +122,7 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x4C25CB` | Antares, Ares, Kratos | `Antares`: EBolt_Draw_Color2<br>`Ares`: EBolt_Draw_Color2<br>`Kratos`: EBolt_Draw_Color2 |
 | `0x4C26C7` | Antares, Ares, Kratos | `Antares`: EBolt_Draw_Color3<br>`Ares`: EBolt_Draw_Color3<br>`Kratos`: EBolt_Draw_Color3 |
 | `0x4C2951` | Antares, Ares, Kratos, Phobos | `Antares`: EBolt_DTOR<br>`Ares`: EBolt_DTOR<br>`Kratos`: EBolt_DTOR<br>`Phobos`: EBolt_DTOR |
-| `0x4C6CC8` | AggressiveStance, Phobos | `AggressiveStance`: Networking_RespondToEvent<br>`Phobos`: Networking_RespondToEvent |
+| `0x4C6CC8` | AggressiveStance, CnCNet-Spawner, Phobos | `AggressiveStance`: Networking_RespondToEvent<br>`CnCNet-Spawner`: Networking_RespondToEvent<br>`Phobos`: Networking_RespondToEvent |
 | `0x4CA07A` | Antares, Ares, Phobos | `Antares`: FactoryClass_AbandonProduction<br>`Ares`: FactoryClass_AbandonProduction<br>`Phobos`: FactoryClass_AbandonProduction_Phobos |
 | `0x4CF3D0` | Antares, Ares, Phobos | `Antares`: FlyLocomotionClass_sub_4CEFB0_HunterSeeker<br>`Ares`: FlyLocomotionClass_sub_4CEFB0_HunterSeeker<br>`Phobos`: FlyLocomotionClass_FlightUpdate_SetFlightLevel |
 | `0x4D7221` | Antares, Ares, Phobos | `Antares`: FootClass_Put_Prereqs<br>`Ares`: FootClass_Put_Prereqs<br>`Phobos`: FootClass_Unlimbo_LaserTrails |
@@ -145,16 +150,22 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x51E63A` | Antares, Ares, Phobos | `Antares`: InfantryClass_GetCursorOverObject_EngineerOverFriendlyBuilding<br>`Ares`: InfantryClass_GetCursorOverObject_EngineerOverFriendlyBuilding<br>`Phobos`: InfantryClass_WhatAction_Grinding_Engineer |
 | `0x51EAE0` | Kratos, Phobos | `Kratos`: InfantryClass_WhatAction_Cursor<br>`Phobos`: TechnoClass_WhatAction_AllowAirstrike |
 | `0x51EE6B` | Antares, Ares, Phobos | `Antares`: InfantryClass_GetCursorOverObject_Saboteur<br>`Ares`: InfantryClass_GetCursorOverObject_Saboteur<br>`Phobos`: InfantryClass_WhatAction_ObjectClass_InfiltrateForceAttack |
-| `0x52F639` | AggressiveStance, Antares, Ares, Kratos, Phobos | `AggressiveStance`: _YR_CmdLineParse<br>`Antares`: _YR_CmdLineParse<br>`Ares`: _YR_CmdLineParse<br>`Kratos`: YR_CmdLineParse<br>`Phobos`: _YR_CmdLineParse |
+| `0x52F639` | AggressiveStance, Antares, Ares, CnCNet-Spawner, Kratos, Phobos | `AggressiveStance`: _YR_CmdLineParse<br>`Antares`: _YR_CmdLineParse<br>`Ares`: _YR_CmdLineParse<br>`CnCNet-Spawner`: ParseCommandLine<br>`Kratos`: YR_CmdLineParse<br>`Phobos`: _YR_CmdLineParse |
 | `0x533066` | AggressiveStance, Phobos | `AggressiveStance`: CommandClassCallback_Register<br>`Phobos`: CommandClassCallback_Register |
 | `0x54D600` | Kratos, Phobos | `Kratos`: JumpjetLocomotionClass_MovingUpdate_DontTurnInCell<br>`Phobos`: JumpjetLocomotionClass_MovementAI_JumpjetStraightAscend |
+| `0x550BCA` | Antares, Ares, CnCNet-Spawner | `Antares`: LaserDrawClass_Draw_InHouseColor_Details<br>`Ares`: LaserDrawClass_Draw_InHouseColor_Details<br>`CnCNet-Spawner`: LaserDrawClass_Draw_InHouseColor_Details |
 | `0x550D1F` | Kratos, Phobos | `Kratos`: LaserDrawClass_DrawInHouseColor_Context_Set<br>`Phobos`: LaserDrawClass_DrawInHouseColor_Context_Set |
 | `0x550F47` | Kratos, Phobos | `Kratos`: LaserDrawClass_DrawInHouseColor_BetterDrawing<br>`Phobos`: LaserDrawClass_DrawInHouseColor_BetterDrawing |
 | `0x55AFB3` | Antares, Ares, Kratos | `Antares`: LogicClass_Update<br>`Antares`: LogicClass_Update_1000<br>`Ares`: LogicClass_Update<br>`Ares`: LogicClass_Update_1000<br>`Kratos`: LogicClass_Update |
+| `0x55DDA0` | CnCNet-Spawner, Phobos | `CnCNet-Spawner`: MainLoop_AfterRender__ProtocolZero<br>`Phobos`: MainLoop_FrameStep_NewMessageListManage |
 | `0x5FACDF` | Antares, Ares, Phobos | `Antares`: _Options_LoadFromINI<br>`Ares`: _Options_LoadFromINI<br>`Phobos`: OptionsClass_LoadSettings_LoadPhobosSettings |
-| `0x64B6FE` | AggressiveStance, Phobos | `AggressiveStance`: sub_64B660_GetEventSize<br>`Phobos`: sub_64B660_GetEventSize |
-| `0x64BE7D` | AggressiveStance, Phobos | `AggressiveStance`: sub_64BDD0_GetEventSize1<br>`Phobos`: sub_64BDD0_GetEventSize1 |
-| `0x64C30E` | AggressiveStance, Phobos | `AggressiveStance`: sub_64BDD0_GetEventSize2<br>`Phobos`: sub_64BDD0_GetEventSize2 |
+| `0x5FF86E` | Antares, Ares, CnCNet-Spawner | `Antares`: SpotlightClass_Draw_Details<br>`Ares`: SpotlightClass_Draw_Details<br>`CnCNet-Spawner`: SpotlightClass_Draw_Details |
+| `0x60411B` | Antares, Ares, CnCNet-Spawner | `Antares`: Game_DialogFunc_Subtext_Load<br>`Ares`: Game_DialogFunc_Subtext_Load<br>`CnCNet-Spawner`: Game_DialogFunc_Subtext_Load |
+| `0x604136` | Antares, Ares, CnCNet-Spawner | `Antares`: Game_DialogFunc_Subtext_Propagate<br>`Ares`: Game_DialogFunc_Subtext_Propagate<br>`CnCNet-Spawner`: Game_DialogFunc_Subtext_Propagate |
+| `0x62CEC9` | Antares, Ares, CnCNet-Spawner | `Antares`: ParticleClass_Draw_Details<br>`Ares`: ParticleClass_Draw_Details<br>`CnCNet-Spawner`: ParticleClass_Draw_Details |
+| `0x64B6FE` | AggressiveStance, CnCNet-Spawner, Phobos | `AggressiveStance`: sub_64B660_GetEventSize<br>`CnCNet-Spawner`: sub_64B660_GetEventSize<br>`Phobos`: sub_64B660_GetEventSize |
+| `0x64BE7D` | AggressiveStance, CnCNet-Spawner, Phobos | `AggressiveStance`: sub_64BDD0_GetEventSize1<br>`CnCNet-Spawner`: sub_64BDD0_GetEventSize1<br>`Phobos`: sub_64BDD0_GetEventSize1 |
+| `0x64C30E` | AggressiveStance, CnCNet-Spawner, Phobos | `AggressiveStance`: sub_64BDD0_GetEventSize2<br>`CnCNet-Spawner`: sub_64BDD0_GetEventSize2<br>`Phobos`: sub_64BDD0_GetEventSize2 |
 | `0x65E97F` | Kratos, Phobos | `Kratos`: HouseClass_CreateAirstrike_SetTargetForUnit<br>`Phobos`: HouseClass_CreateAirstrike_SetTargetForUnit |
 | `0x65E997` | Kratos, Phobos | `Kratos`: Airstrike_Supported_Reinforcements_Put<br>`Phobos`: HouseClass_SendAirstrike_PlaceAircraft |
 | `0x6622E0` | Antares, Ares, Kratos | `Antares`: RocketLocomotionClass_ILocomotion_Process_CustomMissile<br>`Ares`: RocketLocomotionClass_ILocomotion_Process_CustomMissile<br>`Kratos`: RocketLocomotionClass_Update_Freezing |
@@ -173,6 +184,8 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x67D300` | Antares, Ares, Kratos | `Antares`: SaveGame_Start<br>`Ares`: SaveGame_Start<br>`Kratos`: SaveGameInStream_Start |
 | `0x67D32C` | Kratos, Phobos | `Kratos`: SaveGame_Ext<br>`Phobos`: SaveGame_Phobos |
 | `0x67E42E` | Antares, Ares, Kratos | `Antares`: SaveGame<br>`Ares`: SaveGame<br>`Kratos`: SaveGameInStream_End |
+| `0x67E6DA` | CnCNet-Spawner, Phobos | `CnCNet-Spawner`: LoadGame_AfterInit<br>`Phobos`: LoadGame_AfterInit_DetermineNextMPSaveIndex |
+| `0x67E720` | CnCNet-Spawner, Kratos | `CnCNet-Spawner`: LoadGame_After<br>`Kratos`: LoadGame_End |
 | `0x67E730` | Antares, Ares, Kratos | `Antares`: LoadGame_Start<br>`Ares`: LoadGame_Start<br>`Kratos`: LoadGameInStream_Start |
 | `0x67E826` | Kratos, Phobos | `Kratos`: LoadGame_Ext<br>`Phobos`: LoadGame_Phobos |
 | `0x67F7C8` | Antares, Ares, Kratos | `Antares`: LoadGame_End<br>`Ares`: LoadGame_End<br>`Kratos`: LoadGameInStream_End |
@@ -180,6 +193,7 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x67FDB1` | Kratos, Phobos | `Kratos`: LoadOptionsClass_GetFileInfo<br>`Phobos`: LoadOptionsClass_GetFileInfo |
 | `0x685659` | Antares, Ares, Kratos, Phobos | `Antares`: Scenario_ClearClasses<br>`Ares`: Scenario_ClearClasses<br>`Kratos`: Scenario_ClearClasses_End<br>`Phobos`: Scenario_ClearClasses |
 | `0x6875F3` | Antares, Ares, Kratos | `Antares`: Scenario_Start1<br>`Ares`: Scenario_Start1<br>`Kratos`: Scenario_Start1 |
+| `0x689669` | CnCNet-Spawner, Phobos | `CnCNet-Spawner`: ScenarioClass_Load_Suffix<br>`Phobos`: ScenarioClass_Load_Suffix |
 | `0x6A4609` | Antares, Ares, Phobos | `Antares`: SideClass_CTOR<br>`Ares`: SideClass_CTOR<br>`Phobos`: SideClass_CTOR |
 | `0x6A4780` | Antares, Ares, Phobos | `Antares`: SideClass_SaveLoad_Prefix<br>`Ares`: SideClass_SaveLoad_Prefix<br>`Phobos`: SideClass_SaveLoad_Prefix |
 | `0x6A488B` | Antares, Ares, Phobos | `Antares`: SideClass_Load_Suffix<br>`Ares`: SideClass_Load_Suffix<br>`Phobos`: SideClass_Load_Suffix |
@@ -188,6 +202,7 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x6A499F` | Antares, Ares, Phobos | `Antares`: SideClass_SDDTOR<br>`Ares`: SideClass_SDDTOR<br>`Phobos`: SideClass_SDDTOR |
 | `0x6A99F3` | Antares, Ares, Phobos | `Antares`: TabCameoListClass_Draw_SkipSHPForPCX<br>`Ares`: TabCameoListClass_Draw_SkipSHPForPCX<br>`Phobos`: StripClass_Draw_DrawMissing |
 | `0x6B77B4` | Kratos, Phobos | `Kratos`: SpawnManagerClass_Update_Callback<br>`Phobos`: SpawnManagerClass_Update_RecycleSpawned |
+| `0x6BE9BD` | Antares, Ares, CnCNet-Spawner | `Antares`: sub_6BE1C0<br>`Ares`: sub_6BE1C0<br>`CnCNet-Spawner`: ProgEnd_CustomMixes |
 | `0x6CC390` | Antares, Ares, Phobos | `Antares`: SuperClass_Launch<br>`Ares`: SuperClass_Launch<br>`Phobos`: SuperClass_Launch<br>`Phobos`: SuperClass_Place_FireExt |
 | `0x6CE6F6` | Antares, Ares, Kratos, Phobos | `Antares`: SuperWeaponTypeClass_CTOR<br>`Ares`: SuperWeaponTypeClass_CTOR<br>`Kratos`: SuperWeaponTypeClass_CTOR<br>`Phobos`: SuperWeaponTypeClass_CTOR |
 | `0x6CE800` | Antares, Ares, Kratos, Phobos | `Antares`: SuperWeaponTypeClass_SaveLoad_Prefix<br>`Ares`: SuperWeaponTypeClass_SaveLoad_Prefix<br>`Kratos`: SuperWeaponTypeClass_SaveLoad_Prefix<br>`Phobos`: SuperWeaponTypeClass_SaveLoad_Prefix |
@@ -197,6 +212,7 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x6CEE43` | Antares, Ares, Kratos, Phobos | `Antares`: SuperWeaponTypeClass_LoadFromINI<br>`Ares`: SuperWeaponTypeClass_LoadFromINI<br>`Kratos`: SuperWeaponTypeClass_LoadFromINI<br>`Phobos`: SuperWeaponTypeClass_LoadFromINI |
 | `0x6CEE50` | Antares, Ares, Kratos, Phobos | `Antares`: SuperWeaponTypeClass_LoadFromINI<br>`Ares`: SuperWeaponTypeClass_LoadFromINI<br>`Kratos`: SuperWeaponTypeClass_LoadFromINI<br>`Phobos`: SuperWeaponTypeClass_LoadFromINI |
 | `0x6CEFE0` | Antares, Ares, Kratos, Phobos | `Antares`: SuperWeaponTypeClass_SDDTOR<br>`Ares`: SuperWeaponTypeClass_SDDTOR<br>`Kratos`: SuperWeaponTypeClass_SDDTOR<br>`Phobos`: SuperWeaponTypeClass_SDDTOR |
+| `0x6D7847` | Antares, Ares, CnCNet-Spawner | `Antares`: TacticalClass_DrawPixelEffects_Details<br>`Ares`: TacticalClass_DrawPixelEffects_Details<br>`CnCNet-Spawner`: TacticalClass_DrawPixelEffects_Details |
 | `0x6DD176` | Antares, Ares, Phobos | `Antares`: TActionClass_CTOR<br>`Ares`: TActionClass_CTOR<br>`Phobos`: TActionClass_CTOR<br>`Phobos`: TActionClass_CTOR |
 | `0x6E3DB0` | Antares, Ares, Phobos | `Antares`: TActionClass_SaveLoad_Prefix<br>`Ares`: TActionClass_SaveLoad_Prefix<br>`Phobos`: TActionClass_SaveLoad_Prefix<br>`Phobos`: TActionClass_SaveLoad_Prefix |
 | `0x6E3E29` | Antares, Ares, Phobos | `Antares`: TActionClass_Load_Suffix<br>`Ares`: TActionClass_Load_Suffix<br>`Phobos`: TActionClass_Load_Suffix<br>`Phobos`: TActionClass_Load_Suffix |
@@ -210,11 +226,13 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x6F4500` | Antares, Ares, Kratos, Phobos | `Antares`: TechnoClass_DTOR<br>`Ares`: TechnoClass_DTOR<br>`Kratos`: TechnoClass_DTOR<br>`Phobos`: TechnoClass_DTOR |
 | `0x6F65D1` | Kratos, Phobos | `Kratos`: TechnoClass_DrawHealthBar_Building<br>`Phobos`: TechnoClass_DrawHealthBar_Buildings |
 | `0x6F683C` | Kratos, Phobos | `Kratos`: TechnoClass_DrawHealthBar_Other<br>`Phobos`: TechnoClass_DrawHealthBar_Units |
-| `0x6F6A58` | Antares, Ares, Phobos | `Antares`: TechnoClass_DrawHealthBar_HidePips_KillDriver<br>`Ares`: TechnoClass_DrawHealthBar_HidePips_KillDriver<br>`Phobos`: TechnoClass_DrawHealthBar_PermanentPipScale |
+| `0x6F6A58` | Antares, Ares, CnCNet-Spawner, Phobos | `Antares`: TechnoClass_DrawHealthBar_HidePips_KillDriver<br>`Ares`: TechnoClass_DrawHealthBar_HidePips_KillDriver<br>`CnCNet-Spawner`: TechnoClass_DrawSelection_Observer2<br>`Phobos`: TechnoClass_DrawHealthBar_PermanentPipScale |
 | `0x6F6AC4` | Kratos, Phobos | `Kratos`: TechnoClass_Remove<br>`Phobos`: TechnoClass_Limbo |
 | `0x6F9E50` | Antares, Ares, Kratos, Phobos | `Antares`: TechnoClass_Update<br>`Ares`: TechnoClass_Update<br>`Kratos`: TechnoClass_Update<br>`Phobos`: TechnoClass_AI |
 | `0x6FC339` | Antares, Ares, Kratos, Phobos | `Antares`: TechnoClass_GetFireError_OpenToppedGunnerTemporal<br>`Ares`: TechnoClass_GetFireError_OpenToppedGunnerTemporal<br>`Kratos`: TechnoClass_CanFire<br>`Phobos`: TechnoClass_CanFire |
 | `0x6FC749` | Kratos, Phobos | `Kratos`: TechnoClass_CanFire_WhichLayer_Stand<br>`Phobos`: TechnoClass_CanFire_AntiUnderground |
+| `0x6FCA26` | CnCNet-Spawner, Phobos | `CnCNet-Spawner`: TechnoClass_CanFire_RevertAresOpenTopCloakFix<br>`Phobos`: TechnoClass_CanFire_RevertAresOpenTopCloakFix |
+| `0x6FCD1D` | CnCNet-Spawner, Phobos | `CnCNet-Spawner`: TechnoClass_CanFire_OpenTopCloakFix<br>`Phobos`: TechnoClass_CanFire_OpenTopCloakFix |
 | `0x6FD38D` | Kratos, Phobos | `Kratos`: TechnoClass_DrawSth_DrawToInvisoFlakScatterLocation<br>`Phobos`: TechnoClass_DrawSth_DrawToInvisoFlakScatterLocation |
 | `0x6FD446` | Kratos, Phobos | `Kratos`: TechnoClass_LaserZap_IsSingleColor<br>`Phobos`: TechnoClass_LaserZap_IsSingleColor<br>`Phobos`: TechnoClass_LaserZap_Tracking |
 | `0x6FD494` | Kratos, Phobos | `Kratos`: TechnoClass_FireEBolt_SetWeaponData<br>`Phobos`: TechnoClass_FireEBolt_SetExtMap_AfterAres |
@@ -234,6 +252,7 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x702050` | Kratos, Phobos | `Kratos`: TechnoClass_ReceiveDamage_Destroy<br>`Phobos`: TechnoClass_ReceiveDamage_AttachEffectExpireWeapon |
 | `0x702299` | Kratos, Phobos | `Kratos`: TechnoClass_Destroy_VxlDebris_Remap<br>`Phobos`: TechnoClass_ReceiveDamage_Debris |
 | `0x702E9D` | Antares, Ares, Kratos | `Antares`: TechnoClass_RegisterDestruction_Veterancy<br>`Ares`: TechnoClass_RegisterDestruction_Veterancy<br>`Kratos`: TechnoClass_RegisterDestruction |
+| `0x703A09` | CnCNet-Spawner, Phobos | `CnCNet-Spawner`: TechnoClass_VisualCharacter_CloakVisibility<br>`Phobos`: TechnoClass_VisualCharacter_CloakVisibility |
 | `0x705860` | Kratos, Phobos | `Kratos`: TechnoClass_DrawAirstrikeFlare_SetContext<br>`Phobos`: TechnoClass_DrawAirstrikeFlare_SetContext |
 | `0x7058F6` | Kratos, Phobos | `Kratos`: TechnoClass_DrawAirstrikeFlare_LineColor<br>`Phobos`: TechnoClass_DrawAirstrikeFlare_LineColor |
 | `0x70597A` | Kratos, Phobos | `Kratos`: TechnoClass_DrawAirstrikeFlare_DotColor<br>`Phobos`: TechnoClass_DrawAirstrikeFlare_DotColor |
@@ -271,6 +290,7 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x7258D0` | Antares, Ares, Kratos, Phobos | `Antares`: AnnounceInvalidPointer<br>`Ares`: AnnounceInvalidPointer<br>`Kratos`: DetachThisFromAll<br>`Phobos`: AnnounceInvalidPointer |
 | `0x725961` | Antares, Ares, Phobos | `Antares`: AnnounceInvalidPointer_BombCloak<br>`Ares`: AnnounceInvalidPointer_BombCloak<br>`Phobos`: AbstractClass_AnnouncePointerExpired_BombList |
 | `0x73769E` | Antares, Ares, Phobos | `Antares`: UnitClass_ReceivedRadioCommand_SpecificPassengers<br>`Ares`: UnitClass_ReceivedRadioCommand_SpecificPassengers<br>`Phobos`: UnitClass_ReceiveCommand_NoEnterOnBridge |
+| `0x737F97` | Antares, Ares, CnCNet-Spawner | `Antares`: UnitClass_ReceiveDamage<br>`Ares`: UnitClass_ReceiveDamage<br>`CnCNet-Spawner`: UnitClass_ReceiveDamage |
 | `0x7384BD` | Antares, Ares, Phobos | `Antares`: UnitClass_ReceiveDamage_OreMinerUnderAttack<br>`Ares`: UnitClass_ReceiveDamage_OreMinerUnderAttack<br>`Phobos`: UnitClass_ReceiveDamage_Nonprovocative |
 | `0x738749` | Antares, Ares, Kratos | `Antares`: UnitClass_Destroy_TiberiumExplosive<br>`Ares`: UnitClass_Destroy_TiberiumExplosive<br>`Kratos`: UnitClass_Destroy_Explosion_Remap |
 | `0x739956` | Antares, Ares, Phobos | `Antares`: UnitClass_Deploy_TransferIvanBomb<br>`Ares`: UnitClass_Deploy_TransferIvanBomb<br>`Phobos`: UnitClass_Deploy_Transfer |
@@ -280,6 +300,7 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x73C702` | Antares, Ares, Kratos | `Antares`: UnitClass_DrawSHP_ChangeType1<br>`Ares`: UnitClass_DrawSHP_ChangeType1<br>`Kratos`: UnitClass_DrawSHP_TechnoType3 |
 | `0x73C725` | Antares, Ares, Kratos | `Antares`: UnitClass_DrawSHP_DrawShadowEarlier<br>`Ares`: UnitClass_DrawSHP_DrawShadowEarlier<br>`Kratos`: UnitClass_DrawSHP_HasTurret |
 | `0x73CD01` | Antares, Ares, Kratos | `Antares`: UnitClass_DrawSHP_FacingsB<br>`Ares`: UnitClass_DrawSHP_FacingsB<br>`Kratos`: UnitClass_Draw_ChangeTurret_SHPIFV |
+| `0x73E3DB` | CnCNet-Spawner, Phobos | `CnCNet-Spawner`: UnitClass_MissionUnload__CheckPowerBeforeOrePurifier<br>`Phobos`: UnitClass_Mission_Unload_NoteBalanceBefore |
 | `0x74942E` | Kratos, Phobos | `Kratos`: VoxelAnimClass_CTOR<br>`Phobos`: VoxelAnimClass_CTOR |
 | `0x749951` | Kratos, Phobos | `Kratos`: VoxelAnimClass_CTOR<br>`Phobos`: VoxelAnimClass_CTOR |
 | `0x7499F1` | Kratos, Phobos | `Kratos`: VoxelAnimClass_DTOR<br>`Phobos`: VoxelAnimClass_DTOR |
@@ -315,4 +336,4 @@ These are addresses hooked by **two or more frameworks you can run at the same t
 | `0x772EB0` | Antares, Ares, Kratos, Phobos | `Antares`: WeaponTypeClass_SaveLoad_Prefix<br>`Ares`: WeaponTypeClass_SaveLoad_Prefix<br>`Kratos`: WeaponTypeClass_SaveLoad_Prefix<br>`Phobos`: WeaponTypeClass_SaveLoad_Prefix |
 | `0x772F8C` | Antares, Ares, Kratos, Phobos | `Antares`: WeaponTypeClass_Save<br>`Ares`: WeaponTypeClass_Save<br>`Kratos`: WeaponTypeClass_Save_Suffix<br>`Phobos`: WeaponTypeClass_Save |
 | `0x77311D` | Antares, Ares, Kratos, Phobos | `Antares`: WeaponTypeClass_SDDTOR<br>`Ares`: WeaponTypeClass_SDDTOR<br>`Kratos`: WeaponTypeClass_SDDTOR<br>`Phobos`: WeaponTypeClass_SDDTOR |
-| `0x7CD810` | AggressiveStance, Antares, Ares, Kratos, Phobos | `AggressiveStance`: ExeRun<br>`Antares`: ExeRun<br>`Ares`: ExeRun<br>`Kratos`: ExeRun<br>`Phobos`: ExeRun |
+| `0x7CD810` | AggressiveStance, Antares, Ares, CnCNet-Spawner, Kratos, Phobos | `AggressiveStance`: ExeRun<br>`Antares`: ExeRun<br>`Ares`: ExeRun<br>`CnCNet-Spawner`: ExeRun<br>`Kratos`: ExeRun<br>`Phobos`: ExeRun |

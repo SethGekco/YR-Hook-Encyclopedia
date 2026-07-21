@@ -73,14 +73,21 @@ INI_UNIVERSES = {
                  "mpcoop", "mpduel", "mpfreeforall", "mpmeat", "mpmw", "mpnaval",
                  "mpsiege", "mpunholy", "snow", "temperat", "urban", "eva")]
                + [f"{_RA2}/missions.pkt"],
-    # Tiberian Sun (+ Firestorm) INIs — the base engine YR ultimately descends from.
-    # A string classed as `ts` but not `ra2`/YR is the DEEPEST legacy: a TS tag the YR
-    # engine still reads (e.g. TS Ion-storm / Veinhole / Firestorm-era logic). Cloned
-    # from Vinifera-Developers/Tiberian-Sun-INIs into the gitignored cache.
+    # Tiberian Sun INIs — the base engine YR ultimately descends from. Split into the
+    # base game (`ts`, v1.x) and the Firestorm expansion (`tsfs`, v2.00) because they
+    # are distinct products: the FS-suffixed / numbered files (FIRESTRM, ARTFS, AIFS,
+    # BATTLEFS, *01, MISSION1) are Firestorm ADDITIONS & CHANGES layered over base TS.
+    # A string classed as `ts`/`tsfs` but not `ra2`/YR is the DEEPEST legacy: a TS-era
+    # tag the YR engine still reads. `tsfs`-not-`ts` isolates Firestorm-introduced
+    # tags (HunterSeeker, FirestormWall, EMPulseCannon, LaserFence, ...) from base-TS
+    # ones. Cloned from Vinifera-Developers/Tiberian-Sun-INIs into the gitignored cache.
     "ts":      [f"{_TS}/{n}.INI" for n in
-                ("RULES", "FIRESTRM", "ART", "ARTFS", "AI", "AIFS", "SOUND", "ION",
-                 "KEYBOARD", "MAPSEL", "MISSION", "THEME", "TUTORIAL", "BATTLE",
-                 "NEWMENU", "SNOW", "TEMPERAT", "DAY", "DUSK", "MORNING", "NIGHT")],
+                ("RULES", "ART", "AI", "SOUND", "ION", "KEYBOARD", "MAPSEL", "MISSION",
+                 "THEME", "TUTORIAL", "BATTLE", "NEWMENU", "SNOW", "TEMPERAT",
+                 "DAY", "DUSK", "MORNING", "NIGHT")],
+    "tsfs":    [f"{_TS}/{n}.INI" for n in
+                ("FIRESTRM", "ARTFS", "AIFS", "BATTLEFS",
+                 "MAPSEL01", "MISSION1", "SOUND01", "THEME01")],
     # Map/scenario files are INI text too ([Basic]/[Map]/[SpecialFlags]/lighting/
     # trigger sections) and carry scenario keys the engine reads that appear in no
     # other INI (HomeCell, CarryOverMoney, NextScenario, IceGrowthEnabled, ...).

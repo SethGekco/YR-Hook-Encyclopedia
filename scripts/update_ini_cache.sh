@@ -17,7 +17,10 @@ if [ -f "$D/RA2inis.zip" ]; then
     echo "RA2: $(ls "$CACHE/ra2" | grep -ic '\.ini') ini + $(ls "$CACHE/ra2"/*.pkt 2>/dev/null | wc -l) pkt"
 else echo "WARN: missing $D/RA2inis.zip"; fi
 
-# Tiberian Sun INIs (the base engine) from the Vinifera community mirror.
+# Tiberian Sun INIs (the base engine) from the Vinifera community mirror. Contains
+# both base TS (RULES/ART/AI/...) and the Firestorm expansion overlay files
+# (FIRESTRM/ARTFS/AIFS/BATTLEFS/*01); the classifier keeps them as separate
+# `ts` and `tsfs` domains.
 if [ -d "$CACHE/ts/.git" ]; then
   git -C "$CACHE/ts" pull --depth 1 --ff-only >/dev/null 2>&1 && echo "TS:  updated @ $(git -C "$CACHE/ts" rev-parse --short HEAD)"
 else

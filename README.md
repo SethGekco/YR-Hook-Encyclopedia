@@ -113,16 +113,26 @@ Two ways to go from "I want behaviour X" to "which hook is it":
   files, the MP game-mode files, mission/mapsel/battle/coop), **sample map/scenario
   files** (`.map`/`.mpr`/`.yrm`/`.mmx` — the `map` domain: `HomeCell`,
   `NextScenario`, `IceGrowthEnabled`, the lighting `Ion*` keys), the **original
-  Red Alert 2 INIs** (`ra2` domain), and the **Tiberian Sun INIs** (`ts` domain).
-  **1,898** classify as tags; **622** remain `unclassified`.
+  Red Alert 2 INIs** (`ra2` domain), and the **Tiberian Sun INIs**, split into
+  base TS (`ts`, v1.x) and the **Firestorm expansion** (`tsfs`, v2.00 — the
+  FS-suffixed / numbered overlay INIs). **1,898** classify as tags; **622** remain
+  `unclassified`.
   - **Engine-lineage legacy tags.** YR runs on the RA2 engine, which runs on the
-    Tiberian Sun engine. When a feature was cut, its *tag-reading code often stayed
-    in the binary*. Classifying against RA2 and TS INIs surfaces these — a string
-    `gamemd.exe` reads that survives only in an older generation is a vestigial tag:
-    - `ts`-only (deepest, ~80): pure Tiberian Sun tags YR still reads —
-      `HunterSeeker`, `FirestormWall`/`LaserFence`/`LaserFencePost`, `EMPulseCannon`,
-      `Cyborg`, `IsPlug`/`IsTemple` (Ion-Cannon component towers), `ICBMLauncher`,
-      `Dig`/`AtmosphereEntry` (subterranean).
+    Tiberian Sun engine (base game + Firestorm). When a feature was cut, its
+    *tag-reading code often stayed in the binary*. Classifying against RA2, base TS
+    and Firestorm INIs surfaces these — a string `gamemd.exe` reads that survives
+    only in an older generation is a vestigial tag:
+    - `ts`-only (~53): tags in base Tiberian Sun's `RULES.INI` etc. that YR still
+      reads — `HunterSeeker`, `FirestormWall`/`LaserFence`/`LaserFencePost`,
+      `EMPulseCannon`, `IsPlug`/`IsTemple` (Ion-Cannon component towers),
+      `ICBMLauncher`, `Dig`/`AtmosphereEntry` (subterranean).
+    - `tsfs`-only (~17): keys that live *only* in the Firestorm overlay INIs
+      (`ARTFS`/`AIFS`/`FIRESTRM`/`BATTLEFS`) — Firestorm's art/animation-system
+      additions: `VoxelBarrelFile`/`VoxelBarrelOffsetTo…`, `DeathFrames`/
+      `StartWalkFrame`/`StartStandFrame`, `EngineerCaptureLevel`.
+      (Note: `ts` vs `tsfs` reflects *which INI file the key sits in*, not which
+      game introduced the feature — this community mirror ships base `RULES.INI`
+      as the complete merged rules, so Firestorm-era **unit** tags resolve to `ts`.)
     - `ra2`+`ts`: TS features that also passed through RA2 — `VeinAttack`
       (Veinhole, `0x6692ff`), `AIIonCannon*Value` (`0x670a55`+),
       `BuildAA`/`BuildDefense`/`BuildHelipad`/`BuildPDefense`, `Armory`/`Hospital`.

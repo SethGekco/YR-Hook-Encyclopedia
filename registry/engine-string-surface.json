@@ -106,7 +106,8 @@
       "ra2",
       "rules",
       "theme",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x817854",
     "read_sites": [
@@ -335,7 +336,8 @@
       "art",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818660",
     "read_sites": [
@@ -353,7 +355,8 @@
       "art",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818658",
     "read_sites": [
@@ -378,7 +381,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81864c",
     "read_sites": [
@@ -408,7 +412,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818638",
     "read_sites": [
@@ -435,7 +440,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818624",
     "read_sites": [
@@ -464,7 +470,8 @@
       "art",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818610",
     "read_sites": [
@@ -485,7 +492,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818604",
     "read_sites": [
@@ -614,7 +622,8 @@
       "art",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8185a4",
     "read_sites": [
@@ -632,7 +641,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81859c",
     "read_sites": [
@@ -653,7 +663,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818594",
     "read_sites": [
@@ -681,7 +692,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818584",
     "read_sites": [
@@ -695,7 +707,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81857c",
     "read_sites": [
@@ -709,7 +722,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818570",
     "read_sites": [
@@ -723,7 +737,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818568",
     "read_sites": [
@@ -737,7 +752,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81855c",
     "read_sites": [
@@ -769,7 +785,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818534",
     "read_sites": [
@@ -784,7 +801,8 @@
       "art",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818524",
     "read_sites": [
@@ -847,7 +865,8 @@
       "art",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8184f4",
     "read_sites": [
@@ -915,7 +934,8 @@
       "art",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8184c8",
     "read_sites": [
@@ -1120,7 +1140,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818410",
     "read_sites": [
@@ -1243,7 +1264,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8183b4",
     "read_sites": [
@@ -1313,7 +1335,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818380",
     "read_sites": [
@@ -1444,7 +1467,8 @@
       "art",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x819490",
     "read_sites": [
@@ -1475,7 +1499,8 @@
     "string": "DoorAnim",
     "kind": "tag",
     "domains": [
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x819470",
     "read_sites": [
@@ -1491,7 +1516,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x819460",
     "read_sites": [
@@ -1546,7 +1572,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x819428",
     "read_sites": [
@@ -1562,7 +1589,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x819420",
     "read_sites": [
@@ -1743,7 +1771,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81ae40",
     "read_sites": [
@@ -1760,7 +1789,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81ae34",
     "read_sites": [
@@ -1777,7 +1807,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81ae2c",
     "read_sites": [
@@ -1864,7 +1895,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81ade8",
     "read_sites": [
@@ -1880,7 +1912,7 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x81addc",
     "read_sites": [
@@ -2076,7 +2108,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81ace4",
     "read_sites": [
@@ -2167,7 +2200,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81ac58",
     "read_sites": [
@@ -2248,7 +2282,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8173f0",
     "read_sites": [
@@ -2422,7 +2457,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81ab68",
     "read_sites": [
@@ -2697,7 +2733,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81aa4c",
     "read_sites": [
@@ -2850,7 +2887,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x817204",
     "read_sites": [
@@ -2874,7 +2912,8 @@
     "string": "CloakGenerator",
     "kind": "tag",
     "domains": [
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a998",
     "read_sites": [
@@ -2900,7 +2939,8 @@
     "string": "CloakRadiusInCells",
     "kind": "tag",
     "domains": [
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a978",
     "read_sites": [
@@ -2950,7 +2990,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a92c",
     "read_sites": [
@@ -2965,7 +3006,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a91c",
     "read_sites": [
@@ -2980,7 +3022,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a90c",
     "read_sites": [
@@ -2995,7 +3038,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a8fc",
     "read_sites": [
@@ -3010,7 +3054,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a8ec",
     "read_sites": [
@@ -3038,7 +3083,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a8cc",
     "read_sites": [
@@ -3050,7 +3096,8 @@
     "string": "PowersUpBuilding",
     "kind": "tag",
     "domains": [
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a8b8",
     "read_sites": [
@@ -3062,7 +3109,8 @@
     "string": "PowersUpToLevel",
     "kind": "tag",
     "domains": [
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a8a8",
     "read_sites": [
@@ -3090,7 +3138,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a884",
     "read_sites": [
@@ -3143,7 +3192,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a844",
     "read_sites": [
@@ -3208,7 +3258,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a7fc",
     "read_sites": [
@@ -3224,7 +3275,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a7ec",
     "read_sites": [
@@ -3269,7 +3321,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81938c",
     "read_sites": [
@@ -3301,7 +3354,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a7a8",
     "read_sites": [
@@ -3366,7 +3420,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a774",
     "read_sites": [
@@ -3420,7 +3475,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a734",
     "read_sites": [
@@ -3450,7 +3506,8 @@
     "string": "DoorStages",
     "kind": "tag",
     "domains": [
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a71c",
     "read_sites": [
@@ -3476,7 +3533,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a700",
     "read_sites": [
@@ -3504,7 +3562,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a6dc",
     "read_sites": [
@@ -3541,7 +3600,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a694",
     "read_sites": [
@@ -3565,7 +3625,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a66c",
     "read_sites": [
@@ -3593,7 +3654,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a650",
     "read_sites": [
@@ -3633,7 +3695,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a60c",
     "read_sites": [
@@ -3657,7 +3720,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a5f4",
     "read_sites": [
@@ -3691,7 +3755,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a5d0",
     "read_sites": [
@@ -3705,7 +3770,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a5bc",
     "read_sites": [
@@ -3756,7 +3822,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a578",
     "read_sites": [
@@ -3833,7 +3900,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a4f8",
     "read_sites": [
@@ -3847,7 +3915,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a4e0",
     "read_sites": [
@@ -3891,7 +3960,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a490",
     "read_sites": [
@@ -3967,7 +4037,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a400",
     "read_sites": [
@@ -3981,7 +4052,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a3e8",
     "read_sites": [
@@ -4025,7 +4097,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81a38c",
     "read_sites": [
@@ -5747,7 +5820,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x819688",
     "read_sites": [
@@ -5787,7 +5861,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x819650",
     "read_sites": [
@@ -5803,7 +5878,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x819644",
     "read_sites": [
@@ -5819,7 +5895,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x819630",
     "read_sites": [
@@ -5847,7 +5924,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81960c",
     "read_sites": [
@@ -5861,7 +5939,7 @@
     "string": "BarrelAnimIsVoxel",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x8195f8",
     "read_sites": [
@@ -5875,7 +5953,7 @@
     "string": "VoxelBarrelFile",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x8195e8",
     "read_sites": [
@@ -5889,7 +5967,7 @@
     "string": "VoxelBarrelOffsetToPitchPivotPoint",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x8195c4",
     "read_sites": [
@@ -5903,7 +5981,7 @@
     "string": "VoxelBarrelOffsetToRotatePivotPoint",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x8195a0",
     "read_sites": [
@@ -5917,7 +5995,7 @@
     "string": "VoxelBarrelOffsetToBuildingPivotPoint",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x819578",
     "read_sites": [
@@ -5931,7 +6009,7 @@
     "string": "VoxelBarrelOffsetToBarrelEnd",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x819558",
     "read_sites": [
@@ -6008,7 +6086,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b168",
     "read_sites": [
@@ -6024,7 +6103,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b164",
     "read_sites": [
@@ -6056,7 +6136,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b140",
     "read_sites": [
@@ -6075,7 +6156,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b138",
     "read_sites": [
@@ -6106,7 +6188,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b130",
     "read_sites": [
@@ -6183,7 +6266,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b0e8",
     "read_sites": [
@@ -6237,7 +6321,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b0cc",
     "read_sites": [
@@ -6253,7 +6338,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b0c0",
     "read_sites": [
@@ -6269,7 +6355,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b0b8",
     "read_sites": [
@@ -6285,7 +6372,7 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x81b0ac",
     "read_sites": [
@@ -6328,7 +6415,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b084",
     "read_sites": [
@@ -6360,7 +6448,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b070",
     "read_sites": [
@@ -6407,7 +6496,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b04c",
     "read_sites": [
@@ -6579,7 +6669,8 @@
       "battle",
       "mapsel",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b1bc",
     "read_sites": [
@@ -6614,7 +6705,8 @@
       "map",
       "mapsel",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81b1a4",
     "read_sites": [
@@ -6783,7 +6875,8 @@
     "domains": [
       "ra2",
       "theme",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81bb60",
     "read_sites": [
@@ -7596,7 +7689,8 @@
       "art",
       "mapsel",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x824254",
     "read_sites": [
@@ -7707,7 +7801,8 @@
       "ra2",
       "rules",
       "sound",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x824314",
     "read_sites": [
@@ -7743,7 +7838,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x817448",
     "read_sites": [
@@ -7825,7 +7921,8 @@
       "mp",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x824e40",
     "read_sites": [
@@ -8111,7 +8208,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81d9d4",
     "read_sites": [
@@ -8132,7 +8230,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x825478",
     "read_sites": [
@@ -8153,7 +8252,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x825470",
     "read_sites": [
@@ -8614,7 +8714,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8258e8",
     "read_sites": [
@@ -8630,7 +8731,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x825a6c",
     "read_sites": [
@@ -8728,7 +8830,8 @@
     "string": "Cyborg",
     "kind": "tag",
     "domains": [
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x825a0c",
     "read_sites": [
@@ -8789,7 +8892,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8259d4",
     "read_sites": [
@@ -8805,7 +8909,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8259c8",
     "read_sites": [
@@ -8908,7 +9013,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x818164",
     "read_sites": [
@@ -8942,7 +9048,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x82595c",
     "read_sites": [
@@ -9071,7 +9178,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8258f4",
     "read_sites": [
@@ -9087,7 +9195,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8257d8",
     "read_sites": [
@@ -11394,7 +11503,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x817278",
     "read_sites": [
@@ -12383,7 +12493,8 @@
     "domains": [
       "mapsel",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8302fc",
     "read_sites": [
@@ -12397,7 +12508,8 @@
     "domains": [
       "mapsel",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8302f0",
     "read_sites": [
@@ -12413,7 +12525,8 @@
       "mapsel",
       "ra2",
       "sound",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8302cc",
     "read_sites": [
@@ -12444,7 +12557,8 @@
     "domains": [
       "mapsel",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8304cc",
     "read_sites": [
@@ -12472,7 +12586,8 @@
     "domains": [
       "mapsel",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8304b4",
     "read_sites": [
@@ -12487,7 +12602,8 @@
     "domains": [
       "mapsel",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8304a4",
     "read_sites": [
@@ -12978,7 +13094,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x832bf4",
     "read_sites": [
@@ -13009,7 +13126,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x832bd8",
     "read_sites": [
@@ -13071,7 +13189,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x832b9c",
     "read_sites": [
@@ -13087,7 +13206,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x832b90",
     "read_sites": [
@@ -13120,7 +13240,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x832b78",
     "read_sites": [
@@ -13138,7 +13259,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x832b70",
     "read_sites": [
@@ -13155,7 +13277,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x832b60",
     "read_sites": [
@@ -13171,7 +13294,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x832b4c",
     "read_sites": [
@@ -13185,7 +13309,8 @@
     "string": "RadialColor",
     "kind": "tag",
     "domains": [
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x832b40",
     "read_sites": [
@@ -13201,7 +13326,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x832b2c",
     "read_sites": [
@@ -13262,7 +13388,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x832aec",
     "read_sites": [
@@ -13906,7 +14033,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x833534",
     "read_sites": [
@@ -13922,7 +14050,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x833528",
     "read_sites": [
@@ -16079,7 +16208,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8370b0",
     "read_sites": [
@@ -16095,7 +16225,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8370a4",
     "read_sites": [
@@ -16111,7 +16242,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x837098",
     "read_sites": [
@@ -16127,7 +16259,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83708c",
     "read_sites": [
@@ -16143,7 +16276,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x837080",
     "read_sites": [
@@ -16159,7 +16293,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x837074",
     "read_sites": [
@@ -16175,7 +16310,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83705c",
     "read_sites": [
@@ -16191,7 +16327,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x837050",
     "read_sites": [
@@ -16207,7 +16344,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x837044",
     "read_sites": [
@@ -16445,7 +16583,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x837238",
     "read_sites": [
@@ -16461,7 +16600,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x837230",
     "read_sites": [
@@ -16477,7 +16617,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x837224",
     "read_sites": [
@@ -16505,7 +16646,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x837208",
     "read_sites": [
@@ -16521,7 +16663,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8371fc",
     "read_sites": [
@@ -16537,7 +16680,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8371f4",
     "read_sites": [
@@ -16565,7 +16709,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8371d8",
     "read_sites": [
@@ -16581,7 +16726,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8371cc",
     "read_sites": [
@@ -16613,7 +16759,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8371ac",
     "read_sites": [
@@ -16805,7 +16952,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8370f0",
     "read_sites": [
@@ -20196,7 +20344,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83ada0",
     "read_sites": [
@@ -20869,7 +21018,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83cf00",
     "read_sites": [
@@ -21433,7 +21583,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83cc74",
     "read_sites": [
@@ -21510,7 +21661,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83cbf4",
     "read_sites": [
@@ -21748,7 +21900,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83ca7c",
     "read_sites": [
@@ -21916,7 +22069,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83c9d4",
     "read_sites": [
@@ -21930,7 +22084,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83c9c4",
     "read_sites": [
@@ -21944,7 +22099,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83c9b4",
     "read_sites": [
@@ -21958,7 +22114,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83c9a4",
     "read_sites": [
@@ -21972,7 +22129,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83c994",
     "read_sites": [
@@ -21986,7 +22144,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83c988",
     "read_sites": [
@@ -22002,7 +22161,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83c97c",
     "read_sites": [
@@ -24056,7 +24216,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83bec0",
     "read_sites": [
@@ -25909,7 +26070,7 @@
     "string": "EngineerCaptureLevel",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x83b414",
     "read_sites": [
@@ -26424,7 +26585,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x83d458",
     "read_sites": [
@@ -27448,7 +27610,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81d9cc",
     "read_sites": [
@@ -27638,7 +27801,8 @@
       "map",
       "mission",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x839718",
     "read_sites": [
@@ -28061,7 +28225,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x817270",
     "read_sites": [
@@ -29788,7 +29953,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84022c",
     "read_sites": [
@@ -30434,7 +30600,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84270c",
     "read_sites": [
@@ -30554,7 +30721,8 @@
       "ra2",
       "rules",
       "sound",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x842690",
     "read_sites": [
@@ -30647,7 +30815,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x842634",
     "read_sites": [
@@ -30663,7 +30832,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x842624",
     "read_sites": [
@@ -30697,7 +30867,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x842dc4",
     "read_sites": [
@@ -30756,7 +30927,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8173e8",
     "read_sites": [
@@ -30774,7 +30946,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8430ec",
     "read_sites": [
@@ -30809,7 +30982,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8430cc",
     "read_sites": [
@@ -30828,7 +31002,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8430c4",
     "read_sites": [
@@ -30847,7 +31022,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8430b8",
     "read_sites": [
@@ -30866,7 +31042,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8430ac",
     "read_sites": [
@@ -30885,7 +31062,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8430a0",
     "read_sites": [
@@ -30904,7 +31082,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843094",
     "read_sites": [
@@ -30923,7 +31102,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843088",
     "read_sites": [
@@ -30942,7 +31122,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843080",
     "read_sites": [
@@ -30979,7 +31160,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843060",
     "read_sites": [
@@ -30998,7 +31180,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843058",
     "read_sites": [
@@ -31018,7 +31201,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843050",
     "read_sites": [
@@ -31039,7 +31223,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843040",
     "read_sites": [
@@ -31058,7 +31243,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843034",
     "read_sites": [
@@ -31077,7 +31263,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843028",
     "read_sites": [
@@ -31098,7 +31285,8 @@
       "map",
       "ra2",
       "sound",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84301c",
     "read_sites": [
@@ -31122,7 +31310,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843018",
     "read_sites": [
@@ -31157,7 +31346,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843008",
     "read_sites": [
@@ -31176,7 +31366,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x842ffc",
     "read_sites": [
@@ -31195,7 +31386,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x842fe4",
     "read_sites": [
@@ -31214,7 +31406,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x842fc8",
     "read_sites": [
@@ -31233,7 +31426,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x842fac",
     "read_sites": [
@@ -31284,7 +31478,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x817348",
     "read_sites": [
@@ -31303,7 +31498,8 @@
       "ai",
       "map",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8172fc",
     "read_sites": [
@@ -31377,7 +31573,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x844504",
     "read_sites": [
@@ -31410,7 +31607,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8444ec",
     "read_sites": [
@@ -31426,7 +31624,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8444e0",
     "read_sites": [
@@ -31499,7 +31698,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8444a4",
     "read_sites": [
@@ -31587,7 +31787,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84444c",
     "read_sites": [
@@ -31605,7 +31806,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84443c",
     "read_sites": [
@@ -31667,7 +31869,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8443e0",
     "read_sites": [
@@ -31683,7 +31886,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8443d8",
     "read_sites": [
@@ -31699,7 +31903,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8443c8",
     "read_sites": [
@@ -31761,7 +31966,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84439c",
     "read_sites": [
@@ -31920,7 +32126,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8442f8",
     "read_sites": [
@@ -31937,7 +32144,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8442ec",
     "read_sites": [
@@ -31983,7 +32191,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8442c0",
     "read_sites": [
@@ -31999,7 +32208,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8442b4",
     "read_sites": [
@@ -32043,7 +32253,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84427c",
     "read_sites": [
@@ -32070,7 +32281,8 @@
     "string": "VoiceDie",
     "kind": "tag",
     "domains": [
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84425c",
     "read_sites": [
@@ -32084,7 +32296,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84424c",
     "read_sites": [
@@ -32275,7 +32488,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8441a0",
     "read_sites": [
@@ -32291,7 +32505,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x844194",
     "read_sites": [
@@ -32323,7 +32538,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x844180",
     "read_sites": [
@@ -32339,7 +32555,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x844170",
     "read_sites": [
@@ -32435,7 +32652,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x844110",
     "read_sites": [
@@ -32542,7 +32760,7 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x8440a0",
     "read_sites": [
@@ -32633,7 +32851,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81da00",
     "read_sites": [
@@ -32702,7 +32921,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843f8c",
     "read_sites": [
@@ -32730,7 +32950,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843f60",
     "read_sites": [
@@ -32827,7 +33048,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843ecc",
     "read_sites": [
@@ -32871,7 +33093,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843ea8",
     "read_sites": [
@@ -32947,7 +33170,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843e58",
     "read_sites": [
@@ -33011,7 +33235,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843e04",
     "read_sites": [
@@ -33070,7 +33295,8 @@
       "mp",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843da8",
     "read_sites": [
@@ -33098,7 +33324,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843d88",
     "read_sites": [
@@ -33935,7 +34162,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8439a8",
     "read_sites": [
@@ -33954,7 +34182,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84399c",
     "read_sites": [
@@ -33970,7 +34199,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843994",
     "read_sites": [
@@ -34001,7 +34231,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843974",
     "read_sites": [
@@ -34017,7 +34248,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84396c",
     "read_sites": [
@@ -34095,7 +34327,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843928",
     "read_sites": [
@@ -34133,7 +34366,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843910",
     "read_sites": [
@@ -34147,7 +34381,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843904",
     "read_sites": [
@@ -34198,7 +34433,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8438cc",
     "read_sites": [
@@ -34213,7 +34449,8 @@
       "mp",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8438b0",
     "read_sites": [
@@ -34266,7 +34503,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x81bb58",
     "read_sites": [
@@ -34968,7 +35206,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843534",
     "read_sites": [
@@ -34996,7 +35235,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843518",
     "read_sites": [
@@ -35012,7 +35252,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843508",
     "read_sites": [
@@ -35059,7 +35300,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8434d4",
     "read_sites": [
@@ -35135,7 +35377,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84342c",
     "read_sites": [
@@ -35208,7 +35451,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843398",
     "read_sites": [
@@ -35282,7 +35526,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x843350",
     "read_sites": [
@@ -35319,7 +35564,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8432f8",
     "read_sites": [
@@ -35335,7 +35581,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8432e8",
     "read_sites": [
@@ -35367,7 +35614,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8432c0",
     "read_sites": [
@@ -35486,7 +35734,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8431ec",
     "read_sites": [
@@ -35516,7 +35765,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8431c8",
     "read_sites": [
@@ -35564,7 +35814,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x844674",
     "read_sites": [
@@ -35580,7 +35831,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x844668",
     "read_sites": [
@@ -35596,7 +35848,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84465c",
     "read_sites": [
@@ -35612,7 +35865,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84464c",
     "read_sites": [
@@ -35628,7 +35882,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x844634",
     "read_sites": [
@@ -35644,7 +35899,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84461c",
     "read_sites": [
@@ -35660,7 +35916,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x844608",
     "read_sites": [
@@ -35689,7 +35946,8 @@
     "domains": [
       "ra2",
       "theme",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x844740",
     "read_sites": [
@@ -35715,7 +35973,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x844924",
     "read_sites": [
@@ -35831,7 +36090,8 @@
       "mp",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x845e20",
     "read_sites": [
@@ -35845,7 +36105,8 @@
     "string": "DeployToFire",
     "kind": "tag",
     "domains": [
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x845e10",
     "read_sites": [
@@ -35875,7 +36136,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x845df0",
     "read_sites": [
@@ -35949,7 +36211,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x845d94",
     "read_sites": [
@@ -35965,7 +36228,8 @@
     "domains": [
       "art",
       "ra2",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x845d84",
     "read_sites": [
@@ -36021,7 +36285,7 @@
     "string": "NonVehicle",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x845d4c",
     "read_sites": [
@@ -36035,7 +36299,7 @@
     "string": "StandingFrames",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x845d3c",
     "read_sites": [
@@ -36049,7 +36313,7 @@
     "string": "DeathFrames",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x845d30",
     "read_sites": [
@@ -36063,7 +36327,7 @@
     "string": "DeathFrameRate",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x845d20",
     "read_sites": [
@@ -36077,7 +36341,7 @@
     "string": "Facings",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x845d18",
     "read_sites": [
@@ -36091,7 +36355,7 @@
     "string": "StartStandFrame",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x845d08",
     "read_sites": [
@@ -36105,7 +36369,7 @@
     "string": "StartWalkFrame",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x845cf8",
     "read_sites": [
@@ -36119,7 +36383,7 @@
     "string": "StartFiringFrame",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x845ce4",
     "read_sites": [
@@ -36133,7 +36397,7 @@
     "string": "StartDeathFrame",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x845cd4",
     "read_sites": [
@@ -36147,7 +36411,7 @@
     "string": "MaxDeathCounter",
     "kind": "tag",
     "domains": [
-      "ts"
+      "tsfs"
     ],
     "string_va": "0x845cc4",
     "read_sites": [
@@ -37286,7 +37550,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x817384",
     "read_sites": [
@@ -37347,7 +37612,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x847e00",
     "read_sites": [
@@ -37363,7 +37629,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x847df8",
     "read_sites": [
@@ -37422,7 +37689,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x836f04",
     "read_sites": [
@@ -37438,7 +37706,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x847dd0",
     "read_sites": [
@@ -37498,7 +37767,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x847d94",
     "read_sites": [
@@ -37514,7 +37784,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x847d88",
     "read_sites": [
@@ -37562,7 +37833,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x847d60",
     "read_sites": [
@@ -37784,7 +38056,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x847ce8",
     "read_sites": [
@@ -37935,7 +38208,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x847c38",
     "read_sites": [
@@ -38968,7 +39242,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x849438",
     "read_sites": [
@@ -38984,7 +39259,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x849428",
     "read_sites": [
@@ -39068,7 +39344,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8493e0",
     "read_sites": [
@@ -39128,7 +39405,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x8493c0",
     "read_sites": [
@@ -39219,7 +39497,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x849360",
     "read_sites": [
@@ -39235,7 +39514,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x849350",
     "read_sites": [
@@ -39251,7 +39531,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x849340",
     "read_sites": [
@@ -39268,7 +39549,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84932c",
     "read_sites": [
@@ -39285,7 +39567,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x84931c",
     "read_sites": [
@@ -39301,7 +39584,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x849310",
     "read_sites": [
@@ -39445,7 +39729,8 @@
     "domains": [
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x849274",
     "read_sites": [
@@ -39462,7 +39747,8 @@
       "map",
       "ra2",
       "rules",
-      "ts"
+      "ts",
+      "tsfs"
     ],
     "string_va": "0x849268",
     "read_sites": [

@@ -252,7 +252,10 @@
     ],
     "near_known_hook": {
       "0x41ccde": "0x41cd54"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "FlyBy",
+    "domain_guess_dist": 125
   },
   "Trailer": {
     "string": "Trailer",
@@ -461,7 +464,10 @@
     "read_sites": [
       "0x427e55"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "DoubleThick",
+    "domain_guess_dist": 52
   },
   "Normalized": {
     "string": "Normalized",
@@ -1714,7 +1720,10 @@
     ],
     "near_known_hook": {
       "0x45ff33": "0x460285"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "AntiAirValue",
+    "domain_guess_dist": 97
   },
   "Radar": {
     "string": "Radar",
@@ -1887,7 +1896,10 @@
     ],
     "near_known_hook": {
       "0x46006a": "0x460285"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "PoweredSpecial",
+    "domain_guess_dist": 104
   },
   "Bib": {
     "string": "Bib",
@@ -1978,7 +1990,10 @@
     ],
     "near_known_hook": {
       "0x460106": "0x460285"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "CanOccupyFire",
+    "domain_guess_dist": 26
   },
   "MaxNumberOccupants": {
     "string": "MaxNumberOccupants",
@@ -2319,7 +2334,10 @@
     ],
     "near_known_hook": {
       "0x46057a": "0x460285"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "SecretInfantry",
+    "domain_guess_dist": 83
   },
   "IsTemple": {
     "string": "IsTemple",
@@ -2375,7 +2393,10 @@
     ],
     "near_known_hook": {
       "0x460618": "0x460285"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "SecretInfantry",
+    "domain_guess_dist": 75
   },
   "SecretBuilding": {
     "string": "SecretBuilding",
@@ -2474,7 +2495,10 @@
     "read_sites": [
       "0x460750"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "rules",
+    "domain_guess_via": "DefensesCostBonus",
+    "domain_guess_dist": 67
   },
   "PackupSound": {
     "string": "PackupSound",
@@ -2484,7 +2508,10 @@
     "read_sites": [
       "0x460786"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "rules",
+    "domain_guess_via": "DefensesCostBonus",
+    "domain_guess_dist": 121
   },
   "CreateUnitSound": {
     "string": "CreateUnitSound",
@@ -2969,7 +2996,10 @@
     "read_sites": [
       "0x460c56"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "rules",
+    "domain_guess_via": "DeployFacing",
+    "domain_guess_dist": 32
   },
   "DeployFacing": {
     "string": "DeployFacing",
@@ -3880,7 +3910,10 @@
     "read_sites": [
       "0x461a2d"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "ActiveAnimPoweredSpecial",
+    "domain_guess_dist": 29
   },
   "ActiveAnimPoweredSpecial": {
     "string": "ActiveAnimPoweredSpecial",
@@ -4336,7 +4369,10 @@
     "read_sites": [
       "0x462437"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimPowered",
+    "domain_guess_dist": 116
   },
   "SuperAnimY": {
     "string": "SuperAnimY",
@@ -4346,7 +4382,10 @@
     "read_sites": [
       "0x462454"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimPowered",
+    "domain_guess_dist": 87
   },
   "SuperAnimZAdjust": {
     "string": "SuperAnimZAdjust",
@@ -4394,7 +4433,10 @@
     "read_sites": [
       "0x4624c8"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimPowered",
+    "domain_guess_dist": 29
   },
   "SuperAnimPoweredEffect": {
     "string": "SuperAnimPoweredEffect",
@@ -4404,7 +4446,10 @@
     "read_sites": [
       "0x4624e5"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimPowered",
+    "domain_guess_dist": 58
   },
   "SuperAnimPoweredSpecial": {
     "string": "SuperAnimPoweredSpecial",
@@ -4414,7 +4459,10 @@
     "read_sites": [
       "0x462502"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimPowered",
+    "domain_guess_dist": 87
   },
   "SuperAnimTwo": {
     "string": "SuperAnimTwo",
@@ -4460,7 +4508,10 @@
     "read_sites": [
       "0x4626e5"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimTwoPowered",
+    "domain_guess_dist": 116
   },
   "SuperAnimTwoY": {
     "string": "SuperAnimTwoY",
@@ -4470,7 +4521,10 @@
     "read_sites": [
       "0x462702"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimTwoPowered",
+    "domain_guess_dist": 87
   },
   "SuperAnimTwoZAdjust": {
     "string": "SuperAnimTwoZAdjust",
@@ -4518,7 +4572,10 @@
     "read_sites": [
       "0x462776"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimTwoPowered",
+    "domain_guess_dist": 29
   },
   "SuperAnimTwoPoweredEffect": {
     "string": "SuperAnimTwoPoweredEffect",
@@ -4528,7 +4585,10 @@
     "read_sites": [
       "0x462793"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimTwoPowered",
+    "domain_guess_dist": 58
   },
   "SuperAnimTwoPoweredSpecial": {
     "string": "SuperAnimTwoPoweredSpecial",
@@ -4538,7 +4598,10 @@
     "read_sites": [
       "0x4627b0"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimTwoPowered",
+    "domain_guess_dist": 87
   },
   "SuperAnimThree": {
     "string": "SuperAnimThree",
@@ -4584,7 +4647,10 @@
     "read_sites": [
       "0x462993"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimThreePowered",
+    "domain_guess_dist": 116
   },
   "SuperAnimThreeY": {
     "string": "SuperAnimThreeY",
@@ -4594,7 +4660,10 @@
     "read_sites": [
       "0x4629b0"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimThreePowered",
+    "domain_guess_dist": 87
   },
   "SuperAnimThreeZAdjust": {
     "string": "SuperAnimThreeZAdjust",
@@ -4642,7 +4711,10 @@
     "read_sites": [
       "0x462a24"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimThreePowered",
+    "domain_guess_dist": 29
   },
   "SuperAnimThreePoweredEffect": {
     "string": "SuperAnimThreePoweredEffect",
@@ -4664,7 +4736,10 @@
     "read_sites": [
       "0x462a5e"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimThreePoweredEffect",
+    "domain_guess_dist": 29
   },
   "SuperAnimFour": {
     "string": "SuperAnimFour",
@@ -4710,7 +4785,10 @@
     "read_sites": [
       "0x462c41"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimFourPowered",
+    "domain_guess_dist": 116
   },
   "SuperAnimFourY": {
     "string": "SuperAnimFourY",
@@ -4720,7 +4798,10 @@
     "read_sites": [
       "0x462c5e"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimFourPowered",
+    "domain_guess_dist": 87
   },
   "SuperAnimFourZAdjust": {
     "string": "SuperAnimFourZAdjust",
@@ -4768,7 +4849,10 @@
     "read_sites": [
       "0x462cd2"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimFourPowered",
+    "domain_guess_dist": 29
   },
   "SuperAnimFourPoweredEffect": {
     "string": "SuperAnimFourPoweredEffect",
@@ -4778,7 +4862,10 @@
     "read_sites": [
       "0x462cef"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimFourPowered",
+    "domain_guess_dist": 58
   },
   "SuperAnimFourPoweredSpecial": {
     "string": "SuperAnimFourPoweredSpecial",
@@ -4788,7 +4875,10 @@
     "read_sites": [
       "0x462d0c"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperAnimFourPowered",
+    "domain_guess_dist": 87
   },
   "SpecialAnim": {
     "string": "SpecialAnim",
@@ -5137,7 +5227,10 @@
     "read_sites": [
       "0x4634bf"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SpecialAnimFour",
+    "domain_guess_dist": 127
   },
   "SpecialAnimThreePoweredLight": {
     "string": "SpecialAnimThreePoweredLight",
@@ -5147,7 +5240,10 @@
     "read_sites": [
       "0x4634dc"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SpecialAnimFour",
+    "domain_guess_dist": 98
   },
   "SpecialAnimThreePoweredEffect": {
     "string": "SpecialAnimThreePoweredEffect",
@@ -5157,7 +5253,10 @@
     "read_sites": [
       "0x4634f9"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SpecialAnimFour",
+    "domain_guess_dist": 69
   },
   "SpecialAnimThreePoweredSpecial": {
     "string": "SpecialAnimThreePoweredSpecial",
@@ -5167,7 +5266,10 @@
     "read_sites": [
       "0x463516"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SpecialAnimFour",
+    "domain_guess_dist": 40
   },
   "SpecialAnimFour": {
     "string": "SpecialAnimFour",
@@ -5211,7 +5313,10 @@
     "read_sites": [
       "0x4636f9"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SpecialAnimFourZAdjust",
+    "domain_guess_dist": 58
   },
   "SpecialAnimFourY": {
     "string": "SpecialAnimFourY",
@@ -5221,7 +5326,10 @@
     "read_sites": [
       "0x463716"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SpecialAnimFourZAdjust",
+    "domain_guess_dist": 29
   },
   "SpecialAnimFourZAdjust": {
     "string": "SpecialAnimFourZAdjust",
@@ -5243,7 +5351,10 @@
     "read_sites": [
       "0x463750"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SpecialAnimFourZAdjust",
+    "domain_guess_dist": 29
   },
   "SpecialAnimFourPowered": {
     "string": "SpecialAnimFourPowered",
@@ -5253,7 +5364,10 @@
     "read_sites": [
       "0x46376d"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SpecialAnimFourZAdjust",
+    "domain_guess_dist": 58
   },
   "SpecialAnimFourPoweredLight": {
     "string": "SpecialAnimFourPoweredLight",
@@ -5263,7 +5377,10 @@
     "read_sites": [
       "0x46378a"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SpecialAnimFourZAdjust",
+    "domain_guess_dist": 87
   },
   "SpecialAnimFourPoweredEffect": {
     "string": "SpecialAnimFourPoweredEffect",
@@ -5273,7 +5390,10 @@
     "read_sites": [
       "0x4637a7"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "LowPower",
+    "domain_guess_dist": 69
   },
   "SpecialAnimFourPoweredSpecial": {
     "string": "SpecialAnimFourPoweredSpecial",
@@ -5283,7 +5403,10 @@
     "read_sites": [
       "0x4637c4"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "LowPower",
+    "domain_guess_dist": 40
   },
   "LowPower": {
     "string": "LowPower",
@@ -5327,7 +5450,10 @@
     "read_sites": [
       "0x4639a7"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "LowPowerPowered",
+    "domain_guess_dist": 116
   },
   "LowPowerY": {
     "string": "LowPowerY",
@@ -5337,7 +5463,10 @@
     "read_sites": [
       "0x4639c4"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "LowPowerPowered",
+    "domain_guess_dist": 87
   },
   "LowPowerZAdjust": {
     "string": "LowPowerZAdjust",
@@ -5347,7 +5476,10 @@
     "read_sites": [
       "0x4639e1"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "LowPowerPowered",
+    "domain_guess_dist": 58
   },
   "LowPowerYSort": {
     "string": "LowPowerYSort",
@@ -5357,7 +5489,10 @@
     "read_sites": [
       "0x4639fe"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "LowPowerPowered",
+    "domain_guess_dist": 29
   },
   "LowPowerPowered": {
     "string": "LowPowerPowered",
@@ -5379,7 +5514,10 @@
     "read_sites": [
       "0x463a38"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "LowPowerPowered",
+    "domain_guess_dist": 29
   },
   "LowPowerPoweredEffect": {
     "string": "LowPowerPoweredEffect",
@@ -5389,7 +5527,10 @@
     "read_sites": [
       "0x463a55"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "LowPowerPowered",
+    "domain_guess_dist": 58
   },
   "LowPowerPoweredSpecial": {
     "string": "LowPowerPoweredSpecial",
@@ -5399,7 +5540,10 @@
     "read_sites": [
       "0x463a72"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperLowPower",
+    "domain_guess_dist": 40
   },
   "SuperLowPower": {
     "string": "SuperLowPower",
@@ -5443,7 +5587,10 @@
     "read_sites": [
       "0x463c55"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperLowPowerPowered",
+    "domain_guess_dist": 116
   },
   "SuperLowPowerY": {
     "string": "SuperLowPowerY",
@@ -5453,7 +5600,10 @@
     "read_sites": [
       "0x463c72"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperLowPowerPowered",
+    "domain_guess_dist": 87
   },
   "SuperLowPowerZAdjust": {
     "string": "SuperLowPowerZAdjust",
@@ -5463,7 +5613,10 @@
     "read_sites": [
       "0x463c8f"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperLowPowerPowered",
+    "domain_guess_dist": 58
   },
   "SuperLowPowerYSort": {
     "string": "SuperLowPowerYSort",
@@ -5473,7 +5626,10 @@
     "read_sites": [
       "0x463cac"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperLowPowerPowered",
+    "domain_guess_dist": 29
   },
   "SuperLowPowerPowered": {
     "string": "SuperLowPowerPowered",
@@ -5495,7 +5651,10 @@
     "read_sites": [
       "0x463ce6"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperLowPowerPowered",
+    "domain_guess_dist": 29
   },
   "SuperLowPowerPoweredEffect": {
     "string": "SuperLowPowerPoweredEffect",
@@ -5505,7 +5664,10 @@
     "read_sites": [
       "0x463d03"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperLowPowerPowered",
+    "domain_guess_dist": 58
   },
   "SuperLowPowerPoweredSpecial": {
     "string": "SuperLowPowerPoweredSpecial",
@@ -5515,7 +5677,10 @@
     "read_sites": [
       "0x463d20"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "art",
+    "domain_guess_via": "SuperLowPowerPowered",
+    "domain_guess_dist": 87
   },
   "ProductionAnim": {
     "string": "ProductionAnim",
@@ -6904,7 +7069,10 @@
     "read_sites": [
       "0x477616"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "rules",
+    "domain_guess_via": "None",
+    "domain_guess_dist": 63
   },
   "MAIN.MIX": {
     "string": "MAIN.MIX",
@@ -7298,7 +7466,10 @@
     "near_known_hook": {
       "0x668ef5": "0x668f6a",
       "0x674508": "0x6744e4"
-    }
+    },
+    "domain_guess": "coop",
+    "domain_guess_via": "CampaignLoadScreenPallet",
+    "domain_guess_dist": 40
   },
   "CampaignAI": {
     "string": "CampaignAI",
@@ -8809,7 +8980,10 @@
     ],
     "near_known_hook": {
       "0x524193": "0x5240bd"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "EliteOccupyWeapon",
+    "domain_guess_dist": 61
   },
   "DeadBodies": {
     "string": "DeadBodies",
@@ -9006,7 +9180,10 @@
     ],
     "near_known_hook": {
       "0x524505": "0x524734"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "HarvestRate",
+    "domain_guess_dist": 30
   },
   "HarvestRate": {
     "string": "HarvestRate",
@@ -9100,7 +9277,10 @@
     ],
     "near_known_hook": {
       "0x5245bf": "0x524734"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "DeployedCrushable",
+    "domain_guess_dist": 104
   },
   "VehicleThief": {
     "string": "VehicleThief",
@@ -24330,7 +24510,10 @@
     "read_sites": [
       "0x670cd4"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "rules",
+    "domain_guess_via": "ThirdSurvivorDivisor",
+    "domain_guess_dist": 117
   },
   "HarvesterLoadRate": {
     "string": "HarvesterLoadRate",
@@ -24754,7 +24937,10 @@
     ],
     "near_known_hook": {
       "0x67107f": "0x671152"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "ForceShieldRadius",
+    "domain_guess_dist": 32
   },
   "ForceShieldRadius": {
     "string": "ForceShieldRadius",
@@ -32661,7 +32847,10 @@
     ],
     "near_known_hook": {
       "0x713330": "0x713171"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "PoweredUnit",
+    "domain_guess_dist": 26
   },
   "ManualReload": {
     "string": "ManualReload",
@@ -32673,7 +32862,10 @@
     ],
     "near_known_hook": {
       "0x71334a": "0x713171"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "TurretSpins",
+    "domain_guess_dist": 22
   },
   "TurretSpins": {
     "string": "TurretSpins",
@@ -32845,7 +33037,10 @@
     "read_sites": [
       "0x71368e"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "rules",
+    "domain_guess_via": "VoiceHarvest",
+    "domain_guess_dist": 60
   },
   "VoicePrimaryEliteWeaponAttack": {
     "string": "VoicePrimaryEliteWeaponAttack",
@@ -32855,7 +33050,10 @@
     "read_sites": [
       "0x7136d0"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "rules",
+    "domain_guess_via": "VoiceSecondaryWeaponAttack",
+    "domain_guess_dist": 54
   },
   "VoiceSecondaryWeaponAttack": {
     "string": "VoiceSecondaryWeaponAttack",
@@ -32877,7 +33075,10 @@
     "read_sites": [
       "0x713742"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "rules",
+    "domain_guess_via": "VoiceSecondaryWeaponAttack",
+    "domain_guess_dist": 60
   },
   "VoiceDeploy": {
     "string": "VoiceDeploy",
@@ -32899,7 +33100,10 @@
     "read_sites": [
       "0x7137ba"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "rules",
+    "domain_guess_via": "VoiceDeploy",
+    "domain_guess_dist": 54
   },
   "Explosion": {
     "string": "Explosion",
@@ -32944,7 +33148,10 @@
     ],
     "near_known_hook": {
       "0x713b9a": "0x713c10"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "RefinerySmokeParticleSystem",
+    "domain_guess_dist": 51
   },
   "RefinerySmokeParticleSystem": {
     "string": "RefinerySmokeParticleSystem",
@@ -32970,7 +33177,10 @@
     ],
     "near_known_hook": {
       "0x713bfc": "0x713c10"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "RefinerySmokeParticleSystem",
+    "domain_guess_dist": 47
   },
   "DamageParticleSystems": {
     "string": "DamageParticleSystems",
@@ -33028,7 +33238,10 @@
     ],
     "near_known_hook": {
       "0x713e49": "0x713c10"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "RefinerySmokeOffsetOne",
+    "domain_guess_dist": 74
   },
   "DestroySmokeOffset": {
     "string": "DestroySmokeOffset",
@@ -33040,7 +33253,10 @@
     ],
     "near_known_hook": {
       "0x713e62": "0x713c10"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "RefinerySmokeOffsetOne",
+    "domain_guess_dist": 49
   },
   "RefinerySmokeOffsetOne": {
     "string": "RefinerySmokeOffsetOne",
@@ -33321,7 +33537,10 @@
     "read_sites": [
       "0x71414c"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "rules",
+    "domain_guess_via": "PipsDrawForAll",
+    "domain_guess_dist": 26
   },
   "PixelSelectionBracketDelta": {
     "string": "PixelSelectionBracketDelta",
@@ -33343,7 +33562,10 @@
     "read_sites": [
       "0x714180"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "rules",
+    "domain_guess_via": "PixelSelectionBracketDelta",
+    "domain_guess_dist": 26
   },
   "Prerequisite": {
     "string": "Prerequisite",
@@ -33492,7 +33714,10 @@
     ],
     "near_known_hook": {
       "0x714350": "0x71464a"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "BuildTimeMultiplier",
+    "domain_guess_dist": 33
   },
   "BuildTimeMultiplier": {
     "string": "BuildTimeMultiplier",
@@ -33694,7 +33919,10 @@
     ],
     "near_known_hook": {
       "0x7144c1": "0x71464a"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "RequiresStolenThirdTech",
+    "domain_guess_dist": 26
   },
   "RequiresStolenThirdTech": {
     "string": "RequiresStolenThirdTech",
@@ -33981,7 +34209,10 @@
     ],
     "near_known_hook": {
       "0x7147d5": "0x71464a"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "DeployToLand",
+    "domain_guess_dist": 52
   },
   "DeployFire": {
     "string": "DeployFire",
@@ -34022,7 +34253,10 @@
     ],
     "near_known_hook": {
       "0x714823": "0x71464a"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "DeployToLand",
+    "domain_guess_dist": 26
   },
   "OpportunityFire": {
     "string": "OpportunityFire",
@@ -34079,7 +34313,10 @@
     ],
     "near_known_hook": {
       "0x71488b": "0x71464a"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "BerserkFriendly",
+    "domain_guess_dist": 111
   },
   "ReloadIncrement": {
     "string": "ReloadIncrement",
@@ -34091,7 +34328,10 @@
     ],
     "near_known_hook": {
       "0x7148a5": "0x71464a"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "BerserkFriendly",
+    "domain_guess_dist": 85
   },
   "DamageReducesReadiness": {
     "string": "DamageReducesReadiness",
@@ -34103,7 +34343,10 @@
     ],
     "near_known_hook": {
       "0x7148bf": "0x71464a"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "BerserkFriendly",
+    "domain_guess_dist": 59
   },
   "ReadinessReductionMultiplier": {
     "string": "ReadinessReductionMultiplier",
@@ -34115,7 +34358,10 @@
     ],
     "near_known_hook": {
       "0x7148e0": "0x71464a"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "BerserkFriendly",
+    "domain_guess_dist": 26
   },
   "BerserkFriendly": {
     "string": "BerserkFriendly",
@@ -34141,7 +34387,10 @@
     ],
     "near_known_hook": {
       "0x714912": "0x71464a"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "BerserkFriendly",
+    "domain_guess_dist": 24
   },
   "Pushy": {
     "string": "Pushy",
@@ -34153,7 +34402,10 @@
     ],
     "near_known_hook": {
       "0x71492c": "0x71464a"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "Natural",
+    "domain_guess_dist": 26
   },
   "Natural": {
     "string": "Natural",
@@ -34364,7 +34616,10 @@
     "read_sites": [
       "0x714a9e"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "rules",
+    "domain_guess_via": "RadarVisible",
+    "domain_guess_dist": 26
   },
   "RadarVisible": {
     "string": "RadarVisible",
@@ -34401,7 +34656,10 @@
     "read_sites": [
       "0x714afa"
     ],
-    "near_known_hook": {}
+    "near_known_hook": {},
+    "domain_guess": "rules",
+    "domain_guess_via": "RadarVisible",
+    "domain_guess_dist": 66
   },
   "Passengers": {
     "string": "Passengers",
@@ -34796,7 +35054,10 @@
     ],
     "near_known_hook": {
       "0x714f65": "0x715320"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "ImmuneToPsionicWeapons",
+    "domain_guess_dist": 99
   },
   "Parasiteable": {
     "string": "Parasiteable",
@@ -34940,7 +35201,10 @@
     ],
     "near_known_hook": {
       "0x7150af": "0x715320"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "ImmuneToPoison",
+    "domain_guess_dist": 99
   },
   "JumpjetSpeed": {
     "string": "JumpjetSpeed",
@@ -35426,7 +35690,10 @@
     ],
     "near_known_hook": {
       "0x71570c": "0x715857"
-    }
+    },
+    "domain_guess": "art",
+    "domain_guess_via": "UseBuffer",
+    "domain_guess_dist": 106
   },
   "SpecialThreatValue": {
     "string": "SpecialThreatValue",
@@ -35733,7 +36000,10 @@
     ],
     "near_known_hook": {
       "0x715ed8": "0x716123"
-    }
+    },
+    "domain_guess": "art",
+    "domain_guess_via": "EliteSecondaryFireFLH",
+    "domain_guess_dist": 72
   },
   "ElitePBarrelThickness": {
     "string": "ElitePBarrelThickness",
@@ -35745,7 +36015,10 @@
     ],
     "near_known_hook": {
       "0x715efc": "0x716123"
-    }
+    },
+    "domain_guess": "art",
+    "domain_guess_via": "EliteSecondaryFireFLH",
+    "domain_guess_dist": 36
   },
   "EliteSecondaryFireFLH": {
     "string": "EliteSecondaryFireFLH",
@@ -35771,7 +36044,10 @@
     ],
     "near_known_hook": {
       "0x715f5d": "0x716123"
-    }
+    },
+    "domain_guess": "art",
+    "domain_guess_via": "EliteSecondaryFireFLH",
+    "domain_guess_dist": 61
   },
   "EliteSBarrelThickness": {
     "string": "EliteSBarrelThickness",
@@ -35783,7 +36059,10 @@
     ],
     "near_known_hook": {
       "0x715f81": "0x716123"
-    }
+    },
+    "domain_guess": "art",
+    "domain_guess_via": "EliteSecondaryFireFLH",
+    "domain_guess_dist": 97
   },
   "TurretNotExportedOnGround": {
     "string": "TurretNotExportedOnGround",
@@ -39293,7 +39572,10 @@
     ],
     "near_known_hook": {
       "0x7722a7": "0x772462"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "FireInTransport",
+    "domain_guess_dist": 78
   },
   "Burst": {
     "string": "Burst",
@@ -39394,7 +39676,10 @@
     ],
     "near_known_hook": {
       "0x772611": "0x772462"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "OpenToppedAnim",
+    "domain_guess_dist": 43
   },
   "IsLaser": {
     "string": "IsLaser",
@@ -39706,7 +39991,10 @@
     ],
     "near_known_hook": {
       "0x772872": "0x7729b0"
-    }
+    },
+    "domain_guess": "rules",
+    "domain_guess_via": "IsMagBeam",
+    "domain_guess_dist": 126
   },
   "IsAlternateColor": {
     "string": "IsAlternateColor",

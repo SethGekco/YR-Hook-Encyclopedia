@@ -24,524 +24,526 @@ Full data in `engine-string-surface.csv` / `.json`. Rules tags also have a clean
 
 ## Unnamed engine tags — `tag-unlisted` (514)
 
-_CamelCase keys the binary reads that appear in **no** INI we have — real engine tags vanilla content never sets (e.g. rarely-used rules/art keys). The best lead-list of undocumented tags. Read site(s) shown._
+_CamelCase keys the binary reads that appear in **no** INI we have — real engine tags vanilla content never sets (e.g. rarely-used rules/art keys). The best lead-list of undocumented tags._
 
-| String | Read site(s) | Near known hook |
-|---|---|---|
-| `AIUseTurbineUpgradeProbability` | `0x66fe19` |  |
-| `Accessibility` | `0x597902` `0x597bff` |  |
-| `ActiveAnimFourGarrisoned` | `0x4620c6` |  |
-| `ActiveAnimFourPowered` | `0x4621fd` |  |
-| `ActiveAnimFourPoweredEffect` | `0x462237` |  |
-| `ActiveAnimFourPoweredLight` | `0x46221a` |  |
-| `ActiveAnimFourPoweredSpecial` | `0x462254` |  |
-| `ActiveAnimFourX` | `0x462189` |  |
-| `ActiveAnimFourY` | `0x4621a6` |  |
-| `ActiveAnimPoweredEffect` | `0x461a2d` |  |
-| `ActiveAnimThreeGarrisoned` | `0x461e18` |  |
-| `ActiveAnimThreePoweredEffect` | `0x461f89` |  |
-| `ActiveAnimThreePoweredSpecial` | `0x461fa6` |  |
-| `ActiveAnimThreeX` | `0x461edb` |  |
-| `ActiveAnimThreeY` | `0x461ef8` |  |
-| `ActiveAnimTwoGarrisoned` | `0x461b6a` |  |
-| `ActiveAnimTwoPoweredEffect` | `0x461cdb` |  |
-| `ActiveAnimTwoPoweredSpecial` | `0x461cf8` |  |
-| `ActiveAnimTwoX` | `0x461c2d` |  |
-| `ActiveAnimTwoY` | `0x461c4a` |  |
-| `ActiveAnimX` | `0x46197f` |  |
-| `AddMatchBuddies` | `0x779a01` `0x779b0f` |  |
-| `AllowFind` | `0x77def2` `0x77e006` |  |
-| `AllowHiResModes` | `0x5fa942` | `0x5facdf` |
-| `AllowModeToggle` | `0x5fa981` `0x6bc0e8` | `0x5facdf` `0x6bc0cd` |
-| `AllowPage` | `0x77ded2` `0x77dfee` |  |
-| `AllowVRAMSidebar` | `0x5fa999` | `0x5facdf` |
-| `AllowableUnitMaximums` | `0x68a4ad` `0x68b241` | `0x68afe7` |
-| `AllowableUnits` | `0x68a352` `0x68b227` | `0x68afe7` |
-| `AnimAux1` | `0x461706` |  |
-| `AnimAux2` | `0x461780` |  |
-| `AnimIdle` | `0x461612` |  |
-| `Animations` | `0x6728ba` `0x6728db` `0x6728e8` | `0x672b0e` `0x672b0e` |
-| `ArmorAircraftMult` | `0x511b15` | `0x511d16` |
-| `ArmorBuildingsMult` | `0x511b34` | `0x511d16` |
-| `ArmorDefensesMult` | `0x511b53` | `0x511d16` |
-| `ArmorInfantryMult` | `0x511ad7` | `0x511d16` |
-| `ArmorUnitsMult` | `0x511af6` | `0x511d16` |
-| `Ask` | `0x7797f6` `0x779904` `0x779a06` `0x779b14` |  |
-| `AttachedSystem` | `0x74b45e` | `0x74b4f0` |
-| `AttachedTo` | `0x5bba7d` |  |
-| `AttackFriendlies` | `0x71522e` | `0x715320` |
-| `Audio` | `0x5fa9c3` `0x5faa23` `0x5faa98` `0x5fab0a` (+10) | `0x5facdf` `0x5facdf` |
-| `AuthenticAMD` | `0x4e61da` |  |
-| `AutoLogin` | `0x7797f1` `0x7798ff` `0x779c0d` `0x779d5e` |  |
-| `AutoScroll` | `0x5fa741` `0x5fadbe` | `0x5facdf` |
-| `Back` | `0x68d37c` `0x68fdd9` |  |
-| `BackButton` | `0x768abd` |  |
-| `BackButtonDepressedFrame` | `0x768a80` |  |
-| `BackButtonHighlighted` | `0x768b60` |  |
-| `BackButtonNormalFrame` | `0x768a4e` |  |
-| `BackButtonOrigin` | `0x76897b` |  |
-| `BackButtonPalette` | `0x7689fd` |  |
-| `BackButtonRectangle` | `0x768932` |  |
-| `BackTextRect` | `0x7685a6` |  |
-| `BarGraph` | `0x68d29e` `0x68f608` |  |
-| `BarrelStartPitch` | `0x460c56` |  |
-| `Battle` | `0x5d7d3c` |  |
-| `Battles` | `0x46ce17` `0x46ce41` `0x46ce50` | `0x46ce10` `0x46ce10` |
-| `Baud` | `0x698519` `0x699295` | `0x699043` |
-| `BestBox` | `0x68d1c0` `0x68e272` |  |
-| `BlueTint` | `0x5998e5` |  |
-| `BounceAnim` | `0x42840d` `0x74b330` | `0x4287dc` `0x74b4f0` |
-| `BuildOffAlly` | `0x6721c7` `0x697ff0` `0x699025` | `0x69801a` `0x699043` |
-| `BuildTimeAircraftMult` | `0x511ca8` | `0x511d16` |
-| `BuildTimeBuildingsMult` | `0x511cc5` | `0x511d16` |
-| `BuildTimeDefensesMult` | `0x511ce6` | `0x511d16` |
-| `BuildTimeInfantryMult` | `0x511c6a` | `0x511d16` |
-| `BuildTimeUnitsMult` | `0x511c89` | `0x511d16` |
-| `BuildingAbandonedSound` | `0x669c38` |  |
-| `BuildupSound` | `0x460750` |  |
-| `Built1` | `0x49c3ac` `0x49c9b7` |  |
-| `Built2` | `0x49c3c3` `0x49c9d0` |  |
-| `Bummer` | `0x4c84a0` | `0x4c850b` |
-| `CLDisableRed` | `0x75d619` | `0x75d660` |
-| `CallWaitString` | `0x69861d` `0x699221` | `0x699043` |
-| `CallWaitStringIndex` | `0x6985ef` `0x699239` | `0x699043` |
-| `Camera` | `0x772611` | `0x772462` |
-| `CampDifficulty` | `0x5fa6b1` `0x5fad6d` | `0x5facdf` |
-| `CampaignID` | `0x764ac0` `0x764e15` `0x765121` `0x7652a7` |  |
-| `CampaignType` | `0x49c30a` `0x49c850` |  |
-| `Campaigns` | `0x49db6c` `0x49dc1e` `0x49dc42` |  |
-| `CanBeach` | `0x747855` | `0x747a2e` |
-| `CanRecalcApproachTarget` | `0x7144c1` | `0x71464a` |
-| `Canceled` | `0x76ceab` |  |
-| `Cell` | `0x698be3` |  |
-| `CheckHeap` | `0x69823c` | `0x69801a` |
-| `CivEvac` | `0x68a63f` `0x68ad98` | `0x68ad2f` |
-| `Class` | `0x5bb8a3` |  |
-| `Clear` | `0x4acf36` | `0x4ace3c` |
-| `ClearAllWeapons` | `0x71289f` | `0x7128b2` |
-| `CloakStop` | `0x713116` | `0x713171` |
-| `Color1` | `0x49c337` `0x49c8eb` |  |
-| `Color2` | `0x49c367` `0x49c953` |  |
-| `ColorEx` | `0x69830a` `0x699154` | `0x69801a` `0x699043` |
-| `ComboDropWin` | `0x6181fe` |  |
-| `Community` | `0x79839c` `0x7987c7` `0x798ce9` |  |
-| `Compression` | `0x698535` `0x6992ec` | `0x699043` |
-| `Computer` | `0x50a628` `0x64ca27` `0x688225` | `0x64ccbf` `0x6883b7` |
-| `ConditionRedSparkingProbability` | `0x6718c5` |  |
-| `ConditionYellowSparkingProbability` | `0x67189e` |  |
-| `ConflictSelected` | `0x76d2e2` |  |
-| `Connected` | `0x5f300b` |  |
-| `Cooperative` | `0x5d7e24` |  |
-| `Coord` | `0x698b76` |  |
-| `CostAircraftMult` | `0x511bb0` | `0x511d16` |
-| `CostBuildingsMult` | `0x511bcf` | `0x511d16` |
-| `CostDefensesMult` | `0x511bee` | `0x511d16` |
-| `CostInfantryMult` | `0x511b72` | `0x511d16` |
-| `CratesAppear` | `0x698029` `0x699049` | `0x69801a` `0x699043` |
-| `CurVer` | `0x6bb5c2` |  |
-| `CurrentMap` | `0x49c2de` `0x49c837` `0x49d5b0` |  |
-| `CustomRotor` | `0x41ccde` | `0x41cd54` |
-| `CyrixInstead` | `0x4e61fa` |  |
-| `DamSmkOffScrnRel` | `0x713e49` | `0x713c10` |
-| `DamageReducesReadiness` | `0x7148bf` | `0x71464a` |
-| `DeathAnims` | `0x5242e1` | `0x5240bd` |
-| `DefaultChronoSound` | `0x669693` |  |
-| `DefaultPalette` | `0x768c9f` |  |
-| `DefaultPersona` | `0x779c1b` `0x779d6c` `0x779e9b` `0x779fec` |  |
-| `Defaults` | `0x7510fb` `0x751139` `0x75115c` `0x751180` (+4) |  |
-| `Degenerates` | `0x46c157` | `0x46c41c` |
-| `DeployFireWeapon` | `0x7147d5` | `0x71464a` |
-| `DescriptionText` | `0x69a4ec` `0x69a517` | `0x69a317` `0x69a317` |
-| `DestNet` | `0x5faccb` `0x5faf8f` `0x6bc196` | `0x5facdf` `0x5faffb` |
-| `DestroyParticleSystems` | `0x713d2c` | `0x713c10` |
-| `DestroySmokeOffset` | `0x713e62` | `0x713c10` |
-| `DetectionDistance` | `0x524505` | `0x524734` |
-| `DialMethod` | `0x698580` `0x69927d` | `0x699043` |
-| `DialogList` | `0x75300c` `0x753029` `0x753059` `0x753068` | `0x753000` `0x753000` |
-| `Difficult` | `0x668f19` `0x67452c` | `0x668f6a` `0x6744e4` |
-| `Difficulty` | `0x5fa669` `0x5fad53` | `0x5facdf` |
-| `DirectRocker` | `0x75d5cb` | `0x75d660` |
-| `Disableable` | `0x714bc7` |  |
-| `Disconnects` | `0x778d4c` `0x77a355` |  |
-| `DisplayAsian` | `0x77df5e` `0x77e07e` |  |
-| `DisplayBuddies` | `0x77df94` `0x77e0b0` |  |
-| `DisplayClan` | `0x77dfaf` `0x77e0d0` |  |
-| `DisplayLatin` | `0x77df79` `0x77e09a` |  |
-| `DistributedWeaponFire` | `0x772711` | `0x7729b0` |
-| `DllGetVersion` | `0x4aece4` | `0x4ae95e` |
-| `DllRegisterServer` | `0x6bc38b` | `0x6bc141` |
-| `DominatorAmbient` | `0x68ab17` `0x68b7b0` | `0x68ad0c` |
-| `DominatorAmbientChangeRate` | `0x68ac73` `0x68b882` | `0x68ad0c` |
-| `DominatorBlue` | `0x68abc5` `0x68b819` | `0x68ad0c` |
-| `DominatorGreen` | `0x68ab8b` `0x68b7f6` | `0x68ad0c` |
-| `DominatorGround` | `0x68abff` `0x68b83c` | `0x68ad0c` |
-| `DominatorLevel` | `0x68ac39` `0x68b85f` | `0x68ad0c` |
-| `DominatorRed` | `0x68ab51` `0x68b7d3` | `0x68ad0c` |
-| `DoubleOwned` | `0x712291` | `0x7120dd` |
-| `DownReport` | `0x7723f8` | `0x772462` |
-| `Draw` | `0x7705c6` `0x770ed3` |  |
-| `DrawBoltAsLaser` | `0x772872` | `0x7729b0` |
-| `Easy` | `0x49dd39` `0x668ef5` `0x674508` | `0x668f6a` `0x6744e4` |
-| `Efficiency` | `0x68d22f` `0x68d55c` |  |
-| `ElitePBarrelLength` | `0x715ed8` | `0x716123` |
-| `ElitePBarrelThickness` | `0x715efc` | `0x716123` |
-| `EliteSBarrelLength` | `0x715f5d` | `0x716123` |
-| `EliteSBarrelThickness` | `0x715f81` | `0x716123` |
-| `Emblem` | `0x68d151` `0x68dcb3` |  |
-| `Emphasis` | `0x7711c9` |  |
-| `EmptyReload` | `0x71488b` | `0x71464a` |
-| `ErrorCorrection` | `0x698551` `0x699309` | `0x699043` |
-| `Europe` | `0x78830a` |  |
-| `Evacuate` | `0x7703f2` |  |
-| `Exit` | `0x7a17c1` |  |
-| `Fail` | `0x7a16c0` |  |
-| `Fill` | `0x4acf3b` | `0x4ace3c` |
-| `FirePower` | `0x66d295` | `0x66d242` |
-| `FirewallDelta` | `0x5d9021` `0x5d9393` `0x5d93eb` |  |
-| `FirewallSettings` | `0x5d9007` `0x5d9379` `0x5d93d5` |  |
-| `Flamer` | `0x427e55` |  |
-| `ForcePortBase` | `0x698185` | `0x69801a` |
-| `Frame` | `0x698a3c` |  |
-| `FreeForAll` | `0x5d7df8` |  |
-| `FriendlyName` | `0x7743b0` |  |
-| `Game` | `0x7703cb` |  |
-| `GetActiveWindow` | `0x7daed4` |  |
-| `GetDiskFreeSpaceExA` | `0x48dd74` | `0x48dc90` |
-| `GetLastActivePopup` | `0x7daedc` |  |
-| `GreenTint` | `0x5998cc` |  |
-| `HTMLPath` | `0x773744` `0x7739b6` `0x773c0d` |  |
-| `HalfDamageSmokeLocation` | `0x74776f` | `0x747a2e` |
-| `HalfDamageSmokeLocation2` | `0x45ff33` | `0x460285` |
-| `Handle` | `0x6982ba` `0x69911a` | `0x69801a` `0x699043` |
-| `HarvesterDumpRate` | `0x670cd4` |  |
-| `HarvesterLoadRate` | `0x670cf4` |  |
-| `HelpBar` | `0x7688b4` |  |
-| `HelpBarSize` | `0x7683f2` |  |
-| `History` | `0x770356` |  |
-| `Hotkey` | `0x533d80` `0x533db1` `0x533dc7` `0x533e9c` (+1) | `0x533f50` `0x533f50` |
-| `House1` | `0x49c31f` `0x49c8c8` |  |
-| `House2` | `0x49c352` `0x49c92f` |  |
-| `HoverPad` | `0x46057a` | `0x460285` |
-| `IFVTransformSound` | `0x66a48d` |  |
-| `IdleAnimGarrisoned` | `0x464076` |  |
-| `IdleAnimPoweredEffect` | `0x4641e7` |  |
-| `IdleAnimPoweredLight` | `0x4641ca` |  |
-| `IdleAnimPoweredSpecial` | `0x464204` |  |
-| `IdleAnimX` | `0x464139` |  |
-| `IdleAnimY` | `0x464156` |  |
-| `InGameMusic` | `0x5fab88` `0x5faf40` | `0x5facdf` `0x5faffb` |
-| `IncomeMult` | `0x511d05` | `0x511d16` |
-| `InitStringIndex` | `0x6985de` `0x699256` | `0x699043` |
-| `InitStrings` | `0x69865b` `0x698696` `0x6986a9` `0x69933a` (+1) | `0x699043` `0x699043` |
-| `InitialAmmo` | `0x714755` | `0x71464a` |
-| `InprocServer32` | `0x6bb87a` | `0x6bb9dd` |
-| `Invisible` | `0x714a9e` |  |
-| `IonSensitive` | `0x772824` | `0x7729b0` |
-| `IsProcessorFeaturePresent` | `0x7ceb0e` |  |
-| `IsScoreRepeat` | `0x5fab05` `0x5faef3` | `0x5facdf` `0x5faffb` |
-| `IsScoreShuffle` | `0x5fab49` `0x5faf0b` | `0x5facdf` `0x5faffb` |
-| `JumpjetAccel` | `0x715165` | `0x715320` |
-| `JumpjetTurnRate` | `0x7150af` | `0x715320` |
-| `Kills1` | `0x49c37e` `0x49c985` |  |
-| `Kills2` | `0x49c398` `0x49c99e` |  |
-| `LANScrollText` | `0x6983d0` `0x6994c1` | `0x69801a` |
-| `LANTaunts` | `0x69838e` `0x699486` | `0x69801a` |
-| `LangFilter` | `0x77df0d` `0x77e028` |  |
-| `LastDay` | `0x764e70` `0x765103` `0x7652e1` |  |
-| `LastNickSlot` | `0x698279` `0x6990fa` | `0x69801a` `0x699043` |
-| `LastTilesInSet` | `0x545fed` | `0x545fa3` |
-| `LastValid` | `0x779e8d` `0x779fde` |  |
-| `LeptonMindControlOffset` | `0x71414c` |  |
-| `LightningPrintText` | `0x67107f` | `0x671152` |
-| `LightningRod` | `0x713330` | `0x713171` |
-| `ListBox` | `0x60f418` |  |
-| `LobMusic` | `0x77df28` `0x77e044` |  |
-| `Locale` | `0x778861` `0x778be1` `0x77a1de` |  |
-| `LocaleVerified` | `0x778c0f` `0x77a20d` |  |
-| `Logo` | `0x768cf3` |  |
-| `LosingThreshold` | `0x76c9e9` |  |
-| `Losses` | `0x778d1c` `0x77a326` |  |
-| `Lost1` | `0x49c3dd` `0x49c9e9` |  |
-| `Lost2` | `0x49c3f1` `0x49ca02` |  |
-| `LowPowerGarrisoned` | `0x4638e4` |  |
-| `LowPowerPoweredEffect` | `0x463a55` |  |
-| `LowPowerPoweredLight` | `0x463a38` |  |
-| `LowPowerPoweredSpecial` | `0x463a72` |  |
-| `LowPowerX` | `0x4639a7` |  |
-| `LowPowerY` | `0x4639c4` |  |
-| `LowPowerYSort` | `0x4639fe` |  |
-| `LowPowerZAdjust` | `0x4639e1` |  |
-| `MCVRepacks` | `0x69800a` `0x699038` | `0x69801a` `0x699043` |
-| `ManBattle` | `0x5d7d74` |  |
-| `ManualReload` | `0x71334a` | `0x713171` |
-| `MapEnter` | `0x76d093` `0x76dfd6` |  |
-| `MapLeave` | `0x76d019` `0x76e096` |  |
-| `MapType` | `0x59788a` `0x597b7d` |  |
-| `MatchByRes` | `0x778d7e` `0x77a384` |  |
-| `MegaLosingThreshold` | `0x76ca1a` |  |
-| `MegaWinningThreshold` | `0x76c9b8` |  |
-| `MessageBoxA` | `0x7daec3` |  |
-| `MindControlRingOffset` | `0x714350` | `0x71464a` |
-| `MobileFire` | `0x714823` | `0x71464a` |
-| `Model` | `0x5bba1b` |  |
-| `Modem` | `0x5bb8bb` |  |
-| `ModemName` | `0x698499` `0x699329` | `0x699043` |
-| `MouseCancel` | `0x76d1db` `0x76e1a1` |  |
-| `MultiMaps` | `0x699a08` `0x699a36` `0x699a45` `0x699b5d` (+5) | `0x699c1c` `0x699c1c` |
-| `MultiPlayer` | `0x52f5b2` `0x52f5c9` `0x560b8a` `0x560ba7` (+40) | `0x52f639` `0x52f639` |
-| `MyEffectivenessCoefficient` | `0x71556b` | `0x715320` |
-| `NameKeyPrefix` | `0x768c5a` |  |
-| `NaturalParticleLocation` | `0x713bfc` | `0x713c10` |
-| `NaturalParticleSystem` | `0x713b9a` | `0x713c10` |
-| `NetCard` | `0x5facaa` `0x5faf72` | `0x5facdf` `0x5faffb` |
-| `NetID` | `0x5faba9` `0x5fafec` | `0x5facdf` `0x5faffb` |
-| `Network` | `0x5fabae` `0x5fac92` `0x5facaf` `0x5facd0` (+6) | `0x5facdf` `0x5facdf` |
-| `NoAutoFire` | `0x714afa` |  |
-| `NorthAmerica` | `0x788303` |  |
-| `NotInsertable` | `0x6bb859` | `0x6bb9dd` |
-| `Note` | `0x4a3de1` `0x7b1e36` | `0x4a3b4b` |
-| `NukeAmbientChangeRate` | `0x68aae9` | `0x68ad0c` |
-| `NumCoopHumanStartSpots` | `0x689e13` `0x689f4d` `0x68afa7` | `0x689eb0` `0x689eb0` |
-| `NumLoopFrames` | `0x64508e` | `0x644dbb` |
-| `NumPlayers` | `0x59785a` `0x597b4a` `0x5c1410` `0x5e666e` |  |
-| `ObserverMode` | `0x5ee192` `0x5ee1ce` |  |
-| `OldCycle` | `0x770332` |  |
-| `Opening` | `0x76861f` |  |
-| `OverlayPalette` | `0x768beb` |  |
-| `OverlayPrefix` | `0x768ba6` |  |
-| `PackupSound` | `0x460786` |  |
-| `ParticleSystems` | `0x672a7a` `0x672a9b` `0x672aa8` | `0x672b0e` `0x672b0e` |
-| `Particles` | `0x672a0a` `0x672a2b` `0x672a38` | `0x672b0e` `0x672b0e` |
-| `PhoneBook` | `0x698711` `0x698761` `0x698771` `0x699396` (+1) | `0x699043` `0x699043` |
-| `PhoneIndex` | `0x698219` `0x6990c2` | `0x69801a` `0x699043` |
-| `PingFail` | `0x7a16ea` |  |
-| `PipWrap` | `0x714180` |  |
-| `Play` | `0x6bdf65` `0x6bdfee` | `0x6bdef9` `0x6bdef9` |
-| `PlayerFaction` | `0x764ec1` `0x7654f6` |  |
-| `PnPAttachedTo` | `0x5bbaac` |  |
-| `Port` | `0x6984e7` `0x6992cf` | `0x699043` |
-| `PortBase` | `0x52f5ad` `0x69816f` | `0x52f639` `0x69801a` |
-| `PortNumberOverride` | `0x560ba2` `0x6981fe` | `0x69801a` |
-| `PortPool` | `0x52f5c4` `0x6981c1` | `0x52f639` `0x69801a` |
-| `PreProductionAnimDamaged` | `0x46428a` |  |
-| `PreProductionAnimGarrisoned` | `0x464324` |  |
-| `PreProductionAnimX` | `0x4643e3` | `0x464749` |
-| `PreProductionAnimY` | `0x464400` | `0x464749` |
-| `PreProductionAnimYSort` | `0x46443a` | `0x464749` |
-| `PrintCRC` | `0x698c5a` | `0x699043` |
-| `PrivateKey` | `0x52a651` `0x52a6ec` |  |
-| `ProductionAnimGarrisoned` | `0x463e40` |  |
-| `ProgID` | `0x6bb808` | `0x6bb9dd` |
-| `PsychicSensorDetectSound` | `0x66a4ce` |  |
-| `PublicKey` | `0x52a633` `0x52a716` |  |
-| `Pushy` | `0x71492c` | `0x71464a` |
-| `Radius` | `0x64511c` | `0x6453ff` |
-| `RailgunDamageRadius` | `0x66bc24` | `0x66bc71` |
-| `RandomMap` | `0x5961f4` `0x597817` `0x59782f` `0x597847` (+34) |  |
-| `Rank` | `0x778c89` `0x77a299` |  |
-| `RankFail` | `0x7a1732` |  |
-| `RatioAITriggerTeam` | `0x500d18` | `0x500cc5` |
-| `RatioTeamAircraft` | `0x500d31` | `0x500cc5` |
-| `RatioTeamInfantry` | `0x500d44` | `0x500cc5` |
-| `RatioTeamUnits` | `0x500d5d` | `0x500cc5` |
-| `ReadinessReductionMultiplier` | `0x7148e0` | `0x71464a` |
-| `RedTint` | `0x5998b3` |  |
-| `RegPath` | `0x785633` |  |
-| `RegionSize` | `0x5978d2` `0x597bcb` |  |
-| `ReloadIncrement` | `0x7148a5` | `0x71464a` |
-| `Resources` | `0x597992` `0x597c9b` |  |
-| `RevealByHeight` | `0x66eaf0` |  |
-| `RollAngle` | `0x7123a2` | `0x7125df` |
-| `RotCount` | `0x7158a1` | `0x715857` |
-| `Rotors` | `0x41ccbc` | `0x41cd54` |
-| `Rubble` | `0x45f65d` | `0x45f2b4` |
-| `Ruggedness` | `0x5978ea` `0x597be6` |  |
-| `SBarrelThickness` | `0x715e7d` | `0x716123` |
-| `ScenIndex` | `0x697f40` `0x698fb9` | `0x69801a` `0x699043` |
-| `Score` | `0x49c2f2` |  |
-| `Score1` | `0x49c408` `0x49ca1b` |  |
-| `Score2` | `0x49c422` `0x49ca34` |  |
-| `ScoreVolume` | `0x5faa93` `0x5faedb` | `0x5facdf` `0x5faffb` |
-| `ScreenHeight` | `0x5fa8c9` `0x5fae67` `0x6bc128` | `0x5facdf` `0x6bc141` |
-| `ScreenWidth` | `0x5fa8b3` `0x5fae4d` `0x6bc108` | `0x5facdf` `0x6bc141` |
-| `ScrollMethod` | `0x5fa6f4` `0x5fad87` | `0x5facdf` |
-| `ScrollRate` | `0x5fa71d` `0x5fada1` | `0x5facdf` |
-| `Scrollbar` | `0x60e728` `0x61bcba` |  |
-| `SecondaryFirePixelOffset` | `0x461326` |  |
-| `SecretUnit` | `0x460618` | `0x460285` |
-| `Seed` | `0x597872` `0x597b63` |  |
-| `SelectSound` | `0x4f39a5` `0x4f39f1` |  |
-| `SelectVQ` | `0x4f33ae` |  |
-| `SendDelay` | `0x560b85` `0x6981e8` | `0x69801a` |
-| `Serial` | `0x5dc245` |  |
-| `SerialDefaults` | `0x69849e` `0x6984ec` `0x698502` `0x69851e` (+17) | `0x699043` `0x699043` |
-| `Server` | `0x778829` `0x778bad` `0x77a1b0` |  |
-| `ShareBarrelData` | `0x74b268` | `0x74b4f0` |
-| `ShareBodyData` | `0x74b240` | `0x74b4f0` |
-| `Shortcut` | `0x4f3939` |  |
-| `ShowAll` | `0x77df43` `0x77e05c` |  |
-| `ShowHidden` | `0x5fa840` `0x5fae20` | `0x5facdf` |
-| `ShowOccupantPips` | `0x460106` | `0x460285` |
-| `SideBar` | `0x7687f6` |  |
-| `SideBarSize` | `0x7683ab` |  |
-| `SideEx` | `0x69834c` `0x69918c` | `0x69801a` `0x699043` |
-| `SidebarCameoText` | `0x5fa7d7` `0x5fadeb` | `0x5facdf` |
-| `Siege` | `0x5d7da0` |  |
-| `Skirmish` | `0x698441` `0x6991c5` | `0x699043` |
-| `SnmpExtensionInit` | `0x795824` |  |
-| `SnmpExtensionQuery` | `0x795831` |  |
-| `SnmpUtilMemAlloc` | `0x79583e` |  |
-| `SnmpUtilMemFree` | `0x79584b` |  |
-| `Socket` | `0x5fac8d` `0x5faf5d` `0x6bc143` | `0x5facdf` `0x5faffb` |
-| `SoundLatency` | `0x5fac60` `0x5faf23` | `0x5facdf` `0x5faffb` |
-| `SoundList` | `0x751291` `0x7512aa` `0x7512d3` `0x7512e2` |  |
-| `SoundVolume` | `0x5fa9be` `0x5faea1` | `0x5facdf` `0x5faffb` |
-| `SpawnDirection` | `0x64446e` | `0x644615` |
-| `SpecialAnimFourGarrisoned` | `0x463636` |  |
-| `SpecialAnimFourPowered` | `0x46376d` |  |
-| `SpecialAnimFourPoweredEffect` | `0x4637a7` |  |
-| `SpecialAnimFourPoweredLight` | `0x46378a` |  |
-| `SpecialAnimFourPoweredSpecial` | `0x4637c4` |  |
-| `SpecialAnimFourX` | `0x4636f9` |  |
-| `SpecialAnimFourY` | `0x463716` |  |
-| `SpecialAnimFourYSort` | `0x463750` |  |
-| `SpecialAnimGarrisoned` | `0x462e2c` |  |
-| `SpecialAnimPoweredEffect` | `0x462f9d` |  |
-| `SpecialAnimPoweredSpecial` | `0x462fba` |  |
-| `SpecialAnimThreeGarrisoned` | `0x463388` |  |
-| `SpecialAnimThreePowered` | `0x4634bf` |  |
-| `SpecialAnimThreePoweredEffect` | `0x4634f9` |  |
-| `SpecialAnimThreePoweredLight` | `0x4634dc` |  |
-| `SpecialAnimThreePoweredSpecial` | `0x463516` |  |
-| `SpecialAnimThreeX` | `0x46344b` |  |
-| `SpecialAnimThreeY` | `0x463468` |  |
-| `SpecialAnimTwoGarrisoned` | `0x4630da` |  |
-| `SpecialAnimTwoPowered` | `0x463211` |  |
-| `SpecialAnimTwoPoweredEffect` | `0x46324b` |  |
-| `SpecialAnimTwoPoweredLight` | `0x46322e` |  |
-| `SpecialAnimTwoPoweredSpecial` | `0x463268` |  |
-| `SpecialAnimTwoX` | `0x46319d` |  |
-| `SpecialAnimTwoY` | `0x4631ba` |  |
-| `SpecialAnimX` | `0x462eef` |  |
-| `SpecialAnimY` | `0x462f0c` |  |
-| `SpecialZOverlayZAdjust` | `0x461389` |  |
-| `SpeedAircraftMult` | `0x511c4b` | `0x511d16` |
-| `SpeedInfantryMult` | `0x511c0d` | `0x511d16` |
-| `SpeedUnitsMult` | `0x511c2c` | `0x511d16` |
-| `SpotlightRadius` | `0x671809` |  |
-| `SprayAttack` | `0x714912` | `0x71464a` |
-| `Startup` | `0x770603` |  |
-| `Status` | `0x77037d` |  |
-| `StretchMovies` | `0x5fa8fb` `0x5fae7f` | `0x5facdf` `0x5faffb` |
-| `Strong` | `0x477616` |  |
-| `SuperAnimFourGarrisoned` | `0x462b7e` |  |
-| `SuperAnimFourPoweredEffect` | `0x462cef` |  |
-| `SuperAnimFourPoweredLight` | `0x462cd2` |  |
-| `SuperAnimFourPoweredSpecial` | `0x462d0c` |  |
-| `SuperAnimFourX` | `0x462c41` |  |
-| `SuperAnimFourY` | `0x462c5e` |  |
-| `SuperAnimGarrisoned` | `0x462374` |  |
-| `SuperAnimPoweredEffect` | `0x4624e5` |  |
-| `SuperAnimPoweredLight` | `0x4624c8` |  |
-| `SuperAnimPoweredSpecial` | `0x462502` |  |
-| `SuperAnimThreeGarrisoned` | `0x4628d0` |  |
-| `SuperAnimThreePoweredLight` | `0x462a24` |  |
-| `SuperAnimThreePoweredSpecial` | `0x462a5e` |  |
-| `SuperAnimThreeX` | `0x462993` |  |
-| `SuperAnimThreeY` | `0x4629b0` |  |
-| `SuperAnimTwoGarrisoned` | `0x462622` |  |
-| `SuperAnimTwoPoweredEffect` | `0x462793` |  |
-| `SuperAnimTwoPoweredLight` | `0x462776` |  |
-| `SuperAnimTwoPoweredSpecial` | `0x4627b0` |  |
-| `SuperAnimTwoX` | `0x4626e5` |  |
-| `SuperAnimTwoY` | `0x462702` |  |
-| `SuperAnimX` | `0x462437` |  |
-| `SuperAnimY` | `0x462454` |  |
-| `SuperLowPowerGarrisoned` | `0x463b92` |  |
-| `SuperLowPowerPoweredEffect` | `0x463d03` |  |
-| `SuperLowPowerPoweredLight` | `0x463ce6` |  |
-| `SuperLowPowerPoweredSpecial` | `0x463d20` |  |
-| `SuperLowPowerX` | `0x463c55` |  |
-| `SuperLowPowerY` | `0x463c72` |  |
-| `SuperLowPowerYSort` | `0x463cac` |  |
-| `SuperLowPowerZAdjust` | `0x463c8f` |  |
-| `SuperWeaponsAllowed` | `0x6721a7` `0x697fd3` `0x699016` | `0x69801a` `0x699043` |
-| `Supress` | `0x7722a7` | `0x772462` |
-| `SyncBug` | `0x698a41` `0x698a6a` `0x698b7b` `0x698bba` (+2) | `0x699043` |
-| `TalkBubbleTime` | `0x671e69` |  |
-| `Target` | `0x698bb5` `0x76ccfa` |  |
-| `TargetDistanceCoefficient` | `0x71570c` | `0x715857` |
-| `TargetDividingFrame` | `0x76cd4e` |  |
-| `TargetEffectivenessCoefficient` | `0x7155d8` | `0x715857` |
-| `TargetPalette` | `0x76cca8` |  |
-| `TargetSpecialThreatCoefficient` | `0x71563f` | `0x715857` |
-| `TargetStrengthCoefficient` | `0x7156a6` | `0x715857` |
-| `TargetZoom` | `0x76d93b` |  |
-| `Territory` | `0x7703a4` |  |
-| `TerritorySelect` | `0x770722` |  |
-| `Themes` | `0x72059d` `0x7205ca` `0x7205d7` |  |
-| `Thief` | `0x5245bf` | `0x524734` |
-| `TibPass99` | `0x788be3` `0x79765d` |  |
-| `TibSun` | `0x788be8` `0x797662` |  |
-| `TiberiumLayout` | `0x59794a` `0x597c4d` |  |
-| `Time` | `0x49c436` `0x49c96c` `0x5978ba` `0x597bb1` |  |
-| `TitleRect` | `0x768547` |  |
-| `ToolTips` | `0x5fa87c` `0x5fae33` | `0x5facdf` |
-| `TooltipRect` | `0x7684e8` |  |
-| `TurretAnimDamaged` | `0x4644b4` | `0x464749` |
-| `TurretAnimGarrisoned` | `0x46454b` | `0x464749` |
-| `TurretAnimYSort` | `0x464625` | `0x464749` |
-| `TurretCompressFrames` | `0x7152bc` | `0x715320` |
-| `TurretHoldFrames` | `0x7152e0` | `0x715320` |
-| `TurretRecoverFrames` | `0x715304` | `0x715320` |
-| `Typelib` | `0x6bb8a6` | `0x6bb9dd` |
-| `Unholy` | `0x5d7dcc` |  |
-| `UnitActionLines` | `0x5fa80e` `0x5fae08` | `0x5facdf` |
-| `UnitEnterSound` | `0x46084c` |  |
-| `UnitExitSound` | `0x460816` |  |
-| `UpdateDate` | `0x778934` `0x778e02` `0x77a418` |  |
-| `UpdateTime` | `0x7788ea` `0x778daf` `0x77a3c7` |  |
-| `UrbanPresence` | `0x59797a` `0x597c82` |  |
-| `Vegetation` | `0x597962` `0x597c67` |  |
-| `VeinGrowthRate` | `0x66b4fd` |  |
-| `VeinholeMonsterStrength` | `0x671c93` |  |
-| `VersionIndependentProgID` | `0x6bb834` | `0x6bb9dd` |
-| `VeteranAircraft` | `0x511f68` | `0x51214f` |
-| `VeteranInfantry` | `0x511d25` | `0x511d16` |
-| `VeteranUnits` | `0x511e32` | `0x511d16` |
-| `Video` | `0x5fa8b8` `0x5fa8ce` `0x5fa900` `0x5fa947` (+9) | `0x5facdf` `0x5facdf` |
-| `VideoBackBuffer` | `0x6bc0cd` | `0x6bc0cd` |
-| `VisibleLoad` | `0x71590d` | `0x715857` |
-| `VoiceComment` | `0x524193` | `0x5240bd` |
-| `VoiceFalling` | `0x712fec` | `0x713171` |
-| `VoiceOvers` | `0x76c4b1` |  |
-| `VoicePrimaryEliteWeaponAttack` | `0x7136d0` |  |
-| `VoicePrimaryWeaponAttack` | `0x71368e` |  |
-| `VoiceSecondaryEliteWeaponAttack` | `0x713742` |  |
-| `VoiceSinking` | `0x713064` | `0x713171` |
-| `VoiceUndeploy` | `0x7137ba` |  |
-| `VoiceVolume` | `0x5faa1e` `0x5faebe` | `0x5facdf` `0x5faffb` |
-| `VoxelAnims` | `0x67292a` `0x67294b` `0x672958` | `0x672b0e` `0x672b0e` |
-| `VoxelIndex` | `0x74b284` | `0x74b4f0` |
-| `WDTSideFail` | `0x7a177a` |  |
-| `WOLLimitResolution` | `0x698263` `0x6990dd` | `0x69801a` `0x699043` |
-| `WOLScrollText` | `0x6983ae` `0x6994a6` | `0x69801a` |
-| `WOLTaunts` | `0x69836d` `0x699470` | `0x69801a` |
-| `WOnline` | `0x77ded7` `0x77def7` `0x77df12` `0x77df2d` (+14) |  |
-| `WallOwner` | `0x511a9c` | `0x511d16` |
-| `WantsExtraSpace` | `0x46006a` | `0x460285` |
-| `Warheads` | `0x668d86` `0x668da7` `0x668db4` `0x67299a` (+2) | `0x668bf0` `0x668bf0` |
-| `Warpable` | `0x714f65` | `0x715320` |
-| `Water` | `0x4acf5b` | `0x4ad059` |
-| `WaterAmount` | `0x59791a` `0x597c19` |  |
-| `WinningThreshold` | `0x76c987` |  |
-| `Wins` | `0x778cec` `0x77a2f7` |  |
-| `Wipe` | `0x68d0e2` `0x68d44a` |  |
-| `WonlinePref` | `0x698473` `0x6991ef` | `0x699043` |
-| `Working` | `0x7a183a` |  |
-| `ZFudgeCliff` | `0x715423` | `0x715320` |
-| `ZoomInFactor` | `0x66ead0` |  |
-| `ZoomingTarget` | `0x76cc30` |  |
+> **Likely domain** is inferred by *read-site consensus*: the single-domain known tags whose read sites fall within ±128 bytes. A guess is emitted only when they **unanimously** agree (else blank). Leave-one-out on the known tags scores ~100% precision at this window (art, rules, coop) — accurate where it commits, silent where the loaders interleave. It is still a **hint**, not a verified section assignment. **96/514** got a guess: art 51, rules 44, coop 1.
+
+| String | Likely domain | Read site(s) | Near known hook |
+|---|---|---|---|
+| `AIUseTurbineUpgradeProbability` | — | `0x66fe19` |  |
+| `Accessibility` | — | `0x597902` `0x597bff` |  |
+| `ActiveAnimFourGarrisoned` | — | `0x4620c6` |  |
+| `ActiveAnimFourPowered` | — | `0x4621fd` |  |
+| `ActiveAnimFourPoweredEffect` | — | `0x462237` |  |
+| `ActiveAnimFourPoweredLight` | — | `0x46221a` |  |
+| `ActiveAnimFourPoweredSpecial` | — | `0x462254` |  |
+| `ActiveAnimFourX` | — | `0x462189` |  |
+| `ActiveAnimFourY` | — | `0x4621a6` |  |
+| `ActiveAnimPoweredEffect` | **art** (via `ActiveAnimPoweredSpecial` @29b) | `0x461a2d` |  |
+| `ActiveAnimThreeGarrisoned` | — | `0x461e18` |  |
+| `ActiveAnimThreePoweredEffect` | — | `0x461f89` |  |
+| `ActiveAnimThreePoweredSpecial` | — | `0x461fa6` |  |
+| `ActiveAnimThreeX` | — | `0x461edb` |  |
+| `ActiveAnimThreeY` | — | `0x461ef8` |  |
+| `ActiveAnimTwoGarrisoned` | — | `0x461b6a` |  |
+| `ActiveAnimTwoPoweredEffect` | — | `0x461cdb` |  |
+| `ActiveAnimTwoPoweredSpecial` | — | `0x461cf8` |  |
+| `ActiveAnimTwoX` | — | `0x461c2d` |  |
+| `ActiveAnimTwoY` | — | `0x461c4a` |  |
+| `ActiveAnimX` | — | `0x46197f` |  |
+| `AddMatchBuddies` | — | `0x779a01` `0x779b0f` |  |
+| `AllowFind` | — | `0x77def2` `0x77e006` |  |
+| `AllowHiResModes` | — | `0x5fa942` | `0x5facdf` |
+| `AllowModeToggle` | — | `0x5fa981` `0x6bc0e8` | `0x5facdf` `0x6bc0cd` |
+| `AllowPage` | — | `0x77ded2` `0x77dfee` |  |
+| `AllowVRAMSidebar` | — | `0x5fa999` | `0x5facdf` |
+| `AllowableUnitMaximums` | — | `0x68a4ad` `0x68b241` | `0x68afe7` |
+| `AllowableUnits` | — | `0x68a352` `0x68b227` | `0x68afe7` |
+| `AnimAux1` | — | `0x461706` |  |
+| `AnimAux2` | — | `0x461780` |  |
+| `AnimIdle` | — | `0x461612` |  |
+| `Animations` | — | `0x6728ba` `0x6728db` `0x6728e8` | `0x672b0e` `0x672b0e` |
+| `ArmorAircraftMult` | — | `0x511b15` | `0x511d16` |
+| `ArmorBuildingsMult` | — | `0x511b34` | `0x511d16` |
+| `ArmorDefensesMult` | — | `0x511b53` | `0x511d16` |
+| `ArmorInfantryMult` | — | `0x511ad7` | `0x511d16` |
+| `ArmorUnitsMult` | — | `0x511af6` | `0x511d16` |
+| `Ask` | — | `0x7797f6` `0x779904` `0x779a06` `0x779b14` |  |
+| `AttachedSystem` | — | `0x74b45e` | `0x74b4f0` |
+| `AttachedTo` | — | `0x5bba7d` |  |
+| `AttackFriendlies` | — | `0x71522e` | `0x715320` |
+| `Audio` | — | `0x5fa9c3` `0x5faa23` `0x5faa98` `0x5fab0a` (+10) | `0x5facdf` `0x5facdf` |
+| `AuthenticAMD` | — | `0x4e61da` |  |
+| `AutoLogin` | — | `0x7797f1` `0x7798ff` `0x779c0d` `0x779d5e` |  |
+| `AutoScroll` | — | `0x5fa741` `0x5fadbe` | `0x5facdf` |
+| `Back` | — | `0x68d37c` `0x68fdd9` |  |
+| `BackButton` | — | `0x768abd` |  |
+| `BackButtonDepressedFrame` | — | `0x768a80` |  |
+| `BackButtonHighlighted` | — | `0x768b60` |  |
+| `BackButtonNormalFrame` | — | `0x768a4e` |  |
+| `BackButtonOrigin` | — | `0x76897b` |  |
+| `BackButtonPalette` | — | `0x7689fd` |  |
+| `BackButtonRectangle` | — | `0x768932` |  |
+| `BackTextRect` | — | `0x7685a6` |  |
+| `BarGraph` | — | `0x68d29e` `0x68f608` |  |
+| `BarrelStartPitch` | **rules** (via `DeployFacing` @32b) | `0x460c56` |  |
+| `Battle` | — | `0x5d7d3c` |  |
+| `Battles` | — | `0x46ce17` `0x46ce41` `0x46ce50` | `0x46ce10` `0x46ce10` |
+| `Baud` | — | `0x698519` `0x699295` | `0x699043` |
+| `BestBox` | — | `0x68d1c0` `0x68e272` |  |
+| `BlueTint` | — | `0x5998e5` |  |
+| `BounceAnim` | — | `0x42840d` `0x74b330` | `0x4287dc` `0x74b4f0` |
+| `BuildOffAlly` | — | `0x6721c7` `0x697ff0` `0x699025` | `0x69801a` `0x699043` |
+| `BuildTimeAircraftMult` | — | `0x511ca8` | `0x511d16` |
+| `BuildTimeBuildingsMult` | — | `0x511cc5` | `0x511d16` |
+| `BuildTimeDefensesMult` | — | `0x511ce6` | `0x511d16` |
+| `BuildTimeInfantryMult` | — | `0x511c6a` | `0x511d16` |
+| `BuildTimeUnitsMult` | — | `0x511c89` | `0x511d16` |
+| `BuildingAbandonedSound` | — | `0x669c38` |  |
+| `BuildupSound` | **rules** (via `DefensesCostBonus` @67b) | `0x460750` |  |
+| `Built1` | — | `0x49c3ac` `0x49c9b7` |  |
+| `Built2` | — | `0x49c3c3` `0x49c9d0` |  |
+| `Bummer` | — | `0x4c84a0` | `0x4c850b` |
+| `CLDisableRed` | — | `0x75d619` | `0x75d660` |
+| `CallWaitString` | — | `0x69861d` `0x699221` | `0x699043` |
+| `CallWaitStringIndex` | — | `0x6985ef` `0x699239` | `0x699043` |
+| `Camera` | **rules** (via `OpenToppedAnim` @43b) | `0x772611` | `0x772462` |
+| `CampDifficulty` | — | `0x5fa6b1` `0x5fad6d` | `0x5facdf` |
+| `CampaignID` | — | `0x764ac0` `0x764e15` `0x765121` `0x7652a7` |  |
+| `CampaignType` | — | `0x49c30a` `0x49c850` |  |
+| `Campaigns` | — | `0x49db6c` `0x49dc1e` `0x49dc42` |  |
+| `CanBeach` | — | `0x747855` | `0x747a2e` |
+| `CanRecalcApproachTarget` | **rules** (via `RequiresStolenThirdTech` @26b) | `0x7144c1` | `0x71464a` |
+| `Canceled` | — | `0x76ceab` |  |
+| `Cell` | — | `0x698be3` |  |
+| `CheckHeap` | — | `0x69823c` | `0x69801a` |
+| `CivEvac` | — | `0x68a63f` `0x68ad98` | `0x68ad2f` |
+| `Class` | — | `0x5bb8a3` |  |
+| `Clear` | — | `0x4acf36` | `0x4ace3c` |
+| `ClearAllWeapons` | — | `0x71289f` | `0x7128b2` |
+| `CloakStop` | — | `0x713116` | `0x713171` |
+| `Color1` | — | `0x49c337` `0x49c8eb` |  |
+| `Color2` | — | `0x49c367` `0x49c953` |  |
+| `ColorEx` | — | `0x69830a` `0x699154` | `0x69801a` `0x699043` |
+| `ComboDropWin` | — | `0x6181fe` |  |
+| `Community` | — | `0x79839c` `0x7987c7` `0x798ce9` |  |
+| `Compression` | — | `0x698535` `0x6992ec` | `0x699043` |
+| `Computer` | — | `0x50a628` `0x64ca27` `0x688225` | `0x64ccbf` `0x6883b7` |
+| `ConditionRedSparkingProbability` | — | `0x6718c5` |  |
+| `ConditionYellowSparkingProbability` | — | `0x67189e` |  |
+| `ConflictSelected` | — | `0x76d2e2` |  |
+| `Connected` | — | `0x5f300b` |  |
+| `Cooperative` | — | `0x5d7e24` |  |
+| `Coord` | — | `0x698b76` |  |
+| `CostAircraftMult` | — | `0x511bb0` | `0x511d16` |
+| `CostBuildingsMult` | — | `0x511bcf` | `0x511d16` |
+| `CostDefensesMult` | — | `0x511bee` | `0x511d16` |
+| `CostInfantryMult` | — | `0x511b72` | `0x511d16` |
+| `CratesAppear` | — | `0x698029` `0x699049` | `0x69801a` `0x699043` |
+| `CurVer` | — | `0x6bb5c2` |  |
+| `CurrentMap` | — | `0x49c2de` `0x49c837` `0x49d5b0` |  |
+| `CustomRotor` | **rules** (via `FlyBy` @125b) | `0x41ccde` | `0x41cd54` |
+| `CyrixInstead` | — | `0x4e61fa` |  |
+| `DamSmkOffScrnRel` | **rules** (via `RefinerySmokeOffsetOne` @74b) | `0x713e49` | `0x713c10` |
+| `DamageReducesReadiness` | **rules** (via `BerserkFriendly` @59b) | `0x7148bf` | `0x71464a` |
+| `DeathAnims` | — | `0x5242e1` | `0x5240bd` |
+| `DefaultChronoSound` | — | `0x669693` |  |
+| `DefaultPalette` | — | `0x768c9f` |  |
+| `DefaultPersona` | — | `0x779c1b` `0x779d6c` `0x779e9b` `0x779fec` |  |
+| `Defaults` | — | `0x7510fb` `0x751139` `0x75115c` `0x751180` (+4) |  |
+| `Degenerates` | — | `0x46c157` | `0x46c41c` |
+| `DeployFireWeapon` | **rules** (via `DeployToLand` @52b) | `0x7147d5` | `0x71464a` |
+| `DescriptionText` | — | `0x69a4ec` `0x69a517` | `0x69a317` `0x69a317` |
+| `DestNet` | — | `0x5faccb` `0x5faf8f` `0x6bc196` | `0x5facdf` `0x5faffb` |
+| `DestroyParticleSystems` | — | `0x713d2c` | `0x713c10` |
+| `DestroySmokeOffset` | **rules** (via `RefinerySmokeOffsetOne` @49b) | `0x713e62` | `0x713c10` |
+| `DetectionDistance` | **rules** (via `HarvestRate` @30b) | `0x524505` | `0x524734` |
+| `DialMethod` | — | `0x698580` `0x69927d` | `0x699043` |
+| `DialogList` | — | `0x75300c` `0x753029` `0x753059` `0x753068` | `0x753000` `0x753000` |
+| `Difficult` | — | `0x668f19` `0x67452c` | `0x668f6a` `0x6744e4` |
+| `Difficulty` | — | `0x5fa669` `0x5fad53` | `0x5facdf` |
+| `DirectRocker` | — | `0x75d5cb` | `0x75d660` |
+| `Disableable` | — | `0x714bc7` |  |
+| `Disconnects` | — | `0x778d4c` `0x77a355` |  |
+| `DisplayAsian` | — | `0x77df5e` `0x77e07e` |  |
+| `DisplayBuddies` | — | `0x77df94` `0x77e0b0` |  |
+| `DisplayClan` | — | `0x77dfaf` `0x77e0d0` |  |
+| `DisplayLatin` | — | `0x77df79` `0x77e09a` |  |
+| `DistributedWeaponFire` | — | `0x772711` | `0x7729b0` |
+| `DllGetVersion` | — | `0x4aece4` | `0x4ae95e` |
+| `DllRegisterServer` | — | `0x6bc38b` | `0x6bc141` |
+| `DominatorAmbient` | — | `0x68ab17` `0x68b7b0` | `0x68ad0c` |
+| `DominatorAmbientChangeRate` | — | `0x68ac73` `0x68b882` | `0x68ad0c` |
+| `DominatorBlue` | — | `0x68abc5` `0x68b819` | `0x68ad0c` |
+| `DominatorGreen` | — | `0x68ab8b` `0x68b7f6` | `0x68ad0c` |
+| `DominatorGround` | — | `0x68abff` `0x68b83c` | `0x68ad0c` |
+| `DominatorLevel` | — | `0x68ac39` `0x68b85f` | `0x68ad0c` |
+| `DominatorRed` | — | `0x68ab51` `0x68b7d3` | `0x68ad0c` |
+| `DoubleOwned` | — | `0x712291` | `0x7120dd` |
+| `DownReport` | — | `0x7723f8` | `0x772462` |
+| `Draw` | — | `0x7705c6` `0x770ed3` |  |
+| `DrawBoltAsLaser` | **rules** (via `IsMagBeam` @126b) | `0x772872` | `0x7729b0` |
+| `Easy` | **coop** (via `CampaignLoadScreenPallet` @40b) | `0x49dd39` `0x668ef5` `0x674508` | `0x668f6a` `0x6744e4` |
+| `Efficiency` | — | `0x68d22f` `0x68d55c` |  |
+| `ElitePBarrelLength` | **art** (via `EliteSecondaryFireFLH` @72b) | `0x715ed8` | `0x716123` |
+| `ElitePBarrelThickness` | **art** (via `EliteSecondaryFireFLH` @36b) | `0x715efc` | `0x716123` |
+| `EliteSBarrelLength` | **art** (via `EliteSecondaryFireFLH` @61b) | `0x715f5d` | `0x716123` |
+| `EliteSBarrelThickness` | **art** (via `EliteSecondaryFireFLH` @97b) | `0x715f81` | `0x716123` |
+| `Emblem` | — | `0x68d151` `0x68dcb3` |  |
+| `Emphasis` | — | `0x7711c9` |  |
+| `EmptyReload` | **rules** (via `BerserkFriendly` @111b) | `0x71488b` | `0x71464a` |
+| `ErrorCorrection` | — | `0x698551` `0x699309` | `0x699043` |
+| `Europe` | — | `0x78830a` |  |
+| `Evacuate` | — | `0x7703f2` |  |
+| `Exit` | — | `0x7a17c1` |  |
+| `Fail` | — | `0x7a16c0` |  |
+| `Fill` | — | `0x4acf3b` | `0x4ace3c` |
+| `FirePower` | — | `0x66d295` | `0x66d242` |
+| `FirewallDelta` | — | `0x5d9021` `0x5d9393` `0x5d93eb` |  |
+| `FirewallSettings` | — | `0x5d9007` `0x5d9379` `0x5d93d5` |  |
+| `Flamer` | **art** (via `DoubleThick` @52b) | `0x427e55` |  |
+| `ForcePortBase` | — | `0x698185` | `0x69801a` |
+| `Frame` | — | `0x698a3c` |  |
+| `FreeForAll` | — | `0x5d7df8` |  |
+| `FriendlyName` | — | `0x7743b0` |  |
+| `Game` | — | `0x7703cb` |  |
+| `GetActiveWindow` | — | `0x7daed4` |  |
+| `GetDiskFreeSpaceExA` | — | `0x48dd74` | `0x48dc90` |
+| `GetLastActivePopup` | — | `0x7daedc` |  |
+| `GreenTint` | — | `0x5998cc` |  |
+| `HTMLPath` | — | `0x773744` `0x7739b6` `0x773c0d` |  |
+| `HalfDamageSmokeLocation` | — | `0x74776f` | `0x747a2e` |
+| `HalfDamageSmokeLocation2` | **rules** (via `AntiAirValue` @97b) | `0x45ff33` | `0x460285` |
+| `Handle` | — | `0x6982ba` `0x69911a` | `0x69801a` `0x699043` |
+| `HarvesterDumpRate` | **rules** (via `ThirdSurvivorDivisor` @117b) | `0x670cd4` |  |
+| `HarvesterLoadRate` | — | `0x670cf4` |  |
+| `HelpBar` | — | `0x7688b4` |  |
+| `HelpBarSize` | — | `0x7683f2` |  |
+| `History` | — | `0x770356` |  |
+| `Hotkey` | — | `0x533d80` `0x533db1` `0x533dc7` `0x533e9c` (+1) | `0x533f50` `0x533f50` |
+| `House1` | — | `0x49c31f` `0x49c8c8` |  |
+| `House2` | — | `0x49c352` `0x49c92f` |  |
+| `HoverPad` | **rules** (via `SecretInfantry` @83b) | `0x46057a` | `0x460285` |
+| `IFVTransformSound` | — | `0x66a48d` |  |
+| `IdleAnimGarrisoned` | — | `0x464076` |  |
+| `IdleAnimPoweredEffect` | — | `0x4641e7` |  |
+| `IdleAnimPoweredLight` | — | `0x4641ca` |  |
+| `IdleAnimPoweredSpecial` | — | `0x464204` |  |
+| `IdleAnimX` | — | `0x464139` |  |
+| `IdleAnimY` | — | `0x464156` |  |
+| `InGameMusic` | — | `0x5fab88` `0x5faf40` | `0x5facdf` `0x5faffb` |
+| `IncomeMult` | — | `0x511d05` | `0x511d16` |
+| `InitStringIndex` | — | `0x6985de` `0x699256` | `0x699043` |
+| `InitStrings` | — | `0x69865b` `0x698696` `0x6986a9` `0x69933a` (+1) | `0x699043` `0x699043` |
+| `InitialAmmo` | — | `0x714755` | `0x71464a` |
+| `InprocServer32` | — | `0x6bb87a` | `0x6bb9dd` |
+| `Invisible` | **rules** (via `RadarVisible` @26b) | `0x714a9e` |  |
+| `IonSensitive` | — | `0x772824` | `0x7729b0` |
+| `IsProcessorFeaturePresent` | — | `0x7ceb0e` |  |
+| `IsScoreRepeat` | — | `0x5fab05` `0x5faef3` | `0x5facdf` `0x5faffb` |
+| `IsScoreShuffle` | — | `0x5fab49` `0x5faf0b` | `0x5facdf` `0x5faffb` |
+| `JumpjetAccel` | — | `0x715165` | `0x715320` |
+| `JumpjetTurnRate` | **rules** (via `ImmuneToPoison` @99b) | `0x7150af` | `0x715320` |
+| `Kills1` | — | `0x49c37e` `0x49c985` |  |
+| `Kills2` | — | `0x49c398` `0x49c99e` |  |
+| `LANScrollText` | — | `0x6983d0` `0x6994c1` | `0x69801a` |
+| `LANTaunts` | — | `0x69838e` `0x699486` | `0x69801a` |
+| `LangFilter` | — | `0x77df0d` `0x77e028` |  |
+| `LastDay` | — | `0x764e70` `0x765103` `0x7652e1` |  |
+| `LastNickSlot` | — | `0x698279` `0x6990fa` | `0x69801a` `0x699043` |
+| `LastTilesInSet` | — | `0x545fed` | `0x545fa3` |
+| `LastValid` | — | `0x779e8d` `0x779fde` |  |
+| `LeptonMindControlOffset` | **rules** (via `PipsDrawForAll` @26b) | `0x71414c` |  |
+| `LightningPrintText` | **rules** (via `ForceShieldRadius` @32b) | `0x67107f` | `0x671152` |
+| `LightningRod` | **rules** (via `PoweredUnit` @26b) | `0x713330` | `0x713171` |
+| `ListBox` | — | `0x60f418` |  |
+| `LobMusic` | — | `0x77df28` `0x77e044` |  |
+| `Locale` | — | `0x778861` `0x778be1` `0x77a1de` |  |
+| `LocaleVerified` | — | `0x778c0f` `0x77a20d` |  |
+| `Logo` | — | `0x768cf3` |  |
+| `LosingThreshold` | — | `0x76c9e9` |  |
+| `Losses` | — | `0x778d1c` `0x77a326` |  |
+| `Lost1` | — | `0x49c3dd` `0x49c9e9` |  |
+| `Lost2` | — | `0x49c3f1` `0x49ca02` |  |
+| `LowPowerGarrisoned` | — | `0x4638e4` |  |
+| `LowPowerPoweredEffect` | **art** (via `LowPowerPowered` @58b) | `0x463a55` |  |
+| `LowPowerPoweredLight` | **art** (via `LowPowerPowered` @29b) | `0x463a38` |  |
+| `LowPowerPoweredSpecial` | **art** (via `SuperLowPower` @40b) | `0x463a72` |  |
+| `LowPowerX` | **art** (via `LowPowerPowered` @116b) | `0x4639a7` |  |
+| `LowPowerY` | **art** (via `LowPowerPowered` @87b) | `0x4639c4` |  |
+| `LowPowerYSort` | **art** (via `LowPowerPowered` @29b) | `0x4639fe` |  |
+| `LowPowerZAdjust` | **art** (via `LowPowerPowered` @58b) | `0x4639e1` |  |
+| `MCVRepacks` | — | `0x69800a` `0x699038` | `0x69801a` `0x699043` |
+| `ManBattle` | — | `0x5d7d74` |  |
+| `ManualReload` | **rules** (via `TurretSpins` @22b) | `0x71334a` | `0x713171` |
+| `MapEnter` | — | `0x76d093` `0x76dfd6` |  |
+| `MapLeave` | — | `0x76d019` `0x76e096` |  |
+| `MapType` | — | `0x59788a` `0x597b7d` |  |
+| `MatchByRes` | — | `0x778d7e` `0x77a384` |  |
+| `MegaLosingThreshold` | — | `0x76ca1a` |  |
+| `MegaWinningThreshold` | — | `0x76c9b8` |  |
+| `MessageBoxA` | — | `0x7daec3` |  |
+| `MindControlRingOffset` | **rules** (via `BuildTimeMultiplier` @33b) | `0x714350` | `0x71464a` |
+| `MobileFire` | **rules** (via `DeployToLand` @26b) | `0x714823` | `0x71464a` |
+| `Model` | — | `0x5bba1b` |  |
+| `Modem` | — | `0x5bb8bb` |  |
+| `ModemName` | — | `0x698499` `0x699329` | `0x699043` |
+| `MouseCancel` | — | `0x76d1db` `0x76e1a1` |  |
+| `MultiMaps` | — | `0x699a08` `0x699a36` `0x699a45` `0x699b5d` (+5) | `0x699c1c` `0x699c1c` |
+| `MultiPlayer` | — | `0x52f5b2` `0x52f5c9` `0x560b8a` `0x560ba7` (+40) | `0x52f639` `0x52f639` |
+| `MyEffectivenessCoefficient` | — | `0x71556b` | `0x715320` |
+| `NameKeyPrefix` | — | `0x768c5a` |  |
+| `NaturalParticleLocation` | **rules** (via `RefinerySmokeParticleSystem` @47b) | `0x713bfc` | `0x713c10` |
+| `NaturalParticleSystem` | **rules** (via `RefinerySmokeParticleSystem` @51b) | `0x713b9a` | `0x713c10` |
+| `NetCard` | — | `0x5facaa` `0x5faf72` | `0x5facdf` `0x5faffb` |
+| `NetID` | — | `0x5faba9` `0x5fafec` | `0x5facdf` `0x5faffb` |
+| `Network` | — | `0x5fabae` `0x5fac92` `0x5facaf` `0x5facd0` (+6) | `0x5facdf` `0x5facdf` |
+| `NoAutoFire` | **rules** (via `RadarVisible` @66b) | `0x714afa` |  |
+| `NorthAmerica` | — | `0x788303` |  |
+| `NotInsertable` | — | `0x6bb859` | `0x6bb9dd` |
+| `Note` | — | `0x4a3de1` `0x7b1e36` | `0x4a3b4b` |
+| `NukeAmbientChangeRate` | — | `0x68aae9` | `0x68ad0c` |
+| `NumCoopHumanStartSpots` | — | `0x689e13` `0x689f4d` `0x68afa7` | `0x689eb0` `0x689eb0` |
+| `NumLoopFrames` | — | `0x64508e` | `0x644dbb` |
+| `NumPlayers` | — | `0x59785a` `0x597b4a` `0x5c1410` `0x5e666e` |  |
+| `ObserverMode` | — | `0x5ee192` `0x5ee1ce` |  |
+| `OldCycle` | — | `0x770332` |  |
+| `Opening` | — | `0x76861f` |  |
+| `OverlayPalette` | — | `0x768beb` |  |
+| `OverlayPrefix` | — | `0x768ba6` |  |
+| `PackupSound` | **rules** (via `DefensesCostBonus` @121b) | `0x460786` |  |
+| `ParticleSystems` | — | `0x672a7a` `0x672a9b` `0x672aa8` | `0x672b0e` `0x672b0e` |
+| `Particles` | — | `0x672a0a` `0x672a2b` `0x672a38` | `0x672b0e` `0x672b0e` |
+| `PhoneBook` | — | `0x698711` `0x698761` `0x698771` `0x699396` (+1) | `0x699043` `0x699043` |
+| `PhoneIndex` | — | `0x698219` `0x6990c2` | `0x69801a` `0x699043` |
+| `PingFail` | — | `0x7a16ea` |  |
+| `PipWrap` | **rules** (via `PixelSelectionBracketDelta` @26b) | `0x714180` |  |
+| `Play` | — | `0x6bdf65` `0x6bdfee` | `0x6bdef9` `0x6bdef9` |
+| `PlayerFaction` | — | `0x764ec1` `0x7654f6` |  |
+| `PnPAttachedTo` | — | `0x5bbaac` |  |
+| `Port` | — | `0x6984e7` `0x6992cf` | `0x699043` |
+| `PortBase` | — | `0x52f5ad` `0x69816f` | `0x52f639` `0x69801a` |
+| `PortNumberOverride` | — | `0x560ba2` `0x6981fe` | `0x69801a` |
+| `PortPool` | — | `0x52f5c4` `0x6981c1` | `0x52f639` `0x69801a` |
+| `PreProductionAnimDamaged` | — | `0x46428a` |  |
+| `PreProductionAnimGarrisoned` | — | `0x464324` |  |
+| `PreProductionAnimX` | — | `0x4643e3` | `0x464749` |
+| `PreProductionAnimY` | — | `0x464400` | `0x464749` |
+| `PreProductionAnimYSort` | — | `0x46443a` | `0x464749` |
+| `PrintCRC` | — | `0x698c5a` | `0x699043` |
+| `PrivateKey` | — | `0x52a651` `0x52a6ec` |  |
+| `ProductionAnimGarrisoned` | — | `0x463e40` |  |
+| `ProgID` | — | `0x6bb808` | `0x6bb9dd` |
+| `PsychicSensorDetectSound` | — | `0x66a4ce` |  |
+| `PublicKey` | — | `0x52a633` `0x52a716` |  |
+| `Pushy` | **rules** (via `Natural` @26b) | `0x71492c` | `0x71464a` |
+| `Radius` | — | `0x64511c` | `0x6453ff` |
+| `RailgunDamageRadius` | — | `0x66bc24` | `0x66bc71` |
+| `RandomMap` | — | `0x5961f4` `0x597817` `0x59782f` `0x597847` (+34) |  |
+| `Rank` | — | `0x778c89` `0x77a299` |  |
+| `RankFail` | — | `0x7a1732` |  |
+| `RatioAITriggerTeam` | — | `0x500d18` | `0x500cc5` |
+| `RatioTeamAircraft` | — | `0x500d31` | `0x500cc5` |
+| `RatioTeamInfantry` | — | `0x500d44` | `0x500cc5` |
+| `RatioTeamUnits` | — | `0x500d5d` | `0x500cc5` |
+| `ReadinessReductionMultiplier` | **rules** (via `BerserkFriendly` @26b) | `0x7148e0` | `0x71464a` |
+| `RedTint` | — | `0x5998b3` |  |
+| `RegPath` | — | `0x785633` |  |
+| `RegionSize` | — | `0x5978d2` `0x597bcb` |  |
+| `ReloadIncrement` | **rules** (via `BerserkFriendly` @85b) | `0x7148a5` | `0x71464a` |
+| `Resources` | — | `0x597992` `0x597c9b` |  |
+| `RevealByHeight` | — | `0x66eaf0` |  |
+| `RollAngle` | — | `0x7123a2` | `0x7125df` |
+| `RotCount` | — | `0x7158a1` | `0x715857` |
+| `Rotors` | — | `0x41ccbc` | `0x41cd54` |
+| `Rubble` | — | `0x45f65d` | `0x45f2b4` |
+| `Ruggedness` | — | `0x5978ea` `0x597be6` |  |
+| `SBarrelThickness` | — | `0x715e7d` | `0x716123` |
+| `ScenIndex` | — | `0x697f40` `0x698fb9` | `0x69801a` `0x699043` |
+| `Score` | — | `0x49c2f2` |  |
+| `Score1` | — | `0x49c408` `0x49ca1b` |  |
+| `Score2` | — | `0x49c422` `0x49ca34` |  |
+| `ScoreVolume` | — | `0x5faa93` `0x5faedb` | `0x5facdf` `0x5faffb` |
+| `ScreenHeight` | — | `0x5fa8c9` `0x5fae67` `0x6bc128` | `0x5facdf` `0x6bc141` |
+| `ScreenWidth` | — | `0x5fa8b3` `0x5fae4d` `0x6bc108` | `0x5facdf` `0x6bc141` |
+| `ScrollMethod` | — | `0x5fa6f4` `0x5fad87` | `0x5facdf` |
+| `ScrollRate` | — | `0x5fa71d` `0x5fada1` | `0x5facdf` |
+| `Scrollbar` | — | `0x60e728` `0x61bcba` |  |
+| `SecondaryFirePixelOffset` | — | `0x461326` |  |
+| `SecretUnit` | **rules** (via `SecretInfantry` @75b) | `0x460618` | `0x460285` |
+| `Seed` | — | `0x597872` `0x597b63` |  |
+| `SelectSound` | — | `0x4f39a5` `0x4f39f1` |  |
+| `SelectVQ` | — | `0x4f33ae` |  |
+| `SendDelay` | — | `0x560b85` `0x6981e8` | `0x69801a` |
+| `Serial` | — | `0x5dc245` |  |
+| `SerialDefaults` | — | `0x69849e` `0x6984ec` `0x698502` `0x69851e` (+17) | `0x699043` `0x699043` |
+| `Server` | — | `0x778829` `0x778bad` `0x77a1b0` |  |
+| `ShareBarrelData` | — | `0x74b268` | `0x74b4f0` |
+| `ShareBodyData` | — | `0x74b240` | `0x74b4f0` |
+| `Shortcut` | — | `0x4f3939` |  |
+| `ShowAll` | — | `0x77df43` `0x77e05c` |  |
+| `ShowHidden` | — | `0x5fa840` `0x5fae20` | `0x5facdf` |
+| `ShowOccupantPips` | **rules** (via `CanOccupyFire` @26b) | `0x460106` | `0x460285` |
+| `SideBar` | — | `0x7687f6` |  |
+| `SideBarSize` | — | `0x7683ab` |  |
+| `SideEx` | — | `0x69834c` `0x69918c` | `0x69801a` `0x699043` |
+| `SidebarCameoText` | — | `0x5fa7d7` `0x5fadeb` | `0x5facdf` |
+| `Siege` | — | `0x5d7da0` |  |
+| `Skirmish` | — | `0x698441` `0x6991c5` | `0x699043` |
+| `SnmpExtensionInit` | — | `0x795824` |  |
+| `SnmpExtensionQuery` | — | `0x795831` |  |
+| `SnmpUtilMemAlloc` | — | `0x79583e` |  |
+| `SnmpUtilMemFree` | — | `0x79584b` |  |
+| `Socket` | — | `0x5fac8d` `0x5faf5d` `0x6bc143` | `0x5facdf` `0x5faffb` |
+| `SoundLatency` | — | `0x5fac60` `0x5faf23` | `0x5facdf` `0x5faffb` |
+| `SoundList` | — | `0x751291` `0x7512aa` `0x7512d3` `0x7512e2` |  |
+| `SoundVolume` | — | `0x5fa9be` `0x5faea1` | `0x5facdf` `0x5faffb` |
+| `SpawnDirection` | — | `0x64446e` | `0x644615` |
+| `SpecialAnimFourGarrisoned` | — | `0x463636` |  |
+| `SpecialAnimFourPowered` | **art** (via `SpecialAnimFourZAdjust` @58b) | `0x46376d` |  |
+| `SpecialAnimFourPoweredEffect` | **art** (via `LowPower` @69b) | `0x4637a7` |  |
+| `SpecialAnimFourPoweredLight` | **art** (via `SpecialAnimFourZAdjust` @87b) | `0x46378a` |  |
+| `SpecialAnimFourPoweredSpecial` | **art** (via `LowPower` @40b) | `0x4637c4` |  |
+| `SpecialAnimFourX` | **art** (via `SpecialAnimFourZAdjust` @58b) | `0x4636f9` |  |
+| `SpecialAnimFourY` | **art** (via `SpecialAnimFourZAdjust` @29b) | `0x463716` |  |
+| `SpecialAnimFourYSort` | **art** (via `SpecialAnimFourZAdjust` @29b) | `0x463750` |  |
+| `SpecialAnimGarrisoned` | — | `0x462e2c` |  |
+| `SpecialAnimPoweredEffect` | — | `0x462f9d` |  |
+| `SpecialAnimPoweredSpecial` | — | `0x462fba` |  |
+| `SpecialAnimThreeGarrisoned` | — | `0x463388` |  |
+| `SpecialAnimThreePowered` | **art** (via `SpecialAnimFour` @127b) | `0x4634bf` |  |
+| `SpecialAnimThreePoweredEffect` | **art** (via `SpecialAnimFour` @69b) | `0x4634f9` |  |
+| `SpecialAnimThreePoweredLight` | **art** (via `SpecialAnimFour` @98b) | `0x4634dc` |  |
+| `SpecialAnimThreePoweredSpecial` | **art** (via `SpecialAnimFour` @40b) | `0x463516` |  |
+| `SpecialAnimThreeX` | — | `0x46344b` |  |
+| `SpecialAnimThreeY` | — | `0x463468` |  |
+| `SpecialAnimTwoGarrisoned` | — | `0x4630da` |  |
+| `SpecialAnimTwoPowered` | — | `0x463211` |  |
+| `SpecialAnimTwoPoweredEffect` | — | `0x46324b` |  |
+| `SpecialAnimTwoPoweredLight` | — | `0x46322e` |  |
+| `SpecialAnimTwoPoweredSpecial` | — | `0x463268` |  |
+| `SpecialAnimTwoX` | — | `0x46319d` |  |
+| `SpecialAnimTwoY` | — | `0x4631ba` |  |
+| `SpecialAnimX` | — | `0x462eef` |  |
+| `SpecialAnimY` | — | `0x462f0c` |  |
+| `SpecialZOverlayZAdjust` | — | `0x461389` |  |
+| `SpeedAircraftMult` | — | `0x511c4b` | `0x511d16` |
+| `SpeedInfantryMult` | — | `0x511c0d` | `0x511d16` |
+| `SpeedUnitsMult` | — | `0x511c2c` | `0x511d16` |
+| `SpotlightRadius` | — | `0x671809` |  |
+| `SprayAttack` | **rules** (via `BerserkFriendly` @24b) | `0x714912` | `0x71464a` |
+| `Startup` | — | `0x770603` |  |
+| `Status` | — | `0x77037d` |  |
+| `StretchMovies` | — | `0x5fa8fb` `0x5fae7f` | `0x5facdf` `0x5faffb` |
+| `Strong` | **rules** (via `None` @63b) | `0x477616` |  |
+| `SuperAnimFourGarrisoned` | — | `0x462b7e` |  |
+| `SuperAnimFourPoweredEffect` | **art** (via `SuperAnimFourPowered` @58b) | `0x462cef` |  |
+| `SuperAnimFourPoweredLight` | **art** (via `SuperAnimFourPowered` @29b) | `0x462cd2` |  |
+| `SuperAnimFourPoweredSpecial` | **art** (via `SuperAnimFourPowered` @87b) | `0x462d0c` |  |
+| `SuperAnimFourX` | **art** (via `SuperAnimFourPowered` @116b) | `0x462c41` |  |
+| `SuperAnimFourY` | **art** (via `SuperAnimFourPowered` @87b) | `0x462c5e` |  |
+| `SuperAnimGarrisoned` | — | `0x462374` |  |
+| `SuperAnimPoweredEffect` | **art** (via `SuperAnimPowered` @58b) | `0x4624e5` |  |
+| `SuperAnimPoweredLight` | **art** (via `SuperAnimPowered` @29b) | `0x4624c8` |  |
+| `SuperAnimPoweredSpecial` | **art** (via `SuperAnimPowered` @87b) | `0x462502` |  |
+| `SuperAnimThreeGarrisoned` | — | `0x4628d0` |  |
+| `SuperAnimThreePoweredLight` | **art** (via `SuperAnimThreePowered` @29b) | `0x462a24` |  |
+| `SuperAnimThreePoweredSpecial` | **art** (via `SuperAnimThreePoweredEffect` @29b) | `0x462a5e` |  |
+| `SuperAnimThreeX` | **art** (via `SuperAnimThreePowered` @116b) | `0x462993` |  |
+| `SuperAnimThreeY` | **art** (via `SuperAnimThreePowered` @87b) | `0x4629b0` |  |
+| `SuperAnimTwoGarrisoned` | — | `0x462622` |  |
+| `SuperAnimTwoPoweredEffect` | **art** (via `SuperAnimTwoPowered` @58b) | `0x462793` |  |
+| `SuperAnimTwoPoweredLight` | **art** (via `SuperAnimTwoPowered` @29b) | `0x462776` |  |
+| `SuperAnimTwoPoweredSpecial` | **art** (via `SuperAnimTwoPowered` @87b) | `0x4627b0` |  |
+| `SuperAnimTwoX` | **art** (via `SuperAnimTwoPowered` @116b) | `0x4626e5` |  |
+| `SuperAnimTwoY` | **art** (via `SuperAnimTwoPowered` @87b) | `0x462702` |  |
+| `SuperAnimX` | **art** (via `SuperAnimPowered` @116b) | `0x462437` |  |
+| `SuperAnimY` | **art** (via `SuperAnimPowered` @87b) | `0x462454` |  |
+| `SuperLowPowerGarrisoned` | — | `0x463b92` |  |
+| `SuperLowPowerPoweredEffect` | **art** (via `SuperLowPowerPowered` @58b) | `0x463d03` |  |
+| `SuperLowPowerPoweredLight` | **art** (via `SuperLowPowerPowered` @29b) | `0x463ce6` |  |
+| `SuperLowPowerPoweredSpecial` | **art** (via `SuperLowPowerPowered` @87b) | `0x463d20` |  |
+| `SuperLowPowerX` | **art** (via `SuperLowPowerPowered` @116b) | `0x463c55` |  |
+| `SuperLowPowerY` | **art** (via `SuperLowPowerPowered` @87b) | `0x463c72` |  |
+| `SuperLowPowerYSort` | **art** (via `SuperLowPowerPowered` @29b) | `0x463cac` |  |
+| `SuperLowPowerZAdjust` | **art** (via `SuperLowPowerPowered` @58b) | `0x463c8f` |  |
+| `SuperWeaponsAllowed` | — | `0x6721a7` `0x697fd3` `0x699016` | `0x69801a` `0x699043` |
+| `Supress` | **rules** (via `FireInTransport` @78b) | `0x7722a7` | `0x772462` |
+| `SyncBug` | — | `0x698a41` `0x698a6a` `0x698b7b` `0x698bba` (+2) | `0x699043` |
+| `TalkBubbleTime` | — | `0x671e69` |  |
+| `Target` | — | `0x698bb5` `0x76ccfa` |  |
+| `TargetDistanceCoefficient` | **art** (via `UseBuffer` @106b) | `0x71570c` | `0x715857` |
+| `TargetDividingFrame` | — | `0x76cd4e` |  |
+| `TargetEffectivenessCoefficient` | — | `0x7155d8` | `0x715857` |
+| `TargetPalette` | — | `0x76cca8` |  |
+| `TargetSpecialThreatCoefficient` | — | `0x71563f` | `0x715857` |
+| `TargetStrengthCoefficient` | — | `0x7156a6` | `0x715857` |
+| `TargetZoom` | — | `0x76d93b` |  |
+| `Territory` | — | `0x7703a4` |  |
+| `TerritorySelect` | — | `0x770722` |  |
+| `Themes` | — | `0x72059d` `0x7205ca` `0x7205d7` |  |
+| `Thief` | **rules** (via `DeployedCrushable` @104b) | `0x5245bf` | `0x524734` |
+| `TibPass99` | — | `0x788be3` `0x79765d` |  |
+| `TibSun` | — | `0x788be8` `0x797662` |  |
+| `TiberiumLayout` | — | `0x59794a` `0x597c4d` |  |
+| `Time` | — | `0x49c436` `0x49c96c` `0x5978ba` `0x597bb1` |  |
+| `TitleRect` | — | `0x768547` |  |
+| `ToolTips` | — | `0x5fa87c` `0x5fae33` | `0x5facdf` |
+| `TooltipRect` | — | `0x7684e8` |  |
+| `TurretAnimDamaged` | — | `0x4644b4` | `0x464749` |
+| `TurretAnimGarrisoned` | — | `0x46454b` | `0x464749` |
+| `TurretAnimYSort` | — | `0x464625` | `0x464749` |
+| `TurretCompressFrames` | — | `0x7152bc` | `0x715320` |
+| `TurretHoldFrames` | — | `0x7152e0` | `0x715320` |
+| `TurretRecoverFrames` | — | `0x715304` | `0x715320` |
+| `Typelib` | — | `0x6bb8a6` | `0x6bb9dd` |
+| `Unholy` | — | `0x5d7dcc` |  |
+| `UnitActionLines` | — | `0x5fa80e` `0x5fae08` | `0x5facdf` |
+| `UnitEnterSound` | — | `0x46084c` |  |
+| `UnitExitSound` | — | `0x460816` |  |
+| `UpdateDate` | — | `0x778934` `0x778e02` `0x77a418` |  |
+| `UpdateTime` | — | `0x7788ea` `0x778daf` `0x77a3c7` |  |
+| `UrbanPresence` | — | `0x59797a` `0x597c82` |  |
+| `Vegetation` | — | `0x597962` `0x597c67` |  |
+| `VeinGrowthRate` | — | `0x66b4fd` |  |
+| `VeinholeMonsterStrength` | — | `0x671c93` |  |
+| `VersionIndependentProgID` | — | `0x6bb834` | `0x6bb9dd` |
+| `VeteranAircraft` | — | `0x511f68` | `0x51214f` |
+| `VeteranInfantry` | — | `0x511d25` | `0x511d16` |
+| `VeteranUnits` | — | `0x511e32` | `0x511d16` |
+| `Video` | — | `0x5fa8b8` `0x5fa8ce` `0x5fa900` `0x5fa947` (+9) | `0x5facdf` `0x5facdf` |
+| `VideoBackBuffer` | — | `0x6bc0cd` | `0x6bc0cd` |
+| `VisibleLoad` | — | `0x71590d` | `0x715857` |
+| `VoiceComment` | **rules** (via `EliteOccupyWeapon` @61b) | `0x524193` | `0x5240bd` |
+| `VoiceFalling` | — | `0x712fec` | `0x713171` |
+| `VoiceOvers` | — | `0x76c4b1` |  |
+| `VoicePrimaryEliteWeaponAttack` | **rules** (via `VoiceSecondaryWeaponAttack` @54b) | `0x7136d0` |  |
+| `VoicePrimaryWeaponAttack` | **rules** (via `VoiceHarvest` @60b) | `0x71368e` |  |
+| `VoiceSecondaryEliteWeaponAttack` | **rules** (via `VoiceSecondaryWeaponAttack` @60b) | `0x713742` |  |
+| `VoiceSinking` | — | `0x713064` | `0x713171` |
+| `VoiceUndeploy` | **rules** (via `VoiceDeploy` @54b) | `0x7137ba` |  |
+| `VoiceVolume` | — | `0x5faa1e` `0x5faebe` | `0x5facdf` `0x5faffb` |
+| `VoxelAnims` | — | `0x67292a` `0x67294b` `0x672958` | `0x672b0e` `0x672b0e` |
+| `VoxelIndex` | — | `0x74b284` | `0x74b4f0` |
+| `WDTSideFail` | — | `0x7a177a` |  |
+| `WOLLimitResolution` | — | `0x698263` `0x6990dd` | `0x69801a` `0x699043` |
+| `WOLScrollText` | — | `0x6983ae` `0x6994a6` | `0x69801a` |
+| `WOLTaunts` | — | `0x69836d` `0x699470` | `0x69801a` |
+| `WOnline` | — | `0x77ded7` `0x77def7` `0x77df12` `0x77df2d` (+14) |  |
+| `WallOwner` | — | `0x511a9c` | `0x511d16` |
+| `WantsExtraSpace` | **rules** (via `PoweredSpecial` @104b) | `0x46006a` | `0x460285` |
+| `Warheads` | — | `0x668d86` `0x668da7` `0x668db4` `0x67299a` (+2) | `0x668bf0` `0x668bf0` |
+| `Warpable` | **rules** (via `ImmuneToPsionicWeapons` @99b) | `0x714f65` | `0x715320` |
+| `Water` | — | `0x4acf5b` | `0x4ad059` |
+| `WaterAmount` | — | `0x59791a` `0x597c19` |  |
+| `WinningThreshold` | — | `0x76c987` |  |
+| `Wins` | — | `0x778cec` `0x77a2f7` |  |
+| `Wipe` | — | `0x68d0e2` `0x68d44a` |  |
+| `WonlinePref` | — | `0x698473` `0x6991ef` | `0x699043` |
+| `Working` | — | `0x7a183a` |  |
+| `ZFudgeCliff` | — | `0x715423` | `0x715320` |
+| `ZoomInFactor` | — | `0x66ead0` |  |
+| `ZoomingTarget` | — | `0x76cc30` |  |
 
 ## Unclassified — ambiguous residual (0)
 

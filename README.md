@@ -114,7 +114,13 @@ Two ways to go from "I want behaviour X" to "which hook is it":
     in **no** INI we have: real engine tags vanilla content never sets (rare or
     defaulted rules/art keys — `ActiveAnimTwoX`, `ShowOccupantPips`, `CustomRotor`,
     `AIUseTurbineUpgradeProbability`). The richest lead-list of *undocumented* tags.
-    **514**.
+    **514**. Each also gets a **likely domain by read-site consensus**: tags in one
+    INI section are parsed by the same engine loader, so their read sites cluster;
+    when the single-domain known tags within ±128 bytes of an unlisted tag's read
+    site **unanimously** agree, that domain is emitted as a hint (else left blank —
+    it abstains rather than mislabel). Leave-one-out on the known tags scores ~100%
+    precision (art 13/13, rules 206/206); **96/514** get a guess (51 art, 44 rules,
+    1 coop). A hint with evidence (`via <tag> @<dist>b`), not a verified assignment.
   - `file` (319, filenames/resources), `code` (146, RTTI/abstract types, UI ids,
     value literals, function/debug strings — not tags), and `unclassified`
     (ambiguous residual — now **0**).

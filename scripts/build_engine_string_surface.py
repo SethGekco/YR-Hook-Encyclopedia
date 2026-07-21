@@ -21,6 +21,7 @@ pushed strings are filenames or object IDs, not tags; those are flagged.
 Outputs: registry/engine-string-surface.csv, .json, .md
 """
 
+import bisect
 import csv
 import json
 import os
@@ -269,6 +270,54 @@ def main():
             "near_known_hook": hints,
         }
 
+    # ---- domain inference for `tag-unlisted` by read-site consensus --------------
+    # Tags in one INI section are parsed by the same engine loader, so their read
+    # sites cluster in one code region. For a tag-unlisted string, look at the
+    # single-domain KNOWN tags whose read sites fall within DGWIN bytes of its read
+    # site: if they UNANIMOUSLY belong to one domain, that's a strong domain guess;
+    # if they disagree (interleaved loaders), we ABSTAIN rather than mislabel.
+    # Leave-one-out on the known tags gives ~100% precision at this window (art
+    # 13/13, rules 206/206) at ~19% coverage — accurate where it commits, honest
+    # where it can't. This is a HINT (kept separate from `domains`), not a fact.
+    DGWIN = 128
+    DG_DOMS = {"rules", "art", "ai", "sound", "theme", "eva", "mapsel", "battle",
+               "mission", "rmg", "theater", "coop"}
+    pool = []  # (addr, domain, owner_string) from unambiguous single-domain tags
+    for name, v in surface.items():
+        if v["kind"] == "tag" and len(v["domains"]) == 1 and v["domains"][0] in DG_DOMS:
+            for a in v["read_sites"]:
+                pool.append((int(a, 16), v["domains"][0], name))
+    pool.sort()
+    pool_addrs = [p[0] for p in pool]
+
+    def domain_consensus(addr):
+        lo = bisect.bisect_left(pool_addrs, addr - DGWIN)
+        hi = bisect.bisect_right(pool_addrs, addr + DGWIN)
+        best = {}
+        for j in range(lo, hi):
+            a, dm, owner = pool[j]
+            dist = abs(a - addr)
+            if dm not in best or dist < best[dm][0]:
+                best[dm] = (dist, owner)
+        if len(best) == 1:
+            dm, (dist, owner) = next(iter(best.items()))
+            return dm, dist, owner
+        return None, None, None
+
+    for name, v in surface.items():
+        if v["kind"] != "tag-unlisted" or not v["read_sites"]:
+            continue
+        guesses = {domain_consensus(int(a, 16))[0] for a in v["read_sites"]}
+        guesses.discard(None)
+        if len(guesses) == 1:                       # every read site agrees (or only one)
+            dm, dist, owner = domain_consensus(int(v["read_sites"][0], 16))
+            # recompute closest supporting evidence across all read sites
+            ev = min((domain_consensus(int(a, 16))[1:] for a in v["read_sites"]
+                      if domain_consensus(int(a, 16))[0] == dm), key=lambda t: t[0])
+            v["domain_guess"] = dm
+            v["domain_guess_via"] = ev[1]
+            v["domain_guess_dist"] = ev[0]
+
     os.makedirs(REG, exist_ok=True)
     with open(os.path.join(REG, "engine-string-surface.json"), "w", encoding="utf-8") as fh:
         json.dump(surface, fh, indent=2)
@@ -277,10 +326,13 @@ def main():
     order = sorted(surface)
     with open(os.path.join(REG, "engine-string-surface.csv"), "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
-        w.writerow(["String", "Kind", "Domains", "ReadSites", "StringVA"])
+        w.writerow(["String", "Kind", "Domains", "DomainGuess", "GuessVia", "GuessDist",
+                    "ReadSites", "StringVA"])
         for s in order:
             v = surface[s]
-            w.writerow([s, v["kind"], "|".join(v["domains"]), " ".join(v["read_sites"]), v["string_va"]])
+            w.writerow([s, v["kind"], "|".join(v["domains"]), v.get("domain_guess", ""),
+                        v.get("domain_guess_via", ""), v.get("domain_guess_dist", ""),
+                        " ".join(v["read_sites"]), v["string_va"]])
 
     kinds = defaultdict(int)
     dom = defaultdict(int)
@@ -291,15 +343,23 @@ def main():
     tag_unlisted = sorted(s for s, v in surface.items() if v["kind"] == "tag-unlisted")
     unclassified = sorted(s for s, v in surface.items() if v["kind"] == "unclassified")
 
-    def write_table(fh, rows):
-        fh.write("| String | Read site(s) | Near known hook |\n|---|---|---|\n")
+    def write_table(fh, rows, guess_col=False):
+        head = "| String | Likely domain | Read site(s) | Near known hook |" if guess_col \
+            else "| String | Read site(s) | Near known hook |"
+        sep = "|---|---|---|---|" if guess_col else "|---|---|---|"
+        fh.write(head + "\n" + sep + "\n")
         for s in rows:
             v = surface[s]
             shown = " ".join(f"`{r}`" for r in v["read_sites"][:4]) or "—"
             if len(v["read_sites"]) > 4:
                 shown += f" (+{len(v['read_sites']) - 4})"
             hint = " ".join(f"`{val}`" for val in list(v["near_known_hook"].values())[:2])
-            fh.write(f"| `{s}` | {shown} | {hint} |\n")
+            if guess_col:
+                g = v.get("domain_guess")
+                gc = f"**{g}** (via `{v['domain_guess_via']}` @{v['domain_guess_dist']}b)" if g else "—"
+                fh.write(f"| `{s}` | {gc} | {shown} | {hint} |\n")
+            else:
+                fh.write(f"| `{s}` | {shown} | {hint} |\n")
 
     with open(os.path.join(REG, "engine-string-surface.md"), "w", encoding="utf-8") as fh:
         fh.write("# Engine string-key surface (Phase E)\n\n")
@@ -324,18 +384,32 @@ def main():
                  + ", ".join(f"{d} {n}" for d, n in sorted(dom.items(), key=lambda x: -x[1])) + ".\n\n")
         fh.write("Full data in `engine-string-surface.csv` / `.json`. Rules tags also have a "
                  "cleaner, cross-linked view in `vanilla-tags.md` (Phase D).\n\n")
+        guessed = sum(1 for s in tag_unlisted if surface[s].get("domain_guess"))
+        gdom = defaultdict(int)
+        for s in tag_unlisted:
+            g = surface[s].get("domain_guess")
+            if g:
+                gdom[g] += 1
         fh.write(f"## Unnamed engine tags — `tag-unlisted` ({len(tag_unlisted)})\n\n")
         fh.write("_CamelCase keys the binary reads that appear in **no** INI we have — real "
                  "engine tags vanilla content never sets (e.g. rarely-used rules/art keys). "
-                 "The best lead-list of undocumented tags. Read site(s) shown._\n\n")
-        write_table(fh, tag_unlisted)
+                 "The best lead-list of undocumented tags._\n\n")
+        fh.write("> **Likely domain** is inferred by *read-site consensus*: the single-domain "
+                 f"known tags whose read sites fall within ±{DGWIN} bytes. A guess is emitted "
+                 "only when they **unanimously** agree (else blank). Leave-one-out on the known "
+                 "tags scores ~100% precision at this window (art, rules, coop) — accurate where "
+                 "it commits, silent where the loaders interleave. It is still a **hint**, not a "
+                 f"verified section assignment. **{guessed}/{len(tag_unlisted)}** got a guess: "
+                 + ", ".join(f"{d} {n}" for d, n in sorted(gdom.items(), key=lambda x: -x[1])) + ".\n\n")
+        write_table(fh, tag_unlisted, guess_col=True)
         fh.write(f"\n## Unclassified — ambiguous residual ({len(unclassified)})\n\n")
         fh.write("_Leftovers that fit neither a tag, file, nor code shape. Probe individually._\n\n")
         write_table(fh, unclassified)
 
     print(f"OK: {len(surface)} pushed identifier strings. Kinds: {dict(kinds)}")
     print(f"  tag domains: {dict(dom)}")
-    print(f"  tag-unlisted (unnamed engine tags): {len(tag_unlisted)}")
+    print(f"  tag-unlisted (unnamed engine tags): {len(tag_unlisted)}"
+          f"; domain-guessed by read-site consensus: {guessed} ({dict(gdom)})")
     print(f"  unclassified (ambiguous residual): {len(unclassified)}")
 
 

@@ -112,18 +112,25 @@ Two ways to go from "I want behaviour X" to "which hook is it":
   files: rules, art, ai, sound, eva, theme, ui, rmg, the theater tile-control
   files, the MP game-mode files, mission/mapsel/battle/coop), **sample map/scenario
   files** (`.map`/`.mpr`/`.yrm`/`.mmx` — the `map` domain: `HomeCell`,
-  `NextScenario`, `IceGrowthEnabled`, the lighting `Ion*` keys), and the **original
-  Red Alert 2 INIs** (the `ra2` domain). **1,818** classify as tags; **702**
-  remain `unclassified` (a lead list of possible undocumented tags).
-  - **Legacy tags via the `ra2` domain.** YR runs on the RA2 engine, which runs on
-    Tiberian Sun's. When a feature was cut, the *tag-reading code often stayed in
-    the binary*. Strings classed **only** as `ra2` are candidate leftovers — e.g.
-    `VeinAttack` (TS Veinhole, `0x6692ff`), `AIIonCannon*Value` (TS Ion Cannon AI,
-    `0x670a55`+), `BuildAA`/`BuildDefense`/`BuildHelipad`/`BuildPDefense`,
-    `Armory`/`Hospital`. Vestigial in YR, still read by the engine.
+  `NextScenario`, `IceGrowthEnabled`, the lighting `Ion*` keys), the **original
+  Red Alert 2 INIs** (`ra2` domain), and the **Tiberian Sun INIs** (`ts` domain).
+  **1,898** classify as tags; **622** remain `unclassified`.
+  - **Engine-lineage legacy tags.** YR runs on the RA2 engine, which runs on the
+    Tiberian Sun engine. When a feature was cut, its *tag-reading code often stayed
+    in the binary*. Classifying against RA2 and TS INIs surfaces these — a string
+    `gamemd.exe` reads that survives only in an older generation is a vestigial tag:
+    - `ts`-only (deepest, ~80): pure Tiberian Sun tags YR still reads —
+      `HunterSeeker`, `FirestormWall`/`LaserFence`/`LaserFencePost`, `EMPulseCannon`,
+      `Cyborg`, `IsPlug`/`IsTemple` (Ion-Cannon component towers), `ICBMLauncher`,
+      `Dig`/`AtmosphereEntry` (subterranean).
+    - `ra2`+`ts`: TS features that also passed through RA2 — `VeinAttack`
+      (Veinhole, `0x6692ff`), `AIIonCannon*Value` (`0x670a55`+),
+      `BuildAA`/`BuildDefense`/`BuildHelipad`/`BuildPDefense`, `Armory`/`Hospital`.
+    - `ra2`-only: RA2 additions YR dropped — `CampaignPlayer`/`CampaignEnemy`
+      (YR switched to numbered `…1` forms).
   - Vanilla INIs are read from a gitignored cache (`sources/ini-cache/`, refreshed
-    by `scripts/update_ini_cache.sh` from the vanilla YR/RA2 zips) so the build is
-    reproducible; only the derived string→domain→address data is committed.
+    by `scripts/update_ini_cache.sh` — the YR/RA2 zips plus the TS INI repo) so the
+    build is reproducible; only the derived string→domain→address data is committed.
 
 **Tier 2 — the Encyclopedia** is the slow, valuable part: hand-written prose for
 hooks that are widely used, widely *misunderstood*, or conflict-prone. It grows

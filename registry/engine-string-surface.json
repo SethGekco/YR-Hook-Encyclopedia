@@ -105,7 +105,8 @@
       "map",
       "ra2",
       "rules",
-      "theme"
+      "theme",
+      "ts"
     ],
     "string_va": "0x817854",
     "read_sites": [
@@ -171,7 +172,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81804c",
     "read_sites": [
@@ -216,7 +218,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x818028",
     "read_sites": [
@@ -255,7 +258,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81800c",
     "read_sites": [
@@ -330,7 +334,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x818660",
     "read_sites": [
@@ -347,7 +352,8 @@
     "domains": [
       "art",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818658",
     "read_sites": [
@@ -371,7 +377,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81864c",
     "read_sites": [
@@ -400,7 +407,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818638",
     "read_sites": [
@@ -426,7 +434,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818624",
     "read_sites": [
@@ -454,7 +463,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x818610",
     "read_sites": [
@@ -474,7 +484,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818604",
     "read_sites": [
@@ -490,7 +501,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8185fc",
     "read_sites": [
@@ -504,7 +516,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8185f4",
     "read_sites": [
@@ -531,7 +544,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x816e3c",
     "read_sites": [
@@ -544,7 +558,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8185d8",
     "read_sites": [
@@ -556,7 +571,8 @@
     "string": "Reverse",
     "kind": "tag",
     "domains": [
-      "art"
+      "art",
+      "ts"
     ],
     "string_va": "0x8185d0",
     "read_sites": [
@@ -582,7 +598,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8185ac",
     "read_sites": [
@@ -596,7 +613,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8185a4",
     "read_sites": [
@@ -613,7 +631,8 @@
       "art",
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81859c",
     "read_sites": [
@@ -633,7 +652,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818594",
     "read_sites": [
@@ -646,7 +666,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818590",
     "read_sites": [
@@ -659,7 +680,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818584",
     "read_sites": [
@@ -672,7 +694,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81857c",
     "read_sites": [
@@ -685,7 +708,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818570",
     "read_sites": [
@@ -698,7 +722,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818568",
     "read_sites": [
@@ -711,7 +736,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81855c",
     "read_sites": [
@@ -728,7 +754,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818544",
     "read_sites": [
@@ -741,7 +768,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818534",
     "read_sites": [
@@ -755,7 +783,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x818524",
     "read_sites": [
@@ -772,7 +801,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x818518",
     "read_sites": [
@@ -801,7 +831,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818500",
     "read_sites": [
@@ -815,7 +846,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8184f4",
     "read_sites": [
@@ -834,7 +866,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8184e8",
     "read_sites": [
@@ -851,7 +884,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8184e0",
     "read_sites": [
@@ -880,7 +914,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8184c8",
     "read_sites": [
@@ -900,7 +935,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8184bc",
     "read_sites": [
@@ -917,7 +953,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8184b0",
     "read_sites": [
@@ -933,7 +970,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8184a8",
     "read_sites": [
@@ -949,7 +987,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818490",
     "read_sites": [
@@ -962,7 +1001,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81847c",
     "read_sites": [
@@ -975,7 +1015,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818468",
     "read_sites": [
@@ -988,7 +1029,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818458",
     "read_sites": [
@@ -1001,7 +1043,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818448",
     "read_sites": [
@@ -1014,7 +1057,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818438",
     "read_sites": [
@@ -1027,7 +1071,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81842c",
     "read_sites": [
@@ -1074,7 +1119,8 @@
       "art",
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x818410",
     "read_sites": [
@@ -1090,7 +1136,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x818404",
     "read_sites": [
@@ -1122,7 +1169,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8183ec",
     "read_sites": [
@@ -1139,7 +1187,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8183e0",
     "read_sites": [
@@ -1156,7 +1205,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8183cc",
     "read_sites": [
@@ -1172,7 +1222,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8183bc",
     "read_sites": [
@@ -1191,7 +1242,8 @@
       "art",
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8183b4",
     "read_sites": [
@@ -1212,7 +1264,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8183ac",
     "read_sites": [
@@ -1227,7 +1280,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8183a4",
     "read_sites": [
@@ -1242,7 +1296,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818390",
     "read_sites": [
@@ -1257,7 +1312,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818380",
     "read_sites": [
@@ -1300,7 +1356,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x818354",
     "read_sites": [
@@ -1386,7 +1443,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x819490",
     "read_sites": [
@@ -1415,8 +1473,10 @@
   },
   "DoorAnim": {
     "string": "DoorAnim",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x819470",
     "read_sites": [
       "0x45f4d6"
@@ -1430,7 +1490,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x819460",
     "read_sites": [
@@ -1470,7 +1531,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x819434",
     "read_sites": [
@@ -1483,7 +1545,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x819428",
     "read_sites": [
@@ -1498,7 +1561,8 @@
       "art",
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x819420",
     "read_sites": [
@@ -1584,8 +1648,10 @@
   },
   "HasSpotlight": {
     "string": "HasSpotlight",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81aea0",
     "read_sites": [
       "0x45feec"
@@ -1599,7 +1665,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81ae84",
     "read_sites": [
@@ -1626,7 +1693,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81ae60",
     "read_sites": [
@@ -1656,7 +1724,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81ae4c",
     "read_sites": [
@@ -1673,7 +1742,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81ae40",
     "read_sites": [
@@ -1689,7 +1759,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81ae34",
     "read_sites": [
@@ -1705,7 +1776,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81ae2c",
     "read_sites": [
@@ -1791,7 +1863,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81ade8",
     "read_sites": [
@@ -1806,7 +1879,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81addc",
     "read_sites": [
@@ -2001,7 +2075,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81ace4",
     "read_sites": [
@@ -2091,7 +2166,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81ac58",
     "read_sites": [
@@ -2107,8 +2183,10 @@
   },
   "Weeder": {
     "string": "Weeder",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81ac50",
     "read_sites": [
       "0x4604b9",
@@ -2124,7 +2202,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81ac48",
     "read_sites": [
@@ -2168,7 +2247,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8173f0",
     "read_sites": [
@@ -2183,7 +2263,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81ac20",
     "read_sites": [
@@ -2207,8 +2288,10 @@
   },
   "IsTemple": {
     "string": "IsTemple",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81ac08",
     "read_sites": [
       "0x460594"
@@ -2219,8 +2302,10 @@
   },
   "IsPlug": {
     "string": "IsPlug",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81ac00",
     "read_sites": [
       "0x4605ae"
@@ -2336,7 +2421,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81ab68",
     "read_sites": [
@@ -2429,7 +2515,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81aaf0",
     "read_sites": [
@@ -2442,7 +2529,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81aae4",
     "read_sites": [
@@ -2528,7 +2616,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81aa94",
     "read_sites": [
@@ -2541,7 +2630,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81aa8c",
     "read_sites": [
@@ -2564,7 +2654,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81aa74",
     "read_sites": [
@@ -2577,7 +2668,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81aa68",
     "read_sites": [
@@ -2590,7 +2682,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81aa5c",
     "read_sites": [
@@ -2603,7 +2696,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81aa4c",
     "read_sites": [
@@ -2613,8 +2707,10 @@
   },
   "LaserFencePost": {
     "string": "LaserFencePost",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81aa3c",
     "read_sites": [
       "0x460a93"
@@ -2623,8 +2719,10 @@
   },
   "LaserFence": {
     "string": "LaserFence",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81aa30",
     "read_sites": [
       "0x460aa9"
@@ -2633,8 +2731,10 @@
   },
   "FirestormWall": {
     "string": "FirestormWall",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81aa20",
     "read_sites": [
       "0x460ac7"
@@ -2645,7 +2745,8 @@
     "string": "Hospital",
     "kind": "tag",
     "domains": [
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81aa14",
     "read_sites": [
@@ -2657,7 +2758,8 @@
     "string": "Armory",
     "kind": "tag",
     "domains": [
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81aa0c",
     "read_sites": [
@@ -2670,7 +2772,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81aa00",
     "read_sites": [
@@ -2683,7 +2786,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a9f4",
     "read_sites": [
@@ -2705,8 +2809,10 @@
   },
   "EMPulseCannon": {
     "string": "EMPulseCannon",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81a9d4",
     "read_sites": [
       "0x460b65"
@@ -2715,8 +2821,10 @@
   },
   "TickTank": {
     "string": "TickTank",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81a9c8",
     "read_sites": [
       "0x460b7d"
@@ -2741,7 +2849,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x817204",
     "read_sites": [
@@ -2751,8 +2860,10 @@
   },
   "SuperWeapon2": {
     "string": "SuperWeapon2",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81a9a8",
     "read_sites": [
       "0x460bd0"
@@ -2761,8 +2872,10 @@
   },
   "CloakGenerator": {
     "string": "CloakGenerator",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81a998",
     "read_sites": [
       "0x460bea"
@@ -2774,7 +2887,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a98c",
     "read_sites": [
@@ -2784,8 +2898,10 @@
   },
   "CloakRadiusInCells": {
     "string": "CloakRadiusInCells",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81a978",
     "read_sites": [
       "0x460c21"
@@ -2833,7 +2949,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a92c",
     "read_sites": [
@@ -2847,7 +2964,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a91c",
     "read_sites": [
@@ -2861,7 +2979,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a90c",
     "read_sites": [
@@ -2875,7 +2994,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a8fc",
     "read_sites": [
@@ -2889,7 +3009,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a8ec",
     "read_sites": [
@@ -2902,7 +3023,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a8dc",
     "read_sites": [
@@ -2915,7 +3037,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a8cc",
     "read_sites": [
@@ -2925,8 +3048,10 @@
   },
   "PowersUpBuilding": {
     "string": "PowersUpBuilding",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81a8b8",
     "read_sites": [
       "0x460e23"
@@ -2935,8 +3060,10 @@
   },
   "PowersUpToLevel": {
     "string": "PowersUpToLevel",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81a8a8",
     "read_sites": [
       "0x460e73"
@@ -2948,7 +3075,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a898",
     "read_sites": [
@@ -2961,7 +3089,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a884",
     "read_sites": [
@@ -3013,7 +3142,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a844",
     "read_sites": [
@@ -3023,8 +3153,10 @@
   },
   "ICBMLauncher": {
     "string": "ICBMLauncher",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81a834",
     "read_sites": [
       "0x460f29"
@@ -3033,8 +3165,10 @@
   },
   "Artillary": {
     "string": "Artillary",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81a828",
     "read_sites": [
       "0x460f43"
@@ -3059,7 +3193,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a808",
     "read_sites": [
@@ -3072,7 +3207,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a7fc",
     "read_sites": [
@@ -3087,7 +3223,8 @@
       "ai",
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a7ec",
     "read_sites": [
@@ -3102,8 +3239,10 @@
   },
   "IsThreatRatingNode": {
     "string": "IsThreatRatingNode",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81a7d8",
     "read_sites": [
       "0x46101d"
@@ -3129,7 +3268,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81938c",
     "read_sites": [
@@ -3160,7 +3300,8 @@
       "art",
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81a7a8",
     "read_sites": [
@@ -3196,7 +3337,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a78c",
     "read_sites": [
@@ -3209,7 +3351,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a780",
     "read_sites": [
@@ -3222,7 +3365,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a774",
     "read_sites": [
@@ -3261,7 +3405,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a740",
     "read_sites": [
@@ -3274,7 +3419,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a734",
     "read_sites": [
@@ -3291,7 +3437,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a728",
     "read_sites": [
@@ -3301,8 +3448,10 @@
   },
   "DoorStages": {
     "string": "DoorStages",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81a71c",
     "read_sites": [
       "0x461281"
@@ -3311,8 +3460,10 @@
   },
   "DamagedDoor": {
     "string": "DamagedDoor",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x81a710",
     "read_sites": [
       "0x46129e"
@@ -3324,7 +3475,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a700",
     "read_sites": [
@@ -3337,7 +3489,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a6f4",
     "read_sites": [
@@ -3350,7 +3503,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a6dc",
     "read_sites": [
@@ -3386,7 +3540,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a694",
     "read_sites": [
@@ -3409,7 +3564,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a66c",
     "read_sites": [
@@ -3422,7 +3578,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a65c",
     "read_sites": [
@@ -3435,7 +3592,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a650",
     "read_sites": [
@@ -3474,7 +3632,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a60c",
     "read_sites": [
@@ -3497,7 +3656,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a5f4",
     "read_sites": [
@@ -3530,7 +3690,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a5d0",
     "read_sites": [
@@ -3543,7 +3704,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a5bc",
     "read_sites": [
@@ -3579,7 +3741,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a58c",
     "read_sites": [
@@ -3592,7 +3755,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a578",
     "read_sites": [
@@ -3605,7 +3769,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a568",
     "read_sites": [
@@ -3618,7 +3783,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a554",
     "read_sites": [
@@ -3666,7 +3832,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a4f8",
     "read_sites": [
@@ -3679,7 +3846,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a4e0",
     "read_sites": [
@@ -3722,7 +3890,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a490",
     "read_sites": [
@@ -3735,7 +3904,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a47c",
     "read_sites": [
@@ -3748,7 +3918,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a464",
     "read_sites": [
@@ -3761,7 +3932,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a448",
     "read_sites": [
@@ -3794,7 +3966,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a400",
     "read_sites": [
@@ -3807,7 +3980,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a3e8",
     "read_sites": [
@@ -3850,7 +4024,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a38c",
     "read_sites": [
@@ -3876,7 +4051,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a35c",
     "read_sites": [
@@ -3889,7 +4065,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a340",
     "read_sites": [
@@ -3922,7 +4099,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a2f0",
     "read_sites": [
@@ -3935,7 +4113,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a2d8",
     "read_sites": [
@@ -3978,7 +4157,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81a284",
     "read_sites": [
@@ -4542,7 +4722,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x819e44",
     "read_sites": [
@@ -4555,7 +4736,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x819e30",
     "read_sites": [
@@ -4598,7 +4780,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x819de4",
     "read_sites": [
@@ -4670,7 +4853,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x819d5c",
     "read_sites": [
@@ -4726,7 +4910,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x819cf0",
     "read_sites": [
@@ -4792,7 +4977,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x819c58",
     "read_sites": [
@@ -4848,7 +5034,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x819be4",
     "read_sites": [
@@ -5262,7 +5449,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81987c",
     "read_sites": [
@@ -5275,7 +5463,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x819864",
     "read_sites": [
@@ -5295,8 +5484,10 @@
   },
   "ProductionAnimX": {
     "string": "ProductionAnimX",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x819838",
     "read_sites": [
       "0x463eff"
@@ -5305,8 +5496,10 @@
   },
   "ProductionAnimY": {
     "string": "ProductionAnimY",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x819828",
     "read_sites": [
       "0x463f1c"
@@ -5318,7 +5511,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x819810",
     "read_sites": [
@@ -5331,7 +5525,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8197fc",
     "read_sites": [
@@ -5466,8 +5661,10 @@
   },
   "PreProductionAnim": {
     "string": "PreProductionAnim",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x819728",
     "read_sites": [
       "0x46422c"
@@ -5520,8 +5717,10 @@
   },
   "PreProductionAnimZAdjust": {
     "string": "PreProductionAnimZAdjust",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x8196ac",
     "read_sites": [
       "0x46441d"
@@ -5547,7 +5746,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x819688",
     "read_sites": [
@@ -5586,7 +5786,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x819650",
     "read_sites": [
@@ -5601,7 +5802,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x819644",
     "read_sites": [
@@ -5616,7 +5818,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x819630",
     "read_sites": [
@@ -5643,7 +5846,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81960c",
     "read_sites": [
@@ -5655,8 +5859,10 @@
   },
   "BarrelAnimIsVoxel": {
     "string": "BarrelAnimIsVoxel",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x8195f8",
     "read_sites": [
       "0x464659"
@@ -5667,8 +5873,10 @@
   },
   "VoxelBarrelFile": {
     "string": "VoxelBarrelFile",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x8195e8",
     "read_sites": [
       "0x464676"
@@ -5679,8 +5887,10 @@
   },
   "VoxelBarrelOffsetToPitchPivotPoint": {
     "string": "VoxelBarrelOffsetToPitchPivotPoint",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x8195c4",
     "read_sites": [
       "0x46468e"
@@ -5691,8 +5901,10 @@
   },
   "VoxelBarrelOffsetToRotatePivotPoint": {
     "string": "VoxelBarrelOffsetToRotatePivotPoint",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x8195a0",
     "read_sites": [
       "0x4646b9"
@@ -5703,8 +5915,10 @@
   },
   "VoxelBarrelOffsetToBuildingPivotPoint": {
     "string": "VoxelBarrelOffsetToBuildingPivotPoint",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x819578",
     "read_sites": [
       "0x4646dc"
@@ -5715,8 +5929,10 @@
   },
   "VoxelBarrelOffsetToBarrelEnd": {
     "string": "VoxelBarrelOffsetToBarrelEnd",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x819558",
     "read_sites": [
       "0x46470b"
@@ -5730,7 +5946,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81954c",
     "read_sites": [
@@ -5760,7 +5977,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81aef0",
     "read_sites": [
@@ -5789,7 +6007,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b168",
     "read_sites": [
@@ -5804,7 +6023,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b164",
     "read_sites": [
@@ -5835,7 +6055,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b140",
     "read_sites": [
@@ -5853,7 +6074,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b138",
     "read_sites": [
@@ -5883,7 +6105,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b130",
     "read_sites": [
@@ -5898,7 +6121,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b128",
     "read_sites": [
@@ -5958,7 +6182,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b0e8",
     "read_sites": [
@@ -6011,7 +6236,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b0cc",
     "read_sites": [
@@ -6026,7 +6252,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b0c0",
     "read_sites": [
@@ -6041,7 +6268,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b0b8",
     "read_sites": [
@@ -6056,7 +6284,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b0ac",
     "read_sites": [
@@ -6098,7 +6327,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b084",
     "read_sites": [
@@ -6113,7 +6343,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b078",
     "read_sites": [
@@ -6128,7 +6359,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b070",
     "read_sites": [
@@ -6158,7 +6390,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81b05c",
     "read_sites": [
@@ -6173,7 +6406,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81b04c",
     "read_sites": [
@@ -6263,7 +6497,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81aff4",
     "read_sites": [
@@ -6278,7 +6513,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81afe8",
     "read_sites": [
@@ -6293,7 +6529,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81afdc",
     "read_sites": [
@@ -6308,7 +6545,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81afd0",
     "read_sites": [
@@ -6323,7 +6561,8 @@
     "kind": "tag",
     "domains": [
       "battle",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81b1c8",
     "read_sites": [
@@ -6339,7 +6578,8 @@
     "domains": [
       "battle",
       "mapsel",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81b1bc",
     "read_sites": [
@@ -6373,7 +6613,8 @@
       "battle",
       "map",
       "mapsel",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x81b1a4",
     "read_sites": [
@@ -6541,7 +6782,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theme"
+      "theme",
+      "ts"
     ],
     "string_va": "0x81bb60",
     "read_sites": [
@@ -7305,8 +7547,10 @@
   },
   "Background": {
     "string": "Background",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x8241b4",
     "read_sites": [
       "0x4f1d59",
@@ -7318,7 +7562,8 @@
     "string": "Theme",
     "kind": "tag",
     "domains": [
-      "map"
+      "map",
+      "ts"
     ],
     "string_va": "0x824194",
     "read_sites": [
@@ -7334,8 +7579,10 @@
   },
   "ItemMax": {
     "string": "ItemMax",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x82418c",
     "read_sites": [
       "0x4f200f"
@@ -7348,7 +7595,8 @@
     "domains": [
       "art",
       "mapsel",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x824254",
     "read_sites": [
@@ -7364,8 +7612,10 @@
   },
   "Origin": {
     "string": "Origin",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x82424c",
     "read_sites": [
       "0x4f2da0",
@@ -7375,8 +7625,10 @@
   },
   "ActiveRect": {
     "string": "ActiveRect",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x824240",
     "read_sites": [
       "0x4f2def",
@@ -7402,8 +7654,10 @@
   },
   "Highlighted": {
     "string": "Highlighted",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x8242cc",
     "read_sites": [
       "0x4f32cd"
@@ -7412,8 +7666,10 @@
   },
   "Disabled": {
     "string": "Disabled",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x8242c0",
     "read_sites": [
       "0x4f3312"
@@ -7422,8 +7678,10 @@
   },
   "HighlightSound": {
     "string": "HighlightSound",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x8242b0",
     "read_sites": [
       "0x4f3360",
@@ -7448,7 +7706,8 @@
       "eva",
       "ra2",
       "rules",
-      "sound"
+      "sound",
+      "ts"
     ],
     "string_va": "0x824314",
     "read_sites": [
@@ -7483,7 +7742,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x817448",
     "read_sites": [
@@ -7507,8 +7767,10 @@
   },
   "Keys": {
     "string": "Keys",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x824340",
     "read_sites": [
       "0x4f3bd7"
@@ -7562,7 +7824,8 @@
       "map",
       "mp",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x824e40",
     "read_sites": [
@@ -7730,7 +7993,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x824fc4",
     "read_sites": [
@@ -7746,7 +8010,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8254ac",
     "read_sites": [
@@ -7776,7 +8041,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x825494",
     "read_sites": [
@@ -7791,7 +8057,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81d9c0",
     "read_sites": [
@@ -7806,7 +8073,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x825488",
     "read_sites": [
@@ -7823,7 +8091,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x82547c",
     "read_sites": [
@@ -7841,7 +8110,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81d9d4",
     "read_sites": [
@@ -7861,7 +8131,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x825478",
     "read_sites": [
@@ -7881,7 +8152,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x825470",
     "read_sites": [
@@ -7900,7 +8172,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x825464",
     "read_sites": [
@@ -7917,7 +8190,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x825458",
     "read_sites": [
@@ -7933,7 +8207,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x825444",
     "read_sites": [
@@ -7961,7 +8236,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x825430",
     "read_sites": [
@@ -8243,7 +8519,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x817334",
     "read_sites": [
@@ -8262,7 +8539,8 @@
     "string": "Options",
     "kind": "tag",
     "domains": [
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8254dc",
     "read_sites": [
@@ -8335,7 +8613,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8258e8",
     "read_sites": [
@@ -8350,7 +8629,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x825a6c",
     "read_sites": [
@@ -8419,7 +8699,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x825a20",
     "read_sites": [
@@ -8445,8 +8726,10 @@
   },
   "Cyborg": {
     "string": "Cyborg",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x825a0c",
     "read_sites": [
       "0x5243b0"
@@ -8505,7 +8788,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8259d4",
     "read_sites": [
@@ -8520,7 +8804,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8259c8",
     "read_sites": [
@@ -8535,7 +8820,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8259bc",
     "read_sites": [
@@ -8621,7 +8907,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x818164",
     "read_sites": [
@@ -8636,7 +8923,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x82596c",
     "read_sites": [
@@ -8653,7 +8941,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x82595c",
     "read_sites": [
@@ -8668,7 +8957,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x825954",
     "read_sites": [
@@ -8692,8 +8982,10 @@
   },
   "VehicleThief": {
     "string": "VehicleThief",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x82593c",
     "read_sites": [
       "0x5245d9"
@@ -8704,8 +8996,10 @@
   },
   "Doggie": {
     "string": "Doggie",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x825934",
     "read_sites": [
       "0x5245ef"
@@ -8776,7 +9070,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8258f4",
     "read_sites": [
@@ -8791,7 +9086,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8257d8",
     "read_sites": [
@@ -8806,7 +9102,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8257b8",
     "read_sites": [
@@ -9671,7 +9968,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8295dc",
     "read_sites": [
@@ -9686,7 +9984,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8295d0",
     "read_sites": [
@@ -9701,7 +10000,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8295c4",
     "read_sites": [
@@ -9716,7 +10016,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8295b8",
     "read_sites": [
@@ -9731,7 +10032,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8295ac",
     "read_sites": [
@@ -9746,7 +10048,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8295a0",
     "read_sites": [
@@ -9761,7 +10064,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829594",
     "read_sites": [
@@ -9776,7 +10080,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829588",
     "read_sites": [
@@ -9791,7 +10096,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829578",
     "read_sites": [
@@ -9806,7 +10112,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829568",
     "read_sites": [
@@ -9821,7 +10128,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829558",
     "read_sites": [
@@ -9836,7 +10144,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829548",
     "read_sites": [
@@ -9851,7 +10160,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829538",
     "read_sites": [
@@ -9866,7 +10176,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x82952c",
     "read_sites": [
@@ -9881,7 +10192,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829520",
     "read_sites": [
@@ -9896,7 +10208,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829514",
     "read_sites": [
@@ -9926,7 +10239,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8294f8",
     "read_sites": [
@@ -9941,7 +10255,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8294ec",
     "read_sites": [
@@ -9956,7 +10271,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8294e0",
     "read_sites": [
@@ -9971,7 +10287,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8294d0",
     "read_sites": [
@@ -9986,7 +10303,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8294c0",
     "read_sites": [
@@ -10001,7 +10319,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8294b0",
     "read_sites": [
@@ -10016,7 +10335,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8294a8",
     "read_sites": [
@@ -10031,7 +10351,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829498",
     "read_sites": [
@@ -10046,7 +10367,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x82948c",
     "read_sites": [
@@ -10061,7 +10383,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829478",
     "read_sites": [
@@ -10076,7 +10399,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829468",
     "read_sites": [
@@ -10091,7 +10415,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829458",
     "read_sites": [
@@ -10106,7 +10431,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829448",
     "read_sites": [
@@ -10121,7 +10447,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829438",
     "read_sites": [
@@ -10136,7 +10463,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x82942c",
     "read_sites": [
@@ -10151,7 +10479,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829420",
     "read_sites": [
@@ -10166,7 +10495,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829410",
     "read_sites": [
@@ -10181,7 +10511,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829408",
     "read_sites": [
@@ -10196,7 +10527,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8293fc",
     "read_sites": [
@@ -10211,7 +10543,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8293e8",
     "read_sites": [
@@ -10226,7 +10559,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8293d8",
     "read_sites": [
@@ -10241,7 +10575,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8293c4",
     "read_sites": [
@@ -10256,7 +10591,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8293b0",
     "read_sites": [
@@ -10271,7 +10607,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8293a4",
     "read_sites": [
@@ -10286,7 +10623,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829398",
     "read_sites": [
@@ -10301,7 +10639,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829388",
     "read_sites": [
@@ -10316,7 +10655,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829378",
     "read_sites": [
@@ -10331,7 +10671,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829370",
     "read_sites": [
@@ -10361,7 +10702,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829354",
     "read_sites": [
@@ -10376,7 +10718,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829344",
     "read_sites": [
@@ -10391,7 +10734,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829330",
     "read_sites": [
@@ -10406,7 +10750,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x82931c",
     "read_sites": [
@@ -10421,7 +10766,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x82930c",
     "read_sites": [
@@ -10436,7 +10782,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8292fc",
     "read_sites": [
@@ -10451,7 +10798,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8292e8",
     "read_sites": [
@@ -10466,7 +10814,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8292d4",
     "read_sites": [
@@ -10481,7 +10830,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8292c4",
     "read_sites": [
@@ -10496,7 +10846,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8292b4",
     "read_sites": [
@@ -10511,7 +10862,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x82929c",
     "read_sites": [
@@ -10538,7 +10890,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x82927c",
     "read_sites": [
@@ -10565,7 +10918,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829268",
     "read_sites": [
@@ -10580,7 +10934,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829258",
     "read_sites": [
@@ -10595,7 +10950,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829244",
     "read_sites": [
@@ -10610,7 +10966,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829238",
     "read_sites": [
@@ -10625,7 +10982,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829228",
     "read_sites": [
@@ -10640,7 +10998,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829218",
     "read_sites": [
@@ -10655,7 +11014,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x829208",
     "read_sites": [
@@ -10670,7 +11030,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8291f8",
     "read_sites": [
@@ -10685,7 +11046,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8291e8",
     "read_sites": [
@@ -10700,7 +11062,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theater"
+      "theater",
+      "ts"
     ],
     "string_va": "0x8291d4",
     "read_sites": [
@@ -10712,8 +11075,10 @@
   },
   "ShadowCaster": {
     "string": "ShadowCaster",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x8291c4",
     "read_sites": [
       "0x5461fe"
@@ -10724,8 +11089,10 @@
   },
   "ShadowTiles": {
     "string": "ShadowTiles",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x8291b8",
     "read_sites": [
       "0x54623e"
@@ -10924,7 +11291,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x82bbe4",
     "read_sites": [
@@ -11025,7 +11393,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x817278",
     "read_sites": [
@@ -11635,7 +12004,8 @@
     "string": "IonAmbient",
     "kind": "tag",
     "domains": [
-      "map"
+      "map",
+      "ts"
     ],
     "string_va": "0x82bf5c",
     "read_sites": [
@@ -11651,7 +12021,8 @@
     "string": "IonRed",
     "kind": "tag",
     "domains": [
-      "map"
+      "map",
+      "ts"
     ],
     "string_va": "0x82bf54",
     "read_sites": [
@@ -11667,7 +12038,8 @@
     "string": "IonGreen",
     "kind": "tag",
     "domains": [
-      "map"
+      "map",
+      "ts"
     ],
     "string_va": "0x82bf48",
     "read_sites": [
@@ -11683,7 +12055,8 @@
     "string": "IonBlue",
     "kind": "tag",
     "domains": [
-      "map"
+      "map",
+      "ts"
     ],
     "string_va": "0x82bf40",
     "read_sites": [
@@ -11699,7 +12072,8 @@
     "string": "IonGround",
     "kind": "tag",
     "domains": [
-      "map"
+      "map",
+      "ts"
     ],
     "string_va": "0x82bf34",
     "read_sites": [
@@ -11715,7 +12089,8 @@
     "string": "IonLevel",
     "kind": "tag",
     "domains": [
-      "map"
+      "map",
+      "ts"
     ],
     "string_va": "0x82bf28",
     "read_sites": [
@@ -11746,7 +12121,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x82c2b8",
     "read_sites": [
@@ -11759,7 +12135,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x82c2b0",
     "read_sites": [
@@ -11772,7 +12149,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x82c2a4",
     "read_sites": [
@@ -11785,7 +12163,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x82c298",
     "read_sites": [
@@ -11798,7 +12177,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x82c28c",
     "read_sites": [
@@ -11811,7 +12191,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x82c284",
     "read_sites": [
@@ -11827,7 +12208,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x82c27c",
     "read_sites": [
@@ -12000,7 +12382,8 @@
     "kind": "tag",
     "domains": [
       "mapsel",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8302fc",
     "read_sites": [
@@ -12013,7 +12396,8 @@
     "kind": "tag",
     "domains": [
       "mapsel",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8302f0",
     "read_sites": [
@@ -12028,7 +12412,8 @@
     "domains": [
       "mapsel",
       "ra2",
-      "sound"
+      "sound",
+      "ts"
     ],
     "string_va": "0x8302cc",
     "read_sites": [
@@ -12044,7 +12429,8 @@
     "kind": "tag",
     "domains": [
       "mapsel",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8304d4",
     "read_sites": [
@@ -12057,7 +12443,8 @@
     "kind": "tag",
     "domains": [
       "mapsel",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8304cc",
     "read_sites": [
@@ -12070,7 +12457,8 @@
     "kind": "tag",
     "domains": [
       "mapsel",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8304c0",
     "read_sites": [
@@ -12083,7 +12471,8 @@
     "kind": "tag",
     "domains": [
       "mapsel",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8304b4",
     "read_sites": [
@@ -12097,7 +12486,8 @@
     "kind": "tag",
     "domains": [
       "mapsel",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8304a4",
     "read_sites": [
@@ -12571,7 +12961,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x832c00",
     "read_sites": [
@@ -12586,7 +12977,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x832bf4",
     "read_sites": [
@@ -12616,7 +13008,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x832bd8",
     "read_sites": [
@@ -12677,7 +13070,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x832b9c",
     "read_sites": [
@@ -12692,7 +13086,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x832b90",
     "read_sites": [
@@ -12707,7 +13102,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x832b84",
     "read_sites": [
@@ -12723,7 +13119,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x832b78",
     "read_sites": [
@@ -12740,7 +13137,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x832b70",
     "read_sites": [
@@ -12756,7 +13154,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x832b60",
     "read_sites": [
@@ -12771,7 +13170,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x832b4c",
     "read_sites": [
@@ -12783,8 +13183,10 @@
   },
   "RadialColor": {
     "string": "RadialColor",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x832b40",
     "read_sites": [
       "0x5f9540"
@@ -12798,7 +13200,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x832b2c",
     "read_sites": [
@@ -12858,7 +13261,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x832aec",
     "read_sites": [
@@ -13405,7 +13809,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x833580",
     "read_sites": [
@@ -13420,7 +13825,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x833578",
     "read_sites": [
@@ -13435,7 +13841,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x833568",
     "read_sites": [
@@ -13450,7 +13857,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83355c",
     "read_sites": [
@@ -13467,7 +13875,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x833550",
     "read_sites": [
@@ -13479,8 +13888,10 @@
   },
   "CellAnim": {
     "string": "CellAnim",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x833544",
     "read_sites": [
       "0x5fe87c"
@@ -13494,7 +13905,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x833534",
     "read_sites": [
@@ -13509,7 +13921,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x833528",
     "read_sites": [
@@ -13526,7 +13939,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x833514",
     "read_sites": [
@@ -13541,7 +13955,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x833500",
     "read_sites": [
@@ -13556,7 +13971,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8334f0",
     "read_sites": [
@@ -13571,7 +13987,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8334e4",
     "read_sites": [
@@ -13586,7 +14003,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8334dc",
     "read_sites": [
@@ -15660,7 +16078,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8370b0",
     "read_sites": [
@@ -15675,7 +16094,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8370a4",
     "read_sites": [
@@ -15690,7 +16110,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837098",
     "read_sites": [
@@ -15705,7 +16126,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83708c",
     "read_sites": [
@@ -15720,7 +16142,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837080",
     "read_sites": [
@@ -15735,7 +16158,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837074",
     "read_sites": [
@@ -15750,7 +16174,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83705c",
     "read_sites": [
@@ -15765,7 +16190,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837050",
     "read_sites": [
@@ -15780,7 +16206,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837044",
     "read_sites": [
@@ -15809,7 +16236,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837020",
     "read_sites": [
@@ -15824,7 +16252,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83700c",
     "read_sites": [
@@ -15839,7 +16268,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x836ffc",
     "read_sites": [
@@ -15854,7 +16284,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x836fdc",
     "read_sites": [
@@ -15869,7 +16300,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x836fbc",
     "read_sites": [
@@ -15884,7 +16316,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x836f9c",
     "read_sites": [
@@ -15899,7 +16332,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x836f94",
     "read_sites": [
@@ -15914,7 +16348,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x836f88",
     "read_sites": [
@@ -15929,7 +16364,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x836f74",
     "read_sites": [
@@ -15944,7 +16380,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x836f68",
     "read_sites": [
@@ -15959,7 +16396,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x836f58",
     "read_sites": [
@@ -15974,7 +16412,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x836f40",
     "read_sites": [
@@ -15989,7 +16428,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837240",
     "read_sites": [
@@ -16004,7 +16444,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837238",
     "read_sites": [
@@ -16019,7 +16460,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837230",
     "read_sites": [
@@ -16034,7 +16476,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837224",
     "read_sites": [
@@ -16061,7 +16504,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837208",
     "read_sites": [
@@ -16076,7 +16520,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8371fc",
     "read_sites": [
@@ -16091,7 +16536,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8371f4",
     "read_sites": [
@@ -16118,7 +16564,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8371d8",
     "read_sites": [
@@ -16133,7 +16580,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8371cc",
     "read_sites": [
@@ -16148,7 +16596,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8371bc",
     "read_sites": [
@@ -16163,7 +16612,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8371ac",
     "read_sites": [
@@ -16178,7 +16628,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837198",
     "read_sites": [
@@ -16193,7 +16644,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837184",
     "read_sites": [
@@ -16208,7 +16660,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837178",
     "read_sites": [
@@ -16223,7 +16676,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83716c",
     "read_sites": [
@@ -16238,7 +16692,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837160",
     "read_sites": [
@@ -16253,7 +16708,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837150",
     "read_sites": [
@@ -16268,7 +16724,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837140",
     "read_sites": [
@@ -16283,7 +16740,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83712c",
     "read_sites": [
@@ -16298,7 +16756,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837120",
     "read_sites": [
@@ -16313,7 +16772,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837114",
     "read_sites": [
@@ -16328,7 +16788,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x837100",
     "read_sites": [
@@ -16343,7 +16804,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8370f0",
     "read_sites": [
@@ -16400,7 +16862,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a0bc",
     "read_sites": [
@@ -16452,7 +16915,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a144",
     "read_sites": [
@@ -16467,7 +16931,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a134",
     "read_sites": [
@@ -16482,7 +16947,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a128",
     "read_sites": [
@@ -16525,7 +16991,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a0f0",
     "read_sites": [
@@ -16540,7 +17007,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a0dc",
     "read_sites": [
@@ -16600,7 +17068,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83abb8",
     "read_sites": [
@@ -16626,8 +17095,10 @@
   },
   "DropPodPuff": {
     "string": "DropPodPuff",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x83aba0",
     "read_sites": [
       "0x6692a9"
@@ -16641,7 +17112,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ab88",
     "read_sites": [
@@ -16655,7 +17127,8 @@
     "string": "VeinAttack",
     "kind": "tag",
     "domains": [
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x83ab7c",
     "read_sites": [
@@ -16670,7 +17143,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ab70",
     "read_sites": [
@@ -17585,8 +18059,10 @@
   },
   "Dig": {
     "string": "Dig",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x83a5cc",
     "read_sites": [
       "0x66a593"
@@ -17595,8 +18071,10 @@
   },
   "AtmosphereEntry": {
     "string": "AtmosphereEntry",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x83a5bc",
     "read_sites": [
       "0x66a5d2"
@@ -17608,7 +18086,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a5b4",
     "read_sites": [
@@ -17621,7 +18100,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a5a8",
     "read_sites": [
@@ -17634,7 +18114,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a59c",
     "read_sites": [
@@ -17647,7 +18128,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a588",
     "read_sites": [
@@ -17660,7 +18142,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a57c",
     "read_sites": [
@@ -17673,7 +18156,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a570",
     "read_sites": [
@@ -17686,7 +18170,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a564",
     "read_sites": [
@@ -17699,7 +18184,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a558",
     "read_sites": [
@@ -17712,7 +18198,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a548",
     "read_sites": [
@@ -17738,7 +18225,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a528",
     "read_sites": [
@@ -17751,7 +18239,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a518",
     "read_sites": [
@@ -17764,7 +18253,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a50c",
     "read_sites": [
@@ -17774,8 +18264,10 @@
   },
   "PlayerLeft": {
     "string": "PlayerLeft",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x83a500",
     "read_sites": [
       "0x66a908"
@@ -17787,7 +18279,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a4f0",
     "read_sites": [
@@ -17800,7 +18293,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x816dcc",
     "read_sites": [
@@ -17813,7 +18307,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a4e4",
     "read_sites": [
@@ -17839,7 +18334,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a4c0",
     "read_sites": [
@@ -17852,7 +18348,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a4b8",
     "read_sites": [
@@ -17865,7 +18362,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a4ac",
     "read_sites": [
@@ -17904,7 +18402,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a48c",
     "read_sites": [
@@ -17917,7 +18416,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a480",
     "read_sites": [
@@ -17930,7 +18430,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a474",
     "read_sites": [
@@ -17956,7 +18457,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a454",
     "read_sites": [
@@ -17969,7 +18471,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a444",
     "read_sites": [
@@ -17982,7 +18485,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a438",
     "read_sites": [
@@ -17995,7 +18499,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a428",
     "read_sites": [
@@ -18008,7 +18513,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a41c",
     "read_sites": [
@@ -18021,7 +18527,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a40c",
     "read_sites": [
@@ -18070,8 +18577,10 @@
   },
   "TreeFire": {
     "string": "TreeFire",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x83a3cc",
     "read_sites": [
       "0x66afc8"
@@ -18080,8 +18589,10 @@
   },
   "OnFire": {
     "string": "OnFire",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x83a3c4",
     "read_sites": [
       "0x66b0f9"
@@ -18093,7 +18604,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x836f0c",
     "read_sites": [
@@ -18117,8 +18629,10 @@
   },
   "SmallFire": {
     "string": "SmallFire",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x83a3a8",
     "read_sites": [
       "0x66b2a0"
@@ -18127,8 +18641,10 @@
   },
   "LargeFire": {
     "string": "LargeFire",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x83a39c",
     "read_sites": [
       "0x66b2df"
@@ -18140,7 +18656,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a390",
     "read_sites": [
@@ -18153,7 +18670,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a380",
     "read_sites": [
@@ -18166,7 +18684,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a370",
     "read_sites": [
@@ -18179,7 +18698,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a360",
     "read_sites": [
@@ -18192,7 +18712,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a354",
     "read_sites": [
@@ -18205,7 +18726,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a34c",
     "read_sites": [
@@ -18218,7 +18740,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a338",
     "read_sites": [
@@ -18231,7 +18754,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a328",
     "read_sites": [
@@ -18244,7 +18768,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a31c",
     "read_sites": [
@@ -18257,7 +18782,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a30c",
     "read_sites": [
@@ -18270,7 +18796,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a300",
     "read_sites": [
@@ -18283,7 +18810,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a2f4",
     "read_sites": [
@@ -18296,7 +18824,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a2ec",
     "read_sites": [
@@ -18319,7 +18848,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a2cc",
     "read_sites": [
@@ -18332,7 +18862,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a2b4",
     "read_sites": [
@@ -18345,7 +18876,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a2a4",
     "read_sites": [
@@ -18358,7 +18890,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a290",
     "read_sites": [
@@ -18371,7 +18904,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a27c",
     "read_sites": [
@@ -18384,7 +18918,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a270",
     "read_sites": [
@@ -18397,7 +18932,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a260",
     "read_sites": [
@@ -18410,7 +18946,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a250",
     "read_sites": [
@@ -18423,7 +18960,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a23c",
     "read_sites": [
@@ -18436,7 +18974,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83a228",
     "read_sites": [
@@ -18591,7 +19130,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83acc4",
     "read_sites": [
@@ -18606,7 +19146,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83acb4",
     "read_sites": [
@@ -18621,7 +19162,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83aca8",
     "read_sites": [
@@ -18651,7 +19193,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ac88",
     "read_sites": [
@@ -18666,7 +19209,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ac78",
     "read_sites": [
@@ -18681,7 +19225,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ac68",
     "read_sites": [
@@ -18696,7 +19241,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ac5c",
     "read_sites": [
@@ -18711,7 +19257,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ac50",
     "read_sites": [
@@ -18726,7 +19273,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ac40",
     "read_sites": [
@@ -18742,7 +19290,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ac30",
     "read_sites": [
@@ -18757,7 +19306,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ac24",
     "read_sites": [
@@ -18772,7 +19322,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ac18",
     "read_sites": [
@@ -18802,7 +19353,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b294",
     "read_sites": [
@@ -18817,7 +19369,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b284",
     "read_sites": [
@@ -18844,7 +19397,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b258",
     "read_sites": [
@@ -18859,7 +19413,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b244",
     "read_sites": [
@@ -18874,7 +19429,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b238",
     "read_sites": [
@@ -18889,7 +19445,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b22c",
     "read_sites": [
@@ -18904,7 +19461,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b220",
     "read_sites": [
@@ -18919,7 +19477,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b214",
     "read_sites": [
@@ -18934,7 +19493,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b208",
     "read_sites": [
@@ -18947,7 +19507,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b1fc",
     "read_sites": [
@@ -18960,7 +19521,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b1f0",
     "read_sites": [
@@ -18973,7 +19535,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b1e0",
     "read_sites": [
@@ -18986,7 +19549,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b1d4",
     "read_sites": [
@@ -19446,7 +20010,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83aecc",
     "read_sites": [
@@ -19459,7 +20024,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83aeb0",
     "read_sites": [
@@ -19472,7 +20038,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ae94",
     "read_sites": [
@@ -19485,7 +20052,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ae80",
     "read_sites": [
@@ -19498,7 +20066,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ae64",
     "read_sites": [
@@ -19511,7 +20080,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ae48",
     "read_sites": [
@@ -19524,7 +20094,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ae2c",
     "read_sites": [
@@ -19537,7 +20108,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ae14",
     "read_sites": [
@@ -19550,7 +20122,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83adf8",
     "read_sites": [
@@ -19563,7 +20136,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83addc",
     "read_sites": [
@@ -19576,7 +20150,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83adcc",
     "read_sites": [
@@ -19589,7 +20164,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83adc0",
     "read_sites": [
@@ -19605,7 +20181,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83adb4",
     "read_sites": [
@@ -19618,7 +20195,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ada0",
     "read_sites": [
@@ -19631,7 +20209,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ad90",
     "read_sites": [
@@ -19644,7 +20223,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ad88",
     "read_sites": [
@@ -19657,7 +20237,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ad80",
     "read_sites": [
@@ -19670,7 +20251,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ad74",
     "read_sites": [
@@ -19683,7 +20265,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ad68",
     "read_sites": [
@@ -19696,7 +20279,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ad58",
     "read_sites": [
@@ -19709,7 +20293,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ad4c",
     "read_sites": [
@@ -19722,7 +20307,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ad40",
     "read_sites": [
@@ -19738,7 +20324,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ad2c",
     "read_sites": [
@@ -19757,7 +20344,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ad1c",
     "read_sites": [
@@ -19772,7 +20360,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ad08",
     "read_sites": [
@@ -19787,7 +20376,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83acf8",
     "read_sites": [
@@ -19802,7 +20392,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ace8",
     "read_sites": [
@@ -19817,7 +20408,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83acdc",
     "read_sites": [
@@ -19832,7 +20424,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83accc",
     "read_sites": [
@@ -20084,7 +20677,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b3ec",
     "read_sites": [
@@ -20099,7 +20693,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b3e0",
     "read_sites": [
@@ -20114,7 +20709,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b3d0",
     "read_sites": [
@@ -20129,7 +20725,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b3c0",
     "read_sites": [
@@ -20144,7 +20741,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b3b4",
     "read_sites": [
@@ -20191,7 +20789,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cf3c",
     "read_sites": [
@@ -20206,7 +20805,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cf2c",
     "read_sites": [
@@ -20221,7 +20821,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cf1c",
     "read_sites": [
@@ -20251,7 +20852,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cf08",
     "read_sites": [
@@ -20266,7 +20868,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cf00",
     "read_sites": [
@@ -20281,7 +20884,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cef0",
     "read_sites": [
@@ -20296,7 +20900,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cedc",
     "read_sites": [
@@ -20311,7 +20916,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ced0",
     "read_sites": [
@@ -20326,7 +20932,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cec8",
     "read_sites": [
@@ -20618,7 +21225,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cd54",
     "read_sites": [
@@ -20631,7 +21239,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cd44",
     "read_sites": [
@@ -20719,7 +21328,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cce0",
     "read_sites": [
@@ -20732,7 +21342,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ccd4",
     "read_sites": [
@@ -20745,7 +21356,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ccc4",
     "read_sites": [
@@ -20758,7 +21370,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ccb4",
     "read_sites": [
@@ -20771,7 +21384,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cca4",
     "read_sites": [
@@ -20784,7 +21398,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cc94",
     "read_sites": [
@@ -20800,7 +21415,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cc84",
     "read_sites": [
@@ -20816,7 +21432,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cc74",
     "read_sites": [
@@ -20878,7 +21495,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cc08",
     "read_sites": [
@@ -20891,7 +21509,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cbf4",
     "read_sites": [
@@ -20904,7 +21523,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cbdc",
     "read_sites": [
@@ -20917,7 +21537,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cbc8",
     "read_sites": [
@@ -20930,7 +21551,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cbb4",
     "read_sites": [
@@ -20976,7 +21598,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cb60",
     "read_sites": [
@@ -20989,7 +21612,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cb4c",
     "read_sites": [
@@ -21041,7 +21665,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83caec",
     "read_sites": [
@@ -21067,7 +21692,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cac4",
     "read_sites": [
@@ -21080,7 +21706,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cab4",
     "read_sites": [
@@ -21106,7 +21733,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ca8c",
     "read_sites": [
@@ -21119,7 +21747,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ca7c",
     "read_sites": [
@@ -21132,7 +21761,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ca6c",
     "read_sites": [
@@ -21145,7 +21775,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ca5c",
     "read_sites": [
@@ -21158,7 +21789,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ca4c",
     "read_sites": [
@@ -21171,7 +21803,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ca40",
     "read_sites": [
@@ -21184,7 +21817,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ca34",
     "read_sites": [
@@ -21197,7 +21831,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ca28",
     "read_sites": [
@@ -21210,7 +21845,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ca1c",
     "read_sites": [
@@ -21223,7 +21859,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ca10",
     "read_sites": [
@@ -21236,7 +21873,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83ca04",
     "read_sites": [
@@ -21249,7 +21887,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c9f0",
     "read_sites": [
@@ -21262,7 +21901,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c9e4",
     "read_sites": [
@@ -21275,7 +21915,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c9d4",
     "read_sites": [
@@ -21288,7 +21929,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c9c4",
     "read_sites": [
@@ -21301,7 +21943,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c9b4",
     "read_sites": [
@@ -21314,7 +21957,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c9a4",
     "read_sites": [
@@ -21327,7 +21971,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c994",
     "read_sites": [
@@ -21340,7 +21985,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c988",
     "read_sites": [
@@ -21355,7 +22001,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c97c",
     "read_sites": [
@@ -21370,7 +22017,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c964",
     "read_sites": [
@@ -21385,7 +22033,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c954",
     "read_sites": [
@@ -21400,7 +22049,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c944",
     "read_sites": [
@@ -21415,7 +22065,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c930",
     "read_sites": [
@@ -21430,7 +22081,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c920",
     "read_sites": [
@@ -21460,7 +22112,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c8f8",
     "read_sites": [
@@ -21475,7 +22128,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c8e4",
     "read_sites": [
@@ -21490,7 +22144,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c8cc",
     "read_sites": [
@@ -21505,7 +22160,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c8bc",
     "read_sites": [
@@ -21520,7 +22176,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c8ac",
     "read_sites": [
@@ -21535,7 +22192,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c89c",
     "read_sites": [
@@ -21550,7 +22208,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c88c",
     "read_sites": [
@@ -21565,7 +22224,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c87c",
     "read_sites": [
@@ -21580,7 +22240,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c86c",
     "read_sites": [
@@ -21595,7 +22256,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c860",
     "read_sites": [
@@ -21610,7 +22272,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c854",
     "read_sites": [
@@ -21658,7 +22321,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c818",
     "read_sites": [
@@ -21673,7 +22337,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c80c",
     "read_sites": [
@@ -21688,7 +22353,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c800",
     "read_sites": [
@@ -21703,7 +22369,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c7f4",
     "read_sites": [
@@ -21718,7 +22385,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c7e8",
     "read_sites": [
@@ -21733,7 +22401,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c7dc",
     "read_sites": [
@@ -21763,7 +22432,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c7c0",
     "read_sites": [
@@ -21778,7 +22448,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c7b0",
     "read_sites": [
@@ -21793,7 +22464,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c79c",
     "read_sites": [
@@ -21836,7 +22508,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c764",
     "read_sites": [
@@ -21851,7 +22524,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c754",
     "read_sites": [
@@ -21866,7 +22540,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c748",
     "read_sites": [
@@ -21878,8 +22553,10 @@
   },
   "Paratrooper": {
     "string": "Paratrooper",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x83c73c",
     "read_sites": [
       "0x66fa09"
@@ -22116,7 +22793,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c620",
     "read_sites": [
@@ -22131,7 +22809,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c618",
     "read_sites": [
@@ -22190,7 +22869,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c5e4",
     "read_sites": [
@@ -22205,7 +22885,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c5d4",
     "read_sites": [
@@ -22221,7 +22902,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c5c8",
     "read_sites": [
@@ -22236,7 +22918,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c5b8",
     "read_sites": [
@@ -22251,7 +22934,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c594",
     "read_sites": [
@@ -22276,7 +22960,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c560",
     "read_sites": [
@@ -22289,7 +22974,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c550",
     "read_sites": [
@@ -22302,7 +22988,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c534",
     "read_sites": [
@@ -22315,7 +23002,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c51c",
     "read_sites": [
@@ -22328,7 +23016,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c504",
     "read_sites": [
@@ -22342,7 +23031,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c4f4",
     "read_sites": [
@@ -22355,7 +23045,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c4e0",
     "read_sites": [
@@ -22368,7 +23059,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c4c4",
     "read_sites": [
@@ -22856,7 +23548,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c168",
     "read_sites": [
@@ -23067,7 +23760,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c06c",
     "read_sites": [
@@ -23082,7 +23776,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c050",
     "read_sites": [
@@ -23097,7 +23792,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c038",
     "read_sites": [
@@ -23126,7 +23822,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83c000",
     "read_sites": [
@@ -23141,7 +23838,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bfe8",
     "read_sites": [
@@ -23156,7 +23854,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bfcc",
     "read_sites": [
@@ -23171,7 +23870,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bfb8",
     "read_sites": [
@@ -23186,7 +23886,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bfa4",
     "read_sites": [
@@ -23201,7 +23902,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bf88",
     "read_sites": [
@@ -23215,7 +23917,8 @@
     "string": "AIIonCannonPlugValue",
     "kind": "tag",
     "domains": [
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x83bf70",
     "read_sites": [
@@ -23227,7 +23930,8 @@
     "string": "AIIonCannonHelipadValue",
     "kind": "tag",
     "domains": [
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x83bf58",
     "read_sites": [
@@ -23239,7 +23943,8 @@
     "string": "AIIonCannonTempleValue",
     "kind": "tag",
     "domains": [
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x83bf40",
     "read_sites": [
@@ -23252,7 +23957,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bf34",
     "read_sites": [
@@ -23265,7 +23971,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bf24",
     "read_sites": [
@@ -23278,7 +23985,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bf18",
     "read_sites": [
@@ -23291,7 +23999,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bf04",
     "read_sites": [
@@ -23304,7 +24013,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bef0",
     "read_sites": [
@@ -23317,7 +24027,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bee0",
     "read_sites": [
@@ -23330,7 +24041,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bed0",
     "read_sites": [
@@ -23343,7 +24055,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bec0",
     "read_sites": [
@@ -23394,7 +24107,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83be6c",
     "read_sites": [
@@ -23407,7 +24121,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83be60",
     "read_sites": [
@@ -23440,7 +24155,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83be2c",
     "read_sites": [
@@ -23453,7 +24169,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83be20",
     "read_sites": [
@@ -23466,7 +24183,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83be14",
     "read_sites": [
@@ -23481,7 +24199,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83be04",
     "read_sites": [
@@ -23496,7 +24215,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bdf4",
     "read_sites": [
@@ -23511,7 +24231,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bde8",
     "read_sites": [
@@ -23526,7 +24247,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bddc",
     "read_sites": [
@@ -23541,7 +24263,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bdd0",
     "read_sites": [
@@ -23556,7 +24279,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bdc4",
     "read_sites": [
@@ -23571,7 +24295,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bdb8",
     "read_sites": [
@@ -23586,7 +24311,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bdb0",
     "read_sites": [
@@ -23631,7 +24357,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bd84",
     "read_sites": [
@@ -23646,7 +24373,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bd78",
     "read_sites": [
@@ -23661,7 +24389,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bd5c",
     "read_sites": [
@@ -23676,7 +24405,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bd44",
     "read_sites": [
@@ -23691,7 +24421,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83bd2c",
     "read_sites": [
@@ -24553,7 +25284,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b8b0",
     "read_sites": [
@@ -24566,7 +25298,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b898",
     "read_sites": [
@@ -24579,7 +25312,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b888",
     "read_sites": [
@@ -24592,7 +25326,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b870",
     "read_sites": [
@@ -24605,7 +25340,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b860",
     "read_sites": [
@@ -24628,7 +25364,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b83c",
     "read_sites": [
@@ -24641,7 +25378,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b828",
     "read_sites": [
@@ -24654,7 +25392,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b80c",
     "read_sites": [
@@ -24687,7 +25426,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b7ac",
     "read_sites": [
@@ -24700,7 +25440,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b790",
     "read_sites": [
@@ -24713,7 +25454,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b770",
     "read_sites": [
@@ -24726,7 +25468,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b760",
     "read_sites": [
@@ -24739,7 +25482,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b750",
     "read_sites": [
@@ -24752,7 +25496,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b738",
     "read_sites": [
@@ -24765,7 +25510,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b728",
     "read_sites": [
@@ -24778,7 +25524,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b710",
     "read_sites": [
@@ -24791,7 +25538,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b6f0",
     "read_sites": [
@@ -24804,7 +25552,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b6d0",
     "read_sites": [
@@ -24817,7 +25566,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b6bc",
     "read_sites": [
@@ -24830,7 +25580,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b6a8",
     "read_sites": [
@@ -24843,7 +25594,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b690",
     "read_sites": [
@@ -24856,7 +25608,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b66c",
     "read_sites": [
@@ -24869,7 +25622,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b644",
     "read_sites": [
@@ -24882,7 +25636,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b61c",
     "read_sites": [
@@ -24895,7 +25650,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b5f8",
     "read_sites": [
@@ -24908,7 +25664,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b5d4",
     "read_sites": [
@@ -24921,7 +25678,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b5b4",
     "read_sites": [
@@ -24934,7 +25692,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b590",
     "read_sites": [
@@ -24947,7 +25706,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b56c",
     "read_sites": [
@@ -24960,7 +25720,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b54c",
     "read_sites": [
@@ -24973,7 +25734,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b52c",
     "read_sites": [
@@ -24986,7 +25748,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b514",
     "read_sites": [
@@ -25009,7 +25772,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b4e8",
     "read_sites": [
@@ -25022,7 +25786,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b4d4",
     "read_sites": [
@@ -25035,7 +25800,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b4c0",
     "read_sites": [
@@ -25048,7 +25814,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b4b4",
     "read_sites": [
@@ -25061,7 +25828,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b4a0",
     "read_sites": [
@@ -25100,7 +25868,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b454",
     "read_sites": [
@@ -25113,7 +25882,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b43c",
     "read_sites": [
@@ -25126,7 +25896,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83b42c",
     "read_sites": [
@@ -25136,8 +25907,10 @@
   },
   "EngineerCaptureLevel": {
     "string": "EngineerCaptureLevel",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x83b414",
     "read_sites": [
       "0x671e03",
@@ -25173,7 +25946,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81da20",
     "read_sites": [
@@ -25186,7 +25960,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d098",
     "read_sites": [
@@ -25295,7 +26070,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d020",
     "read_sites": [
@@ -25321,7 +26097,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d010",
     "read_sites": [
@@ -25335,7 +26112,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d000",
     "read_sites": [
@@ -25353,7 +26131,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cff8",
     "read_sites": [
@@ -25366,7 +26145,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cfe8",
     "read_sites": [
@@ -25467,7 +26247,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83cf78",
     "read_sites": [
@@ -25562,7 +26343,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d4a0",
     "read_sites": [
@@ -25577,7 +26359,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d494",
     "read_sites": [
@@ -25592,7 +26375,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d484",
     "read_sites": [
@@ -25607,7 +26391,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d474",
     "read_sites": [
@@ -25622,7 +26407,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d468",
     "read_sites": [
@@ -25637,7 +26423,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d458",
     "read_sites": [
@@ -25697,7 +26484,8 @@
     "string": "BuildDefense",
     "kind": "tag",
     "domains": [
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x83d3f4",
     "read_sites": [
@@ -25709,7 +26497,8 @@
     "string": "BuildPDefense",
     "kind": "tag",
     "domains": [
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x83d3e4",
     "read_sites": [
@@ -25721,7 +26510,8 @@
     "string": "BuildAA",
     "kind": "tag",
     "domains": [
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x83d3dc",
     "read_sites": [
@@ -25733,7 +26523,8 @@
     "string": "BuildHelipad",
     "kind": "tag",
     "domains": [
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x83d3cc",
     "read_sites": [
@@ -25746,7 +26537,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d3c0",
     "read_sites": [
@@ -25759,7 +26551,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d3b0",
     "read_sites": [
@@ -25772,7 +26565,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d3a8",
     "read_sites": [
@@ -25785,7 +26579,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d3a0",
     "read_sites": [
@@ -25837,7 +26632,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d35c",
     "read_sites": [
@@ -25850,7 +26646,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d350",
     "read_sites": [
@@ -25863,7 +26660,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d344",
     "read_sites": [
@@ -25876,7 +26674,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d334",
     "read_sites": [
@@ -25889,7 +26688,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d328",
     "read_sites": [
@@ -25902,7 +26702,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d314",
     "read_sites": [
@@ -25915,7 +26716,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d304",
     "read_sites": [
@@ -25928,7 +26730,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d2f4",
     "read_sites": [
@@ -25941,7 +26744,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d2e0",
     "read_sites": [
@@ -25954,7 +26758,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d2d0",
     "read_sites": [
@@ -25967,7 +26772,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d2c4",
     "read_sites": [
@@ -25980,7 +26786,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d2b4",
     "read_sites": [
@@ -25993,7 +26800,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d2a4",
     "read_sites": [
@@ -26006,7 +26814,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d294",
     "read_sites": [
@@ -26019,7 +26828,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d284",
     "read_sites": [
@@ -26032,7 +26842,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d278",
     "read_sites": [
@@ -26045,7 +26856,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d26c",
     "read_sites": [
@@ -26058,7 +26870,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d25c",
     "read_sites": [
@@ -26071,7 +26884,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d24c",
     "read_sites": [
@@ -26084,7 +26898,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d244",
     "read_sites": [
@@ -26097,7 +26912,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d23c",
     "read_sites": [
@@ -26110,7 +26926,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d230",
     "read_sites": [
@@ -26123,7 +26940,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d224",
     "read_sites": [
@@ -26136,7 +26954,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d214",
     "read_sites": [
@@ -26149,7 +26968,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d204",
     "read_sites": [
@@ -26162,7 +26982,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d1f4",
     "read_sites": [
@@ -26175,7 +26996,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d1e4",
     "read_sites": [
@@ -26188,7 +27010,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d1d4",
     "read_sites": [
@@ -26201,7 +27024,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d1c8",
     "read_sites": [
@@ -26214,7 +27038,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d1b8",
     "read_sites": [
@@ -26227,7 +27052,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d1a8",
     "read_sites": [
@@ -26240,7 +27066,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d198",
     "read_sites": [
@@ -26253,7 +27080,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d17c",
     "read_sites": [
@@ -26266,7 +27094,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d160",
     "read_sites": [
@@ -26279,7 +27108,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d144",
     "read_sites": [
@@ -26292,7 +27122,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d12c",
     "read_sites": [
@@ -26305,7 +27136,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d110",
     "read_sites": [
@@ -26319,7 +27151,8 @@
     "domains": [
       "art",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81dbbc",
     "read_sites": [
@@ -26333,7 +27166,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81dbd4",
     "read_sites": [
@@ -26347,7 +27181,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81dbcc",
     "read_sites": [
@@ -26361,7 +27196,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81dbc4",
     "read_sites": [
@@ -26378,7 +27214,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81dbac",
     "read_sites": [
@@ -26395,7 +27232,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81bb18",
     "read_sites": [
@@ -26429,7 +27267,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d4b4",
     "read_sites": [
@@ -26444,7 +27283,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d50c",
     "read_sites": [
@@ -26459,7 +27299,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d4fc",
     "read_sites": [
@@ -26474,7 +27315,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d4f0",
     "read_sites": [
@@ -26489,7 +27331,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81bebc",
     "read_sites": [
@@ -26504,7 +27347,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d4e4",
     "read_sites": [
@@ -26519,7 +27363,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d4d8",
     "read_sites": [
@@ -26535,7 +27380,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x817460",
     "read_sites": [
@@ -26550,7 +27396,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d4cc",
     "read_sites": [
@@ -26567,7 +27414,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d4c0",
     "read_sites": [
@@ -26582,7 +27430,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d554",
     "read_sites": [
@@ -26598,7 +27447,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81d9cc",
     "read_sites": [
@@ -26617,7 +27467,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d54c",
     "read_sites": [
@@ -26632,7 +27483,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d53c",
     "read_sites": [
@@ -26647,7 +27499,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d528",
     "read_sites": [
@@ -26662,7 +27515,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x83d518",
     "read_sites": [
@@ -26783,7 +27637,8 @@
     "domains": [
       "map",
       "mission",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x839718",
     "read_sites": [
@@ -27205,7 +28060,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x817270",
     "read_sites": [
@@ -27739,7 +28595,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x820538",
     "read_sites": [
@@ -27754,7 +28611,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x82053c",
     "read_sites": [
@@ -27767,7 +28625,8 @@
     "string": "Blue",
     "kind": "tag",
     "domains": [
-      "map"
+      "map",
+      "ts"
     ],
     "string_va": "0x8207dc",
     "read_sites": [
@@ -28859,7 +29718,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x840028",
     "read_sites": [
@@ -28873,7 +29733,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84025c",
     "read_sites": [
@@ -28891,7 +29752,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x840248",
     "read_sites": [
@@ -28925,7 +29787,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84022c",
     "read_sites": [
@@ -28959,7 +29822,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84020c",
     "read_sites": [
@@ -28993,7 +29857,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8401f8",
     "read_sites": [
@@ -29011,7 +29876,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8401ec",
     "read_sites": [
@@ -29029,7 +29895,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8401e0",
     "read_sites": [
@@ -29550,7 +30417,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81725c",
     "read_sites": [
@@ -29565,7 +30433,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84270c",
     "read_sites": [
@@ -29684,7 +30553,8 @@
       "map",
       "ra2",
       "rules",
-      "sound"
+      "sound",
+      "ts"
     ],
     "string_va": "0x842690",
     "read_sites": [
@@ -29730,8 +30600,10 @@
   },
   "AuxBuilding": {
     "string": "AuxBuilding",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x842664",
     "read_sites": [
       "0x6ced07"
@@ -29742,8 +30614,10 @@
   },
   "UseChargeDrain": {
     "string": "UseChargeDrain",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x842654",
     "read_sites": [
       "0x6ced35"
@@ -29754,8 +30628,10 @@
   },
   "ManualControl": {
     "string": "ManualControl",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x842644",
     "read_sites": [
       "0x6ced4b"
@@ -29770,7 +30646,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x842634",
     "read_sites": [
@@ -29785,7 +30662,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x842624",
     "read_sites": [
@@ -29818,7 +30696,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x842dc4",
     "read_sites": [
@@ -29876,7 +30755,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8173e8",
     "read_sites": [
@@ -29893,7 +30773,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8430ec",
     "read_sites": [
@@ -29927,7 +30808,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8430cc",
     "read_sites": [
@@ -29945,7 +30827,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8430c4",
     "read_sites": [
@@ -29963,7 +30846,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8430b8",
     "read_sites": [
@@ -29981,7 +30865,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8430ac",
     "read_sites": [
@@ -29999,7 +30884,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8430a0",
     "read_sites": [
@@ -30017,7 +30903,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x843094",
     "read_sites": [
@@ -30035,7 +30922,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x843088",
     "read_sites": [
@@ -30053,7 +30941,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x843080",
     "read_sites": [
@@ -30089,7 +30978,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x843060",
     "read_sites": [
@@ -30107,7 +30997,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x843058",
     "read_sites": [
@@ -30126,7 +31017,8 @@
       "ai",
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843050",
     "read_sites": [
@@ -30146,7 +31038,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x843040",
     "read_sites": [
@@ -30164,7 +31057,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x843034",
     "read_sites": [
@@ -30182,7 +31076,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x843028",
     "read_sites": [
@@ -30202,7 +31097,8 @@
       "eva",
       "map",
       "ra2",
-      "sound"
+      "sound",
+      "ts"
     ],
     "string_va": "0x84301c",
     "read_sites": [
@@ -30225,7 +31121,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x843018",
     "read_sites": [
@@ -30259,7 +31156,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x843008",
     "read_sites": [
@@ -30277,7 +31175,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x842ffc",
     "read_sites": [
@@ -30295,7 +31194,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x842fe4",
     "read_sites": [
@@ -30313,7 +31213,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x842fc8",
     "read_sites": [
@@ -30331,7 +31232,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x842fac",
     "read_sites": [
@@ -30381,7 +31283,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x817348",
     "read_sites": [
@@ -30399,7 +31302,8 @@
     "domains": [
       "ai",
       "map",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8172fc",
     "read_sites": [
@@ -30472,7 +31376,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844504",
     "read_sites": [
@@ -30504,7 +31409,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8444ec",
     "read_sites": [
@@ -30519,7 +31425,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8444e0",
     "read_sites": [
@@ -30549,7 +31456,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8444c4",
     "read_sites": [
@@ -30561,8 +31469,10 @@
   },
   "IsTrain": {
     "string": "IsTrain",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x8444bc",
     "read_sites": [
       "0x712277"
@@ -30588,7 +31498,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8444a4",
     "read_sites": [
@@ -30615,8 +31526,10 @@
   },
   "IsDropship": {
     "string": "IsDropship",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x84447c",
     "read_sites": [
       "0x712357"
@@ -30657,7 +31570,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844458",
     "read_sites": [
@@ -30672,7 +31586,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84444c",
     "read_sites": [
@@ -30689,7 +31604,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84443c",
     "read_sites": [
@@ -30704,7 +31620,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844420",
     "read_sites": [
@@ -30716,8 +31633,10 @@
   },
   "SlowdownDistance": {
     "string": "SlowdownDistance",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x84440c",
     "read_sites": [
       "0x71247c"
@@ -30731,7 +31650,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8443f4",
     "read_sites": [
@@ -30746,7 +31666,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8443e0",
     "read_sites": [
@@ -30761,7 +31682,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8443d8",
     "read_sites": [
@@ -30776,7 +31698,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8443c8",
     "read_sites": [
@@ -30837,7 +31760,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84439c",
     "read_sites": [
@@ -30871,7 +31795,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844384",
     "read_sites": [
@@ -30888,7 +31813,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844374",
     "read_sites": [
@@ -30993,7 +31919,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8442f8",
     "read_sites": [
@@ -31009,7 +31936,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8442ec",
     "read_sites": [
@@ -31054,7 +31982,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8442c0",
     "read_sites": [
@@ -31069,7 +31998,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8442b4",
     "read_sites": [
@@ -31112,7 +32042,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84427c",
     "read_sites": [
@@ -31137,8 +32068,10 @@
   },
   "VoiceDie": {
     "string": "VoiceDie",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x84425c",
     "read_sites": [
       "0x712d48"
@@ -31150,7 +32083,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84424c",
     "read_sites": [
@@ -31165,7 +32099,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844240",
     "read_sites": [
@@ -31180,7 +32115,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844234",
     "read_sites": [
@@ -31322,7 +32258,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8441ac",
     "read_sites": [
@@ -31337,7 +32274,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8441a0",
     "read_sites": [
@@ -31352,7 +32290,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844194",
     "read_sites": [
@@ -31367,7 +32306,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84418c",
     "read_sites": [
@@ -31382,7 +32322,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844180",
     "read_sites": [
@@ -31397,7 +32338,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844170",
     "read_sites": [
@@ -31492,7 +32434,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844110",
     "read_sites": [
@@ -31582,7 +32525,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8440b0",
     "read_sites": [
@@ -31597,7 +32541,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8440a0",
     "read_sites": [
@@ -31687,7 +32632,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81da00",
     "read_sites": [
@@ -31755,7 +32701,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843f8c",
     "read_sites": [
@@ -31782,7 +32729,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843f60",
     "read_sites": [
@@ -31878,7 +32826,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843ecc",
     "read_sites": [
@@ -31921,7 +32870,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843ea8",
     "read_sites": [
@@ -31996,7 +32946,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843e58",
     "read_sites": [
@@ -32059,7 +33010,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843e04",
     "read_sites": [
@@ -32117,7 +33069,8 @@
     "domains": [
       "mp",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843da8",
     "read_sites": [
@@ -32144,7 +33097,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843d88",
     "read_sites": [
@@ -32677,7 +33631,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81bbe0",
     "read_sites": [
@@ -32818,8 +33773,10 @@
   },
   "Reload": {
     "string": "Reload",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x843a5c",
     "read_sites": [
       "0x714871"
@@ -32977,7 +33934,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8439a8",
     "read_sites": [
@@ -32995,7 +33953,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84399c",
     "read_sites": [
@@ -33010,7 +33969,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843994",
     "read_sites": [
@@ -33040,7 +34000,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843974",
     "read_sites": [
@@ -33055,7 +34016,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84396c",
     "read_sites": [
@@ -33096,7 +34058,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843950",
     "read_sites": [
@@ -33131,7 +34094,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843928",
     "read_sites": [
@@ -33154,7 +34118,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81bbd4",
     "read_sites": [
@@ -33167,7 +34132,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843910",
     "read_sites": [
@@ -33180,7 +34146,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843904",
     "read_sites": [
@@ -33216,7 +34183,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8438dc",
     "read_sites": [
@@ -33229,7 +34197,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8438cc",
     "read_sites": [
@@ -33243,7 +34212,8 @@
     "domains": [
       "mp",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8438b0",
     "read_sites": [
@@ -33269,7 +34239,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843898",
     "read_sites": [
@@ -33279,8 +34250,10 @@
   },
   "HunterSeeker": {
     "string": "HunterSeeker",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x843888",
     "read_sites": [
       "0x714cae"
@@ -33292,7 +34265,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x81bb58",
     "read_sites": [
@@ -33795,7 +34769,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843640",
     "read_sites": [
@@ -33975,8 +34950,10 @@
   },
   "TiltsWhenCrushes": {
     "string": "TiltsWhenCrushes",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x843540",
     "read_sites": [
       "0x7153e1"
@@ -33990,7 +34967,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843534",
     "read_sites": [
@@ -34017,7 +34995,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843518",
     "read_sites": [
@@ -34032,7 +35011,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x843508",
     "read_sites": [
@@ -34047,7 +35027,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8434f8",
     "read_sites": [
@@ -34077,7 +35058,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8434d4",
     "read_sites": [
@@ -34152,7 +35134,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84342c",
     "read_sites": [
@@ -34196,7 +35179,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8433b0",
     "read_sites": [
@@ -34223,7 +35207,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x843398",
     "read_sites": [
@@ -34250,7 +35235,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x843380",
     "read_sites": [
@@ -34295,7 +35281,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x843350",
     "read_sites": [
@@ -34331,7 +35318,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8432f8",
     "read_sites": [
@@ -34346,7 +35334,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8432e8",
     "read_sites": [
@@ -34361,7 +35350,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8432d4",
     "read_sites": [
@@ -34376,7 +35366,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8432c0",
     "read_sites": [
@@ -34388,8 +35379,10 @@
   },
   "SBarrelLength": {
     "string": "SBarrelLength",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x8432b0",
     "read_sites": [
       "0x715e59"
@@ -34492,7 +35485,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x8431ec",
     "read_sites": [
@@ -34521,7 +35515,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8431c8",
     "read_sites": [
@@ -34552,7 +35547,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844684",
     "read_sites": [
@@ -34567,7 +35563,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844674",
     "read_sites": [
@@ -34582,7 +35579,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844668",
     "read_sites": [
@@ -34597,7 +35595,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84465c",
     "read_sites": [
@@ -34612,7 +35611,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84464c",
     "read_sites": [
@@ -34627,7 +35627,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844634",
     "read_sites": [
@@ -34642,7 +35643,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84461c",
     "read_sites": [
@@ -34657,7 +35659,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844608",
     "read_sites": [
@@ -34685,7 +35688,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "theme"
+      "theme",
+      "ts"
     ],
     "string_va": "0x844740",
     "read_sites": [
@@ -34710,7 +35714,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844924",
     "read_sites": [
@@ -34726,7 +35731,8 @@
     "domains": [
       "mp",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844910",
     "read_sites": [
@@ -34741,7 +35747,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x844908",
     "read_sites": [
@@ -34757,7 +35764,8 @@
     "domains": [
       "mp",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8448f4",
     "read_sites": [
@@ -34773,7 +35781,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8448ec",
     "read_sites": [
@@ -34788,7 +35797,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8448e4",
     "read_sites": [
@@ -34820,7 +35830,8 @@
     "domains": [
       "mp",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x845e20",
     "read_sites": [
@@ -34832,8 +35843,10 @@
   },
   "DeployToFire": {
     "string": "DeployToFire",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845e10",
     "read_sites": [
       "0x747672"
@@ -34861,7 +35874,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x845df0",
     "read_sites": [
@@ -34876,7 +35890,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x845de0",
     "read_sites": [
@@ -34891,7 +35906,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x845dc8",
     "read_sites": [
@@ -34915,8 +35931,10 @@
   },
   "UseTurretShadow": {
     "string": "UseTurretShadow",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845da0",
     "read_sites": [
       "0x7477c8"
@@ -34930,7 +35948,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x845d94",
     "read_sites": [
@@ -34945,7 +35964,8 @@
     "kind": "tag",
     "domains": [
       "art",
-      "ra2"
+      "ra2",
+      "ts"
     ],
     "string_va": "0x845d84",
     "read_sites": [
@@ -34957,8 +35977,10 @@
   },
   "Passive": {
     "string": "Passive",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845d7c",
     "read_sites": [
       "0x747821"
@@ -34972,7 +35994,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x845d64",
     "read_sites": [
@@ -34996,8 +36019,10 @@
   },
   "NonVehicle": {
     "string": "NonVehicle",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845d4c",
     "read_sites": [
       "0x7478a3"
@@ -35008,8 +36033,10 @@
   },
   "StandingFrames": {
     "string": "StandingFrames",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845d3c",
     "read_sites": [
       "0x7478d1"
@@ -35020,8 +36047,10 @@
   },
   "DeathFrames": {
     "string": "DeathFrames",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845d30",
     "read_sites": [
       "0x7478ed"
@@ -35032,8 +36061,10 @@
   },
   "DeathFrameRate": {
     "string": "DeathFrameRate",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845d20",
     "read_sites": [
       "0x74790b"
@@ -35044,8 +36075,10 @@
   },
   "Facings": {
     "string": "Facings",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845d18",
     "read_sites": [
       "0x747951"
@@ -35056,8 +36089,10 @@
   },
   "StartStandFrame": {
     "string": "StartStandFrame",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845d08",
     "read_sites": [
       "0x747a23"
@@ -35068,8 +36103,10 @@
   },
   "StartWalkFrame": {
     "string": "StartWalkFrame",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845cf8",
     "read_sites": [
       "0x747a3b"
@@ -35080,8 +36117,10 @@
   },
   "StartFiringFrame": {
     "string": "StartFiringFrame",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845ce4",
     "read_sites": [
       "0x747a58"
@@ -35092,8 +36131,10 @@
   },
   "StartDeathFrame": {
     "string": "StartDeathFrame",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845cd4",
     "read_sites": [
       "0x747a74"
@@ -35104,8 +36145,10 @@
   },
   "MaxDeathCounter": {
     "string": "MaxDeathCounter",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845cc4",
     "read_sites": [
       "0x747a92"
@@ -35116,8 +36159,10 @@
   },
   "AltImage": {
     "string": "AltImage",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ts"
+    ],
     "string_va": "0x845c94",
     "read_sites": [
       "0x747b80"
@@ -35633,7 +36678,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x845f14",
     "read_sites": [
@@ -35648,7 +36694,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x845f00",
     "read_sites": [
@@ -35663,7 +36710,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x845ef4",
     "read_sites": [
@@ -35678,7 +36726,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x845eec",
     "read_sites": [
@@ -35705,7 +36754,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x845ecc",
     "read_sites": [
@@ -35756,7 +36806,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x845e94",
     "read_sites": [
@@ -36234,7 +37285,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x817384",
     "read_sites": [
@@ -36249,7 +37301,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x847e34",
     "read_sites": [
@@ -36293,7 +37346,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x847e00",
     "read_sites": [
@@ -36308,7 +37362,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x847df8",
     "read_sites": [
@@ -36338,7 +37393,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x847de8",
     "read_sites": [
@@ -36365,7 +37421,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x836f04",
     "read_sites": [
@@ -36380,7 +37437,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x847dd0",
     "read_sites": [
@@ -36439,7 +37497,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x847d94",
     "read_sites": [
@@ -36454,7 +37513,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x847d88",
     "read_sites": [
@@ -36469,7 +37529,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x847d80",
     "read_sites": [
@@ -36484,7 +37545,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x847d6c",
     "read_sites": [
@@ -36499,7 +37561,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x847d60",
     "read_sites": [
@@ -36720,7 +37783,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x847ce8",
     "read_sites": [
@@ -36794,7 +37858,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x847cb4",
     "read_sites": [
@@ -36869,7 +37934,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x847c38",
     "read_sites": [
@@ -37622,7 +38688,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x849548",
     "read_sites": [
@@ -37637,7 +38704,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x849540",
     "read_sites": [
@@ -37899,7 +38967,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x849438",
     "read_sites": [
@@ -37914,7 +38983,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x849428",
     "read_sites": [
@@ -37997,7 +39067,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8493e0",
     "read_sites": [
@@ -38056,7 +39127,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8493c0",
     "read_sites": [
@@ -38071,7 +39143,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x8493ac",
     "read_sites": [
@@ -38086,7 +39159,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x849398",
     "read_sites": [
@@ -38128,7 +39202,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x849368",
     "read_sites": [
@@ -38143,7 +39218,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x849360",
     "read_sites": [
@@ -38158,7 +39234,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x849350",
     "read_sites": [
@@ -38173,7 +39250,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x849340",
     "read_sites": [
@@ -38189,7 +39267,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84932c",
     "read_sites": [
@@ -38205,7 +39284,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x84931c",
     "read_sites": [
@@ -38220,7 +39300,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x849310",
     "read_sites": [
@@ -38363,7 +39444,8 @@
     "kind": "tag",
     "domains": [
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x849274",
     "read_sites": [
@@ -38379,7 +39461,8 @@
     "domains": [
       "map",
       "ra2",
-      "rules"
+      "rules",
+      "ts"
     ],
     "string_va": "0x849268",
     "read_sites": [

@@ -41,6 +41,7 @@ EXE = "/home/rex/gamemd.exe"
 # is committed, never the INI contents.
 _YR = os.path.join(ROOT, "sources", "ini-cache", "yr")
 _RA2 = os.path.join(ROOT, "sources", "ini-cache", "ra2")
+_TS = os.path.join(ROOT, "sources", "ini-cache", "ts")
 # domain -> list of INI files that define that domain's keys. Cross-referenced to
 # label which strings the engine pushes are real tags (and of what kind). All vanilla.
 INI_UNIVERSES = {
@@ -72,6 +73,14 @@ INI_UNIVERSES = {
                  "mpcoop", "mpduel", "mpfreeforall", "mpmeat", "mpmw", "mpnaval",
                  "mpsiege", "mpunholy", "snow", "temperat", "urban", "eva")]
                + [f"{_RA2}/missions.pkt"],
+    # Tiberian Sun (+ Firestorm) INIs — the base engine YR ultimately descends from.
+    # A string classed as `ts` but not `ra2`/YR is the DEEPEST legacy: a TS tag the YR
+    # engine still reads (e.g. TS Ion-storm / Veinhole / Firestorm-era logic). Cloned
+    # from Vinifera-Developers/Tiberian-Sun-INIs into the gitignored cache.
+    "ts":      [f"{_TS}/{n}.INI" for n in
+                ("RULES", "FIRESTRM", "ART", "ARTFS", "AI", "AIFS", "SOUND", "ION",
+                 "KEYBOARD", "MAPSEL", "MISSION", "THEME", "TUTORIAL", "BATTLE",
+                 "NEWMENU", "SNOW", "TEMPERAT", "DAY", "DUSK", "MORNING", "NIGHT")],
     # Map/scenario files are INI text too ([Basic]/[Map]/[SpecialFlags]/lighting/
     # trigger sections) and carry scenario keys the engine reads that appear in no
     # other INI (HomeCell, CarryOverMoney, NextScenario, IceGrowthEnabled, ...).

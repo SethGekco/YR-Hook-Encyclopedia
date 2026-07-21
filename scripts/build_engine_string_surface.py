@@ -104,8 +104,27 @@ INI_UNIVERSES = {
     ],
 }
 
-FILE_EXT = re.compile(r"\.(INI|MIX|PAL|SHP|VXL|HVA|PCX|WAV|AUD|CSF|BAG|IDX|TXT|BIN|MAP|PKT|TMP|DLL|EXE)$", re.I)
+# Some engine-read identifiers are fixed *section* names the engine iterates as a list
+# (`[TaskForces]`/`[ScriptTypes]`/`[TeamTypes]` in AI INIs; `[CellTags]`/`[Waypoints]`/
+# `[UnitActionLines]` in map/scenario files), not `key=` tags — so load_keys misses
+# them. We index the section HEADERS of AI + map + mission INIs only (NOT rules/art,
+# whose sections are the thousands of object IDs the engine never pushes as literals).
+SECTION_UNIVERSES = {
+    "ai":      [f"{_YR}/aimd.ini"],
+    "mission": [f"{_YR}/missionmd.ini"],
+    "ra2":     [f"{_RA2}/ai.ini"],
+    "ts":      [f"{_TS}/AI.INI"],
+    "tsfs":    [f"{_TS}/AIFS.INI"],
+    "map":     INI_UNIVERSES["map"],
+}
+
+FILE_EXT = re.compile(r"\.(INI|MIX|PAL|SHP|VXL|HVA|PCX|WAV|AUD|CSF|BAG|IDX|TXT|BIN|MAP|PKT|"
+                      r"TMP|DLL|EXE|FNT|DAT|VPL|IMG|SED|KEY|NET|BMP|HLP|YRO|PKG|MMX|MPR|YRM)$", re.I)
 IDENT = re.compile(r"^[A-Za-z][A-Za-z0-9._]{2,39}$")
+# Extra shape heuristics used to split the "no INI match" leftovers (see classify()).
+FILE_DOTTED = re.compile(r"^[A-Za-z0-9]+(\.[A-Za-z0-9]*)+$")     # WW.TiberianSun, Bootstrap.....
+FUNCLIKE = re.compile(r"^[A-Za-z][A-Za-z0-9]*(_[A-Za-z0-9]*)+$")  # Dial_Modem, Ra2ts_s, Lob_41_
+TAGSHAPE = re.compile(r"^[A-Z][A-Za-z0-9]{2,}$")                  # CamelCase engine key (Rotors, ActiveAnimTwoX)
 
 
 def parse_pe(data):
@@ -137,13 +156,44 @@ def load_keys(paths):
     return keys
 
 
+def load_sections(paths):
+    """Section HEADERS (`[Name]`) — for the fixed list-sections the engine reads as
+    literals (`[TaskForces]`, `[Waypoints]`, ...). Only used for AI/map/mission files,
+    never rules/art (whose sections are the thousands of object IDs)."""
+    names = set()
+    for path in paths:
+        if not os.path.exists(path):
+            continue
+        for line in open(path, encoding="latin1"):
+            m = re.match(r"\s*\[([A-Za-z][A-Za-z0-9._]*)\]", line)
+            if m:
+                names.add(m.group(1))
+    return names
+
+
 def classify(s, domains):
+    """Bucket a pushed engine string.
+      tag          - a key/section in an INI we have (named, with domain)
+      tag-unlisted - CamelCase engine key shape, but in no INI we have (unnamed tag)
+      file         - a filename / dotted resource name
+      code         - internal identifier: type/enum/UI id, function or debug string
+      unclassified - genuinely ambiguous leftover
+    """
     if domains:
         return "tag"
-    if FILE_EXT.search(s):
-        return "file"
-    if len(s) <= 4 and s.isupper():
+    core = s.rstrip("\n")
+    if core != s:                       # embedded newline => internal/debug string
         return "code"
+    if FILE_EXT.search(core) or FILE_DOTTED.match(core):
+        return "file"
+    if FUNCLIKE.match(core):            # Word_Word / Lob_41_ => function or debug label
+        return "code"
+    if core.isupper():                  # AIRCRAFT, FACTORY, CLSID => RTTI/abstract type, UI id
+        return "code"
+    if core.islower():                  # none, yes, false, standard => value literal
+        return "code"
+    if TAGSHAPE.match(core):            # real engine key vanilla content just never sets
+        return "tag-unlisted"
     return "unclassified"
 
 
@@ -177,6 +227,8 @@ def main():
 
     # resolve each push target to an identifier string
     universes = {name: load_keys(p) for name, p in INI_UNIVERSES.items()}
+    for name, paths in SECTION_UNIVERSES.items():
+        universes.setdefault(name, set()).update(load_sections(paths))
     known_hooks = set()
     hp = os.path.join(REG, "hooks.json")
     if os.path.exists(hp):
@@ -236,7 +288,18 @@ def main():
         kinds[v["kind"]] += 1
         for d in v["domains"]:
             dom[d] += 1
+    tag_unlisted = sorted(s for s, v in surface.items() if v["kind"] == "tag-unlisted")
     unclassified = sorted(s for s, v in surface.items() if v["kind"] == "unclassified")
+
+    def write_table(fh, rows):
+        fh.write("| String | Read site(s) | Near known hook |\n|---|---|---|\n")
+        for s in rows:
+            v = surface[s]
+            shown = " ".join(f"`{r}`" for r in v["read_sites"][:4]) or "—"
+            if len(v["read_sites"]) > 4:
+                shown += f" (+{len(v['read_sites']) - 4})"
+            hint = " ".join(f"`{val}`" for val in list(v["near_known_hook"].values())[:2])
+            fh.write(f"| `{s}` | {shown} | {hint} |\n")
 
     with open(os.path.join(REG, "engine-string-surface.md"), "w", encoding="utf-8") as fh:
         fh.write("# Engine string-key surface (Phase E)\n\n")
@@ -246,31 +309,34 @@ def main():
         fh.write("> Every identifier-string the engine **pushes** as a call argument, with the\n")
         fh.write("> code address(es) that read it. A read site is where a tag is *parsed* — a\n")
         fh.write("> candidate hook location, **not** proof of where its behaviour lives. Strings\n")
-        fh.write("> are classed as `tag` (a key in an INI we checked), `file`, `code` (short\n")
-        fh.write("> object id), or `unclassified` (identifier the engine reads but not in any INI\n")
-        fh.write("> we have — a candidate *undocumented* tag, or an internal/section string).\n\n")
+        fh.write("> are classed as:\n")
+        fh.write("> - `tag` — a key (or list-section) in an INI we checked; has a domain.\n")
+        fh.write("> - `tag-unlisted` — CamelCase engine-key shape, read by the binary, but in\n")
+        fh.write(">   **no** INI we have. These are real engine tags vanilla content never sets\n")
+        fh.write(">   (rare/defaulted rules & art keys) — the richest lead-list of *undocumented* tags.\n")
+        fh.write("> - `file` — a filename / dotted resource name.\n")
+        fh.write("> - `code` — an internal identifier: RTTI/abstract type, UI id, value literal,\n")
+        fh.write(">   or a function/debug string. Not a tag.\n")
+        fh.write("> - `unclassified` — genuinely ambiguous leftover (small residual).\n\n")
         fh.write(f"**{len(surface)}** pushed identifier strings. "
                  f"Kinds: " + ", ".join(f"{k} {n}" for k, n in sorted(kinds.items(), key=lambda x: -x[1])) + ".\n\n")
         fh.write("Tag domains (a string may be in more than one): "
                  + ", ".join(f"{d} {n}" for d, n in sorted(dom.items(), key=lambda x: -x[1])) + ".\n\n")
         fh.write("Full data in `engine-string-surface.csv` / `.json`. Rules tags also have a "
                  "cleaner, cross-linked view in `vanilla-tags.md` (Phase D).\n\n")
-        fh.write(f"## Unclassified — candidate undocumented tags ({len(unclassified)})\n\n")
-        fh.write("_Identifier strings the engine reads that aren't a key in rules/art/ai here. "
-                 "Some are internal strings or section names; some may be real, undocumented "
-                 "tags worth probing. Read site(s) shown._\n\n")
-        fh.write("| String | Read site(s) | Near known hook |\n|---|---|---|\n")
-        for s in unclassified:
-            v = surface[s]
-            shown = " ".join(f"`{r}`" for r in v["read_sites"][:4]) or "—"
-            if len(v["read_sites"]) > 4:
-                shown += f" (+{len(v['read_sites']) - 4})"
-            hint = " ".join(f"`{val}`" for val in list(v["near_known_hook"].values())[:2])
-            fh.write(f"| `{s}` | {shown} | {hint} |\n")
+        fh.write(f"## Unnamed engine tags — `tag-unlisted` ({len(tag_unlisted)})\n\n")
+        fh.write("_CamelCase keys the binary reads that appear in **no** INI we have — real "
+                 "engine tags vanilla content never sets (e.g. rarely-used rules/art keys). "
+                 "The best lead-list of undocumented tags. Read site(s) shown._\n\n")
+        write_table(fh, tag_unlisted)
+        fh.write(f"\n## Unclassified — ambiguous residual ({len(unclassified)})\n\n")
+        fh.write("_Leftovers that fit neither a tag, file, nor code shape. Probe individually._\n\n")
+        write_table(fh, unclassified)
 
     print(f"OK: {len(surface)} pushed identifier strings. Kinds: {dict(kinds)}")
     print(f"  tag domains: {dict(dom)}")
-    print(f"  unclassified (candidate undocumented): {len(unclassified)}")
+    print(f"  tag-unlisted (unnamed engine tags): {len(tag_unlisted)}")
+    print(f"  unclassified (ambiguous residual): {len(unclassified)}")
 
 
 if __name__ == "__main__":

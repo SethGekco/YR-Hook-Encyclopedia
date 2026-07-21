@@ -107,16 +107,29 @@ Two ways to go from "I want behaviour X" to "which hook is it":
 - **The whole engine surface** (`registry/engine-string-surface.*`, built by
   `build_engine_string_surface.py`). The reverse of the above: instead of looking
   up known tags, it enumerates **every identifier string the engine pushes** and
-  classifies each — `tag` (a key in rules/art/ai), `file`, `code` (object id), or
-  `unclassified`. Strings are classed against the **full vanilla YR INI set** (30
-  files: rules, art, ai, sound, eva, theme, ui, rmg, the theater tile-control
-  files, the MP game-mode files, mission/mapsel/battle/coop), **sample map/scenario
-  files** (`.map`/`.mpr`/`.yrm`/`.mmx` — the `map` domain: `HomeCell`,
-  `NextScenario`, `IceGrowthEnabled`, the lighting `Ion*` keys), the **original
-  Red Alert 2 INIs** (`ra2` domain), and the **Tiberian Sun INIs**, split into
-  base TS (`ts`, v1.x) and the **Firestorm expansion** (`tsfs`, v2.00 — the
-  FS-suffixed / numbered overlay INIs). **1,898** classify as tags; **622** remain
-  `unclassified`.
+  classifies each into one of five kinds:
+  - `tag` — a key (or fixed list-section like `[TaskForces]`/`[Waypoints]`) in an
+    INI we checked; carries a domain. **1,919**.
+  - `tag-unlisted` — a CamelCase engine-key shape the binary reads but that appears
+    in **no** INI we have: real engine tags vanilla content never sets (rare or
+    defaulted rules/art keys — `ActiveAnimTwoX`, `ShowOccupantPips`, `CustomRotor`,
+    `AIUseTurbineUpgradeProbability`). The richest lead-list of *undocumented* tags.
+    **514**.
+  - `file` (319, filenames/resources), `code` (146, RTTI/abstract types, UI ids,
+    value literals, function/debug strings — not tags), and `unclassified`
+    (ambiguous residual — now **0**).
+
+  Strings are classed against the **full vanilla YR INI set** (30 files: rules,
+  art, ai, sound, eva, theme, ui, rmg, the theater tile-control files, the MP
+  game-mode files, mission/mapsel/battle/coop), **sample map/scenario files**
+  (`.map`/`.mpr`/`.yrm`/`.mmx` — the `map` domain: `HomeCell`, `NextScenario`,
+  `IceGrowthEnabled`, the lighting `Ion*` keys), the **original Red Alert 2 INIs**
+  (`ra2` domain), and the **Tiberian Sun INIs**, split into base TS (`ts`, v1.x)
+  and the **Firestorm expansion** (`tsfs`, v2.00 — the FS-suffixed / numbered
+  overlay INIs). Fixed list-*section* names (`[TaskForces]`/`[ScriptTypes]` in AI
+  INIs, `[CellTags]`/`[Waypoints]` in maps) are indexed too — but only for AI / map
+  / mission files, never rules/art (whose sections are object IDs the engine never
+  pushes as literals).
   - **Engine-lineage legacy tags.** YR runs on the RA2 engine, which runs on the
     Tiberian Sun engine (base game + Firestorm). When a feature was cut, its
     *tag-reading code often stayed in the binary*. Classifying against RA2, base TS

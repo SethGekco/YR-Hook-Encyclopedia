@@ -27,7 +27,7 @@
   },
   "none": {
     "string": "none",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x817694",
     "read_sites": [
@@ -159,7 +159,7 @@
   },
   "Stop_Audio_Handler\n": {
     "string": "Stop_Audio_Handler\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x817950",
     "read_sites": [
@@ -232,7 +232,7 @@
   },
   "Rotors": {
     "string": "Rotors",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x818020",
     "read_sites": [
@@ -244,7 +244,7 @@
   },
   "CustomRotor": {
     "string": "CustomRotor",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x818014",
     "read_sites": [
@@ -319,7 +319,7 @@
   },
   "RING1": {
     "string": "RING1",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x8182f0",
     "read_sites": [
@@ -455,7 +455,7 @@
   },
   "Flamer": {
     "string": "Flamer",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81861c",
     "read_sites": [
@@ -1172,7 +1172,7 @@
   },
   "BounceAnim": {
     "string": "BounceAnim",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8183f8",
     "read_sites": [
@@ -1448,7 +1448,7 @@
   },
   "GAME.FNT": {
     "string": "GAME.FNT",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x818b98",
     "read_sites": [
@@ -1529,7 +1529,7 @@
   },
   "Rubble": {
     "string": "Rubble",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819458",
     "read_sites": [
@@ -1706,7 +1706,7 @@
   },
   "HalfDamageSmokeLocation2": {
     "string": "HalfDamageSmokeLocation2",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81ae68",
     "read_sites": [
@@ -1879,7 +1879,7 @@
   },
   "WantsExtraSpace": {
     "string": "WantsExtraSpace",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81adec",
     "read_sites": [
@@ -1970,7 +1970,7 @@
   },
   "ShowOccupantPips": {
     "string": "ShowOccupantPips",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81ad98",
     "read_sites": [
@@ -2311,7 +2311,7 @@
   },
   "HoverPad": {
     "string": "HoverPad",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81ac14",
     "read_sites": [
@@ -2367,7 +2367,7 @@
   },
   "SecretUnit": {
     "string": "SecretUnit",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81abe4",
     "read_sites": [
@@ -2468,7 +2468,7 @@
   },
   "BuildupSound": {
     "string": "BuildupSound",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81ab58",
     "read_sites": [
@@ -2478,7 +2478,7 @@
   },
   "PackupSound": {
     "string": "PackupSound",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81ab4c",
     "read_sites": [
@@ -2502,7 +2502,7 @@
   },
   "UnitExitSound": {
     "string": "UnitExitSound",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81ab2c",
     "read_sites": [
@@ -2512,7 +2512,7 @@
   },
   "UnitEnterSound": {
     "string": "UnitEnterSound",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81ab1c",
     "read_sites": [
@@ -2963,7 +2963,7 @@
   },
   "BarrelStartPitch": {
     "string": "BarrelStartPitch",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a94c",
     "read_sites": [
@@ -3573,7 +3573,7 @@
   },
   "SecondaryFirePixelOffset": {
     "string": "SecondaryFirePixelOffset",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a6c0",
     "read_sites": [
@@ -3611,7 +3611,7 @@
   },
   "SpecialZOverlayZAdjust": {
     "string": "SpecialZOverlayZAdjust",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a67c",
     "read_sites": [
@@ -3706,7 +3706,7 @@
   },
   "AnimIdle": {
     "string": "AnimIdle",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a600",
     "read_sites": [
@@ -3731,7 +3731,7 @@
   },
   "AnimAux1": {
     "string": "AnimAux1",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a5e8",
     "read_sites": [
@@ -3741,7 +3741,7 @@
   },
   "AnimAux2": {
     "string": "AnimAux2",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a5dc",
     "read_sites": [
@@ -3794,7 +3794,7 @@
   },
   "ActiveAnimX": {
     "string": "ActiveAnimX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a598",
     "read_sites": [
@@ -3874,7 +3874,7 @@
   },
   "ActiveAnimPoweredEffect": {
     "string": "ActiveAnimPoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a524",
     "read_sites": [
@@ -3926,7 +3926,7 @@
   },
   "ActiveAnimTwoGarrisoned": {
     "string": "ActiveAnimTwoGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a4c8",
     "read_sites": [
@@ -3936,7 +3936,7 @@
   },
   "ActiveAnimTwoX": {
     "string": "ActiveAnimTwoX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a4b8",
     "read_sites": [
@@ -3946,7 +3946,7 @@
   },
   "ActiveAnimTwoY": {
     "string": "ActiveAnimTwoY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a4a8",
     "read_sites": [
@@ -4013,7 +4013,7 @@
   },
   "ActiveAnimTwoPoweredEffect": {
     "string": "ActiveAnimTwoPoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a42c",
     "read_sites": [
@@ -4023,7 +4023,7 @@
   },
   "ActiveAnimTwoPoweredSpecial": {
     "string": "ActiveAnimTwoPoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a410",
     "read_sites": [
@@ -4063,7 +4063,7 @@
   },
   "ActiveAnimThreeGarrisoned": {
     "string": "ActiveAnimThreeGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a3cc",
     "read_sites": [
@@ -4073,7 +4073,7 @@
   },
   "ActiveAnimThreeX": {
     "string": "ActiveAnimThreeX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a3b8",
     "read_sites": [
@@ -4083,7 +4083,7 @@
   },
   "ActiveAnimThreeY": {
     "string": "ActiveAnimThreeY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a3a4",
     "read_sites": [
@@ -4149,7 +4149,7 @@
   },
   "ActiveAnimThreePoweredEffect": {
     "string": "ActiveAnimThreePoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a320",
     "read_sites": [
@@ -4159,7 +4159,7 @@
   },
   "ActiveAnimThreePoweredSpecial": {
     "string": "ActiveAnimThreePoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a300",
     "read_sites": [
@@ -4197,7 +4197,7 @@
   },
   "ActiveAnimFourGarrisoned": {
     "string": "ActiveAnimFourGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a2bc",
     "read_sites": [
@@ -4207,7 +4207,7 @@
   },
   "ActiveAnimFourX": {
     "string": "ActiveAnimFourX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a2ac",
     "read_sites": [
@@ -4217,7 +4217,7 @@
   },
   "ActiveAnimFourY": {
     "string": "ActiveAnimFourY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a29c",
     "read_sites": [
@@ -4254,7 +4254,7 @@
   },
   "ActiveAnimFourPowered": {
     "string": "ActiveAnimFourPowered",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a258",
     "read_sites": [
@@ -4264,7 +4264,7 @@
   },
   "ActiveAnimFourPoweredLight": {
     "string": "ActiveAnimFourPoweredLight",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a23c",
     "read_sites": [
@@ -4274,7 +4274,7 @@
   },
   "ActiveAnimFourPoweredEffect": {
     "string": "ActiveAnimFourPoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a220",
     "read_sites": [
@@ -4284,7 +4284,7 @@
   },
   "ActiveAnimFourPoweredSpecial": {
     "string": "ActiveAnimFourPoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a200",
     "read_sites": [
@@ -4320,7 +4320,7 @@
   },
   "SuperAnimGarrisoned": {
     "string": "SuperAnimGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a1cc",
     "read_sites": [
@@ -4330,7 +4330,7 @@
   },
   "SuperAnimX": {
     "string": "SuperAnimX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a1c0",
     "read_sites": [
@@ -4340,7 +4340,7 @@
   },
   "SuperAnimY": {
     "string": "SuperAnimY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a1b4",
     "read_sites": [
@@ -4388,7 +4388,7 @@
   },
   "SuperAnimPoweredLight": {
     "string": "SuperAnimPoweredLight",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a164",
     "read_sites": [
@@ -4398,7 +4398,7 @@
   },
   "SuperAnimPoweredEffect": {
     "string": "SuperAnimPoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a14c",
     "read_sites": [
@@ -4408,7 +4408,7 @@
   },
   "SuperAnimPoweredSpecial": {
     "string": "SuperAnimPoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a134",
     "read_sites": [
@@ -4444,7 +4444,7 @@
   },
   "SuperAnimTwoGarrisoned": {
     "string": "SuperAnimTwoGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a0f8",
     "read_sites": [
@@ -4454,7 +4454,7 @@
   },
   "SuperAnimTwoX": {
     "string": "SuperAnimTwoX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a0e8",
     "read_sites": [
@@ -4464,7 +4464,7 @@
   },
   "SuperAnimTwoY": {
     "string": "SuperAnimTwoY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a0d8",
     "read_sites": [
@@ -4512,7 +4512,7 @@
   },
   "SuperAnimTwoPoweredLight": {
     "string": "SuperAnimTwoPoweredLight",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a080",
     "read_sites": [
@@ -4522,7 +4522,7 @@
   },
   "SuperAnimTwoPoweredEffect": {
     "string": "SuperAnimTwoPoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a064",
     "read_sites": [
@@ -4532,7 +4532,7 @@
   },
   "SuperAnimTwoPoweredSpecial": {
     "string": "SuperAnimTwoPoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a048",
     "read_sites": [
@@ -4568,7 +4568,7 @@
   },
   "SuperAnimThreeGarrisoned": {
     "string": "SuperAnimThreeGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81a004",
     "read_sites": [
@@ -4578,7 +4578,7 @@
   },
   "SuperAnimThreeX": {
     "string": "SuperAnimThreeX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819ff4",
     "read_sites": [
@@ -4588,7 +4588,7 @@
   },
   "SuperAnimThreeY": {
     "string": "SuperAnimThreeY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819fe4",
     "read_sites": [
@@ -4636,7 +4636,7 @@
   },
   "SuperAnimThreePoweredLight": {
     "string": "SuperAnimThreePoweredLight",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819f84",
     "read_sites": [
@@ -4658,7 +4658,7 @@
   },
   "SuperAnimThreePoweredSpecial": {
     "string": "SuperAnimThreePoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819f48",
     "read_sites": [
@@ -4694,7 +4694,7 @@
   },
   "SuperAnimFourGarrisoned": {
     "string": "SuperAnimFourGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819f08",
     "read_sites": [
@@ -4704,7 +4704,7 @@
   },
   "SuperAnimFourX": {
     "string": "SuperAnimFourX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819ef8",
     "read_sites": [
@@ -4714,7 +4714,7 @@
   },
   "SuperAnimFourY": {
     "string": "SuperAnimFourY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819ee8",
     "read_sites": [
@@ -4762,7 +4762,7 @@
   },
   "SuperAnimFourPoweredLight": {
     "string": "SuperAnimFourPoweredLight",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819e88",
     "read_sites": [
@@ -4772,7 +4772,7 @@
   },
   "SuperAnimFourPoweredEffect": {
     "string": "SuperAnimFourPoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819e6c",
     "read_sites": [
@@ -4782,7 +4782,7 @@
   },
   "SuperAnimFourPoweredSpecial": {
     "string": "SuperAnimFourPoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819e50",
     "read_sites": [
@@ -4820,7 +4820,7 @@
   },
   "SpecialAnimGarrisoned": {
     "string": "SpecialAnimGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819e18",
     "read_sites": [
@@ -4830,7 +4830,7 @@
   },
   "SpecialAnimX": {
     "string": "SpecialAnimX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819e08",
     "read_sites": [
@@ -4840,7 +4840,7 @@
   },
   "SpecialAnimY": {
     "string": "SpecialAnimY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819df8",
     "read_sites": [
@@ -4903,7 +4903,7 @@
   },
   "SpecialAnimPoweredEffect": {
     "string": "SpecialAnimPoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819d88",
     "read_sites": [
@@ -4913,7 +4913,7 @@
   },
   "SpecialAnimPoweredSpecial": {
     "string": "SpecialAnimPoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819d6c",
     "read_sites": [
@@ -4950,7 +4950,7 @@
   },
   "SpecialAnimTwoGarrisoned": {
     "string": "SpecialAnimTwoGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819d28",
     "read_sites": [
@@ -4960,7 +4960,7 @@
   },
   "SpecialAnimTwoX": {
     "string": "SpecialAnimTwoX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819d18",
     "read_sites": [
@@ -4970,7 +4970,7 @@
   },
   "SpecialAnimTwoY": {
     "string": "SpecialAnimTwoY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819d08",
     "read_sites": [
@@ -5007,7 +5007,7 @@
   },
   "SpecialAnimTwoPowered": {
     "string": "SpecialAnimTwoPowered",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819cc4",
     "read_sites": [
@@ -5017,7 +5017,7 @@
   },
   "SpecialAnimTwoPoweredLight": {
     "string": "SpecialAnimTwoPoweredLight",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819ca8",
     "read_sites": [
@@ -5027,7 +5027,7 @@
   },
   "SpecialAnimTwoPoweredEffect": {
     "string": "SpecialAnimTwoPoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819c8c",
     "read_sites": [
@@ -5037,7 +5037,7 @@
   },
   "SpecialAnimTwoPoweredSpecial": {
     "string": "SpecialAnimTwoPoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819c6c",
     "read_sites": [
@@ -5074,7 +5074,7 @@
   },
   "SpecialAnimThreeGarrisoned": {
     "string": "SpecialAnimThreeGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819c24",
     "read_sites": [
@@ -5084,7 +5084,7 @@
   },
   "SpecialAnimThreeX": {
     "string": "SpecialAnimThreeX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819c10",
     "read_sites": [
@@ -5094,7 +5094,7 @@
   },
   "SpecialAnimThreeY": {
     "string": "SpecialAnimThreeY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819bfc",
     "read_sites": [
@@ -5131,7 +5131,7 @@
   },
   "SpecialAnimThreePowered": {
     "string": "SpecialAnimThreePowered",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819bb4",
     "read_sites": [
@@ -5141,7 +5141,7 @@
   },
   "SpecialAnimThreePoweredLight": {
     "string": "SpecialAnimThreePoweredLight",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819b94",
     "read_sites": [
@@ -5151,7 +5151,7 @@
   },
   "SpecialAnimThreePoweredEffect": {
     "string": "SpecialAnimThreePoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819b74",
     "read_sites": [
@@ -5161,7 +5161,7 @@
   },
   "SpecialAnimThreePoweredSpecial": {
     "string": "SpecialAnimThreePoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819b54",
     "read_sites": [
@@ -5195,7 +5195,7 @@
   },
   "SpecialAnimFourGarrisoned": {
     "string": "SpecialAnimFourGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819b10",
     "read_sites": [
@@ -5205,7 +5205,7 @@
   },
   "SpecialAnimFourX": {
     "string": "SpecialAnimFourX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819afc",
     "read_sites": [
@@ -5215,7 +5215,7 @@
   },
   "SpecialAnimFourY": {
     "string": "SpecialAnimFourY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819ae8",
     "read_sites": [
@@ -5237,7 +5237,7 @@
   },
   "SpecialAnimFourYSort": {
     "string": "SpecialAnimFourYSort",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819ab8",
     "read_sites": [
@@ -5247,7 +5247,7 @@
   },
   "SpecialAnimFourPowered": {
     "string": "SpecialAnimFourPowered",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819aa0",
     "read_sites": [
@@ -5257,7 +5257,7 @@
   },
   "SpecialAnimFourPoweredLight": {
     "string": "SpecialAnimFourPoweredLight",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819a84",
     "read_sites": [
@@ -5267,7 +5267,7 @@
   },
   "SpecialAnimFourPoweredEffect": {
     "string": "SpecialAnimFourPoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819a64",
     "read_sites": [
@@ -5277,7 +5277,7 @@
   },
   "SpecialAnimFourPoweredSpecial": {
     "string": "SpecialAnimFourPoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819a44",
     "read_sites": [
@@ -5311,7 +5311,7 @@
   },
   "LowPowerGarrisoned": {
     "string": "LowPowerGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819a14",
     "read_sites": [
@@ -5321,7 +5321,7 @@
   },
   "LowPowerX": {
     "string": "LowPowerX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819a08",
     "read_sites": [
@@ -5331,7 +5331,7 @@
   },
   "LowPowerY": {
     "string": "LowPowerY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8199fc",
     "read_sites": [
@@ -5341,7 +5341,7 @@
   },
   "LowPowerZAdjust": {
     "string": "LowPowerZAdjust",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8199ec",
     "read_sites": [
@@ -5351,7 +5351,7 @@
   },
   "LowPowerYSort": {
     "string": "LowPowerYSort",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8199dc",
     "read_sites": [
@@ -5373,7 +5373,7 @@
   },
   "LowPowerPoweredLight": {
     "string": "LowPowerPoweredLight",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8199b4",
     "read_sites": [
@@ -5383,7 +5383,7 @@
   },
   "LowPowerPoweredEffect": {
     "string": "LowPowerPoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81999c",
     "read_sites": [
@@ -5393,7 +5393,7 @@
   },
   "LowPowerPoweredSpecial": {
     "string": "LowPowerPoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819984",
     "read_sites": [
@@ -5427,7 +5427,7 @@
   },
   "SuperLowPowerGarrisoned": {
     "string": "SuperLowPowerGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819944",
     "read_sites": [
@@ -5437,7 +5437,7 @@
   },
   "SuperLowPowerX": {
     "string": "SuperLowPowerX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819934",
     "read_sites": [
@@ -5447,7 +5447,7 @@
   },
   "SuperLowPowerY": {
     "string": "SuperLowPowerY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819924",
     "read_sites": [
@@ -5457,7 +5457,7 @@
   },
   "SuperLowPowerZAdjust": {
     "string": "SuperLowPowerZAdjust",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81990c",
     "read_sites": [
@@ -5467,7 +5467,7 @@
   },
   "SuperLowPowerYSort": {
     "string": "SuperLowPowerYSort",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8198f8",
     "read_sites": [
@@ -5489,7 +5489,7 @@
   },
   "SuperLowPowerPoweredLight": {
     "string": "SuperLowPowerPoweredLight",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8198c4",
     "read_sites": [
@@ -5499,7 +5499,7 @@
   },
   "SuperLowPowerPoweredEffect": {
     "string": "SuperLowPowerPoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8198a8",
     "read_sites": [
@@ -5509,7 +5509,7 @@
   },
   "SuperLowPowerPoweredSpecial": {
     "string": "SuperLowPowerPoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81988c",
     "read_sites": [
@@ -5547,7 +5547,7 @@
   },
   "ProductionAnimGarrisoned": {
     "string": "ProductionAnimGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819848",
     "read_sites": [
@@ -5635,7 +5635,7 @@
   },
   "IdleAnimGarrisoned": {
     "string": "IdleAnimGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8197cc",
     "read_sites": [
@@ -5645,7 +5645,7 @@
   },
   "IdleAnimX": {
     "string": "IdleAnimX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8197c0",
     "read_sites": [
@@ -5655,7 +5655,7 @@
   },
   "IdleAnimY": {
     "string": "IdleAnimY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8197b4",
     "read_sites": [
@@ -5704,7 +5704,7 @@
   },
   "IdleAnimPoweredLight": {
     "string": "IdleAnimPoweredLight",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81976c",
     "read_sites": [
@@ -5714,7 +5714,7 @@
   },
   "IdleAnimPoweredEffect": {
     "string": "IdleAnimPoweredEffect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819754",
     "read_sites": [
@@ -5724,7 +5724,7 @@
   },
   "IdleAnimPoweredSpecial": {
     "string": "IdleAnimPoweredSpecial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81973c",
     "read_sites": [
@@ -5746,7 +5746,7 @@
   },
   "PreProductionAnimDamaged": {
     "string": "PreProductionAnimDamaged",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81970c",
     "read_sites": [
@@ -5756,7 +5756,7 @@
   },
   "PreProductionAnimGarrisoned": {
     "string": "PreProductionAnimGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8196f0",
     "read_sites": [
@@ -5766,7 +5766,7 @@
   },
   "PreProductionAnimX": {
     "string": "PreProductionAnimX",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8196dc",
     "read_sites": [
@@ -5778,7 +5778,7 @@
   },
   "PreProductionAnimY": {
     "string": "PreProductionAnimY",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8196c8",
     "read_sites": [
@@ -5804,7 +5804,7 @@
   },
   "PreProductionAnimYSort": {
     "string": "PreProductionAnimYSort",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819694",
     "read_sites": [
@@ -5833,7 +5833,7 @@
   },
   "TurretAnimDamaged": {
     "string": "TurretAnimDamaged",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819674",
     "read_sites": [
@@ -5845,7 +5845,7 @@
   },
   "TurretAnimGarrisoned": {
     "string": "TurretAnimGarrisoned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81965c",
     "read_sites": [
@@ -5908,7 +5908,7 @@
   },
   "TurretAnimYSort": {
     "string": "TurretAnimYSort",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x819620",
     "read_sites": [
@@ -6399,7 +6399,7 @@
   },
   "Degenerates": {
     "string": "Degenerates",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81b08c",
     "read_sites": [
@@ -6726,7 +6726,7 @@
   },
   "Battles": {
     "string": "Battles",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81b1d8",
     "read_sites": [
@@ -6742,8 +6742,14 @@
   },
   "Digest": {
     "string": "Digest",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ai",
+      "map",
+      "ra2",
+      "ts",
+      "tsfs"
+    ],
     "string_va": "0x81bfe0",
     "read_sites": [
       "0x474254",
@@ -6779,7 +6785,7 @@
   },
   "POWER": {
     "string": "POWER",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x81c030",
     "read_sites": [
@@ -6793,7 +6799,7 @@
   },
   "FACTORY": {
     "string": "FACTORY",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x81c028",
     "read_sites": [
@@ -6807,7 +6813,7 @@
   },
   "BARRACKS": {
     "string": "BARRACKS",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x81c01c",
     "read_sites": [
@@ -6821,7 +6827,7 @@
   },
   "RADAR": {
     "string": "RADAR",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x81c014",
     "read_sites": [
@@ -6892,7 +6898,7 @@
   },
   "Strong": {
     "string": "Strong",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81bac8",
     "read_sites": [
@@ -6977,7 +6983,7 @@
   },
   "GetDiskFreeSpaceExA": {
     "string": "GetDiskFreeSpaceExA",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81d80c",
     "read_sites": [
@@ -7015,7 +7021,7 @@
   },
   "CurrentMap": {
     "string": "CurrentMap",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f19c",
     "read_sites": [
@@ -7027,7 +7033,7 @@
   },
   "Score": {
     "string": "Score",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f194",
     "read_sites": [
@@ -7037,7 +7043,7 @@
   },
   "CampaignType": {
     "string": "CampaignType",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f184",
     "read_sites": [
@@ -7048,7 +7054,7 @@
   },
   "House1": {
     "string": "House1",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f17c",
     "read_sites": [
@@ -7059,7 +7065,7 @@
   },
   "Color1": {
     "string": "Color1",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f174",
     "read_sites": [
@@ -7070,7 +7076,7 @@
   },
   "House2": {
     "string": "House2",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f16c",
     "read_sites": [
@@ -7081,7 +7087,7 @@
   },
   "Color2": {
     "string": "Color2",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f164",
     "read_sites": [
@@ -7092,7 +7098,7 @@
   },
   "Kills1": {
     "string": "Kills1",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f15c",
     "read_sites": [
@@ -7103,7 +7109,7 @@
   },
   "Kills2": {
     "string": "Kills2",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f154",
     "read_sites": [
@@ -7114,7 +7120,7 @@
   },
   "Built1": {
     "string": "Built1",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f14c",
     "read_sites": [
@@ -7125,7 +7131,7 @@
   },
   "Built2": {
     "string": "Built2",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f144",
     "read_sites": [
@@ -7136,7 +7142,7 @@
   },
   "Lost1": {
     "string": "Lost1",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f13c",
     "read_sites": [
@@ -7147,7 +7153,7 @@
   },
   "Lost2": {
     "string": "Lost2",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f134",
     "read_sites": [
@@ -7158,7 +7164,7 @@
   },
   "Score1": {
     "string": "Score1",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f12c",
     "read_sites": [
@@ -7169,7 +7175,7 @@
   },
   "Score2": {
     "string": "Score2",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f124",
     "read_sites": [
@@ -7180,7 +7186,7 @@
   },
   "Time": {
     "string": "Time",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f11c",
     "read_sites": [
@@ -7193,7 +7199,7 @@
   },
   "undefined": {
     "string": "undefined",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x81f108",
     "read_sites": [
@@ -7219,7 +7225,7 @@
   },
   "Campaigns": {
     "string": "Campaigns",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81f3b4",
     "read_sites": [
@@ -7281,7 +7287,7 @@
   },
   "Easy": {
     "string": "Easy",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x818134",
     "read_sites": [
@@ -7333,7 +7339,7 @@
   },
   "Note": {
     "string": "Note",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81fcc8",
     "read_sites": [
@@ -7346,7 +7352,7 @@
   },
   "CreatePalette\n": {
     "string": "CreatePalette\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x81fe28",
     "read_sites": [
@@ -7395,8 +7401,10 @@
   },
   "Map": {
     "string": "Map",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x81fff0",
     "read_sites": [
       "0x4aceb1",
@@ -7424,7 +7432,7 @@
   },
   "Clear": {
     "string": "Clear",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81dc1c",
     "read_sites": [
@@ -7436,7 +7444,7 @@
   },
   "Fill": {
     "string": "Fill",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x820170",
     "read_sites": [
@@ -7448,7 +7456,7 @@
   },
   "Water": {
     "string": "Water",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x81bae8",
     "read_sites": [
@@ -7460,8 +7468,10 @@
   },
   "CellTags": {
     "string": "CellTags",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x81ffe4",
     "read_sites": [
       "0x4ad1b3",
@@ -7493,7 +7503,7 @@
   },
   "DllGetVersion": {
     "string": "DllGetVersion",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8201d4",
     "read_sites": [
@@ -7515,7 +7525,7 @@
   },
   "CREDITS": {
     "string": "CREDITS",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x8207e4",
     "read_sites": [
@@ -7525,7 +7535,7 @@
   },
   "WM_INITDIALOG\n": {
     "string": "WM_INITDIALOG\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x821cb0",
     "read_sites": [
@@ -7537,7 +7547,7 @@
   },
   "Bummer": {
     "string": "Bummer",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x821ca8",
     "read_sites": [
@@ -7573,7 +7583,7 @@
   },
   "EXPAND.DAT": {
     "string": "EXPAND.DAT",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x822210",
     "read_sites": [
@@ -7585,7 +7595,7 @@
   },
   "AuthenticAMD": {
     "string": "AuthenticAMD",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x822cd8",
     "read_sites": [
@@ -7595,7 +7605,7 @@
   },
   "CyrixInstead": {
     "string": "CyrixInstead",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x822cc8",
     "read_sites": [
@@ -7785,7 +7795,7 @@
   },
   "SelectVQ": {
     "string": "SelectVQ",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8242a4",
     "read_sites": [
@@ -7824,7 +7834,7 @@
   },
   "Shortcut": {
     "string": "Shortcut",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x824308",
     "read_sites": [
@@ -7852,7 +7862,7 @@
   },
   "SelectSound": {
     "string": "SelectSound",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8242fc",
     "read_sites": [
@@ -7875,8 +7885,10 @@
   },
   "Houses": {
     "string": "Houses",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x824d54",
     "read_sites": [
       "0x5009b9",
@@ -7980,7 +7992,7 @@
   },
   "RatioAITriggerTeam": {
     "string": "RatioAITriggerTeam",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x824e14",
     "read_sites": [
@@ -7992,7 +8004,7 @@
   },
   "RatioTeamAircraft": {
     "string": "RatioTeamAircraft",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x824e00",
     "read_sites": [
@@ -8004,7 +8016,7 @@
   },
   "RatioTeamInfantry": {
     "string": "RatioTeamInfantry",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x824dec",
     "read_sites": [
@@ -8016,7 +8028,7 @@
   },
   "RatioTeamUnits": {
     "string": "RatioTeamUnits",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x824ddc",
     "read_sites": [
@@ -8060,7 +8072,7 @@
   },
   "GAPLUG": {
     "string": "GAPLUG",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x824eb8",
     "read_sites": [
@@ -8072,7 +8084,7 @@
   },
   "Computer": {
     "string": "Computer",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x824fd8",
     "read_sites": [
@@ -8089,6 +8101,7 @@
     "string": "GDI",
     "kind": "tag",
     "domains": [
+      "map",
       "ra2",
       "rules",
       "ts"
@@ -8320,7 +8333,7 @@
   },
   "WallOwner": {
     "string": "WallOwner",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x825438",
     "read_sites": [
@@ -8349,7 +8362,7 @@
   },
   "ArmorInfantryMult": {
     "string": "ArmorInfantryMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82541c",
     "read_sites": [
@@ -8361,7 +8374,7 @@
   },
   "ArmorUnitsMult": {
     "string": "ArmorUnitsMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82540c",
     "read_sites": [
@@ -8373,7 +8386,7 @@
   },
   "ArmorAircraftMult": {
     "string": "ArmorAircraftMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8253f8",
     "read_sites": [
@@ -8385,7 +8398,7 @@
   },
   "ArmorBuildingsMult": {
     "string": "ArmorBuildingsMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8253e4",
     "read_sites": [
@@ -8397,7 +8410,7 @@
   },
   "ArmorDefensesMult": {
     "string": "ArmorDefensesMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8253d0",
     "read_sites": [
@@ -8409,7 +8422,7 @@
   },
   "CostInfantryMult": {
     "string": "CostInfantryMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8253bc",
     "read_sites": [
@@ -8435,7 +8448,7 @@
   },
   "CostAircraftMult": {
     "string": "CostAircraftMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x825398",
     "read_sites": [
@@ -8447,7 +8460,7 @@
   },
   "CostBuildingsMult": {
     "string": "CostBuildingsMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x825384",
     "read_sites": [
@@ -8459,7 +8472,7 @@
   },
   "CostDefensesMult": {
     "string": "CostDefensesMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x825370",
     "read_sites": [
@@ -8471,7 +8484,7 @@
   },
   "SpeedInfantryMult": {
     "string": "SpeedInfantryMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82535c",
     "read_sites": [
@@ -8483,7 +8496,7 @@
   },
   "SpeedUnitsMult": {
     "string": "SpeedUnitsMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82534c",
     "read_sites": [
@@ -8495,7 +8508,7 @@
   },
   "SpeedAircraftMult": {
     "string": "SpeedAircraftMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x825338",
     "read_sites": [
@@ -8507,7 +8520,7 @@
   },
   "BuildTimeInfantryMult": {
     "string": "BuildTimeInfantryMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x825320",
     "read_sites": [
@@ -8519,7 +8532,7 @@
   },
   "BuildTimeUnitsMult": {
     "string": "BuildTimeUnitsMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82530c",
     "read_sites": [
@@ -8531,7 +8544,7 @@
   },
   "BuildTimeAircraftMult": {
     "string": "BuildTimeAircraftMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8252f4",
     "read_sites": [
@@ -8543,7 +8556,7 @@
   },
   "BuildTimeBuildingsMult": {
     "string": "BuildTimeBuildingsMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8252dc",
     "read_sites": [
@@ -8555,7 +8568,7 @@
   },
   "BuildTimeDefensesMult": {
     "string": "BuildTimeDefensesMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8252c4",
     "read_sites": [
@@ -8567,7 +8580,7 @@
   },
   "IncomeMult": {
     "string": "IncomeMult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8252b8",
     "read_sites": [
@@ -8579,7 +8592,7 @@
   },
   "VeteranInfantry": {
     "string": "VeteranInfantry",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8252a8",
     "read_sites": [
@@ -8591,7 +8604,7 @@
   },
   "VeteranUnits": {
     "string": "VeteranUnits",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x825298",
     "read_sites": [
@@ -8603,7 +8616,7 @@
   },
   "VeteranAircraft": {
     "string": "VeteranAircraft",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x825288",
     "read_sites": [
@@ -8698,8 +8711,10 @@
   },
   "DESO": {
     "string": "DESO",
-    "kind": "code",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82557c",
     "read_sites": [
       "0x51f76d"
@@ -8786,7 +8801,7 @@
   },
   "VoiceComment": {
     "string": "VoiceComment",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x825a2c",
     "read_sites": [
@@ -8816,7 +8831,7 @@
   },
   "DeathAnims": {
     "string": "DeathAnims",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x825a14",
     "read_sites": [
@@ -8983,7 +8998,7 @@
   },
   "DetectionDistance": {
     "string": "DetectionDistance",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x825988",
     "read_sites": [
@@ -9077,7 +9092,7 @@
   },
   "Thief": {
     "string": "Thief",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82594c",
     "read_sites": [
@@ -9252,7 +9267,7 @@
   },
   "yes": {
     "string": "yes",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x825bf8",
     "read_sites": [
@@ -9267,7 +9282,7 @@
   },
   "PublicKey": {
     "string": "PublicKey",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x825c14",
     "read_sites": [
@@ -9278,7 +9293,7 @@
   },
   "PrivateKey": {
     "string": "PrivateKey",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x825c08",
     "read_sites": [
@@ -9289,7 +9304,7 @@
   },
   "Ra2ts_s": {
     "string": "Ra2ts_s",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x825ce8",
     "read_sites": [
@@ -9303,7 +9318,7 @@
   },
   "Ra2ts_l": {
     "string": "Ra2ts_l",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x825ce0",
     "read_sites": [
@@ -9317,7 +9332,7 @@
   },
   "Bootstrap.....": {
     "string": "Bootstrap.....",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x82612c",
     "read_sites": [
@@ -9329,7 +9344,7 @@
   },
   "voxels.vpl": {
     "string": "voxels.vpl",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x8260ac",
     "read_sites": [
@@ -9469,8 +9484,10 @@
   },
   "General": {
     "string": "General",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x826278",
     "read_sites": [
       "0x52d4d5",
@@ -9593,7 +9610,7 @@
   },
   "INTRO": {
     "string": "INTRO",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x8263a8",
     "read_sites": [
@@ -9644,7 +9661,7 @@
   },
   "PortBase": {
     "string": "PortBase",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x826438",
     "read_sites": [
@@ -9658,7 +9675,7 @@
   },
   "MultiPlayer": {
     "string": "MultiPlayer",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82642c",
     "read_sites": [
@@ -9742,7 +9759,7 @@
   },
   "PortPool": {
     "string": "PortPool",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x826420",
     "read_sites": [
@@ -10007,7 +10024,7 @@
   },
   "Hotkey": {
     "string": "Hotkey",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x827b80",
     "read_sites": [
@@ -10984,7 +11001,7 @@
   },
   "LastTilesInSet": {
     "string": "LastTilesInSet",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82928c",
     "read_sites": [
@@ -11246,7 +11263,7 @@
   },
   "RandMap.img": {
     "string": "RandMap.img",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x829abc",
     "read_sites": [
@@ -11274,7 +11291,7 @@
   },
   "SAVEGAME.NET": {
     "string": "SAVEGAME.NET",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x820dac",
     "read_sites": [
@@ -11288,7 +11305,7 @@
   },
   "Disconnect_Gracefully\n": {
     "string": "Disconnect_Gracefully\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x82a044",
     "read_sites": [
@@ -11302,7 +11319,7 @@
   },
   "SendDelay": {
     "string": "SendDelay",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82a2e8",
     "read_sites": [
@@ -11315,7 +11332,7 @@
   },
   "PortNumberOverride": {
     "string": "PortNumberOverride",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82a2d4",
     "read_sites": [
@@ -11338,7 +11355,7 @@
   },
   "RandomMap": {
     "string": "RandomMap",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bb24",
     "read_sites": [
@@ -11385,7 +11402,7 @@
   },
   "rmcache": {
     "string": "rmcache",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x82bb1c",
     "read_sites": [
@@ -11420,7 +11437,7 @@
   },
   "NumPlayers": {
     "string": "NumPlayers",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bbd8",
     "read_sites": [
@@ -11433,7 +11450,7 @@
   },
   "Seed": {
     "string": "Seed",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bbd0",
     "read_sites": [
@@ -11444,7 +11461,7 @@
   },
   "MapType": {
     "string": "MapType",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bbc8",
     "read_sites": [
@@ -11455,7 +11472,7 @@
   },
   "RegionSize": {
     "string": "RegionSize",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bbbc",
     "read_sites": [
@@ -11466,7 +11483,7 @@
   },
   "Ruggedness": {
     "string": "Ruggedness",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bbb0",
     "read_sites": [
@@ -11477,7 +11494,7 @@
   },
   "Accessibility": {
     "string": "Accessibility",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bba0",
     "read_sites": [
@@ -11488,7 +11505,7 @@
   },
   "WaterAmount": {
     "string": "WaterAmount",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bb94",
     "read_sites": [
@@ -11520,7 +11537,7 @@
   },
   "TiberiumLayout": {
     "string": "TiberiumLayout",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bb84",
     "read_sites": [
@@ -11531,7 +11548,7 @@
   },
   "Vegetation": {
     "string": "Vegetation",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bb78",
     "read_sites": [
@@ -11542,7 +11559,7 @@
   },
   "UrbanPresence": {
     "string": "UrbanPresence",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bb68",
     "read_sites": [
@@ -11553,7 +11570,7 @@
   },
   "Resources": {
     "string": "Resources",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bb5c",
     "read_sites": [
@@ -11564,7 +11581,7 @@
   },
   "RandMap.Sed": {
     "string": "RandMap.Sed",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x82bc30",
     "read_sites": [
@@ -11591,7 +11608,7 @@
   },
   "lastmap.sed": {
     "string": "lastmap.sed",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x82bc24",
     "read_sites": [
@@ -11876,8 +11893,10 @@
   },
   "Basic": {
     "string": "Basic",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82bf9c",
     "read_sites": [
       "0x599859",
@@ -11988,8 +12007,10 @@
   },
   "Lighting": {
     "string": "Lighting",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82bf88",
     "read_sites": [
       "0x5998a3",
@@ -12066,7 +12087,7 @@
   },
   "RedTint": {
     "string": "RedTint",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bf80",
     "read_sites": [
@@ -12076,7 +12097,7 @@
   },
   "GreenTint": {
     "string": "GreenTint",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bf74",
     "read_sites": [
@@ -12086,7 +12107,7 @@
   },
   "BlueTint": {
     "string": "BlueTint",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82bf68",
     "read_sites": [
@@ -12214,7 +12235,7 @@
   },
   "LOADING": {
     "string": "LOADING",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x82c1bc",
     "read_sites": [
@@ -12340,7 +12361,7 @@
   },
   "Class": {
     "string": "Class",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82ced4",
     "read_sites": [
@@ -12350,7 +12371,7 @@
   },
   "Modem": {
     "string": "Modem",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82cecc",
     "read_sites": [
@@ -12360,7 +12381,7 @@
   },
   "Model": {
     "string": "Model",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82cec4",
     "read_sites": [
@@ -12370,7 +12391,7 @@
   },
   "AttachedTo": {
     "string": "AttachedTo",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82cea4",
     "read_sites": [
@@ -12380,7 +12401,7 @@
   },
   "PnPAttachedTo": {
     "string": "PnPAttachedTo",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x82ce94",
     "read_sites": [
@@ -12390,7 +12411,7 @@
   },
   "ErrorControl_On": {
     "string": "ErrorControl_On",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x82ce60",
     "read_sites": [
@@ -12400,7 +12421,7 @@
   },
   "ErrorControl_Off": {
     "string": "ErrorControl_Off",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x82ce24",
     "read_sites": [
@@ -12410,7 +12431,7 @@
   },
   "Compression_On": {
     "string": "Compression_On",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x82cdec",
     "read_sites": [
@@ -12420,7 +12441,7 @@
   },
   "Compression_Off": {
     "string": "Compression_Off",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x82cdb4",
     "read_sites": [
@@ -12430,7 +12451,7 @@
   },
   "FlowControl_Hard": {
     "string": "FlowControl_Hard",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x82cd78",
     "read_sites": [
@@ -12440,7 +12461,7 @@
   },
   "PORTNAME": {
     "string": "PORTNAME",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x82cd24",
     "read_sites": [
@@ -12450,8 +12471,10 @@
   },
   "Waypoints": {
     "string": "Waypoints",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82db0c",
     "read_sites": [
       "0x5c13f5",
@@ -12464,7 +12487,7 @@
   },
   "SCORE": {
     "string": "SCORE",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x82febc",
     "read_sites": [
@@ -12709,7 +12732,7 @@
   },
   "false": {
     "string": "false",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x81c5e8",
     "read_sites": [
@@ -12719,7 +12742,7 @@
   },
   "Battle": {
     "string": "Battle",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x830c00",
     "read_sites": [
@@ -12729,7 +12752,7 @@
   },
   "ManBattle": {
     "string": "ManBattle",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x830bf4",
     "read_sites": [
@@ -12739,7 +12762,7 @@
   },
   "Siege": {
     "string": "Siege",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x830bec",
     "read_sites": [
@@ -12749,7 +12772,7 @@
   },
   "Unholy": {
     "string": "Unholy",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x830be4",
     "read_sites": [
@@ -12759,7 +12782,7 @@
   },
   "FreeForAll": {
     "string": "FreeForAll",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x830bd8",
     "read_sites": [
@@ -12769,7 +12792,7 @@
   },
   "Cooperative": {
     "string": "Cooperative",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x830bcc",
     "read_sites": [
@@ -12779,7 +12802,7 @@
   },
   "FirewallSettings": {
     "string": "FirewallSettings",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x830cc0",
     "read_sites": [
@@ -12791,7 +12814,7 @@
   },
   "FirewallDelta": {
     "string": "FirewallDelta",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x830cb0",
     "read_sites": [
@@ -12827,7 +12850,7 @@
   },
   "Serial": {
     "string": "Serial",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8313a8",
     "read_sites": [
@@ -12837,7 +12860,7 @@
   },
   "woldata.key": {
     "string": "woldata.key",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x831398",
     "read_sites": [
@@ -12847,7 +12870,7 @@
   },
   "ObserverMode": {
     "string": "ObserverMode",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x831da4",
     "read_sites": [
@@ -12914,7 +12937,7 @@
   },
   "Dial_Modem\n": {
     "string": "Dial_Modem\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x832880",
     "read_sites": [
@@ -12966,7 +12989,7 @@
   },
   "RING\n": {
     "string": "RING\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x832968",
     "read_sites": [
@@ -12976,7 +12999,7 @@
   },
   "CONNECT": {
     "string": "CONNECT",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x832934",
     "read_sites": [
@@ -12986,7 +13009,7 @@
   },
   "Connected": {
     "string": "Connected",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x832908",
     "read_sites": [
@@ -12996,7 +13019,7 @@
   },
   "Connected\n": {
     "string": "Connected\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x8328f8",
     "read_sites": [
@@ -13422,7 +13445,7 @@
   },
   "Difficulty": {
     "string": "Difficulty",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8332cc",
     "read_sites": [
@@ -13435,7 +13458,7 @@
   },
   "CampDifficulty": {
     "string": "CampDifficulty",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8332a8",
     "read_sites": [
@@ -13448,7 +13471,7 @@
   },
   "ScrollMethod": {
     "string": "ScrollMethod",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833280",
     "read_sites": [
@@ -13461,7 +13484,7 @@
   },
   "ScrollRate": {
     "string": "ScrollRate",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833260",
     "read_sites": [
@@ -13474,7 +13497,7 @@
   },
   "AutoScroll": {
     "string": "AutoScroll",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833240",
     "read_sites": [
@@ -13487,7 +13510,7 @@
   },
   "RIGHT": {
     "string": "RIGHT",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x833210",
     "read_sites": [
@@ -13497,7 +13520,7 @@
   },
   "SidebarCameoText": {
     "string": "SidebarCameoText",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8331ec",
     "read_sites": [
@@ -13510,7 +13533,7 @@
   },
   "UnitActionLines": {
     "string": "UnitActionLines",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8331c8",
     "read_sites": [
@@ -13523,7 +13546,7 @@
   },
   "ShowHidden": {
     "string": "ShowHidden",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8331a8",
     "read_sites": [
@@ -13536,7 +13559,7 @@
   },
   "ToolTips": {
     "string": "ToolTips",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833188",
     "read_sites": [
@@ -13549,7 +13572,7 @@
   },
   "ScreenWidth": {
     "string": "ScreenWidth",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833168",
     "read_sites": [
@@ -13564,7 +13587,7 @@
   },
   "Video": {
     "string": "Video",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833160",
     "read_sites": [
@@ -13598,7 +13621,7 @@
   },
   "ScreenHeight": {
     "string": "ScreenHeight",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833150",
     "read_sites": [
@@ -13613,7 +13636,7 @@
   },
   "StretchMovies": {
     "string": "StretchMovies",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833128",
     "read_sites": [
@@ -13627,7 +13650,7 @@
   },
   "AllowHiResModes": {
     "string": "AllowHiResModes",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833100",
     "read_sites": [
@@ -13639,7 +13662,7 @@
   },
   "AllowModeToggle": {
     "string": "AllowModeToggle",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8330dc",
     "read_sites": [
@@ -13653,7 +13676,7 @@
   },
   "AllowVRAMSidebar": {
     "string": "AllowVRAMSidebar",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8330c8",
     "read_sites": [
@@ -13665,7 +13688,7 @@
   },
   "SoundVolume": {
     "string": "SoundVolume",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8330bc",
     "read_sites": [
@@ -13679,7 +13702,7 @@
   },
   "Audio": {
     "string": "Audio",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8330b4",
     "read_sites": [
@@ -13717,7 +13740,7 @@
   },
   "VoiceVolume": {
     "string": "VoiceVolume",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8330a8",
     "read_sites": [
@@ -13731,7 +13754,7 @@
   },
   "ScoreVolume": {
     "string": "ScoreVolume",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83309c",
     "read_sites": [
@@ -13745,7 +13768,7 @@
   },
   "IsScoreRepeat": {
     "string": "IsScoreRepeat",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83308c",
     "read_sites": [
@@ -13759,7 +13782,7 @@
   },
   "IsScoreShuffle": {
     "string": "IsScoreShuffle",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83307c",
     "read_sites": [
@@ -13773,7 +13796,7 @@
   },
   "InGameMusic": {
     "string": "InGameMusic",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833070",
     "read_sites": [
@@ -13787,7 +13810,7 @@
   },
   "NetID": {
     "string": "NetID",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833068",
     "read_sites": [
@@ -13801,7 +13824,7 @@
   },
   "Network": {
     "string": "Network",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833060",
     "read_sites": [
@@ -13831,7 +13854,7 @@
   },
   "SoundLatency": {
     "string": "SoundLatency",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833050",
     "read_sites": [
@@ -13845,7 +13868,7 @@
   },
   "Socket": {
     "string": "Socket",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83301c",
     "read_sites": [
@@ -13861,7 +13884,7 @@
   },
   "NetCard": {
     "string": "NetCard",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833014",
     "read_sites": [
@@ -13875,7 +13898,7 @@
   },
   "DestNet": {
     "string": "DestNet",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83300c",
     "read_sites": [
@@ -13901,8 +13924,10 @@
   },
   "OverlayPack": {
     "string": "OverlayPack",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x833484",
     "read_sites": [
       "0x5fd376",
@@ -13917,8 +13942,10 @@
   },
   "OverlayDataPack": {
     "string": "OverlayDataPack",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x833474",
     "read_sites": [
       "0x5fd57b",
@@ -14160,7 +14187,7 @@
   },
   "Scrollbar": {
     "string": "Scrollbar",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8357b0",
     "read_sites": [
@@ -14171,7 +14198,7 @@
   },
   "ListBox": {
     "string": "ListBox",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x833718",
     "read_sites": [
@@ -14281,7 +14308,7 @@
   },
   "ComboDropWin": {
     "string": "ComboDropWin",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8357a0",
     "read_sites": [
@@ -14291,7 +14318,7 @@
   },
   "listbox": {
     "string": "listbox",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x8359a4",
     "read_sites": [
@@ -16359,7 +16386,7 @@
   },
   "SpawnDirection": {
     "string": "SpawnDirection",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x837034",
     "read_sites": [
@@ -16630,7 +16657,7 @@
   },
   "NumLoopFrames": {
     "string": "NumLoopFrames",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x837214",
     "read_sites": [
@@ -16693,7 +16720,7 @@
   },
   "Radius": {
     "string": "Radius",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8371ec",
     "read_sites": [
@@ -16965,7 +16992,7 @@
   },
   "Generate_Real_Timing_Event\n": {
     "string": "Generate_Real_Timing_Event\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x837444",
     "read_sites": [
@@ -16977,8 +17004,10 @@
   },
   "Neutral": {
     "string": "Neutral",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x82ba08",
     "read_sites": [
       "0x650b5f"
@@ -16987,8 +17016,10 @@
   },
   "Special": {
     "string": "Special",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x817318",
     "read_sites": [
       "0x650b7f"
@@ -17024,7 +17055,7 @@
   },
   "Warheads": {
     "string": "Warheads",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83a0d0",
     "read_sites": [
@@ -17046,7 +17077,7 @@
   },
   "Difficult": {
     "string": "Difficult",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83a0c4",
     "read_sites": [
@@ -17460,7 +17491,7 @@
   },
   "DefaultChronoSound": {
     "string": "DefaultChronoSound",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83aa94",
     "read_sites": [
@@ -17754,7 +17785,7 @@
   },
   "BuildingAbandonedSound": {
     "string": "BuildingAbandonedSound",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83a8e4",
     "read_sites": [
@@ -18161,7 +18192,7 @@
   },
   "IFVTransformSound": {
     "string": "IFVTransformSound",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83a61c",
     "read_sites": [
@@ -18171,7 +18202,7 @@
   },
   "PsychicSensorDetectSound": {
     "string": "PsychicSensorDetectSound",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83a600",
     "read_sites": [
@@ -18983,7 +19014,7 @@
   },
   "VeinGrowthRate": {
     "string": "VeinGrowthRate",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83a2dc",
     "read_sites": [
@@ -19530,7 +19561,7 @@
   },
   "RailgunDamageRadius": {
     "string": "RailgunDamageRadius",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83b270",
     "read_sites": [
@@ -20811,7 +20842,7 @@
   },
   "FirePower": {
     "string": "FirePower",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83b3f8",
     "read_sites": [
@@ -21727,7 +21758,7 @@
   },
   "ZoomInFactor": {
     "string": "ZoomInFactor",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83cb90",
     "read_sites": [
@@ -21737,7 +21768,7 @@
   },
   "RevealByHeight": {
     "string": "RevealByHeight",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83cb80",
     "read_sites": [
@@ -23107,7 +23138,7 @@
   },
   "AIUseTurbineUpgradeProbability": {
     "string": "AIUseTurbineUpgradeProbability",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83c574",
     "read_sites": [
@@ -24293,7 +24324,7 @@
   },
   "HarvesterDumpRate": {
     "string": "HarvesterDumpRate",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83be4c",
     "read_sites": [
@@ -24303,7 +24334,7 @@
   },
   "HarvesterLoadRate": {
     "string": "HarvesterLoadRate",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83be38",
     "read_sites": [
@@ -24715,7 +24746,7 @@
   },
   "LightningPrintText": {
     "string": "LightningPrintText",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83bc74",
     "read_sites": [
@@ -25512,7 +25543,7 @@
   },
   "SpotlightRadius": {
     "string": "SpotlightRadius",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83b850",
     "read_sites": [
@@ -25564,7 +25595,7 @@
   },
   "ConditionYellowSparkingProbability": {
     "string": "ConditionYellowSparkingProbability",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83b7e8",
     "read_sites": [
@@ -25574,7 +25605,7 @@
   },
   "ConditionRedSparkingProbability": {
     "string": "ConditionRedSparkingProbability",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83b7c8",
     "read_sites": [
@@ -25920,7 +25951,7 @@
   },
   "VeinholeMonsterStrength": {
     "string": "VeinholeMonsterStrength",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83b4fc",
     "read_sites": [
@@ -26081,7 +26112,7 @@
   },
   "TalkBubbleTime": {
     "string": "TalkBubbleTime",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83b404",
     "read_sites": [
@@ -26374,7 +26405,7 @@
   },
   "SuperWeaponsAllowed": {
     "string": "SuperWeaponsAllowed",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83cf94",
     "read_sites": [
@@ -26389,7 +26420,7 @@
   },
   "BuildOffAlly": {
     "string": "BuildOffAlly",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83cf84",
     "read_sites": [
@@ -26437,7 +26468,7 @@
   },
   "Animations": {
     "string": "Animations",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83d0dc",
     "read_sites": [
@@ -26453,7 +26484,7 @@
   },
   "VoxelAnims": {
     "string": "VoxelAnims",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83d0e8",
     "read_sites": [
@@ -26469,7 +26500,7 @@
   },
   "Particles": {
     "string": "Particles",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83d0f4",
     "read_sites": [
@@ -26485,7 +26516,7 @@
   },
   "ParticleSystems": {
     "string": "ParticleSystems",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83d100",
     "read_sites": [
@@ -27970,8 +28001,10 @@
   },
   "VariableNames": {
     "string": "VariableNames",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83d824",
     "read_sites": [
       "0x6876d2",
@@ -28004,8 +28037,10 @@
   },
   "Americans": {
     "string": "Americans",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83db9c",
     "read_sites": [
       "0x6877cc",
@@ -28048,8 +28083,10 @@
   },
   "Header": {
     "string": "Header",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83de68",
     "read_sites": [
       "0x689d86",
@@ -28136,7 +28173,7 @@
   },
   "NumCoopHumanStartSpots": {
     "string": "NumCoopHumanStartSpots",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83de30",
     "read_sites": [
@@ -28512,7 +28549,7 @@
   },
   "AllowableUnits": {
     "string": "AllowableUnits",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83e078",
     "read_sites": [
@@ -28525,7 +28562,7 @@
   },
   "AllowableUnitMaximums": {
     "string": "AllowableUnitMaximums",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83e060",
     "read_sites": [
@@ -28629,7 +28666,7 @@
   },
   "CivEvac": {
     "string": "CivEvac",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83dfd8",
     "read_sites": [
@@ -28655,8 +28692,10 @@
   },
   "Ranking": {
     "string": "Ranking",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x83dfc4",
     "read_sites": [
       "0x68a74f",
@@ -28802,7 +28841,7 @@
   },
   "NukeAmbientChangeRate": {
     "string": "NukeAmbientChangeRate",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83def8",
     "read_sites": [
@@ -28814,7 +28853,7 @@
   },
   "DominatorAmbient": {
     "string": "DominatorAmbient",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83dee4",
     "read_sites": [
@@ -28827,7 +28866,7 @@
   },
   "DominatorRed": {
     "string": "DominatorRed",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83ded4",
     "read_sites": [
@@ -28840,7 +28879,7 @@
   },
   "DominatorGreen": {
     "string": "DominatorGreen",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83dec4",
     "read_sites": [
@@ -28853,7 +28892,7 @@
   },
   "DominatorBlue": {
     "string": "DominatorBlue",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83deb4",
     "read_sites": [
@@ -28866,7 +28905,7 @@
   },
   "DominatorGround": {
     "string": "DominatorGround",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83dea4",
     "read_sites": [
@@ -28879,7 +28918,7 @@
   },
   "DominatorLevel": {
     "string": "DominatorLevel",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83de94",
     "read_sites": [
@@ -28892,7 +28931,7 @@
   },
   "DominatorAmbientChangeRate": {
     "string": "DominatorAmbientChangeRate",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83de78",
     "read_sites": [
@@ -28985,7 +29024,7 @@
   },
   "Wipe": {
     "string": "Wipe",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83e418",
     "read_sites": [
@@ -28996,7 +29035,7 @@
   },
   "Emblem": {
     "string": "Emblem",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83e410",
     "read_sites": [
@@ -29007,7 +29046,7 @@
   },
   "BestBox": {
     "string": "BestBox",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83e408",
     "read_sites": [
@@ -29018,7 +29057,7 @@
   },
   "Efficiency": {
     "string": "Efficiency",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83e3fc",
     "read_sites": [
@@ -29029,7 +29068,7 @@
   },
   "BarGraph": {
     "string": "BarGraph",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83e3f0",
     "read_sites": [
@@ -29040,7 +29079,7 @@
   },
   "Back": {
     "string": "Back",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83e3e8",
     "read_sites": [
@@ -29051,7 +29090,7 @@
   },
   "HALLFAME.DAT": {
     "string": "HALLFAME.DAT",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x83e32c",
     "read_sites": [
@@ -29102,8 +29141,14 @@
   },
   "ScriptTypes": {
     "string": "ScriptTypes",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ai",
+      "map",
+      "ra2",
+      "ts",
+      "tsfs"
+    ],
     "string_va": "0x83e728",
     "read_sites": [
       "0x69197d",
@@ -29172,7 +29217,7 @@
   },
   "ScenIndex": {
     "string": "ScenIndex",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83efc4",
     "read_sites": [
@@ -29186,7 +29231,7 @@
   },
   "MCVRepacks": {
     "string": "MCVRepacks",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83efb8",
     "read_sites": [
@@ -29200,7 +29245,7 @@
   },
   "CratesAppear": {
     "string": "CratesAppear",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83efa8",
     "read_sites": [
@@ -29214,7 +29259,7 @@
   },
   "ForcePortBase": {
     "string": "ForcePortBase",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f19c",
     "read_sites": [
@@ -29226,7 +29271,7 @@
   },
   "PhoneIndex": {
     "string": "PhoneIndex",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f190",
     "read_sites": [
@@ -29240,7 +29285,7 @@
   },
   "CheckHeap": {
     "string": "CheckHeap",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f184",
     "read_sites": [
@@ -29252,7 +29297,7 @@
   },
   "WOLLimitResolution": {
     "string": "WOLLimitResolution",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f170",
     "read_sites": [
@@ -29266,7 +29311,7 @@
   },
   "LastNickSlot": {
     "string": "LastNickSlot",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f160",
     "read_sites": [
@@ -29280,7 +29325,7 @@
   },
   "Handle": {
     "string": "Handle",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f158",
     "read_sites": [
@@ -29294,7 +29339,7 @@
   },
   "ColorEx": {
     "string": "ColorEx",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f150",
     "read_sites": [
@@ -29308,7 +29353,7 @@
   },
   "SideEx": {
     "string": "SideEx",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f148",
     "read_sites": [
@@ -29322,7 +29367,7 @@
   },
   "WOLTaunts": {
     "string": "WOLTaunts",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f13c",
     "read_sites": [
@@ -29335,7 +29380,7 @@
   },
   "LANTaunts": {
     "string": "LANTaunts",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f130",
     "read_sites": [
@@ -29348,7 +29393,7 @@
   },
   "WOLScrollText": {
     "string": "WOLScrollText",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f120",
     "read_sites": [
@@ -29361,7 +29406,7 @@
   },
   "LANScrollText": {
     "string": "LANScrollText",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f110",
     "read_sites": [
@@ -29374,7 +29419,7 @@
   },
   "Skirmish": {
     "string": "Skirmish",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f104",
     "read_sites": [
@@ -29400,7 +29445,7 @@
   },
   "WonlinePref": {
     "string": "WonlinePref",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f0f4",
     "read_sites": [
@@ -29413,7 +29458,7 @@
   },
   "ModemName": {
     "string": "ModemName",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f0e8",
     "read_sites": [
@@ -29426,7 +29471,7 @@
   },
   "SerialDefaults": {
     "string": "SerialDefaults",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f0d8",
     "read_sites": [
@@ -29468,7 +29513,7 @@
   },
   "Port": {
     "string": "Port",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f0d0",
     "read_sites": [
@@ -29494,7 +29539,7 @@
   },
   "Baud": {
     "string": "Baud",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f0c4",
     "read_sites": [
@@ -29507,7 +29552,7 @@
   },
   "Compression": {
     "string": "Compression",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f0b8",
     "read_sites": [
@@ -29520,7 +29565,7 @@
   },
   "ErrorCorrection": {
     "string": "ErrorCorrection",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f0a8",
     "read_sites": [
@@ -29533,7 +29578,7 @@
   },
   "DialMethod": {
     "string": "DialMethod",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f09c",
     "read_sites": [
@@ -29546,7 +29591,7 @@
   },
   "InitStringIndex": {
     "string": "InitStringIndex",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f08c",
     "read_sites": [
@@ -29559,7 +29604,7 @@
   },
   "CallWaitStringIndex": {
     "string": "CallWaitStringIndex",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f078",
     "read_sites": [
@@ -29572,7 +29617,7 @@
   },
   "CallWaitString": {
     "string": "CallWaitString",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f068",
     "read_sites": [
@@ -29585,7 +29630,7 @@
   },
   "InitStrings": {
     "string": "InitStrings",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f05c",
     "read_sites": [
@@ -29602,7 +29647,7 @@
   },
   "PhoneBook": {
     "string": "PhoneBook",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f050",
     "read_sites": [
@@ -29619,7 +29664,7 @@
   },
   "Frame": {
     "string": "Frame",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f048",
     "read_sites": [
@@ -29629,7 +29674,7 @@
   },
   "SyncBug": {
     "string": "SyncBug",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f040",
     "read_sites": [
@@ -29656,7 +29701,7 @@
   },
   "AIRCRAFT": {
     "string": "AIRCRAFT",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x83f02c",
     "read_sites": [
@@ -29676,7 +29721,7 @@
   },
   "BUILDING": {
     "string": "BUILDING",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x83f018",
     "read_sites": [
@@ -29686,7 +29731,7 @@
   },
   "BULLET": {
     "string": "BULLET",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x83f010",
     "read_sites": [
@@ -29696,7 +29741,7 @@
   },
   "INFANTRY": {
     "string": "INFANTRY",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x83f004",
     "read_sites": [
@@ -29717,7 +29762,7 @@
   },
   "Coord": {
     "string": "Coord",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83eff4",
     "read_sites": [
@@ -29727,7 +29772,7 @@
   },
   "Target": {
     "string": "Target",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83efec",
     "read_sites": [
@@ -29738,7 +29783,7 @@
   },
   "Cell": {
     "string": "Cell",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8173f8",
     "read_sites": [
@@ -29748,7 +29793,7 @@
   },
   "PrintCRC": {
     "string": "PrintCRC",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83efdc",
     "read_sites": [
@@ -29806,7 +29851,7 @@
   },
   "MultiMaps": {
     "string": "MultiMaps",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f514",
     "read_sites": [
@@ -29834,7 +29879,7 @@
   },
   "MISSIONS.YRO": {
     "string": "MISSIONS.YRO",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x83f4f4",
     "read_sites": [
@@ -29846,7 +29891,7 @@
   },
   "DescriptionText": {
     "string": "DescriptionText",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x83f648",
     "read_sites": [
@@ -29860,7 +29905,7 @@
   },
   "standard": {
     "string": "standard",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x83f668",
     "read_sites": [
@@ -30076,7 +30121,7 @@
   },
   "WW.TiberianSun.1": {
     "string": "WW.TiberianSun.1",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x840b5c",
     "read_sites": [
@@ -30096,7 +30141,7 @@
   },
   "CLSID": {
     "string": "CLSID",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x840b44",
     "read_sites": [
@@ -30109,7 +30154,7 @@
   },
   "WW.TiberianSun": {
     "string": "WW.TiberianSun",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x840b34",
     "read_sites": [
@@ -30127,7 +30172,7 @@
   },
   "CurVer": {
     "string": "CurVer",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x840b2c",
     "read_sites": [
@@ -30137,7 +30182,7 @@
   },
   "ProgID": {
     "string": "ProgID",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x840b24",
     "read_sites": [
@@ -30149,7 +30194,7 @@
   },
   "VersionIndependentProgID": {
     "string": "VersionIndependentProgID",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x840b08",
     "read_sites": [
@@ -30161,7 +30206,7 @@
   },
   "NotInsertable": {
     "string": "NotInsertable",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x840af8",
     "read_sites": [
@@ -30173,7 +30218,7 @@
   },
   "InprocServer32": {
     "string": "InprocServer32",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x840ae8",
     "read_sites": [
@@ -30185,7 +30230,7 @@
   },
   "Typelib": {
     "string": "Typelib",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x840ae0",
     "read_sites": [
@@ -30197,7 +30242,7 @@
   },
   "VideoBackBuffer": {
     "string": "VideoBackBuffer",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x840e28",
     "read_sites": [
@@ -30209,7 +30254,7 @@
   },
   "DllRegisterServer": {
     "string": "DllRegisterServer",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x840de4",
     "read_sites": [
@@ -30259,7 +30304,7 @@
   },
   "Play": {
     "string": "Play",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x840be8",
     "read_sites": [
@@ -30273,7 +30318,7 @@
   },
   "Main_Game\n": {
     "string": "Main_Game\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x840bdc",
     "read_sites": [
@@ -30568,7 +30613,7 @@
   },
   "PSIWARN": {
     "string": "PSIWARN",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x81907c",
     "read_sites": [
@@ -30845,8 +30890,14 @@
   },
   "TaskForces": {
     "string": "TaskForces",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ai",
+      "map",
+      "ra2",
+      "ts",
+      "tsfs"
+    ],
     "string_va": "0x842db8",
     "read_sites": [
       "0x6e822b",
@@ -30884,7 +30935,7 @@
   },
   "TRUCKB": {
     "string": "TRUCKB",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x842dd4",
     "read_sites": [
@@ -30897,7 +30948,7 @@
   },
   "TRUCKA": {
     "string": "TRUCKA",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x842dcc",
     "read_sites": [
@@ -30910,7 +30961,7 @@
   },
   "Create_One_Of...\n": {
     "string": "Create_One_Of...\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x842e7c",
     "read_sites": [
@@ -31513,8 +31564,14 @@
   },
   "TeamTypes": {
     "string": "TeamTypes",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "ai",
+      "map",
+      "ra2",
+      "ts",
+      "tsfs"
+    ],
     "string_va": "0x8430fc",
     "read_sites": [
       "0x6f19bc",
@@ -31682,7 +31739,7 @@
   },
   "DoubleOwned": {
     "string": "DoubleOwned",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8444b0",
     "read_sites": [
@@ -31755,7 +31812,7 @@
   },
   "RollAngle": {
     "string": "RollAngle",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x844464",
     "read_sites": [
@@ -32109,7 +32166,7 @@
   },
   "ClearAllWeapons": {
     "string": "ClearAllWeapons",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84431c",
     "read_sites": [
@@ -32386,7 +32443,7 @@
   },
   "VoiceFalling": {
     "string": "VoiceFalling",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8441fc",
     "read_sites": [
@@ -32413,7 +32470,7 @@
   },
   "VoiceSinking": {
     "string": "VoiceSinking",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8441dc",
     "read_sites": [
@@ -32455,7 +32512,7 @@
   },
   "CloakStop": {
     "string": "CloakStop",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8441b4",
     "read_sites": [
@@ -32596,7 +32653,7 @@
   },
   "LightningRod": {
     "string": "LightningRod",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x844148",
     "read_sites": [
@@ -32608,7 +32665,7 @@
   },
   "ManualReload": {
     "string": "ManualReload",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x844138",
     "read_sites": [
@@ -32782,7 +32839,7 @@
   },
   "VoicePrimaryWeaponAttack": {
     "string": "VoicePrimaryWeaponAttack",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x844074",
     "read_sites": [
@@ -32792,7 +32849,7 @@
   },
   "VoicePrimaryEliteWeaponAttack": {
     "string": "VoicePrimaryEliteWeaponAttack",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x844054",
     "read_sites": [
@@ -32814,7 +32871,7 @@
   },
   "VoiceSecondaryEliteWeaponAttack": {
     "string": "VoiceSecondaryEliteWeaponAttack",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x844018",
     "read_sites": [
@@ -32836,7 +32893,7 @@
   },
   "VoiceUndeploy": {
     "string": "VoiceUndeploy",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843ffc",
     "read_sites": [
@@ -32879,7 +32936,7 @@
   },
   "NaturalParticleSystem": {
     "string": "NaturalParticleSystem",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843fd8",
     "read_sites": [
@@ -32905,7 +32962,7 @@
   },
   "NaturalParticleLocation": {
     "string": "NaturalParticleLocation",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843fa4",
     "read_sites": [
@@ -32934,7 +32991,7 @@
   },
   "DestroyParticleSystems": {
     "string": "DestroyParticleSystems",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843f74",
     "read_sites": [
@@ -32963,7 +33020,7 @@
   },
   "DamSmkOffScrnRel": {
     "string": "DamSmkOffScrnRel",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843f4c",
     "read_sites": [
@@ -32975,7 +33032,7 @@
   },
   "DestroySmokeOffset": {
     "string": "DestroySmokeOffset",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843f38",
     "read_sites": [
@@ -33258,7 +33315,7 @@
   },
   "LeptonMindControlOffset": {
     "string": "LeptonMindControlOffset",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843ddc",
     "read_sites": [
@@ -33280,7 +33337,7 @@
   },
   "PipWrap": {
     "string": "PipWrap",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843db8",
     "read_sites": [
@@ -33427,7 +33484,7 @@
   },
   "MindControlRingOffset": {
     "string": "MindControlRingOffset",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843d04",
     "read_sites": [
@@ -33629,7 +33686,7 @@
   },
   "CanRecalcApproachTarget": {
     "string": "CanRecalcApproachTarget",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843c14",
     "read_sites": [
@@ -33843,7 +33900,7 @@
   },
   "InitialAmmo": {
     "string": "InitialAmmo",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843aec",
     "read_sites": [
@@ -33916,7 +33973,7 @@
   },
   "DeployFireWeapon": {
     "string": "DeployFireWeapon",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843aac",
     "read_sites": [
@@ -33957,7 +34014,7 @@
   },
   "MobileFire": {
     "string": "MobileFire",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843a84",
     "read_sites": [
@@ -34014,7 +34071,7 @@
   },
   "EmptyReload": {
     "string": "EmptyReload",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843a50",
     "read_sites": [
@@ -34026,7 +34083,7 @@
   },
   "ReloadIncrement": {
     "string": "ReloadIncrement",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843a40",
     "read_sites": [
@@ -34038,7 +34095,7 @@
   },
   "DamageReducesReadiness": {
     "string": "DamageReducesReadiness",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843a28",
     "read_sites": [
@@ -34050,7 +34107,7 @@
   },
   "ReadinessReductionMultiplier": {
     "string": "ReadinessReductionMultiplier",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843a08",
     "read_sites": [
@@ -34076,7 +34133,7 @@
   },
   "SprayAttack": {
     "string": "SprayAttack",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8439ec",
     "read_sites": [
@@ -34088,7 +34145,7 @@
   },
   "Pushy": {
     "string": "Pushy",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8439e4",
     "read_sites": [
@@ -34301,7 +34358,7 @@
   },
   "Invisible": {
     "string": "Invisible",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843944",
     "read_sites": [
@@ -34338,7 +34395,7 @@
   },
   "NoAutoFire": {
     "string": "NoAutoFire",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84391c",
     "read_sites": [
@@ -34405,7 +34462,7 @@
   },
   "Disableable": {
     "string": "Disableable",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8438e8",
     "read_sites": [
@@ -34731,7 +34788,7 @@
   },
   "Warpable": {
     "string": "Warpable",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843778",
     "read_sites": [
@@ -34875,7 +34932,7 @@
   },
   "JumpjetTurnRate": {
     "string": "JumpjetTurnRate",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8436d0",
     "read_sites": [
@@ -34947,7 +35004,7 @@
   },
   "JumpjetAccel": {
     "string": "JumpjetAccel",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843680",
     "read_sites": [
@@ -35035,7 +35092,7 @@
   },
   "AttackFriendlies": {
     "string": "AttackFriendlies",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843620",
     "read_sites": [
@@ -35092,7 +35149,7 @@
   },
   "TurretCompressFrames": {
     "string": "TurretCompressFrames",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8435cc",
     "read_sites": [
@@ -35104,7 +35161,7 @@
   },
   "TurretHoldFrames": {
     "string": "TurretHoldFrames",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8435b8",
     "read_sites": [
@@ -35116,7 +35173,7 @@
   },
   "TurretRecoverFrames": {
     "string": "TurretRecoverFrames",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8435a4",
     "read_sites": [
@@ -35219,7 +35276,7 @@
   },
   "ZFudgeCliff": {
     "string": "ZFudgeCliff",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843528",
     "read_sites": [
@@ -35313,7 +35370,7 @@
   },
   "MyEffectivenessCoefficient": {
     "string": "MyEffectivenessCoefficient",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8434b8",
     "read_sites": [
@@ -35325,7 +35382,7 @@
   },
   "TargetEffectivenessCoefficient": {
     "string": "TargetEffectivenessCoefficient",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843498",
     "read_sites": [
@@ -35337,7 +35394,7 @@
   },
   "TargetSpecialThreatCoefficient": {
     "string": "TargetSpecialThreatCoefficient",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843478",
     "read_sites": [
@@ -35349,7 +35406,7 @@
   },
   "TargetStrengthCoefficient": {
     "string": "TargetStrengthCoefficient",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84345c",
     "read_sites": [
@@ -35361,7 +35418,7 @@
   },
   "TargetDistanceCoefficient": {
     "string": "TargetDistanceCoefficient",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843440",
     "read_sites": [
@@ -35435,7 +35492,7 @@
   },
   "RotCount": {
     "string": "RotCount",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8433a4",
     "read_sites": [
@@ -35464,7 +35521,7 @@
   },
   "VisibleLoad": {
     "string": "VisibleLoad",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84338c",
     "read_sites": [
@@ -35641,7 +35698,7 @@
   },
   "SBarrelThickness": {
     "string": "SBarrelThickness",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84329c",
     "read_sites": [
@@ -35668,7 +35725,7 @@
   },
   "ElitePBarrelLength": {
     "string": "ElitePBarrelLength",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843274",
     "read_sites": [
@@ -35680,7 +35737,7 @@
   },
   "ElitePBarrelThickness": {
     "string": "ElitePBarrelThickness",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84325c",
     "read_sites": [
@@ -35706,7 +35763,7 @@
   },
   "EliteSBarrelLength": {
     "string": "EliteSBarrelLength",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843230",
     "read_sites": [
@@ -35718,7 +35775,7 @@
   },
   "EliteSBarrelThickness": {
     "string": "EliteSBarrelThickness",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x843218",
     "read_sites": [
@@ -35778,7 +35835,7 @@
   },
   "XXICON": {
     "string": "XXICON",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x844530",
     "read_sites": [
@@ -35957,7 +36014,7 @@
   },
   "Themes": {
     "string": "Themes",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x844760",
     "read_sites": [
@@ -36069,8 +36126,10 @@
   },
   "Tiberiums": {
     "string": "Tiberiums",
-    "kind": "unclassified",
-    "domains": [],
+    "kind": "tag",
+    "domains": [
+      "map"
+    ],
     "string_va": "0x84492c",
     "read_sites": [
       "0x721d18",
@@ -36181,7 +36240,7 @@
   },
   "HalfDamageSmokeLocation": {
     "string": "HalfDamageSmokeLocation",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x845db0",
     "read_sites": [
@@ -36271,7 +36330,7 @@
   },
   "CanBeach": {
     "string": "CanBeach",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x845d58",
     "read_sites": [
@@ -37003,7 +37062,7 @@
   },
   "ShareBodyData": {
     "string": "ShareBodyData",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x845edc",
     "read_sites": [
@@ -37031,7 +37090,7 @@
   },
   "ShareBarrelData": {
     "string": "ShareBarrelData",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x845ebc",
     "read_sites": [
@@ -37043,7 +37102,7 @@
   },
   "VoxelIndex": {
     "string": "VoxelIndex",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x845eb0",
     "read_sites": [
@@ -37055,7 +37114,7 @@
   },
   "AttachedSystem": {
     "string": "AttachedSystem",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x845ea0",
     "read_sites": [
@@ -37158,7 +37217,7 @@
   },
   "NORMAL": {
     "string": "NORMAL",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x8161d4",
     "read_sites": [
@@ -37265,7 +37324,7 @@
   },
   "Defaults": {
     "string": "Defaults",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84658c",
     "read_sites": [
@@ -37282,7 +37341,7 @@
   },
   "SoundList": {
     "string": "SoundList",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x846580",
     "read_sites": [
@@ -37295,7 +37354,7 @@
   },
   "QUEUE": {
     "string": "QUEUE",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x8467cc",
     "read_sites": [
@@ -37307,7 +37366,7 @@
   },
   "STANDARD": {
     "string": "STANDARD",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x8467c0",
     "read_sites": [
@@ -37319,7 +37378,7 @@
   },
   "INTERRUPT": {
     "string": "INTERRUPT",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x816120",
     "read_sites": [
@@ -37331,7 +37390,7 @@
   },
   "QUEUED_INTERRUPT": {
     "string": "QUEUED_INTERRUPT",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x8467ac",
     "read_sites": [
@@ -37355,7 +37414,7 @@
   },
   "IMPORTANT": {
     "string": "IMPORTANT",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x8467a0",
     "read_sites": [
@@ -37367,7 +37426,7 @@
   },
   "CRITICAL": {
     "string": "CRITICAL",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x8161c0",
     "read_sites": [
@@ -37423,7 +37482,7 @@
   },
   "DialogList": {
     "string": "DialogList",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8467d4",
     "read_sites": [
@@ -37673,7 +37732,7 @@
   },
   "DirectRocker": {
     "string": "DirectRocker",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x847dd8",
     "read_sites": [
@@ -37721,7 +37780,7 @@
   },
   "CLDisableRed": {
     "string": "CLDisableRed",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x847dc0",
     "read_sites": [
@@ -38232,7 +38291,7 @@
   },
   "CampaignID": {
     "string": "CampaignID",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x847fd0",
     "read_sites": [
@@ -38245,7 +38304,7 @@
   },
   "LastDay": {
     "string": "LastDay",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8481ac",
     "read_sites": [
@@ -38257,7 +38316,7 @@
   },
   "PlayerFaction": {
     "string": "PlayerFaction",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84819c",
     "read_sites": [
@@ -38298,7 +38357,7 @@
   },
   "Art_800": {
     "string": "Art_800",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x848b24",
     "read_sites": [
@@ -38308,7 +38367,7 @@
   },
   "SideBarSize": {
     "string": "SideBarSize",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848b18",
     "read_sites": [
@@ -38318,7 +38377,7 @@
   },
   "HelpBarSize": {
     "string": "HelpBarSize",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848b0c",
     "read_sites": [
@@ -38328,7 +38387,7 @@
   },
   "TooltipRect": {
     "string": "TooltipRect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848b00",
     "read_sites": [
@@ -38338,7 +38397,7 @@
   },
   "TitleRect": {
     "string": "TitleRect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848af4",
     "read_sites": [
@@ -38348,7 +38407,7 @@
   },
   "BackTextRect": {
     "string": "BackTextRect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848ae4",
     "read_sites": [
@@ -38358,7 +38417,7 @@
   },
   "Opening": {
     "string": "Opening",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848adc",
     "read_sites": [
@@ -38368,7 +38427,7 @@
   },
   "SideBar": {
     "string": "SideBar",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848ad4",
     "read_sites": [
@@ -38378,7 +38437,7 @@
   },
   "HelpBar": {
     "string": "HelpBar",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848acc",
     "read_sites": [
@@ -38388,7 +38447,7 @@
   },
   "BackButtonRectangle": {
     "string": "BackButtonRectangle",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848ab8",
     "read_sites": [
@@ -38398,7 +38457,7 @@
   },
   "BackButtonOrigin": {
     "string": "BackButtonOrigin",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848aa4",
     "read_sites": [
@@ -38418,7 +38477,7 @@
   },
   "BackButtonPalette": {
     "string": "BackButtonPalette",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848a80",
     "read_sites": [
@@ -38428,7 +38487,7 @@
   },
   "BackButtonNormalFrame": {
     "string": "BackButtonNormalFrame",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848a68",
     "read_sites": [
@@ -38438,7 +38497,7 @@
   },
   "BackButtonDepressedFrame": {
     "string": "BackButtonDepressedFrame",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848a4c",
     "read_sites": [
@@ -38448,7 +38507,7 @@
   },
   "BackButton": {
     "string": "BackButton",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848a40",
     "read_sites": [
@@ -38458,7 +38517,7 @@
   },
   "BackButtonHighlighted": {
     "string": "BackButtonHighlighted",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848a28",
     "read_sites": [
@@ -38468,7 +38527,7 @@
   },
   "OverlayPrefix": {
     "string": "OverlayPrefix",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848a18",
     "read_sites": [
@@ -38478,7 +38537,7 @@
   },
   "OverlayPalette": {
     "string": "OverlayPalette",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848a08",
     "read_sites": [
@@ -38488,7 +38547,7 @@
   },
   "NameKeyPrefix": {
     "string": "NameKeyPrefix",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8489f0",
     "read_sites": [
@@ -38498,7 +38557,7 @@
   },
   "DefaultPalette": {
     "string": "DefaultPalette",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8489e0",
     "read_sites": [
@@ -38508,7 +38567,7 @@
   },
   "Logo": {
     "string": "Logo",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8489d8",
     "read_sites": [
@@ -38529,7 +38588,7 @@
   },
   "Target_": {
     "string": "Target_",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x848bdc",
     "read_sites": [
@@ -38675,7 +38734,7 @@
   },
   "VoiceOvers": {
     "string": "VoiceOvers",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848e0c",
     "read_sites": [
@@ -38685,7 +38744,7 @@
   },
   "SOUNDS": {
     "string": "SOUNDS",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x848e04",
     "read_sites": [
@@ -38695,7 +38754,7 @@
   },
   "LAYOUTS": {
     "string": "LAYOUTS",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x848dfc",
     "read_sites": [
@@ -38705,7 +38764,7 @@
   },
   "WinningThreshold": {
     "string": "WinningThreshold",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848eb8",
     "read_sites": [
@@ -38715,7 +38774,7 @@
   },
   "MegaWinningThreshold": {
     "string": "MegaWinningThreshold",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848ea0",
     "read_sites": [
@@ -38725,7 +38784,7 @@
   },
   "LosingThreshold": {
     "string": "LosingThreshold",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848e90",
     "read_sites": [
@@ -38735,7 +38794,7 @@
   },
   "MegaLosingThreshold": {
     "string": "MegaLosingThreshold",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848e7c",
     "read_sites": [
@@ -38745,7 +38804,7 @@
   },
   "ZoomingTarget": {
     "string": "ZoomingTarget",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848ef0",
     "read_sites": [
@@ -38755,7 +38814,7 @@
   },
   "TargetPalette": {
     "string": "TargetPalette",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848ee0",
     "read_sites": [
@@ -38765,7 +38824,7 @@
   },
   "TargetDividingFrame": {
     "string": "TargetDividingFrame",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848ecc",
     "read_sites": [
@@ -38775,7 +38834,7 @@
   },
   "Canceled": {
     "string": "Canceled",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848f18",
     "read_sites": [
@@ -38785,7 +38844,7 @@
   },
   "MapLeave": {
     "string": "MapLeave",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848f0c",
     "read_sites": [
@@ -38796,7 +38855,7 @@
   },
   "MapEnter": {
     "string": "MapEnter",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848f00",
     "read_sites": [
@@ -38807,7 +38866,7 @@
   },
   "MouseCancel": {
     "string": "MouseCancel",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848f6c",
     "read_sites": [
@@ -38818,7 +38877,7 @@
   },
   "ConflictSelected": {
     "string": "ConflictSelected",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x848f40",
     "read_sites": [
@@ -38828,7 +38887,7 @@
   },
   "TargetZoom": {
     "string": "TargetZoom",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849058",
     "read_sites": [
@@ -38838,7 +38897,7 @@
   },
   "Target_800": {
     "string": "Target_800",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x849168",
     "read_sites": [
@@ -38848,7 +38907,7 @@
   },
   "Origin_800": {
     "string": "Origin_800",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x84915c",
     "read_sites": [
@@ -38858,7 +38917,7 @@
   },
   "OldCycle": {
     "string": "OldCycle",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8491c4",
     "read_sites": [
@@ -38868,7 +38927,7 @@
   },
   "History": {
     "string": "History",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8491bc",
     "read_sites": [
@@ -38878,7 +38937,7 @@
   },
   "Status": {
     "string": "Status",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8491b4",
     "read_sites": [
@@ -38888,7 +38947,7 @@
   },
   "Territory": {
     "string": "Territory",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8489c0",
     "read_sites": [
@@ -38898,7 +38957,7 @@
   },
   "Game": {
     "string": "Game",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8491ac",
     "read_sites": [
@@ -38908,7 +38967,7 @@
   },
   "Evacuate": {
     "string": "Evacuate",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8491a0",
     "read_sites": [
@@ -38918,7 +38977,7 @@
   },
   "Draw": {
     "string": "Draw",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8491e8",
     "read_sites": [
@@ -38929,7 +38988,7 @@
   },
   "Startup": {
     "string": "Startup",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8491e0",
     "read_sites": [
@@ -38939,7 +38998,7 @@
   },
   "TerritorySelect": {
     "string": "TerritorySelect",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8491d0",
     "read_sites": [
@@ -38949,7 +39008,7 @@
   },
   "Emphasis": {
     "string": "Emphasis",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849208",
     "read_sites": [
@@ -39226,7 +39285,7 @@
   },
   "Supress": {
     "string": "Supress",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849440",
     "read_sites": [
@@ -39272,7 +39331,7 @@
   },
   "DownReport": {
     "string": "DownReport",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84941c",
     "read_sites": [
@@ -39327,7 +39386,7 @@
   },
   "Camera": {
     "string": "Camera",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8493e8",
     "read_sites": [
@@ -39465,7 +39524,7 @@
   },
   "DistributedWeaponFire": {
     "string": "DistributedWeaponFire",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849374",
     "read_sites": [
@@ -39597,7 +39656,7 @@
   },
   "IonSensitive": {
     "string": "IonSensitive",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849300",
     "read_sites": [
@@ -39639,7 +39698,7 @@
   },
   "DrawBoltAsLaser": {
     "string": "DrawBoltAsLaser",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8492d4",
     "read_sites": [
@@ -39760,7 +39819,7 @@
   },
   "HTMLPath": {
     "string": "HTMLPath",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849640",
     "read_sites": [
@@ -39772,7 +39831,7 @@
   },
   "FriendlyName": {
     "string": "FriendlyName",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x8497bc",
     "read_sites": [
@@ -39782,7 +39841,7 @@
   },
   "ERROR": {
     "string": "ERROR",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x849b60",
     "read_sites": [
@@ -39792,7 +39851,7 @@
   },
   "SUN.HLP": {
     "string": "SUN.HLP",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x849e2c",
     "read_sites": [
@@ -39803,7 +39862,7 @@
   },
   "Default\n": {
     "string": "Default\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x849f14",
     "read_sites": [
@@ -39815,7 +39874,7 @@
   },
   "gsmallwoo": {
     "string": "gsmallwoo",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x822d20",
     "read_sites": [
@@ -39858,7 +39917,7 @@
   },
   "Server": {
     "string": "Server",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849f84",
     "read_sites": [
@@ -39870,7 +39929,7 @@
   },
   "Locale": {
     "string": "Locale",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849f7c",
     "read_sites": [
@@ -39882,7 +39941,7 @@
   },
   "UpdateTime": {
     "string": "UpdateTime",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849f70",
     "read_sites": [
@@ -39894,7 +39953,7 @@
   },
   "UpdateDate": {
     "string": "UpdateDate",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849f64",
     "read_sites": [
@@ -39906,7 +39965,7 @@
   },
   "LocaleVerified": {
     "string": "LocaleVerified",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849fcc",
     "read_sites": [
@@ -39917,7 +39976,7 @@
   },
   "Rank": {
     "string": "Rank",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849fc4",
     "read_sites": [
@@ -39928,7 +39987,7 @@
   },
   "Wins": {
     "string": "Wins",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849fbc",
     "read_sites": [
@@ -39939,7 +39998,7 @@
   },
   "Losses": {
     "string": "Losses",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849fb4",
     "read_sites": [
@@ -39950,7 +40009,7 @@
   },
   "Disconnects": {
     "string": "Disconnects",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849fa8",
     "read_sites": [
@@ -39961,7 +40020,7 @@
   },
   "MatchByRes": {
     "string": "MatchByRes",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x849f9c",
     "read_sites": [
@@ -39972,7 +40031,7 @@
   },
   "AutoLogin": {
     "string": "AutoLogin",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a120",
     "read_sites": [
@@ -39985,7 +40044,7 @@
   },
   "Ask": {
     "string": "Ask",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a11c",
     "read_sites": [
@@ -39998,7 +40057,7 @@
   },
   "AddMatchBuddies": {
     "string": "AddMatchBuddies",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a12c",
     "read_sites": [
@@ -40009,7 +40068,7 @@
   },
   "DefaultPersona": {
     "string": "DefaultPersona",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a13c",
     "read_sites": [
@@ -40022,7 +40081,7 @@
   },
   "LastValid": {
     "string": "LastValid",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a14c",
     "read_sites": [
@@ -40033,7 +40092,7 @@
   },
   "AllowPage": {
     "string": "AllowPage",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a534",
     "read_sites": [
@@ -40044,7 +40103,7 @@
   },
   "WOnline": {
     "string": "WOnline",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a52c",
     "read_sites": [
@@ -40071,7 +40130,7 @@
   },
   "AllowFind": {
     "string": "AllowFind",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a520",
     "read_sites": [
@@ -40082,7 +40141,7 @@
   },
   "LangFilter": {
     "string": "LangFilter",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a514",
     "read_sites": [
@@ -40093,7 +40152,7 @@
   },
   "LobMusic": {
     "string": "LobMusic",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a508",
     "read_sites": [
@@ -40104,7 +40163,7 @@
   },
   "ShowAll": {
     "string": "ShowAll",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a500",
     "read_sites": [
@@ -40115,7 +40174,7 @@
   },
   "DisplayAsian": {
     "string": "DisplayAsian",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a4f0",
     "read_sites": [
@@ -40126,7 +40185,7 @@
   },
   "DisplayLatin": {
     "string": "DisplayLatin",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a4e0",
     "read_sites": [
@@ -40137,7 +40196,7 @@
   },
   "DisplayBuddies": {
     "string": "DisplayBuddies",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a4d0",
     "read_sites": [
@@ -40148,7 +40207,7 @@
   },
   "DisplayClan": {
     "string": "DisplayClan",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a4c4",
     "read_sites": [
@@ -40159,7 +40218,7 @@
   },
   "Lob_41_": {
     "string": "Lob_41_",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x84a214",
     "read_sites": [
@@ -40178,7 +40237,7 @@
   },
   "RegPath": {
     "string": "RegPath",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84a944",
     "read_sites": [
@@ -40212,7 +40271,7 @@
   },
   "NorthAmerica": {
     "string": "NorthAmerica",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84b61c",
     "read_sites": [
@@ -40222,7 +40281,7 @@
   },
   "Europe": {
     "string": "Europe",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84b614",
     "read_sites": [
@@ -40232,7 +40291,7 @@
   },
   "zotclot9": {
     "string": "zotclot9",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x84b698",
     "read_sites": [
@@ -40243,7 +40302,7 @@
   },
   "TibPass99": {
     "string": "TibPass99",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84b7b4",
     "read_sites": [
@@ -40254,7 +40313,7 @@
   },
   "TibSun": {
     "string": "TibSun",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84b7ac",
     "read_sites": [
@@ -40265,7 +40324,7 @@
   },
   "Start_Game_Now\n": {
     "string": "Start_Game_Now\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x84c6b0",
     "read_sites": [
@@ -40297,7 +40356,7 @@
   },
   "SnmpExtensionInit": {
     "string": "SnmpExtensionInit",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84c944",
     "read_sites": [
@@ -40307,7 +40366,7 @@
   },
   "SnmpExtensionQuery": {
     "string": "SnmpExtensionQuery",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84c930",
     "read_sites": [
@@ -40317,7 +40376,7 @@
   },
   "SnmpUtilMemAlloc": {
     "string": "SnmpUtilMemAlloc",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84c91c",
     "read_sites": [
@@ -40327,7 +40386,7 @@
   },
   "SnmpUtilMemFree": {
     "string": "SnmpUtilMemFree",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84c90c",
     "read_sites": [
@@ -40337,7 +40396,7 @@
   },
   "Community": {
     "string": "Community",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84cd6c",
     "read_sites": [
@@ -40349,7 +40408,7 @@
   },
   "gt18.bmp": {
     "string": "gt18.bmp",
-    "kind": "unclassified",
+    "kind": "file",
     "domains": [],
     "string_va": "0x84cda8",
     "read_sites": [
@@ -40359,7 +40418,7 @@
   },
   "Fail": {
     "string": "Fail",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84d4b4",
     "read_sites": [
@@ -40369,7 +40428,7 @@
   },
   "PingFail": {
     "string": "PingFail",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84d498",
     "read_sites": [
@@ -40379,7 +40438,7 @@
   },
   "RankFail": {
     "string": "RankFail",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84d478",
     "read_sites": [
@@ -40389,7 +40448,7 @@
   },
   "WDTSideFail": {
     "string": "WDTSideFail",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84d458",
     "read_sites": [
@@ -40399,7 +40458,7 @@
   },
   "Exit": {
     "string": "Exit",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84d438",
     "read_sites": [
@@ -40409,7 +40468,7 @@
   },
   "Working": {
     "string": "Working",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x84d430",
     "read_sites": [
@@ -40419,7 +40478,7 @@
   },
   "ack": {
     "string": "ack",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x84d3e4",
     "read_sites": [
@@ -40429,7 +40488,7 @@
   },
   "nack": {
     "string": "nack",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x84d3dc",
     "read_sites": [
@@ -40439,7 +40498,7 @@
   },
   "OnNewNick\n": {
     "string": "OnNewNick\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x84aac0",
     "read_sites": [
@@ -40449,7 +40508,7 @@
   },
   "OnAgeCheck\n": {
     "string": "OnAgeCheck\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x84aacc",
     "read_sites": [
@@ -40469,7 +40528,7 @@
   },
   "OnGameStart\n": {
     "string": "OnGameStart\n",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x84adf8",
     "read_sites": [
@@ -40479,7 +40538,7 @@
   },
   "Lob_40_": {
     "string": "Lob_40_",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x84a21c",
     "read_sites": [
@@ -40489,7 +40548,7 @@
   },
   "Lob_35_": {
     "string": "Lob_35_",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x84a224",
     "read_sites": [
@@ -40594,7 +40653,7 @@
   },
   "KERNEL32": {
     "string": "KERNEL32",
-    "kind": "unclassified",
+    "kind": "code",
     "domains": [],
     "string_va": "0x7f988c",
     "read_sites": [
@@ -40604,7 +40663,7 @@
   },
   "IsProcessorFeaturePresent": {
     "string": "IsProcessorFeaturePresent",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x7f9870",
     "read_sites": [
@@ -40644,7 +40703,7 @@
   },
   "MessageBoxA": {
     "string": "MessageBoxA",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x7fa35c",
     "read_sites": [
@@ -40654,7 +40713,7 @@
   },
   "GetActiveWindow": {
     "string": "GetActiveWindow",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x7fa34c",
     "read_sites": [
@@ -40664,7 +40723,7 @@
   },
   "GetLastActivePopup": {
     "string": "GetLastActivePopup",
-    "kind": "unclassified",
+    "kind": "tag-unlisted",
     "domains": [],
     "string_va": "0x7fa338",
     "read_sites": [

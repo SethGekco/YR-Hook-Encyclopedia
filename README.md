@@ -108,14 +108,22 @@ Two ways to go from "I want behaviour X" to "which hook is it":
   `build_engine_string_surface.py`). The reverse of the above: instead of looking
   up known tags, it enumerates **every identifier string the engine pushes** and
   classifies each — `tag` (a key in rules/art/ai), `file`, `code` (object id), or
-  `unclassified`. Strings are classed against **30 vanilla INI files** (rules,
-  art, ai, sound, eva, theme, ui, rmg, the theater tile-control files, the MP
-  game-mode files, mission/mapsel/battle/coop) **plus sample map/scenario files**
-  (`.map`/`.mpr`/`.yrm`/`.mmx` — the `map` domain, contributing scenario keys like
-  `HomeCell`, `NextScenario`, `IceGrowthEnabled`, the lighting `Ion*` keys). This
-  is how art/AI/sound/theater/map tags get read sites too (not just rules);
-  **1,805** classify as tags. The **715 `unclassified`** strings are a lead list
-  of possible *undocumented* tags the engine reads. Superset of the rules view.
+  `unclassified`. Strings are classed against the **full vanilla YR INI set** (30
+  files: rules, art, ai, sound, eva, theme, ui, rmg, the theater tile-control
+  files, the MP game-mode files, mission/mapsel/battle/coop), **sample map/scenario
+  files** (`.map`/`.mpr`/`.yrm`/`.mmx` — the `map` domain: `HomeCell`,
+  `NextScenario`, `IceGrowthEnabled`, the lighting `Ion*` keys), and the **original
+  Red Alert 2 INIs** (the `ra2` domain). **1,818** classify as tags; **702**
+  remain `unclassified` (a lead list of possible undocumented tags).
+  - **Legacy tags via the `ra2` domain.** YR runs on the RA2 engine, which runs on
+    Tiberian Sun's. When a feature was cut, the *tag-reading code often stayed in
+    the binary*. Strings classed **only** as `ra2` are candidate leftovers — e.g.
+    `VeinAttack` (TS Veinhole, `0x6692ff`), `AIIonCannon*Value` (TS Ion Cannon AI,
+    `0x670a55`+), `BuildAA`/`BuildDefense`/`BuildHelipad`/`BuildPDefense`,
+    `Armory`/`Hospital`. Vestigial in YR, still read by the engine.
+  - Vanilla INIs are read from a gitignored cache (`sources/ini-cache/`, refreshed
+    by `scripts/update_ini_cache.sh` from the vanilla YR/RA2 zips) so the build is
+    reproducible; only the derived string→domain→address data is committed.
 
 **Tier 2 — the Encyclopedia** is the slow, valuable part: hand-written prose for
 hooks that are widely used, widely *misunderstood*, or conflict-prone. It grows

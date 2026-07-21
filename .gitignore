@@ -5,3 +5,5 @@ __pycache__/
 sources/repos/
 # PRIVATE personal notes — never published. See private/README.md.
 private/
+# Cached vanilla game INIs (not published) — used by build_engine_string_surface.py
+sources/ini-cache/

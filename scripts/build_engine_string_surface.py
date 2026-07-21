@@ -34,27 +34,44 @@ ROOT = os.path.dirname(HERE)
 REG = os.path.join(ROOT, "registry")
 
 EXE = "/home/rex/gamemd.exe"
-_INIDIR = "/mnt/wwn-0x50014ee6b383afb8-part1/(3) Games Data/RA2 & Yuri's Revenge/Tools/0 INI FILES"
+# Vanilla INIs are cached under sources/ini-cache/ (gitignored, NOT published — game
+# data). Refresh with scripts/update_ini_cache.sh, which extracts the vanilla YR and
+# RA2 zips. Reading from the cache makes the build reproducible instead of depending on
+# a volatile loose folder. Only the DERIVED classification (string -> domain -> address)
+# is committed, never the INI contents.
+_YR = os.path.join(ROOT, "sources", "ini-cache", "yr")
+_RA2 = os.path.join(ROOT, "sources", "ini-cache", "ra2")
 # domain -> list of INI files that define that domain's keys. Cross-referenced to
 # label which strings the engine pushes are real tags (and of what kind). All vanilla.
 INI_UNIVERSES = {
-    "rules":   [f"{_INIDIR}/Patched YR/Uneditted Rules/rulesmd.ini"],
-    "art":     [f"{_INIDIR}/artmd.ini"],
-    "ai":      [f"{_INIDIR}/aimd.ini"],
-    "sound":   [f"{_INIDIR}/soundmd.ini"],
-    "eva":     [f"{_INIDIR}/evamd.ini"],
-    "theme":   [f"{_INIDIR}/thememd.ini"],
-    "ui":      [f"{_INIDIR}/uimd.ini"],
-    "rmg":     [f"{_INIDIR}/rmgmd.ini"],
-    "battle":  [f"{_INIDIR}/battlemd.ini"],
-    "mission": [f"{_INIDIR}/missionmd.ini"],
-    "mapsel":  [f"{_INIDIR}/mapselmd.ini"],
-    "coop":    [f"{_INIDIR}/coopcampmd.ini"],
-    "theater": [f"{_INIDIR}/{n}md.ini" for n in
+    "rules":   [f"{_YR}/rulesmd.ini"],
+    "art":     [f"{_YR}/artmd.ini"],
+    "ai":      [f"{_YR}/aimd.ini"],
+    "sound":   [f"{_YR}/soundmd.ini"],
+    "eva":     [f"{_YR}/evamd.ini"],
+    "theme":   [f"{_YR}/thememd.ini"],
+    "ui":      [f"{_YR}/uimd.ini"],
+    "rmg":     [f"{_YR}/rmgmd.ini"],
+    "battle":  [f"{_YR}/battlemd.ini"],
+    "mission": [f"{_YR}/missionmd.ini"],
+    "mapsel":  [f"{_YR}/mapselmd.ini"],
+    "coop":    [f"{_YR}/coopcampmd.ini"],
+    "theater": [f"{_YR}/{n}md.ini" for n in
                 ("desert", "lunar", "snow", "temperat", "urban", "urbann")],
-    "mp":      [f"{_INIDIR}/{n}md.ini" for n in
+    "mp":      [f"{_YR}/{n}md.ini" for n in
                 ("mpmodes", "mpbattle", "mpcoop", "mpduel", "mpfreeforall",
                  "mpmeat", "mpmw", "mpnaval", "mpsiege", "mpteam", "mpunholy")],
+    # Original Red Alert 2 (pre-Yuri) INIs. YR runs on the RA2 engine (which runs on
+    # Tiberian Sun's), so the binary still reads tags RA2/TS used even where YR's own
+    # INI templates dropped them (TS Veinhole `VeinAttack`, the `AIIonCannon*` weights,
+    # old AI build tags). A string classed ONLY as `ra2` here is a candidate leftover/
+    # legacy tag — vestigial in YR but still read by the engine.
+    "ra2":     [f"{_RA2}/{n}.ini" for n in
+                ("rules", "art", "ai", "sound", "keyboard", "ui", "theme", "tutorial",
+                 "mission", "mapsel", "battle", "coopcamp", "rmg", "mpmodes", "mpbattle",
+                 "mpcoop", "mpduel", "mpfreeforall", "mpmeat", "mpmw", "mpnaval",
+                 "mpsiege", "mpunholy", "snow", "temperat", "urban", "eva")]
+               + [f"{_RA2}/missions.pkt"],
     # Map/scenario files are INI text too ([Basic]/[Map]/[SpecialFlags]/lighting/
     # trigger sections) and carry scenario keys the engine reads that appear in no
     # other INI (HomeCell, CarryOverMoney, NextScenario, IceGrowthEnabled, ...).

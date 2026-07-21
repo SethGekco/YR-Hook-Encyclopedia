@@ -1,16 +1,16 @@
 String,Kind,Domains,ReadSites,StringVA
-AALimit,tag,rules,0x673c1f,0x83d23c
-AARate,tag,rules,0x5b38d5,0x82c27c
-AARatio,tag,rules,0x673bfe,0x83d244
+AALimit,tag,ra2|rules,0x673c1f,0x83d23c
+AARate,tag,ra2|rules,0x5b38d5,0x82c27c
+AARatio,tag,ra2|rules,0x673bfe,0x83d244
 ACCO,code,,0x6c78e0,0x842050
 ACP,code,,0x7d7386,0x7fa2d8
 AFPS,code,,0x6c76be 0x6c76db,0x84207c
-AIAlternateProductionCreditCutoff,tag,rules,0x66fdf3,0x83c594
-AIAutoDeployFrameDelay,tag,rules,0x670249,0x83c300
-AIBasePlanningSide,tag,rules,0x714a02,0x843980
-AIBaseSpacing,tag,rules,0x673d78,0x83d1a8
-AIBuildThis,tag,rules,0x460fe9,0x81a7fc
-AIBuildsWalls,tag,rules,0x66fe59,0x83c550
+AIAlternateProductionCreditCutoff,tag,ra2|rules,0x66fdf3,0x83c594
+AIAutoDeployFrameDelay,tag,ra2|rules,0x670249,0x83c300
+AIBasePlanningSide,tag,ra2|rules,0x714a02,0x843980
+AIBaseSpacing,tag,ra2|rules,0x673d78,0x83d1a8
+AIBuildThis,tag,ra2|rules,0x460fe9,0x81a7fc
+AIBuildsWalls,tag,ra2|rules,0x66fe59,0x83c550
 AICaptureLowMoney,tag,rules,0x6704a8,0x83c1a8
 AICaptureLowMoneyMark,tag,rules,0x6704d8,0x83c190
 AICaptureLowPower,tag,rules,0x67046e,0x83c1bc
@@ -18,41 +18,41 @@ AICaptureNormal,tag,rules,0x6703fb,0x83c1e4
 AICaptureWounded,tag,rules,0x670435,0x83c1d0
 AICaptureWoundedMark,tag,rules,0x6704fe,0x83c178
 AIDefendAgainst,tag,rules,0x6ceaf7,0x8426cc
-AIDifficulty,tag,rules,0x671fec,0x83d04c
+AIDifficulty,tag,ra2|rules,0x671fec,0x83d04c
 AIExtraRefineries,tag,rules,0x67060c,0x83c114
 AIForcePredictionFudge,tag,rules,0x6732ef,0x83d404
-AIHateDelays,tag,rules,0x66fdc4,0x83c5b8
-AIIonCannonAPCValue,tag,rules,0x6709e2,0x83bfa4
-AIIonCannonBaseDefenseValue,tag,rules,0x670a1b,0x83bf88
-AIIonCannonConYardValue,tag,rules,0x670814,0x83c06c
-AIIonCannonEngineerValue,tag,rules,0x6708fb,0x83c000
-AIIonCannonHarvesterValue,tag,rules,0x67096e,0x83bfcc
-AIIonCannonHelipadValue,unclassified,,0x670a8f,0x83bf58
-AIIonCannonMCVValue,tag,rules,0x6709a8,0x83bfb8
-AIIonCannonPlugValue,unclassified,,0x670a55,0x83bf70
-AIIonCannonPowerValue,tag,rules,0x670888,0x83c038
+AIHateDelays,tag,ra2|rules,0x66fdc4,0x83c5b8
+AIIonCannonAPCValue,tag,ra2|rules,0x6709e2,0x83bfa4
+AIIonCannonBaseDefenseValue,tag,ra2|rules,0x670a1b,0x83bf88
+AIIonCannonConYardValue,tag,ra2|rules,0x670814,0x83c06c
+AIIonCannonEngineerValue,tag,ra2|rules,0x6708fb,0x83c000
+AIIonCannonHarvesterValue,tag,ra2|rules,0x67096e,0x83bfcc
+AIIonCannonHelipadValue,tag,ra2,0x670a8f,0x83bf58
+AIIonCannonMCVValue,tag,ra2|rules,0x6709a8,0x83bfb8
+AIIonCannonPlugValue,tag,ra2,0x670a55,0x83bf70
+AIIonCannonPowerValue,tag,ra2|rules,0x670888,0x83c038
 AIIonCannonTechCenterValue,tag,rules,0x6708c1,0x83c01c
-AIIonCannonTempleValue,unclassified,,0x670ac8,0x83bf40
-AIIonCannonThiefValue,tag,rules,0x670935,0x83bfe8
-AIIonCannonWarFactoryValue,tag,rules,0x67084e,0x83c050
+AIIonCannonTempleValue,tag,ra2,0x670ac8,0x83bf40
+AIIonCannonThiefValue,tag,ra2|rules,0x670935,0x83bfe8
+AIIonCannonWarFactoryValue,tag,ra2|rules,0x67084e,0x83c050
 AIMD.INI,file,,0x52d357,0x82621c
-AIMinorSuperReadyPercent,tag,rules,0x66ffc4,0x83c498
-AINavalYardAdjacency,tag,rules,0x6701e6,0x83c33c
+AIMinorSuperReadyPercent,tag,ra2|rules,0x66ffc4,0x83c498
+AINavalYardAdjacency,tag,ra2|rules,0x6701e6,0x83c33c
 AIPL,code,,0x6c7307,0x8420b4
-AIPickWallDefensePercent,tag,rules,0x6700d9,0x83c400
-AIPlayers,tag,rules,0x67200c,0x83d040
+AIPickWallDefensePercent,tag,ra2|rules,0x6700d9,0x83c400
+AIPlayers,tag,ra2|rules,0x67200c,0x83d040
 AIRCRAFT,unclassified,,0x698a80,0x83f02c
-AIRestrictReplaceTime,tag,rules,0x670103,0x83c3e8
-AISafeDistance,tag,map|rules,0x66ff9f,0x83c4b4
+AIRestrictReplaceTime,tag,ra2|rules,0x670103,0x83c3e8
+AISafeDistance,tag,map|ra2|rules,0x66ff9f,0x83c4b4
 AISlaveMinerNumber,tag,rules,0x670599,0x83c140
 AISuperDefenseDistance,tag,rules,0x6703d1,0x83c1f4
 AISuperDefenseFrames,tag,rules,0x6703b1,0x83c20c
 AISuperDefenseProbability,tag,rules,0x670381,0x83c224
-AITriggerFailureWeightDelta,tag,rules,0x671913,0x83b790
-AITriggerSuccessWeightDelta,tag,rules,0x6718ec,0x83b7ac
-AITriggerTrackRecordCoefficient,tag,rules,0x67193a,0x83b770
+AITriggerFailureWeightDelta,tag,ra2|rules,0x671913,0x83b790
+AITriggerSuccessWeightDelta,tag,ra2|rules,0x6718ec,0x83b7ac
+AITriggerTrackRecordCoefficient,tag,ra2|rules,0x67193a,0x83b770
 AIUseTurbineUpgradeProbability,unclassified,,0x66fe19,0x83c574
-AIVirtualPurifiers,tag,rules,0x67055f,0x83c154
+AIVirtualPurifiers,tag,ra2|rules,0x67055f,0x83c154
 ALL,code,,0x7af2e1,0x816148
 ANIM,code,,0x698aa8,0x83f024
 ARTMD.INI,file,,0x52d033 0x679ef5,0x826254
@@ -63,16 +63,16 @@ ATV1,code,,0x5f20b0,0x83267c
 ATZ,code,,0x5f32eb,0x832a08
 AUDIO.MIX,file,,0x406cc8,0x816274
 AUDIOMD.MIX,file,,0x406c43 0x406ca4,0x816280
-Accelerates,tag,rules,0x715402,0x843534
-Acceleration,tag,rules,0x46bf85 0x67448b,0x81b140
-AccelerationFactor,tag,rules,0x7124bc,0x8443e0
+Accelerates,tag,ra2|rules,0x715402,0x843534
+Acceleration,tag,ra2|rules,0x46bf85 0x67448b,0x81b140
+AccelerationFactor,tag,ra2|rules,0x7124bc,0x8443e0
 Accessibility,unclassified,,0x597902 0x597bff,0x82bba0
-Action,tag,map|rules,0x68a078 0x68b32f 0x6cea93,0x817270
+Action,tag,map|ra2|rules,0x68a078 0x68b32f 0x6cea93,0x817270
 ActivateSound,tag,rules,0x66a21e 0x7138ec,0x83a6dc
-ActiveAnim,tag,art,0x4617c4,0x81a5d0
-ActiveAnimDamaged,tag,art,0x461822,0x81a5bc
-ActiveAnimFour,tag,art,0x461fce,0x81a2f0
-ActiveAnimFourDamaged,tag,art,0x46202c,0x81a2d8
+ActiveAnim,tag,art|ra2,0x4617c4,0x81a5d0
+ActiveAnimDamaged,tag,art|ra2,0x461822,0x81a5bc
+ActiveAnimFour,tag,art|ra2,0x461fce,0x81a2f0
+ActiveAnimFourDamaged,tag,art|ra2,0x46202c,0x81a2d8
 ActiveAnimFourGarrisoned,unclassified,,0x4620c6,0x81a2bc
 ActiveAnimFourPowered,unclassified,,0x4621fd,0x81a258
 ActiveAnimFourPoweredEffect,unclassified,,0x462237,0x81a220
@@ -80,164 +80,164 @@ ActiveAnimFourPoweredLight,unclassified,,0x46221a,0x81a23c
 ActiveAnimFourPoweredSpecial,unclassified,,0x462254,0x81a200
 ActiveAnimFourX,unclassified,,0x462189,0x81a2ac
 ActiveAnimFourY,unclassified,,0x4621a6,0x81a29c
-ActiveAnimFourYSort,tag,art,0x4621e0,0x81a270
-ActiveAnimFourZAdjust,tag,art,0x4621c3,0x81a284
-ActiveAnimGarrisoned,tag,art,0x4618bc,0x81a5a4
-ActiveAnimPowered,tag,art,0x4619f3,0x81a554
+ActiveAnimFourYSort,tag,art|ra2,0x4621e0,0x81a270
+ActiveAnimFourZAdjust,tag,art|ra2,0x4621c3,0x81a284
+ActiveAnimGarrisoned,tag,art|ra2,0x4618bc,0x81a5a4
+ActiveAnimPowered,tag,art|ra2,0x4619f3,0x81a554
 ActiveAnimPoweredEffect,unclassified,,0x461a2d,0x81a524
-ActiveAnimPoweredLight,tag,art,0x461a10,0x81a53c
+ActiveAnimPoweredLight,tag,art|ra2,0x461a10,0x81a53c
 ActiveAnimPoweredSpecial,tag,art,0x461a4a,0x81a508
-ActiveAnimThree,tag,art,0x461d20,0x81a400
-ActiveAnimThreeDamaged,tag,art,0x461d7e,0x81a3e8
+ActiveAnimThree,tag,art|ra2,0x461d20,0x81a400
+ActiveAnimThreeDamaged,tag,art|ra2,0x461d7e,0x81a3e8
 ActiveAnimThreeGarrisoned,unclassified,,0x461e18,0x81a3cc
-ActiveAnimThreePowered,tag,art,0x461f4f,0x81a35c
+ActiveAnimThreePowered,tag,art|ra2,0x461f4f,0x81a35c
 ActiveAnimThreePoweredEffect,unclassified,,0x461f89,0x81a320
-ActiveAnimThreePoweredLight,tag,art,0x461f6c,0x81a340
+ActiveAnimThreePoweredLight,tag,art|ra2,0x461f6c,0x81a340
 ActiveAnimThreePoweredSpecial,unclassified,,0x461fa6,0x81a300
 ActiveAnimThreeX,unclassified,,0x461edb,0x81a3b8
 ActiveAnimThreeY,unclassified,,0x461ef8,0x81a3a4
-ActiveAnimThreeYSort,tag,art,0x461f32,0x81a374
-ActiveAnimThreeZAdjust,tag,art,0x461f15,0x81a38c
-ActiveAnimTwo,tag,art,0x461a72,0x81a4f8
-ActiveAnimTwoDamaged,tag,art,0x461ad0,0x81a4e0
+ActiveAnimThreeYSort,tag,art|ra2,0x461f32,0x81a374
+ActiveAnimThreeZAdjust,tag,art|ra2,0x461f15,0x81a38c
+ActiveAnimTwo,tag,art|ra2,0x461a72,0x81a4f8
+ActiveAnimTwoDamaged,tag,art|ra2,0x461ad0,0x81a4e0
 ActiveAnimTwoGarrisoned,unclassified,,0x461b6a,0x81a4c8
-ActiveAnimTwoPowered,tag,art,0x461ca1,0x81a464
+ActiveAnimTwoPowered,tag,art|ra2,0x461ca1,0x81a464
 ActiveAnimTwoPoweredEffect,unclassified,,0x461cdb,0x81a42c
-ActiveAnimTwoPoweredLight,tag,art,0x461cbe,0x81a448
+ActiveAnimTwoPoweredLight,tag,art|ra2,0x461cbe,0x81a448
 ActiveAnimTwoPoweredSpecial,unclassified,,0x461cf8,0x81a410
 ActiveAnimTwoX,unclassified,,0x461c2d,0x81a4b8
 ActiveAnimTwoY,unclassified,,0x461c4a,0x81a4a8
-ActiveAnimTwoYSort,tag,art,0x461c84,0x81a47c
-ActiveAnimTwoZAdjust,tag,art,0x461c67,0x81a490
+ActiveAnimTwoYSort,tag,art|ra2,0x461c84,0x81a47c
+ActiveAnimTwoZAdjust,tag,art|ra2,0x461c67,0x81a490
 ActiveAnimX,unclassified,,0x46197f,0x81a598
-ActiveAnimY,tag,art,0x46199c,0x81a58c
-ActiveAnimYSort,tag,art,0x4619d6,0x81a568
-ActiveAnimZAdjust,tag,art,0x4619b9,0x81a578
+ActiveAnimY,tag,art|ra2,0x46199c,0x81a58c
+ActiveAnimYSort,tag,art|ra2,0x4619d6,0x81a568
+ActiveAnimZAdjust,tag,art|ra2,0x4619b9,0x81a578
 ActiveRect,unclassified,,0x4f2def 0x4f31d8,0x824240
 AddMatchBuddies,unclassified,,0x779a01 0x779b0f,0x84a12c
-AddPlanningModeCommandSound,tag,rules,0x669b31,0x83a93c
-Adjacent,tag,rules,0x45ffb6,0x81ae40
+AddPlanningModeCommandSound,tag,ra2|rules,0x669b31,0x83a93c
+Adjacent,tag,ra2|rules,0x45ffb6,0x81ae40
 AffectsAllies,tag,rules,0x75d9df,0x847cc8
-Agent,tag,rules,0x5245a1,0x825954
-Aggressive,tag,ai|map,0x6f12a9 0x6f16cb,0x843034
-AirRangeBonus,tag,rules,0x7147a1,0x843ad4
-Airburst,tag,rules,0x46c18b,0x81b078
-AirburstWeapon,tag,rules,0x46c2b1,0x81b04c
-Aircraft,tag,rules,0x67436c,0x817460
+Agent,tag,ra2|rules,0x5245a1,0x825954
+Aggressive,tag,ai|map|ra2,0x6f12a9 0x6f16cb,0x843034
+AirRangeBonus,tag,ra2|rules,0x7147a1,0x843ad4
+Airburst,tag,ra2|rules,0x46c18b,0x81b078
+AirburstWeapon,tag,ra2|rules,0x46c2b1,0x81b04c
+Aircraft,tag,ra2|rules,0x67436c,0x817460
 AircraftCostBonus,tag,rules,0x4606cf,0x81ab9c
-AircraftFogReveal,tag,rules,0x66eb2f,0x83cb4c
-AirportBound,tag,rules,0x41cc6e,0x81803c
-Airspeed,tag,rules,0x5119ca 0x66d2c2,0x82547c
+AircraftFogReveal,tag,ra2|rules,0x66eb2f,0x83cb4c
+AirportBound,tag,ra2|rules,0x41cc6e,0x81803c
+Airspeed,tag,ra2|rules,0x5119ca 0x66d2c2,0x82547c
 Airstrike,tag,rules,0x75d8ce,0x817154
 AirstrikeAbortSound,tag,rules,0x66a052,0x83a770
 AirstrikeAttackVoice,tag,rules,0x66a094,0x83a758
 AirstrikeRechargeTime,tag,rules,0x714629,0x843b2c
 AirstrikeTeam,tag,rules,0x714591,0x843b84
 AirstrikeTeamType,tag,rules,0x7145cd,0x843b5c
-AirstripLimit,tag,rules,0x673cf2,0x83d1e4
-AirstripRatio,tag,rules,0x673cd1,0x83d1f4
-Allied,tag,eva,0x752fb9,0x846788
-AlliedBaseDefenseCounts,tag,rules,0x67002c,0x83c44c
+AirstripLimit,tag,ra2|rules,0x673cf2,0x83d1e4
+AirstripRatio,tag,ra2|rules,0x673cd1,0x83d1f4
+Allied,tag,eva|ra2,0x752fb9,0x846788
+AlliedBaseDefenseCounts,tag,ra2|rules,0x67002c,0x83c44c
 AlliedBaseDefenses,tag,rules,0x67306d,0x83d444
-AlliedCrew,tag,rules,0x66fce5,0x83c60c
-AlliedDisguise,tag,rules,0x66fba1,0x83c6a0
-AlliedSurvivorDivisor,tag,rules,0x670c20,0x83bea8
-AlliedWallTransparency,tag,rules,0x66d21b,0x83b39c
+AlliedCrew,tag,ra2|rules,0x66fce5,0x83c60c
+AlliedDisguise,tag,ra2|rules,0x66fba1,0x83c6a0
+AlliedSurvivorDivisor,tag,ra2|rules,0x670c20,0x83bea8
+AlliedWallTransparency,tag,ra2|rules,0x66d21b,0x83b39c
 Allies,tag,map,0x5010a8 0x501351,0x824d5c
-AlliesAllowed,tag,mp|rules,0x5d5cdf 0x672148,0x8308ac
-AllowBurrowing,tag,theater,0x546169,0x829218
+AlliesAllowed,tag,mp|ra2|rules,0x5d5cdf 0x672148,0x8308ac
+AllowBurrowing,tag,ra2|theater,0x546169,0x829218
 AllowFind,unclassified,,0x77def2 0x77e006,0x84a520
 AllowHiResModes,unclassified,,0x5fa942,0x833100
 AllowModeToggle,unclassified,,0x5fa981 0x6bc0e8,0x8330dc
 AllowPage,unclassified,,0x77ded2 0x77dfee,0x84a534
-AllowShroudedSubteranneanMoves,tag,rules,0x66eb0f,0x83cb60
-AllowTiberium,tag,theater,0x546188,0x829208
-AllowToPlace,tag,theater,0x546155,0x829228
+AllowShroudedSubteranneanMoves,tag,ra2|rules,0x66eb0f,0x83cb60
+AllowTiberium,tag,ra2|theater,0x546188,0x829208
+AllowToPlace,tag,ra2|theater,0x546155,0x829228
 AllowVRAMSidebar,unclassified,,0x5fa999,0x8330c8
 AllowableUnitMaximums,unclassified,,0x68a4ad 0x68b241,0x83e060
 AllowableUnits,unclassified,,0x68a352 0x68b227,0x83e078
-AllowedToStartInMultiplayer,tag,mp|rules,0x714c4b,0x8438b0
+AllowedToStartInMultiplayer,tag,mp|ra2|rules,0x714c4b,0x8438b0
 AllyChangeAllowed,tag,mp|rules,0x672168,0x83cfb4
-AllyParaDropInf,tag,map|rules,0x6706a4,0x83c0e4
-AllyParaDropNum,tag,map|rules,0x6706dc,0x83c0d4
-AllyReveal,tag,rules,0x66b310,0x83a390
-AlphaImage,tag,rules,0x5f937e,0x832c00
-AltCameo,tag,art,0x715a6e 0x716d34,0x843344
+AllyParaDropInf,tag,map|ra2|rules,0x6706a4,0x83c0e4
+AllyParaDropNum,tag,map|ra2|rules,0x6706dc,0x83c0d4
+AllyReveal,tag,ra2|rules,0x66b310,0x83a390
+AlphaImage,tag,ra2|rules,0x5f937e,0x832c00
+AltCameo,tag,art|ra2,0x715a6e 0x716d34,0x843344
 AltHomeCell,tag,map,0x68a62c 0x68b40a,0x83dfe0
 AltImage,unclassified,,0x747b80,0x845c94
 AltNextScenario,tag,map,0x689fe8 0x68b0cc,0x83e18c
-AltPalette,tag,art,0x427e04,0x818638
-AlternateArcticArt,tag,rules,0x5f9458,0x832bac
+AltPalette,tag,art|ra2,0x427e04,0x818638
+AlternateArcticArt,tag,ra2|rules,0x5f9458,0x832bac
 Ambient,tag,map,0x59989e 0x68a82b 0x68b60c,0x82bf94
-AmbientChangeRate,tag,rules,0x66b5eb,0x83a290
-AmbientChangeStep,tag,rules,0x66b612,0x83a27c
-AmbientDamage,tag,rules,0x7720bb,0x849548
-AmbientSound,tag,rules,0x5f93d0,0x832be4
-AmerParaDropInf,tag,rules,0x67063c,0x83c104
-AmerParaDropNum,tag,rules,0x670674,0x83c0f4
+AmbientChangeRate,tag,ra2|rules,0x66b5eb,0x83a290
+AmbientChangeStep,tag,ra2|rules,0x66b612,0x83a27c
+AmbientDamage,tag,ra2|rules,0x7720bb,0x849548
+AmbientSound,tag,ra2|rules,0x5f93d0,0x832be4
+AmerParaDropInf,tag,ra2|rules,0x67063c,0x83c104
+AmerParaDropNum,tag,ra2|rules,0x670674,0x83c0f4
 Americans,unclassified,,0x6877cc 0x68787e,0x83db9c
-Ammo,tag,rules,0x71476d,0x81bbe0
-AmmoCrateDamage,tag,rules,0x66bbe8,0x83b294
-Amphibious,tag,rules,0x67418b 0x6741ae,0x81bb18
-Anim,tag,rules,0x4f3956 0x772471,0x817448
-AnimActive,tag,art,0x461691,0x81a5f4
+Ammo,tag,ra2|rules,0x71476d,0x81bbe0
+AmmoCrateDamage,tag,ra2|rules,0x66bbe8,0x83b294
+Amphibious,tag,ra2|rules,0x67418b 0x6741ae,0x81bb18
+Anim,tag,ra2|rules,0x4f3956 0x772471,0x817448
+AnimActive,tag,art|ra2,0x461691,0x81a5f4
 AnimAux1,unclassified,,0x461706,0x81a5e8
 AnimAux2,unclassified,,0x461780,0x81a5dc
-AnimHigh,tag,art,0x46c3a6,0x81afe8
+AnimHigh,tag,art|ra2,0x46c3a6,0x81afe8
 AnimIdle,unclassified,,0x461612,0x81a600
-AnimList,tag,rules,0x75d66f,0x847d94
-AnimLow,tag,art,0x46c38c,0x81aff4
-AnimPalette,tag,art,0x46c3e2,0x81afd0
-AnimRate,tag,art,0x46c3ca,0x81afdc
+AnimList,tag,ra2|rules,0x75d66f,0x847d94
+AnimLow,tag,art|ra2,0x46c38c,0x81aff4
+AnimPalette,tag,art|ra2,0x46c3e2,0x81afd0
+AnimRate,tag,art|ra2,0x46c3ca,0x81afdc
 AnimToInfantry,tag,rules,0x6707dc,0x83c084
-AnimationProbability,tag,rules,0x71e060,0x844634
-AnimationRate,tag,rules,0x71e03b,0x84464c
+AnimationProbability,tag,ra2|rules,0x71e060,0x844634
+AnimationRate,tag,ra2|rules,0x71e03b,0x84464c
 Animations,unclassified,,0x6728ba 0x6728db 0x6728e8,0x83d0dc
-Anims,tag,mapsel,0x5cf0e5,0x8302fc
-Annoyance,tag,ai|map,0x6f1187 0x6f15f5,0x8430b8
+Anims,tag,mapsel|ra2,0x5cf0e5,0x8302fc
+Annoyance,tag,ai|map|ra2,0x6f1187 0x6f15f5,0x8430b8
 AntiAirValue,tag,rules,0x45fed2,0x81aeb0
 AntiArmorValue,tag,rules,0x45feb8,0x81aec0
 AntiInfantryValue,tag,rules,0x45fe9e,0x81aed0
-ApproachTargetResetMultiplier,tag,rules,0x670148,0x83c3b4
-Arcing,tag,rules,0x46bfb7,0x81b130
-AreTeamMembersRecruitable,tag,ai|map,0x6f1400 0x6f1799,0x842fac
-AreaFire,tag,rules,0x77283e,0x8492f4
-Arm,tag,rules,0x46bf14,0x81b168
-Armor,tag,map|rules,0x5119eb 0x5f94bc 0x66d2d9,0x81d9d4
+ApproachTargetResetMultiplier,tag,ra2|rules,0x670148,0x83c3b4
+Arcing,tag,ra2|rules,0x46bfb7,0x81b130
+AreTeamMembersRecruitable,tag,ai|map|ra2,0x6f1400 0x6f1799,0x842fac
+AreaFire,tag,ra2|rules,0x77283e,0x8492f4
+Arm,tag,ra2|rules,0x46bf14,0x81b168
+Armor,tag,map|ra2|rules,0x5119eb 0x5f94bc 0x66d2d9,0x81d9d4
 ArmorAircraftMult,unclassified,,0x511b15,0x8253f8
 ArmorBuildingsMult,unclassified,,0x511b34,0x8253e4
 ArmorDefensesMult,unclassified,,0x511b53,0x8253d0
 ArmorInfantryMult,unclassified,,0x511ad7,0x82541c
 ArmorUnitsMult,unclassified,,0x511af6,0x82540c
-Armory,unclassified,,0x460af7,0x81aa0c
+Armory,tag,ra2,0x460af7,0x81aa0c
 Art_800,unclassified,,0x76831f,0x848b24
 Artillary,unclassified,,0x460f43,0x81a828
 Ask,unclassified,,0x7797f6 0x779904 0x779a06 0x779b14,0x84a11c
-AssaultAnim,tag,rules,0x772574,0x849410
-Assaulter,tag,rules,0x5244ef,0x82599c
+AssaultAnim,tag,ra2|rules,0x772574,0x849410
+Assaulter,tag,ra2|rules,0x5244ef,0x82599c
 AtmosphereEntry,unclassified,,0x66a5d2,0x83a5bc
-AtomDamage,tag,rules,0x66cd35,0x83adb4
-AttachedParticleSystem,tag,rules,0x772913,0x849274
+AtomDamage,tag,ra2|rules,0x66cd35,0x83adb4
+AttachedParticleSystem,tag,ra2|rules,0x772913,0x849274
 AttachedSystem,unclassified,,0x74b45e,0x845ea0
 AttachedTo,unclassified,,0x5bba7d,0x82cea4
-Attack,tag,sound,0x75064c,0x816e64
-AttackCursorOnDisguise,tag,rules,0x66fc43,0x83c63c
-AttackCursorOnFriendlies,tag,rules,0x71524f,0x843604
-AttackDelay,tag,rules,0x67398b,0x83d350
+Attack,tag,ra2|sound,0x75064c,0x816e64
+AttackCursorOnDisguise,tag,ra2|rules,0x66fc43,0x83c63c
+AttackCursorOnFriendlies,tag,ra2|rules,0x71524f,0x843604
+AttackDelay,tag,ra2|rules,0x67398b,0x83d350
 AttackFriendlies,unclassified,,0x71522e,0x843620
-AttackInterval,tag,rules,0x673964,0x83d35c
-AttackingAircraftSightRange,tag,rules,0x670f26,0x83bd5c
+AttackInterval,tag,ra2|rules,0x673964,0x83d35c
+AttackingAircraftSightRange,tag,ra2|rules,0x670f26,0x83bd5c
 Audio,unclassified,,0x5fa9c3 0x5faa23 0x5faa98 0x5fab0a 0x5fab4e 0x5fab8d 0x5fac65 0x5faea6 0x5faec3 0x5faee0 0x5faef8 0x5faf10 0x5faf28 0x5faf45,0x8330b4
 AuthenticAMD,unclassified,,0x4e61da,0x822cd8
-AutoCrush,tag,rules,0x67430d 0x714d32,0x83d4d8
+AutoCrush,tag,ra2|rules,0x67430d 0x714d32,0x83d4d8
 AutoLogin,unclassified,,0x7797f1 0x7798ff 0x779c0d 0x779d5e,0x84a120
 AutoScroll,unclassified,,0x5fa741 0x5fadbe,0x833240
-Autocreate,tag,ai|map,0x6f11bf 0x6f163f,0x8430a0
-AutocreateTime,tag,rules,0x673a3e,0x83d304
+Autocreate,tag,ai|map|ra2,0x6f11bf 0x6f163f,0x8430a0
+AutocreateTime,tag,ra2|rules,0x673a3e,0x83d304
 AuxBuilding,unclassified,,0x6ced07,0x842664
-AuxSound1,tag,rules,0x712e18,0x844240
-AuxSound2,tag,rules,0x712e48,0x844234
-AvoidThreats,tag,ai|map,0x6f137a 0x6f175d,0x843008
+AuxSound1,tag,ra2|rules,0x712e18,0x844240
+AuxSound2,tag,ra2|rules,0x712e48,0x844234
+AvoidThreats,tag,ai|map|ra2,0x6f137a 0x6f175d,0x843008
 BAMR,code,,0x6c7262,0x8420cc
 BARRACKS,unclassified,,0x475ae8 0x477211,0x81c01c
 BASE,code,,0x6c72a0,0x8420c4
@@ -259,116 +259,116 @@ BackButtonPalette,unclassified,,0x7689fd,0x848a80
 BackButtonRectangle,unclassified,,0x768932,0x848ab8
 BackTextRect,unclassified,,0x7685a6,0x848ae4
 Background,unclassified,,0x4f1d59 0x7686ef,0x8241b4
-BallisticScatter,tag,rules,0x66cd53,0x83ada0
-BalloonHover,tag,rules,0x714d95,0x843838
+BallisticScatter,tag,ra2|rules,0x66cd53,0x83ada0
+BalloonHover,tag,ra2|rules,0x714d95,0x843838
 BarGraph,unclassified,,0x68d29e 0x68f608,0x83e3f0
-BarracksLimit,tag,rules,0x673b4c,0x83d284
-BarracksRatio,tag,rules,0x673b2b,0x83d294
+BarracksLimit,tag,ra2|rules,0x673b4c,0x83d284
+BarracksRatio,tag,ra2|rules,0x673b2b,0x83d294
 BarrelAnimIsVoxel,unclassified,,0x464659,0x8195f8
-BarrelCompressFrames,tag,rules,0x71536a,0x84357c
-BarrelDebris,tag,rules,0x66d6ed,0x83cf2c
-BarrelExplode,tag,rules,0x66d6b7,0x83cf3c
-BarrelHoldFrames,tag,rules,0x715392,0x843568
-BarrelParticle,tag,rules,0x66d7ed,0x83cf1c
-BarrelRecoverFrames,tag,rules,0x7153ba,0x843554
+BarrelCompressFrames,tag,ra2|rules,0x71536a,0x84357c
+BarrelDebris,tag,ra2|rules,0x66d6ed,0x83cf2c
+BarrelExplode,tag,ra2|rules,0x66d6b7,0x83cf3c
+BarrelHoldFrames,tag,ra2|rules,0x715392,0x843568
+BarrelParticle,tag,ra2|rules,0x66d7ed,0x83cf1c
+BarrelRecoverFrames,tag,ra2|rules,0x7153ba,0x843554
 BarrelStartPitch,unclassified,,0x460c56,0x81a94c
-BarrelTravel,tag,rules,0x71533b,0x843594
-BaseBias,tag,rules,0x670b4d,0x83bf18
-BaseDefenseDelay,tag,rules,0x670b92,0x83bef0
-BaseNormal,tag,map|rules,0x4601f0,0x81ace4
-BaseSizeAdd,tag,rules,0x673abd,0x83d2c4
-BaseUnderAttackSound,tag,rules,0x669cbb,0x83a8b4
-BaseUnit,tag,rules,0x66f7da,0x83c764
-Bases,tag,rules,0x67208a,0x83d010
+BarrelTravel,tag,ra2|rules,0x71533b,0x843594
+BaseBias,tag,ra2|rules,0x670b4d,0x83bf18
+BaseDefenseDelay,tag,ra2|rules,0x670b92,0x83bef0
+BaseNormal,tag,map|ra2|rules,0x4601f0,0x81ace4
+BaseSizeAdd,tag,ra2|rules,0x673abd,0x83d2c4
+BaseUnderAttackSound,tag,ra2|rules,0x669cbb,0x83a8b4
+BaseUnit,tag,ra2|rules,0x66f7da,0x83c764
+Bases,tag,ra2|rules,0x67208a,0x83d010
 Basic,unclassified,,0x599859 0x683c77 0x683c92 0x686c1e 0x686c3c 0x6877d6 0x687888 0x687bde 0x689fcf 0x689fed 0x68a007 0x68a023 0x68a041 0x68a05f 0x68a07d 0x68a09b 0x68a0b9 0x68a0d7 0x68a0f5 0x68a113 0x68a131 0x68a144 0x68a16e 0x68a1ab 0x68a1c9 0x68a1e7 0x68a205 0x68a223 0x68a241 0x68a25f 0x68a27d 0x68a29b 0x68a2b9 0x68a364 0x68a4c5 0x68a57f 0x68a59b 0x68a5b5 0x68a5d7 0x68a5f5 0x68a60f 0x68a631 0x68a644 0x68acc4 0x6997db 0x6997fd 0x699827 0x699853 0x6998a1 0x69a06a 0x69a0b6,0x82bf9c
 Battle,unclassified,,0x5d7d3c,0x830c00
 Battles,unclassified,,0x46ce17 0x46ce41 0x46ce50,0x81b1d8
 Baud,unclassified,,0x698519 0x699295,0x83f0c4
-BehavesLike,tag,rules,0x64440e 0x6453c3,0x837044
-Behind,tag,rules,0x66e4f5,0x83ccec
+BehavesLike,tag,ra2|rules,0x64440e 0x6453c3,0x837044
+Behind,tag,ra2|rules,0x66e4f5,0x83ccec
 BerserkColor,tag,rules,0x66b864,0x83a194
 BerserkFriendly,tag,rules,0x7148fa,0x8439f8
-BerzerkAllowed,tag,rules,0x66ccf0,0x83adcc
+BerzerkAllowed,tag,ra2|rules,0x66ccf0,0x83adcc
 BestBox,unclassified,,0x68d1c0 0x68e272,0x83e408
-Bib,tag,rules,0x460084,0x81ade8
-BibShape,tag,art,0x45f862,0x819428
-BlackTile,tag,theater,0x5456c3,0x829520
-BlendedFog,tag,rules,0x670f09,0x83bd78
-BlockagePathDelay,tag,rules,0x673a18,0x83d314
+Bib,tag,ra2|rules,0x460084,0x81ade8
+BibShape,tag,art|ra2,0x45f862,0x819428
+BlackTile,tag,ra2|theater,0x5456c3,0x829520
+BlendedFog,tag,ra2|rules,0x670f09,0x83bd78
+BlockagePathDelay,tag,ra2|rules,0x673a18,0x83d314
 Blue,tag,map,0x68a8e5 0x68b675,0x8207dc
 BlueTint,unclassified,,0x5998e5,0x82bf68
-BombAttachSound,tag,rules,0x669aae,0x83a970
-BombDisarm,tag,rules,0x75d908,0x847d24
-BombParachute,tag,rules,0x66e5b1,0x83ccc4
-BombSight,tag,rules,0x71431c,0x843d30
-BombTickingSound,tag,rules,0x669a6c,0x83a980
-Bombable,tag,rules,0x5f9420,0x832bcc
+BombAttachSound,tag,ra2|rules,0x669aae,0x83a970
+BombDisarm,tag,ra2|rules,0x75d908,0x847d24
+BombParachute,tag,ra2|rules,0x66e5b1,0x83ccc4
+BombSight,tag,ra2|rules,0x71431c,0x843d30
+BombTickingSound,tag,ra2|rules,0x669a6c,0x83a980
+Bombable,tag,ra2|rules,0x5f9420,0x832bcc
 Bootstrap.....,unclassified,,0x52bb02,0x82612c
 BounceAnim,unclassified,,0x42840d 0x74b330,0x8183f8
-Bouncer,tag,art,0x4286a7,0x8183ac
-Bouncy,tag,rules,0x46c171,0x81b084
-BrainBlastTurretIndex,tag,rules,0x747d21,0x845b38
-BrainBlastTurretWeapon,tag,rules,0x747d30,0x845b20
-BridgeBottomLeft1,tag,theater,0x545bd9,0x8292e8
-BridgeBottomLeft2,tag,theater,0x545bf2,0x8292d4
-BridgeBottomRight1,tag,theater,0x545b75,0x829330
-BridgeBottomRight2,tag,theater,0x545b8e,0x82931c
-BridgeDestruction,tag,rules,0x67202b,0x83d02c
-BridgeExplosions,tag,rules,0x66dba8,0x83cedc
-BridgeMiddle1,tag,theater,0x545c0b,0x8292c4
-BridgeMiddle2,tag,theater,0x545c24,0x8292b4
-BridgeRepairHut,tag,rules,0x460e8d,0x81a898
-BridgeSet,tag,theater,0x5456de,0x829514
-BridgeStrength,tag,rules,0x66cd73,0x83ad90
-BridgeTopLeft1,tag,theater,0x545ab7,0x829354
-BridgeTopLeft2,tag,theater,0x545b5c,0x829344
-BridgeTopRight1,tag,theater,0x545ba7,0x82930c
-BridgeTopRight2,tag,theater,0x545bc0,0x8292fc
-BridgeVoxelMax,tag,rules,0x66f0a9,0x83c954
+Bouncer,tag,art|ra2,0x4286a7,0x8183ac
+Bouncy,tag,ra2|rules,0x46c171,0x81b084
+BrainBlastTurretIndex,tag,ra2|rules,0x747d21,0x845b38
+BrainBlastTurretWeapon,tag,ra2|rules,0x747d30,0x845b20
+BridgeBottomLeft1,tag,ra2|theater,0x545bd9,0x8292e8
+BridgeBottomLeft2,tag,ra2|theater,0x545bf2,0x8292d4
+BridgeBottomRight1,tag,ra2|theater,0x545b75,0x829330
+BridgeBottomRight2,tag,ra2|theater,0x545b8e,0x82931c
+BridgeDestruction,tag,ra2|rules,0x67202b,0x83d02c
+BridgeExplosions,tag,ra2|rules,0x66dba8,0x83cedc
+BridgeMiddle1,tag,ra2|theater,0x545c0b,0x8292c4
+BridgeMiddle2,tag,ra2|theater,0x545c24,0x8292b4
+BridgeRepairHut,tag,ra2|rules,0x460e8d,0x81a898
+BridgeSet,tag,ra2|theater,0x5456de,0x829514
+BridgeStrength,tag,ra2|rules,0x66cd73,0x83ad90
+BridgeTopLeft1,tag,ra2|theater,0x545ab7,0x829354
+BridgeTopLeft2,tag,ra2|theater,0x545b5c,0x829344
+BridgeTopRight1,tag,ra2|theater,0x545ba7,0x82930c
+BridgeTopRight2,tag,ra2|theater,0x545bc0,0x8292fc
+BridgeVoxelMax,tag,ra2|rules,0x66f0a9,0x83c954
 Brief,tag,map,0x683c8d 0x68a01e 0x68b2e2,0x83d8a8
-Briefing,tag,map|mission,0x686e19 0x686e49 0x68adc5,0x839718
-Bright,tag,rules,0x75d5ff 0x772806,0x847dd0
-BuildAA,unclassified,,0x6734f2,0x83d3dc
-BuildBarracks,tag,rules,0x672ddf,0x83d474
-BuildCat,tag,rules,0x45fe84,0x81aee4
-BuildConst,tag,rules,0x672b23,0x83d4a0
-BuildDefense,unclassified,,0x673348,0x83d3f4
-BuildDelay,tag,rules,0x66d33b,0x83b3e0
-BuildDummy,tag,rules,0x6738ef,0x83d384
-BuildHelipad,unclassified,,0x6735c6,0x83d3cc
-BuildLimit,tag,rules,0x71314a,0x8441a0
-BuildNavalYard,tag,rules,0x6738b8,0x83d390
+Briefing,tag,map|mission|ra2,0x686e19 0x686e49 0x68adc5,0x839718
+Bright,tag,ra2|rules,0x75d5ff 0x772806,0x847dd0
+BuildAA,tag,ra2,0x6734f2,0x83d3dc
+BuildBarracks,tag,ra2|rules,0x672ddf,0x83d474
+BuildCat,tag,ra2|rules,0x45fe84,0x81aee4
+BuildConst,tag,ra2|rules,0x672b23,0x83d4a0
+BuildDefense,tag,ra2,0x673348,0x83d3f4
+BuildDelay,tag,ra2|rules,0x66d33b,0x83b3e0
+BuildDummy,tag,ra2|rules,0x6738ef,0x83d384
+BuildHelipad,tag,ra2,0x6735c6,0x83d3cc
+BuildLimit,tag,ra2|rules,0x71314a,0x8441a0
+BuildNavalYard,tag,ra2|rules,0x6738b8,0x83d390
 BuildOffAlly,unclassified,,0x6721c7 0x697ff0 0x699025,0x83cf84
-BuildPDefense,unclassified,,0x67341d,0x83d3e4
-BuildPower,tag,rules,0x672c15,0x83d494
-BuildRadar,tag,rules,0x67369b,0x83d3c0
-BuildRefinery,tag,rules,0x672cfa,0x83d484
-BuildSlowdown,tag,rules,0x66d34d,0x83b3d0
-BuildSpeed,tag,rules,0x670d1b,0x83be2c
-BuildTech,tag,rules,0x672ec3,0x83d468
-BuildTime,tag,rules,0x511a4e 0x66d366,0x825464
+BuildPDefense,tag,ra2,0x67341d,0x83d3e4
+BuildPower,tag,ra2|rules,0x672c15,0x83d494
+BuildRadar,tag,ra2|rules,0x67369b,0x83d3c0
+BuildRefinery,tag,ra2|rules,0x672cfa,0x83d484
+BuildSlowdown,tag,ra2|rules,0x66d34d,0x83b3d0
+BuildSpeed,tag,ra2|rules,0x670d1b,0x83be2c
+BuildTech,tag,ra2|rules,0x672ec3,0x83d468
+BuildTime,tag,ra2|rules,0x511a4e 0x66d366,0x825464
 BuildTimeAircraftMult,unclassified,,0x511ca8,0x8252f4
 BuildTimeBuildingsMult,unclassified,,0x511cc5,0x8252dc
 BuildTimeDefensesMult,unclassified,,0x511ce6,0x8252c4
 BuildTimeInfantryMult,unclassified,,0x511c6a,0x825320
 BuildTimeMultiplier,tag,rules,0x714371,0x843cf0
 BuildTimeUnitsMult,unclassified,,0x511c89,0x82530c
-BuildWeapons,tag,rules,0x672f98,0x83d458
-Buildable,tag,rules,0x67420e,0x83d4b4
+BuildWeapons,tag,ra2|rules,0x672f98,0x83d458
+Buildable,tag,ra2|rules,0x67420e,0x83d4b4
 BuildingAbandonedSound,unclassified,,0x669c38,0x83a8e4
-BuildingDamageSound,tag,rules,0x66acad,0x83a460
-BuildingDieSound,tag,rules,0x66aa5e,0x83a4d0
-BuildingDrop,tag,rules,0x66adb3,0x83a428
-BuildingGarrisonedSound,tag,rules,0x669bf6,0x83a8fc
-BuildingRepairedSound,tag,rules,0x669c79,0x83a8cc
-BuildingSlam,tag,rules,0x66aa9f,0x83a4c0
+BuildingDamageSound,tag,ra2|rules,0x66acad,0x83a460
+BuildingDieSound,tag,ra2|rules,0x66aa5e,0x83a4d0
+BuildingDrop,tag,ra2|rules,0x66adb3,0x83a428
+BuildingGarrisonedSound,tag,ra2|rules,0x669bf6,0x83a8fc
+BuildingRepairedSound,tag,ra2|rules,0x669c79,0x83a8cc
+BuildingSlam,tag,ra2|rules,0x66aa9f,0x83a4c0
 BuildingsCostBonus,tag,rules,0x4606ee,0x81ab88
-Buildup,tag,art,0x46155a,0x81a60c
+Buildup,tag,art|ra2,0x46155a,0x81a60c
 BuildupSound,unclassified,,0x460750,0x81ab58
-BuildupTime,tag,rules,0x670cad,0x83be60
+BuildupTime,tag,ra2|rules,0x670cad,0x83be60
 Built1,unclassified,,0x49c3ac 0x49c9b7,0x81f14c
 Built2,unclassified,,0x49c3c3 0x49c9d0,0x81f144
-Bullets,tag,rules,0x75d9f9,0x847cc0
+Bullets,tag,ra2|rules,0x75d9f9,0x847cc0
 Bummer,unclassified,,0x4c84a0,0x821ca8
 Bunker,tag,rules,0x460941,0x81aadc
 BunkerDamageMultiplier,tag,rules,0x66c6ec,0x83b04c
@@ -377,18 +377,18 @@ BunkerWallsDownSound,tag,rules,0x669ec8,0x83a810
 BunkerWallsUpSound,tag,rules,0x669e87,0x83a828
 BunkerWeaponRangeBonus,tag,rules,0x66c730,0x83b020
 Bunkerable,tag,rules,0x71500a,0x84371c
-Burn,tag,rules,0x6b571d,0x840028
-Burst,tag,rules,0x7722c1,0x849438
-C4Delay,tag,rules,0x66cd9a,0x83ad88
-C4Warhead,tag,rules,0x66c31f,0x83b1d4
+Burn,tag,ra2|rules,0x6b571d,0x840028
+Burst,tag,ra2|rules,0x7722c1,0x849438
+C4Delay,tag,ra2|rules,0x66cd9a,0x83ad88
+C4Warhead,tag,ra2|rules,0x66c31f,0x83b1d4
 CACHE.MIX,file,,0x530361,0x826650
 CACHEMD.MIX,file,,0x53031f,0x82665c
 CAMEO.MIX,file,,0x530709 0x530756,0x8267b4
 CAMEOMD.MIX,file,,0x530680 0x5306cd,0x8267d0
 CASU01.SHP,file,,0x68d018,0x83e438
 CASU02.SHP,file,,0x68d053,0x83e42c
-CLDisableBlue,tag,rules,0x75d64d,0x847da0
-CLDisableGreen,tag,rules,0x75d633,0x847db0
+CLDisableBlue,tag,ra2|rules,0x75d64d,0x847da0
+CLDisableGreen,tag,ra2|rules,0x75d633,0x847db0
 CLDisableRed,unclassified,,0x75d619,0x847dc0
 CLSID,unclassified,,0x6bb4d7 0x6bb64b,0x840b44
 CMID,code,,0x76aeb3,0x848cb8
@@ -425,194 +425,194 @@ CYLN,code,,0x76ad76,0x848ce8
 C_SHADOW.SHP,file,,0x5451e2,0x82960c
 CallWaitString,unclassified,,0x69861d 0x699221,0x83f068
 CallWaitStringIndex,unclassified,,0x6985ef 0x699239,0x83f078
-Cameo,tag,art,0x71599f 0x716c8b 0x716cc9,0x843350
+Cameo,tag,art|ra2,0x71599f 0x716c8b 0x716cc9,0x843350
 Camera,unclassified,,0x772611,0x8493e8
-CameraRange,tag,rules,0x66f2db,0x83c860
+CameraRange,tag,ra2|rules,0x66f2db,0x83c860
 CampDifficulty,unclassified,,0x5fa6b1 0x5fad6d,0x8332a8
-CampaignAI,tag,coop,0x49dd45,0x81f334
-CampaignEnemy,unclassified,,0x49e191,0x81f30c
+CampaignAI,tag,coop|ra2,0x49dd45,0x81f334
+CampaignEnemy,tag,ra2,0x49e191,0x81f30c
 CampaignID,unclassified,,0x764ac0 0x764e15 0x765121 0x7652a7,0x847fd0
 CampaignLoadScreen,tag,coop,0x49dce0,0x81f35c
 CampaignLoadScreenPallet,tag,coop,0x49dd11,0x81f340
-CampaignMoneyDeltaEasy,tag,rules,0x670167,0x83c39c
-CampaignMoneyDeltaHard,tag,rules,0x670187,0x83c384
-CampaignName,tag,coop,0x49dc7b,0x81f38c
-CampaignPlayer,unclassified,,0x49df7a,0x81f324
+CampaignMoneyDeltaEasy,tag,ra2|rules,0x670167,0x83c39c
+CampaignMoneyDeltaHard,tag,ra2|rules,0x670187,0x83c384
+CampaignName,tag,coop|ra2,0x49dc7b,0x81f38c
+CampaignPlayer,tag,ra2,0x49df7a,0x81f324
 CampaignType,unclassified,,0x49c30a 0x49c850,0x81f184
 Campaigns,unclassified,,0x49db6c 0x49dc1e 0x49dc42,0x81f3b4
-CanApproachTarget,tag,rules,0x7144a7,0x843c2c
-CanBeHidden,tag,art,0x7121f2,0x8444f8
-CanBeOccupied,tag,map|rules,0x4600d2,0x81adbc
+CanApproachTarget,tag,ra2|rules,0x7144a7,0x843c2c
+CanBeHidden,tag,art|ra2,0x7121f2,0x8444f8
+CanBeOccupied,tag,map|ra2|rules,0x4600d2,0x81adbc
 CanBeach,unclassified,,0x747855,0x845d58
-CanC4,tag,rules,0x460050,0x81adfc
-CanDetonateDeathBomb,tag,rules,0x66c55c,0x83b128
-CanDetonateTimeBomb,tag,rules,0x66c53d,0x83b140
-CanDisguise,tag,rules,0x71440b,0x843c98
-CanHideThings,tag,art,0x46140f,0x81a640
+CanC4,tag,ra2|rules,0x460050,0x81adfc
+CanDetonateDeathBomb,tag,ra2|rules,0x66c55c,0x83b128
+CanDetonateTimeBomb,tag,ra2|rules,0x66c53d,0x83b140
+CanDisguise,tag,ra2|rules,0x71440b,0x843c98
+CanHideThings,tag,art|ra2,0x46140f,0x81a640
 CanOccupyFire,tag,rules,0x4600ec,0x81adac
-CanPassiveAquire,tag,rules,0x714473,0x843c50
+CanPassiveAquire,tag,ra2|rules,0x714473,0x843c50
 CanRecalcApproachTarget,unclassified,,0x7144c1,0x843c14
-CanRetaliate,tag,rules,0x71448d,0x843c40
+CanRetaliate,tag,ra2|rules,0x71448d,0x843c40
 Canceled,unclassified,,0x76ceab,0x848f18
-Capturable,tag,map|rules,0x45ffce,0x81ae34
+Capturable,tag,map|ra2|rules,0x45ffce,0x81ae34
 CaptureEvaEvent,tag,rules,0x460258,0x81ac90
-CaptureTheFlag,tag,rules,0x6720e9,0x83cfe8
-CarriesCrate,tag,rules,0x747728,0x845de0
+CaptureTheFlag,tag,ra2|rules,0x6720e9,0x83cfe8
+CarriesCrate,tag,ra2|rules,0x747728,0x845de0
 CarryOverCap,tag,map,0x68a1a6 0x68b12b,0x83e108
 CarryOverMoney,tag,map,0x68a169 0x68b384,0x83e118
-Carryall,tag,rules,0x41cca2,0x818028
-Category,tag,rules,0x713164,0x844194
-CausesDelayKill,tag,rules,0x75d438,0x847e74
+Carryall,tag,ra2|rules,0x41cca2,0x818028
+Category,tag,ra2|rules,0x713164,0x844194
+CausesDelayKill,tag,ra2|rules,0x75d438,0x847e74
 Cell,unclassified,,0x698be3,0x8173f8
 CellAnim,unclassified,,0x5fe87c,0x833544
-CellInset,tag,rules,0x75d3ff,0x847e94
-CellRangefinding,tag,rules,0x77213b,0x849508
-CellSpread,tag,rules,0x75d3e0,0x847ea0
+CellInset,tag,ra2|rules,0x75d3ff,0x847e94
+CellRangefinding,tag,ra2|rules,0x77213b,0x849508
+CellSpread,tag,ra2|rules,0x75d3e0,0x847ea0
 CellTags,unclassified,,0x4ad1b3 0x4ad1d6 0x4ad1f5,0x81ffe4
-ChainReaction,tag,rules,0x5fe9ae,0x8334f0
-ChargeAnim,tag,art,0x46118d,0x81a774
-ChargeToDrainRatio,tag,rules,0x671850,0x83b828
-ChargedAnimTime,tag,rules,0x460b9e,0x81a9b8
-Charges,tag,rules,0x772693,0x8493c0
+ChainReaction,tag,ra2|rules,0x5fe9ae,0x8334f0
+ChargeAnim,tag,art|ra2,0x46118d,0x81a774
+ChargeToDrainRatio,tag,ra2|rules,0x671850,0x83b828
+ChargedAnimTime,tag,ra2|rules,0x460b9e,0x81a9b8
+Charges,tag,ra2|rules,0x772693,0x8493c0
 CheckHeap,unclassified,,0x69823c,0x83f184
-CheerSound,tag,rules,0x669651,0x83aaa8
-ChronoBeam,tag,rules,0x66e0cc,0x83cdf0
-ChronoBeamColor,tag,rules,0x66b7b4,0x83a1f0
-ChronoBlast,tag,rules,0x66e10a,0x83cde4
-ChronoBlastDest,tag,rules,0x66e149,0x83cdd4
-ChronoDelay,tag,rules,0x66fae3,0x83c714
-ChronoDistanceFactor,tag,rules,0x66fb22,0x83c6e8
-ChronoHarvTooFarDistance,tag,rules,0x670003,0x83c464
-ChronoInSound,tag,rules,0x6699e9 0x7135da,0x83a9a4
-ChronoMinimumDelay,tag,rules,0x66fb61,0x83c6c4
-ChronoOutSound,tag,rules,0x669a2a 0x71361c,0x83a994
-ChronoPlacement,tag,rules,0x66e08d,0x83cdfc
-ChronoRangeMinimum,tag,rules,0x66fb81,0x83c6b0
-ChronoReinfDelay,tag,rules,0x66fb02,0x83c700
-ChronoSparkle1,tag,rules,0x66e300,0x83cd64
-ChronoTrigger,tag,rules,0x66fb42,0x83c6d8
-ChronoTurretIndex,tag,rules,0x747d73,0x845adc
-ChronoTurretWeapon,tag,rules,0x747d82,0x845ac8
-ChuteSound,tag,rules,0x66acee,0x83a454
+CheerSound,tag,ra2|rules,0x669651,0x83aaa8
+ChronoBeam,tag,ra2|rules,0x66e0cc,0x83cdf0
+ChronoBeamColor,tag,ra2|rules,0x66b7b4,0x83a1f0
+ChronoBlast,tag,ra2|rules,0x66e10a,0x83cde4
+ChronoBlastDest,tag,ra2|rules,0x66e149,0x83cdd4
+ChronoDelay,tag,ra2|rules,0x66fae3,0x83c714
+ChronoDistanceFactor,tag,ra2|rules,0x66fb22,0x83c6e8
+ChronoHarvTooFarDistance,tag,ra2|rules,0x670003,0x83c464
+ChronoInSound,tag,ra2|rules,0x6699e9 0x7135da,0x83a9a4
+ChronoMinimumDelay,tag,ra2|rules,0x66fb61,0x83c6c4
+ChronoOutSound,tag,ra2|rules,0x669a2a 0x71361c,0x83a994
+ChronoPlacement,tag,ra2|rules,0x66e08d,0x83cdfc
+ChronoRangeMinimum,tag,ra2|rules,0x66fb81,0x83c6b0
+ChronoReinfDelay,tag,ra2|rules,0x66fb02,0x83c700
+ChronoSparkle1,tag,ra2|rules,0x66e300,0x83cd64
+ChronoTrigger,tag,ra2|rules,0x66fb42,0x83c6d8
+ChronoTurretIndex,tag,ra2|rules,0x747d73,0x845adc
+ChronoTurretWeapon,tag,ra2|rules,0x747d82,0x845ac8
+ChuteSound,tag,ra2|rules,0x66acee,0x83a454
 CivEvac,unclassified,,0x68a63f 0x68ad98,0x83dfd8
-Civilian,tag,rules,0x524553,0x818164
+Civilian,tag,ra2|rules,0x524553,0x818164
 Class,unclassified,,0x5bb8a3,0x82ced4
 Clear,unclassified,,0x4acf36,0x81dc1c
 ClearAllWeapons,unclassified,,0x71289f,0x84431c
-ClearTile,tag,theater,0x54559a,0x8295b8
-ClearToGreenLat,tag,theater,0x545672,0x829548
-ClearToPaveLat,tag,theater,0x54568d,0x829538
-ClearToRoughLat,tag,theater,0x545638,0x829568
-ClearToSandLat,tag,theater,0x545657,0x829558
-ClickMap,tag,mapsel,0x5cfcce 0x76877c,0x8304b4
-ClickRepairable,tag,map|rules,0x4600b8,0x81adcc
-CliffBackImpassability,tag,rules,0x66f1d9,0x83c8cc
-CliffRamps,tag,theater,0x54588e,0x82942c
-CliffSet,tag,theater,0x545714,0x8294f8
-Climb,tag,rules,0x674446,0x83d54c
-CloakDelay,tag,rules,0x670aff,0x83bf34
+ClearTile,tag,ra2|theater,0x54559a,0x8295b8
+ClearToGreenLat,tag,ra2|theater,0x545672,0x829548
+ClearToPaveLat,tag,ra2|theater,0x54568d,0x829538
+ClearToRoughLat,tag,ra2|theater,0x545638,0x829568
+ClearToSandLat,tag,ra2|theater,0x545657,0x829558
+ClickMap,tag,mapsel|ra2,0x5cfcce 0x76877c,0x8304b4
+ClickRepairable,tag,map|ra2|rules,0x4600b8,0x81adcc
+CliffBackImpassability,tag,ra2|rules,0x66f1d9,0x83c8cc
+CliffRamps,tag,ra2|theater,0x54588e,0x82942c
+CliffSet,tag,ra2|theater,0x545714,0x8294f8
+Climb,tag,ra2|rules,0x674446,0x83d54c
+CloakDelay,tag,ra2|rules,0x670aff,0x83bf34
 CloakGenerator,unclassified,,0x460bea,0x81a998
 CloakRadiusInCells,unclassified,,0x460c21,0x81a978
-CloakSound,tag,rules,0x66a6fa,0x83a570
+CloakSound,tag,ra2|rules,0x66a6fa,0x83a570
 CloakStop,unclassified,,0x713116,0x8441b4
-Cloakable,tag,rules,0x713f7f,0x843ea8
-CloakingSpeed,tag,rules,0x712441,0x84443c
-CloakingStages,tag,rules,0x66f146,0x83c920
-Cloning,tag,rules,0x46095b,0x81aad4
-CloseEnough,tag,rules,0x670eea,0x83bd84
+Cloakable,tag,ra2|rules,0x713f7f,0x843ea8
+CloakingSpeed,tag,ra2|rules,0x712441,0x84443c
+CloakingStages,tag,ra2|rules,0x66f146,0x83c920
+Cloning,tag,ra2|rules,0x46095b,0x81aad4
+CloseEnough,tag,ra2|rules,0x670eea,0x83bd84
 CloseRange,tag,rules,0x71497a,0x8439c4
-Cluster,tag,rules,0x46c1a1,0x81b070
-CollapseChance,tag,rules,0x66cf3c,0x83accc
-Color,tag,map|rules,0x46bf9d 0x500de4 0x501304 0x511935 0x6982ee 0x699137 0x721b29 0x7788bc 0x778c5b 0x77a26a,0x81b138
+Cluster,tag,ra2|rules,0x46c1a1,0x81b070
+CollapseChance,tag,ra2|rules,0x66cf3c,0x83accc
+Color,tag,map|ra2|rules,0x46bf9d 0x500de4 0x501304 0x511935 0x6982ee 0x699137 0x721b29 0x7788bc 0x778c5b 0x77a26a,0x81b138
 Color1,unclassified,,0x49c337 0x49c8eb,0x81f174
 Color2,unclassified,,0x49c367 0x49c953,0x81f164
 ColorEx,unclassified,,0x69830a 0x699154,0x83f150
-ColorList,tag,rules,0x644f93,0x837240
-ColorSpeed,tag,rules,0x6451f8,0x837178
-CombatLightSize,tag,rules,0x75d490,0x847e44
+ColorList,tag,ra2|rules,0x644f93,0x837240
+ColorSpeed,tag,ra2|rules,0x6451f8,0x837178
+CombatLightSize,tag,ra2|rules,0x75d490,0x847e44
 ComboDropWin,unclassified,,0x6181fe,0x8357a0
 Community,unclassified,,0x79839c 0x7987c7 0x798ce9,0x84cd6c
-CompEasyBonus,tag,rules,0x673d10,0x83d1d4
+CompEasyBonus,tag,ra2|rules,0x673d10,0x83d1d4
 Compression,unclassified,,0x698535 0x6992ec,0x83f0b8
 Compression_Off,unclassified,,0x5bbc72,0x82cdb4
 Compression_On,unclassified,,0x5bbc15,0x82cdec
 Computer,unclassified,,0x50a628 0x64ca27 0x688225,0x824fd8
-ComputerBaseDefenseResponse,tag,rules,0x673e4e,0x83d110
-ConcentricRadialIndicator,tag,rules,0x461037,0x81a7bc
-ConcreteWalls,tag,rules,0x673770,0x83d3b0
-ConditionRed,tag,rules,0x66b34b,0x83a380
+ComputerBaseDefenseResponse,tag,ra2|rules,0x673e4e,0x83d110
+ConcentricRadialIndicator,tag,ra2|rules,0x461037,0x81a7bc
+ConcreteWalls,tag,ra2|rules,0x673770,0x83d3b0
+ConditionRed,tag,ra2|rules,0x66b34b,0x83a380
 ConditionRedSparkingProbability,unclassified,,0x6718c5,0x83b7c8
-ConditionYellow,tag,rules,0x66b372,0x83a370
+ConditionYellow,tag,ra2|rules,0x66b372,0x83a370
 ConditionYellowSparkingProbability,unclassified,,0x67189e,0x83b7e8
 ConflictSelected,unclassified,,0x76d2e2,0x848f40
 Connected,unclassified,,0x5f300b,0x832908
 "Connected
 ",unclassified,,0x5f301f,0x8328f8
-ConsideredAircraft,tag,rules,0x714fe9,0x843728
-Construction,tag,rules,0x66a98b,0x816dcc
-ConstructionYard,tag,rules,0x460a2b,0x81aa74
-ContentScan,tag,rules,0x66d38a 0x67434d,0x83b3b4
-Control,tag,sound,0x7506ad 0x7511a9,0x846544
+ConsideredAircraft,tag,ra2|rules,0x714fe9,0x843728
+Construction,tag,ra2|rules,0x66a98b,0x816dcc
+ConstructionYard,tag,ra2|rules,0x460a2b,0x81aa74
+ContentScan,tag,ra2|rules,0x66d38a 0x67434d,0x83b3b4
+Control,tag,ra2|sound,0x7506ad 0x7511a9,0x846544
 ControlledAnimationType,tag,rules,0x66ca11,0x83af00
-Conventional,tag,rules,0x75d4e1,0x847e34
+Conventional,tag,ra2|rules,0x75d4e1,0x847e34
 CoopCampMD.ini,file,,0x49db0a 0x679cf3 0x679e02,0x81f3c0
 Cooperative,unclassified,,0x5d7e24,0x830bcc
 Coord,unclassified,,0x698b76,0x83eff4
-Cost,tag,map|rules,0x511a2d 0x66d307 0x7146a6,0x825470
+Cost,tag,map|ra2|rules,0x511a2d 0x66d307 0x7146a6,0x825470
 CostAircraftMult,unclassified,,0x511bb0,0x825398
 CostBuildingsMult,unclassified,,0x511bcf,0x825384
 CostDefensesMult,unclassified,,0x511bee,0x825370
 CostInfantryMult,unclassified,,0x511b72,0x8253bc
 CostUnitsMult,tag,map,0x511b91,0x8253ac
 Country,tag,map,0x5009fd 0x50125f 0x77888e 0x778c29 0x77a23b,0x824d4c
-CourseLockDuration,tag,rules,0x46bf48,0x81b150
-CowTurretIndex,tag,rules,0x747dc5,0x845a7c
-CowTurretWeapon,tag,rules,0x747dd4,0x845a6c
-Crashable,tag,rules,0x71520d,0x843634
-CrashingSound,tag,rules,0x712f80,0x84420c
-Crate,tag,rules,0x5fe80c,0x833578
-CrateArmourSound,tag,rules,0x66981d,0x83aa1c
-CrateBeneath,tag,rules,0x460ec1,0x81a874
-CrateBeneathIsMoney,tag,rules,0x460edb,0x81a860
-CrateFireSound,tag,rules,0x6697db,0x83aa30
-CrateGoodie,tag,mp|rules,0x747658,0x845e20
-CrateImg,tag,rules,0x66b99f,0x83aca8
-CrateMaximum,tag,rules,0x66ba70,0x83ac68
-CrateMinimum,tag,rules,0x66ba50,0x83ac78
-CrateMoneySound,tag,rules,0x669758,0x83aa54
-CratePromoteSound,tag,rules,0x6698e2,0x83a9e8
-CrateRadius,tag,rules,0x66ba90,0x83ac5c
-CrateRegen,tag,rules,0x66bab7,0x83ac50
-CrateRevealSound,tag,rules,0x66979a,0x83aa40
-CrateSpeedSound,tag,rules,0x66985f,0x83aa0c
-CrateTrigger,tag,rules,0x5fe822,0x833568
-CrateUnitSound,tag,rules,0x6698a0,0x83a9fc
-Crater,tag,art|rules,0x427ebd 0x6b5703,0x8185f4
-Crates,tag,rules,0x6720ca,0x83cff8
+CourseLockDuration,tag,ra2|rules,0x46bf48,0x81b150
+CowTurretIndex,tag,ra2|rules,0x747dc5,0x845a7c
+CowTurretWeapon,tag,ra2|rules,0x747dd4,0x845a6c
+Crashable,tag,ra2|rules,0x71520d,0x843634
+CrashingSound,tag,ra2|rules,0x712f80,0x84420c
+Crate,tag,ra2|rules,0x5fe80c,0x833578
+CrateArmourSound,tag,ra2|rules,0x66981d,0x83aa1c
+CrateBeneath,tag,ra2|rules,0x460ec1,0x81a874
+CrateBeneathIsMoney,tag,ra2|rules,0x460edb,0x81a860
+CrateFireSound,tag,ra2|rules,0x6697db,0x83aa30
+CrateGoodie,tag,mp|ra2|rules,0x747658,0x845e20
+CrateImg,tag,ra2|rules,0x66b99f,0x83aca8
+CrateMaximum,tag,ra2|rules,0x66ba70,0x83ac68
+CrateMinimum,tag,ra2|rules,0x66ba50,0x83ac78
+CrateMoneySound,tag,ra2|rules,0x669758,0x83aa54
+CratePromoteSound,tag,ra2|rules,0x6698e2,0x83a9e8
+CrateRadius,tag,ra2|rules,0x66ba90,0x83ac5c
+CrateRegen,tag,ra2|rules,0x66bab7,0x83ac50
+CrateRevealSound,tag,ra2|rules,0x66979a,0x83aa40
+CrateSpeedSound,tag,ra2|rules,0x66985f,0x83aa0c
+CrateTrigger,tag,ra2|rules,0x5fe822,0x833568
+CrateUnitSound,tag,ra2|rules,0x6698a0,0x83a9fc
+Crater,tag,art|ra2|rules,0x427ebd 0x6b5703,0x8185f4
+Crates,tag,ra2|rules,0x6720ca,0x83cff8
 CratesAppear,unclassified,,0x698029 0x699049,0x83efa8
-Crawls,tag,art,0x5246ae,0x8258f4
-CreateAircraftSound,tag,rules,0x66a44b,0x83a630
-CreateInfantrySound,tag,rules,0x66a409,0x83a644
+Crawls,tag,art|ra2,0x5246ae,0x8258f4
+CreateAircraftSound,tag,ra2|rules,0x66a44b,0x83a630
+CreateInfantrySound,tag,ra2|rules,0x66a409,0x83a644
 "CreatePalette
 ",unclassified,,0x4a443b,0x81fe28
-CreateSound,tag,rules,0x712e84,0x844228
-CreateUnitSound,tag,rules,0x4607c8 0x66a3c8,0x81ab3c
+CreateSound,tag,ra2|rules,0x712e84,0x844228
+CreateUnitSound,tag,ra2|rules,0x4607c8 0x66a3c8,0x81ab3c
 "Create_One_Of...
 ",unclassified,,0x6f09c4,0x842e7c
-CreditReserve,tag,rules,0x6739d2,0x83d334
-CreditTicks,tag,rules,0x66a9c8,0x83a4e4
+CreditReserve,tag,ra2|rules,0x6739d2,0x83d334
+CreditTicks,tag,ra2|rules,0x66a9c8,0x83a4e4
 Credits,tag,map,0x500ba6 0x5012a2 0x697f7d 0x698fdf,0x824e38
-CrewEscape,tag,rules,0x66ed80,0x83ca40
-Crewed,tag,rules,0x714a36,0x84396c
-CruiseHeight,tag,rules,0x674467,0x83d53c
-Crush,tag,rules,0x66cdbb,0x83ad80
-CrushSound,tag,rules,0x5f93a0,0x832bf4
+CrewEscape,tag,ra2|rules,0x66ed80,0x83ca40
+Crewed,tag,ra2|rules,0x714a36,0x84396c
+CruiseHeight,tag,ra2|rules,0x674467,0x83d53c
+Crush,tag,ra2|rules,0x66cdbb,0x83ad80
+CrushSound,tag,ra2|rules,0x5f93a0,0x832bf4
 CrushWarhead,tag,rules,0x66c35d,0x83b1c4
-Crushable,tag,rules,0x5f940a,0x832bd8
-Crusher,tag,rules,0x714ccf,0x81bb58
-Culling,tag,rules,0x75d938,0x847d10
+Crushable,tag,ra2|rules,0x5f940a,0x832bd8
+Crusher,tag,ra2|rules,0x714ccf,0x81bb58
+Culling,tag,ra2|rules,0x75d938,0x847d10
 CurVer,unclassified,,0x6bb5c2,0x840b2c
-CurleyShuffle,tag,rules,0x66fd42,0x83c5e4
+CurleyShuffle,tag,ra2|rules,0x66fd42,0x83c5e4
 CurrentMap,unclassified,,0x49c2de 0x49c837 0x49d5b0,0x81f19c
 CurrentStrengthDamage,tag,rules,0x66c9e3,0x83af18
 CustomRotor,unclassified,,0x41ccde,0x818014
@@ -621,152 +621,152 @@ CyrixInstead,unclassified,,0x4e61fa,0x822cc8
 DATE,code,,0x6c7829,0x842060
 DESO,code,,0x51f76d,0x82557c
 DIS,code,,0x7af2b1,0x84d784
-DMislAcceleration,tag,rules,0x6714a1,0x83ba0c
-DMislAltitude,tag,rules,0x6714bf,0x83b9fc
-DMislBodyLength,tag,rules,0x67151e,0x83b9cc
-DMislDamage,tag,rules,0x6714df,0x83b9f0
-DMislEliteDamage,tag,rules,0x6714fe,0x83b9dc
-DMislEliteWarhead,tag,rules,0x66c458,0x83b184
-DMislLazyCurve,tag,rules,0x67153e,0x83b9bc
-DMislPauseFrames,tag,rules,0x6713c3,0x83ba74
-DMislPitchFinal,tag,rules,0x67142e,0x83ba40
-DMislPitchInitial,tag,rules,0x67140a,0x83ba50
+DMislAcceleration,tag,ra2|rules,0x6714a1,0x83ba0c
+DMislAltitude,tag,ra2|rules,0x6714bf,0x83b9fc
+DMislBodyLength,tag,ra2|rules,0x67151e,0x83b9cc
+DMislDamage,tag,ra2|rules,0x6714df,0x83b9f0
+DMislEliteDamage,tag,ra2|rules,0x6714fe,0x83b9dc
+DMislEliteWarhead,tag,ra2|rules,0x66c458,0x83b184
+DMislLazyCurve,tag,ra2|rules,0x67153e,0x83b9bc
+DMislPauseFrames,tag,ra2|rules,0x6713c3,0x83ba74
+DMislPitchFinal,tag,ra2|rules,0x67142e,0x83ba40
+DMislPitchInitial,tag,ra2|rules,0x67140a,0x83ba50
 DMislRaiseRate,tag,rules,0x671478,0x83ba20
-DMislTiltFrames,tag,rules,0x6713e3,0x83ba64
-DMislTurnRate,tag,rules,0x671451,0x83ba30
-DMislType,tag,rules,0x67155e,0x83b9b0
-DMislWarhead,tag,rules,0x66c3db,0x83b1a8
+DMislTiltFrames,tag,ra2|rules,0x6713e3,0x83ba64
+DMislTurnRate,tag,ra2|rules,0x671451,0x83ba30
+DMislType,tag,ra2|rules,0x67155e,0x83b9b0
+DMislWarhead,tag,ra2|rules,0x66c3db,0x83b1a8
 DPOD.HVA,file,,0x5317d4,0x8268d8
 DPOD.VXL,file,,0x531761,0x826900
 DURA,code,,0x6c714a,0x8420f4
 DamSmkOffScrnRel,unclassified,,0x713e49,0x843f4c
-Damage,tag,art|map|rules,0x427fa7 0x645021 0x74b3df 0x7722db,0x81859c
-DamageDelay,tag,rules,0x670d42,0x83be20
-DamageFireTypes,tag,rules,0x66d573,0x83cf58
-DamageLevels,tag,art,0x5fe8b3,0x833534
-DamageParticleSystems,tag,rules,0x713c2c,0x843f8c
-DamageRadius,tag,art|rules,0x428658 0x74b3f9,0x8183bc
+Damage,tag,art|map|ra2|rules,0x427fa7 0x645021 0x74b3df 0x7722db,0x81859c
+DamageDelay,tag,ra2|rules,0x670d42,0x83be20
+DamageFireTypes,tag,ra2|rules,0x66d573,0x83cf58
+DamageLevels,tag,art|ra2,0x5fe8b3,0x833534
+DamageParticleSystems,tag,ra2|rules,0x713c2c,0x843f8c
+DamageRadius,tag,art|ra2|rules,0x428658 0x74b3f9,0x8183bc
 DamageReducesReadiness,unclassified,,0x7148bf,0x843a28
 DamageSelf,tag,rules,0x713f65,0x843eb4
-DamageSmokeOffset,tag,rules,0x713e25,0x843f60
-DamageSound,tag,rules,0x712ecc,0x84421c
+DamageSmokeOffset,tag,ra2|rules,0x713e25,0x843f60
+DamageSound,tag,ra2|rules,0x712ecc,0x84421c
 DamagedDoor,unclassified,,0x46129e,0x81a710
-Deacc,tag,rules,0x645102,0x8371f4
-DeaccelerationFactor,tag,rules,0x71249b,0x8443f4
+Deacc,tag,ra2|rules,0x645102,0x8371f4
+DeaccelerationFactor,tag,ra2|rules,0x71249b,0x8443f4
 DeactivateSound,tag,rules,0x66a260 0x713922,0x83a6cc
-DeadBodies,tag,rules,0x5241f3 0x66d9a2,0x825a20
+DeadBodies,tag,ra2|rules,0x5241f3 0x66d9a2,0x825a20
 DeathAnims,unclassified,,0x5242e1,0x825a14
 DeathFrameRate,unclassified,,0x74790b,0x845d20
 DeathFrames,unclassified,,0x7478ed,0x845d30
-DeathWeapon,tag,rules,0x66c58a 0x7122f0,0x83b11c
-DeathWeaponDamageModifier,tag,rules,0x712325,0x844488
-Debris,tag,rules,0x721b4f,0x8448e4
-DebrisAnims,tag,rules,0x71274f,0x844368
-DebrisMaximums,tag,rules,0x7126eb 0x75dcfc,0x844374
-DebrisTypes,tag,rules,0x7125f1 0x75daf5,0x844384
-DebugOnly,tag,battle,0x46cd58,0x81b1b0
-Decay,tag,sound,0x750676,0x84654c
-DecloakToFire,tag,rules,0x772121,0x84951c
+DeathWeapon,tag,ra2|rules,0x66c58a 0x7122f0,0x83b11c
+DeathWeaponDamageModifier,tag,ra2|rules,0x712325,0x844488
+Debris,tag,ra2|rules,0x721b4f,0x8448e4
+DebrisAnims,tag,ra2|rules,0x71274f,0x844368
+DebrisMaximums,tag,ra2|rules,0x7126eb 0x75dcfc,0x844374
+DebrisTypes,tag,ra2|rules,0x7125f1 0x75daf5,0x844384
+DebugOnly,tag,battle|ra2,0x46cd58,0x81b1b0
+Decay,tag,ra2|sound,0x750676,0x84654c
+DecloakToFire,tag,ra2|rules,0x772121,0x84951c
 "Default
 ",unclassified,,0x77766e,0x849f14
 DefaultChronoSound,unclassified,,0x669693,0x83aa94
-DefaultDebrisSmokeSystem,tag,rules,0x66cc06,0x83ae2c
-DefaultFireStreamSystem,tag,rules,0x66cc45,0x83ae14
-DefaultLargeGreySmokeSystem,tag,rules,0x66cacd,0x83aeb0
-DefaultLargeRedSmokeSystem,tag,rules,0x66cb89,0x83ae64
-DefaultMirageDisguises,tag,rules,0x671d51,0x83b488
+DefaultDebrisSmokeSystem,tag,ra2|rules,0x66cc06,0x83ae2c
+DefaultFireStreamSystem,tag,ra2|rules,0x66cc45,0x83ae14
+DefaultLargeGreySmokeSystem,tag,ra2|rules,0x66cacd,0x83aeb0
+DefaultLargeRedSmokeSystem,tag,ra2|rules,0x66cb89,0x83ae64
+DefaultMirageDisguises,tag,ra2|rules,0x671d51,0x83b488
 DefaultPalette,unclassified,,0x768c9f,0x8489e0
 DefaultPersona,unclassified,,0x779c1b 0x779d6c 0x779e9b 0x779fec,0x84a13c
-DefaultRepairParticleSystem,tag,rules,0x66ccc2,0x83addc
-DefaultSmallGreySmokeSystem,tag,rules,0x66cb0b,0x83ae94
-DefaultSmallRedSmokeSystem,tag,rules,0x66cbc7,0x83ae48
-DefaultSparkSystem,tag,rules,0x66cb4a,0x83ae80
-DefaultTestParticleSystem,tag,rules,0x66cc83,0x83adf8
-DefaultToGuardArea,tag,rules,0x714f44,0x843784
+DefaultRepairParticleSystem,tag,ra2|rules,0x66ccc2,0x83addc
+DefaultSmallGreySmokeSystem,tag,ra2|rules,0x66cb0b,0x83ae94
+DefaultSmallRedSmokeSystem,tag,ra2|rules,0x66cbc7,0x83ae48
+DefaultSparkSystem,tag,ra2|rules,0x66cb4a,0x83ae80
+DefaultTestParticleSystem,tag,ra2|rules,0x66cc83,0x83adf8
+DefaultToGuardArea,tag,ra2|rules,0x714f44,0x843784
 Defaults,unclassified,,0x7510fb 0x751139 0x75115c 0x751180 0x7511ae 0x75120d 0x751266 0x751280,0x84658c
-DefenseLimit,tag,rules,0x673bd7,0x83d24c
-DefenseRatio,tag,rules,0x673bb7,0x83d25c
+DefenseLimit,tag,ra2|rules,0x673bd7,0x83d24c
+DefenseRatio,tag,ra2|rules,0x673bb7,0x83d25c
 DefensesCostBonus,tag,rules,0x46070d,0x81ab74
-Deform,tag,rules,0x75d785,0x847d80
-DeformThreshhold,tag,rules,0x75d7a1,0x847d6c
+Deform,tag,ra2|rules,0x75d785,0x847d80
+DeformThreshhold,tag,ra2|rules,0x75d7a1,0x847d6c
 Degenerates,unclassified,,0x46c157,0x81b08c
-Delay,tag,sound,0x750834,0x846534
-DelayKillAtMax,tag,rules,0x75d471,0x847e54
-DelayKillFrames,tag,rules,0x75d450,0x847e64
-DelayedFireDelay,tag,art,0x4611c7,0x81a74c
-DeleteOnStateLimit,tag,rules,0x645134,0x8371d8
+Delay,tag,ra2|sound,0x750834,0x846534
+DelayKillAtMax,tag,ra2|rules,0x75d471,0x847e54
+DelayKillFrames,tag,ra2|rules,0x75d450,0x847e64
+DelayedFireDelay,tag,art|ra2,0x4611c7,0x81a74c
+DeleteOnStateLimit,tag,ra2|rules,0x645134,0x8371d8
 DeployDir,tag,rules,0x66927f,0x83abac
 DeployFacing,tag,rules,0x460c76,0x81a93c
-DeployFire,tag,rules,0x7147ef,0x843aa0
+DeployFire,tag,ra2|rules,0x7147ef,0x843aa0
 DeployFireWeapon,unclassified,,0x7147d5,0x843aac
-DeploySound,tag,rules,0x713568,0x8440b0
-DeployTime,tag,rules,0x714b85,0x843904
+DeploySound,tag,ra2|rules,0x713568,0x8440b0
+DeployTime,tag,ra2|rules,0x714b85,0x843904
 DeployToFire,unclassified,,0x747672,0x845e10
 DeployToLand,tag,rules,0x714809,0x843a90
 DeployedCrushable,tag,rules,0x524627,0x825914
-Deployer,tag,rules,0x52460d,0x825928
-DeployingAnim,tag,art|rules,0x45f322 0x714715,0x819490
-DeploysInto,tag,rules,0x713279,0x844180
-Description,tag,battle|map|mapsel,0x46cd73 0x46cd9b 0x597812 0x597afe 0x597e43 0x5cfa3f 0x69a532,0x81b1a4
+Deployer,tag,ra2|rules,0x52460d,0x825928
+DeployingAnim,tag,art|ra2|rules,0x45f322 0x714715,0x819490
+DeploysInto,tag,ra2|rules,0x713279,0x844180
+Description,tag,battle|map|mapsel|ra2,0x46cd73 0x46cd9b 0x597812 0x597afe 0x597e43 0x5cfa3f 0x69a532,0x81b1a4
 DescriptionText,unclassified,,0x69a4ec 0x69a517,0x83f648
 DestNet,unclassified,,0x5faccb 0x5faf8f 0x6bc196,0x83300c
-DestroyAnim,tag,rules,0x713a97,0x843ff0
+DestroyAnim,tag,ra2|rules,0x713a97,0x843ff0
 DestroyParticleSystems,unclassified,,0x713d2c,0x843f74
 DestroySmokeOffset,unclassified,,0x713e62,0x843f38
-DestroyWalls,tag,rules,0x66d376,0x83b3c0
-DestroyableBridges,tag,map|rules,0x6b8b98 0x6b8e1f,0x840248
-DestroyableCliffs,tag,theater,0x545967,0x8293b0
-DetailBufferZoneWidth,tag,rules,0x669248,0x83abc0
-DetailLevel,tag,art,0x428081 0x5fa782 0x5fadd3,0x81855c
-DetailMinFrameRateMovie,tag,rules,0x66922f,0x83abd8
-DetailMinFrameRateNormal,tag,rules,0x669216,0x83abf0
-DetectDisguise,tag,rules,0x71443f,0x843c78
-DetectDisguiseRange,tag,rules,0x714302,0x843d3c
+DestroyWalls,tag,ra2|rules,0x66d376,0x83b3c0
+DestroyableBridges,tag,map|ra2|rules,0x6b8b98 0x6b8e1f,0x840248
+DestroyableCliffs,tag,ra2|theater,0x545967,0x8293b0
+DetailBufferZoneWidth,tag,ra2|rules,0x669248,0x83abc0
+DetailLevel,tag,art|ra2,0x428081 0x5fa782 0x5fadd3,0x81855c
+DetailMinFrameRateMovie,tag,ra2|rules,0x66922f,0x83abd8
+DetailMinFrameRateNormal,tag,ra2|rules,0x669216,0x83abf0
+DetectDisguise,tag,ra2|rules,0x71443f,0x843c78
+DetectDisguiseRange,tag,ra2|rules,0x714302,0x843d3c
 DetectionDistance,unclassified,,0x524505,0x825988
-DetonationAltitude,tag,rules,0x46c337,0x81b018
+DetonationAltitude,tag,ra2|rules,0x46c337,0x81b018
 DialMethod,unclassified,,0x698580 0x69927d,0x83f09c
 "Dial_Modem
 ",unclassified,,0x5f295c,0x832880
 DialogList,unclassified,,0x75300c 0x753029 0x753059 0x753068,0x8467d4
-DieSound,tag,rules,0x7134f2,0x8440bc
+DieSound,tag,ra2|rules,0x7134f2,0x8440bc
 Difficult,unclassified,,0x668f19 0x67452c,0x83a0c4
 Difficulty,unclassified,,0x5fa669 0x5fad53,0x8332cc
 Dig,unclassified,,0x66a593,0x83a5cc
-DigSound,tag,rules,0x66933d,0x83ab70
+DigSound,tag,ra2|rules,0x66933d,0x83ab70
 Digest,unclassified,,0x474254 0x474276 0x474365 0x47438e 0x47447b 0x4744f4 0x47450d 0x47456e 0x4745e7 0x474603 0x5e5334 0x695362 0x699883 0x69a08c 0x69a8b3,0x81bfe0
 DirectRocker,unclassified,,0x75d5cb,0x847dd8
 DirectRockingCoefficient,tag,rules,0x66b8ab,0x83a164
-DirtRoadCurve,tag,theater,0x545930,0x8293d8
-DirtRoadJunction,tag,theater,0x545911,0x8293e8
-DirtRoadSlopes,tag,theater,0x5459d3,0x829378
-DirtRoadStraight,tag,theater,0x54594b,0x8293c4
-DirtTrackTunnels,tag,theater,0x545807,0x829478
-DirtTunnels,tag,theater,0x5457ec,0x82948c
-DisableShadowCache,tag,art,0x715979,0x843358
-DisableVoxelCache,tag,art,0x715955,0x84336c
+DirtRoadCurve,tag,ra2|theater,0x545930,0x8293d8
+DirtRoadJunction,tag,ra2|theater,0x545911,0x8293e8
+DirtRoadSlopes,tag,ra2|theater,0x5459d3,0x829378
+DirtRoadStraight,tag,ra2|theater,0x54594b,0x8293c4
+DirtTrackTunnels,tag,ra2|theater,0x545807,0x829478
+DirtTunnels,tag,ra2|theater,0x5457ec,0x82948c
+DisableShadowCache,tag,art|ra2,0x715979,0x843358
+DisableVoxelCache,tag,art|ra2,0x715955,0x84336c
 Disableable,unclassified,,0x714bc7,0x8438e8
-DisableableFromShell,tag,rules,0x6ceac7,0x8426f4
+DisableableFromShell,tag,ra2|rules,0x6ceac7,0x8426f4
 Disabled,unclassified,,0x4f3312,0x8242c0
-DisabledDisguiseDetectionPercent,tag,rules,0x67020f,0x83c318
+DisabledDisguiseDetectionPercent,tag,ra2|rules,0x67020f,0x83c318
 "Disconnect_Gracefully
 ",unclassified,,0x55cf13 0x55d298,0x82a044
 Disconnects,unclassified,,0x778d4c 0x77a355,0x849fa8
-DisguiseFakeBlinkTime,tag,rules,0x772273,0x849448
-DisguiseFireOnly,tag,rules,0x7721f1,0x8494a0
-DisguiseWhenStill,tag,rules,0x714459,0x843c64
+DisguiseFakeBlinkTime,tag,ra2|rules,0x772273,0x849448
+DisguiseFireOnly,tag,ra2|rules,0x7721f1,0x8494a0
+DisguiseWhenStill,tag,ra2|rules,0x714459,0x843c64
 DiskLaser,tag,rules,0x772645,0x817138
 DiskLaserChargeUp,tag,rules,0x66a366,0x83a670
 DisplayAsian,unclassified,,0x77df5e 0x77e07e,0x84a4f0
 DisplayBuddies,unclassified,,0x77df94 0x77e0b0,0x84a4d0
 DisplayClan,unclassified,,0x77dfaf 0x77e0d0,0x84a4c4
 DisplayLatin,unclassified,,0x77df79 0x77e09a,0x84a4e0
-DissolveUnfilledTeamDelay,tag,rules,0x66ff80,0x83c4c4
-DistributedFire,tag,map|rules,0x714857,0x843a64
+DissolveUnfilledTeamDelay,tag,ra2|rules,0x66ff80,0x83c4c4
+DistributedFire,tag,map|ra2|rules,0x714857,0x843a64
 DistributedWeaponFire,unclassified,,0x772711,0x849374
 DllGetVersion,unclassified,,0x4aece4,0x8201d4
 DllRegisterServer,unclassified,,0x6bc38b,0x840de4
-Dock,tag,rules,0x713180,0x84418c
-DockUnload,tag,rules,0x4609dd,0x81aa94
+Dock,tag,ra2|rules,0x713180,0x84418c
+DockUnload,tag,ra2|rules,0x4609dd,0x81aa94
 Doggie,unclassified,,0x5245ef,0x825934
 DominatorAmbient,unclassified,,0x68ab17 0x68b7b0,0x83dee4
 DominatorAmbientChangeRate,unclassified,,0x68ac73 0x68b882,0x83de78
@@ -794,153 +794,153 @@ DrainWeapon,tag,rules,0x77223f,0x849470
 Drainable,tag,rules,0x7143a3,0x843cd8
 Draw,unclassified,,0x7705c6 0x770ed3,0x8491e8
 DrawBoltAsLaser,unclassified,,0x772872,0x8492d4
-DrawFlat,tag,rules,0x5fe9c8,0x8334e4
-DropPod,tag,rules,0x66d8a0,0x83cf00
-DropPodAngle,tag,rules,0x66ed1b,0x83ca4c
-DropPodHeight,tag,rules,0x66ecd4,0x83ca6c
+DrawFlat,tag,ra2|rules,0x5fe9c8,0x8334e4
+DropPod,tag,ra2|rules,0x66d8a0,0x83cf00
+DropPodAngle,tag,ra2|rules,0x66ed1b,0x83ca4c
+DropPodHeight,tag,ra2|rules,0x66ecd4,0x83ca6c
 DropPodPuff,unclassified,,0x6692a9,0x83aba0
-DropPodSpeed,tag,rules,0x66ecf4,0x83ca5c
-DropPodWeapon,tag,rules,0x66eca3,0x83ca7c
-DropZoneAnim,tag,rules,0x66e5f0,0x83ccb4
-DropZoneRadius,tag,rules,0x66b391,0x83a360
-Dropping,tag,rules,0x46c069,0x81b0dc
-Droppod,tag,ai|map,0x6f120d 0x6f167b,0x843080
-DumbMyEffectivenessCoefficient,tag,rules,0x671bb1,0x83b5b4
-DumbTargetDistanceCoefficient,tag,rules,0x671c4d,0x83b52c
-DumbTargetEffectivenessCoefficient,tag,rules,0x671bd8,0x83b590
-DumbTargetSpecialThreatCoefficient,tag,rules,0x671bff,0x83b56c
-DumbTargetStrengthCoefficient,tag,rules,0x671c26,0x83b54c
-Duration,tag,rules,0x74b172,0x845ef4
+DropPodSpeed,tag,ra2|rules,0x66ecf4,0x83ca5c
+DropPodWeapon,tag,ra2|rules,0x66eca3,0x83ca7c
+DropZoneAnim,tag,ra2|rules,0x66e5f0,0x83ccb4
+DropZoneRadius,tag,ra2|rules,0x66b391,0x83a360
+Dropping,tag,ra2|rules,0x46c069,0x81b0dc
+Droppod,tag,ai|map|ra2,0x6f120d 0x6f167b,0x843080
+DumbMyEffectivenessCoefficient,tag,ra2|rules,0x671bb1,0x83b5b4
+DumbTargetDistanceCoefficient,tag,ra2|rules,0x671c4d,0x83b52c
+DumbTargetEffectivenessCoefficient,tag,ra2|rules,0x671bd8,0x83b590
+DumbTargetSpecialThreatCoefficient,tag,ra2|rules,0x671bff,0x83b56c
+DumbTargetStrengthCoefficient,tag,ra2|rules,0x671c26,0x83b54c
+Duration,tag,ra2|rules,0x74b172,0x845ef4
 EFIC01.SHP,file,,0x68cfb2,0x83e450
-EMEffect,tag,rules,0x75d7b9,0x847d60
+EMEffect,tag,ra2|rules,0x75d7b9,0x847d60
 EMPulseCannon,unclassified,,0x460b65,0x81a9d4
-EMPulseProjectile,tag,rules,0x66916f,0x83a0dc
-EMPulseSparkles,tag,rules,0x66e62e,0x83cca4
-EMPulseWarhead,tag,rules,0x669130,0x83a0f0
+EMPulseProjectile,tag,ra2|rules,0x66916f,0x83a0dc
+EMPulseSparkles,tag,ra2|rules,0x66e62e,0x83cca4
+EMPulseWarhead,tag,ra2|rules,0x669130,0x83a0f0
 ERRO,code,,0x5f2ba9 0x5f2f6d,0x8327a4
 ERROR,unclassified,,0x775341,0x849b60
 EVAMD.INI,file,,0x52c7af,0x825df0
-EWGates,tag,rules,0x673882,0x83d3a0
+EWGates,tag,ra2|rules,0x673882,0x83d3a0
 EXPAND.DAT,unclassified,,0x4c9164,0x822210
 Easy,unclassified,,0x49dd39 0x668ef5 0x674508,0x818134
 Edge,tag,map,0x500dcc 0x5012d4,0x824dd0
 Efficiency,unclassified,,0x68d22f 0x68d55c,0x83e3fc
-Elasticity,tag,art|rules,0x428160 0x46bf69 0x74b0ee,0x8184f4
-ElectricAssault,tag,rules,0x75d81d,0x847d48
-ElevationBonusCap,tag,rules,0x66d1c9,0x83b344
-ElevationIncrement,tag,rules,0x66d17b,0x83b370
-ElevationIncrementBonus,tag,rules,0x66d1a2,0x83b358
-EligibileForAllyBuilding,tag,rules,0x46020a,0x81acc8
-EligibleForDelayKill,tag,rules,0x460224,0x81acb0
-EliteAbilities,tag,rules,0x7154e8,0x8434d4
+Elasticity,tag,art|ra2|rules,0x428160 0x46bf69 0x74b0ee,0x8184f4
+ElectricAssault,tag,ra2|rules,0x75d81d,0x847d48
+ElevationBonusCap,tag,ra2|rules,0x66d1c9,0x83b344
+ElevationIncrement,tag,ra2|rules,0x66d17b,0x83b370
+ElevationIncrementBonus,tag,ra2|rules,0x66d1a2,0x83b358
+EligibileForAllyBuilding,tag,ra2|rules,0x46020a,0x81acc8
+EligibleForDelayKill,tag,ra2|rules,0x460224,0x81acb0
+EliteAbilities,tag,ra2|rules,0x7154e8,0x8434d4
 EliteAirstrikeRechargeTime,tag,rules,0x714637,0x843b10
 EliteAirstrikeTeam,tag,rules,0x71459f,0x843b70
 EliteAirstrikeTeamType,tag,rules,0x7145f8,0x843b44
-EliteFlashTimer,tag,rules,0x66b273,0x83a3b4
+EliteFlashTimer,tag,ra2|rules,0x66b273,0x83a3b4
 EliteOccupyWeapon,tag,rules,0x524156,0x825a3c
 ElitePBarrelLength,unclassified,,0x715ed8,0x843274
 ElitePBarrelThickness,unclassified,,0x715efc,0x84325c
-ElitePrimary,tag,rules,0x712a32,0x8442dc
-ElitePrimaryFireFLH,tag,art,0x715e95,0x843288
+ElitePrimary,tag,ra2|rules,0x712a32,0x8442dc
+ElitePrimaryFireFLH,tag,art|ra2,0x715e95,0x843288
 EliteSBarrelLength,unclassified,,0x715f5d,0x843230
 EliteSBarrelThickness,unclassified,,0x715f81,0x843218
-EliteSecondary,tag,rules,0x712a5f,0x8442cc
+EliteSecondary,tag,ra2|rules,0x712a5f,0x8442cc
 EliteSecondaryFireFLH,tag,art,0x715f20,0x843244
 Emblem,unclassified,,0x68d151 0x68dcb3,0x83e410
 Emphasis,unclassified,,0x7711c9,0x849208
 EmptyReload,unclassified,,0x71488b,0x843a50
-End,tag,art,0x427fdb,0x818590
+End,tag,art|ra2,0x427fdb,0x818590
 EndOfGame,tag,map,0x68a10e 0x68b143,0x83e138
-EndPlanningModeSound,tag,rules,0x669716,0x83aa64
-EndStateAI,tag,rules,0x645149,0x8371cc
-EnemyHealth,tag,rules,0x66b3b1,0x83a354
-EnemyHouseThreatBonus,tag,rules,0x671c74,0x83b514
-Engineer,tag,rules,0x524571 0x66fc88,0x82596c
+EndPlanningModeSound,tag,ra2|rules,0x669716,0x83aa64
+EndStateAI,tag,ra2|rules,0x645149,0x8371cc
+EnemyHealth,tag,ra2|rules,0x66b3b1,0x83a354
+EnemyHouseThreatBonus,tag,ra2|rules,0x671c74,0x83b514
+Engineer,tag,ra2|rules,0x524571 0x66fc88,0x82596c
 EngineerCaptureLevel,unclassified,,0x671e03 0x671e2a,0x83b414
 Enslaves,tag,rules,0x714dd7,0x843824
 EnterBioReactorSound,tag,rules,0x66a19b 0x71386e,0x83a704
 EnterGrinderSound,tag,rules,0x66a117 0x7137f6,0x83a730
-EnterTransportSound,tag,rules,0x7133fc,0x8440e8
-EnterWaterSound,tag,rules,0x524403,0x8259f0
+EnterTransportSound,tag,ra2|rules,0x7133fc,0x8440e8
+EnterWaterSound,tag,ra2|rules,0x524403,0x8259f0
 ErrorControl_Off,unclassified,,0x5bbbb8,0x82ce24
 ErrorControl_On,unclassified,,0x5bbb5b,0x82ce60
 ErrorCorrection,unclassified,,0x698551 0x699309,0x83f0a8
 Europe,unclassified,,0x78830a,0x84b614
 Evacuate,unclassified,,0x7703f2,0x8491a0
-ExecutePlanSound,tag,rules,0x669b73,0x83a928
+ExecutePlanSound,tag,ra2|rules,0x669b73,0x83a928
 Exit,unclassified,,0x7a17c1,0x84d438
-ExitCoord,tag,rules,0x460fb6,0x81a808
-ExpSpread,tag,rules,0x66cddf,0x83ad74
-ExpireAnim,tag,art|rules,0x4284c4 0x74b36f,0x8183ec
-ExplodeTurretIndex,tag,rules,0x747cf8,0x845b64
-ExplodeTurretWeapon,tag,rules,0x747d07,0x845b50
-Explodes,tag,rules,0x5fe840 0x7122c5,0x83355c
-Explosion,tag,map|rules,0x71399a,0x81da00
-ExplosiveVoxelDebris,tag,rules,0x66efaf,0x83c964
-ExtraAircraftLight,tag,rules,0x66b730,0x83a228
-ExtraDamageStage,tag,art,0x46136c,0x81a694
-ExtraInfantryLight,tag,rules,0x66b6e7,0x83a23c
-ExtraLight,tag,art,0x4613f1,0x81a650
-ExtraPower,tag,rules,0x4610b3,0x81a7b0
-ExtraUnitLight,tag,rules,0x66b69e,0x83a250
+ExitCoord,tag,ra2|rules,0x460fb6,0x81a808
+ExpSpread,tag,ra2|rules,0x66cddf,0x83ad74
+ExpireAnim,tag,art|ra2|rules,0x4284c4 0x74b36f,0x8183ec
+ExplodeTurretIndex,tag,ra2|rules,0x747cf8,0x845b64
+ExplodeTurretWeapon,tag,ra2|rules,0x747d07,0x845b50
+Explodes,tag,ra2|rules,0x5fe840 0x7122c5,0x83355c
+Explosion,tag,map|ra2|rules,0x71399a,0x81da00
+ExplosiveVoxelDebris,tag,ra2|rules,0x66efaf,0x83c964
+ExtraAircraftLight,tag,ra2|rules,0x66b730,0x83a228
+ExtraDamageStage,tag,art|ra2,0x46136c,0x81a694
+ExtraInfantryLight,tag,ra2|rules,0x66b6e7,0x83a23c
+ExtraLight,tag,art|ra2,0x4613f1,0x81a650
+ExtraPower,tag,ra2|rules,0x4610b3,0x81a7b0
+ExtraUnitLight,tag,ra2|rules,0x66b69e,0x83a250
 FACTORY,unclassified,,0x475ad0 0x4771b3,0x81c028
 FINI,code,,0x6c7111,0x8420fc
-FShift,tag,sound,0x7508ad,0x84652c
+FShift,tag,ra2|sound,0x7508ad,0x84652c
 FULLFNT3.PAL,file,,0x5d2f08,0x830620
 FULLFNT3.SHP,file,,0x5d2ec6 0x690a59,0x830664
 Facings,unclassified,,0x747951,0x845d18
-Factory,tag,rules,0x460521,0x8173f0
+Factory,tag,ra2|rules,0x460521,0x8173f0
 FactoryPlant,tag,rules,0x460507,0x81ac2c
 Fail,unclassified,,0x7a16c0,0x84d4b4
 FallBackCoefficient,tag,rules,0x66b8d5,0x83a150
 FallingDamageMultiplier,tag,rules,0x66c9c5,0x83af30
-Fearless,tag,rules,0x524469,0x8259d4
-Fighter,tag,rules,0x41cc84,0x818034
-FileName,tag,theater,0x5460db,0x829268
+Fearless,tag,ra2|rules,0x524469,0x8259d4
+Fighter,tag,ra2|rules,0x41cc84,0x818034
+FileName,tag,ra2|theater,0x5460db,0x829268
 Fill,unclassified,,0x4acf3b,0x820170
-FillEarliestTeamProbability,tag,rules,0x66fe83,0x83c534
+FillEarliestTeamProbability,tag,ra2|rules,0x66fe83,0x83c534
 FillSilos,tag,map,0x68a25a 0x68b3b7,0x83e0bc
-FinalDamageState,tag,rules,0x6452eb,0x837100
-FinalMovie,tag,battle,0x46cd1e,0x81b1c8
-FineDiffControl,tag,rules,0x66fd61,0x83c5d4
-Fire,tag,rules,0x75d5e5,0x836f04
-FireAngle,tag,rules,0x714b5d,0x843910
+FinalDamageState,tag,ra2|rules,0x6452eb,0x837100
+FinalMovie,tag,battle|ra2,0x46cd1e,0x81b1c8
+FineDiffControl,tag,ra2|rules,0x66fd61,0x83c5d4
+Fire,tag,ra2|rules,0x75d5e5,0x836f04
+FireAngle,tag,ra2|rules,0x714b5d,0x843910
 FireInTransport,tag,rules,0x772259,0x849460
-FireOnce,tag,rules,0x772155,0x8494fc
+FireOnce,tag,ra2|rules,0x772155,0x8494fc
 FirePower,unclassified,,0x66d295,0x83b3f8
-FireProne,tag,art,0x5246e8,0x8257b8
-FireSupress,tag,rules,0x66cdff,0x83ad68
-FireUp,tag,art,0x5246ca,0x8257d8
+FireProne,tag,art|ra2,0x5246e8,0x8257b8
+FireSupress,tag,ra2|rules,0x66cdff,0x83ad68
+FireUp,tag,art|ra2,0x5246ca,0x8257d8
 FireWhileMoving,tag,rules,0x772225,0x84947c
-Firepower,tag,rules,0x511988,0x81d9c0
-FirersPalette,tag,rules,0x46c367,0x81affc
+Firepower,tag,ra2|rules,0x511988,0x81d9c0
+FirersPalette,tag,ra2|rules,0x46c367,0x81affc
 FirestormWall,unclassified,,0x460ac7,0x81aa20
 FirewallDelta,unclassified,,0x5d9021 0x5d9393 0x5d93eb,0x830cb0
 FirewallSettings,unclassified,,0x5d9007 0x5d9379 0x5d93d5,0x830cc0
-FiringFrames,tag,art,0x747809,0x845d84
+FiringFrames,tag,art|ra2,0x747809,0x845d84
 FixedAlliance,tag,map,0x6b8bea 0x6b8e47,0x84021c
-FlakScatter,tag,rules,0x46c105,0x81b0a0
-FlakTurretIndex,tag,rules,0x747c54,0x845c04
-FlakTurretWeapon,tag,rules,0x747c63,0x845bf0
-FlameDamage,tag,rules,0x66c2a1,0x83b1f0
-FlameDamage2,tag,rules,0x66c2e0,0x83b1e0
+FlakScatter,tag,ra2|rules,0x46c105,0x81b0a0
+FlakTurretIndex,tag,ra2|rules,0x747c54,0x845c04
+FlakTurretWeapon,tag,ra2|rules,0x747c63,0x845bf0
+FlameDamage,tag,ra2|rules,0x66c2a1,0x83b1f0
+FlameDamage2,tag,ra2|rules,0x66c2e0,0x83b1e0
 Flamer,unclassified,,0x427e55,0x81861c
-FlamingInfantry,tag,rules,0x66e37d,0x83cd44
-FlashFrameTime,tag,rules,0x671979,0x83b750
+FlamingInfantry,tag,ra2|rules,0x66e37d,0x83cd44
+FlashFrameTime,tag,ra2|rules,0x671979,0x83b750
 FlashSidebarTabFrames,tag,rules,0x6ceae1,0x8426dc
-Flat,tag,art,0x427e3b 0x461153 0x46c27e,0x818624
-FlightLevel,tag,rules,0x66f2fb 0x71233d,0x83c854
-Float,tag,rules,0x674140 0x67416a,0x81dbac
-FloatBeach,tag,rules,0x6741cf 0x6741f2,0x81dba0
-Floater,tag,rules,0x46bfd1,0x81b128
+Flat,tag,art|ra2,0x427e3b 0x461153 0x46c27e,0x818624
+FlightLevel,tag,ra2|rules,0x66f2fb 0x71233d,0x83c854
+Float,tag,ra2|rules,0x674140 0x67416a,0x81dbac
+FloatBeach,tag,ra2|rules,0x6741cf 0x6741f2,0x81dba0
+Floater,tag,ra2|rules,0x46bfd1,0x81b128
 FlowControl_Hard,unclassified,,0x5bbccf,0x82cd78
 FlyBack,tag,rules,0x41cd75,0x817ff0
 FlyBy,tag,rules,0x41cd5b,0x817ff8
-FogOfWar,tag,map|rules,0x6721e7 0x6b8c1b 0x6b8e6f,0x83cf78
-FogRate,tag,rules,0x66b4d7,0x83a2ec
-Foot,tag,rules,0x674075 0x674098,0x81dbd4
-ForbiddenHouses,tag,rules,0x71455d,0x843b94
-ForceBigCraters,tag,art,0x427ed7,0x8185e4
+FogOfWar,tag,map|ra2|rules,0x6721e7 0x6b8c1b 0x6b8e6f,0x83cf78
+FogRate,tag,ra2|rules,0x66b4d7,0x83a2ec
+Foot,tag,ra2|rules,0x674075 0x674098,0x81dbd4
+ForbiddenHouses,tag,ra2|rules,0x71455d,0x843b94
+ForceBigCraters,tag,art|ra2,0x427ed7,0x8185e4
 ForcePortBase,unclassified,,0x698185,0x83f19c
 ForceShieldBlackoutDuration,tag,rules,0x6710de,0x83bc30
 ForceShieldColor,tag,rules,0x66b884,0x83a180
@@ -948,138 +948,138 @@ ForceShieldDuration,tag,rules,0x6710be,0x83bc4c
 ForceShieldInvokeAnim,tag,rules,0x66e282,0x83cd88
 ForceShieldPlayFadeSoundTime,tag,rules,0x6710fe,0x83bc10
 ForceShieldRadius,tag,rules,0x67109f,0x83bc60
-Foundation,tag,art,0x46122c 0x46123d 0x71df6e,0x81a734
-Fraidycat,tag,rules,0x524487,0x8259c8
+Foundation,tag,art|ra2,0x46122c 0x46123d 0x71df6e,0x81a734
+Fraidycat,tag,ra2|rules,0x524487,0x8259c8
 Frame,unclassified,,0x698a3c,0x83f048
 FreeForAll,unclassified,,0x5d7df8,0x830bd8
-FreeMCV,tag,rules,0x66b936,0x83acc4
+FreeMCV,tag,ra2|rules,0x66b936,0x83acc4
 FreeRadar,tag,map,0x68a5f0 0x68b4a8,0x83dff8
-FreeUnit,tag,rules,0x460540,0x81ac20
+FreeUnit,tag,ra2|rules,0x460540,0x81ac20
 FriendlyName,unclassified,,0x7743b0,0x8497bc
-Full,tag,ai|map,0x6f1171 0x6f15df,0x8430c4
+Full,tag,ai|map|ra2,0x6f1171 0x6f15df,0x8430c4
 GAME.FNT,unclassified,,0x434ae7 0x4354de,0x818b98
 GAPLUG,unclassified,,0x5058b5,0x824eb8
-GDI,tag,rules,0x50ae06,0x824fc4
-GDIBarracks,tag,rules,0x460b15,0x81aa00
-GDIBaseDefenseCoefficient,tag,rules,0x673e0e,0x83d144
-GDIGateOne,tag,rules,0x66f46a,0x83c80c
-GDIGateTwo,tag,rules,0x66f4a9,0x83c800
-GDIPowerPlant,tag,rules,0x66f6a7,0x83c7c0
-GDIWallDefense,tag,rules,0x673d9c,0x83d198
-GDIWallDefenseCoefficient,tag,rules,0x673dc2,0x83d17c
+GDI,tag,ra2|rules,0x50ae06,0x824fc4
+GDIBarracks,tag,ra2|rules,0x460b15,0x81aa00
+GDIBaseDefenseCoefficient,tag,ra2|rules,0x673e0e,0x83d144
+GDIGateOne,tag,ra2|rules,0x66f46a,0x83c80c
+GDIGateTwo,tag,ra2|rules,0x66f4a9,0x83c800
+GDIPowerPlant,tag,ra2|rules,0x66f6a7,0x83c7c0
+GDIWallDefense,tag,ra2|rules,0x673d9c,0x83d198
+GDIWallDefenseCoefficient,tag,ra2|rules,0x673dc2,0x83d17c
 GENERIC.MIX,file,,0x530562,0x826814
 GENERMD.MIX,file,,0x530522,0x826820
 GLSMD.PAL,file,,0x5312aa,0x8268b0
 GRFXTXT.PAL,file,,0x52c1ef,0x826078
 GRFXTXT.SHP,file,,0x52c2c8,0x82606c
 GSKU,code,,0x6c7045,0x842114
-GUIBuildSound,tag,rules,0x6693c1,0x83ab4c
-GUICheckboxSound,tag,rules,0x6695ce,0x83aac4
-GUICloseSound,tag,rules,0x669486,0x83ab20
-GUIComboCloseSound,tag,rules,0x66958c,0x83aad8
-GUIComboOpenSound,tag,rules,0x66954b,0x83aaec
-GUIMainButtonSound,tag,rules,0x66937f,0x83ab5c
-GUIMoveInSound,tag,rules,0x669509,0x83ab00
-GUIMoveOutSound,tag,rules,0x6694c7,0x83ab10
-GUIOpenSound,tag,rules,0x669444,0x83ab30
-GUITabSound,tag,rules,0x669402,0x83ab40
+GUIBuildSound,tag,ra2|rules,0x6693c1,0x83ab4c
+GUICheckboxSound,tag,ra2|rules,0x6695ce,0x83aac4
+GUICloseSound,tag,ra2|rules,0x669486,0x83ab20
+GUIComboCloseSound,tag,ra2|rules,0x66958c,0x83aad8
+GUIComboOpenSound,tag,ra2|rules,0x66954b,0x83aaec
+GUIMainButtonSound,tag,ra2|rules,0x66937f,0x83ab5c
+GUIMoveInSound,tag,ra2|rules,0x669509,0x83ab00
+GUIMoveOutSound,tag,ra2|rules,0x6694c7,0x83ab10
+GUIOpenSound,tag,ra2|rules,0x669444,0x83ab30
+GUITabSound,tag,ra2|rules,0x669402,0x83ab40
 Game,unclassified,,0x7703cb,0x8491ac
-GameClosed,tag,rules,0x66a77e,0x83a558
-GameForming,tag,rules,0x66a8c6,0x83a50c
-GameMode,tag,map,0x697f31 0x698413 0x698fa6 0x6991b1 0x699822 0x69a62b,0x83efd0
-GameSpeed,tag,rules,0x5fa646 0x5fad3e 0x671fcc 0x697f5e 0x698fcc,0x8332e8
-GameSpeedBias,tag,rules,0x670b26,0x83bf24
-GapGenerator,tag,rules,0x713f99,0x843e98
-GapRadiusInCells,tag,rules,0x713fb6,0x843e84
-Gate,tag,rules,0x4609f7,0x81aa8c
-GateCloseDelay,tag,rules,0x460dd8,0x81a8dc
-GateDown,tag,rules,0x66a652,0x83a5a8
-GateStages,tag,art,0x4612d8,0x81a6f4
-GateUp,tag,rules,0x66a611,0x83a5b4
+GameClosed,tag,ra2|rules,0x66a77e,0x83a558
+GameForming,tag,ra2|rules,0x66a8c6,0x83a50c
+GameMode,tag,map|ra2,0x697f31 0x698413 0x698fa6 0x6991b1 0x699822 0x69a62b,0x83efd0
+GameSpeed,tag,ra2|rules,0x5fa646 0x5fad3e 0x671fcc 0x697f5e 0x698fcc,0x8332e8
+GameSpeedBias,tag,ra2|rules,0x670b26,0x83bf24
+GapGenerator,tag,ra2|rules,0x713f99,0x843e98
+GapRadiusInCells,tag,ra2|rules,0x713fb6,0x843e84
+Gate,tag,ra2|rules,0x4609f7,0x81aa8c
+GateCloseDelay,tag,ra2|rules,0x460dd8,0x81a8dc
+GateDown,tag,ra2|rules,0x66a652,0x83a5a8
+GateStages,tag,art|ra2,0x4612d8,0x81a6f4
+GateUp,tag,ra2|rules,0x66a611,0x83a5b4
 General,unclassified,,0x52d4d5 0x545542 0x545569 0x545584 0x54559f 0x5455ba 0x5455d5 0x5455f0 0x54560b 0x545626 0x545644 0x54565c 0x545677 0x545692 0x5456ad 0x5456c8 0x5456e3 0x5456fe 0x545719 0x545734 0x54574f 0x54576a 0x545785 0x5457a0 0x5457be 0x5457d6 0x5457f1 0x54580c 0x545827 0x545842 0x54585d 0x545878 0x545893 0x5458ae 0x5458c9 0x5458e4 0x5458ff 0x54591d 0x545935 0x545950 0x54596c 0x545987 0x5459a2 0x5459bd 0x5459d8 0x5459f3 0x545a0e 0x545abc 0x545b61 0x545b7a 0x545b93 0x545bac 0x545bc5 0x545bde 0x545bf7 0x545c10 0x545c29,0x826278
 "Generate_Real_Timing_Event
 ",unclassified,,0x647bba,0x837444
-GenericBeep,tag,rules,0x66ad72,0x83a438
-GenericClick,tag,rules,0x66ad30,0x83a444
+GenericBeep,tag,ra2|rules,0x66ad72,0x83a438
+GenericClick,tag,ra2|rules,0x66ad30,0x83a444
 GeneticMutatorActivateSound,tag,rules,0x669f8d,0x83a7c0
 GetActiveWindow,unclassified,,0x7daed4,0x7fa34c
 GetDiskFreeSpaceExA,unclassified,,0x48dd74,0x81d80c
 GetLastActivePopup,unclassified,,0x7daedc,0x7fa338
-Gravity,tag,rules,0x66b3d1,0x83a34c
-Green,tag,map|rules,0x68a8ab 0x68b652,0x82053c
-GreenTile,tag,theater,0x5455eb,0x829594
+Gravity,tag,ra2|rules,0x66b3d1,0x83a34c
+Green,tag,map|ra2|rules,0x68a8ab 0x68b652,0x82053c
+GreenTile,tag,ra2|theater,0x5455eb,0x829594
 GreenTint,unclassified,,0x5998cc,0x82bf74
 Grinding,tag,rules,0x460971,0x81aac8
 Ground,tag,map,0x5998fa 0x68a91f 0x68b698,0x81db84
-Groundspeed,tag,rules,0x5119a9 0x66d2ab,0x825488
-Group,tag,ai|map,0x6e84d4 0x6e858b 0x6f1364 0x6f1735,0x842dc4
-Growth,tag,rules,0x721ac0,0x844908
-GrowthPercentage,tag,mp|rules,0x721ad9,0x8448f4
-GrowthRate,tag,rules,0x670d69,0x83be14
-GuardArea,tag,rules,0x6742ce,0x81bebc
-GuardAreaTargetingDelay,tag,rules,0x6701a7,0x83c36c
-GuardModeStray,tag,rules,0x670eca,0x83bd90
-GuardRange,tag,rules,0x7122ab,0x8444a4
-GuardSlower,tag,ai|map,0x6f11a5 0x6f1609,0x8430ac
-GuardSound,tag,rules,0x66ae37,0x83a41c
+Groundspeed,tag,ra2|rules,0x5119a9 0x66d2ab,0x825488
+Group,tag,ai|map|ra2,0x6e84d4 0x6e858b 0x6f1364 0x6f1735,0x842dc4
+Growth,tag,ra2|rules,0x721ac0,0x844908
+GrowthPercentage,tag,mp|ra2|rules,0x721ad9,0x8448f4
+GrowthRate,tag,ra2|rules,0x670d69,0x83be14
+GuardArea,tag,ra2|rules,0x6742ce,0x81bebc
+GuardAreaTargetingDelay,tag,ra2|rules,0x6701a7,0x83c36c
+GuardModeStray,tag,ra2|rules,0x670eca,0x83bd90
+GuardRange,tag,ra2|rules,0x7122ab,0x8444a4
+GuardSlower,tag,ai|map|ra2,0x6f11a5 0x6f1609,0x8430ac
+GuardSound,tag,ra2|rules,0x66ae37,0x83a41c
 GuardianTurretIndex,tag,rules,0x747e69,0x8459d4
 GuardianTurretWeapon,tag,rules,0x747e78,0x8459bc
-Gunner,tag,rules,0x714a50,0x843964
+Gunner,tag,ra2|rules,0x714a50,0x843964
 HALLFAME.DAT,unclassified,,0x68e4a2 0x68e988,0x83e32c
 HSVC,code,,0x76adda 0x76af4b,0x848cc0
 HTMLPath,unclassified,,0x773744 0x7739b6 0x773c0d,0x849640
 HalfDamageSmokeLocation,unclassified,,0x74776f,0x845db0
-HalfDamageSmokeLocation1,tag,rules,0x45ff04,0x81ae84
+HalfDamageSmokeLocation1,tag,ra2|rules,0x45ff04,0x81ae84
 HalfDamageSmokeLocation2,unclassified,,0x45ff33,0x81ae68
 Handle,unclassified,,0x6982ba 0x69911a,0x83f158
 HarvestRate,tag,rules,0x524523,0x82597c
-Harvester,tag,rules,0x67438c 0x7476a6,0x83d4cc
+Harvester,tag,ra2|rules,0x67438c 0x7476a6,0x83d4cc
 HarvesterDumpRate,unclassified,,0x670cd4,0x83be4c
-HarvesterImmune,tag,map|rules,0x6b8c07 0x6b8ebf,0x84020c
+HarvesterImmune,tag,map|ra2|rules,0x6b8c07 0x6b8ebf,0x84020c
 HarvesterLoadRate,unclassified,,0x670cf4,0x83be38
-HarvesterTooFarDistance,tag,rules,0x66ffe3,0x83c480
-HarvesterTruce,tag,rules,0x672109,0x83cfd8
-HarvesterUnit,tag,rules,0x66f8dd,0x83c754
-HarvestersPerRefinery,tag,rules,0x6705d3,0x83c128
-HasRadialIndicator,tag,rules,0x5f9528,0x832b4c
+HarvesterTooFarDistance,tag,ra2|rules,0x66ffe3,0x83c480
+HarvesterTruce,tag,ra2|rules,0x672109,0x83cfd8
+HarvesterUnit,tag,ra2|rules,0x66f8dd,0x83c754
+HarvestersPerRefinery,tag,ra2|rules,0x6705d3,0x83c128
+HasRadialIndicator,tag,ra2|rules,0x5f9528,0x832b4c
 HasSpotlight,unclassified,,0x45feec,0x81aea0
-HasStupidGuardMode,tag,rules,0x460ea7,0x81a884
-HasTurretTooltips,tag,rules,0x712837,0x844354
+HasStupidGuardMode,tag,ra2|rules,0x460ea7,0x81a884
+HasTurretTooltips,tag,ra2|rules,0x712837,0x844354
 Header,unclassified,,0x689d86 0x689da4 0x689dbe 0x689de0 0x689dfe 0x689e18 0x689e5a 0x689ebe 0x689eda 0x689ef8 0x689f16 0x689f34 0x689f52 0x689f98 0x68aeed 0x68af05 0x68af21 0x68af3b 0x68af8e 0x68afac 0x68b08a,0x83de68
-HealCrateSound,tag,rules,0x66ba1d,0x83ac88
-Height,tag,art|map|rules,0x4610e5 0x597842 0x597b2f 0x689ddb 0x689f11 0x68af36 0x6b5751,0x81a7a8
-HeightBase,tag,theater,0x5456a8,0x82952c
-Helipad,tag,rules,0x4604d3,0x81ac48
-HelipadLimit,tag,rules,0x673caa,0x83d204
-HelipadRatio,tag,rules,0x673c8a,0x83d214
+HealCrateSound,tag,ra2|rules,0x66ba1d,0x83ac88
+Height,tag,art|map|ra2|rules,0x4610e5 0x597842 0x597b2f 0x689ddb 0x689f11 0x68af36 0x6b5751,0x81a7a8
+HeightBase,tag,ra2|theater,0x5456a8,0x82952c
+Helipad,tag,ra2|rules,0x4604d3,0x81ac48
+HelipadLimit,tag,ra2|rules,0x673caa,0x83d204
+HelipadRatio,tag,ra2|rules,0x673c8a,0x83d214
 HelpBar,unclassified,,0x7688b4,0x848acc
 HelpBarSize,unclassified,,0x7683f2,0x848b0c
-HideIfNoOre,tag,art,0x428125,0x81850c
+HideIfNoOre,tag,art|ra2,0x428125,0x81850c
 HighlightSound,unclassified,,0x4f3360 0x4f34d6,0x8242b0
 Highlighted,unclassified,,0x4f32cd,0x8242cc
 History,unclassified,,0x770356,0x8491bc
-HoldsWhat,tag,rules,0x644307,0x8370b0
+HoldsWhat,tag,ra2|rules,0x644307,0x8370b0
 HomeCell,tag,map,0x68a60a 0x68b3ee,0x83dfec
-HomingScatter,tag,rules,0x66ce1f,0x83ad58
-Hospital,unclassified,,0x460ae1,0x81aa14
+HomingScatter,tag,ra2|rules,0x66ce1f,0x83ad58
+Hospital,tag,ra2,0x460ae1,0x81aa14
 Hotkey,unclassified,,0x533d80 0x533db1 0x533dc7 0x533e9c 0x5fb999,0x827b80
-House,tag,ai|map,0x6f10d4 0x6f1615,0x8173e8
+House,tag,ai|map|ra2,0x6f10d4 0x6f1615,0x8173e8
 House1,unclassified,,0x49c31f 0x49c8c8,0x81f17c
 House2,unclassified,,0x49c352 0x49c92f,0x81f16c
 Houses,unclassified,,0x5009b9 0x5009de 0x5009ed 0x50116a 0x5011ce,0x824d54
-Hover,tag,art|rules,0x674031 0x674054,0x81dbbc
-HoverAcceleration,tag,rules,0x66ee57,0x83c9f0
-HoverAttack,tag,rules,0x71255a,0x8443b0
-HoverBob,tag,rules,0x66edec,0x83ca1c
-HoverBoost,tag,rules,0x66ee31,0x83ca04
-HoverBrake,tag,rules,0x66ee7d,0x83c9e4
-HoverDampen,tag,rules,0x66edc5,0x83ca28
-HoverHeight,tag,rules,0x66ee0b,0x83ca10
+Hover,tag,art|ra2|rules,0x674031 0x674054,0x81dbbc
+HoverAcceleration,tag,ra2|rules,0x66ee57,0x83c9f0
+HoverAttack,tag,ra2|rules,0x71255a,0x8443b0
+HoverBob,tag,ra2|rules,0x66edec,0x83ca1c
+HoverBoost,tag,ra2|rules,0x66ee31,0x83ca04
+HoverBrake,tag,ra2|rules,0x66ee7d,0x83c9e4
+HoverDampen,tag,ra2|rules,0x66edc5,0x83ca28
+HoverHeight,tag,ra2|rules,0x66ee0b,0x83ca10
 HoverPad,unclassified,,0x46057a,0x81ac14
 HunterSeeker,unclassified,,0x714cae,0x843888
 ICBMLauncher,unclassified,,0x460f29,0x81a834
 IDNO,code,,0x6c6fc6,0x842124
-IFVMode,tag,rules,0x714787,0x843ae4
+IFVMode,tag,ra2|rules,0x714787,0x843ae4
 IFVTransformSound,unclassified,,0x66a48d,0x83a61c
 IMAGEHLP.DLL,file,,0x4c8609,0x822174
 IMPORTANT,unclassified,,0x752f0e,0x8467a0
@@ -1087,147 +1087,147 @@ INFANTRY,unclassified,,0x698b1a,0x83f004
 INTERRUPT,unclassified,,0x752e6b,0x816120
 INTRO,unclassified,,0x52d9af 0x52dcb6 0x52dee2 0x52e29e 0x5355c0 0x77b2e8 0x77d7dd 0x77e18e 0x78b9f9 0x78ee62,0x8263a8
 IRQ,code,,0x6984fd 0x6992b2,0x83f0cc
-IRepairRate,tag,rules,0x670e6b,0x83bdb8
-IRepairStep,tag,rules,0x670df6,0x83bddc
+IRepairRate,tag,ra2|rules,0x670e6b,0x83bdb8
+IRepairStep,tag,ra2|rules,0x670df6,0x83bddc
 ISOGEN.MIX,file,,0x5305de,0x8267f8
 ISOGENMD.MIX,file,,0x5305a2,0x826804
-IceBreakingWeight,tag,rules,0x66f1b8,0x83c8e4
-IceCrackSounds,tag,rules,0x66b577,0x83a2a4
-IceCrackingWeight,tag,rules,0x66f192,0x83c8f8
+IceBreakingWeight,tag,ra2|rules,0x66f1b8,0x83c8e4
+IceCrackSounds,tag,ra2|rules,0x66b577,0x83a2a4
+IceCrackingWeight,tag,ra2|rules,0x66f192,0x83c8f8
 IceGrowthEnabled,tag,map,0x68a5b0 0x68b475,0x83e020
-IceGrowthRate,tag,rules,0x66b523,0x83a2cc
-IceSolidifyFrameTime,tag,rules,0x66b543,0x83a2b4
-IdleActionFrequency,tag,rules,0x66b3f8,0x83a338
-IdleAnim,tag,art,0x463f7e,0x8197f0
-IdleAnimDamaged,tag,art,0x463fdc,0x8197e0
+IceGrowthRate,tag,ra2|rules,0x66b523,0x83a2cc
+IceSolidifyFrameTime,tag,ra2|rules,0x66b543,0x83a2b4
+IdleActionFrequency,tag,ra2|rules,0x66b3f8,0x83a338
+IdleAnim,tag,art|ra2,0x463f7e,0x8197f0
+IdleAnimDamaged,tag,art|ra2,0x463fdc,0x8197e0
 IdleAnimGarrisoned,unclassified,,0x464076,0x8197cc
-IdleAnimPowered,tag,art,0x4641ad,0x819784
+IdleAnimPowered,tag,art|ra2,0x4641ad,0x819784
 IdleAnimPoweredEffect,unclassified,,0x4641e7,0x819754
 IdleAnimPoweredLight,unclassified,,0x4641ca,0x81976c
 IdleAnimPoweredSpecial,unclassified,,0x464204,0x81973c
 IdleAnimX,unclassified,,0x464139,0x8197c0
 IdleAnimY,unclassified,,0x464156,0x8197b4
-IdleAnimYSort,tag,art,0x464190,0x819794
-IdleAnimZAdjust,tag,art,0x464173,0x8197a4
-IdleRate,tag,rules,0x712243,0x8444d4
+IdleAnimYSort,tag,art|ra2,0x464190,0x819794
+IdleAnimZAdjust,tag,art|ra2,0x464173,0x8197a4
+IdleRate,tag,ra2|rules,0x712243,0x8444d4
 IgnoreGlobalAITriggers,tag,map,0x68a278 0x68b1bf,0x83e0a4
-IgnoresFirestorm,tag,rules,0x5f9564,0x832b2c
-Image,tag,art|map|rules,0x45f93a 0x46c1da 0x4f2cd1 0x4f3288 0x4f3916 0x5f9335 0x721c41,0x819420
-Immune,tag,rules,0x5f94f4,0x832b70
+IgnoresFirestorm,tag,ra2|rules,0x5f9564,0x832b2c
+Image,tag,art|map|ra2|rules,0x45f93a 0x46c1da 0x4f2cd1 0x4f3288 0x4f3916 0x5f9335 0x721c41,0x819420
+Immune,tag,ra2|rules,0x5f94f4,0x832b70
 ImmuneToPoison,tag,rules,0x71504c,0x843704
 ImmuneToPsionicWeapons,tag,rules,0x714fc8,0x84373c
-ImmuneToPsionics,tag,rules,0x714fa7,0x843754
-ImmuneToRadiation,tag,rules,0x714d53,0x843854
-ImmuneToVeins,tag,rules,0x714c2a,0x8438cc
-ImpactLandSound,tag,rules,0x669965 0x712f38,0x83a9c4
-ImpactWaterSound,tag,rules,0x669924 0x712efc,0x83a9d4
+ImmuneToPsionics,tag,ra2|rules,0x714fa7,0x843754
+ImmuneToRadiation,tag,ra2|rules,0x714d53,0x843854
+ImmuneToVeins,tag,ra2|rules,0x714c2a,0x8438cc
+ImpactLandSound,tag,ra2|rules,0x669965 0x712f38,0x83a9c4
+ImpactWaterSound,tag,ra2|rules,0x669924 0x712efc,0x83a9d4
 InGameMusic,unclassified,,0x5fab88 0x5faf40,0x833070
-Inaccurate,tag,rules,0x46c0ef,0x81b0ac
+Inaccurate,tag,ra2|rules,0x46c0ef,0x81b0ac
 IncomeMult,unclassified,,0x511d05,0x8252b8
-Incoming,tag,rules,0x66cf1c,0x83acdc
-IncomingMessage,tag,rules,0x66a7bf,0x83a548
+Incoming,tag,ra2|rules,0x66cf1c,0x83acdc
+IncomingMessage,tag,ra2|rules,0x66a7bf,0x83a548
 Inert,tag,map,0x6b8c3c 0x6b8e97,0x840204
-InfDeath,tag,rules,0x75d766,0x847d88
+InfDeath,tag,ra2|rules,0x75d766,0x847d88
 InfantryAbsorb,tag,rules,0x4609a9,0x81aaac
-InfantryBaseMult,tag,rules,0x673a7e,0x83d2e0
-InfantryBlinkDisguiseTime,tag,rules,0x671d7f,0x83b46c
+InfantryBaseMult,tag,ra2|rules,0x673a7e,0x83d2e0
+InfantryBlinkDisguiseTime,tag,ra2|rules,0x671d7f,0x83b46c
 InfantryBrute,tag,rules,0x66e478,0x83cd04
 InfantryCostBonus,tag,rules,0x460691,0x81abc0
-InfantryExplode,tag,rules,0x66e33e,0x83cd54
+InfantryExplode,tag,ra2|rules,0x66e33e,0x83cd54
 InfantryGainSelfHeal,tag,rules,0x4601a2,0x81ad18
-InfantryHeadPop,tag,rules,0x66e3bc,0x83cd34
+InfantryHeadPop,tag,ra2|rules,0x66e3bc,0x83cd34
 InfantryMutate,tag,rules,0x66e4b6,0x83ccf4
-InfantryNuked,tag,rules,0x66e3fa,0x83cd24
-InfantryReserve,tag,rules,0x673a5e,0x83d2f4
+InfantryNuked,tag,ra2|rules,0x66e3fa,0x83cd24
+InfantryReserve,tag,ra2|rules,0x673a5e,0x83d2f4
 InfantryVirus,tag,rules,0x66e439,0x83cd14
-Infiltrate,tag,rules,0x5244a1,0x8259bc
+Infiltrate,tag,ra2|rules,0x5244a1,0x8259bc
 InfiniteMindControl,tag,rules,0x77220b,0x84948c
 InitStringIndex,unclassified,,0x6985de 0x699256,0x83f08c
 InitStrings,unclassified,,0x69865b 0x698696 0x6986a9 0x69933a 0x69937a,0x83f05c
 InitTime,tag,map,0x686c19 0x68b4c4,0x83dc68
 InitialAmmo,unclassified,,0x714755,0x843aec
-InitialVeteran,tag,map|rules,0x6b8bcf 0x6b8d0e,0x84022c
+InitialVeteran,tag,map|ra2|rules,0x6b8bcf 0x6b8d0e,0x84022c
 InitiateTurretIndex,tag,rules,0x747dee,0x845a58
 InitiateTurretWeapon,tag,rules,0x747dfd,0x845a40
 InprocServer32,unclassified,,0x6bb87a,0x840ae8
-Insignificant,tag,map|rules,0x5f950a,0x832b60
+Insignificant,tag,map|ra2|rules,0x5f950a,0x832b60
 Intro,tag,map,0x4f1d0a 0x4f2158 0x683c72 0x68a002 0x68b2c9 0x6bdf6a 0x6bdff3,0x8241c0
 Invisible,unclassified,,0x714a9e,0x843944
-InvisibleInGame,tag,rules,0x460df2,0x81a8cc
-Inviso,tag,rules,0x46c0a1,0x81b0cc
+InvisibleInGame,tag,ra2|rules,0x460df2,0x81a8cc
+Inviso,tag,ra2|rules,0x46c0a1,0x81b0cc
 IonAmbient,tag,map,0x599951 0x68a993 0x68b6de,0x82bf5c
-IonBeam,tag,rules,0x66dcef,0x83cec8
-IonBlast,tag,rules,0x66dcb0,0x83ced0
+IonBeam,tag,ra2|rules,0x66dcef,0x83cec8
+IonBlast,tag,ra2|rules,0x66dcb0,0x83ced0
 IonBlue,tag,map,0x5999a4 0x68aa41 0x68b747,0x82bf40
-IonCannonDamage,tag,rules,0x66bc05,0x83b284
-IonCannonWarhead,tag,rules,0x66ca8e,0x83aecc
+IonCannonDamage,tag,ra2|rules,0x66bc05,0x83b284
+IonCannonWarhead,tag,ra2|rules,0x66ca8e,0x83aecc
 IonGreen,tag,map,0x59998b 0x68aa07 0x68b724,0x82bf48
 IonGround,tag,map,0x5999b9 0x68aa7b 0x68b76a,0x82bf34
-IonImmune,tag,ai|map,0x6f1398 0x6f1773,0x842ffc
+IonImmune,tag,ai|map|ra2,0x6f1398 0x6f1773,0x842ffc
 IonLevel,tag,map,0x5999ce 0x68aab5 0x68b78d,0x82bf28
 IonRed,tag,map,0x59996e 0x68a9cd 0x68b701,0x82bf54
 IonSensitive,unclassified,,0x772824,0x849300
-IonStorms,tag,map|rules,0x6b8c59 0x6b8d36,0x8401f8
+IonStorms,tag,map|ra2|rules,0x6b8c59 0x6b8d36,0x8401f8
 IronCurtainColor,tag,rules,0x66b844,0x83a1a4
-IronCurtainDuration,tag,rules,0x66c63e,0x83b0b8
-IronCurtainInvokeAnim,tag,rules,0x66e244,0x83cda0
-IsARock,tag,rules,0x5fe9de,0x8334dc
-IsAlternateColor,tag,rules,0x77288c,0x8492c0
-IsAnimDelayedFire,tag,art,0x4611aa,0x81a760
-IsAnimated,tag,rules,0x71e022,0x84465c
-IsAnimatedTiberium,tag,art,0x4282b5,0x818468
-IsBaseDefense,tag,ai|map|rules,0x461003 0x6f13b2 0x6f17af,0x81a7ec
-IsBigLaser,tag,rules,0x7727f0,0x849310
-IsChargeTurret,tag,rules,0x712885,0x84432c
+IronCurtainDuration,tag,ra2|rules,0x66c63e,0x83b0b8
+IronCurtainInvokeAnim,tag,ra2|rules,0x66e244,0x83cda0
+IsARock,tag,ra2|rules,0x5fe9de,0x8334dc
+IsAlternateColor,tag,ra2|rules,0x77288c,0x8492c0
+IsAnimDelayedFire,tag,art|ra2,0x4611aa,0x81a760
+IsAnimated,tag,ra2|rules,0x71e022,0x84465c
+IsAnimatedTiberium,tag,art|ra2,0x4282b5,0x818468
+IsBaseDefense,tag,ai|map|ra2|rules,0x461003 0x6f13b2 0x6f17af,0x81a7ec
+IsBigLaser,tag,ra2|rules,0x7727f0,0x849310
+IsChargeTurret,tag,ra2|rules,0x712885,0x84432c
 IsDropship,unclassified,,0x712357,0x84447c
-IsElectricBolt,tag,rules,0x772854,0x8492e4
-IsFlamingGuy,tag,art,0x4282e9,0x818448
-IsFlammable,tag,rules,0x71df4a,0x844668
+IsElectricBolt,tag,ra2|rules,0x772854,0x8492e4
+IsFlamingGuy,tag,art|ra2,0x4282e9,0x818448
+IsFlammable,tag,ra2|rules,0x71df4a,0x844668
 IsGattling,tag,rules,0x71401d,0x843e4c
-IsHouseColor,tag,map|rules,0x772675,0x8493c8
-IsLaser,tag,map|rules,0x772627,0x8493e0
+IsHouseColor,tag,map|ra2|rules,0x772675,0x8493c8
+IsLaser,tag,map|ra2|rules,0x772627,0x8493e0
 IsLine,tag,rules,0x77265f,0x8493d8
 IsLocomotor,tag,rules,0x75d86b,0x847d3c
 IsMagBeam,tag,rules,0x7728f0,0x84928c
-IsMeteor,tag,art|rules,0x42822e 0x74b0d3,0x8184b0
+IsMeteor,tag,art|ra2|rules,0x42822e 0x74b0d3,0x8184b0
 IsPlug,unclassified,,0x4605ae,0x81ac00
-IsPowered,tag,rules,0x6ceaa9,0x84270c
+IsPowered,tag,ra2|rules,0x6ceaa9,0x84270c
 IsProcessorFeaturePresent,unclassified,,0x7ceb0e,0x7f9870
-IsRadBeam,tag,rules,0x7728a2,0x8492b4
-IsRadEruption,tag,rules,0x7728c0,0x8492a4
-IsRailgun,tag,rules,0x77272f,0x849368
-IsRubble,tag,rules,0x5fe9fc,0x8334d0
+IsRadBeam,tag,ra2|rules,0x7728a2,0x8492b4
+IsRadEruption,tag,ra2|rules,0x7728c0,0x8492a4
+IsRailgun,tag,ra2|rules,0x77272f,0x849368
+IsRubble,tag,ra2|rules,0x5fe9fc,0x8334d0
 IsScoreRepeat,unclassified,,0x5fab05 0x5faef3,0x83308c
 IsScoreShuffle,unclassified,,0x5fab49 0x5faf0b,0x83307c
-IsSelectableCombatant,tag,rules,0x715757,0x843414
+IsSelectableCombatant,tag,ra2|rules,0x715757,0x843414
 IsSimpleDeployer,tag,rules,0x747688,0x845dfc
-IsSonic,tag,rules,0x7720d3,0x849540
+IsSonic,tag,ra2|rules,0x7720d3,0x849540
 IsTemple,unclassified,,0x460594,0x81ac08
 IsThreatRatingNode,unclassified,,0x46101d,0x81a7d8
-IsTiberium,tag,art|rules,0x42810b 0x74b0b5,0x818518
-IsTilter,tag,rules,0x747712,0x845df0
+IsTiberium,tag,art|ra2|rules,0x42810b 0x74b0b5,0x818518
+IsTilter,tag,ra2|rules,0x747712,0x845df0
 IsTrain,unclassified,,0x712277,0x8444bc
-IsVeinhole,tag,rules,0x71deee,0x844684
-IsVeinholeMonster,tag,rules,0x5fe97a,0x833500
-IsVeins,tag,rules,0x428248 0x5fe990,0x8184a8
+IsVeinhole,tag,ra2|rules,0x71deee,0x844684
+IsVeinholeMonster,tag,ra2|rules,0x5fe97a,0x833500
+IsVeins,tag,ra2|rules,0x428248 0x5fe990,0x8184a8
 ItemMax,unclassified,,0x4f200f,0x82418c
-Ivan,tag,rules,0x5244b7,0x8259b4
-IvanBomb,tag,rules,0x75d807,0x81bd60
-IvanDamage,tag,rules,0x66c5bb,0x83b110
-IvanIconFlickerRate,tag,rules,0x66c61e,0x83b0cc
-IvanTimedDelay,tag,rules,0x66c5da,0x83b100
-IvanWarhead,tag,rules,0x66c50c,0x83b154
-JumpJet,tag,rules,0x7151ec,0x843640
+Ivan,tag,ra2|rules,0x5244b7,0x8259b4
+IvanBomb,tag,ra2|rules,0x75d807,0x81bd60
+IvanDamage,tag,ra2|rules,0x66c5bb,0x83b110
+IvanIconFlickerRate,tag,ra2|rules,0x66c61e,0x83b0cc
+IvanTimedDelay,tag,ra2|rules,0x66c5da,0x83b100
+IvanWarhead,tag,ra2|rules,0x66c50c,0x83b154
+JumpJet,tag,ra2|rules,0x7151ec,0x843640
 JumpJetTurn,tag,rules,0x52465b,0x8258fc
 JumpjetAccel,unclassified,,0x715165,0x843680
-JumpjetClimb,tag,rules,0x7150f8,0x8436b0
-JumpjetCrash,tag,rules,0x71511e,0x8436a0
-JumpjetDeviation,tag,rules,0x7151cb,0x843648
-JumpjetHeight,tag,rules,0x71513f,0x843690
-JumpjetNoWobbles,tag,rules,0x7151ac,0x84365c
-JumpjetSpeed,tag,rules,0x7150d0,0x8436c0
+JumpjetClimb,tag,ra2|rules,0x7150f8,0x8436b0
+JumpjetCrash,tag,ra2|rules,0x71511e,0x8436a0
+JumpjetDeviation,tag,ra2|rules,0x7151cb,0x843648
+JumpjetHeight,tag,ra2|rules,0x71513f,0x843690
+JumpjetNoWobbles,tag,ra2|rules,0x7151ac,0x84365c
+JumpjetSpeed,tag,ra2|rules,0x7150d0,0x8436c0
 JumpjetTurnRate,unclassified,,0x7150af,0x8436d0
-JumpjetWobbles,tag,rules,0x71518b,0x843670
+JumpjetWobbles,tag,ra2|rules,0x71518b,0x843670
 KERNEL32,unclassified,,0x7ceaff,0x7f988c
 KERNEL32.DLL,file,,0x48dd61,0x81d820
 KEYBOARDMD.INI,file,,0x533d36 0x5fba1f,0x827b88
@@ -1250,91 +1250,91 @@ LOCAL.MIX,file,,0x5303f9,0x826638
 LOCALMD.MIX,file,,0x5303cd,0x826644
 LOGO01.SHP,file,,0x68cf7f,0x83e45c
 LOW,code,,0x752ed4,0x8161dc
-LS640BkgdName,tag,mission,0x687295 0x6872c9,0x83dbc8
-LS640BriefLocX,tag,mission,0x6870f6 0x687123,0x83dc08
-LS640BriefLocY,tag,mission,0x68715b 0x687188,0x83dbf8
-LS800BkgdName,tag,mission,0x687301 0x687331,0x83dbb8
+LS640BkgdName,tag,mission|ra2,0x687295 0x6872c9,0x83dbc8
+LS640BriefLocX,tag,mission|ra2,0x6870f6 0x687123,0x83dc08
+LS640BriefLocY,tag,mission|ra2,0x68715b 0x687188,0x83dbf8
+LS800BkgdName,tag,mission|ra2,0x687301 0x687331,0x83dbb8
 LS800BkgdPal,tag,mission,0x68736c 0x6873a0,0x83dba8
-LS800BriefLocX,tag,mission,0x6871c0 0x6871ed,0x83dbe8
-LS800BriefLocY,tag,mission,0x687225 0x687252,0x83dbd8
-LSLoadBriefing,tag,mission,0x687098 0x6870cc,0x83dc18
-LSLoadMessage,tag,mission,0x68702d 0x68705d,0x83dc28
-Land,tag,rules,0x5fe7a4,0x833580
-LandTargeting,tag,rules,0x7121a4,0x844520
-Landable,tag,rules,0x41cc54,0x81804c
+LS800BriefLocX,tag,mission|ra2,0x6871c0 0x6871ed,0x83dbe8
+LS800BriefLocY,tag,mission|ra2,0x687225 0x687252,0x83dbd8
+LSLoadBriefing,tag,mission|ra2,0x687098 0x6870cc,0x83dc18
+LSLoadMessage,tag,mission|ra2,0x68702d 0x68705d,0x83dc28
+Land,tag,ra2|rules,0x5fe7a4,0x833580
+LandTargeting,tag,ra2|rules,0x7121a4,0x844520
+Landable,tag,ra2|rules,0x41cc54,0x81804c
 LangFilter,unclassified,,0x77df0d 0x77e028,0x84a514
 LargeFire,unclassified,,0x66b2df,0x83a39c
-LargeVisceroid,tag,rules,0x66e66a 0x747885,0x83cc94
-Laser,tag,rules,0x644569,0x836f94
-LaserColor,tag,rules,0x644581,0x836f88
-LaserDuration,tag,map|rules,0x7727d5,0x84931c
+LargeVisceroid,tag,ra2|rules,0x66e66a 0x747885,0x83cc94
+Laser,tag,ra2|rules,0x644569,0x836f94
+LaserColor,tag,ra2|rules,0x644581,0x836f88
+LaserDuration,tag,map|ra2|rules,0x7727d5,0x84931c
 LaserFence,unclassified,,0x460aa9,0x81aa30
 LaserFencePost,unclassified,,0x460a93,0x81aa3c
-LaserInnerColor,tag,rules,0x772761,0x849350
-LaserOuterColor,tag,rules,0x77278f,0x849340
-LaserOuterSpread,tag,map|rules,0x7727b5,0x84932c
+LaserInnerColor,tag,ra2|rules,0x772761,0x849350
+LaserOuterColor,tag,ra2|rules,0x77278f,0x849340
+LaserOuterSpread,tag,map|ra2|rules,0x7727b5,0x84932c
 LaserTargetColor,tag,rules,0x66b825,0x83a1b8
 LastDay,unclassified,,0x764e70 0x765103 0x7652e1,0x8481ac
 LastNickSlot,unclassified,,0x698279 0x6990fa,0x83f160
 LastTilesInSet,unclassified,,0x545fed,0x82928c
 LastValid,unclassified,,0x779e8d 0x779fde,0x84a14c
-Layer,tag,art,0x427dec,0x818644
-LeadershipRating,tag,rules,0x714336,0x843d1c
+Layer,tag,art|ra2,0x427dec,0x818644
+LeadershipRating,tag,ra2|rules,0x714336,0x843d1c
 LeaveBioReactorSound,tag,rules,0x66a1dc 0x7138aa,0x83a6ec
 LeaveGrinderSound,tag,rules,0x66a159 0x713838,0x83a71c
-LeaveRubble,tag,rules,0x460ef5,0x81a854
-LeaveTransportSound,tag,rules,0x713432,0x8440d4
-LeaveWaterSound,tag,rules,0x524439,0x8259e0
-LegalTarget,tag,rules,0x5f94a6,0x832b84
+LeaveRubble,tag,ra2|rules,0x460ef5,0x81a854
+LeaveTransportSound,tag,ra2|rules,0x713432,0x8440d4
+LeaveWaterSound,tag,ra2|rules,0x524439,0x8259e0
+LegalTarget,tag,ra2|rules,0x5f94a6,0x832b84
 LeptonMindControlOffset,unclassified,,0x71414c,0x843ddc
-LeptonsPerSightIncrease,tag,rules,0x670f43,0x83bd44
+LeptonsPerSightIncrease,tag,ra2|rules,0x670f43,0x83bd44
 LetsDoTheTimeWarpInAgain,tag,rules,0x66a325,0x83a684
 LetsDoTheTimeWarpOutAgain,tag,rules,0x66a2e3,0x83a6a0
-Level,tag,map|rules,0x46c087 0x4acf11 0x599812 0x599940 0x68a959 0x68b6bb,0x81b0d4
-Lifetime,tag,rules,0x6443f1,0x837050
-LightBlueTint,tag,map|rules,0x460da6,0x81a8ec
-LightGreenTint,tag,map|rules,0x460d5f,0x81a8fc
-LightIntensity,tag,map|rules,0x460ccd,0x81a91c
-LightRedTint,tag,map|rules,0x460d16,0x81a90c
-LightSize,tag,rules,0x6445c3,0x836f68
-LightVisibility,tag,map|rules,0x460c93,0x81a92c
+Level,tag,map|ra2|rules,0x46c087 0x4acf11 0x599812 0x599940 0x68a959 0x68b6bb,0x81b0d4
+Lifetime,tag,ra2|rules,0x6443f1,0x837050
+LightBlueTint,tag,map|ra2|rules,0x460da6,0x81a8ec
+LightGreenTint,tag,map|ra2|rules,0x460d5f,0x81a8fc
+LightIntensity,tag,map|ra2|rules,0x460ccd,0x81a91c
+LightRedTint,tag,map|ra2|rules,0x460d16,0x81a90c
+LightSize,tag,ra2|rules,0x6445c3,0x836f68
+LightVisibility,tag,map|ra2|rules,0x460c93,0x81a92c
 Lighting,unclassified,,0x5998a3 0x5998b8 0x5998d1 0x5998ea 0x5998ff 0x599945 0x599956 0x599973 0x599990 0x5999a9 0x5999be 0x5999d3 0x68a830 0x68a876 0x68a8b0 0x68a8ea 0x68a924 0x68a95e 0x68a998 0x68a9d2 0x68aa0c 0x68aa46 0x68aa80 0x68aaba 0x68aaee 0x68ab1c 0x68ab56 0x68ab90 0x68abca 0x68ac04 0x68ac3e 0x68ac78 0x68b5ec 0x68b611 0x68b634 0x68b657 0x68b67a 0x68b69d 0x68b6c0 0x68b6e3 0x68b706 0x68b729 0x68b74c 0x68b76f 0x68b792 0x68b7b5 0x68b7d8 0x68b7fb 0x68b81e 0x68b841 0x68b864 0x68b887,0x82bf88
-LightningCellSpread,tag,rules,0x671020,0x83bcb0
-LightningDamage,tag,rules,0x670fa2,0x83bd08
-LightningDeferment,tag,rules,0x670f82,0x83bd18
-LightningHitDelay,tag,rules,0x670fe1,0x83bcdc
+LightningCellSpread,tag,ra2|rules,0x671020,0x83bcb0
+LightningDamage,tag,ra2|rules,0x670fa2,0x83bd08
+LightningDeferment,tag,ra2|rules,0x670f82,0x83bd18
+LightningHitDelay,tag,ra2|rules,0x670fe1,0x83bcdc
 LightningPrintText,unclassified,,0x67107f,0x83bc74
 LightningRod,unclassified,,0x713330,0x844148
-LightningScatterDelay,tag,rules,0x671001,0x83bcc4
-LightningSeparation,tag,rules,0x671040,0x83bc9c
-LightningSounds,tag,rules,0x66aef7,0x83a3f0
-LightningStormDuration,tag,rules,0x670fc1,0x83bcf0
-LightningWarhead,tag,rules,0x671060,0x83bc88
-LimboLaunch,tag,rules,0x772107,0x84952c
-Limit,tag,sound,0x7507a5 0x751261,0x84653c
+LightningScatterDelay,tag,ra2|rules,0x671001,0x83bcc4
+LightningSeparation,tag,ra2|rules,0x671040,0x83bc9c
+LightningSounds,tag,ra2|rules,0x66aef7,0x83a3f0
+LightningStormDuration,tag,ra2|rules,0x670fc1,0x83bcf0
+LightningWarhead,tag,ra2|rules,0x671060,0x83bc88
+LimboLaunch,tag,ra2|rules,0x772107,0x84952c
+Limit,tag,ra2|sound,0x7507a5 0x751261,0x84653c
 LineMultiplier,tag,rules,0x6cec08,0x842680
-LineTrailColor,tag,art,0x5f95a4,0x832b0c
-LineTrailColorDecrement,tag,art,0x5f95ce,0x832af4
-LineTrailColorOverride,tag,rules,0x66b789,0x83a200
+LineTrailColor,tag,art|ra2,0x5f95a4,0x832b0c
+LineTrailColorDecrement,tag,art|ra2,0x5f95ce,0x832af4
+LineTrailColorOverride,tag,ra2|rules,0x66b789,0x83a200
 ListBox,unclassified,,0x60f418,0x833718
-Loadable,tag,ai|map,0x6f1157 0x6f15cd,0x8430cc
+Loadable,tag,ai|map|ra2,0x6f1157 0x6f15cd,0x8430cc
 LobMusic,unclassified,,0x77df28 0x77e044,0x84a508
 Lob_35_,unclassified,,0x7a9a55,0x84a224
 Lob_40_,unclassified,,0x7a9a26,0x84a21c
 Lob_41_,unclassified,,0x780784 0x7857cd 0x7883d5 0x7885a4 0x79b26a 0x7a58db 0x7a9cc6 0x7aa2bc 0x7aa417 0x7ab6c9,0x84a214
-Lobber,tag,rules,0x772749,0x849360
+Lobber,tag,ra2|rules,0x772749,0x849360
 Local.MIX,file,,0x7afd3f 0x7afd96,0x84d89c
-LocalRadarColor,tag,rules,0x66b75b,0x83a218
+LocalRadarColor,tag,ra2|rules,0x66b75b,0x83a218
 LocalSize,tag,map,0x4ad76b 0x4ad847 0x5997fb 0x687502,0x820164
 Locale,unclassified,,0x778861 0x778be1 0x77a1de,0x849f7c
 LocaleVerified,unclassified,,0x778c0f 0x77a20d,0x849fcc
-Locomotor,tag,rules,0x7123fa 0x75d88f,0x84444c
+Locomotor,tag,ra2|rules,0x7123fa 0x75d88f,0x84444c
 Logo,unclassified,,0x768cf3,0x8489d8
-Loop,tag,sound,0x4f2e70 0x7507cd,0x824238
-LoopCount,tag,art,0x428029,0x818570
-LoopEnd,tag,art,0x42800f,0x81857c
-LoopStart,tag,art,0x427ff5,0x818584
-LooseRecruit,tag,ai|map,0x6f128f 0x6f16b7,0x843040
+Loop,tag,ra2|sound,0x4f2e70 0x7507cd,0x824238
+LoopCount,tag,art|ra2,0x428029,0x818570
+LoopEnd,tag,art|ra2,0x42800f,0x81857c
+LoopStart,tag,art|ra2,0x427ff5,0x818584
+LooseRecruit,tag,ai|map|ra2,0x6f128f 0x6f16b7,0x843040
 Lose,tag,map,0x68a05a 0x68b316 0x77059e 0x770eab,0x83e180
 LosingThreshold,unclassified,,0x76c9e9,0x848e90
 Losses,unclassified,,0x778d1c 0x77a326,0x849fb4
@@ -1343,7 +1343,7 @@ Lost2,unclassified,,0x49c3f1 0x49ca02,0x81f134
 LowPower,tag,art,0x4637ec,0x819a38
 LowPowerDamaged,tag,art,0x46384a,0x819a28
 LowPowerGarrisoned,unclassified,,0x4638e4,0x819a14
-LowPowerPenaltyModifier,tag,rules,0x66eb9f,0x83cafc
+LowPowerPenaltyModifier,tag,ra2|rules,0x66eb9f,0x83cafc
 LowPowerPowered,tag,art,0x463a1b,0x8199cc
 LowPowerPoweredEffect,unclassified,,0x463a55,0x81999c
 LowPowerPoweredLight,unclassified,,0x463a38,0x8199b4
@@ -1356,13 +1356,13 @@ MAIN.MIX,file,,0x4793b1,0x81c314
 MAPS,code,,0x768203,0x848b34
 MAPSELMD.INI,file,,0x5cef62,0x830370
 MCVDeploy,tag,map,0x6b8bb5 0x6b8ce6,0x84023c
-MCVRedeploys,tag,rules,0x672206,0x83cf68
+MCVRedeploys,tag,ra2|rules,0x672206,0x83cf68
 MCVRepacks,unclassified,,0x69800a 0x699038,0x83efb8
 MGL,code,,0x7a496c,0x84ab90
 MISSIONMD.INI,file,,0x686d46,0x839724
 MISSIONS.YRO,unclassified,,0x699cb8,0x83f4f4
 MISSIONSMD.PKT,file,,0x6999d9 0x699b2d,0x83f520
-MMRampBase,tag,theater,0x54557f,0x8295c4
+MMRampBase,tag,ra2|theater,0x54557f,0x8295c4
 MODE,code,,0x6c721c,0x8420d4
 MOVIES01.MIX,file,,0x530d29,0x826738
 MOVMD01.MIX,file,,0x530de3,0x8266f0
@@ -1371,13 +1371,13 @@ MPModesMD.ini,file,,0x5d759e,0x830a18
 MPVC,code,,0x76adca 0x76af35,0x848cc8
 MULTI.MIX,file,,0x4794e4,0x81c258
 MULTIMD.MIX,file,,0x4794ae 0x530b76 0x530bcd,0x81c284
-MachineGunTurretIndex,tag,rules,0x747c2b,0x845c2c
-MachineGunTurretWeapon,tag,rules,0x747c3a,0x845c14
+MachineGunTurretIndex,tag,ra2|rules,0x747c2b,0x845c2c
+MachineGunTurretWeapon,tag,ra2|rules,0x747c3a,0x845c14
 MagnaBeamColor,tag,rules,0x66b7de,0x83a1e0
 "Main_Game
 ",unclassified,,0x6be04b,0x840bdc
 MakeInfantry,tag,art,0x4281be,0x8184d0
-MakesDisguise,tag,rules,0x75d956,0x847d00
+MakesDisguise,tag,ra2|rules,0x75d956,0x847d00
 ManBattle,unclassified,,0x5d7d74,0x830bf4
 ManualControl,unclassified,,0x6ced4b,0x842644
 ManualReload,unclassified,,0x71334a,0x844138
@@ -1386,177 +1386,177 @@ MapCheck.txt,file,,0x587c5c,0x82af00
 MapEnter,unclassified,,0x76d093 0x76dfd6,0x848f00
 MapLeave,unclassified,,0x76d019 0x76e096,0x848f0c
 MapType,unclassified,,0x59788a 0x597b7d,0x82bbc8
-MapVQ,tag,mapsel,0x5cfb41,0x8304cc
-MarbleMadness,tag,theater,0x5460fa,0x829258
+MapVQ,tag,mapsel|ra2,0x5cfb41,0x8304cc
+MarbleMadness,tag,ra2|theater,0x5460fa,0x829258
 MasterMindOverloadDeathSound,tag,rules,0x66a011,0x83a784
 MatchByRes,unclassified,,0x778d7e 0x77a384,0x849f9c
-Max,tag,ai|map,0x6f12f7 0x6f1709,0x843018
-MaxAngularVelocity,tag,rules,0x74b13f,0x845f00
-MaxDC,tag,rules,0x644fed,0x837238
-MaxDamage,tag,rules,0x66ce3e,0x83ad4c
+Max,tag,ai|map|ra2,0x6f12f7 0x6f1709,0x843018
+MaxAngularVelocity,tag,ra2|rules,0x74b13f,0x845f00
+MaxDC,tag,ra2|rules,0x644fed,0x837238
+MaxDamage,tag,ra2|rules,0x66ce3e,0x83ad4c
 MaxDeathCounter,unclassified,,0x747a92,0x845cc4
-MaxDebris,tag,map|rules,0x71258e 0x75da95,0x84439c
-MaxEC,tag,rules,0x645003,0x837230
-MaxIQLevels,tag,rules,0x67426f,0x83d50c
-MaxLowPowerProductionSpeed,tag,rules,0x66eb78,0x83cb14
-MaxMoney,tag,rules,0x671f0e,0x83d098
-MaxNumberOccupants,tag,map|rules,0x460120,0x81ad84
-MaxPlayers,tag,map,0x6997f8 0x69a560,0x83f3f0
-MaxTrees,tag,rmg,0x598772,0x82bcac
-MaxUnitCount,tag,rules,0x671f8d,0x83d05c
-MaxVeinholeGrowth,tag,rules,0x671cb3,0x83b4e8
-MaxWaypointPathLength,tag,rules,0x671dbf,0x83b43c
-MaxXYVel,tag,art|rules,0x428181 0x74b1d3,0x8184e8
-MaxZVel,tag,rules,0x74b1b2,0x845eec
-MaximumAIDefensiveTeams,tag,rules,0x66fef6,0x83c504
-MaximumBaseDefenseValue,tag,rules,0x673e2e,0x83d12c
-MaximumBuildingPlacementFailures,tag,rules,0x670279,0x83c2dc
-MaximumCheerRate,tag,rules,0x66ebe1,0x83cad8
-MaximumQueuedObjects,tag,rules,0x671d9f,0x83b454
-Medians,tag,theater,0x5458df,0x829408
+MaxDebris,tag,map|ra2|rules,0x71258e 0x75da95,0x84439c
+MaxEC,tag,ra2|rules,0x645003,0x837230
+MaxIQLevels,tag,ra2|rules,0x67426f,0x83d50c
+MaxLowPowerProductionSpeed,tag,ra2|rules,0x66eb78,0x83cb14
+MaxMoney,tag,ra2|rules,0x671f0e,0x83d098
+MaxNumberOccupants,tag,map|ra2|rules,0x460120,0x81ad84
+MaxPlayers,tag,map|ra2,0x6997f8 0x69a560,0x83f3f0
+MaxTrees,tag,ra2|rmg,0x598772,0x82bcac
+MaxUnitCount,tag,ra2|rules,0x671f8d,0x83d05c
+MaxVeinholeGrowth,tag,ra2|rules,0x671cb3,0x83b4e8
+MaxWaypointPathLength,tag,ra2|rules,0x671dbf,0x83b43c
+MaxXYVel,tag,art|ra2|rules,0x428181 0x74b1d3,0x8184e8
+MaxZVel,tag,ra2|rules,0x74b1b2,0x845eec
+MaximumAIDefensiveTeams,tag,ra2|rules,0x66fef6,0x83c504
+MaximumBaseDefenseValue,tag,ra2|rules,0x673e2e,0x83d12c
+MaximumBuildingPlacementFailures,tag,ra2|rules,0x670279,0x83c2dc
+MaximumCheerRate,tag,ra2|rules,0x66ebe1,0x83cad8
+MaximumQueuedObjects,tag,ra2|rules,0x671d9f,0x83b454
+Medians,tag,ra2|theater,0x5458df,0x829408
 MegaLosingThreshold,unclassified,,0x76ca1a,0x848e7c
 MegaWinningThreshold,unclassified,,0x76c9b8,0x848ea0
 MessageBoxA,unclassified,,0x7daec3,0x7fa35c
-MessageCharTyped,tag,rules,0x66a801,0x83a534
-MessageDelay,tag,rules,0x66b41f,0x83a328
-MetallicDebris,tag,rules,0x66daa5,0x83cef0
-Meteorites,tag,map|rules,0x6b8c73 0x6b8d61,0x8401ec
-MidPoint,tag,art,0x461269,0x81a728
+MessageCharTyped,tag,ra2|rules,0x66a801,0x83a534
+MessageDelay,tag,ra2|rules,0x66b41f,0x83a328
+MetallicDebris,tag,ra2|rules,0x66daa5,0x83cef0
+Meteorites,tag,map|ra2|rules,0x6b8c73 0x6b8d61,0x8401ec
+MidPoint,tag,art|ra2,0x461269,0x81a728
 MigAttackCursor,tag,rules,0x7721d7,0x8494b4
-MinAngularVelocity,tag,rules,0x74b10e,0x845f14
-MinDamage,tag,rules,0x66ce5e,0x83ad40
-MinDebris,tag,rules,0x7125a8 0x75daab,0x844390
-MinLowPowerProductionSpeed,tag,rules,0x66eb55,0x83cb30
-MinMoney,tag,rules,0x671ecf,0x83d0a4
-MinPlayers,tag,map,0x6997d6 0x69a548,0x83f3fc
-MinUnitCount,tag,rules,0x671f4e,0x83d078
-MinVolume,tag,sound,0x750597 0x751157,0x846554
-MinZVel,tag,art|rules,0x4281a2 0x74b18b,0x8184e0
-MinZVelocity,tag,rules,0x645246,0x837150
+MinAngularVelocity,tag,ra2|rules,0x74b10e,0x845f14
+MinDamage,tag,ra2|rules,0x66ce5e,0x83ad40
+MinDebris,tag,ra2|rules,0x7125a8 0x75daab,0x844390
+MinLowPowerProductionSpeed,tag,ra2|rules,0x66eb55,0x83cb30
+MinMoney,tag,ra2|rules,0x671ecf,0x83d0a4
+MinPlayers,tag,map|ra2,0x6997d6 0x69a548,0x83f3fc
+MinUnitCount,tag,ra2|rules,0x671f4e,0x83d078
+MinVolume,tag,ra2|sound,0x750597 0x751157,0x846554
+MinZVel,tag,art|ra2|rules,0x4281a2 0x74b18b,0x8184e0
+MinZVelocity,tag,ra2|rules,0x645246,0x837150
 MindClearedSound,tag,rules,0x66a0d6 0x71395e,0x83a744
-MindControl,tag,rules,0x75d7cf,0x81bbc8
+MindControl,tag,ra2|rules,0x75d7cf,0x81bbc8
 MindControlAttackLineFrames,tag,rules,0x66c921,0x83af88
 MindControlDecision,tag,ai|map,0x6f1139 0x6f15b7,0x8430d8
 MindControlRingOffset,unclassified,,0x714350,0x843d04
-MinimumAIDefensiveTeams,tag,rules,0x66febd,0x83c51c
-MinimumRange,tag,rules,0x772343,0x849428
-MiscPaveTile,tag,theater,0x545621,0x829578
-MissileROTVar,tag,rules,0x66ec2f,0x83cab4
-MissileSafetyAltitude,tag,rules,0x66ec4f,0x83ca9c
-MissileSpawn,tag,rules,0x714f23,0x843798
-MissileSpeedVar,tag,rules,0x66ec76,0x83ca8c
+MinimumAIDefensiveTeams,tag,ra2|rules,0x66febd,0x83c51c
+MinimumRange,tag,ra2|rules,0x772343,0x849428
+MiscPaveTile,tag,ra2|theater,0x545621,0x829578
+MissileROTVar,tag,ra2|rules,0x66ec2f,0x83cab4
+MissileSafetyAltitude,tag,ra2|rules,0x66ec4f,0x83ca9c
+MissileSpawn,tag,ra2|rules,0x714f23,0x843798
+MissileSpeedVar,tag,ra2|rules,0x66ec76,0x83ca8c
 MobileFire,unclassified,,0x714823,0x843a84
 Model,unclassified,,0x5bba1b,0x82cec4
 Modem,unclassified,,0x5bb8bb,0x82cecc
 ModemName,unclassified,,0x698499 0x699329,0x83f0e8
-Money,tag,rules,0x671eef,0x81da20
-MoneyIncrement,tag,rules,0x671f2e,0x83d088
-MonorailSlopes,tag,theater,0x54579b,0x8294b0
-Morphable,tag,theater,0x54612e,0x829238
+Money,tag,ra2|rules,0x671eef,0x81da20
+MoneyIncrement,tag,ra2|rules,0x671f2e,0x83d088
+MonorailSlopes,tag,ra2|theater,0x54579b,0x8294b0
+Morphable,tag,ra2|theater,0x54612e,0x829238
 MouseCancel,unclassified,,0x76d1db 0x76e1a1,0x848f6c
-MoveFlash,tag,rules,0x66e534,0x83cce0
-MoveSound,tag,rules,0x713478,0x8440c8
-MoveToShroud,tag,rules,0x71225d,0x8444c4
-MovementPerturbationCoefficient,tag,rules,0x64452c,0x836fbc
-MovementRestrictedTo,tag,rules,0x747837,0x845d64
-MovementZone,tag,rules,0x716065,0x8431c8
-MovieOff,tag,rules,0x66aba6,0x83a498
-MovieOn,tag,rules,0x66ab64,0x83a4a4
-MovieTime,tag,rules,0x66b446,0x83a31c
-MultiEngineer,tag,rules,0x672129,0x83cfc8
+MoveFlash,tag,ra2|rules,0x66e534,0x83cce0
+MoveSound,tag,ra2|rules,0x713478,0x8440c8
+MoveToShroud,tag,ra2|rules,0x71225d,0x8444c4
+MovementPerturbationCoefficient,tag,ra2|rules,0x64452c,0x836fbc
+MovementRestrictedTo,tag,ra2|rules,0x747837,0x845d64
+MovementZone,tag,ra2|rules,0x716065,0x8431c8
+MovieOff,tag,ra2|rules,0x66aba6,0x83a498
+MovieOn,tag,ra2|rules,0x66ab64,0x83a4a4
+MovieTime,tag,ra2|rules,0x66b446,0x83a31c
+MultiEngineer,tag,ra2|rules,0x672129,0x83cfc8
 MultiMaps,unclassified,,0x699a08 0x699a36 0x699a45 0x699b5d 0x699b87 0x699b96 0x699de3 0x699e13 0x699e22,0x83f514
 MultiPlayer,unclassified,,0x52f5b2 0x52f5c9 0x560b8a 0x560ba7 0x5d900c 0x5d9026 0x5d937e 0x5d9398 0x5d93da 0x5d93f0 0x5ee197 0x5ee1d3 0x698174 0x69818a 0x6981c6 0x6981ed 0x698203 0x69821e 0x698241 0x698268 0x69827e 0x6982bf 0x6982f3 0x69830f 0x698330 0x698351 0x698372 0x698393 0x6983b3 0x6983d5 0x698418 0x6990c7 0x6990e2 0x6990ff 0x69911f 0x69913c 0x699159 0x699179 0x699191 0x6991b6 0x699475 0x69948b 0x6994ab 0x6994c6,0x82642c
-Multiplay,tag,rules,0x511a68,0x825458
-MultiplayPassive,tag,map|rules,0x511a7e,0x825444
-MultiplayerAICM,tag,rules,0x670526,0x83c168
+Multiplay,tag,ra2|rules,0x511a68,0x825458
+MultiplayPassive,tag,map|ra2|rules,0x511a7e,0x825444
+MultiplayerAICM,tag,ra2|rules,0x670526,0x83c168
 MultiplayerOnly,tag,map,0x68a0d2 0x68b428,0x83e154
-MultipleFactory,tag,rules,0x66ebc3,0x83caec
+MultipleFactory,tag,ra2|rules,0x66ebc3,0x83caec
 MustAlly,tag,mp,0x5d5cf7,0x8308a0
 MutateExplosion,tag,rules,0x67111d,0x83bc00
 MutateExplosionWarhead,tag,rules,0x6690f2,0x83a100
 MutateWarhead,tag,rules,0x6690b3,0x83a118
 MyEffectivenessCoefficient,unclassified,,0x71556b,0x8434b8
-MyEffectivenessCoefficientDefault,tag,rules,0x671aee,0x83b66c
+MyEffectivenessCoefficientDefault,tag,ra2|rules,0x671aee,0x83b66c
 NACK,code,,0x76aceb,0x848d00
 NEUTRAL.MIX,file,,0x534f66,0x827d80
-NODBarracks,tag,rules,0x460b2f,0x81a9f4
+NODBarracks,tag,ra2|rules,0x460b2f,0x81a9f4
 NONE,code,,0x698a60,0x83f038
 NORMAL,unclassified,,0x750604 0x751176 0x752eef,0x8161d4
-NSGates,tag,rules,0x67383d,0x83d3a8
+NSGates,tag,ra2|rules,0x67383d,0x83d3a8
 NTRLMD.MIX,file,,0x534f26,0x827da0
 NUKE,code,,0x467e59,0x81af98
 NULL.SHP,file,,0x69e495,0x83f874
-Name,tag,ai|map|rules|theme,0x410a98 0x410bac 0x52d4d0 0x686dad 0x686de1 0x68b0e6 0x69984e 0x69a065 0x72056f 0x78832e,0x817854
+Name,tag,ai|map|ra2|rules|theme,0x410a98 0x410bac 0x52d4d0 0x686dad 0x686de1 0x68b0e6 0x69984e 0x69a065 0x72056f 0x78832e,0x817854
 NameKeyPrefix,unclassified,,0x768c5a,0x8489f0
-NamedCivilians,tag,rules,0x66b465,0x83a30c
+NamedCivilians,tag,ra2|rules,0x66b465,0x83a30c
 Natural,tag,rules,0x714946,0x8439dc
 NaturalParticleLocation,unclassified,,0x713bfc,0x843fa4
 NaturalParticleSystem,unclassified,,0x713b9a,0x843fd8
-Naval,tag,rules,0x714a6a,0x84395c
-NavalTargeting,tag,rules,0x7121be,0x844510
-NeedsEngineer,tag,rules,0x46023e,0x81aca0
+Naval,tag,ra2|rules,0x714a6a,0x84395c
+NavalTargeting,tag,ra2|rules,0x7121be,0x844510
+NeedsEngineer,tag,ra2|rules,0x46023e,0x81aca0
 NetCard,unclassified,,0x5facaa 0x5faf72,0x833014
 NetID,unclassified,,0x5faba9 0x5fafec,0x833068
 Network,unclassified,,0x5fabae 0x5fac92 0x5facaf 0x5facd0 0x5faf62 0x5faf77 0x5faf94 0x5faff1 0x6bc148 0x6bc19b,0x833060
 Neutral,unclassified,,0x650b5f,0x82ba08
-NeutralTechBuildings,tag,rules,0x673926,0x83d36c
-NeverUse,tag,rules,0x77216f,0x8494f0
+NeutralTechBuildings,tag,ra2|rules,0x673926,0x83d36c
+NeverUse,tag,ra2|rules,0x77216f,0x8494f0
 NewINIFormat,tag,map,0x68a13f 0x68b0fc,0x83e128
-NewTheater,tag,art,0x427dc1 0x5f9605,0x81864c
-Next,tag,art,0x428045,0x818568
-NextParticle,tag,rules,0x645307,0x8370f0
-NextParticleOffset,tag,rules,0x645278,0x83712c
+NewTheater,tag,art|ra2,0x427dc1 0x5f9605,0x81864c
+Next,tag,art|ra2,0x428045,0x818568
+NextParticle,tag,ra2|rules,0x645307,0x8370f0
+NextParticleOffset,tag,ra2|rules,0x645278,0x83712c
 NextScenario,tag,map,0x689fca 0x68b0b3,0x83e19c
 NoAutoFire,unclassified,,0x714afa,0x84391c
-NoParachuteMaxFallRate,tag,rules,0x66f33a,0x83c824
-NoShadow,tag,rules,0x71508e,0x8436e0
-NoSpawnAlt,tag,rules,0x5f943e,0x832bc0
-NoThreat,tag,rules,0x5b37b2,0x82c2b8
-NoUseTileLandType,tag,rules,0x5fe95f,0x833514
-NodAIBuildsWalls,tag,rules,0x66fe39,0x83c560
-NodAdvancedPower,tag,rules,0x66f724,0x83c79c
-NodBaseDefenseCoefficient,tag,rules,0x673de8,0x83d160
-NodGateOne,tag,rules,0x66f4e8,0x83c7f4
-NodGateTwo,tag,rules,0x66f526,0x83c7e8
-NodRegularPower,tag,rules,0x66f6e6,0x83c7b0
+NoParachuteMaxFallRate,tag,ra2|rules,0x66f33a,0x83c824
+NoShadow,tag,ra2|rules,0x71508e,0x8436e0
+NoSpawnAlt,tag,ra2|rules,0x5f943e,0x832bc0
+NoThreat,tag,ra2|rules,0x5b37b2,0x82c2b8
+NoUseTileLandType,tag,ra2|rules,0x5fe95f,0x833514
+NodAIBuildsWalls,tag,ra2|rules,0x66fe39,0x83c560
+NodAdvancedPower,tag,ra2|rules,0x66f724,0x83c79c
+NodBaseDefenseCoefficient,tag,ra2|rules,0x673de8,0x83d160
+NodGateOne,tag,ra2|rules,0x66f4e8,0x83c7f4
+NodGateTwo,tag,ra2|rules,0x66f526,0x83c7e8
+NodRegularPower,tag,ra2|rules,0x66f6e6,0x83c7b0
 NodeCount,tag,map,0x42ec13 0x42ed92,0x818994
-Nominal,tag,map|rules,0x713f33,0x843ecc
-NonMarbleMadness,tag,theater,0x546111,0x829244
+Nominal,tag,map|ra2|rules,0x713f33,0x843ecc
+NonMarbleMadness,tag,ra2|theater,0x546111,0x829244
 NonVehicle,unclassified,,0x7478a3,0x845d4c
 None,tag,rules,0x4775d7,0x817f64
-Normal,tag,theme,0x4775f4 0x668f07 0x67451a 0x72050f,0x81bb60
-NormalTargetingDelay,tag,rules,0x6701c6,0x83c354
-NormalTurretIndex,tag,rules,0x747bd9,0x845c80
-NormalTurretWeapon,tag,rules,0x747be8,0x845c6c
-NormalZAdjust,tag,art,0x4613a6,0x81a66c
-Normalized,tag,art|rules,0x427e6f 0x6451d7 0x7158e9 0x74b085,0x818610
+Normal,tag,ra2|theme,0x4775f4 0x668f07 0x67451a 0x72050f,0x81bb60
+NormalTargetingDelay,tag,ra2|rules,0x6701c6,0x83c354
+NormalTurretIndex,tag,ra2|rules,0x747bd9,0x845c80
+NormalTurretWeapon,tag,ra2|rules,0x747be8,0x845c6c
+NormalZAdjust,tag,art|ra2,0x4613a6,0x81a66c
+Normalized,tag,art|ra2|rules,0x427e6f 0x6451d7 0x7158e9 0x74b085,0x818610
 NorthAmerica,unclassified,,0x788303,0x84b61c
-NotHuman,tag,rules,0x5243c6,0x825a00
+NotHuman,tag,ra2|rules,0x5243c6,0x825a00
 NotInsertable,unclassified,,0x6bb859,0x840af8
-NotWorkingSound,tag,rules,0x4608dc,0x81aafc
+NotWorkingSound,tag,ra2|rules,0x4608dc,0x81aafc
 Note,unclassified,,0x4a3de1 0x7b1e36,0x81fcc8
 NukeAmbientChangeRate,unclassified,,0x68aae9,0x83def8
-NukeDown,tag,rules,0x669074,0x83a128
-NukeMaker,tag,rules,0x75d970,0x847cf4
-NukeProjectile,tag,rules,0x669036,0x83a134
-NukeSilo,tag,rules,0x460a45,0x81aa68
-NukeTakeOff,tag,rules,0x66d829,0x83cf10
-NukeWarhead,tag,rules,0x668ff7,0x83a144
+NukeDown,tag,ra2|rules,0x669074,0x83a128
+NukeMaker,tag,ra2|rules,0x75d970,0x847cf4
+NukeProjectile,tag,ra2|rules,0x669036,0x83a134
+NukeSilo,tag,ra2|rules,0x460a45,0x81aa68
+NukeTakeOff,tag,ra2|rules,0x66d829,0x83cf10
+NukeWarhead,tag,ra2|rules,0x668ff7,0x83a144
 NumCoopHumanStartSpots,unclassified,,0x689e13 0x689f4d 0x68afa7,0x83de30
 NumLoopFrames,unclassified,,0x64508e,0x837214
 NumParticles,tag,art,0x428742,0x818360
 NumPlayers,unclassified,,0x59785a 0x597b4a 0x5c1410 0x5e666e,0x82bbd8
-NumberImpassableRows,tag,rules,0x46013a,0x81ad6c
-NumberOfCampaignMaps,tag,coop,0x49dc57,0x81f39c
-NumberOfDocks,tag,rules,0x464938,0x8194c4
+NumberImpassableRows,tag,ra2|rules,0x46013a,0x81ad6c
+NumberOfCampaignMaps,tag,coop|ra2,0x49dc57,0x81f39c
+NumberOfDocks,tag,ra2|rules,0x464938,0x8194c4
 NumberStartingPoints,tag,map,0x689df9 0x689f2f 0x68af89,0x83de48
 OCP,code,,0x7d7397,0x7fa2d4
 OOSY,code,,0x6c70d6,0x842104
 ObserverMode,unclassified,,0x5ee192 0x5ee1ce,0x831da4
 OccupantAnim,tag,rules,0x7725a1,0x849400
-Occupier,tag,rules,0x5244d5,0x8259a8
+Occupier,tag,ra2|rules,0x5244d5,0x8259a8
 OccupyDamageMultiplier,tag,rules,0x66c682,0x83b08c
-OccupyHeight,tag,art,0x4610f6,0x81a798
+OccupyHeight,tag,art|ra2,0x4610f6,0x81a798
 OccupyPip,tag,rules,0x5240f5,0x825a60
 OccupyROFMultiplier,tag,rules,0x66c6a9,0x83b078
 OccupyWeapon,tag,rules,0x524117,0x825a50
@@ -1565,7 +1565,7 @@ Official,tag,map,0x686c31 0x687bd9 0x68b1a5 0x69989c 0x69a0b1,0x83dc5c
 OldCycle,unclassified,,0x770332,0x8491c4
 OmniCrushResistant,tag,rules,0x714d11,0x843868
 OmniCrusher,tag,rules,0x714cf0,0x84387c
-OmniFire,tag,rules,0x7726fb,0x84938c
+OmniFire,tag,ra2|rules,0x7726fb,0x84938c
 "OnAgeCheck
 ",unclassified,,0x7a4070,0x84aacc
 OnFire,unclassified,,0x66b0f9,0x83a3c4
@@ -1573,10 +1573,10 @@ OnFire,unclassified,,0x66b0f9,0x83a3c4
 ",unclassified,,0x7a7db7,0x84adf8
 "OnNewNick
 ",unclassified,,0x7a3d9c,0x84aac0
-OnTransOnly,tag,ai|map,0x6f12bf 0x6f174b,0x843028
-OneFrameLight,tag,rules,0x6445e1,0x836f58
+OnTransOnly,tag,ai|map|ra2,0x6f12bf 0x6f174b,0x843028
+OneFrameLight,tag,ra2|rules,0x6445e1,0x836f58
 OneTimeOnly,tag,map,0x68a1e2 0x68b176,0x83e0f0
-OnlyTargetHouseEnemy,tag,ai|map,0x6f13c8 0x6f17c3,0x842fe4
+OnlyTargetHouseEnemy,tag,ai|map|ra2,0x6f13c8 0x6f17c3,0x842fe4
 OpenTopped,tag,rules,0x7143bd,0x843ccc
 OpenToppedAnim,tag,rules,0x7725e6,0x8493f0
 OpenToppedDamageMultiplier,tag,rules,0x66c756,0x83b004
@@ -1584,13 +1584,13 @@ OpenToppedRangeBonus,tag,rules,0x66c774,0x83afec
 OpenToppedWarpDistance,tag,rules,0x66c794,0x83afd4
 OpenTransportWeapon,tag,rules,0x714e5c,0x8437e0
 Opening,unclassified,,0x76861f,0x848adc
-OpportunityFire,tag,rules,0x71483d,0x843a74
-Options,unclassified,,0x517666 0x517775 0x517802 0x5fa64b 0x5fa66e 0x5fa6b6 0x5fa6f9 0x5fa722 0x5fa746 0x5fa787 0x5fa7dc 0x5fa813 0x5fa845 0x5fa881 0x5fad43 0x5fad58 0x5fad72 0x5fad8c 0x5fada6 0x5fadc3 0x5fadd8 0x5fadf0 0x5fae0d 0x5fae25 0x5fae38,0x8254dc
-OptionsChanged,tag,rules,0x66a884,0x83a518
-OrePurifier,tag,rules,0x4604ed,0x81ac3c
-OreTwinkle,tag,rules,0x66d67b,0x83cf4c
-OreTwinkleChance,tag,rules,0x66b805,0x83a1cc
-Organic,tag,rules,0x71502b,0x843714
+OpportunityFire,tag,ra2|rules,0x71483d,0x843a74
+Options,tag,ra2,0x517666 0x517775 0x517802 0x5fa64b 0x5fa66e 0x5fa6b6 0x5fa6f9 0x5fa722 0x5fa746 0x5fa787 0x5fa7dc 0x5fa813 0x5fa845 0x5fa881 0x5fad43 0x5fad58 0x5fad72 0x5fad8c 0x5fada6 0x5fadc3 0x5fadd8 0x5fadf0 0x5fae0d 0x5fae25 0x5fae38,0x8254dc
+OptionsChanged,tag,ra2|rules,0x66a884,0x83a518
+OrePurifier,tag,ra2|rules,0x4604ed,0x81ac3c
+OreTwinkle,tag,ra2|rules,0x66d67b,0x83cf4c
+OreTwinkleChance,tag,ra2|rules,0x66b805,0x83a1cc
+Organic,tag,ra2|rules,0x71502b,0x843714
 Origin,unclassified,,0x4f2da0 0x4f3189,0x82424c
 Origin_800,unclassified,,0x76fb39,0x84915c
 OverParMessage,tag,map,0x68a806 0x68b5db,0x83df10
@@ -1599,17 +1599,17 @@ OverlayDataPack,unclassified,,0x5fd57b 0x5fd7b5 0x5fd88b,0x833474
 OverlayPack,unclassified,,0x5fd376 0x5fd6bd 0x5fd791,0x833484
 OverlayPalette,unclassified,,0x768beb,0x848a08
 OverlayPrefix,unclassified,,0x768ba6,0x848a18
-Overlays,tag,mapsel,0x5cfbc9,0x8304c0
+Overlays,tag,mapsel|ra2,0x5cfbc9,0x8304c0
 OverloadCount,tag,rules,0x66c7c0,0x83afc4
 OverloadDamage,tag,rules,0x66c839,0x83afb4
 OverloadFrames,tag,rules,0x66c8b3,0x83afa4
-Overpowerable,tag,rules,0x46001c,0x81ae0c
-Overrides,tag,rules,0x5fe85a,0x833550
-Owner,tag,rules,0x7149e8,0x843994
+Overpowerable,tag,ra2|rules,0x46001c,0x81ae0c
+Overrides,tag,ra2|rules,0x5fe85a,0x833550
+Owner,tag,ra2|rules,0x7149e8,0x843994
 PATH,code,,0x697af6 0x69a35e,0x83ef00
 PBEACON.SHP,file,,0x4309d6,0x818a5c
-PBarrelLength,tag,art,0x715dd6,0x8432e8
-PBarrelThickness,tag,art,0x715dfa,0x8432d4
+PBarrelLength,tag,art|ra2,0x715dd6,0x8432e8
+PBarrelThickness,tag,art|ra2,0x715dfa,0x8432d4
 PIPBRD.SHP,file,,0x5f76bc,0x832aa8
 PIPS.SHP,file,,0x5f770a,0x832a9c
 PIPS2.SHP,file,,0x5f7758,0x832a90
@@ -1623,90 +1623,90 @@ PROGBAR2.SHP,file,,0x598a02,0x82bf18
 PROGBARM.SHP,file,,0x6847f6 0x69429d 0x694c81,0x83da30
 PSIWARN,unclassified,,0x6cdb86,0x81907c
 PackupSound,unclassified,,0x460786,0x81ab4c
-PadAircraft,tag,rules,0x66f9d8,0x83c748
-Palette,tag,art|mapsel,0x4f2d40 0x5cf25e 0x715839 0x716d82,0x824254
+PadAircraft,tag,ra2|rules,0x66f9d8,0x83c748
+Palette,tag,art|mapsel|ra2,0x4f2d40 0x5cf25e 0x715839 0x716d82,0x824254
 ParTimeEasy,tag,map,0x68a74a 0x68b54b,0x83dfcc
 ParTimeHard,tag,map,0x68a780 0x68b57b,0x83dfa8
 ParTimeMedium,tag,map,0x68a766 0x68b561,0x83dfb4
-Parachute,tag,rules,0x66e572,0x83ccd4
-ParachuteMaxFallRate,tag,map|rules,0x66f31b,0x83c83c
-ParadropRadius,tag,rules,0x671735,0x83b8c8
-Paralyzed,tag,rules,0x5b382f,0x82c298
-Paralyzes,tag,rules,0x75d922,0x847d18
-Paranoid,tag,rules,0x673d30,0x83d1c8
-Parasite,tag,rules,0x75d83b,0x81717c
-Parasiteable,tag,rules,0x714f86,0x843768
+Parachute,tag,ra2|rules,0x66e572,0x83ccd4
+ParachuteMaxFallRate,tag,map|ra2|rules,0x66f31b,0x83c83c
+ParadropRadius,tag,ra2|rules,0x671735,0x83b8c8
+Paralyzed,tag,ra2|rules,0x5b382f,0x82c298
+Paralyzes,tag,ra2|rules,0x75d922,0x847d18
+Paranoid,tag,ra2|rules,0x673d30,0x83d1c8
+Parasite,tag,ra2|rules,0x75d83b,0x81717c
+Parasiteable,tag,ra2|rules,0x714f86,0x843768
 Paratrooper,unclassified,,0x66fa09,0x83c73c
 ParentCountry,tag,map,0x5118da,0x82549c
-Particle,tag,rules,0x75d4b6,0x817384
-ParticleCap,tag,rules,0x64435e,0x837098
+Particle,tag,ra2|rules,0x75d4b6,0x817384
+ParticleCap,tag,ra2|rules,0x64435e,0x837098
 ParticleSystems,unclassified,,0x672a7a 0x672a9b 0x672aa8,0x83d100
 Particles,unclassified,,0x672a0a 0x672a2b 0x672a38,0x83d0f4
-ParticlesPerCoord,tag,rules,0x6444a2,0x837020
-Passengers,tag,rules,0x714b3c,0x81bbd4
+ParticlesPerCoord,tag,ra2|rules,0x6444a2,0x837020
+Passengers,tag,ra2|rules,0x714b3c,0x81bbd4
 Passive,unclassified,,0x747821,0x845d7c
-PathDelay,tag,rules,0x6739f9,0x83d328
-PatrolScan,tag,rules,0x6739b2,0x83d344
-PaveTile,tag,theater,0x545606,0x829588
-PavedRoadEnds,tag,theater,0x5458c4,0x829410
-PavedRoadSlopes,tag,theater,0x5459b8,0x829388
-PavedRoads,tag,theater,0x5458a9,0x829420
+PathDelay,tag,ra2|rules,0x6739f9,0x83d328
+PatrolScan,tag,ra2|rules,0x6739b2,0x83d344
+PaveTile,tag,ra2|theater,0x545606,0x829588
+PavedRoadEnds,tag,ra2|theater,0x5458c4,0x829410
+PavedRoadSlopes,tag,ra2|theater,0x5459b8,0x829388
+PavedRoads,tag,ra2|theater,0x5458a9,0x829420
 PenetratesBunker,tag,rules,0x75d52f,0x847e08
 Percent,tag,map,0x68a296 0x68b20e,0x83e09c
-PercentAtMax,tag,rules,0x75d41e,0x847e84
+PercentAtMax,tag,ra2|rules,0x75d41e,0x847e84
 PercentBuilt,tag,map,0x42ec04 0x42ed7f,0x8189a0
 PermaControlledAnimationType,tag,rules,0x66ca4f,0x83aee0
-PermaDisguise,tag,rules,0x714425,0x843c88
+PermaDisguise,tag,ra2|rules,0x714425,0x843c88
 PhoneBook,unclassified,,0x698711 0x698761 0x698771 0x699396 0x699412,0x83f050
 PhoneIndex,unclassified,,0x698219 0x6990c2,0x83f190
-PhysicalSize,tag,rules,0x7124fe,0x8443c8
-Pilot,tag,rules,0x66fcc6,0x83c618
+PhysicalSize,tag,ra2|rules,0x7124fe,0x8443c8
+Pilot,tag,ra2|rules,0x66fcc6,0x83c618
 PingFail,unclassified,,0x7a16ea,0x84d498
-PingPong,tag,art,0x427f0b,0x8185d8
-Pip,tag,rules,0x5240db,0x825a6c
-PipScale,tag,rules,0x71411a,0x843e04
+PingPong,tag,art|ra2,0x427f0b,0x8185d8
+Pip,tag,ra2|rules,0x5240db,0x825a6c
+PipScale,tag,ra2|rules,0x71411a,0x843e04
 PipWrap,unclassified,,0x714180,0x843db8
 PipsDrawForAll,tag,rules,0x714132,0x843df4
-PistolTurretIndex,tag,rules,0x747c7d,0x845bdc
-PistolTurretWeapon,tag,rules,0x747c8c,0x845bc8
-PitchAngle,tag,rules,0x71236b,0x844470
-PitchSpeed,tag,rules,0x7123da,0x844458
+PistolTurretIndex,tag,ra2|rules,0x747c7d,0x845bdc
+PistolTurretWeapon,tag,ra2|rules,0x747c8c,0x845bc8
+PitchAngle,tag,ra2|rules,0x71236b,0x844470
+PitchSpeed,tag,ra2|rules,0x7123da,0x844458
 PixelSelectionBracketDelta,tag,rules,0x714166,0x843dc0
-PlaceAnywhere,tag,rules,0x460f0f,0x81a844
-PlaceBeaconSound,tag,rules,0x669bb4,0x83a914
-PlacementDelay,tag,rules,0x66f200,0x83c8bc
+PlaceAnywhere,tag,ra2|rules,0x460f0f,0x81a844
+PlaceBeaconSound,tag,ra2|rules,0x669bb4,0x83a914
+PlacementDelay,tag,ra2|rules,0x66f200,0x83c8bc
 Play,unclassified,,0x6bdf65 0x6bdfee,0x840be8
 Player,tag,map,0x599854 0x6877d1 0x687883 0x68acbf 0x68b2af,0x82bfa4
-PlayerAutoCrush,tag,rules,0x66ce9d,0x83ad1c
+PlayerAutoCrush,tag,ra2|rules,0x66ce9d,0x83ad1c
 PlayerControl,tag,map,0x500bbe 0x5012ec,0x824e28
 PlayerFaction,unclassified,,0x764ec1 0x7654f6,0x84819c
-PlayerJoined,tag,rules,0x66a949,0x83a4f0
+PlayerJoined,tag,ra2|rules,0x66a949,0x83a4f0
 PlayerLeft,unclassified,,0x66a908,0x83a500
-PlayerReturnFire,tag,rules,0x66cebd,0x83ad08
-PlayerScatter,tag,rules,0x66cedd,0x83acf8
-Players,tag,rules,0x668a11 0x67225b,0x83a0bc
+PlayerReturnFire,tag,ra2|rules,0x66cebd,0x83ad08
+PlayerScatter,tag,ra2|rules,0x66cedd,0x83acf8
+Players,tag,ra2|rules,0x668a11 0x67225b,0x83a0bc
 PnPAttachedTo,unclassified,,0x5bbaac,0x82ce94
-Points,tag,map|rules,0x7149ae 0x778cb9 0x77a2c8,0x8439a8
+Points,tag,map|ra2|rules,0x7149ae 0x778cb9 0x77a2c8,0x8439a8
 Poison,tag,rules,0x75d7ed,0x847d58
 Port,unclassified,,0x6984e7 0x6992cf,0x83f0d0
 PortBase,unclassified,,0x52f5ad 0x69816f,0x826438
 PortNumberOverride,unclassified,,0x560ba2 0x6981fe,0x82a2d4
 PortPool,unclassified,,0x52f5c4 0x6981c1,0x826420
-PoseDir,tag,rules,0x669262,0x83abb8
-PositionPerturbationCoefficient,tag,rules,0x64450b,0x836fdc
-PostClick,tag,rules,0x6ceb2f,0x8426b4
+PoseDir,tag,ra2|rules,0x669262,0x83abb8
+PositionPerturbationCoefficient,tag,ra2|rules,0x64450b,0x836fdc
+PostClick,tag,ra2|rules,0x6ceb2f,0x8426b4
 PostScore,tag,map,0x68a096 0x68b349,0x83e174
-Power,tag,map|rules,0x461073 0x721b13,0x81938c
-PowerEmergency,tag,rules,0x673d57,0x83d1b8
-PowerSurplus,tag,rules,0x673a9d,0x83d2d0
-Powered,tag,map|rules,0x45ffe8,0x81ae2c
+Power,tag,map|ra2|rules,0x461073 0x721b13,0x81938c
+PowerEmergency,tag,ra2|rules,0x673d57,0x83d1b8
+PowerSurplus,tag,ra2|rules,0x673a9d,0x83d2d0
+Powered,tag,map|ra2|rules,0x45ffe8,0x81ae2c
 PoweredSpecial,tag,rules,0x460002,0x81ae1c
 PoweredUnit,tag,rules,0x713316,0x844158
 PowersUnit,tag,rules,0x7132df,0x844164
 PowersUpBuilding,unclassified,,0x460e23,0x81a8b8
 PowersUpToLevel,unclassified,,0x460e73,0x81a8a8
-PreClick,tag,rules,0x6ceb15,0x8426c0
-PreDependent,tag,rules,0x6cec90,0x842670
+PreClick,tag,ra2|rules,0x6ceb15,0x8426c0
+PreDependent,tag,ra2|rules,0x6cec90,0x842670
 PreMapSelect,tag,map,0x68a0b4 0x68b363,0x83e164
 PreProductionAnim,unclassified,,0x46422c,0x819728
 PreProductionAnimDamaged,unclassified,,0x46428a,0x81970c
@@ -1715,62 +1715,62 @@ PreProductionAnimX,unclassified,,0x4643e3,0x8196dc
 PreProductionAnimY,unclassified,,0x464400,0x8196c8
 PreProductionAnimYSort,unclassified,,0x46443a,0x819694
 PreProductionAnimZAdjust,unclassified,,0x46441d,0x8196ac
-Prebuild,tag,ai|map,0x6f11d5 0x6f1653,0x843094
-Prefix,tag,map|rules,0x51195e,0x825494
-Prerequisite,tag,mp|rules,0x7141ac,0x843da8
-PrerequisiteBarracks,tag,rules,0x66e890,0x83cbdc
-PrerequisiteFactory,tag,rules,0x66e7fc,0x83cbf4
-PrerequisiteOverride,tag,rules,0x714229,0x843d90
-PrerequisitePower,tag,rules,0x66e763,0x83cc08
-PrerequisiteProc,tag,rules,0x66ea4a,0x83cba0
+Prebuild,tag,ai|map|ra2,0x6f11d5 0x6f1653,0x843094
+Prefix,tag,map|ra2|rules,0x51195e,0x825494
+Prerequisite,tag,mp|ra2|rules,0x7141ac,0x843da8
+PrerequisiteBarracks,tag,ra2|rules,0x66e890,0x83cbdc
+PrerequisiteFactory,tag,ra2|rules,0x66e7fc,0x83cbf4
+PrerequisiteOverride,tag,ra2|rules,0x714229,0x843d90
+PrerequisitePower,tag,ra2|rules,0x66e763,0x83cc08
+PrerequisiteProc,tag,ra2|rules,0x66ea4a,0x83cba0
 PrerequisiteProcAlternate,tag,rules,0x66f7a2,0x83c770
-PrerequisiteRadar,tag,rules,0x66e923,0x83cbc8
-PrerequisiteTech,tag,rules,0x66e9b7,0x83cbb4
-PreventAttackMove,tag,rules,0x714994,0x8439b0
+PrerequisiteRadar,tag,ra2|rules,0x66e923,0x83cbc8
+PrerequisiteTech,tag,ra2|rules,0x66e9b7,0x83cbb4
+PreventAttackMove,tag,ra2|rules,0x714994,0x8439b0
 Preview.bin,file,,0x5bb4b2 0x5e840e,0x82cc50
-Primary,tag,map|rules,0x7129c0,0x8442f8
-PrimaryFireDualOffset,tag,art,0x461354,0x81a6a8
-PrimaryFireFLH,tag,art,0x715da1,0x8432f8
-PrimaryFirePixelOffset,tag,art,0x4612f5,0x81a6dc
+Primary,tag,map|ra2|rules,0x7129c0,0x8442f8
+PrimaryFireDualOffset,tag,art|ra2,0x461354,0x81a6a8
+PrimaryFireFLH,tag,art|ra2,0x715da1,0x8432f8
+PrimaryFirePixelOffset,tag,art|ra2,0x4612f5,0x81a6dc
 PrintCRC,unclassified,,0x698c5a,0x83efdc
-Priority,tag,ai|eva|map|sound,0x6f12dd 0x6f16f3 0x750609 0x75117b 0x752eb2,0x84301c
-PrismSupportDelay,tag,rules,0x6711ab,0x83bbb8
-PrismSupportDuration,tag,rules,0x6711cb,0x83bba0
-PrismSupportHeight,tag,rules,0x6711eb,0x83bb8c
-PrismSupportMax,tag,rules,0x67118c,0x83bbcc
-PrismSupportModifier,tag,rules,0x671161,0x83bbdc
-PrismType,tag,rules,0x67113d,0x83bbf4
+Priority,tag,ai|eva|map|ra2|sound,0x6f12dd 0x6f16f3 0x750609 0x75117b 0x752eb2,0x84301c
+PrismSupportDelay,tag,ra2|rules,0x6711ab,0x83bbb8
+PrismSupportDuration,tag,ra2|rules,0x6711cb,0x83bba0
+PrismSupportHeight,tag,ra2|rules,0x6711eb,0x83bb8c
+PrismSupportMax,tag,ra2|rules,0x67118c,0x83bbcc
+PrismSupportModifier,tag,ra2|rules,0x671161,0x83bbdc
+PrismType,tag,ra2|rules,0x67113d,0x83bbf4
 PrivateKey,unclassified,,0x52a651 0x52a6ec,0x825c08
-ProduceCashAmount,tag,map|rules,0x46016e,0x81ad44
-ProduceCashDelay,tag,map|rules,0x460188,0x81ad30
-ProduceCashStartup,tag,map|rules,0x460154,0x81ad58
-Production,tag,rules,0x6742ae,0x83d4f0
-ProductionAnim,tag,art,0x463d48,0x81987c
-ProductionAnimDamaged,tag,art,0x463da6,0x819864
+ProduceCashAmount,tag,map|ra2|rules,0x46016e,0x81ad44
+ProduceCashDelay,tag,map|ra2|rules,0x460188,0x81ad30
+ProduceCashStartup,tag,map|ra2|rules,0x460154,0x81ad58
+Production,tag,ra2|rules,0x6742ae,0x83d4f0
+ProductionAnim,tag,art|ra2,0x463d48,0x81987c
+ProductionAnimDamaged,tag,art|ra2,0x463da6,0x819864
 ProductionAnimGarrisoned,unclassified,,0x463e40,0x819848
 ProductionAnimX,unclassified,,0x463eff,0x819838
 ProductionAnimY,unclassified,,0x463f1c,0x819828
-ProductionAnimYSort,tag,art,0x463f56,0x8197fc
-ProductionAnimZAdjust,tag,art,0x463f39,0x819810
+ProductionAnimYSort,tag,art|ra2,0x463f56,0x8197fc
+ProductionAnimZAdjust,tag,art|ra2,0x463f39,0x819810
 ProgID,unclassified,,0x6bb808,0x840b24
-Projectile,tag,map|rules,0x77298a,0x849268
-ProneDamage,tag,rules,0x75d991,0x847ce8
-ProtectWithWall,tag,rules,0x460272,0x81ac80
-Proximity,tag,rules,0x46c0b7,0x81b0c0
-PsiWarning,tag,art,0x427f3f,0x8185c4
+Projectile,tag,map|ra2|rules,0x77298a,0x849268
+ProneDamage,tag,ra2|rules,0x75d991,0x847ce8
+ProtectWithWall,tag,ra2|rules,0x460272,0x81ac80
+Proximity,tag,ra2|rules,0x46c0b7,0x81b0c0
+PsiWarning,tag,art|ra2,0x427f3f,0x8185c4
 Psychedelic,tag,rules,0x75d8ea,0x847d30
-PsychicDamage,tag,rules,0x75d9c1,0x847cd8
-PsychicDetectionRadius,tag,rules,0x460c39,0x81a960
+PsychicDamage,tag,ra2|rules,0x75d9c1,0x847cd8
+PsychicDetectionRadius,tag,ra2|rules,0x460c39,0x81a960
 PsychicDominatorActivateSound,tag,rules,0x669f4c,0x83a7dc
 PsychicRevealActivateSound,tag,rules,0x669fcf,0x83a7a4
 PsychicRevealRadius,tag,rules,0x66c65d,0x83b0a4
 PsychicSensorDetectSound,unclassified,,0x66a4ce,0x83a600
 PublicKey,unclassified,,0x52a633 0x52a716,0x825c14
-PurifierBonus,tag,rules,0x66fc6a,0x83c62c
+PurifierBonus,tag,ra2|rules,0x66fc6a,0x83c62c
 Pushy,unclassified,,0x71492c,0x8439e4
 QUEUE,unclassified,,0x752e31,0x8467cc
 QUEUED_INTERRUPT,unclassified,,0x752e8a,0x8467ac
-QueueingCell,tag,art,0x461506,0x81a614
+QueueingCell,tag,art|ra2,0x461506,0x81a614
 RA2.MIX,file,,0x5302cb,0x826674
 RA2MD.INI,file,,0x52f593 0x560b70 0x5d8ff4 0x5d9366 0x5ee1b7 0x5fad19 0x698153 0x6990ab 0x699456 0x6bc0a7 0x77dfd7,0x826444
 RA2MD.MIX,file,,0x5302a3,0x82667c
@@ -1782,62 +1782,62 @@ RING,code,,0x5f2e36,0x832970
 "RING
 ",unclassified,,0x5f2e48,0x832968
 RING1,unclassified,,0x422cc6,0x8182f0
-RMGLevelLightSettings,tag,rmg,0x59830d,0x82bd8c
+RMGLevelLightSettings,tag,ra2|rmg,0x59830d,0x82bd8c
 RMGMD.INI,file,,0x5981fc,0x82bdcc
-RMGMaximumTiberium,tag,rmg,0x5982e7,0x82bda4
-RMGMinimumTiberium,tag,rmg,0x5982c8,0x82bdb8
-RMGVegetationMaximums,tag,rmg,0x5983d8,0x82bd5c
-RMGVegetationMinimums,tag,rmg,0x598372,0x82bd74
-ROF,tag,map|rules,0x511a0c 0x66d2f0 0x77230f,0x825478
-ROT,tag,rules,0x46bf2e 0x714b1b,0x81b164
+RMGMaximumTiberium,tag,ra2|rmg,0x5982e7,0x82bda4
+RMGMinimumTiberium,tag,ra2|rmg,0x5982c8,0x82bdb8
+RMGVegetationMaximums,tag,ra2|rmg,0x5983d8,0x82bd5c
+RMGVegetationMinimums,tag,ra2|rmg,0x598372,0x82bd74
+ROF,tag,map|ra2|rules,0x511a0c 0x66d2f0 0x77230f,0x825478
+ROT,tag,ra2|rules,0x46bf2e 0x714b1b,0x81b164
 RULESMD.INI,file,,0x52ce23 0x52cf38,0x826260
 Ra2ts_l,unclassified,,0x52ba3f 0x531da3,0x825ce0
 Ra2ts_s,unclassified,,0x52ba2d 0x531d9c,0x825ce8
-RadApplicationDelay,tag,rules,0x66cfc9,0x83b31c
-RadCannonTurretIndex,tag,rules,0x747d4a,0x845b08
-RadCannonTurretWeapon,tag,rules,0x747d59,0x845af0
-RadColor,tag,rules,0x66d0bd,0x83b2b4
-RadDurationMultiple,tag,rules,0x66cfa9,0x83b330
-RadLevel,tag,rules,0x7728da,0x849298
-RadLevelDelay,tag,rules,0x66d008,0x83b300
-RadLevelFactor,tag,rules,0x66d04f,0x83b2e0
-RadLevelMax,tag,rules,0x66cfe8,0x83b310
-RadLightDelay,tag,rules,0x66d028,0x83b2f0
-RadLightFactor,tag,rules,0x66d076,0x83b2d0
-RadSiteWarhead,tag,rules,0x66d0f6,0x83b2a4
-RadTintFactor,tag,rules,0x66d09d,0x83b2c0
-Radar,tag,rules,0x45ff5a,0x81ae60
-RadarColor,tag,rules,0x5fe93e 0x71e003,0x833528
-RadarCombatFlashTime,tag,rules,0x671999,0x83b738
-RadarEventColorSpeed,tag,rules,0x671aca,0x83b690
-RadarEventDurations,tag,rules,0x671a7f,0x83b6bc
-RadarEventMinRadius,tag,rules,0x671aab,0x83b6a8
-RadarEventRotationSpeed,tag,rules,0x6719e2,0x83b710
-RadarEventSpeed,tag,rules,0x6719bf,0x83b728
-RadarEventSuppressionDistances,tag,rules,0x671a0c,0x83b6f0
-RadarEventVisibilityDurations,tag,rules,0x671a46,0x83b6d0
-RadarInvisible,tag,map|rules,0x5f946e,0x832b9c
-RadarOff,tag,rules,0x66ab23,0x83a4ac
-RadarOn,tag,rules,0x66aae1,0x83a4b8
+RadApplicationDelay,tag,ra2|rules,0x66cfc9,0x83b31c
+RadCannonTurretIndex,tag,ra2|rules,0x747d4a,0x845b08
+RadCannonTurretWeapon,tag,ra2|rules,0x747d59,0x845af0
+RadColor,tag,ra2|rules,0x66d0bd,0x83b2b4
+RadDurationMultiple,tag,ra2|rules,0x66cfa9,0x83b330
+RadLevel,tag,ra2|rules,0x7728da,0x849298
+RadLevelDelay,tag,ra2|rules,0x66d008,0x83b300
+RadLevelFactor,tag,ra2|rules,0x66d04f,0x83b2e0
+RadLevelMax,tag,ra2|rules,0x66cfe8,0x83b310
+RadLightDelay,tag,ra2|rules,0x66d028,0x83b2f0
+RadLightFactor,tag,ra2|rules,0x66d076,0x83b2d0
+RadSiteWarhead,tag,ra2|rules,0x66d0f6,0x83b2a4
+RadTintFactor,tag,ra2|rules,0x66d09d,0x83b2c0
+Radar,tag,ra2|rules,0x45ff5a,0x81ae60
+RadarColor,tag,ra2|rules,0x5fe93e 0x71e003,0x833528
+RadarCombatFlashTime,tag,ra2|rules,0x671999,0x83b738
+RadarEventColorSpeed,tag,ra2|rules,0x671aca,0x83b690
+RadarEventDurations,tag,ra2|rules,0x671a7f,0x83b6bc
+RadarEventMinRadius,tag,ra2|rules,0x671aab,0x83b6a8
+RadarEventRotationSpeed,tag,ra2|rules,0x6719e2,0x83b710
+RadarEventSpeed,tag,ra2|rules,0x6719bf,0x83b728
+RadarEventSuppressionDistances,tag,ra2|rules,0x671a0c,0x83b6f0
+RadarEventVisibilityDurations,tag,ra2|rules,0x671a46,0x83b6d0
+RadarInvisible,tag,map|ra2|rules,0x5f946e,0x832b9c
+RadarOff,tag,ra2|rules,0x66ab23,0x83a4ac
+RadarOn,tag,ra2|rules,0x66aae1,0x83a4b8
 RadarVisible,tag,rules,0x714ab8,0x843934
 RadialColor,unclassified,,0x5f9540,0x832b40
-RadialFireSegments,tag,rules,0x7147bb,0x843ac0
-Radiation,tag,rules,0x75d9ab,0x839e80
+RadialFireSegments,tag,ra2|rules,0x7147bb,0x843ac0
+Radiation,tag,ra2|rules,0x75d9ab,0x839e80
 Radius,unclassified,,0x64511c,0x8371ec
 RailgunDamageRadius,unclassified,,0x66bc24,0x83b270
-RampBase,tag,theater,0x54553d,0x8295dc
-RampSmooth,tag,theater,0x545564,0x8295d0
+RampBase,tag,ra2|theater,0x54553d,0x8295dc
+RampSmooth,tag,ra2|theater,0x545564,0x8295d0
 RandMap.Sed,unclassified,,0x597d8c 0x5b63f1 0x5b9aff 0x5b9be5 0x5b9cc3 0x5b9d2e 0x5b9d82 0x5bb2a5 0x5e5567 0x5e571f 0x5e85d1 0x5e867c 0x6951fc 0x69adf3 0x69ae76 0x780d98 0x7a24de 0x7a2542,0x82bc30
 RandMap.img,unclassified,,0x553592 0x595c65 0x5960de 0x596219 0x596269 0x5b9b50 0x5b9c30 0x5b9edd 0x5e67b6 0x5e861a 0x5ed3bf 0x6ad9c8 0x6adaf6 0x6aeed4,0x829abc
-RandomLoopDelay,tag,art,0x4280c3,0x818534
+RandomLoopDelay,tag,art|ra2,0x4280c3,0x818534
 RandomMap,unclassified,,0x5961f4 0x597817 0x59782f 0x597847 0x59785f 0x597877 0x59788f 0x5978a7 0x5978bf 0x5978d7 0x5978ef 0x597907 0x59791f 0x597937 0x59794f 0x597967 0x59797f 0x597997 0x597b03 0x597b1e 0x597b34 0x597b4f 0x597b68 0x597b82 0x597b9d 0x597bb6 0x597bd0 0x597beb 0x597c04 0x597c1e 0x597c39 0x597c52 0x597c6c 0x597c87 0x597ca0 0x597e48 0x5c1415 0x5e6673,0x82bb24
-RandomRate,tag,art,0x42875a,0x818354
-Range,tag,map|rules|sound,0x6cebee 0x7507fc 0x75127b 0x772329,0x842690
-Ranged,tag,rules,0x46c0d5,0x81b0b8
+RandomRate,tag,art|ra2,0x42875a,0x818354
+Range,tag,map|ra2|rules|sound,0x6cebee 0x7507fc 0x75127b 0x772329,0x842690
+Ranged,tag,ra2|rules,0x46c0d5,0x81b0b8
 Rank,unclassified,,0x778c89 0x77a299,0x849fc4
 RankFail,unclassified,,0x7a1732,0x84d478
 Ranking,unclassified,,0x68a74f 0x68a76b 0x68a785 0x68a7ae 0x68a7cd 0x68a7ec 0x68a80b 0x68b550 0x68b566 0x68b580 0x68b598 0x68b5ae 0x68b5c8 0x68b5e0,0x83dfc4
-Rate,tag,art|rules,0x427f68 0x4f2e8c 0x5b38ac,0x8185a4
+Rate,tag,art|ra2|rules,0x427f68 0x4f2e8c 0x5b38ac,0x8185a4
 RateDown,tag,rules,0x71406b,0x843e28
 RateUp,tag,rules,0x714051,0x843e34
 RatioAITriggerTeam,unclassified,,0x500d18,0x824e14
@@ -1845,71 +1845,71 @@ RatioTeamAircraft,unclassified,,0x500d31,0x824e00
 RatioTeamInfantry,unclassified,,0x500d44,0x824dec
 RatioTeamUnits,unclassified,,0x500d5d,0x824ddc
 ReadinessReductionMultiplier,unclassified,,0x7148e0,0x843a08
-RechargeTime,tag,map|rules,0x6ced60,0x842634
-Recoilless,tag,art,0x461119,0x81a78c
-Recruitable,tag,rules,0x5b3804,0x82c2a4
-Recruiter,tag,ai|map,0x6f1241 0x6f1629,0x843060
-Red,tag,map|rules,0x68a871 0x68b62f,0x820538
+RechargeTime,tag,map|ra2|rules,0x6ced60,0x842634
+Recoilless,tag,art|ra2,0x461119,0x81a78c
+Recruitable,tag,ra2|rules,0x5b3804,0x82c2a4
+Recruiter,tag,ai|map|ra2,0x6f1241 0x6f1629,0x843060
+Red,tag,map|ra2|rules,0x68a871 0x68b62f,0x820538
 RedTint,unclassified,,0x5998b3,0x82bf80
-Refinery,tag,rules,0x460a5b,0x81aa5c
-RefineryLimit,tag,rules,0x673b04,0x83d2a4
-RefineryRatio,tag,rules,0x673ae4,0x83d2b4
+Refinery,tag,ra2|rules,0x460a5b,0x81aa5c
+RefineryLimit,tag,ra2|rules,0x673b04,0x83d2a4
+RefineryRatio,tag,ra2|rules,0x673ae4,0x83d2b4
 RefinerySmokeFrames,tag,rules,0x4601d6,0x81acf0
 RefinerySmokeOffsetFour,tag,rules,0x713f08,0x843ed4
 RefinerySmokeOffsetOne,tag,rules,0x713e93,0x843f20
 RefinerySmokeOffsetThree,tag,rules,0x713ee5,0x843eec
 RefinerySmokeOffsetTwo,tag,rules,0x713eba,0x843f08
 RefinerySmokeParticleSystem,tag,rules,0x713bcd,0x843fbc
-RefundPercent,tag,rules,0x670d90,0x83be04
+RefundPercent,tag,ra2|rules,0x670d90,0x83be04
 RegPath,unclassified,,0x785633,0x84a944
 RegionSize,unclassified,,0x5978d2 0x597bcb,0x82bbbc
-Reinforce,tag,ai|map,0x6f11f3 0x6f1665,0x843088
-RejoinTeamIfLimboed,tag,rules,0x7142ce,0x843d60
-RelaxedStray,tag,rules,0x670eaa,0x83bda0
+Reinforce,tag,ai|map|ra2,0x6f11f3 0x6f1665,0x843088
+RejoinTeamIfLimboed,tag,ra2|rules,0x7142ce,0x843d60
+RelaxedStray,tag,ra2|rules,0x670eaa,0x83bda0
 Reload,unclassified,,0x714871,0x843a5c
 ReloadIncrement,unclassified,,0x7148a5,0x843a40
-ReloadRate,tag,rules,0x670c86,0x83be6c
-Remapable,tag,art,0x7158c5,0x843398
-RepairBay,tag,rules,0x66f362,0x83c818
+ReloadRate,tag,ra2|rules,0x670c86,0x83be6c
+Remapable,tag,art|ra2,0x7158c5,0x843398
+RepairBay,tag,ra2|rules,0x66f362,0x83c818
 RepairBridgeSound,tag,rules,0x669f0a,0x83a7fc
-RepairDelay,tag,rules,0x66d321,0x83b3ec
-RepairPercent,tag,rules,0x670db7,0x83bdf4
-RepairRate,tag,rules,0x670e1d,0x83bdd0
-RepairSell,tag,rules,0x6742ee,0x83d4e4
-RepairStep,tag,rules,0x670dd6,0x83bde8
-RepairTurretIndex,tag,rules,0x747c02,0x845c58
-RepairTurretWeapon,tag,rules,0x747c11,0x845c44
-Repairable,tag,rules,0x714a84,0x843950
-Repeat,tag,theme,0x72052d,0x844740
-Report,tag,art|map|rules,0x42839a 0x772372,0x818410
-RequiredForRMG,tag,theater,0x5461a7,0x8291f8
-RequiredHouses,tag,rules,0x714529,0x843bb4
-RequiresStolenAlliedTech,tag,rules,0x71450f,0x843bc4
-RequiresStolenSovietTech,tag,rules,0x7144f7,0x843be0
+RepairDelay,tag,ra2|rules,0x66d321,0x83b3ec
+RepairPercent,tag,ra2|rules,0x670db7,0x83bdf4
+RepairRate,tag,ra2|rules,0x670e1d,0x83bdd0
+RepairSell,tag,ra2|rules,0x6742ee,0x83d4e4
+RepairStep,tag,ra2|rules,0x670dd6,0x83bde8
+RepairTurretIndex,tag,ra2|rules,0x747c02,0x845c58
+RepairTurretWeapon,tag,ra2|rules,0x747c11,0x845c44
+Repairable,tag,ra2|rules,0x714a84,0x843950
+Repeat,tag,ra2|theme,0x72052d,0x844740
+Report,tag,art|map|ra2|rules,0x42839a 0x772372,0x818410
+RequiredForRMG,tag,ra2|theater,0x5461a7,0x8291f8
+RequiredHouses,tag,ra2|rules,0x714529,0x843bb4
+RequiresStolenAlliedTech,tag,ra2|rules,0x71450f,0x843bc4
+RequiresStolenSovietTech,tag,ra2|rules,0x7144f7,0x843be0
 RequiresStolenThirdTech,tag,rules,0x7144db,0x843bfc
-ReselectIfLimboed,tag,rules,0x7142b4,0x843d74
+ReselectIfLimboed,tag,ra2|rules,0x7142b4,0x843d74
 ResourceDestination,tag,rules,0x7143f1,0x843ca4
 ResourceGatherer,tag,rules,0x7143d7,0x843cb8
 Resources,unclassified,,0x597992 0x597c9b,0x82bb5c
-Retaliate,tag,rules,0x5b3856,0x82c28c
+Retaliate,tag,ra2|rules,0x5b3856,0x82c28c
 RevealByHeight,unclassified,,0x66eaf0,0x83cb80
-RevealOnFire,tag,rules,0x772189,0x8494e0
-RevealToAll,tag,rules,0x71438b,0x843ce4
-RevealTriggerRadius,tag,rules,0x671829,0x83b83c
+RevealOnFire,tag,ra2|rules,0x772189,0x8494e0
+RevealToAll,tag,ra2|rules,0x71438b,0x843ce4
+RevealTriggerRadius,tag,ra2|rules,0x671829,0x83b83c
 Reverse,tag,art,0x427f25,0x8185d0
-Rocker,tag,rules,0x75d5b1,0x847de8
-Rocks,tag,theater,0x5459ee,0x829370
+Rocker,tag,ra2|rules,0x75d5b1,0x847de8
+Rocks,tag,ra2|theater,0x5459ee,0x829370
 RollAngle,unclassified,,0x7123a2,0x844464
-RoofDeployingAnim,tag,art,0x45f3fa,0x81947c
+RoofDeployingAnim,tag,art|ra2,0x45f3fa,0x81947c
 RotCount,unclassified,,0x7158a1,0x8433a4
-Rotates,tag,art,0x46c260,0x81b05c
+Rotates,tag,art|ra2,0x46c260,0x81b05c
 Rotors,unclassified,,0x41ccbc,0x818020
-RoughGround,tag,theater,0x5458fa,0x8293fc
-RoughTile,tag,theater,0x5455b5,0x8295ac
+RoughGround,tag,ra2|theater,0x5458fa,0x8293fc
+RoughTile,tag,ra2|theater,0x5455b5,0x8295ac
 Rubble,unclassified,,0x45f65d,0x819458
 Ruggedness,unclassified,,0x5978ea 0x597be6,0x82bbb0
-RunningFrames,tag,art,0x428303,0x818438
-Russian,tag,eva,0x752f87,0x846790
+RunningFrames,tag,art|ra2,0x428303,0x818438
+Russian,tag,eva|ra2,0x752f87,0x846790
 SAM,code,,0x460a0d,0x81aa88
 SAVEGAME.NET,unclassified,,0x559cc6 0x559efa,0x820dac
 SBarrelLength,unclassified,,0x715e59,0x8432b0
@@ -1930,39 +1930,39 @@ STANDARD,unclassified,,0x752e50,0x8467c0
 SUN.EXE,file,,0x67cfee,0x83d5bc
 SUN.HLP,unclassified,,0x77688e 0x7768d7,0x849e2c
 SUPR,code,,0x6c71ef,0x8420dc
-SabotageCursor,tag,rules,0x7721bd,0x8494c4
-SandTile,tag,theater,0x5455d0,0x8295a0
-SavourDelay,tag,rules,0x66b48b,0x83a300
-Scalable,tag,rules,0x46c1bf,0x81b064
-Scatter,tag,rules,0x5b3881 0x67432d,0x82c284
-ScatterSound,tag,rules,0x66ae78,0x83a40c
+SabotageCursor,tag,ra2|rules,0x7721bd,0x8494c4
+SandTile,tag,ra2|theater,0x5455d0,0x8295a0
+SavourDelay,tag,ra2|rules,0x66b48b,0x83a300
+Scalable,tag,ra2|rules,0x46c1bf,0x81b064
+Scatter,tag,ra2|rules,0x5b3881 0x67432d,0x82c284
+ScatterSound,tag,ra2|rules,0x66ae78,0x83a40c
 ScenIndex,unclassified,,0x697f40 0x698fb9,0x83efc4
-Scenario,tag,battle|mapsel,0x46cd38 0x5cf9ca 0x7204f9,0x81b1bc
-ScoldSound,tag,rules,0x66abe8,0x83a48c
-Scorch,tag,art,0x427ea3,0x8185fc
-Scorches,tag,rules,0x66bc8b,0x83b238
-Scorches1,tag,rules,0x66bd8e,0x83b22c
-Scorches2,tag,rules,0x66be91,0x83b220
-Scorches3,tag,rules,0x66bf93,0x83b214
-Scorches4,tag,rules,0x66c096,0x83b208
+Scenario,tag,battle|mapsel|ra2,0x46cd38 0x5cf9ca 0x7204f9,0x81b1bc
+ScoldSound,tag,ra2|rules,0x66abe8,0x83a48c
+Scorch,tag,art|ra2,0x427ea3,0x8185fc
+Scorches,tag,ra2|rules,0x66bc8b,0x83b238
+Scorches1,tag,ra2|rules,0x66bd8e,0x83b22c
+Scorches2,tag,ra2|rules,0x66be91,0x83b220
+Scorches3,tag,ra2|rules,0x66bf93,0x83b214
+Scorches4,tag,ra2|rules,0x66c096,0x83b208
 Score,unclassified,,0x49c2f2,0x81f194
 Score1,unclassified,,0x49c408 0x49ca1b,0x81f12c
 Score2,unclassified,,0x49c422 0x49ca34,0x81f124
-ScoreAnimSound,tag,rules,0x669610,0x83aab4
+ScoreAnimSound,tag,ra2|rules,0x669610,0x83aab4
 ScoreVolume,unclassified,,0x5faa93 0x5faedb,0x83309c
-ScrapVoxelDebris,tag,rules,0x66f116,0x83c930
+ScrapVoxelDebris,tag,ra2|rules,0x66f116,0x83c930
 ScreenHeight,unclassified,,0x5fa8c9 0x5fae67 0x6bc128,0x833150
 ScreenWidth,unclassified,,0x5fa8b3 0x5fae4d 0x6bc108,0x833168
-Script,tag,ai|map,0x6f148e 0x6f182b,0x817348
+Script,tag,ai|map|ra2,0x6f148e 0x6f182b,0x817348
 ScriptTypes,unclassified,,0x69197d 0x69199a 0x6919b3,0x83e728
 ScrollMethod,unclassified,,0x5fa6f4 0x5fad87,0x833280
-ScrollMultiplier,tag,rules,0x66a6ad,0x83a588
+ScrollMultiplier,tag,ra2|rules,0x66a6ad,0x83a588
 ScrollRate,unclassified,,0x5fa71d 0x5fada1,0x833260
 Scrollbar,unclassified,,0x60e728 0x61bcba,0x8357b0
 SecondSpawnOffset,tag,art,0x71602e,0x8431d8
-Secondary,tag,map|rules,0x7129ed,0x8442ec
+Secondary,tag,map|ra2|rules,0x7129ed,0x8442ec
 SecondaryFire,tag,art,0x524705,0x825680
-SecondaryFireFLH,tag,art,0x715e1e,0x8432c0
+SecondaryFireFLH,tag,art|ra2,0x715e1e,0x8432c0
 SecondaryFirePixelOffset,unclassified,,0x461326,0x81a6c0
 SecondaryProne,tag,art,0x524721,0x825670
 SecretBuilding,tag,map,0x46064b,0x81abd4
@@ -1975,70 +1975,70 @@ SecretUnits,tag,rules,0x66fa54,0x83c730
 Seed,unclassified,,0x597872 0x597b63,0x82bbd0
 SelectSound,unclassified,,0x4f39a5 0x4f39f1,0x8242fc
 SelectVQ,unclassified,,0x4f33ae,0x8242a4
-Selectable,tag,rules,0x5f948c,0x832b90
+Selectable,tag,ra2|rules,0x5f948c,0x832b90
 SelfHealInfantryAmount,tag,rules,0x66e705,0x83cc44
 SelfHealInfantryFrames,tag,rules,0x66e6eb,0x83cc5c
 SelfHealUnitAmount,tag,rules,0x66e738,0x83cc1c
 SelfHealUnitFrames,tag,rules,0x66e71f,0x83cc30
-SelfHealing,tag,rules,0x714ad9,0x843928
-SellBack,tag,rules,0x6743ac,0x83d4c0
-SellSound,tag,rules,0x66a73c,0x83a564
+SelfHealing,tag,ra2|rules,0x714ad9,0x843928
+SellBack,tag,ra2|rules,0x6743ac,0x83d4c0
+SellSound,tag,ra2|rules,0x66a73c,0x83a564
 SendDelay,unclassified,,0x560b85 0x6981e8,0x82a2e8
-SensorArray,tag,rules,0x460c00,0x81a98c
-Sensors,tag,rules,0x714003,0x843e58
-SensorsSight,tag,rules,0x7142e8,0x843d50
-SeparateAircraft,tag,rules,0x670b6c,0x83bf04
-Sequence,tag,art,0x523d1b,0x8258e8
+SensorArray,tag,ra2|rules,0x460c00,0x81a98c
+Sensors,tag,ra2|rules,0x714003,0x843e58
+SensorsSight,tag,ra2|rules,0x7142e8,0x843d50
+SeparateAircraft,tag,ra2|rules,0x670b6c,0x83bf04
+Sequence,tag,art|ra2,0x523d1b,0x8258e8
 Serial,unclassified,,0x5dc245,0x8313a8
 SerialDefaults,unclassified,,0x69849e 0x6984ec 0x698502 0x69851e 0x69853a 0x698556 0x698585 0x6985e3 0x6985f4 0x698622 0x699206 0x699226 0x69923e 0x69925b 0x699282 0x69929a 0x6992b7 0x6992d4 0x6992f1 0x69930e 0x69932e,0x83f0d8
 Server,unclassified,,0x778829 0x778bad 0x77a1b0,0x849f84
-SetName,tag,theater,0x5460b6,0x82927c
-Shadow,tag,art|rules,0x427d33 0x46c053,0x818660
+SetName,tag,ra2|theater,0x5460b6,0x82927c
+Shadow,tag,art|ra2|rules,0x427d33 0x46c053,0x818660
 ShadowCaster,unclassified,,0x5461fe,0x8291c4
-ShadowGrow,tag,rules,0x67204b,0x83d020
-ShadowIndex,tag,art,0x715931,0x843380
+ShadowGrow,tag,ra2|rules,0x67204b,0x83d020
+ShadowIndex,tag,art|ra2,0x715931,0x843380
 ShadowTiles,unclassified,,0x54623e,0x8291b8
-ShakeScreen,tag,rules,0x66a6cd,0x83a57c
-ShakeXhi,tag,rules,0x75da47,0x847c9c
-ShakeXlo,tag,rules,0x75da2d,0x847ca8
-ShakeYhi,tag,rules,0x75da7b,0x847c84
-ShakeYlo,tag,rules,0x75da5d,0x847c90
+ShakeScreen,tag,ra2|rules,0x66a6cd,0x83a57c
+ShakeXhi,tag,ra2|rules,0x75da47,0x847c9c
+ShakeXlo,tag,ra2|rules,0x75da2d,0x847ca8
+ShakeYhi,tag,ra2|rules,0x75da7b,0x847c84
+ShakeYlo,tag,ra2|rules,0x75da5d,0x847c90
 ShareBarrelData,unclassified,,0x74b268,0x845ebc
 ShareBodyData,unclassified,,0x74b240,0x845edc
-ShareSource,tag,rules,0x74b4b9,0x845e94
-ShareTurretData,tag,rules,0x74b255,0x845ecc
-ShellButtonSlideSound,tag,rules,0x66af8d,0x83a3d8
-ShipSinkingWeight,tag,rules,0x66f16c,0x83c90c
-Shipyard,tag,rules,0x66f59e,0x83c7d0
-ShockTurretIndex,tag,rules,0x747ccf,0x845b8c
-ShockTurretWeapon,tag,rules,0x747cde,0x845b78
-ShorePieces,tag,theater,0x54572f,0x8294ec
-ShortGame,tag,rules,0x672188 0x697fb4 0x699005,0x83cfa8
+ShareSource,tag,ra2|rules,0x74b4b9,0x845e94
+ShareTurretData,tag,ra2|rules,0x74b255,0x845ecc
+ShellButtonSlideSound,tag,ra2|rules,0x66af8d,0x83a3d8
+ShipSinkingWeight,tag,ra2|rules,0x66f16c,0x83c90c
+Shipyard,tag,ra2|rules,0x66f59e,0x83c7d0
+ShockTurretIndex,tag,ra2|rules,0x747ccf,0x845b8c
+ShockTurretWeapon,tag,ra2|rules,0x747cde,0x845b78
+ShorePieces,tag,ra2|theater,0x54572f,0x8294ec
+ShortGame,tag,ra2|rules,0x672188 0x697fb4 0x699005,0x83cfa8
 Shortcut,unclassified,,0x4f3939,0x824308
-ShouldFogRemove,tag,art,0x4282cb,0x818458
-ShouldUseCellDrawer,tag,art,0x4286df,0x818390
+ShouldFogRemove,tag,art|ra2,0x4282cb,0x818458
+ShouldUseCellDrawer,tag,art|ra2,0x4286df,0x818390
 ShowAll,unclassified,,0x77df43 0x77e05c,0x84a500
 ShowHidden,unclassified,,0x5fa840 0x5fae20,0x8331a8
 ShowOccupantPips,unclassified,,0x460106,0x81ad98
-ShowTimer,tag,rules,0x6ceb45,0x8426a8
-ShrapnelCount,tag,rules,0x46c319,0x81b02c
-ShrapnelWeapon,tag,rules,0x46c2ec,0x81b03c
-Shroud,tag,rules,0x67206b,0x83d018
-ShroudGrow,tag,rules,0x66a686,0x83a59c
-ShroudRate,tag,rules,0x66b4b1,0x83a2f4
-Side,tag,map|rules,0x512096 0x69832b 0x699174 0x720547,0x817334
+ShowTimer,tag,ra2|rules,0x6ceb45,0x8426a8
+ShrapnelCount,tag,ra2|rules,0x46c319,0x81b02c
+ShrapnelWeapon,tag,ra2|rules,0x46c2ec,0x81b03c
+Shroud,tag,ra2|rules,0x67206b,0x83d018
+ShroudGrow,tag,ra2|rules,0x66a686,0x83a59c
+ShroudRate,tag,ra2|rules,0x66b4b1,0x83a2f4
+Side,tag,map|ra2|rules,0x512096 0x69832b 0x699174 0x720547,0x817334
 SideBar,unclassified,,0x7687f6,0x848ad4
 SideBarSize,unclassified,,0x7683ab,0x848b18
 SideEx,unclassified,,0x69834c 0x69918c,0x83f148
 SidebarCameoText,unclassified,,0x5fa7d7 0x5fadeb,0x8331ec
-SidebarImage,tag,rules,0x6ceda9,0x842624
+SidebarImage,tag,ra2|rules,0x6ceda9,0x842624
 Siege,unclassified,,0x5d7da0,0x830bec
-Sight,tag,map|rules,0x71429a,0x843d88
-SiloDamage,tag,art,0x461170,0x81a780
-SilverCrate,tag,rules,0x66bb35,0x83ac24
-SinkingSound,tag,rules,0x6699a7 0x712fb0,0x83a9b4
-Size,tag,map|rules,0x4aceac 0x4ad82d 0x5997e3 0x6418f3 0x641b2f 0x68746f 0x71251f 0x76835a,0x820178
-SizeLimit,tag,rules,0x712540,0x8443bc
+Sight,tag,map|ra2|rules,0x71429a,0x843d88
+SiloDamage,tag,art|ra2,0x461170,0x81a780
+SilverCrate,tag,ra2|rules,0x66bb35,0x83ac24
+SinkingSound,tag,ra2|rules,0x6699a7 0x712fb0,0x83a9b4
+Size,tag,map|ra2|rules,0x4aceac 0x4ad82d 0x5997e3 0x6418f3 0x641b2f 0x68746f 0x71251f 0x76835a,0x820178
+SizeLimit,tag,ra2|rules,0x712540,0x8443bc
 SkipMapSelect,tag,map,0x68a200 0x68b190,0x83e0e0
 SkipScore,tag,map,0x68a1c4 0x68b15c,0x83e0fc
 Skirmish,unclassified,,0x698441 0x6991c5,0x83f104
@@ -2054,64 +2054,64 @@ SlaveReloadRate,tag,rules,0x714e3b,0x8437f4
 Slaved,tag,rules,0x714db6,0x843830
 SlavesFreeSound,tag,rules,0x669dc2,0x83a86c
 SlavesNumber,tag,rules,0x714e1a,0x843804
-SlopeSetPieces,tag,theater,0x545765,0x8294d0
-SlopeSetPieces2,tag,theater,0x545780,0x8294c0
-Slowdown,tag,rules,0x644399,0x837080
+SlopeSetPieces,tag,ra2|theater,0x545765,0x8294d0
+SlopeSetPieces2,tag,ra2|theater,0x545780,0x8294c0
+Slowdown,tag,ra2|rules,0x644399,0x837080
 SlowdownDistance,unclassified,,0x71247c,0x84440c
 SmallFire,unclassified,,0x66b2a0,0x83a3a8
-SmallVisceroid,tag,rules,0x66e6a3 0x74786f,0x83cc84
-SmartAI,tag,map|rules,0x511ab6,0x825430
-Smoke,tag,rules,0x66b203 0x66b242,0x836f0c
-SniperTurretIndex,tag,rules,0x747ca6,0x845bb4
-SniperTurretWeapon,tag,rules,0x747cb7,0x845ba0
+SmallVisceroid,tag,ra2|rules,0x66e6a3 0x74786f,0x83cc84
+SmartAI,tag,map|ra2|rules,0x511ab6,0x825430
+Smoke,tag,ra2|rules,0x66b203 0x66b242,0x836f0c
+SniperTurretIndex,tag,ra2|rules,0x747ca6,0x845bb4
+SniperTurretWeapon,tag,ra2|rules,0x747cb7,0x845ba0
 SnmpExtensionInit,unclassified,,0x795824,0x84c944
 SnmpExtensionQuery,unclassified,,0x795831,0x84c930
 SnmpUtilMemAlloc,unclassified,,0x79583e,0x84c91c
 SnmpUtilMemFree,unclassified,,0x79584b,0x84c90c
-SnowAmbientBlue,tag,rmg,0x598718,0x82bcb8
-SnowAmbientGreen,tag,rmg,0x5986a2,0x82bcc8
-SnowAmbientLight,tag,rmg,0x5984a4,0x82bd30
-SnowAmbientRed,tag,rmg,0x59863c,0x82bcdc
-SnowOccupationBits,tag,rules,0x71e092,0x844608
-SnowOrePatchLamps,tag,rmg,0x598871,0x82bc80
+SnowAmbientBlue,tag,ra2|rmg,0x598718,0x82bcb8
+SnowAmbientGreen,tag,ra2|rmg,0x5986a2,0x82bcc8
+SnowAmbientLight,tag,ra2|rmg,0x5984a4,0x82bd30
+SnowAmbientRed,tag,ra2|rmg,0x59863c,0x82bcdc
+SnowOccupationBits,tag,ra2|rules,0x71e092,0x844608
+SnowOrePatchLamps,tag,ra2|rmg,0x598871,0x82bc80
 Socket,unclassified,,0x5fac8d 0x5faf5d 0x6bc143,0x83301c
-SoloCrateMoney,tag,map|rules,0x66bb15,0x83ac30
-Sonic,tag,rules,0x75d597,0x847df0
-Sound,tag,theme,0x7204b7,0x844748
+SoloCrateMoney,tag,map|ra2|rules,0x66bb15,0x83ac30
+Sonic,tag,ra2|rules,0x75d597,0x847df0
+Sound,tag,ra2|theme,0x7204b7,0x844748
 SoundLatency,unclassified,,0x5fac60 0x5faf23,0x833050
 SoundList,unclassified,,0x751291 0x7512aa 0x7512d3 0x7512e2,0x846580
 SoundVolume,unclassified,,0x5fa9be 0x5faea1,0x8330bc
-Sounds,tag,mapsel|sound,0x5cf403 0x75049d,0x8302cc
-SovParaDropInf,tag,map|rules,0x67070c,0x83c0c4
-SovParaDropNum,tag,map|rules,0x670744,0x83c0b4
-SovietBaseDefenseCounts,tag,rules,0x670066,0x83c434
+Sounds,tag,mapsel|ra2|sound,0x5cf403 0x75049d,0x8302cc
+SovParaDropInf,tag,map|ra2|rules,0x67070c,0x83c0c4
+SovParaDropNum,tag,map|ra2|rules,0x670744,0x83c0b4
+SovietBaseDefenseCounts,tag,ra2|rules,0x670066,0x83c434
 SovietBaseDefenses,tag,rules,0x673141,0x83d430
-SovietCrew,tag,rules,0x66fd04,0x83c600
-SovietDisguise,tag,rules,0x66fbc0,0x83c690
-SovietSurvivorDivisor,tag,rules,0x670c3f,0x83be90
-Soylent,tag,rules,0x7146c0,0x843b08
-SparkSpawnFrames,tag,rules,0x6445a7,0x836f74
-Sparky,tag,rules,0x75d57d,0x847df8
-SpawnCount,tag,art|rules,0x428210 0x74b231,0x8184bc
-SpawnCutoff,tag,rules,0x6443b8,0x837074
-SpawnDelay,tag,art,0x41cd3d 0x46c23e,0x818000
+SovietCrew,tag,ra2|rules,0x66fd04,0x83c600
+SovietDisguise,tag,ra2|rules,0x66fbc0,0x83c690
+SovietSurvivorDivisor,tag,ra2|rules,0x670c3f,0x83be90
+Soylent,tag,ra2|rules,0x7146c0,0x843b08
+SparkSpawnFrames,tag,ra2|rules,0x6445a7,0x836f74
+Sparky,tag,ra2|rules,0x75d57d,0x847df8
+SpawnCount,tag,art|ra2|rules,0x428210 0x74b231,0x8184bc
+SpawnCutoff,tag,ra2|rules,0x6443b8,0x837074
+SpawnDelay,tag,art|ra2,0x41cd3d 0x46c23e,0x818000
 SpawnDirection,unclassified,,0x64446e,0x837034
-SpawnFrames,tag,rules,0x644340,0x8370a4
-SpawnRadius,tag,rules,0x644378,0x83708c
-SpawnRegenRate,tag,rules,0x714ec0,0x8437c8
-SpawnReloadRate,tag,rules,0x714f02,0x8437a8
-SpawnSparkPercentage,tag,rules,0x6445fc,0x836f40
-SpawnTranslucencyCutoff,tag,rules,0x6443d7,0x83705c
-Spawned,tag,rules,0x714e7d,0x8437d8
-Spawner,tag,rules,0x7720ed,0x849538
-Spawns,tag,art|rules,0x4281de 0x64432a 0x714e9e 0x74b1ff,0x8184c8
-SpawnsNumber,tag,rules,0x714ee1,0x8437b8
+SpawnFrames,tag,ra2|rules,0x644340,0x8370a4
+SpawnRadius,tag,ra2|rules,0x644378,0x83708c
+SpawnRegenRate,tag,ra2|rules,0x714ec0,0x8437c8
+SpawnReloadRate,tag,ra2|rules,0x714f02,0x8437a8
+SpawnSparkPercentage,tag,ra2|rules,0x6445fc,0x836f40
+SpawnTranslucencyCutoff,tag,ra2|rules,0x6443d7,0x83705c
+Spawned,tag,ra2|rules,0x714e7d,0x8437d8
+Spawner,tag,ra2|rules,0x7720ed,0x849538
+Spawns,tag,art|ra2|rules,0x4281de 0x64432a 0x714e9e 0x74b1ff,0x8184c8
+SpawnsNumber,tag,ra2|rules,0x714ee1,0x8437b8
 SpawnsParticle,tag,art,0x428718,0x818370
-SpawnsTiberium,tag,rules,0x71df34,0x844674
-SpeakDelay,tag,rules,0x66b639,0x83a270
+SpawnsTiberium,tag,ra2|rules,0x71df34,0x844674
+SpeakDelay,tag,ra2|rules,0x66b639,0x83a270
 Special,unclassified,,0x650b7f,0x817318
-SpecialAnim,tag,art,0x462d34,0x819e44
-SpecialAnimDamaged,tag,art,0x462d92,0x819e30
+SpecialAnim,tag,art|ra2,0x462d34,0x819e44
+SpecialAnimDamaged,tag,art|ra2,0x462d92,0x819e30
 SpecialAnimFour,tag,art,0x46353e,0x819b44
 SpecialAnimFourDamaged,tag,art,0x46359c,0x819b2c
 SpecialAnimFourGarrisoned,unclassified,,0x463636,0x819b10
@@ -2124,12 +2124,12 @@ SpecialAnimFourY,unclassified,,0x463716,0x819ae8
 SpecialAnimFourYSort,unclassified,,0x463750,0x819ab8
 SpecialAnimFourZAdjust,tag,art,0x463733,0x819ad0
 SpecialAnimGarrisoned,unclassified,,0x462e2c,0x819e18
-SpecialAnimPowered,tag,art,0x462f63,0x819dbc
+SpecialAnimPowered,tag,art|ra2,0x462f63,0x819dbc
 SpecialAnimPoweredEffect,unclassified,,0x462f9d,0x819d88
-SpecialAnimPoweredLight,tag,art,0x462f80,0x819da4
+SpecialAnimPoweredLight,tag,art|ra2,0x462f80,0x819da4
 SpecialAnimPoweredSpecial,unclassified,,0x462fba,0x819d6c
-SpecialAnimThree,tag,art,0x463290,0x819c58
-SpecialAnimThreeDamaged,tag,art,0x4632ee,0x819c40
+SpecialAnimThree,tag,art|ra2,0x463290,0x819c58
+SpecialAnimThreeDamaged,tag,art|ra2,0x4632ee,0x819c40
 SpecialAnimThreeGarrisoned,unclassified,,0x463388,0x819c24
 SpecialAnimThreePowered,unclassified,,0x4634bf,0x819bb4
 SpecialAnimThreePoweredEffect,unclassified,,0x4634f9,0x819b74
@@ -2137,10 +2137,10 @@ SpecialAnimThreePoweredLight,unclassified,,0x4634dc,0x819b94
 SpecialAnimThreePoweredSpecial,unclassified,,0x463516,0x819b54
 SpecialAnimThreeX,unclassified,,0x46344b,0x819c10
 SpecialAnimThreeY,unclassified,,0x463468,0x819bfc
-SpecialAnimThreeYSort,tag,art,0x4634a2,0x819bcc
-SpecialAnimThreeZAdjust,tag,art,0x463485,0x819be4
-SpecialAnimTwo,tag,art,0x462fe2,0x819d5c
-SpecialAnimTwoDamaged,tag,art,0x463040,0x819d44
+SpecialAnimThreeYSort,tag,art|ra2,0x4634a2,0x819bcc
+SpecialAnimThreeZAdjust,tag,art|ra2,0x463485,0x819be4
+SpecialAnimTwo,tag,art|ra2,0x462fe2,0x819d5c
+SpecialAnimTwoDamaged,tag,art|ra2,0x463040,0x819d44
 SpecialAnimTwoGarrisoned,unclassified,,0x4630da,0x819d28
 SpecialAnimTwoPowered,unclassified,,0x463211,0x819cc4
 SpecialAnimTwoPoweredEffect,unclassified,,0x46324b,0x819c8c
@@ -2148,52 +2148,52 @@ SpecialAnimTwoPoweredLight,unclassified,,0x46322e,0x819ca8
 SpecialAnimTwoPoweredSpecial,unclassified,,0x463268,0x819c6c
 SpecialAnimTwoX,unclassified,,0x46319d,0x819d18
 SpecialAnimTwoY,unclassified,,0x4631ba,0x819d08
-SpecialAnimTwoYSort,tag,art,0x4631f4,0x819cdc
-SpecialAnimTwoZAdjust,tag,art,0x4631d7,0x819cf0
+SpecialAnimTwoYSort,tag,art|ra2,0x4631f4,0x819cdc
+SpecialAnimTwoZAdjust,tag,art|ra2,0x4631d7,0x819cf0
 SpecialAnimX,unclassified,,0x462eef,0x819e08
 SpecialAnimY,unclassified,,0x462f0c,0x819df8
-SpecialAnimYSort,tag,art,0x462f46,0x819dd0
-SpecialAnimZAdjust,tag,art,0x462f29,0x819de4
+SpecialAnimYSort,tag,art|ra2,0x462f46,0x819dd0
+SpecialAnimZAdjust,tag,art|ra2,0x462f29,0x819de4
 SpecialSound,tag,rules,0x6ceb74,0x842698
-SpecialThreatValue,tag,rules,0x715734,0x84342c
-SpecialZOverlay,tag,art,0x45f7de,0x819434
+SpecialThreatValue,tag,ra2|rules,0x715734,0x84342c
+SpecialZOverlay,tag,art|ra2,0x45f7de,0x819434
 SpecialZOverlayZAdjust,unclassified,,0x461389,0x81a67c
-Speed,tag,map|rules,0x67441f 0x71464c 0x7722f5,0x81d9cc
+Speed,tag,map|ra2|rules,0x67441f 0x71464c 0x7722f5,0x81d9cc
 SpeedAircraftMult,unclassified,,0x511c4b,0x825338
 SpeedInfantryMult,unclassified,,0x511c0d,0x82535c
-SpeedType,tag,rules,0x7121d8 0x7476fa,0x844504
+SpeedType,tag,ra2|rules,0x7121d8 0x7476fa,0x844504
 SpeedUnitsMult,unclassified,,0x511c2c,0x82534c
-SpiralDeltaPerCoord,tag,rules,0x6444c9,0x83700c
-SpiralRadius,tag,rules,0x6444ea,0x836ffc
-SplashList,tag,rules,0x66c199,0x83b1fc
-SpotlightAcceleration,tag,rules,0x6717c3,0x83b870
-SpotlightAngle,tag,rules,0x6717ea,0x83b860
-SpotlightLocationRadius,tag,rules,0x671775,0x83b898
-SpotlightMovementRadius,tag,rules,0x671755,0x83b8b0
+SpiralDeltaPerCoord,tag,ra2|rules,0x6444c9,0x83700c
+SpiralRadius,tag,ra2|rules,0x6444ea,0x836ffc
+SplashList,tag,ra2|rules,0x66c199,0x83b1fc
+SpotlightAcceleration,tag,ra2|rules,0x6717c3,0x83b870
+SpotlightAngle,tag,ra2|rules,0x6717ea,0x83b860
+SpotlightLocationRadius,tag,ra2|rules,0x671775,0x83b898
+SpotlightMovementRadius,tag,ra2|rules,0x671755,0x83b8b0
 SpotlightRadius,unclassified,,0x671809,0x83b850
-SpotlightSpeed,tag,rules,0x67179c,0x83b888
+SpotlightSpeed,tag,ra2|rules,0x67179c,0x83b888
 SprayAttack,unclassified,,0x714912,0x8439ec
-Spread,tag,rules,0x721a83,0x844924
-SpreadPercentage,tag,mp|rules,0x721a9e,0x844910
-SpyMoneyStealPercent,tag,map|rules,0x66fc25,0x83c654
+Spread,tag,ra2|rules,0x721a83,0x844924
+SpreadPercentage,tag,mp|ra2|rules,0x721a9e,0x844910
+SpyMoneyStealPercent,tag,map|ra2|rules,0x66fc25,0x83c654
 SpyPlaneCamera,tag,rules,0x66a2a1,0x83a6bc
 SpyPlaneCameraFrames,tag,rules,0x66a39a,0x83a658
-SpyPowerBlackout,tag,rules,0x66fbfe,0x83c66c
-SpySat,tag,rules,0x45ff72,0x81ae58
-SpySatActivationSound,tag,rules,0x66a510,0x83a5e8
-SpySatDeactivationSound,tag,rules,0x66a552,0x83a5d0
-Spyable,tag,rules,0x460036,0x81ae04
+SpyPowerBlackout,tag,ra2|rules,0x66fbfe,0x83c66c
+SpySat,tag,ra2|rules,0x45ff72,0x81ae58
+SpySatActivationSound,tag,ra2|rules,0x66a510,0x83a5e8
+SpySatDeactivationSound,tag,ra2|rules,0x66a552,0x83a5d0
+Spyable,tag,ra2|rules,0x460036,0x81ae04
 StandingFrames,unclassified,,0x7478d1,0x845d3c
-Start,tag,art,0x427fc3,0x818594
-StartColor1,tag,rules,0x6452a8,0x837120
-StartColor2,tag,rules,0x6452ce,0x837114
+Start,tag,art|ra2,0x427fc3,0x818594
+StartColor1,tag,ra2|rules,0x6452a8,0x837120
+StartColor2,tag,ra2|rules,0x6452ce,0x837114
 StartDeathFrame,unclassified,,0x747a74,0x845cd4
 StartFiringFrame,unclassified,,0x747a58,0x845ce4
-StartFrame,tag,rules,0x645070,0x837224
-StartPlanningModeSound,tag,rules,0x6696d5,0x83aa7c
-StartSound,tag,art|rules,0x428359 0x6cebb0 0x74b2ac,0x818418
+StartFrame,tag,ra2|rules,0x645070,0x837224
+StartPlanningModeSound,tag,ra2|rules,0x6696d5,0x83aa7c
+StartSound,tag,art|ra2|rules,0x428359 0x6cebb0 0x74b2ac,0x818418
 StartStandFrame,unclassified,,0x747a23,0x845d08
-StartStateAI,tag,rules,0x64516c,0x8371bc
+StartStateAI,tag,ra2|rules,0x64516c,0x8371bc
 StartWalkFrame,unclassified,,0x747a3b,0x845cf8
 StartX,tag,map,0x689d81 0x689eb9 0x68aee8,0x83de70
 StartY,tag,map,0x689d9f 0x689ed5 0x68af00,0x83de60
@@ -2201,28 +2201,28 @@ StartY,tag,map,0x689d9f 0x689ed5 0x68af00,0x83de60
 ",unclassified,,0x794ba7,0x84c6b0
 StartingDropships,tag,map,0x68a2b4 0x68b3d3,0x83e088
 Startup,unclassified,,0x770603,0x8491e0
-StateAIAdvance,tag,rules,0x64517f,0x8371ac
+StateAIAdvance,tag,ra2|rules,0x64517f,0x8371ac
 Status,unclassified,,0x77037d,0x8491b4
-Sticky,tag,art,0x427ef1,0x816e3c
-StopSound,tag,rules,0x4283d7 0x66adf5 0x74b2ec,0x818404
+Sticky,tag,art|ra2,0x427ef1,0x816e3c
+StopSound,tag,ra2|rules,0x4283d7 0x66adf5 0x74b2ec,0x818404
 "Stop_Audio_Handler
 ",unclassified,,0x4118ad 0x411d21,0x817950
-Storage,tag,map|rules,0x713130,0x8441ac
-StormSound,tag,rules,0x66aeba,0x83a400
-Stray,tag,rules,0x670e8b,0x83bdb0
-Strength,tag,map|rules,0x5f94da 0x5fe7be,0x832b78
+Storage,tag,map|ra2|rules,0x713130,0x8441ac
+StormSound,tag,ra2|rules,0x66aeba,0x83a400
+Stray,tag,ra2|rules,0x670e8b,0x83bdb0
+Strength,tag,map|ra2|rules,0x5f94da 0x5fe7be,0x832b78
 StretchMovies,unclassified,,0x5fa8fb 0x5fae7f,0x833128
 Strong,unclassified,,0x477616,0x81bac8
-StupidHunt,tag,rules,0x714c6c,0x8438a4
-SubjectToCliffs,tag,rules,0x46bfeb,0x81b118
-SubjectToElevation,tag,rules,0x46c005,0x81b104
-SubjectToWalls,tag,rules,0x46c01f,0x81b0f4
-Suffix,tag,map|rules,0x51188a,0x8254ac
-Suicide,tag,ai|map|rules,0x6f1271 0x6f16dd 0x77228d,0x843050
-SuperAnim,tag,art,0x46227c,0x81a1f4
-SuperAnimDamaged,tag,art,0x4622da,0x81a1e0
-SuperAnimFour,tag,art,0x462a86,0x819f38
-SuperAnimFourDamaged,tag,art,0x462ae4,0x819f20
+StupidHunt,tag,ra2|rules,0x714c6c,0x8438a4
+SubjectToCliffs,tag,ra2|rules,0x46bfeb,0x81b118
+SubjectToElevation,tag,ra2|rules,0x46c005,0x81b104
+SubjectToWalls,tag,ra2|rules,0x46c01f,0x81b0f4
+Suffix,tag,map|ra2|rules,0x51188a,0x8254ac
+Suicide,tag,ai|map|ra2|rules,0x6f1271 0x6f16dd 0x77228d,0x843050
+SuperAnim,tag,art|ra2,0x46227c,0x81a1f4
+SuperAnimDamaged,tag,art|ra2,0x4622da,0x81a1e0
+SuperAnimFour,tag,art|ra2,0x462a86,0x819f38
+SuperAnimFourDamaged,tag,art|ra2,0x462ae4,0x819f20
 SuperAnimFourGarrisoned,unclassified,,0x462b7e,0x819f08
 SuperAnimFourPowered,tag,art,0x462cb5,0x819ea4
 SuperAnimFourPoweredEffect,unclassified,,0x462cef,0x819e6c
@@ -2230,15 +2230,15 @@ SuperAnimFourPoweredLight,unclassified,,0x462cd2,0x819e88
 SuperAnimFourPoweredSpecial,unclassified,,0x462d0c,0x819e50
 SuperAnimFourX,unclassified,,0x462c41,0x819ef8
 SuperAnimFourY,unclassified,,0x462c5e,0x819ee8
-SuperAnimFourYSort,tag,art,0x462c98,0x819ebc
-SuperAnimFourZAdjust,tag,art,0x462c7b,0x819ed0
+SuperAnimFourYSort,tag,art|ra2,0x462c98,0x819ebc
+SuperAnimFourZAdjust,tag,art|ra2,0x462c7b,0x819ed0
 SuperAnimGarrisoned,unclassified,,0x462374,0x81a1cc
 SuperAnimPowered,tag,art,0x4624ab,0x81a17c
 SuperAnimPoweredEffect,unclassified,,0x4624e5,0x81a14c
 SuperAnimPoweredLight,unclassified,,0x4624c8,0x81a164
 SuperAnimPoweredSpecial,unclassified,,0x462502,0x81a134
-SuperAnimThree,tag,art,0x4627d8,0x81a038
-SuperAnimThreeDamaged,tag,art,0x462836,0x81a020
+SuperAnimThree,tag,art|ra2,0x4627d8,0x81a038
+SuperAnimThreeDamaged,tag,art|ra2,0x462836,0x81a020
 SuperAnimThreeGarrisoned,unclassified,,0x4628d0,0x81a004
 SuperAnimThreePowered,tag,art,0x462a07,0x819fa0
 SuperAnimThreePoweredEffect,tag,art,0x462a41,0x819f68
@@ -2246,10 +2246,10 @@ SuperAnimThreePoweredLight,unclassified,,0x462a24,0x819f84
 SuperAnimThreePoweredSpecial,unclassified,,0x462a5e,0x819f48
 SuperAnimThreeX,unclassified,,0x462993,0x819ff4
 SuperAnimThreeY,unclassified,,0x4629b0,0x819fe4
-SuperAnimThreeYSort,tag,art,0x4629ea,0x819fb8
-SuperAnimThreeZAdjust,tag,art,0x4629cd,0x819fcc
-SuperAnimTwo,tag,art,0x46252a,0x81a124
-SuperAnimTwoDamaged,tag,art,0x462588,0x81a110
+SuperAnimThreeYSort,tag,art|ra2,0x4629ea,0x819fb8
+SuperAnimThreeZAdjust,tag,art|ra2,0x4629cd,0x819fcc
+SuperAnimTwo,tag,art|ra2,0x46252a,0x81a124
+SuperAnimTwoDamaged,tag,art|ra2,0x462588,0x81a110
 SuperAnimTwoGarrisoned,unclassified,,0x462622,0x81a0f8
 SuperAnimTwoPowered,tag,art,0x462759,0x81a09c
 SuperAnimTwoPoweredEffect,unclassified,,0x462793,0x81a064
@@ -2257,13 +2257,13 @@ SuperAnimTwoPoweredLight,unclassified,,0x462776,0x81a080
 SuperAnimTwoPoweredSpecial,unclassified,,0x4627b0,0x81a048
 SuperAnimTwoX,unclassified,,0x4626e5,0x81a0e8
 SuperAnimTwoY,unclassified,,0x462702,0x81a0d8
-SuperAnimTwoYSort,tag,art,0x46273c,0x81a0b0
-SuperAnimTwoZAdjust,tag,art,0x46271f,0x81a0c4
+SuperAnimTwoYSort,tag,art|ra2,0x46273c,0x81a0b0
+SuperAnimTwoZAdjust,tag,art|ra2,0x46271f,0x81a0c4
 SuperAnimX,unclassified,,0x462437,0x81a1c0
 SuperAnimY,unclassified,,0x462454,0x81a1b4
-SuperAnimYSort,tag,art,0x46248e,0x81a190
-SuperAnimZAdjust,tag,art,0x462471,0x81a1a0
-SuperGapRadiusInCells,tag,rules,0x713fd1,0x843e6c
+SuperAnimYSort,tag,art|ra2,0x46248e,0x81a190
+SuperAnimZAdjust,tag,art|ra2,0x462471,0x81a1a0
+SuperGapRadiusInCells,tag,ra2|rules,0x713fd1,0x843e6c
 SuperLowPower,tag,art,0x463a9a,0x819974
 SuperLowPowerDamaged,tag,art,0x463af8,0x81995c
 SuperLowPowerGarrisoned,unclassified,,0x463b92,0x819944
@@ -2275,17 +2275,17 @@ SuperLowPowerX,unclassified,,0x463c55,0x819934
 SuperLowPowerY,unclassified,,0x463c72,0x819924
 SuperLowPowerYSort,unclassified,,0x463cac,0x8198f8
 SuperLowPowerZAdjust,unclassified,,0x463c8f,0x81990c
-SuperWeapon,tag,rules,0x460bb8,0x817204
+SuperWeapon,tag,ra2|rules,0x460bb8,0x817204
 SuperWeapon2,unclassified,,0x460bd0,0x81a9a8
-SuperWeapons,tag,rules,0x67428f,0x83d4fc
+SuperWeapons,tag,ra2|rules,0x67428f,0x83d4fc
 SuperWeaponsAllowed,unclassified,,0x6721a7 0x697fd3 0x699016,0x83cf94
-SuppressionThreshold,tag,rules,0x71506d,0x8436ec
+SuppressionThreshold,tag,ra2|rules,0x71506d,0x8436ec
 Supress,unclassified,,0x7722a7,0x849440
-SurvivorRate,tag,rules,0x670c00,0x83bec0
-SuspendDelay,tag,rules,0x670bd9,0x83bed0
-SuspendPriority,tag,rules,0x670bb2,0x83bee0
+SurvivorRate,tag,ra2|rules,0x670c00,0x83bec0
+SuspendDelay,tag,ra2|rules,0x670bd9,0x83bed0
+SuspendPriority,tag,ra2|rules,0x670bb2,0x83bee0
 SyncBug,unclassified,,0x698a41 0x698a6a 0x698b7b 0x698bba 0x698be8 0x698c5f,0x83f040
-SystemError,tag,rules,0x66a843,0x83a528
+SystemError,tag,ra2|rules,0x66a843,0x83a528
 TALKBUBL.SHP,file,,0x5f77a6,0x832a80
 TECH,code,,0x4772cd,0x81c1c8
 TEXT1.AUD,file,,0x690672,0x83e640
@@ -2307,48 +2307,48 @@ TUR,code,,0x45faf8 0x45fc48,0x8194a8
 Tag,tag,map,0x6f1339 0x6f17de,0x81728c
 TalkBubbleTime,unclassified,,0x671e69,0x83b404
 Target,unclassified,,0x698bb5 0x76ccfa,0x83efec
-TargetCoordOffset,tag,rules,0x460f70,0x81a814
+TargetCoordOffset,tag,ra2|rules,0x460f70,0x81a814
 TargetDistanceCoefficient,unclassified,,0x71570c,0x843440
-TargetDistanceCoefficientDefault,tag,rules,0x671b8a,0x83b5d4
+TargetDistanceCoefficientDefault,tag,ra2|rules,0x671b8a,0x83b5d4
 TargetDividingFrame,unclassified,,0x76cd4e,0x848ecc
 TargetEffectivenessCoefficient,unclassified,,0x7155d8,0x843498
-TargetEffectivenessCoefficientDefault,tag,rules,0x671b15,0x83b644
-TargetLaser,tag,rules,0x714c8d,0x843898
+TargetEffectivenessCoefficientDefault,tag,ra2|rules,0x671b15,0x83b644
+TargetLaser,tag,ra2|rules,0x714c8d,0x843898
 TargetPalette,unclassified,,0x76cca8,0x848ee0
 TargetSpecialThreatCoefficient,unclassified,,0x71563f,0x843478
-TargetSpecialThreatCoefficientDefault,tag,rules,0x671b3c,0x83b61c
+TargetSpecialThreatCoefficientDefault,tag,ra2|rules,0x671b3c,0x83b61c
 TargetStrengthCoefficient,unclassified,,0x7156a6,0x84345c
-TargetStrengthCoefficientDefault,tag,rules,0x671b63,0x83b5f8
+TargetStrengthCoefficientDefault,tag,ra2|rules,0x671b63,0x83b5f8
 TargetZoom,unclassified,,0x76d93b,0x849058
 Target_,unclassified,,0x769ac3,0x848bdc
 Target_800,unclassified,,0x76faf7,0x849168
-Targets,tag,mapsel,0x5cfe2a,0x8304a4
-TaskForce,tag,ai|map,0x6f14c1 0x6f1846,0x8172fc
+Targets,tag,mapsel|ra2,0x5cfe2a,0x8304a4
+TaskForce,tag,ai|map|ra2,0x6f14c1 0x6f1846,0x8172fc
 TaskForces,unclassified,,0x6e822b 0x6e8246 0x6e825f 0x6e834d 0x6e8360 0x6e8379 0x6e839a 0x6e83ef,0x842db8
-TeamDelays,tag,map|rules,0x66fd8b,0x83c5c8
+TeamDelays,tag,map|ra2|rules,0x66fd8b,0x83c5c8
 TeamTypes,unclassified,,0x6f19bc 0x6f19d4 0x6f19ed 0x6f1abb 0x6f1ace 0x6f1ae7 0x6f1b08 0x6f1b58,0x8430fc
-TechLevel,tag,ai|map|mp|rules,0x500b95 0x501277 0x599830 0x671fad 0x6f130d 0x6f171f 0x714577,0x824e40
-Technician,tag,rules,0x66fca7,0x83c620
-Teleporter,tag,rules,0x713fe9,0x843e60
-TemperateAmbientBlue,tag,rmg,0x5985d6,0x82bcec
-TemperateAmbientGreen,tag,rmg,0x598570,0x82bd04
-TemperateAmbientLight,tag,rmg,0x59843e,0x82bd44
-TemperateAmbientRed,tag,rmg,0x59850a,0x82bd1c
-TemperateOccupationBits,tag,rules,0x71e07a,0x84461c
-TemperateOrePatchLamps,tag,rmg,0x59879d,0x82bc94
-Temporal,tag,rules,0x75d855,0x817168
-TerrainFire,tag,rules,0x7721a3,0x8494d4
-TerrainPalette,tag,art,0x4612bb,0x81a700
+TechLevel,tag,ai|map|mp|ra2|rules,0x500b95 0x501277 0x599830 0x671fad 0x6f130d 0x6f171f 0x714577,0x824e40
+Technician,tag,ra2|rules,0x66fca7,0x83c620
+Teleporter,tag,ra2|rules,0x713fe9,0x843e60
+TemperateAmbientBlue,tag,ra2|rmg,0x5985d6,0x82bcec
+TemperateAmbientGreen,tag,ra2|rmg,0x598570,0x82bd04
+TemperateAmbientLight,tag,ra2|rmg,0x59843e,0x82bd44
+TemperateAmbientRed,tag,ra2|rmg,0x59850a,0x82bd1c
+TemperateOccupationBits,tag,ra2|rules,0x71e07a,0x84461c
+TemperateOrePatchLamps,tag,ra2|rmg,0x59879d,0x82bc94
+Temporal,tag,ra2|rules,0x75d855,0x817168
+TerrainFire,tag,ra2|rules,0x7721a3,0x8494d4
+TerrainPalette,tag,art|ra2,0x4612bb,0x81a700
 Territory,unclassified,,0x7703a4,0x8489c0
 TerritorySelect,unclassified,,0x770722,0x8491d0
-TerroristExplodeTurretIndex,tag,rules,0x747d9c,0x845aac
-TerroristExplodeTurretWeapon,tag,rules,0x747dab,0x845a8c
-TeslaCharge,tag,rules,0x66ac29,0x83a480
-TeslaLimit,tag,rules,0x673c63,0x83d224
-TeslaRatio,tag,rules,0x673c43,0x83d230
-TeslaZap,tag,rules,0x66ac6b,0x83a474
-TextRect,tag,mapsel,0x5cf13c 0x76848c,0x8302f0
-Theater,tag,art|map,0x427da9 0x4acfd9 0x4ad815 0x5978a2 0x597b98 0x5997c7 0x5f95e9 0x687634,0x818658
+TerroristExplodeTurretIndex,tag,ra2|rules,0x747d9c,0x845aac
+TerroristExplodeTurretWeapon,tag,ra2|rules,0x747dab,0x845a8c
+TeslaCharge,tag,ra2|rules,0x66ac29,0x83a480
+TeslaLimit,tag,ra2|rules,0x673c63,0x83d224
+TeslaRatio,tag,ra2|rules,0x673c43,0x83d230
+TeslaZap,tag,ra2|rules,0x66ac6b,0x83a474
+TextRect,tag,mapsel|ra2,0x5cf13c 0x76848c,0x8302f0
+Theater,tag,art|map|ra2,0x427da9 0x4acfd9 0x4ad815 0x5978a2 0x597b98 0x5997c7 0x5f95e9 0x687634,0x818658
 Theme,tag,map,0x4f1fbd 0x68a12c 0x68b25b 0x76cafb,0x824194
 Themes,unclassified,,0x72059d 0x7205ca 0x7205d7,0x844760
 Thief,unclassified,,0x5245bf,0x82594c
@@ -2358,222 +2358,222 @@ ThirdCrew,tag,rules,0x66fd23,0x83c5f4
 ThirdDisguise,tag,rules,0x66fbdf,0x83c680
 ThirdPowerPlant,tag,rules,0x66f763,0x83c78c
 ThirdSurvivorDivisor,tag,rules,0x670c5f,0x83be78
-ThreatAvoidanceCoefficient,tag,rules,0x712460,0x844420
-ThreatPerOccupant,tag,rules,0x670128,0x83c3d4
-ThreatPosed,tag,map|rules,0x7149ce,0x84399c
+ThreatAvoidanceCoefficient,tag,ra2|rules,0x712460,0x844420
+ThreatPerOccupant,tag,ra2|rules,0x670128,0x83c3d4
+ThreatPosed,tag,map|ra2|rules,0x7149ce,0x84399c
 TibPass99,unclassified,,0x788be3 0x79765d,0x84b7b4
 TibSun,unclassified,,0x788be8 0x797662,0x84b7ac
-Tiberium,tag,rules,0x597932 0x597c34 0x5fe7f2 0x75d563,0x817278
-TiberiumChainReaction,tag,art,0x427f59,0x8185ac
+Tiberium,tag,ra2|rules,0x597932 0x597c34 0x5fe7f2 0x75d563,0x817278
+TiberiumChainReaction,tag,art|ra2,0x427f59,0x8185ac
 TiberiumDeathToVisceroid,tag,map,0x68a5d2 0x68b48e,0x83e004
-TiberiumExplosionDamage,tag,rules,0x66bc44,0x83b258
-TiberiumExplosive,tag,map|rules,0x66ce7e 0x6b8b7d 0x6b8cbd,0x83ad2c
-TiberiumGrows,tag,map|rules,0x6720aa 0x6b8b46 0x6b8dcf,0x83d000
+TiberiumExplosionDamage,tag,ra2|rules,0x66bc44,0x83b258
+TiberiumExplosive,tag,map|ra2|rules,0x66ce7e 0x6b8b7d 0x6b8cbd,0x83ad2c
+TiberiumGrows,tag,map|ra2|rules,0x6720aa 0x6b8b46 0x6b8dcf,0x83d000
 TiberiumGrowthEnabled,tag,map,0x68a57a 0x68b441,0x83e048
-TiberiumHeal,tag,rules,0x66e6d2 0x714c09,0x83cc74
+TiberiumHeal,tag,ra2|rules,0x66e6d2 0x714c09,0x83cc74
 TiberiumLayout,unclassified,,0x59794a 0x597c4d,0x82bb84
 TiberiumLongScan,tag,rules,0x6702b8,0x83c2b4
-TiberiumProof,tag,rules,0x52458b,0x82595c
+TiberiumProof,tag,ra2|rules,0x52458b,0x82595c
 TiberiumShortScan,tag,rules,0x670299,0x83c2c8
-TiberiumSpawnType,tag,art,0x42828a,0x81847c
-TiberiumSpreadRadius,tag,art,0x42825e,0x818490
-TiberiumSpreads,tag,map|rules,0x6b8b63 0x6b8df7,0x84025c
-TiberiumStrength,tag,rules,0x66bc64,0x83b244
-TiberiumTransmogrify,tag,rules,0x670f62,0x83bd2c
+TiberiumSpawnType,tag,art|ra2,0x42828a,0x81847c
+TiberiumSpreadRadius,tag,art|ra2,0x42825e,0x818490
+TiberiumSpreads,tag,map|ra2|rules,0x6b8b63 0x6b8df7,0x84025c
+TiberiumStrength,tag,ra2|rules,0x66bc64,0x83b244
+TiberiumTransmogrify,tag,ra2|rules,0x670f62,0x83bd2c
 Tiberiums,unclassified,,0x721d18 0x721d30 0x721d4b,0x84492c
 TickTank,unclassified,,0x460b7d,0x81a9c8
-Tiled,tag,art,0x4286c5,0x8183a4
-TilesInSet,tag,theater,0x545fca,0x82929c
+Tiled,tag,art|ra2,0x4286c5,0x8183a4
+TilesInSet,tag,ra2|theater,0x545fca,0x82929c
 TiltCrashJumpjet,tag,rules,0x71337e,0x844118
 TiltsWhenCrushes,unclassified,,0x7153e1,0x843540
 Time,unclassified,,0x49c436 0x49c96c 0x5978ba 0x597bb1,0x81f11c
 TimerInherit,tag,map,0x68a0f0 0x68b39d,0x83e144
-TimerWarning,tag,rules,0x66b660,0x83a260
-TireVoxelDebris,tag,rules,0x66f0d7,0x83c944
+TimerWarning,tag,ra2|rules,0x66b660,0x83a260
+TireVoxelDebris,tag,ra2|rules,0x66f0d7,0x83c944
 Title.PCX,file,,0x4f1cfb 0x4f214b,0x8241c8
 TitleRect,unclassified,,0x768547,0x848af4
-ToOverlay,tag,art,0x4611f5,0x81a740
-ToProtect,tag,rules,0x714be8,0x8438dc
-ToSnowTheater,tag,theater,0x5461ba,0x8291e8
-ToTemperateTheater,tag,theater,0x5461d9,0x8291d4
-ToTile,tag,rules,0x4654fb 0x465ce7,0x81aef0
-TogglePower,tag,rules,0x460727,0x81ab68
-TooBigToFitUnderBridge,tag,rules,0x74774e,0x845dc8
+ToOverlay,tag,art|ra2,0x4611f5,0x81a740
+ToProtect,tag,ra2|rules,0x714be8,0x8438dc
+ToSnowTheater,tag,ra2|theater,0x5461ba,0x8291e8
+ToTemperateTheater,tag,ra2|theater,0x5461d9,0x8291d4
+ToTile,tag,ra2|rules,0x4654fb 0x465ce7,0x81aef0
+TogglePower,tag,ra2|rules,0x460727,0x81ab68
+TooBigToFitUnderBridge,tag,ra2|rules,0x74774e,0x845dc8
 ToolTips,unclassified,,0x5fa87c 0x5fae33,0x833188
 TooltipRect,unclassified,,0x7684e8,0x848b00
-TotalAITeamCap,tag,map|rules,0x66ff30,0x83c4f4
-Track,tag,rules,0x6740b9 0x6740dc,0x81dbcc
-TrackTunnels,tag,theater,0x5457d1,0x829498
-TrackedDownhill,tag,rules,0x66f24e,0x83c89c
-TrackedUphill,tag,rules,0x66f227,0x83c8ac
-Trailer,tag,art,0x41cd0a 0x46c20e,0x81800c
-TrailerAnim,tag,art,0x428588 0x74b3ac,0x8183e0
-TrailerSeperation,tag,art,0x42863a,0x8183cc
+TotalAITeamCap,tag,map|ra2|rules,0x66ff30,0x83c4f4
+Track,tag,ra2|rules,0x6740b9 0x6740dc,0x81dbcc
+TrackTunnels,tag,ra2|theater,0x5457d1,0x829498
+TrackedDownhill,tag,ra2|rules,0x66f24e,0x83c89c
+TrackedUphill,tag,ra2|rules,0x66f227,0x83c8ac
+Trailer,tag,art|ra2,0x41cd0a 0x46c20e,0x81800c
+TrailerAnim,tag,art|ra2,0x428588 0x74b3ac,0x8183e0
+TrailerSeperation,tag,art|ra2,0x42863a,0x8183cc
 TrainCrate,tag,map,0x68a23c 0x68b1f2,0x83e0c8
-Trainable,tag,rules,0x714a1c,0x843974
-Translucency,tag,art|rules,0x4280f3 0x6450a8,0x818524
-TranslucencyDetailLevel,tag,art,0x42809b,0x818544
-Translucent,tag,art,0x427e89 0x74b09f,0x818604
-Translucent25State,tag,rules,0x6451bf,0x837184
-Translucent50State,tag,rules,0x6451a3,0x837198
+Trainable,tag,ra2|rules,0x714a1c,0x843974
+Translucency,tag,art|ra2|rules,0x4280f3 0x6450a8,0x818524
+TranslucencyDetailLevel,tag,art|ra2,0x42809b,0x818544
+Translucent,tag,art|ra2,0x427e89 0x74b09f,0x818604
+Translucent25State,tag,ra2|rules,0x6451bf,0x837184
+Translucent50State,tag,ra2|rules,0x6451a3,0x837198
 TransportWaypoint,tag,map,0x6f1459 0x6f180e,0x842f98
-TransportsReturnOnUnload,tag,ai|map,0x6f13e6 0x6f1787,0x842fc8
+TransportsReturnOnUnload,tag,ai|map|ra2,0x6f13e6 0x6f1787,0x842fc8
 TreeFire,unclassified,,0x66afc8,0x83a3cc
-TreeFlammability,tag,rules,0x66ec08,0x83cac4
-TreeStrength,tag,rules,0x671dde,0x83b42c
-TreeTargeting,tag,rules,0x66cefc,0x83ace8
+TreeFlammability,tag,ra2|rules,0x66ec08,0x83cac4
+TreeStrength,tag,ra2|rules,0x671dde,0x83b42c
+TreeTargeting,tag,ra2|rules,0x66cefc,0x83ace8
 TruckCrate,tag,map,0x68a21e 0x68b1d8,0x83e0d4
-TunnelSpeed,tag,rules,0x66eda1,0x83ca34
-Tunnels,tag,theater,0x5457b9,0x8294a8
-TurboBoost,tag,rules,0x66cd14 0x7726ad,0x83adc0
-TurnRate,tag,rules,0x6743ff,0x83d554
-Turret,tag,rules,0x713398,0x844110
-TurretAnim,tag,rules,0x46445f,0x819688
+TunnelSpeed,tag,ra2|rules,0x66eda1,0x83ca34
+Tunnels,tag,ra2|theater,0x5457b9,0x8294a8
+TurboBoost,tag,ra2|rules,0x66cd14 0x7726ad,0x83adc0
+TurnRate,tag,ra2|rules,0x6743ff,0x83d554
+Turret,tag,ra2|rules,0x713398,0x844110
+TurretAnim,tag,ra2|rules,0x46445f,0x819688
 TurretAnimDamaged,unclassified,,0x4644b4,0x819674
 TurretAnimGarrisoned,unclassified,,0x46454b,0x81965c
-TurretAnimIsVoxel,tag,rules,0x46463f,0x81960c
-TurretAnimX,tag,rules,0x4645d7,0x819650
-TurretAnimY,tag,rules,0x4645f1,0x819644
+TurretAnimIsVoxel,tag,ra2|rules,0x46463f,0x81960c
+TurretAnimX,tag,ra2|rules,0x4645d7,0x819650
+TurretAnimY,tag,ra2|rules,0x4645f1,0x819644
 TurretAnimYSort,unclassified,,0x464625,0x819620
-TurretAnimZAdjust,tag,rules,0x46460b,0x819630
+TurretAnimZAdjust,tag,ra2|rules,0x46460b,0x819630
 TurretCompressFrames,unclassified,,0x7152bc,0x8435cc
-TurretCount,tag,rules,0x712851,0x844348
+TurretCount,tag,ra2|rules,0x712851,0x844348
 TurretHoldFrames,unclassified,,0x7152e0,0x8435b8
-TurretNotExportedOnGround,tag,art,0x71600e,0x8431ec
-TurretOffset,tag,art,0x71587f,0x8433b0
-TurretRecoil,tag,rules,0x715270,0x8435f4
+TurretNotExportedOnGround,tag,art|ra2,0x71600e,0x8431ec
+TurretOffset,tag,art|ra2,0x71587f,0x8433b0
+TurretRecoil,tag,ra2|rules,0x715270,0x8435f4
 TurretRecoverFrames,unclassified,,0x715304,0x8435a4
-TurretRotateSound,tag,rules,0x7133ba,0x8440fc
+TurretRotateSound,tag,ra2|rules,0x7133ba,0x8440fc
 TurretSpins,tag,rules,0x713360,0x84412c
-TurretTravel,tag,rules,0x715298,0x8435e4
-Type,tag,eva|rules|sound,0x4f38dd 0x68d30d 0x68ff6b 0x698a65 0x6cec25 0x75072c 0x751208 0x752e10,0x824314
-TypeImmune,tag,rules,0x71220f,0x8444ec
+TurretTravel,tag,ra2|rules,0x715298,0x8435e4
+Type,tag,eva|ra2|rules|sound,0x4f38dd 0x68d30d 0x68ff6b 0x698a65 0x6cec25 0x75072c 0x751208 0x752e10,0x824314
+TypeImmune,tag,ra2|rules,0x71220f,0x8444ec
 Typelib,unclassified,,0x6bb8a6,0x840ae0
 UIMD.INI,file,,0x5352f8,0x827dc8
-UIName,tag,mission|rules,0x410af5 0x410bc2 0x500c6f 0x501373 0x686ed7 0x686f0f 0x68adf3,0x81784c
+UIName,tag,mission|ra2|rules,0x410af5 0x410bc2 0x500c6f 0x501373 0x686ed7 0x686f0f 0x68adf3,0x81784c
 UNIT,code,,0x698b3f 0x6c7336,0x83effc
-URepairRate,tag,rules,0x670e44,0x83bdc4
-UndeployDelay,tag,rules,0x714ba8,0x8438f4
-UndeploySound,tag,rules,0x71359e,0x8440a0
-UndeploysInto,tag,rules,0x7132b2,0x844170
-UnderDoorAnim,tag,art,0x45f55a,0x819460
+URepairRate,tag,ra2|rules,0x670e44,0x83bdc4
+UndeployDelay,tag,ra2|rules,0x714ba8,0x8438f4
+UndeploySound,tag,ra2|rules,0x71359e,0x8440a0
+UndeploysInto,tag,ra2|rules,0x7132b2,0x844170
+UnderDoorAnim,tag,art|ra2,0x45f55a,0x819460
 UnderParMessage,tag,map,0x68a7c8 0x68b5a9,0x83df5c
 UnderParTitle,tag,map,0x68a7a9 0x68b593,0x83df84
-UnderRoofDoorAnim,tag,art,0x45f706,0x819444
-Underwater,tag,rules,0x714d74,0x843848
+UnderRoofDoorAnim,tag,art|ra2,0x45f706,0x819444
+Underwater,tag,ra2|rules,0x714d74,0x843848
 Unholy,unclassified,,0x5d7dcc,0x830be4
 UnitAbsorb,tag,rules,0x46098f,0x81aabc
 UnitActionLines,unclassified,,0x5fa80e 0x5fae08,0x8331c8
-UnitCount,tag,rules,0x671f6d 0x697f9a 0x698ff2,0x83d06c
-UnitCrateType,tag,rules,0x66bae4,0x83ac40
+UnitCount,tag,ra2|rules,0x671f6d 0x697f9a 0x698ff2,0x83d06c
+UnitCrateType,tag,ra2|rules,0x66bae4,0x83ac40
 UnitEnterSound,unclassified,,0x46084c,0x81ab1c
 UnitExitSound,unclassified,,0x460816,0x81ab2c
-UnitReload,tag,rules,0x460923,0x81aae4
-UnitRepair,tag,rules,0x46090d,0x81aaf0
+UnitReload,tag,ra2|rules,0x460923,0x81aae4
+UnitRepair,tag,ra2|rules,0x46090d,0x81aaf0
 UnitsCostBonus,tag,rules,0x4606b0,0x81abb0
 UnitsGainSelfHeal,tag,rules,0x4601bc,0x81ad04
-UnloadingClass,tag,rules,0x7146e8,0x843af8
+UnloadingClass,tag,ra2|rules,0x7146e8,0x843af8
 Unnatural,tag,rules,0x714960,0x8439d0
-Unsellable,tag,rules,0x46009e,0x81addc
+Unsellable,tag,ra2|rules,0x46009e,0x81addc
 UpdateDate,unclassified,,0x778934 0x778e02 0x77a418,0x849f64
 UpdateTime,unclassified,,0x7788ea 0x778daf 0x77a3c7,0x849f70
-UpgradeEliteSound,tag,rules,0x669d3e,0x83a88c
-UpgradeVeteranSound,tag,rules,0x669cfd,0x83a8a0
-Upgrades,tag,rules,0x46472e,0x81954c
+UpgradeEliteSound,tag,ra2|rules,0x669d3e,0x83a88c
+UpgradeVeteranSound,tag,ra2|rules,0x669cfd,0x83a8a0
+Upgrades,tag,ra2|rules,0x46472e,0x81954c
 UrbanPresence,unclassified,,0x59797a 0x597c82,0x82bb68
 UseBuffer,tag,art,0x715776,0x843408
 UseChargeDrain,unclassified,,0x6ced35,0x842654
-UseFireParticles,tag,rules,0x7726c3,0x8493ac
-UseLineTrail,tag,art,0x5f9581,0x832b1c
-UseMinDefenseRule,tag,rules,0x66ff60,0x83c4e0
-UseNormalLight,tag,art,0x4286f5,0x818380
+UseFireParticles,tag,ra2|rules,0x7726c3,0x8493ac
+UseLineTrail,tag,art|ra2,0x5f9581,0x832b1c
+UseMinDefenseRule,tag,ra2|rules,0x66ff60,0x83c4e0
+UseNormalLight,tag,art|ra2,0x4286f5,0x818380
 UseOwnName,tag,rules,0x52463d,0x825908
-UseSparkParticles,tag,rules,0x7726e1,0x849398
-UseTransportOrigin,tag,ai|map,0x6f1223 0x6f168f,0x84306c
+UseSparkParticles,tag,ra2|rules,0x7726e1,0x849398
+UseTransportOrigin,tag,ai|map|ra2,0x6f1223 0x6f168f,0x84306c
 UseTurretShadow,unclassified,,0x7477c8,0x845da0
-V3EliteWarhead,tag,rules,0x66c419,0x83b198
-V3RocketAcceleration,tag,rules,0x6712e6,0x83baf8
-V3RocketAltitude,tag,rules,0x671305,0x83bae4
-V3RocketBodyLength,tag,rules,0x671364,0x83baac
-V3RocketDamage,tag,rules,0x671325,0x83bad4
-V3RocketEliteDamage,tag,rules,0x671345,0x83bac0
-V3RocketLazyCurve,tag,rules,0x671384,0x83ba98
-V3RocketPauseFrames,tag,rules,0x67120a,0x83bb78
-V3RocketPitchFinal,tag,rules,0x671273,0x83bb38
-V3RocketPitchInitial,tag,rules,0x671250,0x83bb4c
+V3EliteWarhead,tag,ra2|rules,0x66c419,0x83b198
+V3RocketAcceleration,tag,ra2|rules,0x6712e6,0x83baf8
+V3RocketAltitude,tag,ra2|rules,0x671305,0x83bae4
+V3RocketBodyLength,tag,ra2|rules,0x671364,0x83baac
+V3RocketDamage,tag,ra2|rules,0x671325,0x83bad4
+V3RocketEliteDamage,tag,ra2|rules,0x671345,0x83bac0
+V3RocketLazyCurve,tag,ra2|rules,0x671384,0x83ba98
+V3RocketPauseFrames,tag,ra2|rules,0x67120a,0x83bb78
+V3RocketPitchFinal,tag,ra2|rules,0x671273,0x83bb38
+V3RocketPitchInitial,tag,ra2|rules,0x671250,0x83bb4c
 V3RocketRaiseRate,tag,rules,0x6712be,0x83bb10
-V3RocketTiltFrames,tag,rules,0x67122a,0x83bb64
-V3RocketTurnRate,tag,rules,0x671298,0x83bb24
-V3RocketType,tag,rules,0x6713a4,0x83ba88
-V3Warhead,tag,rules,0x66c39c,0x83b1b8
+V3RocketTiltFrames,tag,ra2|rules,0x67122a,0x83bb64
+V3RocketTurnRate,tag,ra2|rules,0x671298,0x83bb24
+V3RocketType,tag,ra2|rules,0x6713a4,0x83ba88
+V3Warhead,tag,ra2|rules,0x66c39c,0x83b1b8
 VERS,code,,0x6c775a,0x842068
 VERSION.TXT,file,,0x74f771 0x74f7ff 0x74f8a2 0x74f973 0x74fa33 0x74faf1 0x74fb91 0x74fc89,0x84635c
-VHPScan,tag,rules,0x712574,0x8443a8
-VShift,tag,sound,0x750561,0x846560
-Value,tag,map|rules,0x721afb,0x8448ec
+VHPScan,tag,ra2|rules,0x712574,0x8443a8
+VShift,tag,ra2|sound,0x750561,0x846560
+Value,tag,map|ra2|rules,0x721afb,0x8448ec
 VariableNames,unclassified,,0x6876d2 0x6876e3 0x6876ff 0x68772c 0x68988c 0x68989d 0x6898ba 0x6898e7 0x689b49 0x689b5a 0x689b97 0x689bbb,0x83d824
 Vegetation,unclassified,,0x597962 0x597c67,0x82bb78
 VehicleThief,unclassified,,0x5245d9,0x82593c
-VeinAttack,unclassified,,0x6692ff,0x83ab7c
-VeinDamage,tag,rules,0x671d12,0x83b4b4
+VeinAttack,tag,ra2,0x6692ff,0x83ab7c
+VeinDamage,tag,ra2|rules,0x671d12,0x83b4b4
 VeinGrowthEnabled,tag,map,0x68a596 0x68b45b,0x83e034
 VeinGrowthRate,unclassified,,0x66b4fd,0x83a2dc
-Veinhole,tag,rules,0x75da0f,0x847cb4
-VeinholeGrowthRate,tag,rules,0x671cd3,0x83b4d4
+Veinhole,tag,ra2|rules,0x75da0f,0x847cb4
+VeinholeGrowthRate,tag,ra2|rules,0x671cd3,0x83b4d4
 VeinholeMonsterStrength,unclassified,,0x671c93,0x83b4fc
-VeinholeShrinkRate,tag,rules,0x671cf2,0x83b4c0
-VeinholeTypeClass,tag,rules,0x671d32,0x83b4a0
-Velocity,tag,rules,0x6450e3,0x8371fc
-VelocityPerturbationCoefficient,tag,rules,0x64454d,0x836f9c
-Verses,tag,rules,0x75ddde,0x847c38
+VeinholeShrinkRate,tag,ra2|rules,0x671cf2,0x83b4c0
+VeinholeTypeClass,tag,ra2|rules,0x671d32,0x83b4a0
+Velocity,tag,ra2|rules,0x6450e3,0x8371fc
+VelocityPerturbationCoefficient,tag,ra2|rules,0x64454d,0x836f9c
+Verses,tag,ra2|rules,0x75ddde,0x847c38
 VersionIndependentProgID,unclassified,,0x6bb834,0x840b08
-Vertical,tag,rules,0x46c351,0x81b00c
-VeryHigh,tag,rules,0x46c039,0x81b0e8
-VeteranAbilities,tag,rules,0x7154a3,0x8434e4
+Vertical,tag,ra2|rules,0x46c351,0x81b00c
+VeryHigh,tag,ra2|rules,0x46c039,0x81b0e8
+VeteranAbilities,tag,ra2|rules,0x7154a3,0x8434e4
 VeteranAircraft,unclassified,,0x511f68,0x825288
-VeteranArmor,tag,rules,0x66ef3b,0x83c994
-VeteranCap,tag,rules,0x66ef87,0x83c97c
-VeteranCombat,tag,rules,0x66eec9,0x83c9c4
+VeteranArmor,tag,ra2|rules,0x66ef3b,0x83c994
+VeteranCap,tag,ra2|rules,0x66ef87,0x83c97c
+VeteranCombat,tag,ra2|rules,0x66eec9,0x83c9c4
 VeteranInfantry,unclassified,,0x511d25,0x8252a8
-VeteranLevel,tag,ai|map,0x6f1123 0x6f15a1,0x8430ec
-VeteranROF,tag,rules,0x66ef61,0x83c988
-VeteranRatio,tag,rules,0x66eea3,0x83c9d4
-VeteranSight,tag,rules,0x66ef15,0x83c9a4
-VeteranSpeed,tag,rules,0x66eeef,0x83c9b4
+VeteranLevel,tag,ai|map|ra2,0x6f1123 0x6f15a1,0x8430ec
+VeteranROF,tag,ra2|rules,0x66ef61,0x83c988
+VeteranRatio,tag,ra2|rules,0x66eea3,0x83c9d4
+VeteranSight,tag,ra2|rules,0x66ef15,0x83c9a4
+VeteranSpeed,tag,ra2|rules,0x66eeef,0x83c9b4
 VeteranUnits,unclassified,,0x511e32,0x825298
 Video,unclassified,,0x5fa8b8 0x5fa8ce 0x5fa900 0x5fa947 0x5fa986 0x5fa99e 0x5fae52 0x5fae6c 0x5fae84 0x6bc0d2 0x6bc0ed 0x6bc10d 0x6bc12d,0x833160
 VideoBackBuffer,unclassified,,0x6bc0cd,0x840e28
 VirusTurretIndex,tag,rules,0x747e17,0x845a2c
 VirusTurretWeapon,tag,rules,0x747e26,0x845a18
-Visceroids,tag,map|rules,0x6b8c8e 0x6b8d84,0x8401e0
+Visceroids,tag,map|ra2|rules,0x6b8c8e 0x6b8d84,0x8401e0
 VisibleLoad,unclassified,,0x71590d,0x84338c
-VoiceAttack,tag,rules,0x712c74,0x84427c
-VoiceCapture,tag,rules,0x7130e8,0x8441c0
+VoiceAttack,tag,ra2|rules,0x712c74,0x84427c
+VoiceCapture,tag,ra2|rules,0x7130e8,0x8441c0
 VoiceComment,unclassified,,0x524193,0x825a2c
-VoiceCrashing,tag,rules,0x713034,0x8441ec
+VoiceCrashing,tag,ra2|rules,0x713034,0x8441ec
 VoiceDeploy,tag,rules,0x713784,0x84400c
 VoiceDie,unclassified,,0x712d48,0x84425c
-VoiceEnter,tag,rules,0x7130a0,0x8441d0
+VoiceEnter,tag,ra2|rules,0x7130a0,0x8441d0
 VoiceFalling,unclassified,,0x712fec,0x8441fc
-VoiceFeedback,tag,rules,0x712db2,0x84424c
+VoiceFeedback,tag,ra2|rules,0x712db2,0x84424c
 VoiceHarvest,tag,rules,0x713652,0x844090
 VoiceIFVRepair,tag,rules,0x669d80,0x83a87c
-VoiceMove,tag,rules,0x712acc,0x8442c0
-VoiceOver,tag,mapsel,0x5cface,0x8304d4
+VoiceMove,tag,ra2|rules,0x712acc,0x8442c0
+VoiceOver,tag,mapsel|ra2,0x5cface,0x8304d4
 VoiceOvers,unclassified,,0x76c4b1,0x848e0c
 VoicePrimaryEliteWeaponAttack,unclassified,,0x7136d0,0x844054
 VoicePrimaryWeaponAttack,unclassified,,0x71368e,0x844074
 VoiceSecondaryEliteWeaponAttack,unclassified,,0x713742,0x844018
 VoiceSecondaryWeaponAttack,tag,rules,0x713706,0x844038
-VoiceSelect,tag,rules,0x712b36,0x8442b4
+VoiceSelect,tag,ra2|rules,0x712b36,0x8442b4
 VoiceSelectDeactivated,tag,rules,0x712c0a,0x844288
 VoiceSelectEnslaved,tag,rules,0x712ba0,0x8442a0
 VoiceSinking,unclassified,,0x713064,0x8441dc
-VoiceSpecialAttack,tag,rules,0x712cde,0x844268
+VoiceSpecialAttack,tag,ra2|rules,0x712cde,0x844268
 VoiceUndeploy,unclassified,,0x7137ba,0x843ffc
 VoiceVolume,unclassified,,0x5faa1e 0x5faebe,0x8330a8
-Volume,tag,sound,0x7504fc 0x751134 0x752df3,0x846568
-Voxel,tag,art,0x5f9623,0x832aec
+Volume,tag,ra2|sound,0x7504fc 0x751134 0x752df3,0x846568
+Voxel,tag,art|ra2,0x5f9623,0x832aec
 VoxelAnims,unclassified,,0x67292a 0x67294b 0x672958,0x83d0e8
 VoxelBarrelFile,unclassified,,0x464676,0x8195e8
 VoxelBarrelOffsetToBarrelEnd,unclassified,,0x46470b,0x819558
@@ -2603,94 +2603,94 @@ WURL,code,,0x76ad8f 0x76af1a,0x848ce0
 WW.TiberianSun,unclassified,,0x6bb53c 0x6bb5a0 0x6bb629 0x6bb6d8 0x6bb7da,0x840b34
 WW.TiberianSun.1,unclassified,,0x6bb443 0x6bb4b6 0x6bb5fb 0x6bb60c 0x6bb6c5 0x6bb7f2,0x840b5c
 WWS,code,,0x551676,0x829774
-Wake,tag,rules,0x66d867,0x83cf08
-WalkFrames,tag,art,0x7477e0,0x845d94
-WalkRate,tag,rules,0x712229,0x8444e0
-Wall,tag,map|rules,0x46049f 0x5fe7d4 0x75d4fb,0x81ac58
-WallAbsoluteDestroyer,tag,rules,0x75d515,0x847e1c
-WallBuildSpeedCoefficient,tag,rules,0x671877,0x83b80c
+Wake,tag,ra2|rules,0x66d867,0x83cf08
+WalkFrames,tag,art|ra2,0x7477e0,0x845d94
+WalkRate,tag,ra2|rules,0x712229,0x8444e0
+Wall,tag,map|ra2|rules,0x46049f 0x5fe7d4 0x75d4fb,0x81ac58
+WallAbsoluteDestroyer,tag,ra2|rules,0x75d515,0x847e1c
+WallBuildSpeedCoefficient,tag,ra2|rules,0x671877,0x83b80c
 WallOwner,unclassified,,0x511a9c,0x825438
-WallPenetratorThreshold,tag,rules,0x66d242,0x83b384
-WallTower,tag,rules,0x66f565,0x83c7dc
+WallPenetratorThreshold,tag,ra2|rules,0x66d242,0x83b384
+WallTower,tag,ra2|rules,0x66f565,0x83c7dc
 WantsExtraSpace,unclassified,,0x46006a,0x81adec
-WarLimit,tag,rules,0x673b90,0x83d26c
-WarRatio,tag,rules,0x673b70,0x83d278
-Warhead,tag,art|map|rules,0x42867a 0x645043 0x74b421 0x772957,0x8183b4
+WarLimit,tag,ra2|rules,0x673b90,0x83d26c
+WarRatio,tag,ra2|rules,0x673b70,0x83d278
+Warhead,tag,art|map|ra2|rules,0x42867a 0x645043 0x74b421 0x772957,0x8183b4
 Warheads,unclassified,,0x668d86 0x668da7 0x668db4 0x67299a 0x6729bb 0x6729c8,0x83a0d0
-WarpAway,tag,rules,0x66e205,0x83cdb8
-WarpIn,tag,rules,0x66e188,0x83cdcc
-WarpOut,tag,rules,0x66e1c6,0x83cdc4
+WarpAway,tag,ra2|rules,0x66e205,0x83cdb8
+WarpIn,tag,ra2|rules,0x66e188,0x83cdcc
+WarpOut,tag,ra2|rules,0x66e1c6,0x83cdc4
 Warpable,unclassified,,0x714f65,0x843778
 Water,unclassified,,0x4acf5b,0x81bae8
 WaterAmount,unclassified,,0x59791a 0x597c19,0x82bb94
-WaterBound,tag,rules,0x45ff94 0x71df1c,0x81ae4c
-WaterBridge,tag,theater,0x545a09,0x829364
-WaterCaves,tag,theater,0x545982,0x8293a4
-WaterCliffs,tag,theater,0x54599d,0x829398
-WaterCrate,tag,rules,0x66bb74,0x83ac0c
-WaterCrateImg,tag,rules,0x66b9de,0x83ac98
-WaterSet,tag,theater,0x54574a,0x8294e0
-WaterfallEast,tag,theater,0x545822,0x829468
-WaterfallNorth,tag,theater,0x545858,0x829448
-WaterfallSouth,tag,theater,0x545873,0x829438
-WaterfallWest,tag,theater,0x54583d,0x829458
+WaterBound,tag,ra2|rules,0x45ff94 0x71df1c,0x81ae4c
+WaterBridge,tag,ra2|theater,0x545a09,0x829364
+WaterCaves,tag,ra2|theater,0x545982,0x8293a4
+WaterCliffs,tag,ra2|theater,0x54599d,0x829398
+WaterCrate,tag,ra2|rules,0x66bb74,0x83ac0c
+WaterCrateImg,tag,ra2|rules,0x66b9de,0x83ac98
+WaterSet,tag,ra2|theater,0x54574a,0x8294e0
+WaterfallEast,tag,ra2|theater,0x545822,0x829468
+WaterfallNorth,tag,ra2|theater,0x545858,0x829448
+WaterfallSouth,tag,ra2|theater,0x545873,0x829438
+WaterfallWest,tag,ra2|theater,0x54583d,0x829458
 Waypoint,tag,map,0x6f1426 0x6f17f5,0x817244
-WaypointAnimationSpeed,tag,rules,0x6692d4,0x83ab88
+WaypointAnimationSpeed,tag,ra2|rules,0x6692d4,0x83ab88
 Waypoints,unclassified,,0x5c13f5 0x5e6653 0x68bdee,0x82db0c
-WeaponCount,tag,rules,0x71286b,0x84433c
-WeaponNullifyAnim,tag,rules,0x66e2c1,0x83cd74
+WeaponCount,tag,ra2|rules,0x71286b,0x84433c
+WeaponNullifyAnim,tag,ra2|rules,0x66e2c1,0x83cd74
 WeaponStages,tag,rules,0x714037,0x843e3c
-WeaponType,tag,rules,0x6cea65,0x81725c
-WeaponsFactory,tag,rules,0x460a79,0x81aa4c
-WeatherConBoltExplosion,tag,rules,0x66df33,0x83ce8c
-WeatherConBolts,tag,rules,0x66de2b,0x83cea4
-WeatherConClouds,tag,rules,0x66dd28,0x83ceb4
-WeedCapacity,tag,rules,0x67195a,0x83b760
+WeaponType,tag,ra2|rules,0x6cea65,0x81725c
+WeaponsFactory,tag,ra2|rules,0x460a79,0x81aa4c
+WeatherConBoltExplosion,tag,ra2|rules,0x66df33,0x83ce8c
+WeatherConBolts,tag,ra2|rules,0x66de2b,0x83cea4
+WeatherConClouds,tag,ra2|rules,0x66dd28,0x83ceb4
+WeedCapacity,tag,ra2|rules,0x67195a,0x83b760
 Weeder,unclassified,,0x4604b9 0x7476c0,0x81ac50
-Weight,tag,rules,0x7124dd,0x8443d8
-Wheel,tag,rules,0x6740fc 0x67411f,0x81dbc4
-WheeledDownhill,tag,rules,0x66f29c,0x83c87c
-WheeledUphill,tag,rules,0x66f275,0x83c88c
-Whiner,tag,ai|map,0x6f125b 0x6f16a1,0x843058
-Width,tag,map|rules,0x59782a 0x597b19 0x689db9 0x689ef3 0x68af1c 0x6b5733,0x82bbe4
+Weight,tag,ra2|rules,0x7124dd,0x8443d8
+Wheel,tag,ra2|rules,0x6740fc 0x67411f,0x81dbc4
+WheeledDownhill,tag,ra2|rules,0x66f29c,0x83c87c
+WheeledUphill,tag,ra2|rules,0x66f275,0x83c88c
+Whiner,tag,ai|map|ra2,0x6f125b 0x6f16a1,0x843058
+Width,tag,map|ra2|rules,0x59782a 0x597b19 0x689db9 0x689ef3 0x68af1c 0x6b5733,0x82bbe4
 Win,tag,map,0x68a03c 0x68b2fc 0x770576 0x770e77,0x83e188
-WindDirection,tag,rules,0x66f2bc,0x83c86c
-WindEffect,tag,rules,0x6450be,0x837208
+WindDirection,tag,ra2|rules,0x66f2bc,0x83c86c
+WindEffect,tag,ra2|rules,0x6450be,0x837208
 WinningThreshold,unclassified,,0x76c987,0x848eb8
 Wins,unclassified,,0x778cec 0x77a2f7,0x849fbc
 Wipe,unclassified,,0x68d0e2 0x68d44a,0x83e418
-WobbleDeviation,tag,rules,0x6744d1,0x83d518
-WobblesPerSecond,tag,rules,0x6744b1,0x83d528
+WobbleDeviation,tag,ra2|rules,0x6744d1,0x83d518
+WobblesPerSecond,tag,ra2|rules,0x6744b1,0x83d528
 WonlineClanTournamentAllowed,tag,mp,0x5d5cc4,0x8308bc
 WonlinePref,unclassified,,0x698473 0x6991ef,0x83f0f4
-WonlineTournamentAllowed,tag,mp,0x5d5ca7,0x8308dc
-Wood,tag,rules,0x75d549,0x847e00
-WoodBridgeSet,tag,theater,0x5456f9,0x829504
-WoodCrate,tag,rules,0x66bb54,0x83ac18
-WoodCrateImg,tag,rules,0x66b961,0x83acb4
+WonlineTournamentAllowed,tag,mp|ra2,0x5d5ca7,0x8308dc
+Wood,tag,ra2|rules,0x75d549,0x847e00
+WoodBridgeSet,tag,ra2|theater,0x5456f9,0x829504
+WoodCrate,tag,ra2|rules,0x66bb54,0x83ac18
+WoodCrateImg,tag,ra2|rules,0x66b961,0x83acb4
 Working,unclassified,,0x7a183a,0x84d430
-WorkingSound,tag,rules,0x46088e,0x81ab0c
-XVelocity,tag,rules,0x645212,0x83716c
+WorkingSound,tag,ra2|rules,0x46088e,0x81ab0c
+XVelocity,tag,ra2|rules,0x645212,0x83716c
 XXICON,unclassified,,0x716c86 0x716ca5 0x716cc1,0x844530
-YDrawOffset,tag,art,0x428319,0x81842c
+YDrawOffset,tag,art|ra2,0x428319,0x81842c
 YR1,code,,0x4a81c8,0x81ffc0
-YSortAdjust,tag,art,0x42813f,0x818500
-YVelocity,tag,rules,0x645228,0x837160
+YSortAdjust,tag,art|ra2,0x42813f,0x818500
+YVelocity,tag,ra2|rules,0x645228,0x837160
 Yuri,tag,eva,0x752f55,0x846798
 YuriBarracks,tag,rules,0x460b45,0x81a9e4
-YuriMindControlSound,tag,rules,0x669aef,0x83a958
+YuriMindControlSound,tag,ra2|rules,0x669aef,0x83a958
 YuriParaDropInf,tag,map|rules,0x670774,0x83c0a4
 YuriParaDropNum,tag,map|rules,0x6707ac,0x83c094
 YuriPrimeTurretIndex,tag,rules,0x747e40,0x845a00
 YuriPrimeTurretWeapon,tag,rules,0x747e4f,0x8459e8
-ZAdjust,tag,art,0x428337,0x818424
-ZFudgeBridge,tag,rules,0x715486,0x8434f8
+ZAdjust,tag,art|ra2,0x428337,0x818424
+ZFudgeBridge,tag,ra2|rules,0x715486,0x8434f8
 ZFudgeCliff,unclassified,,0x715423,0x843528
-ZFudgeColumn,tag,rules,0x715444,0x843518
-ZFudgeTunnel,tag,rules,0x715465,0x843508
-ZShapePointMove,tag,art,0x4613c3,0x81a65c
-ZVelocityRange,tag,rules,0x645260,0x837140
-Zombie,tag,rules,0x5b37dd,0x82c2b0
+ZFudgeColumn,tag,ra2|rules,0x715444,0x843518
+ZFudgeTunnel,tag,ra2|rules,0x715465,0x843508
+ZShapePointMove,tag,art|ra2,0x4613c3,0x81a65c
+ZVelocityRange,tag,ra2|rules,0x645260,0x837140
+Zombie,tag,ra2|rules,0x5b37dd,0x82c2b0
 ZoomInFactor,unclassified,,0x66ead0,0x83cb90
 ZoomingTarget,unclassified,,0x76cc30,0x848ef0
 ack,unclassified,,0x7a1963,0x84d3e4

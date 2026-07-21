@@ -1,0 +1,5632 @@
+{
+  "AIUseTurbineUpgradeProbability": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [
+      "ra2-obsolete"
+    ],
+    "types": [
+      "General"
+    ],
+    "url": "https://modenc.renegadeprojects.com/AIUseTurbineUpgradeProbability"
+  },
+  "Accessibility": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "RandomMap"
+    ],
+    "url": "https://modenc.renegadeprojects.com/Accessibility"
+  },
+  "ActiveAnimFourGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimFourGarrisoned"
+  },
+  "ActiveAnimFourPowered": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimFourPowered"
+  },
+  "ActiveAnimFourPoweredEffect": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimFourPoweredEffect"
+  },
+  "ActiveAnimFourPoweredLight": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimFourPoweredLight"
+  },
+  "ActiveAnimFourPoweredSpecial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimFourPoweredSpecial"
+  },
+  "ActiveAnimFourX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimFourX"
+  },
+  "ActiveAnimFourY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimFourY"
+  },
+  "ActiveAnimPoweredEffect": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimPoweredEffect"
+  },
+  "ActiveAnimThreeGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimThreeGarrisoned"
+  },
+  "ActiveAnimThreePoweredEffect": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimThreePoweredEffect"
+  },
+  "ActiveAnimThreePoweredSpecial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimThreePoweredSpecial"
+  },
+  "ActiveAnimThreeX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimThreeX"
+  },
+  "ActiveAnimThreeY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimThreeY"
+  },
+  "ActiveAnimTwoGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimTwoGarrisoned"
+  },
+  "ActiveAnimTwoPoweredEffect": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimTwoPoweredEffect"
+  },
+  "ActiveAnimTwoPoweredSpecial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimTwoPoweredSpecial"
+  },
+  "ActiveAnimTwoX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimTwoX"
+  },
+  "ActiveAnimTwoY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimTwoY"
+  },
+  "ActiveAnimX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ActiveAnimX"
+  },
+  "AddMatchBuddies": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/AddMatchBuddies"
+  },
+  "AllowFind": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/AllowFind"
+  },
+  "AllowHiResModes": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "ra2",
+      "sun"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/AllowHiResModes"
+  },
+  "AllowModeToggle": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/AllowModeToggle"
+  },
+  "AllowPage": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/AllowPage"
+  },
+  "AllowVRAMSidebar": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/AllowVRAMSidebar"
+  },
+  "AllowableUnitMaximums": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Basic"
+    ],
+    "url": "https://modenc.renegadeprojects.com/AllowableUnitMaximums"
+  },
+  "AllowableUnits": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Basic"
+    ],
+    "url": "https://modenc.renegadeprojects.com/AllowableUnits"
+  },
+  "AnimAux1": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/AnimAux1"
+  },
+  "AnimAux2": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/AnimAux2"
+  },
+  "AnimIdle": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/AnimIdle"
+  },
+  "Animations": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/Animations"
+  },
+  "ArmorAircraftMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ArmorAircraftMult"
+  },
+  "ArmorBuildingsMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ArmorBuildingsMult"
+  },
+  "ArmorDefensesMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ArmorDefensesMult"
+  },
+  "ArmorInfantryMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ArmorInfantryMult"
+  },
+  "ArmorUnitsMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ArmorUnitsMult"
+  },
+  "Ask": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Ask"
+  },
+  "AttachedSystem": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Projectiles",
+      "VoxelAnims"
+    ],
+    "url": "https://modenc.renegadeprojects.com/AttachedSystem"
+  },
+  "AttachedTo": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/AttachedTo"
+  },
+  "AttackFriendlies": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technoes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/AttackFriendlies"
+  },
+  "Audio": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Audio"
+  },
+  "AuthenticAMD": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/AuthenticAMD"
+  },
+  "AutoLogin": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/AutoLogin"
+  },
+  "AutoScroll": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/AutoScroll"
+  },
+  "Back": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Back"
+  },
+  "BackButton": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/BackButton"
+  },
+  "BackButtonDepressedFrame": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/BackButtonDepressedFrame"
+  },
+  "BackButtonHighlighted": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/BackButtonHighlighted"
+  },
+  "BackButtonNormalFrame": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/BackButtonNormalFrame"
+  },
+  "BackButtonOrigin": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/BackButtonOrigin"
+  },
+  "BackButtonPalette": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/BackButtonPalette"
+  },
+  "BackButtonRectangle": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/BackButtonRectangle"
+  },
+  "BackTextRect": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/BackTextRect"
+  },
+  "BarGraph": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/BarGraph"
+  },
+  "BarrelStartPitch": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/BarrelStartPitch"
+  },
+  "Battle": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Battle"
+  },
+  "Battles": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Battles"
+  },
+  "Baud": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Baud"
+  },
+  "BestBox": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/BestBox"
+  },
+  "BlueTint": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/BlueTint"
+  },
+  "BounceAnim": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art",
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Animations",
+      "VoxelAnims"
+    ],
+    "url": "https://modenc.renegadeprojects.com/BounceAnim"
+  },
+  "BuildOffAlly": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "MultiplayerDialogSettings"
+    ],
+    "url": "https://modenc.renegadeprojects.com/BuildOffAlly"
+  },
+  "BuildTimeAircraftMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/BuildTimeAircraftMult"
+  },
+  "BuildTimeBuildingsMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/BuildTimeBuildingsMult"
+  },
+  "BuildTimeDefensesMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/BuildTimeDefensesMult"
+  },
+  "BuildTimeInfantryMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/BuildTimeInfantryMult"
+  },
+  "BuildTimeUnitsMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/BuildTimeUnitsMult"
+  },
+  "BuildingAbandonedSound": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "AudioVisual"
+    ],
+    "url": "https://modenc.renegadeprojects.com/BuildingAbandonedSound"
+  },
+  "BuildupSound": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/BuildupSound"
+  },
+  "Built1": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Built1"
+  },
+  "Built2": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Built2"
+  },
+  "Bummer": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Bummer"
+  },
+  "CLDisableRed": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Warheads"
+    ],
+    "url": "https://modenc.renegadeprojects.com/CLDisableRed"
+  },
+  "CallWaitString": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/CallWaitString"
+  },
+  "CallWaitStringIndex": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/CallWaitStringIndex"
+  },
+  "Camera": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Weapons"
+    ],
+    "url": "https://modenc.renegadeprojects.com/Camera"
+  },
+  "CampDifficulty": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/CampDifficulty"
+  },
+  "CampaignID": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/CampaignID"
+  },
+  "CampaignType": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/CampaignType"
+  },
+  "Campaigns": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Campaigns"
+  },
+  "CanBeach": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [
+      "ra2-obsolete"
+    ],
+    "types": [
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/CanBeach"
+  },
+  "CanRecalcApproachTarget": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/CanRecalcApproachTarget"
+  },
+  "Canceled": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Canceled"
+  },
+  "Cell": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/Cell"
+  },
+  "CheckHeap": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/CheckHeap"
+  },
+  "CivEvac": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Basic"
+    ],
+    "url": "https://modenc.renegadeprojects.com/CivEvac"
+  },
+  "Class": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Class"
+  },
+  "Clear": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/Clear"
+  },
+  "ClearAllWeapons": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technos"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ClearAllWeapons"
+  },
+  "CloakStop": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [
+      "ra2-obsolete"
+    ],
+    "types": [
+      "AircraftTypes",
+      "InfantryTypes",
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/CloakStop"
+  },
+  "Color1": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Color1"
+  },
+  "Color2": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Color2"
+  },
+  "ColorEx": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ColorEx"
+  },
+  "ComboDropWin": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/ComboDropWin"
+  },
+  "Community": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Community"
+  },
+  "Compression": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Compression"
+  },
+  "Computer": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Computer"
+  },
+  "ConditionRedSparkingProbability": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "General"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ConditionRedSparkingProbability"
+  },
+  "ConditionYellowSparkingProbability": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "General"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ConditionYellowSparkingProbability"
+  },
+  "ConflictSelected": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/ConflictSelected"
+  },
+  "Connected": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Connected"
+  },
+  "Cooperative": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Cooperative"
+  },
+  "Coord": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Coord"
+  },
+  "CostAircraftMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/CostAircraftMult"
+  },
+  "CostBuildingsMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/CostBuildingsMult"
+  },
+  "CostDefensesMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/CostDefensesMult"
+  },
+  "CostInfantryMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/CostInfantryMult"
+  },
+  "CratesAppear": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/CratesAppear"
+  },
+  "CurVer": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/CurVer"
+  },
+  "CurrentMap": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/CurrentMap"
+  },
+  "CustomRotor": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "AircraftTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/CustomRotor"
+  },
+  "CyrixInstead": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/CyrixInstead"
+  },
+  "DamSmkOffScrnRel": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "TechnoTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DamSmkOffScrnRel"
+  },
+  "DamageReducesReadiness": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technos"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DamageReducesReadiness"
+  },
+  "DeathAnims": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "InfantryTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DeathAnims"
+  },
+  "DefaultChronoSound": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/DefaultChronoSound"
+  },
+  "DefaultPalette": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/DefaultPalette"
+  },
+  "DefaultPersona": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/DefaultPersona"
+  },
+  "Defaults": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Defaults"
+  },
+  "Degenerates": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Degenerates"
+  },
+  "DeployFireWeapon": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "InfantryTypes",
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DeployFireWeapon"
+  },
+  "DescriptionText": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/DescriptionText"
+  },
+  "DestNet": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/DestNet"
+  },
+  "DestroyParticleSystems": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technoes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DestroyParticleSystems"
+  },
+  "DestroySmokeOffset": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technoes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DestroySmokeOffset"
+  },
+  "DetectionDistance": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [
+      "ra2-obsolete"
+    ],
+    "types": [
+      "InfantryTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DetectionDistance"
+  },
+  "DialMethod": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/DialMethod"
+  },
+  "DialogList": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/DialogList"
+  },
+  "Difficult": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/Difficult"
+  },
+  "Difficulty": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "ra2",
+      "sun"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Options"
+    ],
+    "url": "https://modenc.renegadeprojects.com/Difficulty"
+  },
+  "DirectRocker": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/DirectRocker"
+  },
+  "Disableable": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Disableable"
+  },
+  "Disconnects": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Disconnects"
+  },
+  "DisplayAsian": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/DisplayAsian"
+  },
+  "DisplayBuddies": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/DisplayBuddies"
+  },
+  "DisplayClan": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/DisplayClan"
+  },
+  "DisplayLatin": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/DisplayLatin"
+  },
+  "DistributedWeaponFire": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art",
+      "rules"
+    ],
+    "present": true,
+    "status": [
+      "ra2-obsolete"
+    ],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/DistributedWeaponFire"
+  },
+  "DllGetVersion": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/DllGetVersion"
+  },
+  "DllRegisterServer": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/DllRegisterServer"
+  },
+  "DominatorAmbient": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Lighting"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DominatorAmbient"
+  },
+  "DominatorAmbientChangeRate": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Lighting"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DominatorAmbientChangeRate"
+  },
+  "DominatorBlue": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Lighting"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DominatorBlue"
+  },
+  "DominatorGreen": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Lighting"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DominatorGreen"
+  },
+  "DominatorGround": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Lighting"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DominatorGround"
+  },
+  "DominatorLevel": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Lighting"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DominatorLevel"
+  },
+  "DominatorRed": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Lighting"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DominatorRed"
+  },
+  "DoubleOwned": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technoes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DoubleOwned"
+  },
+  "DownReport": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Weapons"
+    ],
+    "url": "https://modenc.renegadeprojects.com/DownReport"
+  },
+  "Draw": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Draw"
+  },
+  "DrawBoltAsLaser": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/DrawBoltAsLaser"
+  },
+  "Easy": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/Easy"
+  },
+  "Efficiency": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Efficiency"
+  },
+  "ElitePBarrelLength": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes",
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ElitePBarrelLength"
+  },
+  "ElitePBarrelThickness": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/ElitePBarrelThickness"
+  },
+  "EliteSBarrelLength": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes",
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/EliteSBarrelLength"
+  },
+  "EliteSBarrelThickness": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/EliteSBarrelThickness"
+  },
+  "Emblem": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Emblem"
+  },
+  "Emphasis": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Emphasis"
+  },
+  "EmptyReload": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technos"
+    ],
+    "url": "https://modenc.renegadeprojects.com/EmptyReload"
+  },
+  "ErrorCorrection": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ErrorCorrection"
+  },
+  "Europe": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Europe"
+  },
+  "Evacuate": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Evacuate"
+  },
+  "Exit": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Exit"
+  },
+  "Fail": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Fail"
+  },
+  "Fill": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Fill"
+  },
+  "FirePower": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Difficulty"
+    ],
+    "url": "https://modenc.renegadeprojects.com/FirePower"
+  },
+  "FirewallDelta": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/FirewallDelta"
+  },
+  "FirewallSettings": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/FirewallSettings"
+  },
+  "Flamer": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [
+      "ra2-obsolete"
+    ],
+    "types": [
+      "Animations"
+    ],
+    "url": "https://modenc.renegadeprojects.com/Flamer"
+  },
+  "ForcePortBase": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ForcePortBase"
+  },
+  "Frame": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/Frame"
+  },
+  "FreeForAll": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/FreeForAll"
+  },
+  "FriendlyName": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/FriendlyName"
+  },
+  "Game": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Game"
+  },
+  "GetActiveWindow": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/GetActiveWindow"
+  },
+  "GetDiskFreeSpaceExA": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/GetDiskFreeSpaceExA"
+  },
+  "GetLastActivePopup": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/GetLastActivePopup"
+  },
+  "GreenTint": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/GreenTint"
+  },
+  "HTMLPath": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/HTMLPath"
+  },
+  "HalfDamageSmokeLocation": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/HalfDamageSmokeLocation"
+  },
+  "HalfDamageSmokeLocation2": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/HalfDamageSmokeLocation2"
+  },
+  "Handle": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Handle"
+  },
+  "HarvesterDumpRate": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "General"
+    ],
+    "url": "https://modenc.renegadeprojects.com/HarvesterDumpRate"
+  },
+  "HarvesterLoadRate": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "General"
+    ],
+    "url": "https://modenc.renegadeprojects.com/HarvesterLoadRate"
+  },
+  "HelpBar": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/HelpBar"
+  },
+  "HelpBarSize": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/HelpBarSize"
+  },
+  "History": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/History"
+  },
+  "Hotkey": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/Hotkey"
+  },
+  "House1": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/House1"
+  },
+  "House2": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/House2"
+  },
+  "HoverPad": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/HoverPad"
+  },
+  "IFVTransformSound": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [
+      "ra2-obsolete"
+    ],
+    "types": [
+      "AudioVisual"
+    ],
+    "url": "https://modenc.renegadeprojects.com/IFVTransformSound"
+  },
+  "IdleAnimGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/IdleAnimGarrisoned"
+  },
+  "IdleAnimPoweredEffect": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/IdleAnimPoweredEffect"
+  },
+  "IdleAnimPoweredLight": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/IdleAnimPoweredLight"
+  },
+  "IdleAnimPoweredSpecial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/IdleAnimPoweredSpecial"
+  },
+  "IdleAnimX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/IdleAnimX"
+  },
+  "IdleAnimY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/IdleAnimY"
+  },
+  "InGameMusic": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/InGameMusic"
+  },
+  "IncomeMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries",
+      "Houses"
+    ],
+    "url": "https://modenc.renegadeprojects.com/IncomeMult"
+  },
+  "InitStringIndex": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/InitStringIndex"
+  },
+  "InitStrings": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/InitStrings"
+  },
+  "InitialAmmo": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technoes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/InitialAmmo"
+  },
+  "InprocServer32": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/InprocServer32"
+  },
+  "Invisible": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "AircraftTypes",
+      "BuildingTypes",
+      "InfantryTypes",
+      "TechnoTypes",
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/Invisible"
+  },
+  "IonSensitive": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/IonSensitive"
+  },
+  "IsProcessorFeaturePresent": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/IsProcessorFeaturePresent"
+  },
+  "IsScoreRepeat": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/IsScoreRepeat"
+  },
+  "IsScoreShuffle": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/IsScoreShuffle"
+  },
+  "JumpjetAccel": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "AircraftTypes",
+      "InfantryTypes",
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/JumpjetAccel"
+  },
+  "JumpjetTurnRate": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technos"
+    ],
+    "url": "https://modenc.renegadeprojects.com/JumpjetTurnRate"
+  },
+  "Kills1": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Kills1"
+  },
+  "Kills2": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Kills2"
+  },
+  "LANScrollText": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/LANScrollText"
+  },
+  "LANTaunts": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/LANTaunts"
+  },
+  "LangFilter": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/LangFilter"
+  },
+  "LastDay": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/LastDay"
+  },
+  "LastNickSlot": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/LastNickSlot"
+  },
+  "LastTilesInSet": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "TileSets"
+    ],
+    "url": "https://modenc.renegadeprojects.com/LastTilesInSet"
+  },
+  "LastValid": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/LastValid"
+  },
+  "LeptonMindControlOffset": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "TechnoTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/LeptonMindControlOffset"
+  },
+  "LightningPrintText": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "General"
+    ],
+    "url": "https://modenc.renegadeprojects.com/LightningPrintText"
+  },
+  "LightningRod": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [
+      "ra2-obsolete"
+    ],
+    "types": [
+      "Technoes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/LightningRod"
+  },
+  "ListBox": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/ListBox"
+  },
+  "LobMusic": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/LobMusic"
+  },
+  "Locale": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Locale"
+  },
+  "LocaleVerified": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/LocaleVerified"
+  },
+  "Logo": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Logo"
+  },
+  "LosingThreshold": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/LosingThreshold"
+  },
+  "Losses": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Losses"
+  },
+  "Lost1": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Lost1"
+  },
+  "Lost2": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Lost2"
+  },
+  "LowPowerGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/LowPowerGarrisoned"
+  },
+  "LowPowerPoweredEffect": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/LowPowerPoweredEffect"
+  },
+  "LowPowerPoweredLight": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/LowPowerPoweredLight"
+  },
+  "LowPowerPoweredSpecial": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/LowPowerPoweredSpecial"
+  },
+  "LowPowerX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/LowPowerX"
+  },
+  "LowPowerY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/LowPowerY"
+  },
+  "LowPowerYSort": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/LowPowerYSort"
+  },
+  "LowPowerZAdjust": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/LowPowerZAdjust"
+  },
+  "MCVRepacks": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/MCVRepacks"
+  },
+  "ManBattle": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/ManBattle"
+  },
+  "ManualReload": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ManualReload"
+  },
+  "MapEnter": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/MapEnter"
+  },
+  "MapLeave": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/MapLeave"
+  },
+  "MapType": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/MapType"
+  },
+  "MatchByRes": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/MatchByRes"
+  },
+  "MegaLosingThreshold": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/MegaLosingThreshold"
+  },
+  "MegaWinningThreshold": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/MegaWinningThreshold"
+  },
+  "MessageBoxA": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/MessageBoxA"
+  },
+  "MindControlRingOffset": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "TechnoTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/MindControlRingOffset"
+  },
+  "MobileFire": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/MobileFire"
+  },
+  "Model": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Model"
+  },
+  "Modem": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Modem"
+  },
+  "ModemName": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ModemName"
+  },
+  "MouseCancel": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/MouseCancel"
+  },
+  "MultiMaps": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/MultiMaps"
+  },
+  "MultiPlayer": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/MultiPlayer"
+  },
+  "MyEffectivenessCoefficient": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "TechnoTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/MyEffectivenessCoefficient"
+  },
+  "NameKeyPrefix": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/NameKeyPrefix"
+  },
+  "NaturalParticleLocation": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/NaturalParticleLocation"
+  },
+  "NaturalParticleSystem": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/NaturalParticleSystem"
+  },
+  "NetCard": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/NetCard"
+  },
+  "NetID": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/NetID"
+  },
+  "Network": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Network"
+  },
+  "NoAutoFire": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/NoAutoFire"
+  },
+  "NorthAmerica": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/NorthAmerica"
+  },
+  "NotInsertable": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/NotInsertable"
+  },
+  "Note": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Note"
+  },
+  "NukeAmbientChangeRate": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Lighting"
+    ],
+    "url": "https://modenc.renegadeprojects.com/NukeAmbientChangeRate"
+  },
+  "NumCoopHumanStartSpots": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/NumCoopHumanStartSpots"
+  },
+  "NumLoopFrames": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Particles"
+    ],
+    "url": "https://modenc.renegadeprojects.com/NumLoopFrames"
+  },
+  "NumPlayers": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/NumPlayers"
+  },
+  "ObserverMode": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ObserverMode"
+  },
+  "OldCycle": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/OldCycle"
+  },
+  "Opening": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Opening"
+  },
+  "OverlayPalette": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/OverlayPalette"
+  },
+  "OverlayPrefix": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/OverlayPrefix"
+  },
+  "PackupSound": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/PackupSound"
+  },
+  "ParticleSystems": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/ParticleSystems"
+  },
+  "Particles": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/Particles"
+  },
+  "PhoneBook": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/PhoneBook"
+  },
+  "PhoneIndex": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/PhoneIndex"
+  },
+  "PingFail": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/PingFail"
+  },
+  "PipWrap": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technoes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/PipWrap"
+  },
+  "Play": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Play"
+  },
+  "PlayerFaction": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/PlayerFaction"
+  },
+  "PnPAttachedTo": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/PnPAttachedTo"
+  },
+  "Port": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Port"
+  },
+  "PortBase": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/PortBase"
+  },
+  "PortNumberOverride": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/PortNumberOverride"
+  },
+  "PortPool": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/PortPool"
+  },
+  "PreProductionAnimDamaged": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/PreProductionAnimDamaged"
+  },
+  "PreProductionAnimGarrisoned": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/PreProductionAnimGarrisoned"
+  },
+  "PreProductionAnimX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/PreProductionAnimX"
+  },
+  "PreProductionAnimY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/PreProductionAnimY"
+  },
+  "PreProductionAnimYSort": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/PreProductionAnimYSort"
+  },
+  "PrintCRC": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/PrintCRC"
+  },
+  "PrivateKey": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/PrivateKey"
+  },
+  "ProductionAnimGarrisoned": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ProductionAnimGarrisoned"
+  },
+  "ProgID": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/ProgID"
+  },
+  "PsychicSensorDetectSound": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/PsychicSensorDetectSound"
+  },
+  "PublicKey": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/PublicKey"
+  },
+  "Pushy": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technos"
+    ],
+    "url": "https://modenc.renegadeprojects.com/Pushy"
+  },
+  "Radius": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Particles"
+    ],
+    "url": "https://modenc.renegadeprojects.com/Radius"
+  },
+  "RailgunDamageRadius": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "CombatDamage"
+    ],
+    "url": "https://modenc.renegadeprojects.com/RailgunDamageRadius"
+  },
+  "RandomMap": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/RandomMap"
+  },
+  "Rank": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Rank"
+  },
+  "RankFail": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/RankFail"
+  },
+  "RatioAITriggerTeam": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Houses"
+    ],
+    "url": "https://modenc.renegadeprojects.com/RatioAITriggerTeam"
+  },
+  "RatioTeamAircraft": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [
+      "ra2-obsolete"
+    ],
+    "types": [
+      "Houses"
+    ],
+    "url": "https://modenc.renegadeprojects.com/RatioTeamAircraft"
+  },
+  "RatioTeamInfantry": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [
+      "ra2-obsolete"
+    ],
+    "types": [
+      "Houses"
+    ],
+    "url": "https://modenc.renegadeprojects.com/RatioTeamInfantry"
+  },
+  "RatioTeamUnits": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [
+      "ra2-obsolete"
+    ],
+    "types": [
+      "Houses"
+    ],
+    "url": "https://modenc.renegadeprojects.com/RatioTeamUnits"
+  },
+  "ReadinessReductionMultiplier": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technos"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ReadinessReductionMultiplier"
+  },
+  "RedTint": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/RedTint"
+  },
+  "RegPath": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/RegPath"
+  },
+  "RegionSize": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/RegionSize"
+  },
+  "ReloadIncrement": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technoes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ReloadIncrement"
+  },
+  "Resources": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Resources"
+  },
+  "RevealByHeight": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "General"
+    ],
+    "url": "https://modenc.renegadeprojects.com/RevealByHeight"
+  },
+  "RollAngle": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "TechnoTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/RollAngle"
+  },
+  "RotCount": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [
+      "ra2-obsolete"
+    ],
+    "types": [
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/RotCount"
+  },
+  "Rotors": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "AircraftTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/Rotors"
+  },
+  "Rubble": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/Rubble"
+  },
+  "Ruggedness": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Ruggedness"
+  },
+  "SBarrelThickness": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SBarrelThickness"
+  },
+  "ScenIndex": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ScenIndex"
+  },
+  "Score": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Score"
+  },
+  "Score1": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Score1"
+  },
+  "Score2": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Score2"
+  },
+  "ScoreVolume": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ScoreVolume"
+  },
+  "ScreenHeight": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ScreenHeight"
+  },
+  "ScreenWidth": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ScreenWidth"
+  },
+  "ScrollMethod": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ScrollMethod"
+  },
+  "ScrollRate": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ScrollRate"
+  },
+  "Scrollbar": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Scrollbar"
+  },
+  "SecondaryFirePixelOffset": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SecondaryFirePixelOffset"
+  },
+  "SecretUnit": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SecretUnit"
+  },
+  "Seed": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Seed"
+  },
+  "SelectSound": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SelectSound"
+  },
+  "SelectVQ": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SelectVQ"
+  },
+  "SendDelay": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SendDelay"
+  },
+  "Serial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Serial"
+  },
+  "SerialDefaults": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SerialDefaults"
+  },
+  "Server": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Server"
+  },
+  "ShareBarrelData": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "VoxelAnims"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ShareBarrelData"
+  },
+  "ShareBodyData": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "VoxelAnims"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ShareBodyData"
+  },
+  "Shortcut": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Shortcut"
+  },
+  "ShowAll": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ShowAll"
+  },
+  "ShowHidden": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ShowHidden"
+  },
+  "ShowOccupantPips": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ShowOccupantPips"
+  },
+  "SideBar": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SideBar"
+  },
+  "SideBarSize": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SideBarSize"
+  },
+  "SideEx": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/SideEx"
+  },
+  "SidebarCameoText": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/SidebarCameoText"
+  },
+  "Siege": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Siege"
+  },
+  "Skirmish": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Skirmish"
+  },
+  "SnmpExtensionInit": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SnmpExtensionInit"
+  },
+  "SnmpExtensionQuery": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SnmpExtensionQuery"
+  },
+  "SnmpUtilMemAlloc": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SnmpUtilMemAlloc"
+  },
+  "SnmpUtilMemFree": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SnmpUtilMemFree"
+  },
+  "Socket": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Socket"
+  },
+  "SoundLatency": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/SoundLatency"
+  },
+  "SoundList": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/SoundList"
+  },
+  "SoundVolume": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/SoundVolume"
+  },
+  "SpawnDirection": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/SpawnDirection"
+  },
+  "SpecialAnimFourGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimFourGarrisoned"
+  },
+  "SpecialAnimFourPowered": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimFourPowered"
+  },
+  "SpecialAnimFourPoweredEffect": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimFourPoweredEffect"
+  },
+  "SpecialAnimFourPoweredLight": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimFourPoweredLight"
+  },
+  "SpecialAnimFourPoweredSpecial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimFourPoweredSpecial"
+  },
+  "SpecialAnimFourX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimFourX"
+  },
+  "SpecialAnimFourY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimFourY"
+  },
+  "SpecialAnimFourYSort": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimFourYSort"
+  },
+  "SpecialAnimGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimGarrisoned"
+  },
+  "SpecialAnimPoweredEffect": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimPoweredEffect"
+  },
+  "SpecialAnimPoweredSpecial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimPoweredSpecial"
+  },
+  "SpecialAnimThreeGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimThreeGarrisoned"
+  },
+  "SpecialAnimThreePowered": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimThreePowered"
+  },
+  "SpecialAnimThreePoweredEffect": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimThreePoweredEffect"
+  },
+  "SpecialAnimThreePoweredLight": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimThreePoweredLight"
+  },
+  "SpecialAnimThreePoweredSpecial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimThreePoweredSpecial"
+  },
+  "SpecialAnimThreeX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimThreeX"
+  },
+  "SpecialAnimThreeY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimThreeY"
+  },
+  "SpecialAnimTwoGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimTwoGarrisoned"
+  },
+  "SpecialAnimTwoPowered": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimTwoPowered"
+  },
+  "SpecialAnimTwoPoweredEffect": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimTwoPoweredEffect"
+  },
+  "SpecialAnimTwoPoweredLight": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimTwoPoweredLight"
+  },
+  "SpecialAnimTwoPoweredSpecial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimTwoPoweredSpecial"
+  },
+  "SpecialAnimTwoX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimTwoX"
+  },
+  "SpecialAnimTwoY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimTwoY"
+  },
+  "SpecialAnimX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimX"
+  },
+  "SpecialAnimY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialAnimY"
+  },
+  "SpecialZOverlayZAdjust": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpecialZOverlayZAdjust"
+  },
+  "SpeedAircraftMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpeedAircraftMult"
+  },
+  "SpeedInfantryMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpeedInfantryMult"
+  },
+  "SpeedUnitsMult": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpeedUnitsMult"
+  },
+  "SpotlightRadius": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "General"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SpotlightRadius"
+  },
+  "SprayAttack": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technos"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SprayAttack"
+  },
+  "Startup": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Startup"
+  },
+  "Status": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Status"
+  },
+  "StretchMovies": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/StretchMovies"
+  },
+  "Strong": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Strong"
+  },
+  "SuperAnimFourGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SuperAnimFourGarrisoned"
+  },
+  "SuperAnimFourPoweredEffect": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimFourPoweredEffect"
+  },
+  "SuperAnimFourPoweredLight": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimFourPoweredLight"
+  },
+  "SuperAnimFourPoweredSpecial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SuperAnimFourPoweredSpecial"
+  },
+  "SuperAnimFourX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimFourX"
+  },
+  "SuperAnimFourY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimFourY"
+  },
+  "SuperAnimGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SuperAnimGarrisoned"
+  },
+  "SuperAnimPoweredEffect": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimPoweredEffect"
+  },
+  "SuperAnimPoweredLight": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimPoweredLight"
+  },
+  "SuperAnimPoweredSpecial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SuperAnimPoweredSpecial"
+  },
+  "SuperAnimThreeGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SuperAnimThreeGarrisoned"
+  },
+  "SuperAnimThreePoweredLight": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimThreePoweredLight"
+  },
+  "SuperAnimThreePoweredSpecial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SuperAnimThreePoweredSpecial"
+  },
+  "SuperAnimThreeX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimThreeX"
+  },
+  "SuperAnimThreeY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimThreeY"
+  },
+  "SuperAnimTwoGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SuperAnimTwoGarrisoned"
+  },
+  "SuperAnimTwoPoweredEffect": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimTwoPoweredEffect"
+  },
+  "SuperAnimTwoPoweredLight": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimTwoPoweredLight"
+  },
+  "SuperAnimTwoPoweredSpecial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SuperAnimTwoPoweredSpecial"
+  },
+  "SuperAnimTwoX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimTwoX"
+  },
+  "SuperAnimTwoY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimTwoY"
+  },
+  "SuperAnimX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimX"
+  },
+  "SuperAnimY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperAnimY"
+  },
+  "SuperLowPowerGarrisoned": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SuperLowPowerGarrisoned"
+  },
+  "SuperLowPowerPoweredEffect": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperLowPowerPoweredEffect"
+  },
+  "SuperLowPowerPoweredLight": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperLowPowerPoweredLight"
+  },
+  "SuperLowPowerPoweredSpecial": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SuperLowPowerPoweredSpecial"
+  },
+  "SuperLowPowerX": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperLowPowerX"
+  },
+  "SuperLowPowerY": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperLowPowerY"
+  },
+  "SuperLowPowerYSort": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperLowPowerYSort"
+  },
+  "SuperLowPowerZAdjust": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperLowPowerZAdjust"
+  },
+  "SuperWeaponsAllowed": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "ra2",
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "LAN",
+      "MultiplayerDialogSettings",
+      "Skirmish",
+      "WonlinePref"
+    ],
+    "url": "https://modenc.renegadeprojects.com/SuperWeaponsAllowed"
+  },
+  "Supress": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Supress"
+  },
+  "SyncBug": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/SyncBug"
+  },
+  "TalkBubbleTime": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "General"
+    ],
+    "url": "https://modenc.renegadeprojects.com/TalkBubbleTime"
+  },
+  "Target": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Target"
+  },
+  "TargetDistanceCoefficient": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "AircraftTypes",
+      "BuildingTypes",
+      "InfantryTypes",
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/TargetDistanceCoefficient"
+  },
+  "TargetDividingFrame": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/TargetDividingFrame"
+  },
+  "TargetEffectivenessCoefficient": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "AircraftTypes",
+      "BuildingTypes",
+      "InfantryTypes",
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/TargetEffectivenessCoefficient"
+  },
+  "TargetPalette": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/TargetPalette"
+  },
+  "TargetSpecialThreatCoefficient": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "AircraftTypes",
+      "BuildingTypes",
+      "InfantryTypes",
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/TargetSpecialThreatCoefficient"
+  },
+  "TargetStrengthCoefficient": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "AircraftTypes",
+      "BuildingTypes",
+      "InfantryTypes",
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/TargetStrengthCoefficient"
+  },
+  "TargetZoom": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/TargetZoom"
+  },
+  "Territory": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Territory"
+  },
+  "TerritorySelect": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/TerritorySelect"
+  },
+  "Themes": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/Themes"
+  },
+  "Thief": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr",
+      "rp"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "InfantryTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/Thief"
+  },
+  "TibPass99": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/TibPass99"
+  },
+  "TibSun": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/TibSun"
+  },
+  "TiberiumLayout": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/TiberiumLayout"
+  },
+  "Time": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/Time"
+  },
+  "TitleRect": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/TitleRect"
+  },
+  "ToolTips": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/ToolTips"
+  },
+  "TooltipRect": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/TooltipRect"
+  },
+  "TurretAnimDamaged": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/TurretAnimDamaged"
+  },
+  "TurretAnimGarrisoned": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "BuildingTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/TurretAnimGarrisoned"
+  },
+  "TurretAnimYSort": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/TurretAnimYSort"
+  },
+  "TurretCompressFrames": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/TurretCompressFrames"
+  },
+  "TurretHoldFrames": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/TurretHoldFrames"
+  },
+  "TurretRecoverFrames": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/TurretRecoverFrames"
+  },
+  "Typelib": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Typelib"
+  },
+  "Unholy": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Unholy"
+  },
+  "UnitActionLines": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/UnitActionLines"
+  },
+  "UnitEnterSound": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/UnitEnterSound"
+  },
+  "UnitExitSound": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/UnitExitSound"
+  },
+  "UpdateDate": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/UpdateDate"
+  },
+  "UpdateTime": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/UpdateTime"
+  },
+  "UrbanPresence": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/UrbanPresence"
+  },
+  "Vegetation": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/Vegetation"
+  },
+  "VeinGrowthRate": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/VeinGrowthRate"
+  },
+  "VeinholeMonsterStrength": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "AudioVisual"
+    ],
+    "url": "https://modenc.renegadeprojects.com/VeinholeMonsterStrength"
+  },
+  "VersionIndependentProgID": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/VersionIndependentProgID"
+  },
+  "VeteranAircraft": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries",
+      "Houses"
+    ],
+    "url": "https://modenc.renegadeprojects.com/VeteranAircraft"
+  },
+  "VeteranInfantry": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries",
+      "Houses"
+    ],
+    "url": "https://modenc.renegadeprojects.com/VeteranInfantry"
+  },
+  "VeteranUnits": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries",
+      "Houses"
+    ],
+    "url": "https://modenc.renegadeprojects.com/VeteranUnits"
+  },
+  "Video": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Video"
+  },
+  "VideoBackBuffer": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/VideoBackBuffer"
+  },
+  "VisibleLoad": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [
+      "art"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/VisibleLoad"
+  },
+  "VoiceComment": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "InfantryTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/VoiceComment"
+  },
+  "VoiceFalling": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "AircraftTypes",
+      "InfantryTypes",
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/VoiceFalling"
+  },
+  "VoiceOvers": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/VoiceOvers"
+  },
+  "VoicePrimaryEliteWeaponAttack": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technoes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/VoicePrimaryEliteWeaponAttack"
+  },
+  "VoicePrimaryWeaponAttack": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technoes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/VoicePrimaryWeaponAttack"
+  },
+  "VoiceSecondaryEliteWeaponAttack": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technoes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/VoiceSecondaryEliteWeaponAttack"
+  },
+  "VoiceSinking": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "TechnoTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/VoiceSinking"
+  },
+  "VoiceUndeploy": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "InfantryTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/VoiceUndeploy"
+  },
+  "VoiceVolume": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/VoiceVolume"
+  },
+  "VoxelAnims": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/VoxelAnims"
+  },
+  "VoxelIndex": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "VoxelAnims"
+    ],
+    "url": "https://modenc.renegadeprojects.com/VoxelIndex"
+  },
+  "WDTSideFail": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/WDTSideFail"
+  },
+  "WOLLimitResolution": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/WOLLimitResolution"
+  },
+  "WOLScrollText": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/WOLScrollText"
+  },
+  "WOLTaunts": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/WOLTaunts"
+  },
+  "WOnline": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/WOnline"
+  },
+  "WallOwner": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Countries",
+      "Houses"
+    ],
+    "url": "https://modenc.renegadeprojects.com/WallOwner"
+  },
+  "WantsExtraSpace": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/WantsExtraSpace"
+  },
+  "Warheads": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/Warheads"
+  },
+  "Warpable": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "Technos"
+    ],
+    "url": "https://modenc.renegadeprojects.com/Warpable"
+  },
+  "Water": {
+    "fetched": "2026-07-20",
+    "flag": false,
+    "present": true,
+    "url": "https://modenc.renegadeprojects.com/Water"
+  },
+  "WaterAmount": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [],
+    "ini": [],
+    "present": true,
+    "status": [],
+    "types": [],
+    "url": "https://modenc.renegadeprojects.com/WaterAmount"
+  },
+  "WinningThreshold": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/WinningThreshold"
+  },
+  "Wins": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Wins"
+  },
+  "Wipe": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Wipe"
+  },
+  "WonlinePref": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/WonlinePref"
+  },
+  "Working": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/Working"
+  },
+  "ZFudgeCliff": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "AircraftTypes",
+      "InfantryTypes",
+      "VehicleTypes"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ZFudgeCliff"
+  },
+  "ZoomInFactor": {
+    "fetched": "2026-07-20",
+    "flag": true,
+    "games": [
+      "ts",
+      "fs",
+      "ra2",
+      "yr"
+    ],
+    "ini": [
+      "rules"
+    ],
+    "present": true,
+    "status": [],
+    "types": [
+      "General"
+    ],
+    "url": "https://modenc.renegadeprojects.com/ZoomInFactor"
+  },
+  "ZoomingTarget": {
+    "fetched": "2026-07-20",
+    "present": false,
+    "url": "https://modenc.renegadeprojects.com/ZoomingTarget"
+  }
+}

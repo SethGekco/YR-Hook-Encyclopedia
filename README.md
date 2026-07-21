@@ -46,9 +46,11 @@ scripts/
   build_tag_index.py      Regenerate the framework tag->hook cross-reference (needs hooks.json).
   build_vanilla_tag_candidates.py  Regenerate vanilla (rules) tag->read-site index (needs gamemd.exe).
   build_engine_string_surface.py   Regenerate the full engine string surface (all INIs; needs gamemd.exe).
+  fetch_modenc.py         Pull ModEnc wiki flag facts for tags -> sources/modenc-cache.json (needs network).
 sources/
   repos/                  Cloned upstream repos (gitignored; reproducible).
   pr_hooks.json           Extracted loose-PR hooks (input to the builder).
+  modenc-cache.json       ModEnc-derived tag facts (committed; small wiki metadata + source URLs).
   raw/                    Legacy pre-extracted dumps (e.g. the old Antares+Phobos CSV).
 ```
 
@@ -79,6 +81,9 @@ scripts/update_repos.sh          # refresh upstream framework clones (release ho
 python3 scripts/fetch_pr_hooks.py   # (optional, slow) refresh loose PR hooks
 python3 scripts/build_registry.py   # rebuild the hook registry from both
 python3 scripts/build_tag_index.py  # rebuild the tag->hook cross-reference
+scripts/update_ini_cache.sh         # refresh the vanilla YR/RA2/TS INI cache
+python3 scripts/fetch_modenc.py     # (optional, slow, network) ModEnc tag facts -> cache
+python3 scripts/build_engine_string_surface.py  # rebuild the engine string surface
 ```
 
 ## Finding what a hook does (the tag → hook index)
@@ -114,13 +119,25 @@ Two ways to go from "I want behaviour X" to "which hook is it":
     in **no** INI we have: real engine tags vanilla content never sets (rare or
     defaulted rules/art keys — `ActiveAnimTwoX`, `ShowOccupantPips`, `CustomRotor`,
     `AIUseTurbineUpgradeProbability`). The richest lead-list of *undocumented* tags.
-    **514**. Each also gets a **likely domain by read-site consensus**: tags in one
-    INI section are parsed by the same engine loader, so their read sites cluster;
-    when the single-domain known tags within ±128 bytes of an unlisted tag's read
-    site **unanimously** agree, that domain is emitted as a hint (else left blank —
-    it abstains rather than mislabel). Leave-one-out on the known tags scores ~100%
-    precision (art 13/13, rules 206/206); **96/514** get a guess (51 art, 44 rules,
-    1 coop). A hint with evidence (`via <tag> @<dist>b`), not a verified assignment.
+    **514**. Each is then **domain-sourced from multiple independent methods, and
+    every claim is tagged with how it was obtained** so readers can weigh it and
+    reconcile conflicting findings (strongest → weakest):
+    - `modenc` — parsed from the [ModEnc](https://modenc.renegadeprojects.com) wiki's
+      `{{flag}}` template via `scripts/fetch_modenc.py` (cached with the source URL).
+      **177** get a documented INI; another **117** have a ModEnc page with type info
+      but no file; **203** have no page.
+    - `readsite-consensus` — inferred from the binary: known tags whose read sites
+      cluster within ±128 bytes of the unlisted tag's read site and **unanimously**
+      agree on a domain (else it abstains). ~100% leave-one-out precision, but with
+      real misses where art/rules loaders interleave. **26** are sourced this way.
+    - `framework-source` — the literal appears in a framework's C++ (corroboration
+      it's a real tag, and *who* reads it): **25**.
+
+    Net **203/514** carry a sourced domain. Where ModEnc and read-site consensus
+    **disagree** (3 cases, e.g. `CustomRotor`: read-site said `rules`, ModEnc says
+    `art`), both are kept and the row is flagged ⚠ — the conflict is left visible,
+    not silently resolved. See `engine-string-surface.md`'s "provenance & confidence"
+    table and the conflicts list.
   - `file` (319, filenames/resources), `code` (146, RTTI/abstract types, UI ids,
     value literals, function/debug strings — not tags), and `unclassified`
     (ambiguous residual — now **0**).

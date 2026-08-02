@@ -24,7 +24,9 @@ widely misunderstood, or conflict-prone**, so the reference earns its keep.
 | Page | Subsystem | Status |
 |---|---|---|
 | [Ext-Aircraft.md](Ext-Aircraft.md) | Aircraft | seed (1 exemplar entry) |
+- [Map Reveal / Sight](Map-Reveal-Sight.md) — RevealArea0/1/2; the big-map trap (YRpp hardcodes stride 512 at compile time).
 | [AI-Trigger-Team-Lifecycle.md](AI-Trigger-Team-Lifecycle.md) | AI trigger evaluation, team selection & lifecycle | vanilla-RE (7 behavioural + 4 extension sites; unhooked by frameworks) |
+| [Attachment-Cell-Placement.md](Attachment-Cell-Placement.md) | Unit placement marking, cell occupation, custom-locomotor recursion | 4 entries (2 registry-absent DEFINE_JUMPs, 1 do-not-hook, 1 three-framework conflict) |
 
 _(Add a row per subsystem page as it's created. Subsystem names mirror the
 `Subsystem` column in the registry.)_

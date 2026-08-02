@@ -100,10 +100,10 @@ _by @FS-21 · https://github.com/Phobos-developers/Phobos/pull/810_
 | `0x511643` | HouseTypeClass_CTOR_2 | 0x5 | Antares, Ares, Phobos |
 | `0x51214F` | HouseTypeClass_LoadFromINI | 0x5 | Antares, Ares, Phobos |
 | `0x51215A` | HouseTypeClass_LoadFromINI | 0x5 | Antares, Ares, Phobos |
-| `0x512290` | HouseTypeClass_SaveLoad_Prefix | 0x5 | Antares, Ares, Phobos |
-| `0x51246D` | HouseTypeClass_Load_Suffix | 0x5 | Antares, Ares, Phobos |
-| `0x512480` | HouseTypeClass_SaveLoad_Prefix | 0x5 | Antares, Ares, Phobos |
-| `0x51255C` | HouseTypeClass_Save_Suffix | 0x5 | Antares, Ares, Phobos |
+| `0x512290` | HouseTypeClass_SaveLoad_Prefix | 0x5 | Antares, Ares |
+| `0x51246D` | HouseTypeClass_Load_Suffix | 0x5 | Antares, Ares |
+| `0x512480` | HouseTypeClass_SaveLoad_Prefix | 0x5 | Antares, Ares |
+| `0x51255C` | HouseTypeClass_Save_Suffix | 0x5 | Antares, Ares |
 | `0x5127CF` | HouseTypeClass_DTOR | 0x6 | Antares, Ares, Phobos |
 | `0x687C9B` | ReadScenarioINI_AITeamSelector_PreloadValidTriggers | 0x7 | — |
 
@@ -131,7 +131,7 @@ _by @ststl-s · https://github.com/Phobos-developers/Phobos/pull/1148_
 
 | Address | Function | Stolen | Also in release? |
 |---|---|---|---|
-| `0x4F4583` | GScreenClass_Render_ProcessHugeBar | 0x6 | Antares, Ares, Kratos, Phobos |
+| `0x4F4583` | GScreenClass_Render_ProcessHugeBar | 0x6 | Ares, Kratos, Phobos |
 | `0x6F6F20` | TechnoClass_Unlimbo | 0x6 | Antares, Ares |
 
 ### PR#1152 — Web logic against infantry
@@ -258,7 +258,7 @@ _by @FS-21 · https://github.com/Phobos-developers/Phobos/pull/1371_
 
 | Address | Function | Stolen | Also in release? |
 |---|---|---|---|
-| `0x70337D` | HouseClass_RegisterDestruction_SaveKillerInfo | 0x6 | — |
+| `0x70337D` | HouseClass_RegisterDestruction_SaveKillerInfo | 0x6 | Phobos |
 
 ### PR#1395 — Customizable Bars (Health, Shield and much more)
 _by @Fryone · https://github.com/Phobos-developers/Phobos/pull/1395_
@@ -325,13 +325,13 @@ _by @FS-21 · https://github.com/Phobos-developers/Phobos/pull/1670_
 | `0x511643` | HouseTypeClass_CTOR_2 | 0x5 | Antares, Ares, Phobos |
 | `0x51214F` | HouseTypeClass_LoadFromINI | 0x5 | Antares, Ares, Phobos |
 | `0x51215A` | HouseTypeClass_LoadFromINI | 0x5 | Antares, Ares, Phobos |
-| `0x512290` | HouseTypeClass_SaveLoad_Prefix | 0x5 | Antares, Ares, Phobos |
-| `0x51246D` | HouseTypeClass_Load_Suffix | 0x5 | Antares, Ares, Phobos |
-| `0x512480` | HouseTypeClass_SaveLoad_Prefix | 0x5 | Antares, Ares, Phobos |
-| `0x51255C` | HouseTypeClass_Save_Suffix | 0x5 | Antares, Ares, Phobos |
+| `0x512290` | HouseTypeClass_SaveLoad_Prefix | 0x5 | Antares, Ares |
+| `0x51246D` | HouseTypeClass_Load_Suffix | 0x5 | Antares, Ares |
+| `0x512480` | HouseTypeClass_SaveLoad_Prefix | 0x5 | Antares, Ares |
+| `0x51255C` | HouseTypeClass_Save_Suffix | 0x5 | Antares, Ares |
 | `0x5127CF` | HouseTypeClass_DTOR | 0x6 | Antares, Ares, Phobos |
 | `0x6CC367` | SuperClass_IsReady_BattlePoints | 0xD | — |
-| `0x70337D` | HouseClass_RegisterDestruction_SaveKillerInfo | 0x6 | — |
+| `0x70337D` | HouseClass_RegisterDestruction_SaveKillerInfo | 0x6 | Phobos |
 
 ### PR#1698 — EMPulseCannon.InaccurateRadius for projectiles in EMPulseCannon=yes superweapons and Ammo support
 _by @FS-21 · https://github.com/Phobos-developers/Phobos/pull/1698_
@@ -589,8 +589,8 @@ _by @NetsuNegi · https://github.com/Phobos-developers/Phobos/pull/2033_
 
 | Address | Function | Stolen | Also in release? |
 |---|---|---|---|
-| `0x446816` | BuildingClass_Place_RevealToAll_UpdateSight | 0x5 | — |
-| `0x4ADE55` | Sub_4ADCD0_RevealToAll_UpdateSight | 0x6 | — |
+| `0x446816` | BuildingClass_Place_RevealToAll_UpdateSight | 0x5 | Phobos |
+| `0x4ADE55` | Sub_4ADCD0_RevealToAll_UpdateSight | 0x6 | Phobos |
 
 ### PR#2040 — Refine the drawing of the health bar with pip transparency fade
 _by @TaranDahl · https://github.com/Phobos-developers/Phobos/pull/2040_
@@ -704,7 +704,7 @@ _by @Fly-Star-him · https://github.com/Phobos-developers/Phobos/pull/2090_
 
 | Address | Function | Stolen | Also in release? |
 |---|---|---|---|
-| `0x51E748` | InfantryClass_WhatAction_ObjectClass_SkipGuardArea | 0x8 | — |
+| `0x51E748` | InfantryClass_WhatAction_ObjectClass_SkipGuardArea | 0x8 | Antares |
 
 ### PR#2091 — Group retaliate
 _by @TaranDahl · https://github.com/Phobos-developers/Phobos/pull/2091_
@@ -888,11 +888,11 @@ _by @KenosisM · https://github.com/Phobos-developers/Phobos/pull/2265_
 | `0x46902C` | BulletClass_Explode_Cluster | 0x6 | Phobos |
 | `0x46A3D6` | BulletClass_Shrapnel_Forced | 0xA | Phobos |
 | `0x46A4FB` | BulletClass_Shrapnel_Targeting | 0x6 | Phobos |
-| `0x46AE70` | BulletClass_SaveLoad_Prefix | 0x5 | Antares, Ares, Kratos, Phobos |
-| `0x46AF97` | BulletClass_Load_Suffix | 0x7 | Antares, Ares, Kratos, Phobos |
-| `0x46AF9E` | BulletClass_Load_Suffix | 0x7 | Antares, Ares, Kratos, Phobos |
-| `0x46AFB0` | BulletClass_SaveLoad_Prefix | 0x8 | Antares, Ares, Kratos, Phobos |
-| `0x46AFC4` | BulletClass_Save_Suffix | 0x3 | Antares, Ares, Kratos, Phobos |
+| `0x46AE70` | BulletClass_SaveLoad_Prefix | 0x5 | Antares, Ares, Kratos |
+| `0x46AF97` | BulletClass_Load_Suffix | 0x7 | Antares, Ares, Kratos |
+| `0x46AF9E` | BulletClass_Load_Suffix | 0x7 | Antares, Ares, Kratos |
+| `0x46AFB0` | BulletClass_SaveLoad_Prefix | 0x8 | Antares, Ares, Kratos |
+| `0x46AFC4` | BulletClass_Save_Suffix | 0x3 | Antares, Ares, Kratos |
 | `0x5F5A62` | ObjectClass_SpawnParachuted_BombParachute | 0x5 | Phobos |
 | `0x6F7481` | TechnoClass_Targeting_ApplyGravity | 0x6 | Phobos |
 | `0x6FDAA6` | TechnoClass_FireAngle_6FDA00_ApplyGravity | 0x5 | Phobos |
@@ -927,8 +927,8 @@ _by @DeathFishAtEase · https://github.com/Phobos-developers/Phobos/pull/2289_
 
 | Address | Function | Stolen | Also in release? |
 |---|---|---|---|
-| `0x6B73A8` | SpawnManagerClass_AI_SpawnTimer | 0x5 | — |
-| `0x6B73B9` | SpawnManagerClass_AI_SpawnTimer | 0x5 | — |
+| `0x6B73A8` | SpawnManagerClass_AI_SpawnTimer | 0x5 | Phobos |
+| `0x6B73B9` | SpawnManagerClass_AI_SpawnTimer | 0x5 | Phobos |
 
 ### PR#2290 — Customize the initial facing of buildings
 _by @DeathFishAtEase · https://github.com/Phobos-developers/Phobos/pull/2290_
@@ -937,7 +937,7 @@ _by @DeathFishAtEase · https://github.com/Phobos-developers/Phobos/pull/2290_
 
 | Address | Function | Stolen | Also in release? |
 |---|---|---|---|
-| `0x449AFE` | BuildingClass_Mission_Construction_StartFacing | 0x6 | — |
-| `0x449DAA` | BuildingClass_Mission_Selling_StartFacing_Compare | 0x6 | — |
-| `0x449DE9` | BuildingClass_Mission_Selling_StartFacing_Set | 0x6 | — |
+| `0x449AFE` | BuildingClass_Mission_Construction_StartFacing | 0x6 | Phobos |
+| `0x449DAA` | BuildingClass_Mission_Selling_StartFacing_Compare | 0x6 | Phobos |
+| `0x449DE9` | BuildingClass_Mission_Selling_StartFacing_Set | 0x6 | Phobos |
 

@@ -48,10 +48,15 @@ not conflicts, and are excluded from `conflicts.md` (counted separately in
 
 ### Antares
 - **In registry via:** cloned `Phobos-developers/Antares`.
-- **Note:** Antares continues Ares from its last-open state, so most of its hooks
-  are byte-identical to Ares's — expect near-complete Ares↔Antares address
-  overlap (inherited, not a conflict). Confirm any *new* Antares behaviour
-  against the Antares repo, not an Ares assumption.
+- **Note:** Antares began as a continuation of Ares from its last-open state, so a
+  large inherited core is byte-identical to Ares's (still ~1,114 shared addresses,
+  inherited, not a conflict). But Antares is **actively developed and has now
+  diverged**: as of 2026-07 it hooks **1,483** addresses vs Ares's frozen 1,187 —
+  **~366 Antares-only** hooks Ares never had (new type-extension logic: `Ext/Techno`,
+  `Ext/Building`, `Ext/WarheadType`, particle systems, temporal factories, tunnels),
+  plus ~70 Ares-only left behind. So Antares is now a **superset**, not a mirror —
+  never assume an Antares hook exists in Ares (or vice-versa); confirm against the
+  actual repo.
 - **Dialect:** bare-hex, same as Ares.
 
 ### Phobos

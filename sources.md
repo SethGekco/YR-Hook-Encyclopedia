@@ -13,6 +13,7 @@ add a Tier 2 entry, cite which source(s) you confirmed it against.
 | https://github.com/Ares-Developers/Ares | **Ares (classic)** — the original Ares. Open only through **v0.A**; everything past that is closed-source (which is *why* Antares exists). |
 | https://github.com/Ares-Developers/Ares-release | Ares **packaging** repo (readme, `ares.mix`, license) — **not source, not binaries**. For assembling release packages only. |
 | https://github.com/CnCRAZER/Ares | A **fork** of `Ares-Developers/Ares`. Track separately if/when its divergences matter. |
+| https://github.com/CCHyper/Vinifera (branch dev/inc-map-size-limit) | **Vinifera** - open-source Tiberian Sun extension by CCHyper. Its `inc-map-size-limit` branch patches TS to 1024x1024; TS is the same Westwood engine YR extends, so its map-size patch categories (shl 9->10, 0x40000 bounds, dimension immediates, inverse-conv masks, MAP_W*1000) are a direct reference for YR big-map work. src/bugfix/bugfix_hooks.cpp lines ~735-1670. |
 
 ### ⚠ Antares is not Ares — do not conflate
 Antares reverses and reimplements Ares functionality that went closed after v0.A.

@@ -28,6 +28,8 @@ widely misunderstood, or conflict-prone**, so the reference earns its keep.
 | [AI-Trigger-Team-Lifecycle.md](AI-Trigger-Team-Lifecycle.md) | AI trigger evaluation, team selection & lifecycle | vanilla-RE (7 behavioural + 4 extension sites; unhooked by frameworks) |
 | [Attachment-Cell-Placement.md](Attachment-Cell-Placement.md) | Unit placement marking, cell occupation, custom-locomotor recursion | 4 entries (2 registry-absent DEFINE_JUMPs, 1 do-not-hook, 1 three-framework conflict) |
 | [Map-Cell-Indexing.md](Map-Cell-Indexing.md) | Map coordinate→cell indexing & row stride | vanilla-RE (the 512 stride machinery; map-resize crash surface) |
+| [PlayerCount-HouseLimits.md](PlayerCount-HouseLimits.md) | Player Count & House-Array Limits | partial (source-confirmed; YR AssignHouses internals pending disasm; RE-vet downstream break-site roadmap added, unverified) |
+| [Input-ActiveClickWith.md](Input-ActiveClickWith.md) | Active-click order dispatch + building-planning guard | 2 entries (full-reimpl conflict hazard: PR#352 vs PR#1993 vs release 0x4AE95E) |
 
 _(Add a row per subsystem page as it's created. Subsystem names mirror the
 `Subsystem` column in the registry.)_

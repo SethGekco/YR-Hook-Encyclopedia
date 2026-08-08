@@ -30,6 +30,7 @@ widely misunderstood, or conflict-prone**, so the reference earns its keep.
 | [Map-Cell-Indexing.md](Map-Cell-Indexing.md) | Map coordinate→cell indexing & row stride | vanilla-RE (the 512 stride machinery; map-resize crash surface) |
 | [PlayerCount-HouseLimits.md](PlayerCount-HouseLimits.md) | Player Count & House-Array Limits | partial (source-confirmed; YR AssignHouses internals pending disasm; RE-vet downstream break-site roadmap added, unverified) |
 | [Input-ActiveClickWith.md](Input-ActiveClickWith.md) | Active-click order dispatch + building-planning guard | 2 entries (full-reimpl conflict hazard: PR#352 vs PR#1993 vs release 0x4AE95E) |
+| [Selection-Mouse.md](Selection-Mouse.md) | Object selection & mouse-picking | 3 entries (ObjectClass::Select R0-stub footgun; SelectAt Kratos conflict + occupier fetch) |
 
 _(Add a row per subsystem page as it's created. Subsystem names mirror the
 `Subsystem` column in the registry.)_

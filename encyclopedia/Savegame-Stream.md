@@ -70,9 +70,11 @@ layout mismatch detectable (and lets old saves stay loadable).
 Antares/Ares declare `0x5`, Kratos declares `0xD`. Two co-loaded hooks that
 disagree on how many prologue bytes they replace at the same address is a
 coexistence hazard in principle. In practice a `0xD` (Kratos-style) hook here was
-**observed to coexist with Ares (`0x5`) in-game with no save corruption** (see
-below) — but if you write your own hook here, match the established size and
-test your load order rather than assuming.
+**observed to coexist with an Ares-lineage `0x5` hook in-game with no save
+corruption** (see below) — but if you write your own hook here, match the
+established size and test your load order rather than assuming. (Antares also
+declares `0x5` here per the registry; the test ran under Ares, untested under
+Antares.)
 
 **Register / calling convention.** `ESI = IStream*`.
 

@@ -105,7 +105,10 @@ it is a genuine multi-consumer address rather than "the on-death hook."
 — all co-loadable, all `0x6` stolen). Because each does something different and
 all just read `this` then return 0, they chain without fighting. **Verified:** an
 `0x702050` hook that reads the dying unit and spawns replacements ran correctly
-alongside Ares + Phobos in-game (on-death spawns fired reliably, no conflict).
+alongside an Ares-lineage DLL + Phobos in-game (on-death spawns fired reliably,
+no conflict). The framework loaded at test time was Ares; **Antares** patches the
+same address (registry), so the chaining should transfer — not yet re-verified
+under Antares.
 
 **Register / calling convention.** `ESI = TechnoClass*`; return `0` to continue.
 

@@ -31,6 +31,8 @@ widely misunderstood, or conflict-prone**, so the reference earns its keep.
 | [PlayerCount-HouseLimits.md](PlayerCount-HouseLimits.md) | Player Count & House-Array Limits | partial (source-confirmed; YR AssignHouses internals pending disasm; RE-vet downstream break-site roadmap added, unverified) |
 | [Input-ActiveClickWith.md](Input-ActiveClickWith.md) | Active-click order dispatch + building-planning guard | 2 entries (full-reimpl conflict hazard: PR#352 vs PR#1993 vs release 0x4AE95E) |
 | [Selection-Mouse.md](Selection-Mouse.md) | Object selection & mouse-picking | 3 entries (ObjectClass::Select R0-stub footgun; SelectAt Kratos conflict + occupier fetch) |
+| [Savegame-Stream.md](Savegame-Stream.md) | Savegame object-stream save/load boundaries | 4 entries (global append + late-swizzle at LoadInStream_End verified; ⚠ 0x67E42E stolen-byte mismatch Kratos 0xD vs Antares/Ares 0x5) |
+| [Techno-Instance-Lifecycle.md](Techno-Instance-Lifecycle.md) | TechnoClass per-instance create/tick/destroy/death | 3 entries (Update/DTOR/ReceiveDamage-destroy; per-instance vs per-type & death-vs-teardown scope traps) |
 
 _(Add a row per subsystem page as it's created. Subsystem names mirror the
 `Subsystem` column in the registry.)_

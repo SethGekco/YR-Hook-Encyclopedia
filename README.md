@@ -243,3 +243,4 @@ hopefully evolve with it.
   and fill it in. Verify claims against real source or reverse-engineering, and
   say how you confirmed each fact. "Unverified" is a legitimate, honest status —
   a guess presented as fact is not.
+- [Cell-Numbering-Events-Pathfinding](encyclopedia/Cell-Numbering-Events-Pathfinding.md) — base-1000 cell numbers, order targets, A* pools, diamond geometry

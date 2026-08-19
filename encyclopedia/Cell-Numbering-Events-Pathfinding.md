@@ -89,6 +89,20 @@ idiv, magic 0x10624DD3, sprintf-"%d" text form, and constants passed as
   `+8` = cost+heuristic (float, sqrt via 0x4CAC40), `+0xC` = path length
   (parent+1). Node B (12 B): `+0` = cell-slot ptr, `+4` = direction
   (from `movsbl [cell+0x11B]`), `+8` = 0.
+- **Third node pool (hierarchical search) — also unguarded.** The hierarchical
+  search fn (~0x42C2B0) allocates 16-byte nodes `{parent-idx, zone-id, cost
+  float, path-len}` from **[AStar+0x64]** (ctor `malloc(0x27100)` = exactly
+  10,000 nodes), paired with the second heap [AStar+0x68] (cap 0x2710). The
+  node counter is a STACK slot `[esp+0x2C]` (init 1 @0x42C482; offset
+  `[esp+0x30]` = count·16 recomputed @0x42C521; incremented @0x42C712-0x42C71D)
+  with **no bound check** — only the heap pushes are capped, and a rejected
+  push does not stop the node write. A hierarchical search expanding >10,000
+  nodes (possible once zone ids are unsigned-correct on big maps) streams
+  records straight past the pool into neighboring heap allocations. On the
+  observed layout the **radar blip-index hash table** sits 12 bytes after the
+  pool: 256 buckets × 24-byte vectors (vtable 0x7F042C) at `[[Radar+0x1258]]`,
+  hash `(dx − 5·dy) & 0xFF`, walked by `0x656750` — trampling it fatals there.
+  Vanilla-safe only because vanilla maps cannot produce such searches.
 - Frame-update dispatch loop (crash-forensics anchor): `0x55B5FB-0x55B61B` iterates
   a list object (items @[list+4], count @[list+0x10]) calling `[vtable+0x5C]` on
   each element; return address **0x55B613** on the stack + a misaligned vtable in

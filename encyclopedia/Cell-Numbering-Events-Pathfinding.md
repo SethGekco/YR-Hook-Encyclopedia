@@ -76,9 +76,61 @@ idiv, magic 0x10624DD3, sprintf-"%d" text form, and constants passed as
   [0x87C584]) will not return large contiguous blocks** — enlarging these pools by
   patching sizes crashes at launch. Mitigate by clamping the counters
   (≤0xFFFE / ≤0x1FFFE) at the two count-reads (0x42A466 / 0x42A482) instead.
-- Under sustained path failure (unreachable targets re-pathed every frame) a further
-  overflow beyond these two pools exists (fatals with EDX=0x7EB05D, stack
-  0x55B613 LogicClass_Update) — unresolved as of 2026-08-18.
+- The "further overflow beyond the two pools" previously noted here is RESOLVED
+  (2026-08-18, crash-minidump RE): it is not an A* pool at all but the
+  **zone/subzone 16-bit id signedness ceiling** — see the next section.
+- AStarClass identity: a **static singleton @0x87E8B8** (ctor `0x42A6D0`, run from
+  the init thunk `0x40AFA0`). Open list = a **binary heap** header at [AStar+0x14]
+  `{count, cap=0x10000, slots(0x40004 bytes), maxA@+0xC, maxB@+0x10}`; the push
+  (sift-up @~0x42A030-0x42A125) IS cap-guarded — a full heap silently drops the
+  node (degraded search, no overflow). A second smaller heap header at [AStar+0x68]
+  (cap 0x2710). Per-search reset fn `0x42A5B0` zeroes both pool counters + heap.
+  Node A (16 B): `+0` = paired B-node ptr, `+4` = accumulated cost (float),
+  `+8` = cost+heuristic (float, sqrt via 0x4CAC40), `+0xC` = path length
+  (parent+1). Node B (12 B): `+0` = cell-slot ptr, `+4` = direction
+  (from `movsbl [cell+0x11B]`), `+8` = 0.
+- Frame-update dispatch loop (crash-forensics anchor): `0x55B5FB-0x55B61B` iterates
+  a list object (items @[list+4], count @[list+0x10]) calling `[vtable+0x5C]` on
+  each element; return address **0x55B613** on the stack + a misaligned vtable in
+  EDX = "a live object's vtable low byte was corrupted", not a bug at 0x55B6xx.
+
+## Zone/subzone hierarchy and the 16-bit id ceiling
+
+The pathfinding zone system lives in MapClass (instance `0x87F7E8`):
+
+| Offset | Meaning |
+|---|---|
+| +0x68 | zone id table (10-byte entries) |
+| +0x6C | table entry count = **(W+H+1)²** |
+| +0x70 | subzone id table (10-byte entries, same count) |
+| +0x74 / +0x78 / +0x7C | region counts per hierarchy level (finest→coarsest) |
+
+- Both tables are indexed on a **dense (W+H+1)-stride grid**, NOT the sparse
+  Y·512+X cell grid: the multiplier is the global **`[0x89C2DC]` = W+H+1**
+  (200+ imul sites across 0x429xxx/0x58xxxx/0x59xxxx-0x5Axxxx), and
+  `MapClass::0x56D3F0` converts a CellStruct to this dense index. Entry layout:
+  `int16 id @+0` (read as `movswl (table + idx*10)`, e.g. `0x429E9A`).
+- **Ids are stored 16-bit and read through ~14 `movsx` sites** (0x429E9A,
+  0x42C34A, 0x42C36A, 0x582575, 0x5826FB, 0x582892, 0x582AE6, 0x582FDD,
+  0x583006, 0x58307B, 0x5830A0, 0x583115, 0x58313A, 0x584DE4). The producer
+  assigns ids via `mov cx,[esp+0x10]` @`0x58215B`. Vanilla never exceeds
+  0x7FFF regions (512-grid ⇒ ≤ ~16K level-0 regions), so the signedness is
+  latent; past 32,767 regions, `movsx` yields **negative ids** → negative
+  per-id array indexing = out-of-bounds writes below the A* per-level buffers
+  (heap corruption with vtable-low-byte damage) and broken routing for every
+  cell in a high-id region. Fix shape (dump-proven on 256² fragmented and
+  700²-at-stride-2048 maps): flip the 14 sites `movsx→movzx` (0F BF→0F B7,
+  identity for ids <0x8000) + ceiling the producer at 0xFFFE (0 = unvisited
+  and 0xFFFF = out-of-domain are reserved sentinels).
+- Level-0 region count scales with playable cells (~cells/16 at the vanilla
+  4-cell block scale, worse on fragmented terrain) — a 700² map produces
+  ~60K level-0 regions, a 1000² map ~125K (past even unsigned 16-bit ⇒ needs
+  level-0 block coarsening, not just unsigned ids).
+- Neighbor stepping in the A* expansion uses the static 8-entry delta table
+  **`0x7E3774`** = `[-512,-511,1,513,512,511,-1,-513]` (cell-array index deltas,
+  facing-ordered). Exactly two consumers: `0x429C8F` and `0x429E0E` (both in the
+  expansion fn ~0x429B00). Derefs of `slot+delta*4` near the array edge rely on
+  the null border ring — there is no bounds check.
 
 ## Iso diamond geometry (the dense lattice)
 
@@ -95,3 +147,11 @@ nearest cell (the click path); replicate that when re-basing decoders.
 - Patch functions called from another TU must not be `static` (LNK2019).
 - Byte-verify before every write; a mismatch should skip, not corrupt.
 - Hook-at-entry with `return 0` re-executes the stolen bytes in the trampoline.
+- Crash forensics: the CnCNet `debug/snapshot-*/extcrashdump.dmp` is a full-memory
+  minidump (Memory64List stream maps VA→file offset — trivially parseable). Two
+  high-yield scans: (1) diff runtime `.text` against the on-disk exe to see which
+  patches/hooks were ACTUALLY live in the crashed run; (2) scan the heap for
+  dwords equal to a known vtable with extra low bits set (collect vtable
+  constants from `C7 /0` ctor stores) — the victim set and its bit-delta
+  histogram fingerprint the corrupting writer. Under wine the heap layout is
+  deterministic enough that victims recur at identical addresses across runs.

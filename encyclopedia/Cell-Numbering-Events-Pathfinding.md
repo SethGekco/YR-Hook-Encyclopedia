@@ -169,3 +169,20 @@ nearest cell (the click path); replicate that when re-basing decoders.
   constants from `C7 /0` ctor stores) — the victim set and its bit-delta
   histogram fingerprint the corrupting writer. Under wine the heap layout is
   deterministic enough that victims recur at identical addresses across runs.
+
+## Appendix: EBolt draw hook cluster (Phobos b48) — null-cache crash class
+
+Not pathfinding, recorded here from the same forensic sessions. gamemd's
+electric-bolt renderer (`EBolt::Draw`, ~0x4C1E00-0x4C2C00) is hooked by Phobos
+b48 at ~11 sites (0x4C1E42, 0x4C1F33, 0x4C20BC, 0x4C24C3, 0x4C25D0, 0x4C26D5,
+0x4C285D, 0x4C2951, 0x4C299F, 0x4C2A02, 0x4C2BD0). The implementation cluster
+(DLL RVA 0x35CC0-0x36660) uses a **cached-pointer pattern**: one hook (RVA
+0x362E0) resolves the bolt's extension record (`Find` @0x35CC0, bolt ptr from
+REG+0x20=ECX) and caches it in the DLL global **RVA 0x134FA8**; later hooks
+(0x365B0, 0x365E0, 0x36611, 0x36641 — returning to 0x4C20C7/0x4C2400/0x4C2515/
+0x4C24E4/0x4C29B9) read the cache **without a null guard**. If a draw path
+reaches a reader hook without passing the caching hook, the zero-initialized
+global faults (`cmp edx,[ecx+0x18]` @RVA 0x365CB, ECX=0) — observed in the wild
+mid-game (C0000005 at Phobos+0x365CB). Anyone hooking or patching near
+EBolt::Draw should preserve the caching hook's reachability; the robust
+upstream fix is a null check in the reader hooks.

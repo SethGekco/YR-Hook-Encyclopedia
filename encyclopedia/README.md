@@ -28,11 +28,12 @@ widely misunderstood, or conflict-prone**, so the reference earns its keep.
 | [AI-Trigger-Team-Lifecycle.md](AI-Trigger-Team-Lifecycle.md) | AI trigger evaluation, team selection & lifecycle | vanilla-RE (7 behavioural + 4 extension sites; unhooked by frameworks) |
 | [Attachment-Cell-Placement.md](Attachment-Cell-Placement.md) | Unit placement marking, cell occupation, custom-locomotor recursion | 4 entries (2 registry-absent DEFINE_JUMPs, 1 do-not-hook, 1 three-framework conflict) |
 | [Map-Cell-Indexing.md](Map-Cell-Indexing.md) | Map coordinate→cell indexing & row stride | vanilla-RE (the 512 stride machinery; map-resize crash surface) |
-| [PlayerCount-HouseLimits.md](PlayerCount-HouseLimits.md) | Player Count & House-Array Limits | partial (source-confirmed; YR AssignHouses internals pending disasm; RE-vet downstream break-site roadmap added, unverified) |
+| [PlayerCount-HouseLimits.md](PlayerCount-HouseLimits.md) | Player Count & House-Array Limits | 3 entries + structural notes (AssignHouses 0x687F10 disassembled: ctor 0x4F54A0, AI cap 0x6882C5, 2nd start-counter 0x6883E6; colour-picker hang refuted for YR) |
 | [Input-ActiveClickWith.md](Input-ActiveClickWith.md) | Active-click order dispatch + building-planning guard | 2 entries (full-reimpl conflict hazard: PR#352 vs PR#1993 vs release 0x4AE95E) |
 | [Selection-Mouse.md](Selection-Mouse.md) | Object selection & mouse-picking | 3 entries (ObjectClass::Select R0-stub footgun; SelectAt Kratos conflict + occupier fetch) |
 | [Savegame-Stream.md](Savegame-Stream.md) | Savegame object-stream save/load boundaries | 4 entries (global append + late-swizzle at LoadInStream_End verified; ⚠ 0x67E42E stolen-byte mismatch Kratos 0xD vs Antares/Ares 0x5) |
 | [Techno-Instance-Lifecycle.md](Techno-Instance-Lifecycle.md) | TechnoClass per-instance create/tick/destroy/death | 3 entries (Update/DTOR/ReceiveDamage-destroy; per-instance vs per-type & death-vs-teardown scope traps) |
+| [Buildability-Prerequisites.md](Buildability-Prerequisites.md) | `CanBuild` gate & prerequisite helpers | 4 entries (⚠ hidden conflict invisible to conflicts.md: Ares-lineage fully replaces 0x4F7870 → hook the 0x4F8361 epilogue; Phobos raw-patches 0x4F8361 away when Ares absent, clobbering third-party hooks; registry stolen-byte mismatch 0x3 vs source 0x5) |
 
 _(Add a row per subsystem page as it's created. Subsystem names mirror the
 `Subsystem` column in the registry.)_

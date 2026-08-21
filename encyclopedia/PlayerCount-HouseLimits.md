@@ -29,12 +29,36 @@ around 25: it is the widest that fits without widening every per-house bitfield
 in the engine. Raising it *past* ~30 means auditing and widening those bitfields
 everywhere — a much larger job than the array/loop changes below.
 
-**Confirmed via.** YRpp headers (`HouseClass.h` — `Allies`/`AltAllies` as
-`IndexBitfield<HouseClass*>`; `TechnoClass.h:638` `DisplayProductionTo` with the
-per-ArrayIndex bit comment; `CellClass.h` `BaseSpacerOfHouses`; `Helpers/Template.h`
-`IndexBitfield` = `1u << index` over a `DWORD`). **Confirmed** from source. The
-"~25" practical ceiling is **inferred** from the +2 (Neutral/Special) houses and
-the 32-bit width, not measured in-game.
+**The limit is on HOUSES, not on "players" — and the house array itself is not
+the limit.** `HouseClass::Array` (`0xA80228`) is a
+`DynamicVectorClass<HouseClass*>` — it **grows without bound**, so nothing caps
+house *storage*. What caps houses is the bit-shift: every one of the bitfields
+above does `1u << ArrayIndex` into a `DWORD`, so **`ArrayIndex` ≥ 32 shifts out
+of range** (on x86, `shl` masks the count to 5 bits, so index 32 aliases onto
+index 0 — houses silently start sharing alliance/spy bits rather than crashing).
+Since every player *and* every computer is a `HouseClass`, plus Neutral and
+Special, the ceiling is on the combined count.
+
+**Do not confuse the two bitfield axes.** `IndexBitfield<HouseClass*>` is
+indexed by *house* `ArrayIndex` (caps **houses** at 32); `IndexBitfield<HouseTypeClass*>`
+— e.g. `ObjectClass::GetTypeOwners` / the `Owners=` tag, and
+`HouseClass::InRequiredHouses` / `InForbiddenHouses` which shift
+`Type->ArrayIndex2` — is indexed by *country* index and caps **countries** at 32.
+Those are independent limits; raising the player count does not require more
+countries, because many houses may share one country.
+
+**Confirmed via.** YRpp headers: `Helpers/Template.h` `IndexBitfield::Contains/Add/Remove`
+= `1u << obj->ArrayIndex` over a `DWORD data`; `HouseClass.h:935`
+`DWORD Allies; //flags, one bit per HouseClass instance`; `HouseClass.h:197`
+`IsAlliedWith` = `((1u << idxHouse) & this->Allies) != 0u`; `HouseClass.h:708`
+`AltAllies` as `DWORD`; `HouseClass.h:143` `Array` as
+`constant_ptr<DynamicVectorClass<HouseClass*>, 0xA80228u>`;
+`TechnoClass.h:523` `DisplayProductionTo`; `HouseClass.h:868` `RadarVisibleTo`;
+`ObjectClass.h:84` `GetTypeOwners`; `HouseClass.h:565/569` country-indexed
+`InRequiredHouses`/`InForbiddenHouses`. **Confirmed** from source.
+The "~25" practical ceiling is **inferred** from the +2 (Neutral/Special) houses
+and the 32-bit width, not measured in-game — the arithmetic ceiling is 30
+players, and where between 25 and 30 it actually breaks is untested.
 
 ---
 
@@ -53,10 +77,58 @@ house array is populated.
 
 **What it does *not* do.** It does **not** read the player count from a single
 editable constant — the count comes from the session player list + the
-`AIPlayers` option, and the *limits* are enforced by `MAX_PLAYERS`-sized scratch
-arrays and the color picker inside the function (see structural notes). So
-NOP-ing "an 8" here is not how you raise the cap; the whole function must be
-reimplemented.
+`AIPlayers` option. So NOP-ing "an 8" here is not how you raise the cap.
+(Superseded in detail by the disassembly below: the human loop is genuinely
+dynamic, and the one hard cap in this function is the **AI-loop pointer bound at
+`0x6882C5`**, not a scratch array or a colour picker. Reimplementing the whole
+function is still the cleanest route, but the minimal patch surface is now
+known.)
+
+**VERIFIED YR DISASSEMBLY (2026-08-20).** `0x687F10` has now been disassembled
+from vanilla `gamemd.exe` (sha1 `189a5a868b3cef8d3d1a58ac3cf0a5241675e4ea`,
+md5 `fe2301a1f48841aa084aade100b25335`, 4,813,072 bytes) via
+`objdump -D -b binary -m i386 --adjust-vma=0x400000` (file offset == RVA).
+**The function spans `0x687F10`–`0x68837D`** (single `ret` at `0x68837D`).
+This resolves several previously-unverified claims and **corrects one of them**.
+
+Structure, in order:
+
+| Stage | Addresses | Bound |
+|---|---|---|
+| Human/player houses | `0x687F59`–`0x688146` | `Session.Players.Count` — **dynamic** |
+| AI houses | `0x68814C`–`0x6882CB` | **pointer-bounded to exactly 8** (below) |
+| Neutral house | `0x6882D1`–`0x688320` | unconditional |
+| Special house | `0x688325`–`0x68836B` | unconditional |
+
+Concrete facts recovered:
+
+- **`HouseClass::HouseClass(HouseTypeClass*)` is at `0x4F54A0`**, `__thiscall`
+  (`ECX` = this, one stack arg = the `HouseTypeClass*`). Called **4×** at
+  `0x687FC3`, `0x6881A0`, `0x6882FE`, `0x688351`.
+- **`sizeof(HouseClass) == 0x160B8`** (90,296 bytes) — the literal pushed to
+  `operator new` (`0x7C8E17`) at all four sites. This is the allocation size a
+  reimplementation must use.
+- **`HouseClass::ColorSchemeIndex` is at offset `+0x16054`** (written from the
+  return of `0x69A310` at `0x6880D9` / `0x6881DA`, and at `0x68831A`).
+- Globals: **`0xA8DA78`/`0xA8DA84`** = `Session.Players` data ptr / count;
+  **`0xA8B274`** = AI-player count; **`0xA8B29C`** = `AISlots.Countries[8]`;
+  **`0xA8B238`** = `SessionClass` instance.
+- Neutral/Special are looked up **by name string** — `"Neutral"` @ `0x82BA08`,
+  `"Special"` @ `0x817318` — through `0x5117D0` (HouseType-index-by-name), then
+  constructed. Their colour comes from `"LightGrey"` @ `0x836ECC` via `0x68CAB0`.
+
+**CORRECTION — YR has no colour-picker hang.** The earlier text on this page
+(and the Vinifera-derived warning below) predicted a `Random_Pick` +
+`while(true)` "spin until a free colour" loop that hangs past 8 houses. **YR does
+not do this.** YR reads a *stored* colour index — `[player+0x53]` for humans,
+`AISlots.Colors[i]` for AI — and converts it with a single call to
+`SessionClass::GetPlayerColorScheme` (`0x69A310`) at `0x6880D2` and `0x6881D3`.
+There is no retry loop and no `MAX_PLAYERS`-bounded RNG inside `0x687F10`.
+The TS behaviour did not carry over. **This claim was previously marked
+"inferred for YR pending disasm" — the disasm has now refuted it.**
+(The colour *randomisation* that does exist lives elsewhere, in the lobby /
+random-player path — see the Antares note under "Color scheme pool" — and
+Antares has already lifted those bounds.)
 
 **Blueprint for a reimplementation.** **Vinifera** (the Tiberian Sun engine
 extension by tomsons26/CCHyper — the same reverse-engineers credited by Phobos
@@ -88,6 +160,110 @@ YR equivalent of `Init_Data`) is **unverified** — YR's `HouseClass` exposes
 `AssignHandicap` and `ColorSchemeIndex` but no single `Init_Data`, so YR likely
 folds that init into the constructor (`0x4F54A0`) or an adjacent call. Needs a
 YR disassembly of `0x687F10` to confirm.
+
+---
+
+### `0x6882C5` — AssignHouses AI-loop bound (**the real >7-AI wall**)
+
+**Framework names** — *no framework hooks this address.* Not in the registry.
+
+**What it does.** This is the loop-back test of the AI-house creation loop
+inside `AssignHouses`. It is the single instruction that caps AI players at 8,
+and it is **not** a `cmp $0x8`:
+
+```asm
+688158:  bb 9c b2 a8 00     mov    $0xa8b29c,%ebx     ; EBX = &AISlots.Countries[0]
+68815d:  cmp    0x20(%esp),%eax                       ; i >= AIPlayers count?  -> done
+688167:  mov    (%ebx),%edi                           ; EDI = Countries[i]
+688169:  cmp    $0xffffffff,%edi                      ; -1 sentinel -> done
+688172:  cmp    $0xfffffffd,%edi                      ; -3 sentinel -> done
+68817b:  mov    0x20(%ebx),%esi                       ; ESI = Colors[i]  (+0x20 = 8 ints)
+...
+6882c2:  83 c3 04           add    $0x4,%ebx
+6882c5:  81 fb bc b2 a8 00  cmp    $0xa8b2bc,%ebx     ; <<< THE CAP
+6882cb:  0f 8c 8c fe ff ff  jl     0x68815d
+```
+
+`0xA8B2BC − 0xA8B29C = 0x20` = **32 bytes = exactly 8 `int`s**. The loop is
+bounded by walking a pointer to the *end address of the `Countries[8]` array*,
+baked into the instruction as an absolute immediate.
+
+**What it does *not* do — easily mistaken.** **The AI cap is not a numeric `8`
+anywhere in this function.** Anyone grepping the disassembly for `cmp $0x8` /
+`83 f8 08` to find "the AI limit" will not find it — the limit is encoded as the
+*address* `0xA8B2BC`. Equally, the loop's *other* bound (`0x68815D`, against the
+AI-player count at `0xA8B274`) **is** dynamic, which invites the wrong
+conclusion that raising the AI count alone is sufficient. It is not.
+
+Note also the layout consequence: `0xA8B2BC` is simultaneously the end of
+`Countries[8]` **and the start of `Colors[8]`** (reached as `0x20(%ebx)`). The
+sub-arrays are contiguous, so an overrun does not run off into unmapped memory —
+it **silently reads the neighbouring array**, i.e. AI #9's "country" would be
+read out of `Colors[0]`. That is a data-corruption failure, not a clean crash,
+which makes it far nastier to diagnose.
+
+**How to lift it.** Relocate `AISlots` into a larger allocation and rewrite both
+the base (`0x688158`) and this bound (`0x6882C5`) — or bypass the loop entirely
+by reimplementing `AssignHouses` and creating AI houses directly, which is the
+route this subsystem's practical summary recommends.
+
+**Confirmed via.** Ghidra-free `objdump` disassembly of vanilla `gamemd.exe`
+(sha1 `189a5a86…`), 2026-08-20. **Confirmed** — instruction bytes quoted above.
+The `Colors[8]`-adjacency conclusion follows from `0x20(%ebx)` reading Colors
+while the bound equals base+0x20; **confirmed** arithmetically, **not** yet
+observed as an in-game misread.
+
+---
+
+### `0x6883E6` — second starting-point counter (`i < 8`), distinct from `0x68AF45`
+
+**Framework names**
+| Framework | Function name | Stolen | Source file |
+|---|---|---|---|
+| Phobos | (waypoint reimpl. hooks `0x6883B7`, `0x68843B` bracket this loop) | — | `Ext/Scenario/Hooks.Waypoints.cpp` |
+
+**What it does.** Lives in the function at **`0x688380`–`0x6886AC`** — the
+routine immediately *after* `AssignHouses`, not inside it. It walks the
+scenario waypoint array (base `+0x632`) counting defined waypoints and stops at
+the first undefined one, with a hard `i < 8` bound:
+
+```asm
+6883bd:  cmp    $0x2be,%eax        ; 0x2BE = 702, the vanilla waypoint ceiling
+6883e6:  83 f8 08   cmp $0x8,%eax  ; <<< hardcoded 8
+6883e9:  7c d2      jl  0x6883bd
+```
+
+The count it produces is then **min'd against the real house total**:
+
+```asm
+6883eb:  mov    0xa8da84,%eax      ; Players.Count
+688400:  cmpl   $0xffffffff,0x6b(%ebx)  ; count players with [+0x6B] == -1 (observers)
+68841b:  sub    %ebp,%eax          ; EAX = Players.Count - observers
+68841d:  add    %ecx,%eax          ; EAX += AIPlayers  (0xA8B274)  = TOTAL HOUSES
+68841f:  cmp    %eax,%esi          ; ESI = starting points counted above
+688421:  jle    0x68842b           ; take the MINIMUM of the two
+```
+
+**Why it matters for player count.** Because of that `min`, **the `i < 8` at
+`0x6883E6` is a binding constraint on the effective player count**, not merely a
+cosmetic waypoint tally: however many houses you arrange for, the result is
+`min(≤8, players + AI)`. Lifting `AssignHouses` without also lifting this leaves
+the game clamped at 8.
+
+**What it does *not* do — easily mistaken.** This is **not** the same loop as
+the Phobos-hooked counter at `0x68AF45`, though the two are near-identical in
+shape (`i < 8`, stop-at-first-undefined). **There are at least two independent
+8-bounded starting-point counters in the binary** and a >8 build must lift both.
+Reading this page's `0x68AF45` entry alone, or reading Phobos's waypoint hooks
+alone, would leave this one in place. Note also that Phobos's waypoint hooks at
+`0x6883B7` / `0x68843B` sit on *either side* of this loop but do **not** change
+the `cmp $0x8` — Phobos makes the waypoints *storable*, not *countable* past 8.
+
+**Confirmed via.** `objdump` disassembly of vanilla `gamemd.exe` (sha1
+`189a5a86…`), 2026-08-20 — instruction bytes quoted. **Confirmed.** The
+identification of `[player+0x6B] == -1` as the observer test is **inferred**
+from context (it is subtracted from the player total before adding AI), not
+confirmed against a struct definition.
 
 ---
 
@@ -234,6 +410,12 @@ these in a `for slotIndex < std::size(pAISlots->Allies)` loop
 the AssignHouses-reimplementation path sidesteps it by creating AI houses
 directly. **Confirmed** from YRpp header + spawner source.
 
+**Now pinned to real addresses** (disasm 2026-08-20): `Countries[8]` lives at
+**`0xA8B29C`** and `Colors[8]` immediately after it at **`0xA8B2BC`**; the AI
+count is at **`0xA8B274`**. The consumer that enforces the 8 is the pointer
+compare at **`0x6882C5`** — see its own entry above, which is the concrete patch
+site. **Confirmed** from disassembly.
+
 ### `ScenarioClass::StartingPoints[8]` + `HouseIndices[0x10]`
 Start-position storage (8) and start→house map (curiously **16**, not 8 — Westwood
 left headroom). The spawner iterates `HouseIndices` with
@@ -258,7 +440,28 @@ guards color access with `color >= ColorScheme::Array.Count ? 0 : color`
 bounded by `MAX_PLAYERS` and loops until it finds a free slot — the hang
 described under `0x687F10`. So the color *storage* isn't the wall; the vanilla
 *picker* is. **Confirmed** from Antares/Phobos source; the picker-hang is
-**confirmed** as TS behaviour (Vinifera), **inferred** for YR pending disasm.
+**confirmed** as TS behaviour (Vinifera) and **REFUTED for YR** — see the
+correction under `0x687F10`: YR's `AssignHouses` reads a stored colour index and
+converts it via `0x69A310`, with no retry loop.
+
+**Antares has already lifted the colour bounds that do exist.** The
+randomise/assign paths outside `AssignHouses` are hooked by Antares in
+`src/Misc/Interface.PlayerColors.cpp`, each replacing a `MAX_PLAYERS`-bounded
+pick with one bounded by the INI-driven `Ares::UISettings::ColorCount`:
+
+| Address | Antares hook |
+|---|---|
+| `0x4E43C0` | `Game_InitDropdownColors` (clears `ColorCount + 1` slots) |
+| `0x69A310` | `SessionClass_GetPlayerColorScheme` (slot→scheme, observer-aware) |
+| `0x69B69B` | `GameModeClass_PickRandomColor_Unlimited` |
+| `0x69B7FF` | `Session_SetColor_Unlimited` |
+| `0x69B949` / `0x69BA13` | `Game_ProcessRandomPlayers_ColorsA` / `…ColorsB` |
+| `0x69B97D` | `Game_ProcessRandomPlayers_ObserverColor` |
+
+So a >8 build running **on Antares inherits an unbounded colour pool for free**;
+a standalone DLL must either replicate these seven hooks or accept Antares as a
+dependency. **Confirmed** from Antares source @ current master (the same hooks
+appear in the Antares PDB symbol map as `Session_SetColor_Unlimited` etc.).
 
 ### CnCNet-Spawner networking cap (out of scope for offline)
 The spawner's human-player path is bounded by `ListAddress::Array[8]`
@@ -272,9 +475,14 @@ tractable than >8 *humans*. **Confirmed** from spawner source + YRpp header.
 ## Practical summary: what a >8-player (offline, AI) build must change
 
 1. Reimplement `AssignHouses` (`0x687F10`) looping past 8 — the Vinifera
-   `Assign_Houses()` is the blueprint; **widen the color picker** to avoid the
-   infinite loop.
-2. Lift the starting-point counter loop at `0x68AF45` (`i < 8`).
+   `Assign_Houses()` is the structural blueprint, but **use YR's own verified
+   wiring**: allocate `0x160B8` bytes, call the ctor at `0x4F54A0`
+   (`__thiscall`, arg = `HouseTypeClass*`). **No colour-picker fix is needed
+   inside this function on YR** (see the correction) — but do lift the AI-loop
+   pointer bound at `0x6882C5`, which is the actual >7-AI wall.
+2. Lift **both** starting-point counter loops — `0x68AF45` (`i < 8`) *and*
+   `0x6883E6` (`i < 8`), the latter of which is min'd against the house total at
+   `0x68841F` and so directly clamps the effective player count.
 3. Adopt/borrow Phobos's dynamic-waypoint subsystem (or place start waypoints
    0..N on the map) so >8 start positions exist.
 4. Widen or bypass `GameModeOptionsClass::AISlots[8]` and
@@ -284,7 +492,14 @@ tractable than >8 *humans*. **Confirmed** from spawner source + YRpp header.
 6. Offline only — leaving the `ListAddress[8]` / `Connection[7]` network layer
    untouched is fine and expected.
 
-**Overall status: partially confirmed.** The addresses, array sizes, and Phobos
-waypoint hooks are confirmed from source. The AssignHouses *internals* on YR
-(the `Init_Data` equivalent) and the practical player ceiling are unverified
-pending a YR disassembly of `0x687F10` and in-game testing.
+**Overall status: substantially confirmed (disasm 2026-08-20).** The addresses,
+array sizes, and Phobos waypoint hooks are confirmed from source. `0x687F10` has
+now been **disassembled**: the house constructor (`0x4F54A0`), object size
+(`0x160B8`), the AI-loop pointer cap (`0x6882C5`), the second starting-point
+counter (`0x6883E6`), and the Neutral/Special tail are all confirmed from
+instruction bytes, and the predicted YR colour-picker hang is **refuted**.
+
+Still unverified: the practical player ceiling between 25 and 30 (arithmetic
+says 30; untested in-game); the observer test `[player+0x6B] == -1`; and the
+entire downstream GUI break list (recon / diplo / score / loading) from the
+RE-vet roadmap. Those need a runtime crash-walk, not more disassembly.

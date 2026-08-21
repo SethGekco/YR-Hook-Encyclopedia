@@ -244,3 +244,4 @@ hopefully evolve with it.
   say how you confirmed each fact. "Unverified" is a legitimate, honest status —
   a guess presented as fact is not.
 - [Cell-Numbering-Events-Pathfinding](encyclopedia/Cell-Numbering-Events-Pathfinding.md) — base-1000 cell numbers, order targets, A* pools, diamond geometry
+- [Building-GrandOpening-FreeUnits](encyclopedia/Building-GrandOpening-FreeUnits.md) — `FreeUnit=` / pad-aircraft blocks, the once-only guard, and why `0x446EE2` must not be claimed

@@ -228,18 +228,46 @@ coordinate setup, and the surrounding frame is shared with non-scatter fire
 paths. Note also the `add $0x10, %esp` at `0x6FE8C1` — stack offsets before and
 after that instruction differ, which is an easy way to read the wrong slot.
 
-Note also that the **two paths arrive here in different states**: the
-`FlakScatter` path has already applied `× distance ÷ weaponRange` (see
-`0x6FE709`), the other has not. Anything overriding the result here must
-recompute rather than scale, and must know which path it is on.
+**These coordinates are deltas, not absolute positions.** The triple at
+`[esp+0x30]`/`+0x34`/`+0x38` is the firer→target **aim vector**, written at
+`0x6FE643`/`0x6FE65D`/`0x6FE669` and read-only thereafter. Two proofs: the
+distance at `0x6FE6AD`+ is `sqrt(a²+b²+c²)` over exactly those slots (summing
+squares of absolute map coordinates would be meaningless), and the assembled
+output is consumed at `0x6FE902` by `fild [esp+0x94]` / `neg eax` /
+`call 0x4CAE30` (**atan2**) → `fsub π/2` → `fmul -10430.06`, i.e. turned into a
+binary facing angle. You cannot `atan2` absolute coordinates into a direction.
+
+So scatter perturbs the **aim vector**, which is then converted to a facing.
+Anyone overriding scatter here has the *unscattered* vector available in-frame
+and does not need to re-derive it from the target pointer.
+
+Note the **two paths arrive here having done different arithmetic**: the
+`FlakScatter` path already applied `× distance ÷ weaponRange` (see `0x6FE709`),
+the other did not. A hook that recomputes from `[esp+0x30..0x38]` can ignore
+this entirely; one that tries to *scale* the assembled result cannot, and would
+need the discriminator at `[esp+0x68]→[+0x29E]`.
 
 **Used by / interactions.** Nothing hooks it today, which makes it attractive as
 a conflict-free insertion point for a third-party DLL that wants to reshape
 scatter without fighting Antares over `0x6FE709`/`0x6FE7FE`.
 
 **Register / calling convention.** The enclosing `TechnoClass::Fire` starts at
-`0x6FDD50` with `push ebp; mov ebp,esp; sub esp,0xA4` — a **real frame
-pointer**, so `ebp`-relative slots are valid function-wide, including here:
+`0x6FDD50`:
+
+```
+6FDD50  push ebp / mov ebp,esp
+6FDD53  and  esp, 0xFFFFFFF8    ; runtime stack alignment
+6FDD56  sub  esp, 0xA4
+6FDD5C  push ebx / esi / edi
+```
+
+⚠ **The `and esp,0xFFFFFFF8` means `ebp − esp` is not a compile-time constant** —
+it depends on the caller's alignment. Locals in this function therefore cannot
+be addressed as `ebp − k`; only the arguments (above `ebp`) are `ebp`-safe.
+This is an easy way to write a hook that works in one call path and corrupts
+the frame in another.
+
+Arguments, valid function-wide:
 
 | Slot | Holds | Evidence |
 |---|---|---|
@@ -250,15 +278,72 @@ pointer**, so `ebp`-relative slots are valid function-wide, including here:
 So firer, target and weapon index are **all live at `0x6FE8D8`** — enough to
 recompute range-dependent behaviour from scratch at this site.
 
-At the address itself: `EAX` = the Y value about to be stored; the coordinate
-triple lands at `[esp+0x94]`/`[esp+0x98]`/`[esp+0x9C]`. Beware the
-`add esp,0x10` at `0x6FE8C1` — `esp`-relative offsets before and after it refer
-to different slots, and the FlakScatter path reaches `0x6FE8D8` with a different
-stack history than the fallthrough path, so **`esp`-relative reads here are not
-path-agnostic**. Prefer `ebp`/`ESI`.
+At the address itself: `EAX` = the Y value about to be stored, `EDI` = Z, and
+the coordinate triple lands at `[esp+0x94]`/`+0x98`/`+0x9C`.
 
-**Confirmed via.** objdump of vanilla `gamemd.exe`, `0x6FDD50–0x6FE8F0`
-(prologue, full `ESI` write trace, full `EDI` write trace, `[ebp+8]`/`[ebp+0xC]`
-use trace). Registry cross-check for existing hooks. **Not** confirmed by live
+**Both paths converge here with identical `esp`.** Tracing each: path 1 does
+`push`/`push` → `call 0x4CACB0` → `push`/`push` → `call 0x4CAD00` →
+`add esp,0x10` (`0x6FE7E2`); path 2 is the same shape with its `add esp,0x10` at
+`0x6FE8C1`. Both net to the same `esp` *and* use the same slots — `E+0x10` for
+the stashed cos result, `E+0x30..0x38` for the aim vector, `E+0x94` for X. They
+differ only in which scratch slot holds θ versus the magnitude, and both are
+consumed before convergence. So `esp`-relative reads at `0x6FE8D8` **are**
+path-agnostic:
+
+| Slot | Contents |
+|---|---|
+| `[esp+0x30]` / `+0x34` / `+0x38` | unscattered aim vector (deltas) |
+| `[esp+0x94]` | X, already scattered |
+| `[esp+0x68]` | `BulletTypeClass*` |
+
+Still beware the `add esp,0x10` itself: offsets quoted *before* `0x6FE8C1` in the
+listing above refer to different slots than the same literals after it.
+
+⚠ An earlier revision of this entry claimed `esp`-relative reads here were **not**
+path-agnostic because the paths had different stack histories. That was wrong —
+they converge with identical `esp`. The claim was asserted from partial tracing
+rather than a full stack walk of both paths.
+
+**Confirmed via.** objdump of vanilla `gamemd.exe`, `0x6FDD50–0x6FE950`
+(prologue; full `ESI` and `EDI` write traces; `[ebp+8]`/`[ebp+0xC]` use trace;
+complete stack walk of both scatter paths; write-trace of the `0x30/0x34/0x38`
+triple). Registry cross-check for existing hooks. **Not** confirmed by live
 debugger or in-game test — the register/offset table should be validated before
 anyone relies on it, and the `esp`-relative offsets especially.
+
+---
+
+### `0x6FE8EE` — aim vector consumed (unhooked)
+
+**Framework names**
+
+Not hooked by any framework in the registry (0 hits for `0x6FE8EE`, `0x6FE902`,
+`0x4CAE30`).
+
+**What it does.** The instruction after the scattered aim vector is fully
+assembled. Reads `[ecx+0x2DC]` and `[ecx+0x29C]` off the `BulletTypeClass*`
+(loaded into `ECX` from `[esp+0x68]` at `0x6FE8DC`) to choose between two
+facing-derivation routes; the fallthrough at `0x6FE902` converts the vector to a
+binary facing angle via `atan2` (`0x4CAE30`), `fsub π/2`, `fmul -10430.06`,
+`ftol`, then narrows to 16 bits with `mov %ax,[esp+0x10]`.
+
+**Why it's interesting.** This is the last point at which the aim vector is
+still data rather than an angle, and the triple at
+`[esp+0x94]`/`+0x98`/`+0x9C` is complete and untouched. For anything wanting to
+override scatter wholesale it is a better insertion point than `0x6FE8D8`, which
+sits mid-assembly and whose 6 stolen bytes would straddle the `EBX`/`ECX` loads
+that this code depends on.
+
+**What it does *not* do — easily mistaken.** It does not apply the scatter — by
+here that is long done (`0x6FE899`+ / `0x6FE7B7`+). And the `neg eax` at
+`0x6FE902` operates on a register set much earlier, not on the vector.
+
+**Register / calling convention.** `ECX` = `BulletTypeClass*`, `EBX` =
+`[esp+0x40]` (both loaded at `0x6FE8D8`/`0x6FE8DC`). Vector at
+`[esp+0x94]`/`+0x98`/`+0x9C`. Stolen bytes at `0x6FE8EE` would be `0x6`
+(`mov 0x2dc(%ecx),%edx`).
+
+**Confirmed via.** objdump of vanilla `gamemd.exe`, `0x6FE8E7–0x6FE950`.
+`0x4CAE30` is identified as `atan2` from its two pushed doubles and the
+radians→binary-angle constant folding that immediately follows — **inferred**,
+not confirmed against a PDB symbol. No in-game testing.

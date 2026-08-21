@@ -45,6 +45,53 @@ reasoned from the load ordering, **not** separately disasm-verified.
 
 ---
 
+### `0x67D32C` / `0x67E826` — Phobos' extension stream pair
+
+**Framework names**
+| Framework | Function name | Stolen | Source file |
+|---|---|---|---|
+| Phobos | SaveGame_Phobos (`0x67D32C`) / LoadGame_Phobos (`0x67E826`) | 0x5 / 0x6 | src/Phobos.Ext.cpp |
+
+**What it does.** The pair Phobos uses to append its own globals + extension
+blocks to the savegame, deliberately near the *start* of the save ("Ares saves
+its things at the end of the save, Phobos at the beginning" — the comment above
+the hook). Phobos writes a length-prefixed block per extension container.
+
+**What it does *not* do — easily mistaken.** It is not an object hook and carries
+no swizzling: anything holding pointers must instead be relinked after
+`SwizzleManagerClass::Process` (Phobos does that separately at `0x67E685`).
+
+**Used by / interactions — the important part.** This is a **shared append
+point**. Any third-party DLL that also writes here is interleaving with Phobos in
+one byte stream, so the **read order at `0x67E826` must match the write order at
+`0x67D32C`**. That holds while Syringe's handler order (DLL load order) is the
+same at both addresses in a process — which it is — but it silently breaks if the
+inject list is reordered between saving and loading. Defensive practice for a
+co-writer: prefix your block with a magic dword and **refuse to keep reading**
+on mismatch, or you will consume the next DLL's block and corrupt its state
+instead of just losing your own.
+
+**Register / calling convention.** `ESI = IStream*` at both addresses.
+
+**Related structural trap (Phobos-internal, not an address).** Phobos' current
+extension system caches each extension pointer *inside the game object* at the
+single hardcoded slot `AbstractClass+0x18` (`AbstractExt::ExtPointerOffset`).
+There is exactly one such slot per object, so a second DLL that builds on
+`AbstractExt` will overwrite Phobos' pointer. The older `Extension<T>` map path
+does not collide, but its `Container::SaveAllToStream` / `LoadAllFromStream` are
+`if constexpr (!HasOffset<T>) return true;` — i.e. map-backed containers get **no
+savegame streaming at all**, silently. A standalone DLL keeping per-object state
+alongside Phobos should own its storage and its serialisation rather than reuse
+either path.
+
+**Confirmed via.** Phobos source (`develop`, `src/Phobos.Ext.cpp:351-403`,
+`src/Utilities/Container.h`), read while building a third-party DLL against it.
+**Unverified:** whether Syringe guarantees stable handler ordering across
+addresses (relied upon above; reasoned from load-order registration, not from
+Syringe's source).
+
+---
+
 ### `0x67E42E` — SaveGameInStream_End
 
 **Framework names**

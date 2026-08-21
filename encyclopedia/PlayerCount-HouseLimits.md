@@ -45,7 +45,10 @@ indexed by *house* `ArrayIndex` (caps **houses** at 32); `IndexBitfield<HouseTyp
 `HouseClass::InRequiredHouses` / `InForbiddenHouses` which shift
 `Type->ArrayIndex2` — is indexed by *country* index and caps **countries** at 32.
 Those are independent limits; raising the player count does not require more
-countries, because many houses may share one country.
+countries, because many houses may share one country. **The country axis has its
+own page** — see [Countries-Taunts.md](Countries-Taunts.md), which documents the
+32-country bitfield, its single parser (`0x4750D0`) and four write sites, and a
+*second*, narrower country-index limit (a 4-bit nibble) in the taunt wire format.
 
 **Confirmed via.** YRpp headers: `Helpers/Template.h` `IndexBitfield::Contains/Add/Remove`
 = `1u << obj->ArrayIndex` over a `DWORD data`; `HouseClass.h:935`

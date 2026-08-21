@@ -193,6 +193,50 @@ documented placeholder by the incidental consumer (not yet hooked there).
 
 ---
 
+### `0x6E9443` — TeamClass::Update (script-action dispatch)
+
+**Framework names**
+| Framework | Function name | Stolen | Source file |
+|---|---|---|---|
+| Antares | `TeamClass_Update` | 0x8 | `Ext/Team/Hooks.cpp` |
+| Phobos  | `TeamClass_AI`     | 0x8 | `Ext/Script/Hooks.cpp` |
+
+**What it does.** The per-team update tick where the engine reads the team's
+current script action (`pTeam->CurrentScript->Type->ScriptActions[CurrentMission]`)
+and dispatches it. `ESI = TeamClass*` here. Both Antares and Phobos hook this
+exact address (same 0x8 steal) to add their own script-action handlers: each
+inspects the action and, if it handles it, **returns a redirect** (Phobos returns
+`0x6E95AB` when `ScriptExt::Handled`; Antares likewise) to skip the vanilla
+dispatch; otherwise returns `0` to fall through.
+
+**What it does *not* do — easily mistaken.**
+- It is **not** the team's constructor or its per-frame *movement* update — it is
+  specifically the **script-action** step. A team's locomotion/target logic lives
+  elsewhere; this is "what is the current script line telling the team to do."
+- Because two frameworks already redirect here, a **third** hook that also wants
+  to *redirect* control flow enters load-order-dependent territory (whoever runs
+  last sets the final jump). A hook that only needs a **side effect** is safe:
+  read `ESI`, do its work, `return 0`. Syringe still runs every callback at the
+  address; returning 0 leaves the others' redirects to decide control flow.
+- `CurrentScript` can be null between scripts — guard before dereferencing.
+
+**Used by / interactions.** The canonical "co-hook for a side effect" site. A
+team's script can be *swapped at runtime* here by repointing
+`pTeam->CurrentScript->Type` and resetting `CurrentMission` to `0` (side-effect
+only, `return 0`); an incidental consumer uses exactly this to implement
+condition-driven script switching without fighting the Antares/Phobos redirects.
+
+**Register / calling convention.** `ESI = TeamClass*` at `0x6E9443` (verified —
+Antares and Phobos both `GET(TeamClass*, …, ESI)` here). Steal size **0x8**;
+match it when co-hooking so Syringe stays consistent across the three hooks.
+
+**Confirmed via.** Antares `Ext/Team/Hooks.cpp` and Phobos `Ext/Script/Hooks.cpp`
+(both `DEFINE_HOOK(0x6E9443, …, 0x8)`, ESI=TeamClass\*); the redirect targets from
+their source. Side-effect co-hook exercised by an incidental consumer. **Register
++ steal size confirmed; redirect targets read from framework source.**
+
+---
+
 ### `0x6F09C0` — TeamTypeClass::CreateTeam (`FUN_006F09C0`)
 
 **Framework names.** None in the registry.

@@ -127,3 +127,49 @@ or every later lookup disagrees with how the array was laid out.
 **Confirmed via.** objdump of vanilla `gamemd.exe`; cross-referenced to a
 map-resize DLL that patches exactly this immediate (`0x200 → stride`) and logged
 the deploy/move fix it produced. **Confirmed.**
+
+---
+
+## DLL-author trap: don't use YRpp's inline cell lookups on a resized map
+
+The intro warns a *map-resize* DLL must patch every inlined `GetCellIndex`. The
+complementary trap bites every **other** DLL that runs *alongside* such a resize
+DLL (e.g. a feature DLL loaded together with a big-map DLL like MapSizeExt):
+
+**Symptom (verified in-game).** A feature DLL called YRpp's inline
+`MapClass::TryGetCellAt(coord)` / `Coord2Cell` / `GetCellIndex` to find a unit's
+cell for spawning. On a stride-1024 (MapSizeExt-expanded) map, units either
+**failed to spawn** (for odd cell-Y, the wrongly-computed index fell out of the
+bound at `[+0x140]` → `nullptr`) or **clustered at the map's north/origin corner**
+(the index computed with stride 512 aliased onto real cell `(X, Y/2)` — a clean
+halving of Y, since `Y*512` indexes into a `*1024`-pitched array).
+
+**Cause.** YRpp's cell math is **`inline`** — `GetCellIndex(c) = (c.Y << 9) + c.X`
+and `MaxCells = 0x40000` are compiled into *your* DLL's `.text`. A map-resize DLL
+patches the stride in `gamemd.exe` (`0x565757` etc.) and in its **own** copy, but
+it cannot patch the 512 baked into a *different* DLL's inlined YRpp. So your DLL's
+`Coord2Cell`/`TryGetCellAt`/`GetCellIndex` silently disagree with the real array.
+
+**Fix — never hand-convert coordinates to cells in a DLL that may run on resized
+maps.** Use the engine's own accessors (which go through the real, patched map),
+and let the engine validate placement:
+- `ObjectClass::GetCell()` (virtual, `ObjectClass+0x…` vtable) — an object's own
+  current `CellClass*`, computed by the engine against the live array. Also
+  `GetMapCoords()`.
+- `CellClass::Cell2Coord(cell)` — cell → world (`x*256+128`). This is **stride-free**
+  (pure arithmetic, no array index), so it is safe to use directly.
+- `ObjectClass::Unlimbo(coord, dir)` (virtual) — place at world coords; it resolves
+  the cell internally against the real map and returns success. Scatter by adding
+  world-lepton offsets (`±256 * n` per cell) to a known-good base coord and let
+  `Unlimbo` accept/reject, rather than pre-checking cells with `IsClearToMove`
+  (which also needs a correct `CellClass*`).
+
+**Rule of thumb.** In a coexisting/feature DLL, treat `MapClass::TryGetCellAt`,
+`GetCellAt`, `Coord2Cell`, `GetCellIndex` and `IsClearToMove` as **512-stride-only**
+and avoid them on any map that might be resized. Prefer engine virtuals + `Unlimbo`.
+
+**Confirmed via.** In-game testing of a standalone Syringe DLL that spawns units,
+run alongside a map-resize DLL on an expanded map: the YRpp-inline path produced
+the null/corner-halving symptoms above; switching to `GetCell()` + world-offset
+scatter + `Unlimbo` fixed it. Stride/index math cross-referenced to `0x565757`
+(`SHL ,9`) and the YRpp inline `GetCellIndex` in this page's intro.

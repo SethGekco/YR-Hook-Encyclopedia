@@ -423,6 +423,12 @@ left headroom). The spawner iterates `HouseIndices` with
 spawn locations `std::clamp(nSpawnLocations, 0, 7)` (~146). **Confirmed** from
 YRpp `ScenarioClass.h` + spawner source.
 
+> Now covered in full — including the mapping *direction* (start→house, so
+> answering "which start does this house hold?" requires inverting it), the
+> `HouseHomeCells[8]` / `NumCoopHumanStartSpots` neighbours, and why
+> `NumberStartingPoints` doubles as a player-count proxy — in
+> [Start-Locations-Spawn-Identity.md](Start-Locations-Spawn-Identity.md).
+
 ### `SessionClass` — `SlotData[8]`, `MPStats[8]`; `NumberStartingPoints`
 `SlotData[8]` and `MPStats[8]` are lobby/stat arrays (YRpp `SessionClass.h`).
 `ScenarioClass::NumberStartingPoints` is the engine's effective "player count"

@@ -89,6 +89,60 @@ intent inferred from names; bodies not quoted here.
 
 ---
 
+### `0x6FD150`–`0x6FD183` — TechnoClass::RearmDelay: the vanilla "more occupants = faster" divisor
+
+**Framework names.** *Unhooked by any framework* in the region `0x6FD150`–`0x6FD17F`
+(Phobos's hooks start at `0x6FD183`). Documented here because it is the engine
+behaviour everyone means by "RA2 garrison buildings fire faster with more men."
+
+**What it does.** Inside `TechnoClass::RearmDelay`, a clean `gamemd.exe` runs:
+
+```asm
+6FD150   call [vtable+0x400]   ; TechnoClass::CanOccupyFire()
+6FD15A   test al, al
+6FD15C   je   0x6FD1B1         ; NOT occupy-firing -> skip the ENTIRE bonus block
+6FD15E   call [vtable+0x408]   ; TechnoClass::GetOccupantCount()
+6FD168   test eax, eax
+6FD16A   jle  0x6FD183         ; count <= 0 -> skip the divide
+6FD170   call [vtable+0x408]   ; count again (not cached)
+6FD17B   idiv ecx              ; rof = rof / occupantCount
+6FD17F   mov  [esp+0x14], ebp
+6FD183   ...                   ; then flat RulesClass::OccupyROFMultiplier (+0xF44)
+```
+
+So the rearm delay is **integer-divided by the live occupant count**, then divided
+again by the flat `OccupyROFMultiplier`. Two `TechnoClass` virtuals drive it:
+**`+0x400` = `CanOccupyFire()`**, **`+0x408` = `GetOccupantCount()`** (both
+declared in YRpp `TechnoClass.h`, both `R0`).
+
+**What it does *not* do — easily mistaken.**
+- The bonus is gated on **`CanOccupyFire()`**, not on "has occupants". A building
+  that merely has its own `Primary=` and some infantry inside does **not** reach
+  this code and gets no scaling.
+- The weapon fired on this path is the **occupant's** `InfantryTypeClass::OccupyWeapon`
+  / `EliteOccupyWeapon` (cycled via `BuildingClass::FiringOccupantIndex`) — *not*
+  the building's own weapon. "Building has a weapon, crew makes it fire" therefore
+  needs extra work; only the ROF half is vanilla.
+- `GetOccupantCount()` is called **twice** in a row without caching — harmless,
+  but do not assume a cached value if you hook between them.
+
+**Useful join point.** `0x6FD1B1` is where all paths reconverge, *after* the whole
+occupy block and *before* the bunker block at `0x6FD1C7`. It is **unhooked by every
+framework**, and on every incoming path `EBP` holds the current rearm delay,
+mirrored at `[ESP+0x14]` (Phobos's bunker hook reads that stack slot, so write
+both). Stolen bytes there are exactly `8B 86 E4 02 00 00` (`mov eax,[esi+0x2E4]`),
+`ESI` = `TechnoClass*`. This is the clean place to add your own ROF scaling
+without arbitrating Phobos at `0x6FD183`/`0x6FD1C7`.
+
+**Confirmed via.** `objdump -d` of a clean `gamemd.exe` (all bytes/branches above);
+virtual names from YRpp `TechnoClass.h:305,307`; occupy-weapon fields from
+`InfantryTypeClass.h:81-82`. Vtable slot→name mapping is *inferred* from the call
+sites plus YRpp declaration order, **not** confirmed against a vtable dump.
+**Used by** PayloadExt for a crewed-building weapon (gate + divisor); not yet
+in-game verified.
+
+---
+
 ### `0x6FD183` / `0x6FD1C7` / `0x6FE3F1` / `0x6FE421` — Garrison/Bunker firing modifiers (ROF & damage)
 
 **Framework names**

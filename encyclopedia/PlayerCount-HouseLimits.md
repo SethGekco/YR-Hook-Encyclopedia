@@ -478,6 +478,72 @@ tractable than >8 *humans*. **Confirmed** from spawner source + YRpp header.
 
 ---
 
+## Online (>8 houses in a networked game) — what actually gates it
+
+The networking cap noted above bounds **human connections**, not houses. YR
+multiplayer is lockstep-deterministic: each client transmits only its own
+commands and every client simulates the whole world, AI included. AI houses are
+therefore *not* network peers. A game of, say, 4 humans + 20 AI never approaches
+`Connection[7]` / `ListAddress[8]`. **So ">8 houses online" is tractable in the
+comp-stomp shape (few humans, many AI) even though ">8 humans" is not.**
+
+**The gating problem online is desync, not connection count.** Three concrete
+requirements fall out:
+
+1. **The house set must come from a host-authoritative, broadcast channel**
+   (`spawn.ini`), never from a client-local config file. If two clients disagree
+   on how many AI exist, they build different house arrays and desync
+   immediately. This is the single biggest architectural constraint — a
+   "read our own INI" design that works offline is unusable online.
+2. **Only the synced RNG may touch game state** —
+   `ScenarioClass::Instance->Random`. A private RNG (or one shared between game
+   logic and render-time randomness) desyncs. This is a known, repeatedly-hit
+   failure mode in YR DLLs.
+3. **Identical builds on every client**, with deterministic iteration order
+   (never iterate by pointer address or hash order when creating houses).
+
+**Unverified / open.** Whether the per-player frame-sync queues are sized per
+*connection* (harmless — humans stay ≤8) or per *house* (a hard blocker) is
+**not established**. A community RE vet described them as "per player, so size 7,"
+which reads as per-connection, but this has not been confirmed against the
+binary. **Anyone attempting online >8 houses must settle this first.**
+
+### `SessionClass::GameMode` — the offline/online gate
+
+The engine's own online/offline discriminator, useful for staging a rollout or
+providing a kill-switch, and reusable by any YR DLL:
+
+```cpp
+// YRpp GeneralDefinitions.h
+enum class GameMode : unsigned int {
+    Campaign = 0x0, LAN = 0x3, Internet = 0x4, Skirmish = 0x5,
+};
+// YRpp SessionClass.h
+static constexpr reference<SessionClass, 0xA8B238u> const Instance{};
+GameMode GameMode;   // first field, offset 0
+```
+
+So `SessionClass::Instance->GameMode` is simply the DWORD at `0xA8B238`.
+**Vanilla `AssignHouses` already branches on it** — `0x687FCE` is
+`cmpl $0x4,0xa8b238`, i.e. `GameMode == Internet` — which makes this a
+well-precedented place to diverge behaviour. A DLL can go inert online with
+`if (SessionClass::Instance->GameMode == GameMode::Internet) return 0;`.
+
+**What it does *not* tell you — easily mistaken.** `GameMode` distinguishes the
+*lobby/session type*, **not** whether the simulation must be deterministic.
+`LAN` (3) and `Internet` (4) are both networked and both desync-sensitive;
+`Skirmish` (5) and `Campaign` (0) are single-client. Gating only on `Internet`
+therefore leaves LAN exposed — check for *both* networked modes if the intent is
+"am I in a lockstep game." Note also this is a **runtime session** property: it
+is meaningless before a session is set up, so do not read it at DLL-init time.
+
+**Confirmed via.** YRpp `GeneralDefinitions.h:670` (enum) and `SessionClass.h:54,56`
+(instance address `0xA8B238`, `GameMode` as first field); the `0x687FCE` branch
+from the `gamemd.exe` disassembly above, where `0xA8B238` independently appears
+as the `this` pointer passed to `0x69A310`. **Confirmed.**
+
+---
+
 ## Practical summary: what a >8-player (offline, AI) build must change
 
 1. Reimplement `AssignHouses` (`0x687F10`) looping past 8 — the Vinifera
@@ -495,8 +561,11 @@ tractable than >8 *humans*. **Confirmed** from spawner source + YRpp header.
    `ScenarioClass::StartingPoints[8]` / `HouseIndices[16]`.
 5. Stay under ~30 total houses unless you also widen every per-house 32-bit
    bitfield (`HouseClass::Allies` et al.).
-6. Offline only — leaving the `ListAddress[8]` / `Connection[7]` network layer
-   untouched is fine and expected.
+6. **Offline first, but online is not ruled out** — the network layer bounds
+   human *connections*, not houses, so a few humans + many AI stays under
+   `ListAddress[8]` / `Connection[7]`. Going online turns desync (not the
+   connection cap) into the gating problem — see the online section above.
+   Leaving that network layer untouched is fine and expected either way.
 
 **Overall status: substantially confirmed (disasm 2026-08-20).** The addresses,
 array sizes, and Phobos waypoint hooks are confirmed from source. `0x687F10` has

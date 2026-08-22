@@ -190,6 +190,55 @@ YRpp offsets (`RulesClass.h:558,905`, `BuildingTypeClass.h:270,317`);
 
 ---
 
+### `0x417FD0` — `AircraftClass::PoseDir` — and the `[General]PoseDir=` trap
+
+The whole function:
+
+```
+417fd0  a1 e0 71 88 00     mov eax, [0x8871e0]   ; RulesClass::Instance
+417fd5  8b 40 44           mov eax, [eax+0x44]   ; Rules->PoseDir
+417fd8  c3                 ret
+```
+
+It returns the field **raw** and the caller hands it straight to `Unlimbo` as a
+`DirType`.
+
+**The trap.** `rulesmd.ini` documents the tag as
+`PoseDir=2 ; aircraft landing facing (0=N, 1=NE, 2=E, etc)`, which reads like an
+8-step compass index. **It is not.** The parser at `0x669262` stores it with no
+scaling at all:
+
+```
+669258  mov ecx, [esi+0x44]      ; existing value as the default
+669262  push "PoseDir"
+66926a  call ReadInteger
+66926f  mov [esi+0x44], eax      ; stored RAW
+```
+
+Contrast the very next field at `+0x48`, which *is* an 8-step index and is
+visibly scaled on both sides of the same read:
+
+```
+669272  mov eax, [esi+0x48]
+66927b  sar eax, 5               ; /32 to produce the default
+...     call ReadInteger
+66928c  shl eax, 5               ; *32 on store
+```
+
+So stock `PoseDir=2` produces `DirType` 2 — about 3 degrees off north — not east.
+The INI comment describes an encoding the code does not implement. Anyone
+reimplementing the pad-aircraft spawn should pass `Rules->PoseDir` through
+unscaled (which is what Phobos' `AircraftExt::GetLandingDir` does), and should
+not "fix" it by multiplying by 32.
+
+**Confirmed via.** objdump of vanilla `gamemd.exe` at `0x417FD0` and `0x669262`
+(the `PoseDir` string ref from `registry/vanilla-tags.csv` → `0x83abb8`);
+cross-checked against Phobos `AircraftExt::GetLandingDir`. The *consequence*
+(aircraft face north, not east) is derived from the code and **not yet visually
+confirmed in-game**.
+
+---
+
 ## Cross-cutting note: this function is a chaining minefield
 
 Three separate "skip to the end" behaviours coexist here — Antares'

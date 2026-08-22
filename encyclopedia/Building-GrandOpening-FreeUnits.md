@@ -85,6 +85,66 @@ require preserving it.
 
 ---
 
+### `0x446AE3` — ⚠ free units are SILENTLY SUPPRESSED for human players
+
+```
+446ae3  8b 8d 1c 02 00 00     mov ecx, [ebp+0x21c]   ; pThis->Owner
+446ae9  e8 42 4c 0c 00        call 0x50b730          ; HouseClass::IsControlledByHuman
+446aee  84 c0                 test al, al
+446af0  74 24                 je   0x446b16          ; NOT human -> spawn
+446af2  8b 85 00 03 00 00     mov  eax, [ebp+0x300]
+446af8  85 c0                 test eax, eax
+446afa  74 1a                 je   0x446b16          ; zero -> spawn
+446afc  8b 8d 20 05 00 00     mov  ecx, [ebp+0x520]  ; pThis->Type
+446b04  ff 92 ac 00 00 00     call [edx+0xac]        ; BuildingTypeClass virtual
+446b0a  39 85 00 03 00 00     cmp  [ebp+0x300], eax
+446b10  0f 8e cc 03 00 00     jle  0x446ee2          ; SKIP free units
+```
+
+In C:
+
+```c
+if (Owner->IsControlledByHuman()
+    && pThis->[0x300] != 0
+    && pThis->[0x300] <= pType->vtable[0xAC]())
+    goto no_free_units;
+```
+
+**`0x50B730` is `HouseClass::IsControlledByHuman()`** = `IsHumanPlayer ||
+IsInPlayerControl`. YRpp carries the address in a comment at
+`HouseClass.h:492`, so this one needs no reverse engineering — just look it up.
+
+**Why this matters more than it looks.** The condition is gated on the owner
+being *human*. An AI house skips the whole test at `0x446AF0` and always gets its
+free unit. So a `FreeUnit=` that works perfectly when you watch an AI base can
+produce **nothing at all** for the player, with no error, no log, and no crash.
+
+Observed directly while building FreeUnitExt: across a full skirmish, every
+free-unit delivery logged `owner=Germans` or `owner=Russians` and never the
+human player — while the player's *Refinery* still delivered its harvester. So
+the guard is conditional, not a blanket human block; `[ebp+0x300]` differs
+between building types in a way that lets Refineries through.
+
+**Still unidentified:** `BuildingClass+0x300`, and the `BuildingTypeClass`
+virtual at vtable slot `0xAC`. Naming these would explain exactly which
+buildings vanilla intends to suppress.
+
+**Consequence for extensions.** If you are replacing the free-unit spawn and you
+want it to work for the player, hook at or above `0x446AE3` and bypass this
+guard. Hooking below it (e.g. at `0x446B16`, which otherwise looks like the
+ideal seam because every guard sits above it) inherits the suppression. That is
+a real mistake that was made and then corrected in FreeUnitExt.
+
+The guards you probably DO want are all above `0x446AE3`: Antares' once-only
+guard (`0x446AAF`), `ScenarioInit` map-load suppression (`0x446ABD`), and the
+`captured` argument (`0x446ACA`).
+
+**Confirmed via.** objdump of vanilla `gamemd.exe`; `HouseClass.h:492` for the
+`0x50B730` identification; and **in-game logging** of the owning house for every
+delivered unit, which is what exposed the AI/human split. Behaviour after
+bypassing the guard confirmed in-game: four infantry per barracks for the human
+player.
+
 ### `0x446B16` — after the full free-unit guard chain (unhooked)
 
 ```

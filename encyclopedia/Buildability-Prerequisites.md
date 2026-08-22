@@ -225,6 +225,29 @@ busy), where the surrounding code knows to re-check.
 all `call 0x4F7870` sites for the test-vs-compare split; observed in game
 (cameo blacked out, unit still produced) before switching to `0`.
 
+### …and the value is only half of it: `CanBuild` is asked **twice**
+
+`CanBuild(pItem, buildLimitOnly, includeInProduction)` is consulted with two
+different intents:
+
+* `buildLimitOnly = false` — the **sidebar** asking what to draw.
+* `buildLimitOnly = true` — the path that **actually starts production**.
+
+A hook that early-outs on `buildLimitOnly` (a natural-looking guard, since that
+query nominally asks about build limits) therefore changes the *picture* and
+never touches the *gate*: the cameo greys or vanishes and the item still builds
+when clicked or queued.
+
+This is exactly why a reached `BuildLimit` genuinely prevents production —
+Antares' `HouseExt::PrereqValidate` answers **both** calls, returning its
+`BuildLimitStatus` on the `buildLimitOnly` path
+(`src/Ext/House/Body.cpp`, `PrereqValidate` / `CheckBuildLimit`). Any
+third-party refusal that wants to be real has to do the same.
+
+**Confirmed via.** Antares source (`develop`); observed in game — refusing only
+the `buildLimitOnly = false` call produced a darkened-but-buildable cameo, and
+answering both produced a real refusal.
+
 ---
 
 ## Related engine facts (not hooks)

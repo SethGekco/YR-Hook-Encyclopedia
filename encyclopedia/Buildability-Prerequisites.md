@@ -194,6 +194,39 @@ ECX       = HouseClass*                             pThis   (unused by Antares)
 
 ---
 
+## ⚠ `CanBuildResult::TemporarilyUnbuildable` is −1, and −1 is truthy
+
+```
+enum class CanBuildResult : int {
+    TemporarilyUnbuildable = -1,   // "black out cameo"
+    Unbuildable            =  0,   // "permanently; remove cameo"
+    Buildable              =  1,
+};
+```
+
+The YRpp comment invites you to read `-1` as "greyed out and therefore not
+buildable". **It is not.** Of the eleven `call 0x4F7870` sites in `gamemd.exe`,
+**eight** test the result with `test eax,eax` and treat any non-zero value as
+permission to build; only **three** do `cmp eax,-1`, and those are the
+cameo-blackout paths.
+
+So a hook that refuses a build by writing `-1` produces exactly this symptom:
+the sidebar cameo goes dark, and the unit builds anyway when clicked. It looks
+like the refusal "half worked", which sends people hunting for a second gate
+that does not exist.
+
+Write **`Unbuildable` (0)** to actually refuse — it is falsy, so every caller
+agrees, and removing the cameo is what vanilla itself does for
+`RequiresStolenAlliedTech` / `…SovietTech` / `…ThirdTech`. Reserve `-1` for
+conditions the *engine* already treats that way (insufficient power, factory
+busy), where the surrounding code knows to re-check.
+
+**Confirmed via.** YRpp `GeneralDefinitions.h` for the values; objdump sweep of
+all `call 0x4F7870` sites for the test-vs-compare split; observed in game
+(cameo blacked out, unit still produced) before switching to `0`.
+
+---
+
 ## Related engine facts (not hooks)
 
 Useful when writing anything in this subsystem; all from YRpp headers, verified by

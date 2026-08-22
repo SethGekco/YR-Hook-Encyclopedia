@@ -89,6 +89,63 @@ intent inferred from names; bodies not quoted here.
 
 ---
 
+### `0x457CE0` / `0x4581F0` / `0x458DD0` — the garrison entry gate and the two occupancy virtuals
+
+**Framework names**
+| Framework | Function name | Stolen | Source file |
+|---|---|---|---|
+| Antares / Ares | `BuildingClass_CanBeOccupied_SpecificOccupiers` (`0x457D58`) | 0x6 | src/Ext/Building/Hooks.Trenches.cpp |
+| Antares / Ares | `BuildingClass_CanBeOccupied_SpecificAssaulters` (`0x457DB7`) | 0x6 | src/Ext/Building/Hooks.Trenches.cpp |
+
+**What it does.** `BuildingClass::CanBeOccupiedBy(InfantryClass*)` at `0x457CE0`
+(`ECX` = building, `[ESP+0x18]` = infantry → `ESI` = building, `EDI` = infantry)
+decides whether a given infantryman may garrison a given building:
+
+```asm
+457CF9  mov  cl, [Type+0x157B]     ; CanBeOccupied
+457D01  je   fail
+...
+457D79  call [vtable+0x408]        ; live GetOccupantCount()
+457D7F  mov  ecx, [building+0x520] ; -> BuildingTypeClass
+457D85  cmp  eax, [Type+0x1580]    ; MaxNumberOccupants
+457D8B  je   fail                  ; count == max -> full
+```
+
+**Verified `BuildingTypeClass` field offsets:** `+0x157B` = `CanBeOccupied`,
+`+0x157C` = `CanOccupyFire`, `+0x1580` = `MaxNumberOccupants`. Building instance:
+`+0x520` = `Type`, `+0x694` = `Occupants.Count`.
+
+**The two virtuals** (BuildingClass vtable at `0x7E3EBC`):
+- **`+0x408` → `0x4581F0` `GetOccupantCount()`** is exactly
+  `mov eax,[ecx+0x694] / ret` — the **live** occupant count read off the building
+  *instance*, not the Type.
+- **`+0x400` → `0x458DD0` `CanOccupyFire()`** =
+  `CanBeOccupied && CanOccupyFire && GetOccupantCount() > 0`.
+
+**What it does *not* do — easily mistaken.**
+- The capacity test is `count == MaxNumberOccupants → reject`, **not** `count >=`.
+  So leaving `MaxNumberOccupants` at 0 rejects even an *empty* building
+  (`0 == 0`), meaning nobody can ever enter. It must be > 0.
+- Entry does **not** check `CanOccupyFire`. That flag only gates vanilla's
+  occupy-*firing* (and the `0x6FD150` ROF block); infantry can still garrison a
+  building with `CanOccupyFire=no`.
+- `GetOccupantCount()` has nothing to do with `Passengers=` /
+  `FootClass::Passengers.NumPassengers` — a completely separate container. This is
+  the same garrison-vs-transport split described at the top of this page.
+- The second `call [vtable+0x408]` at `0x457DCB` (requiring count **> 0**) is on
+  the *assault* branch, not the occupy branch — which is why Antares hooks
+  `0x457DB7` as `SpecificAssaulters`: you can only assault a building that has
+  someone inside.
+
+**Confirmed via.** `objdump -d` of a clean `gamemd.exe` for every byte sequence
+above; vtable base read out of the `BuildingClass` ctor (`0x43B740`,
+`movl $0x7E3EBC,(%esi)`) and slots dereferenced from the image. Field *names* are
+mapped from YRpp's declaration order (`BuildingTypeClass.h:215-217`) onto the
+observed offsets — self-consistent across three independent call sites, but not
+cross-checked against a symbol dump.
+
+---
+
 ### `0x6FD150`–`0x6FD183` — TechnoClass::RearmDelay: the vanilla "more occupants = faster" divisor
 
 **Framework names.** *Unhooked by any framework* in the region `0x6FD150`–`0x6FD17F`

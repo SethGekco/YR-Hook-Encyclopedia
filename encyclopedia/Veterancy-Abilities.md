@@ -67,8 +67,60 @@ one hook can grant or revoke abilities for every consumer that asks politely.
   read `TechnoTypeClass +0x29C` / `+0x2AE` directly from the combat-multiplier,
   sight, cloak and self-heal code. **A hook here cannot grant or revoke them** —
   which is easy to mistake for a broken hook, because granting one produces no
-  error and no effect. ⚠ **Still unverified:** the exact addresses of those
-  direct readers.
+  error and no effect. The direct readers are documented below.
+
+---
+
+## The direct readers — one template, repeated
+
+The abilities `HasAbility` never sees are decided inline, and every site found
+so far has the identical shape:
+
+```
+      lea  <reg>,[<techno>+0x150]      ; &this->Veterancy
+      <stage the value being modified into a stack slot or memory>
+      call 0x74FF90                    ; IsVeteran — STRICT, 1.0 <= v < 2.0
+      jne  block
+      call 0x750010                    ; IsElite   — v >= 2.0
+      je   SKIP                        ; <-- a rookie leaves here
+  block:
+      <type> = this->GetTechnoType()
+      if IsVeteran && type[+0x29C+X]                -> APPLY
+      if IsElite   && (type[+0x29C+X] || [+0x2AE+X]) -> APPLY
+      -> SKIP
+  APPLY: value <op>= Rules-><multiplier>
+  SKIP:
+```
+
+Confirmed sites for the combat abilities:
+
+| Ability | Opening `lea` | Techno in | APPLY | SKIP | Multiplier |
+|---|---|---|---|---|---|
+| `FIREPOWER` | `0x6FDBE2` | ESI | `0x6FDC42` | `0x6FDC5A` | `Rules+0x670` (`VeteranCombat`) |
+| `FIREPOWER` | `0x6FE354` | ESI | `0x6FE3C8` | `0x6FE3E3` | `Rules+0x670` |
+| `ROF` | `0x6FD0D4` | ESI | `0x6FD136` | `0x6FD150` | `Rules+0x690` (`VeteranROF`) |
+| `STRONGER` | `0x6FDC87` | **EDI** | `0x6FDCE9` | `0x6FDD00` | `Rules+0x688` (`VeteranArmor`, divide) |
+| `STRONGER` | `0x701966` | ESI | `0x7019C4` | `0x7019D8` | `Rules+0x688` |
+
+**Two traps for anyone hooking these.**
+
+* **Do not hook the `call 0x74FF90`.** It is the obvious seat and it is wrong:
+  those are `call rel32`, and Syringe replays stolen bytes from its own
+  trampoline, where a relative displacement resolves to a different address
+  entirely. Hook the position-independent `lea` that opens the block.
+* **Get in front of the outer gate.** `IsVeteran || IsElite` runs *before* the
+  ability is consulted, so a rookie never reaches the table read. A hook placed
+  after the gate can only ever modify units that already have veterancy.
+
+Redirecting from the `lea` skips the instructions that stage the value being
+modified, so a handler that jumps must replicate that staging itself.
+
+**Confirmed via.** objdump of vanilla `gamemd.exe`; offsets cross-checked
+against YRpp's `AbilitiesStruct` ordering; the multiplier fields identified by
+their `rulesmd.ini` values (`VeteranCombat`, `VeteranROF`, `VeteranArmor`).
+⚠ **Unverified:** the sites for `CLOAK`, `SELF_HEAL`, `TIBERIUM_PROOF`,
+`TIBERIUM_HEAL` and `RADAR_INVISIBLE`; `SIGHT` candidates are `0x70AEA0` and
+`0x70B04F` but their jump targets have not been read off.
 * **Hooking the entry is a trap.** Both shared exits (`0x70D117`, `0x70D148`)
   begin `pop edi; pop esi; ... pop ebx`. At `0x70D0D0` those three registers have
   not been pushed yet, so a hook at the entry that returns one of the exits pops

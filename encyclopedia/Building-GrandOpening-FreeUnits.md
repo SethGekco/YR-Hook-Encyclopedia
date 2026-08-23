@@ -299,6 +299,75 @@ confirmed in-game**.
 
 ---
 
+---
+
+## Appendix: `UnitClass::What_Action` @ `0x740801` — re-enabling a suppressed move click
+
+Not part of Grand_Opening, but discovered while building the same DLL and it has
+the same shape of trap.
+
+**The problem.** An immobile unit (`Speed=0`) cannot be given a move order at
+all. `UnitClass::What_Action` (a.k.a. `MouseOverCell`, `0x7404B0`) decides what a
+click means, and for such a unit it never resolves to `Action::Move` — so the
+click is inert, **no event is queued**, and there is nothing downstream to
+intercept. Hooking `EventClass::Execute` to reinterpret the order does not help,
+because the order is never issued.
+
+Verified in-game: the only MegaMissions such a unit produced were
+`Mission::Unload` (16) from *deploy*. Right-clicking a cell produced nothing.
+
+**Where the answer is.** Phobos' `DisallowMoving` (`src/Ext/Unit/Hooks.DisallowMoving.cpp`)
+hooks `0x740709` and `0x740744` to force `Action::NoMove`. The inverse — forcing
+`Action::Move` — is done at `0x740801`, the function's single final return:
+
+```
+740801  8b 44 24 30     mov eax, [esp+0x30]    ; the decided Action
+740805  5f              pop edi
+740806  5e              pop esi
+...     add esp,0x1c ; ret 0xC
+```
+
+`ESI` = `UnitClass*`, `[ESP+0x30]` = the decided `Action`.
+
+Observed value for an immobile unit: **`Action::None` (0)**, not `NoMove` (2) —
+so a hook that only rewrites `NoMove` will miss it. Rewrite both.
+
+Once `What_Action` reports `Move`, `FootClass::ActiveClickWith` (`0x4D7EB5`)
+dispatches the MegaMission normally — **it does not re-check mobility** on that
+branch (the Phobos hook there is that framework's own feature, not a vanilla
+gate). So one override is enough to make the whole click→event chain work.
+
+### ⚠ The trap that crashed it: never return inside your own stolen bytes
+
+The obvious implementation sets `EAX` and returns `0x740805` to land on the
+`pop edi`. **That crashes.** A size-`0x5` hook at `0x740801` patches
+`0x740801`–`0x740805` *inclusive*, so `0x740805` is the **last byte of Syringe's
+own JMP**. Control resumes mid-instruction, executes a fragment of the patch, and
+lands on a wild EIP — observed as `Exception code: C0000005 at 00005280`, which
+looks like heap corruption and is not.
+
+Write the value into the stack slot and return `0` instead. The stolen
+`mov eax,[esp+0x30]` then performs the load itself:
+
+```cpp
+REF_STACK(Action, decided, 0x30);
+if (decided == Action::NoMove || decided == Action::None)
+    decided = Action::Move;
+return 0;
+```
+
+**General rule for any Syringe hook:** the only safe return targets are `0`
+(re-executes the stolen bytes) or an address `>= addr + size`. Returning
+anywhere inside `[addr, addr+size)` is a wild jump. This is cheap to check
+mechanically — FreeUnitExt now runs a CI script that parses every `DEFINE_HOOK`
+and fails the build on such a return.
+
+**Confirmed via.** objdump of vanilla `gamemd.exe`; Phobos `DisallowMoving` for
+the seam; and in-game — an immobile MCV that now turns to face right-clicked
+cells while remaining unable to move.
+
+---
+
 ## Cross-cutting note: this function is a chaining minefield
 
 Three separate "skip to the end" behaviours coexist here — Antares'

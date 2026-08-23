@@ -31,9 +31,28 @@ already too late to read the object's position or spawn anything "where it died"
 **Register / calling convention.** `ECX = TechnoClass*` (Kratos). The `this`
 register is shared by the other consumers.
 
+**Pattern — the correct home for clearing a DLL-side "identity flag."** If your
+DLL keeps a per-object flag in a side table (a `set<TechnoClass*>` marking
+"this one was spawned / delivered / built", to drive a chain-guard like
+`OnlyBuilt=`/`BuiltOnly=`), **this is where you erase it.** The flag must be:
+- **set at creation, before the trigger it guards can fire** (a synchronously-
+  created child can otherwise re-trigger before it is marked — see `0x702050` and
+  the building-`Place`/`DiscoveredBy` re-entry case), and
+- **stable for the object's whole life — never consumed on read.** A guard that
+  erases its own mark on each check (or re-marks a *guessed* number of times) leaks
+  the moment the guarded event fires once more than predicted, and the object is
+  then mistaken for un-marked. Concrete failure seen in the wild: a "delivered"
+  structure whose delivery flag was consumed on its first `Grand_Opening` re-ran
+  its free-unit list on a later `Place` and the free units *reproduced* despite
+  the guard being set. Fix: check without mutating; clear only here, on death.
+
+Erasing a pointer that was never in your table is a harmless no-op, so a single
+unconditional `erase(this)` here is safe even though the dtor fires for every
+techno.
+
 **Confirmed via.** Upstream Kratos `TechnoExtHook.cpp`; registry cross-reference;
-in-game use (erasing per-unit map entries here — a standalone Syringe DLL — with
-no stale-pointer issues across a session).
+in-game use (erasing per-unit map entries and clearing a delivered-building
+chain-guard flag here — standalone Syringe DLLs — with no stale-pointer issues).
 
 ---
 

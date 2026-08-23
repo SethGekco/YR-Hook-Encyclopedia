@@ -45,7 +45,58 @@ return a jump target, and then load order decides the winner — a real conflict
 `[ESP+0x4] = HouseClass*` (the infiltrator's house).
 
 **Confirmed via** Antares source (`develop`, `src/Ext/Building/Hooks.Infiltrate.cpp`)
-and the PDB symbol map (`0x4571E0 BuildingClass_Infiltrate`).
+and the PDB symbol map (`0x4571E0 BuildingClass_Infiltrate`). The co-hooking
+claim above is no longer inference — see the runtime verification below.
+
+---
+
+## VERIFIED — co-hooking `0x4571E0` alongside Antares
+
+The conditional-safety claim above was originally reasoned from Syringe's
+documented behaviour. It has since been **confirmed at runtime**, which is worth
+recording because the opposite assumption is very easy to reach and leads people
+to hunt for a "post-infiltration seam" that is not needed.
+
+**The tempting wrong conclusion.** Antares wraps the whole function and returns
+`0x4575A2`. If Syringe *stopped* the chain at the first non-zero return, every
+later-registered handler at this address would be dead code — silently, with no
+handshake failure and no log line. That reasoning is wrong, but it is wrong in a
+way that produces a confident-sounding "do not hook `0x4571E0`" conclusion.
+
+**The evidence.** A third-party DLL (`IntelExt`) registers a handler at
+`0x4571E0` that logs a line and returns `0`. In the deployed Linux setup the
+Syringe inject list is ordered `-i=Antares.dll … -i=IntelExt.dll`, so **Antares
+registers first and returns `0x4575A2`**. Its log line nevertheless appears in
+real games:
+
+```
+[Phobos] [IntelExt] French infiltrated NATECH: ledger now tops out at index 130.
+[Phobos] [IntelExt] French infiltrated GATECH: ledger now tops out at index 11.
+```
+
+8 occurrences across the `RA2/debug/debug.*.log` history.
+
+**Therefore:** Syringe invokes **every** registered handler for an address. The
+first non-zero return decides only where control ultimately transfers; it does
+**not** prevent subsequent handlers from executing.
+
+**Practical rule.** Co-hooking a fully-wrapped function entry is fine as an
+*observer* — return `0` and you will run in either load order. It stops being
+fine the moment you want to *suppress* the upstream effect, because then you must
+return a jump target and load order decides the winner.
+
+**⚠ This generalises beyond this address.** Any page claiming a chained hook
+"never runs" because an incumbent returns a jump target is overstating the case.
+Compare the wording at `0x4F7870` in
+[Buildability-Prerequisites.md](Buildability-Prerequisites.md), which is right
+that a second handler there cannot usefully *extend the verdict* (it would fight
+over `EAX`, and Antares' `return` bypasses the vanilla body) — but a handler
+there does still execute.
+
+**Confirmed via** `RA2/debug/debug.*.log` from live games with Antares + Phobos +
+several third-party DLLs co-loaded; the inject list in
+`Resources/Compatibility/Unix/wine-game.sh` for registration order; IntelExt
+source for the `return 0`. **Not** derived from Syringe's own source.
 
 ---
 

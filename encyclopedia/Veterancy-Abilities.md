@@ -3,6 +3,10 @@
 How the engine answers "does this unit have ability X", and why that answer has
 exactly one door.
 
+> **Sibling page.** For where a rank is **assigned** in the first place — the
+> academy promotion sites and the infiltration entry point — see
+> [Veterancy-Academy.md](Veterancy-Academy.md).
+
 ---
 
 ### `0x70D0D0` — TechnoClass::HasAbility

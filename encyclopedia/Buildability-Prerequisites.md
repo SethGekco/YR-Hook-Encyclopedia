@@ -41,8 +41,14 @@ vanilla body never executes**. Ares does the same.
   install *inside* the vanilla body (between `0x4F7870` and `0x4F8361`) is **dead
   code** whenever Antares or Ares is loaded. This is the trap.
 - Do **not** add a second hook at `0x4F7870` expecting to extend the verdict.
-  Antares' handler returns a jump target, so a chained hook either never runs or
-  fights over `EAX`. **Use `0x4F8361` instead** (below).
+  Antares' handler writes `EAX` and jumps past the vanilla body, so a chained
+  handler has nothing useful to extend and merely fights over `EAX`.
+  **Use `0x4F8361` instead** (below).
+  *(Precision note: such a handler does still **execute** — Syringe runs every
+  registered handler and the first non-zero return only decides control flow.
+  An earlier revision of this page said it "never runs", which is wrong; see the
+  runtime verification in [Spy-Infiltration.md](Spy-Infiltration.md#verified-co-hooking-0x4571e0-alongside-antares).
+  The practical advice is unchanged.)*
 
 **Register / calling convention** (Antares `src/Ext/House/Hooks.cpp:26`):
 ```

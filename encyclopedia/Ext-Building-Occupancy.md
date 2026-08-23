@@ -89,6 +89,54 @@ intent inferred from names; bodies not quoted here.
 
 ---
 
+### `0x447F10` — BuildingClass::CanFire: occupancy gates the building's OWN weapon ★ trap
+
+**Framework names**
+| Framework | Function name | Stolen | Source file |
+|---|---|---|---|
+| Antares | `BuildingClass_CanFire_PrismForward` (`0x447FAE`, later in the same fn) | 0x6 | src/Ext/Building/Hooks.Prism.cpp |
+| Phobos | `BuildingClass_CanFire_OmniFire` (`0x447FED`, PR#2104) | 0x7 | src/Ext/Techno/Hooks.Firing.cpp |
+
+**What it does.** The head of `BuildingClass::CanFire` decides, *before any weapon
+logic*, whether an occupiable building may fire at all:
+
+```asm
+447F15  mov  eax,[this+0x520]      ; ->Type
+447F1B  mov  cl,[eax+0x157B]       ; CanBeOccupied
+447F23  je   0x447F45              ; not occupiable -> normal path
+447F25  mov  cl,[eax+0x157C]       ; CanOccupyFire
+447F2D  je   0x44805A              ; occupiable + CanOccupyFire=no -> CANNOT FIRE
+447F37  call [vtable+0x408]        ; GetOccupantCount()
+447F3F  je   0x44805A              ; occupiable + zero occupants -> CANNOT FIRE
+447F45  ...                        ; normal checks continue
+```
+
+**The trap (cost a full in-game test round).** `CanBeOccupied=yes` combined with
+`CanOccupyFire=no` produces a building that **can never fire, at all** — not its
+own weapon, not anything. It is easy to assume `CanOccupyFire` only governs
+whether *occupants* shoot out; it does not, it also gates the building's own
+`CanFire`. Symptom: a defensive structure that silently never shoots even when
+fully garrisoned, with no error anywhere.
+
+**Corollary — vanilla already implements "needs a crew".** With
+`CanOccupyFire=yes`, line `0x447F3F` *is* "this building cannot fire while
+empty", and `0x6FD17B` (see below) *is* "it fires faster with more men". Both are
+stock RA2 behaviour; a DLL re-implementing them will duplicate, and a ROF hook
+placed after `0x6FD183` will divide a **second** time.
+
+**What vanilla will NOT do** is let an occupied building fire its *own* weapon —
+see `BuildingClass::GetWeapon` `0x4526F0`, which routes to the occupant's
+`OccupyWeapon` whenever `CanOccupyFire()` is true, and to the building's own
+weapon only when it is false. Since `CanOccupyFire=no` also kills firing outright,
+**no INI configuration yields "garrisoned building shoots its own Primary="**.
+That specific gap is what a DLL has to supply, by forcing the `0x4527B4` branch.
+
+**Confirmed via.** `objdump -d` of a clean `gamemd.exe` for every branch above,
+plus an in-game observation (2026-08-22) of a `CanBeOccupied=yes` +
+`CanOccupyFire=no` pillbox that would not fire when fully occupied.
+
+---
+
 ### `0x457CE0` / `0x4581F0` / `0x458DD0` — the garrison entry gate and the two occupancy virtuals
 
 **Framework names**

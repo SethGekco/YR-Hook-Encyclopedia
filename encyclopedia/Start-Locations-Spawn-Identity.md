@@ -88,6 +88,25 @@ per-start. Co-op missions carry their own human-start-spot count. A change to
 start locations that updates `StartingPoints`/`HouseIndices` but leaves these
 untouched will behave inconsistently between skirmish and co-op.
 
+**5. ⚠ `HouseIndices` does not always contain house indices.** The
+`mmtrt/yrpp-spawner` 16-player module lists among its own jobs *"rewrite the
+waypoint house-index table when it holds cell values"* and *"repair corrupt
+`HouseIndices`"* (its waypoint hooks `0x5D6CBF` / `0x5D6D02` exist for this).
+So in some states the array holds **cell values** rather than house-array
+indices, and can be corrupt outright. **Any reader must validate before
+dereferencing** — range-check each entry against `HouseClass::Array` count and
+treat out-of-range as unassigned. Code that indexes `HouseClass::Array` blind
+with a value from this table has a wild read. The exact states that produce cell
+values are **not yet characterised** — an acquisition target.
+
+**6. `AssignHouses` runs twice, tearing the house array down in between.** Per
+the runtime-instrumented findings in
+[PlayerCount-HouseLimits.md](PlayerCount-HouseLimits.md), `0x687F10` executes
+twice per game start with `HouseClass::Array.Count` back at 0 on the second
+entry. Anything that caches start↔house state at scenario init must be
+**idempotent or explicitly one-shot**, and must not hold `HouseClass*` across the
+boundary. Resolving lazily at point of use avoids the problem entirely.
+
 **Confirmed via.** YRpp `ScenarioClass.h` read directly (declaration order and
 array widths quoted above). **Confirmed.** The many-to-one *consumer* behaviour
 (observation 3) is **explicitly unverified**.
@@ -137,9 +156,44 @@ surveyed** — the Phobos site is one confirmed instance, not the full set.
 The two independent 8-bounded starting-point counters — `0x68AF45` (Phobos hooks
 it but leaves `for (i = 0; i < 8; ++i)` in place) and `0x6883E6` (**no framework
 hooks it**) — are documented in full in
-[PlayerCount-HouseLimits.md](PlayerCount-HouseLimits.md). Both must be lifted for
-any >8-start work; Phobos' dynamic waypoint map makes waypoints *storable* past 8,
-not *countable*.
+[PlayerCount-HouseLimits.md](PlayerCount-HouseLimits.md). Phobos' dynamic waypoint
+map makes waypoints *storable* past 8, not *countable*.
+
+### ⚠ The counter either/or is scoped to player count, **not** start count
+
+[PlayerCount-HouseLimits.md](PlayerCount-HouseLimits.md) now presents two routes
+past 8: lift both counters, **or** keep the stock 8 cap and repair `HouseIndices`
+downstream — the latter because the working `mmtrt/yrpp-spawner` 16-player build
+hooks neither counter and does exactly that.
+
+**That second route does not generalise to raising the number of start
+positions**, and the reason is structural rather than a matter of effort:
+
+| | >8 **players** | >8 **start positions** |
+|---|---|---|
+| Goal | more houses | more distinct start positions |
+| Start positions | keeps 8, **forces houses to co-spawn** — `eStart[i] = (tplStart + i) % 8`, *"Keep starts in 0..7 so parallel assign path never OOB"* | needs > 8 to exist |
+| Counters | may stay capped | **must be lifted — the counter *is* the quantity** |
+
+The 16-player implementation buys extra houses by *spending* start-position
+distinctness: it deliberately packs multiple houses onto the stock 8 positions.
+So for anyone whose goal is *more distinct places to start*, the cap-and-repair
+route removes the very thing they are trying to add, and lifting `0x68AF45` +
+`0x6883E6` remains necessary.
+
+**Corollary, and a useful one:** because that build assigns several houses to the
+same start index and reportedly works, **start → house is evidently not required
+to be a bijection**. That is direct (if indirect-in-direction) evidence bearing on
+observation 3 above — it demonstrates non-uniqueness in the many-houses-to-one-start
+direction, *not* the one-house-to-many-starts direction, so it weakens the
+assumption of bijectivity without establishing the converse. Still **unverified**
+for the direction that matters to multi-spawn.
+
+**Confirmed via.** The `eStart` expression and its comment are quoted in
+[PlayerCount-HouseLimits.md](PlayerCount-HouseLimits.md) from
+`mmtrt/yrpp-spawner` `src/Spawner/PlayerLimit16.cpp`. **Confirmed** as that
+implementation's behaviour. That the build "works" is **the author's report**, not
+independently tested here — and its author confirms **no online testing**.
 
 For the buildability side of spawn-conditional logic, see
 [Buildability-Prerequisites.md](Buildability-Prerequisites.md): hook the

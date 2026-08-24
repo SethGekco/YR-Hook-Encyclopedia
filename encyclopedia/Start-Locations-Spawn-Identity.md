@@ -72,8 +72,40 @@ replacement structure by analogy with `StartingPoints[8]` will mis-size this one
 **2. `HouseIndices` maps start → house, not house → start.** The YRpp comment is
 explicit: *"starting position => `HouseClass::Array->GetItem(#)`"*. Index it by
 start position; the value is a **house array index**. To answer "which start(s)
-does this house hold?" you must **invert** it — there is no direct house→start
-field.
+does this house hold?" you must **invert** it — there is no house→start *field*.
+
+> **There is, however, an inverting helper: `HouseClass::GetSpawnPosition()`.**
+> Not a game function — an inline helper in YRpp's `HouseClass.h`. It scans
+> `HouseIndices` comparing each entry against `this->ArrayIndex` and returns the
+> first match, or `-1`:
+>
+> ```cpp
+> int GetSpawnPosition() const {
+>     const int currentIndex = this->ArrayIndex;
+>     const int* houseIndices = ScenarioClass::Instance->HouseIndices;
+>     for (int i = 0; i < 8; i++)
+>         if (houseIndices[i] == currentIndex) return i;
+>     return -1;
+> }
+> ```
+>
+> Three things worth extracting from it:
+>
+> - **It compares the raw stored int against `ArrayIndex` rather than resolving
+>   the value through `HouseClass::Array`.** Given observation 5 below — the
+>   table can hold cell values — this is the safer of the two possible readings:
+>   a corrupt entry simply fails to match, where resolving it would be a wild
+>   read. **Prefer comparison over resolution when inverting this table.**
+> - **It is bounded at 8 and returns only the FIRST match**, so it cannot express
+>   more than 8 starts or a house holding several. Fine for vanilla; not a
+>   substitute for a set-valued reading if either of those is in play.
+> - **It has a real consumer**, `HouseClass::IsInitiallyObserver()`
+>   (`HouseClass.h:734`), which is `IsHumanPlayer && GetSpawnPosition() == -1` —
+>   i.e. *an observer is a human house matching no start index*. That an
+>   observer check is built on this inversion is meaningful evidence that
+>   `HouseIndices` **is** populated with house `ArrayIndex` values during normal
+>   play, which observation 5's corruption warning might otherwise cast doubt on.
+>   (Evidence, not proof: still worth confirming in a live game.)
 
 **3. The mapping direction structurally permits many-to-one.** Because it is a
 function *from* start position *to* house, nothing in the storage prevents two

@@ -551,6 +551,44 @@ starting spot. Prefer the raw addresses above over YRpp's field names here.
 `mmtrt/yrpp-spawner` `PlayerLimit16.cpp`, whose `ADDR_AIS_*` constants are
 exactly the five addresses above.
 
+#### How `spawn.ini` maps onto these arrays — RUNTIME-CONFIRMED
+
+The CnCNet client writes the AI configuration into `spawn.ini`, which the host
+broadcasts in a networked game. The mapping to the engine arrays is:
+
+```
+AISlots[i]  <->  Multi(i + 1)          (MultiN is 1-BASED)
+```
+
+with slots belonging to **human** players left at `-1`. Sections:
+
+| `spawn.ini` section | Engine array |
+|---|---|
+| `[HouseCountries] MultiN=` | `Countries[8]` @ `0xA8B29C` |
+| `[HouseColors] MultiN=` | `Colors[8]` @ `0xA8B2BC` |
+| `[HouseHandicaps] MultiN=` | `Difficulties[8]` @ `0xA8B27C` |
+| `[SpawnLocations] MultiN=` | `Starts[8]` @ `0xA8B2DC` |
+| `[Settings] AIPlayers=` | AI count @ `0xA8B274` |
+
+**Confirmed** by logging both sides of the mapping in two separate live skirmish
+games and comparing per slot. Run 2: `spawn.ini` held
+`HouseCountries Multi2=2, Multi3=7` and `HouseColors Multi2=0, Multi3=2`, while
+the engine read `Countries[] = {-1, 2, 7, -1, …}` and
+`Colors[] = {-1, 0, 2, -1, …}` — agreement on every populated slot, across two
+runs with different countries and different seeds. This also independently
+confirms `0xA8B2BC` is `Colors` (not merely the loop end-bound).
+
+Note the pleasant coincidence that **the engine's "empty slot" sentinel is also
+`-1`**, so a config reader that maps "key absent" to `-1` round-trips naturally
+against the engine's own convention.
+
+**⚠ Reading these keys with `GetPrivateProfileInt` is unsafe.** That API parses
+the value as *unsigned* and documents that a value below zero returns zero — and
+`0` is a valid country index (Americans). Read the raw string and parse it.
+Likewise, `GetPrivateProfile*` resolves a **bare** filename against the Windows
+directory rather than the game directory, so the path must be given as
+`.\spawn.ini` or every lookup silently returns its default.
+
 ### `ScenarioClass::StartingPoints[8]` + `HouseIndices[0x10]`
 Start-position storage (8) and start→house map (curiously **16**, not 8 — Westwood
 left headroom). The spawner iterates `HouseIndices` with

@@ -80,3 +80,64 @@ hide; returning null when it shouldn't kills selection on that cell.
 
 **Confirmed via.** objdump of `gamemd.exe` (`0x5657A0` index math; `[cell+0xE4]`);
 YRpp `CellClass.h` (`FirstObject`); reasoning about the SelectAt path.
+
+---
+
+### `0x692300` — DisplayClass::ProcessClickCoords  ⚠ the only correct screen-point → cell
+
+**Framework names.** None — unhooked by every framework in the registry. Listed
+here because it is a *function to call*, not a seam to hook.
+
+**What it does.** Converts a **view-relative** screen point into the cell the
+player is actually looking at, walking the terrain so that height and bridges
+are accounted for. It is what the engine's own mouse handler uses.
+
+```
+bool __thiscall ProcessClickCoords(Point2D* src, CellStruct* cellOut,
+                                   CoordStruct* coordOut, ObjectClass** targetOut,
+                                   BYTE* a5, BYTE* a6)
+```
+
+Called on `DisplayClass::Instance` (`0x87F7E8`). Four call sites: `0x4AACD4`
+(the mouse handler), `0x4AE571`, `0x4FB470`, plus internal uses around
+`0x692FFC`-`0x693301`.
+
+**⚠ What it does *not* do — and the trap people hit instead.** The obvious
+alternative, `TacticalClass::ClientToCoords` (`0x6D2280`), maps a screen point to
+world coordinates **as if the ground were flat**. It never receives a Z and
+cannot infer one, so on raised terrain the cell it returns is displaced toward
+the **north** by roughly one cell per height level. `TacticalClass::CoordsToScreen`
+shows the forward transform it is failing to invert:
+
+```cpp
+return Point2D { x, y - AdjustForZ(coord.Z) };
+```
+
+Observed in play as a target landing 1-4 cells "too high", varying with terrain —
+and completely invisible on flat ground, so a flat-map test will pass.
+
+**⚠ The view origin is `DSurface::ViewBounds` (`0x886FA0`)**, not the rectangle at
+`0xB0CE28`. They are different rectangles; using the wrong one adds a constant
+offset on top of any height error. (YRpp gotcha: `ViewBounds` is declared inside
+`class DSurface`, not `class Surface`.)
+
+**Canonical sequence**, copied from the engine's mouse handler at
+`0x4AAC60`-`0x4AACD4` — mirror it rather than doing the isometric maths by hand:
+
+```
+WWMouseClass::Instance->GetCoords(&pt)      // screen-absolute
+pt.X -= DSurface::ViewBounds.X              // -> view-relative
+pt.Y -= DSurface::ViewBounds.Y
+DisplayClass::Instance.ProcessClickCoords(&pt, &cell, ...)
+```
+
+**Determinism note.** Mouse and view state are per-client and unsynced. Resolving
+a cell from them is safe **only** if the resolved cell is then placed inside a
+queued `EventClass` and consumed on execution — the same shape as a normal click.
+Reading the mouse during event *execution* would desync.
+
+**Confirmed via.** objdump of `gamemd.exe` (the `0x4AAC60`-`0x4AACD4` sequence,
+call-site census, `ClientToCoords` at `0x6D2280` taking the raw point);
+YRpp `DisplayClass.h`, `TacticalClass.h`, `Surface.h`; **in-game** — switching a
+superweapon's hotkey targeting from `ClientToCoords` to `ProcessClickCoords`
+removed a reproducible 1-4 cell northward error on sloped terrain.

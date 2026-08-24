@@ -205,10 +205,68 @@ it **silently reads the neighbouring array**, i.e. AI #9's "country" would be
 read out of `Colors[0]`. That is a data-corruption failure, not a clean crash,
 which makes it far nastier to diagnose.
 
-**How to lift it.** Relocate `AISlots` into a larger allocation and rewrite both
-the base (`0x688158`) and this bound (`0x6882C5`) — or bypass the loop entirely
-by reimplementing `AssignHouses` and creating AI houses directly, which is the
-route this subsystem's practical summary recommends.
+**How to lift it — INDEPENDENTLY CONFIRMED, and there is a better way than
+relocation.** This page originally recommended relocating `AISlots` into a
+larger allocation and rewriting both the base (`0x688158`) and this bound
+(`0x6882C5`). A working third-party implementation
+(`mmtrt/yrpp-spawner`, `src/Spawner/PlayerLimit16.cpp`, GPL-3.0) hooks
+**exactly those two addresses** — arrived at independently — but uses a
+**batch-refill** strategy that avoids relocation entirely:
+
+```cpp
+DEFINE_HOOK(0x6882C5, PlayerLimit16_AICreate_EndBound, 6)
+{
+    if (ebx < ADDR_AIS_END) return 0x68815D;   // not done yet, keep looping
+    CaptureTemplates();
+    int need = aiPlayers - created;
+    if (need > 0 && !g_BatchDone && g_TplCount > 0) {
+        g_BatchDone = true;
+        if (need > EngineAISlots) need = EngineAISlots;
+        RefillEngineSlots(need);        // rewrite the SAME 8 slots
+        R->EBX(ADDR_AIS_COUNTRY);       // rewind the pointer to the base
+        return 0x68815D;                // re-enter the loop
+    }
+    return 0x6882D1;                    // fall through to Neutral creation
+}
+```
+
+i.e. when the pointer reaches the end bound, refill the stock 8-wide array with
+the next batch of AI and rewind `EBX` to the base. The engine's own loop then
+runs a second time over fresh data. No relocation, and no need to find every
+other consumer of `0xA8B29C`.
+
+**This is why such builds cap at 16 rather than 25.** The limit is
+`2 passes × 8 slots`, enforced by `need` being clamped to `EngineAISlots` and
+`g_BatchDone` permitting a single refill — **not** the 32-bit bitfield ceiling,
+which sits far above at 30. Turning `g_BatchDone` into a counter would yield
+N×8; the bitfield ceiling only becomes the binding constraint past ~30 houses.
+
+**Verified jump targets** (they match the disassembly above instruction for
+instruction): `0x68815D` is the loop-condition test
+(`cmp 0x20(%esp),%eax`); `0x6882D1` is the `push $0x160b8` that begins Neutral
+house creation.
+
+**Downsides of batch-refill — what the second batch loses.** In the reference
+implementation the refilled slots are *derived*, not configured:
+`eColor[i] = (tplColor + 8 + i) & 15` (colours computed, not user-chosen, and
+masked to 16), `t = i % g_TplCount` (countries/teams/difficulty cycle batch 1's
+values), and `eStart[i] = (tplStart + i) % 8` with the comment *"Keep starts in
+0..7 so parallel assign path never OOB"* — so all houses share the stock 8
+start positions and some necessarily co-spawn. It also carries mutable global
+state (`g_HaveOrig`, `g_BatchDone`, `g_TplCount`) with a save/restore dance
+because `AssignHouses` is called twice. **None of this is inherent to the
+technique** — it is a property of that refill function. Since `spawn.ini` now
+carries `Multi1..Multi16`, per-house config for the second batch already exists
+and a refill that read it would give fully independent countries/colours/teams.
+
+**Confirmed via.** Ghidra-free `objdump` disassembly of vanilla `gamemd.exe`
+(sha1 `189a5a86…`), 2026-08-20 — instruction bytes quoted above. **Confirmed.**
+Independently corroborated 2026-08-23 by `mmtrt/yrpp-spawner`
+`src/Spawner/PlayerLimit16.cpp`, which hooks the same two addresses and whose
+`ADDR_AIS_END` constant is `0x00A8B2BC` with the comment *"end of Country[]
+scan"* — matching the `Colors[8]`-adjacency conclusion this entry previously
+derived arithmetically. That adjacency is therefore now **confirmed**, not
+inferred.
 
 **Confirmed via.** Ghidra-free `objdump` disassembly of vanilla `gamemd.exe`
 (sha1 `189a5a86…`), 2026-08-20. **Confirmed** — instruction bytes quoted above.
@@ -413,11 +471,34 @@ these in a `for slotIndex < std::size(pAISlots->Allies)` loop
 the AssignHouses-reimplementation path sidesteps it by creating AI houses
 directly. **Confirmed** from YRpp header + spawner source.
 
-**Now pinned to real addresses** (disasm 2026-08-20): `Countries[8]` lives at
-**`0xA8B29C`** and `Colors[8]` immediately after it at **`0xA8B2BC`**; the AI
-count is at **`0xA8B274`**. The consumer that enforces the 8 is the pointer
-compare at **`0x6882C5`** — see its own entry above, which is the concrete patch
-site. **Confirmed** from disassembly.
+**Now pinned to real addresses.** The five sub-arrays are contiguous at a
+`0x20` (8 × `int`) stride, and the AI count sits just below them:
+
+| Address | Array |
+|---|---|
+| `0xA8B274` | AI player **count** (not part of the struct) |
+| `0xA8B27C` | `Difficulties[8]` |
+| `0xA8B29C` | `Countries[8]` |
+| `0xA8B2BC` | `Colors[8]` — **also the loop end-bound** at `0x6882C5` |
+| `0xA8B2DC` | `Starts[8]` |
+| `0xA8B2FC` | `Teams[8]` |
+
+The consumer that enforces the 8 is the pointer compare at **`0x6882C5`** — see
+its own entry above for the patch site and the batch-refill alternative.
+
+**⚠ YRpp's `AISlotsStruct` appears mislabelled at this offset.** YRpp declares
+`AIDifficulties[8]; StartingSpots[8]; Colours[8]; Starts[8]; Teams[8];`, which
+would place `Colours` at `Difficulties + 0x40`. Both the disassembly and the
+reference implementation agree `Colours` is at `+0x40` — but that makes YRpp's
+**`StartingSpots[8]` the array the engine actually uses as `Countries[8]`**
+(`0xA8B29C`). The disassembly is unambiguous on this point: the AI loop does
+`mov (%ebx),%edi` then `mov 0xa83c9c,%edx; mov (%edx,%edi,4),%ecx`, i.e. it
+indexes `HouseTypeClass::Array` with that value — it is a country index, not a
+starting spot. Prefer the raw addresses above over YRpp's field names here.
+
+**Confirmed** from disassembly (2026-08-20) and corroborated by
+`mmtrt/yrpp-spawner` `PlayerLimit16.cpp`, whose `ADDR_AIS_*` constants are
+exactly the five addresses above.
 
 ### `ScenarioClass::StartingPoints[8]` + `HouseIndices[0x10]`
 Start-position storage (8) and start→house map (curiously **16**, not 8 — Westwood
@@ -478,6 +559,67 @@ The spawner's human-player path is bounded by `ListAddress::Array[8]`
 = 8 humans, with frame-sync/queue loops sized to match. **A 1-human + N-AI
 offline game never touches this layer**, which is why >8 *AI* is far more
 tractable than >8 *humans*. **Confirmed** from spawner source + YRpp header.
+
+---
+
+## Reference implementation: a working 16-player build (third-party, GPL-3.0)
+
+**`mmtrt/yrpp-spawner`** — a fork of the official CnCNet spawner adding
+`src/Spawner/PlayerLimit16.cpp` (~1000 lines), paired with
+**`mmtrt/xna-cncnet-client`** (branch `testing`) for the lobby side. Both are
+GPL-3.0 forks of the official CnCNet repos. This is currently the most complete
+public >8-house implementation for YR and is the best cross-check for anything
+on this page.
+
+**Its shape.** Engine-side changes are confined to one file. Per its own header:
+expand the `HouseClass` vector to 16; batch-refill `AISlots` so `AIPlayers > 7`
+create; rewrite the waypoint house-index table when it holds cell values; cap
+`StartingPoints` to the stock 8 and repair corrupt `HouseIndices`; expand
+end-game score buffers. Activation is gated on `AIPlayers > 7`,
+`NumberStartingPoints > 8`, or an explicit force flag.
+
+**Hook map** (all `DEFINE_HOOK`, YR 1.001):
+
+| Cluster | Addresses | Purpose |
+|---|---|---|
+| House array | `0x4F61E6`, `0x5EEA19`, `0x640F46` | expand `HouseClass::Array` to 16 |
+| AI creation | `0x688158`, `0x6882C5` | the batch-refill loop (see entry above) |
+| Waypoints | `0x5D6CBF`, `0x5D6D02` | house-index table repair |
+| Load screen | `0x552D60`, `0x553687` | progress draw + re-clamp |
+| Score screen | `0x5C98F1`, `0x5C9911`, `0x5C9AA0`, `0x5C9D47`, `0x5C9DF4`, `0x5C9E8A`, `0x5C9EC9`, `0x5C9F25`, `0x5C9FDD`, `0x46DAE4` | 16-row score buffers |
+| Misc guards | `0x4F6032`, `0x650B5A`, `0x686A2E`, `0x687572` | null-checks / redirects |
+
+`HouseClass::Array` field offsets it relies on (consistent with the
+`0xA80228` object address documented above): items `+0x4` (`0xA8022C`),
+capacity `+0x8`, `IsAllocated` `+0xC`, count `+0x10` (`0xA80238`).
+
+**It contradicts this page on the starting-point counters.** This page
+recommended lifting both `i < 8` counters (`0x68AF45`, `0x6883E6`). The
+reference implementation hooks **neither** — it deliberately *keeps* the stock
+8 cap and repairs the downstream `HouseIndices` table instead, and forces AI
+start slots into `0..7`. Since that build reportedly works, **lifting the
+counters is evidently not required**, and the recommendation in this page's
+practical summary should be treated as one option rather than a prerequisite.
+
+**Two known-unsolved problems** (per its author, 2026-08): the loading-screen
+player indicators and the score screen both still cap at 8 in *display*, even
+though the score *buffers* were widened to 16 rows.
+- For the loading screen, the module's own header states the minimap
+  multi-colour marks come from the **map Preview on the client side**, not the
+  engine — so that one is likely not fixable in a spawner/DLL at all.
+- For the score screen, its hooks span `0x5C98F1`–`0x5C9FDD`. **The Antares PDB
+  symbol map names `0x5CA110` `Game_GetMultiplayerScoreScreenBar`** — an
+  unhooked draw-side function immediately past the end of that range. If the
+  16-row buffers are correct but the display still caps, that is the obvious
+  next candidate. **Untested lead**, offered here because it comes from a
+  symbol source (the Antares PDB) that upstream may not have.
+
+**Online status: UNTESTED.** The fork's spawn.ini schema is widened to 16
+(`[Other1]..[Other15]`, `Multi1..Multi16`, `MultiN_Alliances`), but **no
+network-layer files are modified**, and its author confirms (2026-08) that no
+online testing has been done. Do **not** assume >8 works in a networked game on
+the strength of this implementation — see the section below for why desync, not
+connection count, is the thing to establish.
 
 ---
 
@@ -555,9 +697,13 @@ as the `this` pointer passed to `0x69A310`. **Confirmed.**
    (`__thiscall`, arg = `HouseTypeClass*`). **No colour-picker fix is needed
    inside this function on YR** (see the correction) — but do lift the AI-loop
    pointer bound at `0x6882C5`, which is the actual >7-AI wall.
-2. Lift **both** starting-point counter loops — `0x68AF45` (`i < 8`) *and*
-   `0x6883E6` (`i < 8`), the latter of which is min'd against the house total at
-   `0x68841F` and so directly clamps the effective player count.
+2. **Either** lift both starting-point counter loops — `0x68AF45` (`i < 8`) and
+   `0x6883E6` (`i < 8`), the latter min'd against the house total at `0x68841F`
+   — **or** do what the working reference implementation does and *keep* the
+   stock 8 cap, repairing the downstream `HouseIndices` table and forcing start
+   slots into `0..7` instead. The second route is proven to work; the first is
+   untested. Note the trade-off: capping means houses share the 8 stock start
+   positions, so some necessarily co-spawn.
 3. Adopt/borrow Phobos's dynamic-waypoint subsystem (or place start waypoints
    0..N on the map) so >8 start positions exist.
 4. Widen or bypass `GameModeOptionsClass::AISlots[8]` and

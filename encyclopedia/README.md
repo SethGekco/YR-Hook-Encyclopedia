@@ -46,7 +46,7 @@ widely misunderstood, or conflict-prone**, so the reference earns its keep.
 | [Superweapon-Launch-Targeting.md](Superweapon-Launch-Targeting.md) | Superweapon launch, targeting & the pending-SW cursor | 4 entries (**inhibitors/designators have NO engine address — framework C++ only, duplicated in Antares + Phobos**; **0x4FAE50 Fire_SW is the universal 17-call-site launch funnel with an unhooked entry** — abort via AL=0 + jump 0x4FAEF3, never the 0x4FAEED epilogue; 0x4AC21C is the click convergence point Antares returns to; &#9888; **GetAction 0x6CEF80 has a FOUR-byte prologue** so a 5-byte jmp corrupts Antares' 0x6CEF84 hook — replace vtable slot 0x7F40FC instead; SuperClass::Launch clears the pending-SW global 0x8809A0 at **11** sites) |
 | [Spy-Infiltration.md](Spy-Infiltration.md) | Spy infiltration & stolen tech | 1 entry + structural (engineers do **not** pass through 0x4571E0 — capture is a separate path; co-hooking 0x4571E0 is load-order-safe *only* while you return 0; the stolen-tech 32 ceiling is a `DWORD` storage choice, not an engine limit, and Antares already accepts a comma **list** per building) |
 
-| [Building-Production-KickOut.md](Building-Production-KickOut.md) | Factory unit ejection (KickOutUnit) — the "built by a factory" event | 1 entry (0x443B90 entry: pTechno at [esp+4]; the built-only-gate hook, excludes paradrop/crate/map/spawn) |
+| [Building-Production-KickOut.md](Building-Production-KickOut.md) | Factory unit ejection (KickOutUnit) — the "built by a factory" event | 1 entry (0x443C60 entry: pTechno at [esp+4]; the built-only-gate hook, excludes paradrop/crate/map/spawn) |
 
 _(Add a row per subsystem page as it's created. Subsystem names mirror the
 `Subsystem` column in the registry.)_

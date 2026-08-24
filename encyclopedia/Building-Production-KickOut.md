@@ -12,7 +12,7 @@ unclaimed and is the clean single point if you just need the unit being ejected.
 
 ---
 
-### `0x443B90` — BuildingClass::KickOutUnit (function entry)
+### `0x443C60` — BuildingClass::KickOutUnit (function entry)
 
 **Framework names.** None hook the entry. (Antares/Ares/Phobos hook the inner
 type branches — see below.)
@@ -38,11 +38,16 @@ factory*. It can be entered for a unit that then fails to find an exit cell; if
 you stamped it, rely on the dtor to clear the flag when that unit is destroyed.
 
 **Register / calling convention.** Entry, `__thiscall`: `ECX = BuildingClass*`;
-`[esp+4] = TechnoClass* pTechno`; `[esp+8] = CellStruct cell`. A hook here needs
-size **`0xB`** to cover whole instructions — the prologue is
-`push esi; mov esi,ecx; push edi; cmp [esi+0xAC],0x13` (1+2+1+7 = 11 bytes); the
-next instruction (`je`) is at `0x443B9B`. The entry is NOP-padded
-(`0x443B86`–`0x443B8F`), confirming the function boundary.
+`[esp+4] = TechnoClass* pTechno`; `[esp+8] = CellStruct cell`. The prologue is
+`sub esp,0x130; push ebx; push ebp; push esi; push edi; mov edi,[esp+0x144]` — that
+last load is `pTechno` (`0x130 + 4 pushes = 0x140`, so `[esp+0x144] == entry
+[esp+4]`). A hook at the entry uses size **`0x6`** (the `sub esp,0x130`). The entry
+is a clean function boundary: the previous function ends `ret 0x4` at `0x443C5C`
+with NOP padding at `0x443C5F`.
+
+**⚠ Do not hook `0x443B90`.** That is the *previous* function (it ends `ret 0x4`
+at `0x443C5C`); it is NOT KickOutUnit even though it sits just before the
+`0x443CCA` branch. Hooking it to mark "built" units marks nothing useful.
 
 **Inner type branches (where the frameworks actually hook), for reference.**
 `EDI` holds `pTechno` throughout the function, so these read the ejected unit from
@@ -52,7 +57,8 @@ next instruction (`je`) is at `0x443B9B`. The entry is NOP-padded
 - `0x444131` — InfantryType branch (Antares `0x6`)
 - `0x4440B0` — CloningFacility (Antares/Phobos)
 
-**Confirmed via.** objdump of `gamemd-spawn.exe` (entry prologue, NOP padding,
+**Confirmed via.** objdump of `gamemd-spawn.exe` (entry `0x443C60`
+`sub esp,0x130 … mov edi,[esp+0x144]`; boundary `ret 0x4`@`0x443C5C` + NOP pad;
 `EDI = pTechno` at `0x44411F` `mov edx,[edi]; mov ecx,edi; call [edx+0x2c]`);
 Antares PDB label names for the inner branches; registry cross-reference for the
 framework consumers; in-game test of a built-only gate stamped at this entry.

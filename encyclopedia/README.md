@@ -44,6 +44,8 @@ widely misunderstood, or conflict-prone**, so the reference earns its keep.
 | [Countries-Taunts.md](Countries-Taunts.md) | Country-index width limits & taunt playback | vanilla-RE, 6 entries (**country storage is unbounded — two *field widths* cap it**: `1u << ArrayIndex2` into a DWORD = 32, and a 4-bit nibble in the taunt wire byte = 16; `INIClass::ReadHouseTypesList` 0x4750D0 is the single country-set parser with **exactly 4 call sites**; `PlayTaunt` 0x752B70 has **3 callers and Antares hooks only 2** — ⚠ 0x64A75E unclaimed and the leading suspect for the residual 16 limit; offline taunts are 4 `GameMode::Skirmish=5` compares; ⚠ latent OOB read in Antares' `PlayCountryTaunt`) |
 | [Spy-Infiltration.md](Spy-Infiltration.md) | Spy infiltration & stolen tech | 1 entry + structural (engineers do **not** pass through 0x4571E0 — capture is a separate path; co-hooking 0x4571E0 is load-order-safe *only* while you return 0; the stolen-tech 32 ceiling is a `DWORD` storage choice, not an engine limit, and Antares already accepts a comma **list** per building) |
 
+| [Building-Production-KickOut.md](Building-Production-KickOut.md) | Factory unit ejection (KickOutUnit) — the "built by a factory" event | 1 entry (0x443B90 entry: pTechno at [esp+4]; the built-only-gate hook, excludes paradrop/crate/map/spawn) |
+
 _(Add a row per subsystem page as it's created. Subsystem names mirror the
 `Subsystem` column in the registry.)_
 

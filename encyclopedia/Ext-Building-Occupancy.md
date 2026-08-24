@@ -89,6 +89,51 @@ intent inferred from names; bodies not quoted here.
 
 ---
 
+### `0x710470` / `0x7104A0` — TechnoClass::Entered/ExitedOpenTopped: how a passenger keeps firing
+
+**Framework names.** Unhooked by any framework; documented because it is the
+mechanism behind every "make X fire out of Y" feature.
+
+**What it does.** `EnteredOpenTopped(pWho)` @`0x710470` is only three steps:
+
+```asm
+71047D  mov byte [pWho+0x82],1   ; ObjectClass::InOpenToppedTransport = true
+710484  call [pWho_vtable+0x3D0] ; virtual on the passenger
+71048D  mov ecx,0x87F778         ; LogicClass::Instance
+710492  call 0x55BAA0            ; AddObject(pWho)
+```
+
+The essential part is the **logic-layer registration**: a passenger is limboed
+inside its transport and would otherwise stop receiving `Update()` ticks, so the
+engine adds it to `LogicClass::Instance` to keep it alive and firing. The flag at
+`+0x82` is what the open-topped firing/targeting hooks key on (`0x6FC5C7`
+CanFire, `0x6FE43B` damage multiplier, the `ThreatEvals_OpenToppedOwner` sites).
+`ExitedOpenTopped` @`0x7104A0` reverses it.
+
+**What it does *not* do — easily mistaken.**
+- It does **not** set `Transporter`. The passenger's `Transporter` must be
+  assigned separately or the open-topped paths have no transport to reason about
+  (Phobos's own type-conversion path sets it explicitly alongside these calls).
+- The `this` pointer is **unused** — YRpp notes *"this should be the transport,
+  but it's unused"*. That is genuinely useful: exit handling can be driven from
+  the passenger alone, using its stored `Transporter` as the receiver, without
+  having to recover the transport from a register.
+- It is not restricted to vehicles in any way; it works on any techno. Buildings
+  simply never call it, because their infantry live in `BuildingClass::Occupants`
+  rather than `Passengers`.
+
+**Used successfully by** PayloadExt to give BuildingTypes BFRT-style open-topped
+behaviour: call it on each occupant at the garrison-entry site `0x52297F`
+(EBP = building, ESI = the infantry just appended to the vector) and reverse it in
+the unload loop at `0x4580BD` (`EDI` = `Occupants.Items[EBP]`, loaded at
+`0x4580B1`). Note `0x458197` is **only** the "nowhere to place it" failure branch
+of that loop, so hooking there misses normal exits.
+
+**Confirmed via.** `objdump -d` of a clean `gamemd.exe` for all bytes above.
+Not yet in-game verified.
+
+---
+
 ### `0x447F10` — BuildingClass::CanFire: occupancy gates the building's OWN weapon ★ trap
 
 **Framework names**

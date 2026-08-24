@@ -54,6 +54,29 @@ comments), Phobos source (clone `009112c`), objdump of vanilla gamemd.exe
 (imagebase 0x400000): Init's three `call 0x668BF0` sites and the `ret 4` at
 `0x668BE5`.
 
+**Measured at runtime (2026-08-24, YR 1.001 + Antares + Phobos DevBuild #48,
+skirmish start).** A cooperative logging hook at this entry fired **exactly three
+times per game start, each with a DIFFERENT `CCINIClass*`**:
+
+| Pass | `pINI` | Notes |
+|---|---|---|
+| 1 | `0x1362F730` | equals `CCINIClass::INI_Rules` |
+| 2 | `0x168F9720` | heap; a different INI object |
+| 3 | `0x00C9CFAC` | **stack-range address** — a local/temporary INI |
+
+Two corrections to the naive reading of the disassembly:
+- The three `call 0x668BF0` sites inside `RulesClass::Init` do **not** each
+  produce a pass over the same rules INI. Only **one** pass carries `INI_Rules`;
+  the sites are mutually exclusive branches, not a sequence.
+- Pass 3's `pINI` lies in the stack range, so a hook here **must not** cache the
+  `CCINIClass*` across passes or assume it outlives the call — that pointer is
+  reused/invalid afterwards. Identify the rules pass by comparing against
+  `CCINIClass::INI_Rules`, not by pass ordinal.
+
+Practical consequence for anyone mutating INI content here: the hook fires more
+than once, so any non-idempotent edit (accumulating `+=`/`*=` style folds) must
+carry its own applied-guard, e.g. a sentinel key written into the INI object.
+
 ---
 
 ### `0x668F6A` — RulesClass::Read_File (tail)

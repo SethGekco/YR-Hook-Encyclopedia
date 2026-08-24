@@ -65,6 +65,61 @@ players, and where between 25 and 30 it actually breaks is untested.
 
 ---
 
+### `0x6408E2` — start-marker draw: the `>8` early-out that blanks the preview
+
+**Framework names** — *no framework hooks this address.* Not in the registry,
+and no Antares PDB symbol nearby.
+
+**What it does.** Inside the routine that draws start-position markers onto the
+map preview / loading screen, this is a guard that **abandons the entire draw**
+when the map has more than 8 starting points:
+
+```asm
+6408d4:  8b 81 3c 11 00 00  mov  0x113c(%ecx),%eax   ; NumberStartingPoints
+6408da:  85 c0              test %eax,%eax
+6408dc:  0f 8e 4d 01 00 00  jle  0x640a2f            ; <=0 -> bail
+6408e2:  83 f8 08           cmp  $0x8,%eax
+6408e5:  0f 8f 44 01 00 00  jg   0x640a2f            ; >8  -> BAIL ENTIRELY
+6408eb:  33 f6              xor  %esi,%esi
+6408f5:  8b 84 f1 40 11 00 00  mov 0x1140(%ecx,%esi,8),%eax   ; StartingPoints[i].X
+...
+640a23:  3b b1 3c 11 00 00  cmp  0x113c(%ecx),%esi   ; loop while i < NumberStartingPoints
+640a29:  0f 8c c6 fe ff ff  jl   0x6408f5
+640a2f:  5f 5e 5d 5b ...    pop/pop/pop/pop; add $0x80,%esp; ret $0x4   ; EPILOGUE
+```
+
+`0x640A2F` is the function's own epilogue, so `jg` there is an immediate return.
+
+**The important part: the draw loop is NOT capped at 8.** Its bound is
+`NumberStartingPoints` (`0x640A23`), and the body indexes
+`StartingPoints[i]` at `0x1140(%ecx,%esi,8)` with `Point2D` scale 8. The
+renderer is already generic over N markers — **only the early-out at `0x6408E2`
+stops it**. Widening or removing that single compare should let the existing
+loop draw 9+ markers unchanged.
+
+**What it does *not* do — easily mistaken.** This is **not** the loading-screen
+*progress* path. Attempts to fix ">8 player indicators" by hooking the progress
+bar (e.g. `0x552D60` / `0x553687`) will not touch this, because the failure is
+not mis-drawing — it is **drawing nothing at all**. The symptom to expect with
+>8 starts is *no start markers whatsoever*, not garbled ones, and that
+distinction is the quickest way to tell the two paths apart.
+
+It also reads `StartX`/`StartY`/`Width`/`Height` (`0x112C`/`0x1130`/`0x1134`/
+`0x1138`) purely to scale map coordinates into preview pixels — those are not
+player-count related.
+
+**Register / calling convention.** `ECX` = `ScenarioClass::Instance`
+(`0xA8B230`), one stack argument, `ret $0x4`. `ESI` is the marker index.
+
+**Confirmed via.** `objdump` disassembly of vanilla `gamemd.exe`
+(sha1 `189a5a86…`), 2026-08-24 — instruction bytes quoted above, and the skip
+target verified to be the epilogue. **Confirmed.** That this is the cause of the
+commonly-reported ">8 loading-screen player indicators don't work" is
+**inferred** from the guard's placement and effect; **not yet tested in-game**
+with `NumberStartingPoints > 8`.
+
+---
+
 ### `0x687F10` — ScenarioClass::AssignHouses (vanilla, static)
 
 **Framework names** — *no release framework currently reimplements this on YR.*

@@ -87,6 +87,39 @@ dynamic, and the one hard cap in this function is the **AI-loop pointer bound at
 function is still the cleanest route, but the minimal patch surface is now
 known.)
 
+**RUNTIME-VALIDATED IN A LIVE GAME (2026-08-23).** The address map below was
+confirmed in-game by read-only logging hooks on this function's entry
+(`0x687F10`) and epilogue (`0x688378`), in a 1-human + 2-AI skirmish under
+Antares + Phobos + the CnCNet spawner. Observed:
+
+```
+GameMode      = 5 (Skirmish)          [0xA8B238]
+Players.Count = 1                     [0xA8DA84]
+AIPlayers     = 2                     [0xA8B274]
+AISlots.Countries[8] @0xA8B29C = -1 0 6 -1 -1 -1 -1 -1
+HouseClass::Array.Count: 0 -> 5
+  house[0] ArrayIndex=0 human=1 country=French     color(yrpp)=29 color(+0x16054)=29
+  house[1] ArrayIndex=1 human=0 country=Americans  color(yrpp)=3  color(+0x16054)=3
+  house[2] ArrayIndex=2 human=0 country=Australia  color(yrpp)=13 color(+0x16054)=13
+  house[3] ArrayIndex=3 human=0 country=Neutral    color(yrpp)=5  color(+0x16054)=5
+  house[4] ArrayIndex=4 human=0 country=Special    color(yrpp)=5  color(+0x16054)=5
+```
+
+Every claim below is therefore **runtime-confirmed**, not merely disassembled:
+`0xA8B238` (GameMode, and the enum values), `0xA8DA78`/`0xA8DA84`, `0xA8B274`,
+`0xA8B29C`, the `0x20` AISlots stride, and **`+0x16054`** — the last by reading
+`ColorSchemeIndex` twice, once via YRpp's struct and once via the raw offset,
+which agreed for all five houses. Neutral and Special are confirmed created
+unconditionally and last, both taking colour 5 (the `"LightGrey"` lookup).
+
+**⚠ `AssignHouses` runs TWICE per game start.** The instrumentation captured two
+complete, identical entry/exit blocks, with `HouseClass::Array.Count` back at
+**0** at the start of the second — i.e. the array is torn down and rebuilt, not
+appended to. This matches the two known call sites (`0x68745E` Read_Scenario_INI
+and `0x68ACFF` ScenarioClass::Read_INI) and is why any implementation that
+mutates `AISlots` must save and restore the originals across the second call.
+**Anything hooking this function must be idempotent or explicitly one-shot.**
+
 **VERIFIED YR DISASSEMBLY (2026-08-20).** `0x687F10` has now been disassembled
 from vanilla `gamemd.exe` (sha1 `189a5a868b3cef8d3d1a58ac3cf0a5241675e4ea`,
 md5 `fe2301a1f48841aa084aade100b25335`, 4,813,072 bytes) via
@@ -176,16 +209,34 @@ and it is **not** a `cmp $0x8`:
 
 ```asm
 688158:  bb 9c b2 a8 00     mov    $0xa8b29c,%ebx     ; EBX = &AISlots.Countries[0]
-68815d:  cmp    0x20(%esp),%eax                       ; i >= AIPlayers count?  -> done
+68815d:  cmp    0x20(%esp),%eax                       ; EAX = houses CREATED so far
+688161:  0f 8d 5b 01 00 00  jge    0x6882c2           ; enough AI -> CONTINUE (not break)
 688167:  mov    (%ebx),%edi                           ; EDI = Countries[i]
-688169:  cmp    $0xffffffff,%edi                      ; -1 sentinel -> done
-688172:  cmp    $0xfffffffd,%edi                      ; -3 sentinel -> done
+688169:  cmp    $0xffffffff,%edi
+68816c:  0f 84 50 01 00 00  je     0x6882c2           ; -1  -> SKIP this slot
+688172:  cmp    $0xfffffffd,%edi
+688175:  0f 84 47 01 00 00  je     0x6882c2           ; -3  -> SKIP this slot
 68817b:  mov    0x20(%ebx),%esi                       ; ESI = Colors[i]  (+0x20 = 8 ints)
+68817e:  40                 inc    %eax               ; only on the CREATE path
 ...
-6882c2:  83 c3 04           add    $0x4,%ebx
+6882c2:  83 c3 04           add    $0x4,%ebx          ; <-- all three jumps land HERE
 6882c5:  81 fb bc b2 a8 00  cmp    $0xa8b2bc,%ebx     ; <<< THE CAP
 6882cb:  0f 8c 8c fe ff ff  jl     0x68815d
 ```
+
+**⚠ The sentinels SKIP; they do not terminate the loop.** All three conditional
+jumps target `0x6882C2`, which is the `add $0x4,%ebx` **increment** — so a `-1`
+or `-3` country means "skip this slot and keep going", not "stop". Equally,
+`EAX` is **not** a slot index: it is incremented only on the create path
+(`0x68817E`), so it counts *houses created so far*, and the
+`cmp 0x20(%esp),%eax` test is "have I made enough AI yet?" — also a continue.
+
+Net behaviour: **the loop always walks all 8 slots**, creating up to `AIPlayers`
+houses from whichever slots hold a valid country. An earlier revision of this
+entry described the sentinels as terminating the loop; that was wrong and is
+corrected here. **Runtime-proven** — see the validation note below, where a live
+game had `Countries[] = {-1, 0, 6, -1, -1, -1, -1, -1}` and still produced two
+AI houses from slots 1 and 2.
 
 `0xA8B2BC − 0xA8B29C = 0x20` = **32 bytes = exactly 8 `int`s**. The loop is
 bounded by walking a pointer to the *end address of the `Countries[8]` array*,

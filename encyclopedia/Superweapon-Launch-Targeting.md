@@ -77,6 +77,13 @@ Returning a jump address means the stolen bytes never execute, so at hook time
 none of those four registers have been pushed. Landing on `0x4FAEED` pops four
 values that were never pushed and corrupts the caller's stack.
 
+**⚠ Aborting here skips `SuperClass::ClickFire`.** The charge is spent inside
+ClickFire (which is also what calls `Launch`), so a hook that aborts `Fire_SW`
+leaves the superweapon still ready — it can then be re-fired every frame. Anyone
+vetoing a launch *conditionally* wants exactly that; anyone REPLACING a launch
+must spend the charge themselves, e.g. via `SuperClass::Reset()` (`0x6CE0B0`),
+the same reset the spy-infiltration trigger action performs.
+
 **Determinism.** This sits *downstream* of the event queue, so every client
 reaches it on the same frame with the same state. A veto decided here is
 lockstep-safe by position, not by care. Deciding at the cursor instead would
@@ -184,7 +191,28 @@ Antares' `0x6CEF84` hook produced the correct disallowed cursor and no crash.
 
 ### `0x6CC390` — `SuperClass::Launch`, and the pending-SW global `0x8809A0`
 
-**Framework names.** None — unhooked by every framework in the registry.
+**Framework names**
+
+| Framework | Function name | Stolen | Source file |
+|---|---|---|---|
+| Antares | `SuperClass_Launch` | 0x6 | Ext/SWType/Hooks.cpp |
+| Ares | `SuperClass_Launch` | 0x6 | Ext/SWType/Hooks.cpp |
+| Phobos | `SuperClass_Launch` / `SuperClass_Place_FireExt` | 0x6 | Ext/SWType/Hooks.cpp |
+
+> **⚠ Correction (this address is CROWDED, not free).** An earlier revision of
+> this page stated "unhooked by every framework in the registry". That was wrong
+> — it came from reading a `grep` output that had been truncated. Three
+> frameworks hook `0x6CC390`, and Antares dispatches its entire custom-superweapon
+> system from it (`SWTypeExt::Activate`, returning `0x6CDE40` when handled).
+>
+> The practical consequence: a fourth consumer chaining here is **injection-order
+> dependent**. If Antares loads first and reports the launch handled, a later
+> handler never runs. Do not build on this address; intercept upstream at
+> `HouseClass::Fire_SW` (`0x4FAE50`) instead, which is genuinely unhooked at its
+> entry.
+>
+> The rest of this entry — the `0x8809A0` reference census — was read from a
+> disassembly and is unaffected.
 
 **What it does.** Runs the fired superweapon's effect, branching per SW action.
 Relevant to third parties because of what it *clears*: `Unsorted::CurrentSWType`

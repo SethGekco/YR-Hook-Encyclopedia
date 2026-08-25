@@ -94,7 +94,8 @@ is a compare against the invalid-cell sentinel at `0xA8EF98`/`0xA8EF9A`.
 [Header] Waypoint1..N
   -> 0x689F64   parser (loops on NumberStartingPoints, see its entry)
   -> StartingPoints[8] @ ScenarioClass+0x1140
-  -> ~0x5D6C25 / 0x5D6D3A   start location -> base cell   (calls 0x50E000)
+  -> 0x5D6C21   EDX = table[house->+0x16058]   <-- start index becomes a cell
+  -> 0x5D6C25   SetBaseCell (0x50E000); 0x5D6C2F sets HouseIndices[startIdx]
   -> HouseClass +0x5490 / +0x5494
   -> 0x50DEF0 (cell) / 0x50DF30 (coord)
   -> 0x5D7098  MCV Unlimbo   (vtable+0xD8, after ctor 0x7353C0, sizeof 0x8E8)
@@ -123,9 +124,15 @@ runtime source of truth. Likewise the four readers of the house's start-location
 MCV path traced from `0x5D7064` (`push $0x8e8` -> `operator new` -> ctor
 `0x7353C0` -> `0x50DF30` -> `call *0xd8(%ebx)`). **Confirmed.** The precise
 semantics of `+0x5490` vs `+0x5494` (fallback vs current) are **inferred** from
-the getters' selection logic, and the exact instruction within
-`0x5D6C25`–`0x5D6D3A` that derives the cell from the start index has **not yet
-been pinned down**.
+the getters' selection logic.
+
+**The single instruction that turns a start index into a cell is `0x5D6C21`**
+(`mov (%eax,%esi,4),%edx`), where `ESI` = `house->+0x16058`, `EAX` = a cell
+table passed at `0xC(%esp)`, and `ECX` = the house. It runs once per house per
+game. Hooking `0x5D6C1D` (7 bytes, covering both `mov`s and returning to the
+intact `push %edx` at `0x5D6C24`) is therefore sufficient to relocate, offset or
+share any house's spawn — no placement, parser or `StartingPoints` changes
+required. **Confirmed** from instruction bytes.
 
 ---
 
@@ -133,10 +140,22 @@ been pinned down**.
 
 **Framework names** — *no framework hooks this address.* Not in the registry.
 
+**⚠ There are TWO adjacent start-location fields on `HouseClass`, and they are
+not interchangeable.** Both are written by `AssignHouses`:
+
+| Field | Read by | Written at |
+|---|---|---|
+| `+0x16058` | **placement** — the `start index -> base cell` loop at `0x5D6C12` | `0x6880F2` (human), `0x6881EC` (AI) |
+| `+0x1605C` | **this auto-ally pass** | `0x688101` (human), `0x6881FB` (AI) |
+
+Which is "resolved" versus "requested" is **not established**; what matters is
+that a hook changing where a house *spawns* must target `+0x16058`, while one
+changing who it *allies with* must target `+0x1605C`. Changing one does not
+affect the other.
+
 **What it does.** A double loop over `HouseClass::Array` (items ptr `0xA8022C`,
-count `0xA80238`) comparing every pair of houses' start locations
-(`HouseClass + 0x16054 + 8` = **`+0x1605C`**). When two match, it **mutually
-allies them**:
+count `0xA80238`) comparing every pair of houses' `+0x1605C`. When two match, it
+**mutually allies them**:
 
 ```asm
 5d74d4:  mov  0x1605c(%ecx),%ecx      ; A's start location

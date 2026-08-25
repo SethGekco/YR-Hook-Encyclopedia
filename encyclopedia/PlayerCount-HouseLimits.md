@@ -65,6 +65,61 @@ players, and where between 25 and 30 it actually breaks is untested.
 
 ---
 
+### `0x5D74AF` — houses sharing a start location are silently auto-allied
+
+**Framework names** — *no framework hooks this address.* Not in the registry.
+
+**What it does.** A double loop over `HouseClass::Array` (items ptr `0xA8022C`,
+count `0xA80238`) comparing every pair of houses' start locations
+(`HouseClass + 0x16054 + 8` = **`+0x1605C`**). When two match, it **mutually
+allies them**:
+
+```asm
+5d74d4:  mov  0x1605c(%ecx),%ecx      ; A's start location
+5d74da:  cmp  $0xfffffffe,%ecx        ; -2 (random) -> skip
+5d74df:  cmp  $0xffffffff,%ecx        ; -1 (none)   -> skip
+...
+5d74fd:  mov  0x1605c(%ecx),%ecx      ; A's start
+5d7503:  cmp  0x1605c(%edx),%ecx      ; == B's start?
+5d7509:  jne  0x5d7524                ; differ -> next pair
+5d750b:  push $0x0; push %esi; mov %ebx,%ecx; call 0x4f9b70   ; A.MakeAlly(B,false)
+5d7515:  push $0x0; push %ebx; mov %esi,%ecx; call 0x4f9b70   ; B.MakeAlly(A,false)
+```
+
+`0x4F9B70` is `HouseClass::MakeAlly(HouseClass*, bool bAnnounce)` (YRpp
+`HouseClass.h:219-220`), called with `bAnnounce = false` — hence *silently*.
+Neutral/Special are excluded by the `Type + 0x1A6` test.
+
+**Why this matters for >8 players.** It establishes that **duplicate start
+locations are an expected engine state, not an error condition**. Any scheme
+that seats more houses than the map has start positions — the obvious approach
+when you want 16 players on an 8-spawn map — will land here, and the engine
+will not crash or corrupt: it will quietly make those players allies.
+
+**What it does *not* do — easily mistaken.** This is **not** a co-op or team
+setting; it fires purely on start-location equality, ignores lobby alliances
+entirely, and announces nothing. So "my extra players all started allied" has a
+cause that is invisible in the lobby, in `spawn.ini`, and in any team setting —
+which makes it very easy to misattribute to the alliance UI or to a mod. Anyone
+implementing shared spawn points **must suppress or post-correct this pass**, or
+every house sharing a point is permanently allied from frame 0.
+
+Also note it does not *place* anything: it only reads start locations. It is not
+the code that turns a start index into map coordinates.
+
+**Nearby.** `0x5D7550` is a small accessor —
+`GetHouseStartLocation(int houseIndex)`, `ret $0x4`, returning
+`HouseClass::Array[idx] + 0x1605C`.
+
+**Confirmed via.** `objdump` disassembly of vanilla `gamemd.exe`
+(sha1 `189a5a86…`), 2026-08-24 — instruction bytes quoted. `0x4F9B70`
+identified from YRpp `HouseClass.h`. `+0x1605C` as the start-location field is
+**confirmed** from its writers inside `AssignHouses` (`0x688101` human path,
+`0x6881FB` AI path). **Confirmed.** The `-2` sentinel meaning "random start" is
+**inferred** from context, not verified.
+
+---
+
 ### `0x6408E2` — start-marker draw: the `>8` early-out that blanks the preview
 
 **Framework names** — *no framework hooks this address.* Not in the registry,

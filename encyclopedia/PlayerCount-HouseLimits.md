@@ -120,6 +120,68 @@ identified from YRpp `HouseClass.h`. `+0x1605C` as the start-location field is
 
 ---
 
+### `0x689F64` — map-header start-point reader (generic) + `0x689D66` (the 8)
+
+**Framework names** — *no framework hooks either address.* Not in the registry.
+
+**What it does.** `ScenarioClass::ReadMapHeader` (~`0x689D30`) initialises the
+map-header fields and then reads `[Header] Waypoint1..N` into
+`StartingPoints[]`:
+
+```asm
+689d40:  lea  0x1140(%esi),%edi        ; &StartingPoints[0]
+689d66:  mov  $0x8,%ecx                ; <<< clear loop: hardcoded 8 entries
+689d6b:  mov %edx,(%eax); mov %ebx,0x4(%eax); add $0x8,%eax; dec %ecx; jne
+...
+689f64:  mov  0x113c(%esi),%ecx        ; NumberStartingPoints
+689f70:  lea  0x1140(%esi),%ebx        ; &StartingPoints[0]
+689f76:  inc  %eax                     ; 1-based ("Waypoint1" is index 0)
+689f80:  push $0x83de24                ; "Waypoint%d"
+689faa:  mov  %ecx,(%ebx)              ; StartingPoints[i].X
+689fac:  mov  %eax,0x4(%ebx)           ; StartingPoints[i].Y
+689fb9:  add  $0x8,%ebx                ; stride 8 = sizeof(Point2D)
+689fbc:  cmp  %ecx,%eax
+689fbe:  jl   0x689f76                 ; while i < NumberStartingPoints
+```
+
+**The read loop is bounded by `NumberStartingPoints`, not by 8.** It is already
+generic over N — the parser will happily read `Waypoint9=`, `Waypoint12=` … if
+the map's `[Header]` declares a larger `NumberStartingPoints`.
+
+**⚠ LATENT VANILLA BUFFER OVERFLOW.** `ScenarioClass::StartingPoints` is only
+**8** `Point2D` entries (`+0x1140`..`+0x117F`), immediately followed by
+`HouseIndices[0x10]` (`+0x1180`). Because the reader trusts
+`NumberStartingPoints` without clamping, **a map declaring more than 8 starting
+points overwrites `HouseIndices[]`** — start position 9 lands on
+`HouseIndices[0]` and `[1]`, and so on. This is a vanilla defect, not something
+introduced by raising a player cap, and it means "just author a 12-spawn map"
+silently corrupts the start→house table rather than failing cleanly. Note the
+*clear* loop at `0x689D66` is separately hardcoded to 8, so entries past 8 are
+also never initialised.
+
+**Consequence for >8 start positions.** The parser needs no change. What must
+change is the storage and the small number of sites that address it:
+`0x689D40` and `0x689F70` (the two `lea` bases), `0x689D66` (the clear count),
+and the preview renderer's `0x6408F5`/`0x64093B` (see `0x6408E2`). Widening or
+relocating `StartingPoints` is therefore a bounded patch, **not** a hunt through
+dozens of consumers.
+
+**What it does *not* do — easily mistaken.** These are the map-*header*
+start points, which are **not** `ScenarioClass::Waypoints[702]`. The 702-entry
+waypoint array is for triggers and scripting and is **empty in multiplayer**
+(verified in-game: every entry reads the `(0,0)` undefined sentinel while
+`StartingPoints[8]` is populated). Any plan to gain start positions by writing
+unused entries of `Waypoints[702]` targets the wrong array.
+
+**Confirmed via.** `objdump` of vanilla `gamemd.exe` (sha1 `189a5a86…`),
+2026-08-24 — instruction bytes quoted. `StartingPoints`/`HouseIndices` adjacency
+from YRpp `ScenarioClass.h:112-113` plus the runtime-probed field offsets
+(`NumberStartingPoints` at `+0x113C`). **Confirmed.** The overflow is
+**inferred** from the unclamped loop bound and the adjacency; **not yet
+triggered deliberately** with a >8-start map.
+
+---
+
 ### `0x6408E2` — start-marker draw: the `>8` early-out that blanks the preview
 
 **Framework names** — *no framework hooks this address.* Not in the registry,

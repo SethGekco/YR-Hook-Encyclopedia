@@ -65,6 +65,70 @@ players, and where between 25 and 30 it actually breaks is untested.
 
 ---
 
+### `0x50DEF0` / `0x50DF30` / `0x50E000` — the house base cell: where start position actually becomes a map location
+
+**Framework names** — *no framework hooks these.* Absent from the registry and
+from the Antares PDB symbol map, despite ~12 call sites between them.
+
+**What they do.** Placement does **not** read `ScenarioClass::StartingPoints`.
+It reads a per-house **base cell** stored on `HouseClass`:
+
+| Field | Meaning |
+|---|---|
+| `HouseClass + 0x5490` | base cell (fallback / home) |
+| `HouseClass + 0x5494` | base cell (current) — `.X` at `+0x5494`, `.Y` at `+0x5496` |
+
+| Address | Signature | Purpose |
+|---|---|---|
+| `0x50DEF0` | `__thiscall(CellStruct* out)`, `ret $0x4` | returns the base **cell** |
+| `0x50DF30` | `__thiscall(CoordStruct* out)`, `ret $0x4` | same, converted to world **coords** |
+| `0x50DFE0` | `__thiscall(CellStruct)`, `ret $0x4` | sets `+0x5494` (two instructions) |
+| `0x50E000` | `__thiscall(...)` | the widely-called setter (~8 call sites) |
+
+Both getters select `+0x5494` when valid, else fall back to `+0x5490`; validity
+is a compare against the invalid-cell sentinel at `0xA8EF98`/`0xA8EF9A`.
+
+**The full pipeline**, end to end:
+
+```
+[Header] Waypoint1..N
+  -> 0x689F64   parser (loops on NumberStartingPoints, see its entry)
+  -> StartingPoints[8] @ ScenarioClass+0x1140
+  -> ~0x5D6C25 / 0x5D6D3A   start location -> base cell   (calls 0x50E000)
+  -> HouseClass +0x5490 / +0x5494
+  -> 0x50DEF0 (cell) / 0x50DF30 (coord)
+  -> 0x5D7098  MCV Unlimbo   (vtable+0xD8, after ctor 0x7353C0, sizeof 0x8E8)
+```
+
+**Why this is the useful lever.** Everything that wants to move, share or add a
+start position converges on the `start location -> base cell` step around
+**`0x5D6C25`–`0x5D6D3A`**. Offsetting a house's spawn, seating two houses on one
+start point, or honouring a start index past the vanilla 8 are all the *same*
+edit at that step — none of them require touching placement, the parser, or
+`StartingPoints` itself. Note `mmtrt/yrpp-spawner` independently hooks
+`0x5D6CBF` / `0x5D6D02` (as `Waypoint_HouseLoad` / `Waypoint_NotFoundSkip`),
+i.e. the same region, which is useful corroboration.
+
+**What they do *not* do — easily mistaken.** Searching for consumers of
+`ScenarioClass::StartingPoints` in order to find placement **will not find it**,
+and this is a genuine time sink: the only scale-8 indexed reads of that array in
+the whole binary belong to the *map-preview renderer* (`0x6408F5`/`0x64093B`).
+`StartingPoints` is an **input consumed once** during scenario setup, not a
+runtime source of truth. Likewise the four readers of the house's start-location
+*index* (`HouseClass+0x1605C`) are all diagnostics or the auto-ally pass at
+`0x5D74AF` — none of them place anything.
+
+**Confirmed via.** `objdump` of vanilla `gamemd.exe` (sha1 `189a5a86…`),
+2026-08-25 — field offsets and both getters read from instruction bytes; the
+MCV path traced from `0x5D7064` (`push $0x8e8` -> `operator new` -> ctor
+`0x7353C0` -> `0x50DF30` -> `call *0xd8(%ebx)`). **Confirmed.** The precise
+semantics of `+0x5490` vs `+0x5494` (fallback vs current) are **inferred** from
+the getters' selection logic, and the exact instruction within
+`0x5D6C25`–`0x5D6D3A` that derives the cell from the start index has **not yet
+been pinned down**.
+
+---
+
 ### `0x5D74AF` — houses sharing a start location are silently auto-allied
 
 **Framework names** — *no framework hooks this address.* Not in the registry.

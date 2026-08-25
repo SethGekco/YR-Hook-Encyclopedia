@@ -54,6 +54,34 @@ techno.
 in-game use (erasing per-unit map entries and clearing a delivered-building
 chain-guard flag here — standalone Syringe DLLs — with no stale-pointer issues).
 
+**⚠ Stolen size is 0x5 and nothing else — verified failure at 0x6.** The prologue
+is:
+
+```
+6F4500  51        push ecx
+6F4501  53        push ebx
+6F4502  56        push esi
+6F4503  8B F1     mov  esi,ecx     <- cumulative exactly 5
+6F4505  33 DB     xor  ebx,ebx
+```
+
+Five bytes lands exactly on an instruction boundary, which is why all four
+frameworks declare `0x5`. Declaring `0x6` splits the two-byte `33 DB` and leaves
+a dangling `DB` byte in the patched stream. Observed result (2026-08-25, a
+standalone Syringe DLL co-loaded with Antares + Phobos): **three reproducible
+`C0000005` faults at `0x09C00126`, an address inside no loaded module at all** —
+i.e. execution derailed into heap/freed memory rather than crashing inside the
+offending DLL. The faulting address therefore points nowhere near the culprit;
+the minidump's module list is what rules our own modules out, and the stolen-byte
+audit is what finds it. Worth generalising: *a wild-address `C0000005` with a
+fault outside every module is a classic signature of a mis-sized stolen-byte
+count somewhere, not of bad pointer arithmetic in the hook body.*
+
+**Confirmed via.** Upstream Kratos `TechnoExtHook.cpp`; registry cross-reference;
+objdump of vanilla `gamemd.exe` at `0x6F4500`–`0x6F4507` for the boundary above;
+in-game use (erasing per-unit map entries here — a standalone Syringe DLL — with
+no stale-pointer issues across a session), plus the 0x6 failure described above.
+
 ---
 
 ### `0x6F9E50` — TechnoClass_Update (Phobos: TechnoClass_AI)

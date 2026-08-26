@@ -136,6 +136,68 @@ required. **Confirmed** from instruction bytes.
 
 ---
 
+### `0x5D6C1D` / `0x5D6D3F` — how a house actually gets its spawn cell
+
+**Framework names** — *no framework hooks either.* Not in the registry.
+
+**What they do.** Two different paths assign a house's base cell, and **which
+one runs depends on whether the player chose a start position or left it
+Random**:
+
+| Path | Runs for | Return address seen in a trace |
+|---|---|---|
+| `0x5D6C21` → `SetBaseCell` | houses with an **explicit** start index | `0x5D6C2A` |
+| `0x5D6D3A` → `SetBaseCell` | **every** house, later | `0x5D6D3F` |
+
+Observed in one game (1 human + 7 AI, two players on explicit starts):
+
+```
+[trace] home house@… start=7  cell=(178,111) <- caller 0x005D6C2A
+[trace] home house@… start=0  cell=(111,178) <- caller 0x005D6C2A
+[trace] home house@… start=-2 cell=(35,102)  <- caller 0x005D6D3F     (-2 = Random)
+… 16 calls from 0x5D6D3F vs 3 from 0x5D6C2A …
+```
+
+**`0x5D6D3F` is the last writer and it wins.** It runs for every house after the
+explicit-start pass, so anything written at `0x5D6C21` is overwritten. Anyone
+trying to relocate a spawn must act here, not at the earlier and more
+obvious-looking site.
+
+**The start-cell table is a stack argument, exposed only at `0x5D6C1D`.** It
+arrives at `0xC(%esp)` and is indexed by start position. It is **not**
+`ScenarioClass::StartingPoints` — on one map `StartingPoints` read
+`(222,145) (227,120) …` while the cells actually assigned were
+`(111,178) (35,102) (178,111) …`. If you need "the cell of start position N",
+this table is the only place to get it, so capture the pointer while you can.
+
+**⚠ Three traps this subsystem sets, all verified the hard way.**
+
+1. **A hook that is silent is not necessarily dead.** `0x5D6C1D` produced zero
+   log lines in a test where every player was on Random, and was written off as
+   unreachable. It fires only for *explicit* start indices. Test with the
+   configuration your feature targets before concluding an address is dead.
+2. **`HouseIndices[start] = house` means one house per start.** Written at
+   `0x5D6C2F`. Point two houses at the same start index and the engine
+   **relocates one of them to a free position** — which looks exactly like "my
+   start selection was ignored and I got a random free slot". Sharing a start
+   position therefore cannot be done by writing the index; override the *cell*
+   after assignment instead.
+3. **The map-header rectangle is not cell space.** `StartX`/`StartY`/`Width`/
+   `Height` (`+0x112C`…`+0x1138`) cannot be used to bounds-check a cell: on the
+   same map every genuine spawn cell had `X` in `35..178` while the header read
+   `x[206,305)`. A validity check built on it rejects perfectly valid positions.
+
+**Also relevant.** `0x007398D3` writes base cells again slightly later, offset
+by `(-1,-1)` from the values `0x5D6D3F` set — purpose unconfirmed, but it is a
+third writer and worth knowing about before assuming yours is final.
+
+**Confirmed via.** Runtime tracing of the two `SetBaseCell` stores
+(`0x50DFE4`, `0x50E004`) with caller return addresses, plus in-game verification
+that overriding at `0x5D6D3F` relocates a spawn as intended. **Confirmed.** The
+role of `0x007398D3` is **unverified**.
+
+---
+
 ### `0x5D74AF` — houses sharing a start location are silently auto-allied
 
 **Framework names** — *no framework hooks this address.* Not in the registry.

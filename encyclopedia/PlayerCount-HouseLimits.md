@@ -198,6 +198,69 @@ role of `0x007398D3` is **unverified**.
 
 ---
 
+### `0x688508` — the "start waypoint deficiency" search never terminates
+
+**Framework names** — *no framework hooks this.* Not in the registry.
+
+**What it does.** When there are more houses than the map declares start
+positions, the engine logs
+
+```
+Multiplayer start waypoint deficiency - looking for more start positions
+```
+
+and then tries to **invent** the missing positions by scanning the map
+(`0x6885B5` → `MapClass` at `0x56DC20`, with `MapClass::Instance` = `0x87F7E8`
+in `ECX`).
+
+**That search does not come back.** Observed with 9 houses on an 8-start map:
+the game sat on a black screen indefinitely, and sampling the process showed the
+main thread pegged at 100% — 35,000+ CPU ticks — in `0x56E838` / `0x57854E`
+while every other thread idled in `__kernel_vsyscall`. It is a single-threaded
+spin, not slow work, so waiting does not help.
+
+**How to skip it safely.** The surrounding shape is:
+
+```asm
+688502:  jle  0x68864d      ; vanilla "no deficiency" exit
+688508:  push $0x83dcd4     ; the deficiency message  <- hook here, 5 bytes
+688521:  mov  $0x8,%edi     ; start generating from position 8
+6885b5:  call 0x56dc20      ; the search
+...
+68864d:  xor  %eax,%eax     ; normal continuation
+```
+
+Returning `0x68864D` from a hook at `0x688508` takes **exactly the branch
+vanilla takes when no house is short** — not a novel path, which is what makes
+it safe.
+
+**⚠ Only skip it if something else is supplying the positions.** The search
+exists for a reason: suppress it with nothing in its place and the surplus house
+simply gets no position, spawns nothing, and is eliminated before the player
+sees it — presenting as "the extra player never showed up" rather than as a
+placement bug.
+
+**Useful neighbours for anyone doing that.**
+
+| Address | Use |
+|---|---|
+| `0x578460` | `MapClass::IsWithinUsableArea(const CellStruct&, bool)`, `__thiscall` — the engine's own "can something stand here". Use this to validate a synthesised cell. |
+| `0x568300` | `MapClass::CoordinatesLegal(const CellStruct&)` |
+| `HouseTypeClass + 0x1A6` | non-zero for Neutral/Special. Vanilla tests it at `0x5D74C9`; use the same test or those two houses will consume start positions meant for players. |
+
+**⚠ Do NOT validate cells with the map-header rectangle.** `StartX`/`StartY`/
+`Width`/`Height` (`ScenarioClass +0x112C`…`+0x1138`) are not cell coordinates:
+on one map every genuine spawn cell had `X` in `35..178` while the header read
+`x[206,305)`. A check built on it rejects every valid position.
+
+**Confirmed via.** `objdump` of vanilla `gamemd.exe` (sha1 `189a5a86…`) for the
+instruction shape; live process sampling for the spin; in-game verification that
+suppressing it plus supplying positions yields a working 9-house game.
+**Confirmed.** Why the search fails to terminate is **not established** — only
+that it does.
+
+---
+
 ### `0x5D74AF` — houses sharing a start location are silently auto-allied
 
 **Framework names** — *no framework hooks this address.* Not in the registry.

@@ -20,6 +20,139 @@ page before hooking anything in this cluster.
 
 ---
 
+### `0x4F657A` — `Owner=` is resolved through `ParentCountry`, not the country
+
+**Framework names** — *no framework hooks this address.* Not in the registry.
+
+**What it does.** Inside `HouseClass::CanExpectToBuild`. Builds the country bit
+used to test a TechnoType's `Owner=` — and it does **not** use the house's own
+country index:
+
+```asm
+4f657a:  mov 0x34(%esi),%ecx      ; HouseClass->Type  (HouseTypeClass*)
+4f6588:  add $0x98,%ecx           ; &HouseTypeClass->ParentCountry   (+0x98)
+4f658e:  call 0x5117d0            ; HouseTypeClass::FindIndexOfName(ParentCountry)
+4f6593:  mov $0x1,%edx
+4f6598:  mov %eax,%ecx
+4f659d:  shl %cl,%edx             ; EDX = 1 << idxParentCountry
+...
+4f65ad:  test %edx,0x6cc(%ebx)    ; against [TechnoType+0x6CC] = Owner
+```
+
+**The two country-list verbs are indexed differently:**
+
+| Tag | Indexed by |
+|---|---|
+| `Owner=` | the **parent** country — `FindIndexOfName(ParentCountry)` |
+| `RequiredHouses=` / `ForbiddenHouses=` | the country **itself** — `ArrayIndex2` (`+0xB8`) |
+
+This confirms YRpp's `HouseClass::InOwners` / `InRequiredHouses` helpers
+(`HouseClass.h:632-643`) are *literal* models of engine behaviour, not
+conveniences.
+
+**What it does *not* do — easily mistaken.** `ArrayIndex2` is **not** a
+precomputed parent index (a tempting reading of YRpp's `//dunno why`). It is the
+country's **own** position: written from `ArrayIndex` in the constructor
+(`0x511410`) and recomputed by a self-search at `0x511608`. Only two writes to
+`+0xB8` exist in `0x511000`–`0x513000`, both self-index writes.
+
+**The empty-`ParentCountry` trap.** `FindIndexOfName` (`0x5117D0`) matches on
+**`Name` (`+0x64`)** first, then `ID` (`+0x24`); returns `-2` for `"<random>"`
+and `-1` when not found. **Vanilla defines `ParentCountry=` for no country at
+all**, so every house passes an empty string, which:
+
+- returns `-1` if every country has a non-blank `Name=` → `1u << -1` is bit 31
+  on x86 (the shift count is masked to 5 bits) → matched by nothing → the test
+  fails for **every** country. This is vanilla's normal state, and the game
+  ships that way — so **this path tolerates failure**;
+- but returns a **real index** if any country has a *blank* `Name=`, matching
+  the first such country in array order. Ownership then silently collapses onto
+  one arbitrary country, and behaviour flips between working and crashing
+  (see `0x4F671D`) as `Owner=` lists change.
+
+A mod that adds countries with blank `Name=` therefore acquires a failure whose
+trigger looks unrelated to the edit that caused it.
+
+**Register / calling convention.** `ESI` = `HouseClass*`, `EBX` =
+`TechnoTypeClass*`, result of the test in flags at `0x4F65AD`.
+
+**Confirmed via.** `objdump` of vanilla `gamemd.exe` (sha1 `189a5a86…`),
+2026-08-23 — instruction bytes quoted. **Confirmed.** `+0x6CC` = `Owner` is
+corroborated independently by the four `ReadHouseTypesList` write sites (see
+[Countries-Taunts.md](Countries-Taunts.md)). `+0x64` = `Name` follows from YRpp
+`AbstractTypeClass.h` (`ID[0x18]` @ `+0x24`, `zero_3C`, `UINameLabel[0x20]`,
+`const wchar_t* UIName` 4-aligned @ `+0x60`, `Name[0x31]` @ `+0x64`) and is
+consistent with `ParentCountry` @ `+0x98`. **Confirmed.** The vanilla
+"no `ParentCountry` anywhere" claim is from two independent unmodified
+14-country `rulesmd.ini` copies — **confirmed** for those files, **not** checked
+against a pristine Westwood release.
+
+---
+
+### `0x4F671D` — unguarded NULL deref of `FirstBuildableFromArray` (**crash site**)
+
+**Framework names** — *no framework hooks this address.* Antares **replaces the
+callee** (`0x5051E0`, `Ext/House/Hooks.BasePlan.cpp:148`, *"replaced the entire
+function"*) and guards its NULL return at two *other* call sites, but not here.
+
+**What it does.** Picks a base unit from `[General]BaseUnit=` for a house that
+has no buildings, and dereferences the result without checking it:
+
+```asm
+4f670b:  mov 0x8871e0,%eax        ; RulesClass::Instance
+4f6712:  add $0x938,%eax          ; &Rules->BaseUnit  (TypeList<UnitTypeClass*>)
+4f6718:  call 0x5051e0            ; HouseClass::FirstBuildableFromArray
+4f671d:  mov (%eax),%edx          ; <<< EAX == 0 -> C0000005
+4f6722:  call *0x84(%edx)         ; virtual call through the null vtable
+```
+
+`FirstBuildableFromArray` returns **NULL** when the house can build nothing in
+the list — a normal, expected outcome (it checks `Owner=`,
+`Required`/`ForbiddenHouses=`, `AIBasePlanningSide=`). Every other consumer
+treats NULL as "none"; this one does not.
+
+**Why it matters.** This is the address at which the country-identity problems
+above become a **Fatal Error** rather than a silent mismatch. Observed
+`C0000005 at 004F671D` four times across two days on a mod with 61 countries,
+with different victim countries each time (`Brazil`, `Japan`) — the victim is
+whichever house the base-planning path happens to evaluate, not a property of
+that country.
+
+**How to identify the failing house from a dump:** `HouseClass + 0x34` →
+`HouseTypeClass*`, ID string at `+0x24`.
+
+**What it does *not* do — easily mistaken.** The `[Developer fatal]` line
+*"House of country [%s] cannot build anything from [General]BaseUnit="* that
+often appears in `debug.log` shortly before the crash is **Antares' own message
+from a different call site** (`0x5D705E`,
+`MPGameMode_SpawnBaseUnit_BaseUnit`) — one of the two it *does* guard. Its
+presence is a useful signal but it is **not** emitted by the crashing site, and
+its absence does not mean this crash is something else.
+
+**Diagnosis checklist** when this fires:
+1. Does every country have a non-blank `Name=`? A blank one hijacks
+   `FindIndexOfName("")` (see `0x4F657A`).
+2. Does the victim country's resolved bit appear in the `Owner=` of at least
+   one `BaseUnit=` entry?
+3. Are any countries at index ≥ 32? Their bit aliases mod 32.
+
+The robust mod-side fix is `ParentCountry=<self>` on every country, which makes
+each resolve to its own index instead of a shared accident.
+
+**Upstream.** Worth reporting to the Antares/Phobos channel as a missing third
+guard; the framework's own comment beside the two existing guards anticipates it
+(*"I imagine we'll have a pile of hooks like this sooner or later"*).
+
+**Confirmed via.** `except.txt` from four crash snapshots (`C0000005 at
+004F671D`, `EAX: 00000000`) plus `objdump` of vanilla `gamemd.exe`
+(sha1 `189a5a86…`) — instruction bytes quoted. **Confirmed.**
+`RulesClass::Instance` @ `0x8871E0` and `FirstBuildableFromArray` @ `0x5051E0`:
+YRpp `RulesClass.h:86`, `HouseClass.h:476`. **Confirmed.** `+0x938` = `BaseUnit`
+is **inferred** from the field order in `RulesClass.h` plus the engine's own
+`[General]BaseUnit=` log text; not independently offset-checked.
+
+---
+
 ### `0x4F7870` — HouseClass::CanBuild
 
 **Framework names**
@@ -253,6 +386,43 @@ third-party refusal that wants to be real has to do the same.
 **Confirmed via.** Antares source (`develop`); observed in game — refusing only
 the `buildLimitOnly = false` call produced a darkened-but-buildable cameo, and
 answering both produced a real refusal.
+
+### …and it is **not** evaluated every frame
+
+`CanBuild` is consulted when the engine rebuilds the sidebar / rechecks the tech
+tree — driven by *events* (a building finishes, is sold, is destroyed), not by a
+per-frame tick. For a verdict that depends only on owned objects this is
+invisible, because the events and the verdict change together.
+
+It becomes visible the moment a verdict depends on the **match clock**. A
+condition that flips on frame N is not observed until the next recheck, which can
+be a long time later. Measured in a build with a once-per-frame diagnostic:
+
+| Condition | Should flip at | Actually observed | Lag |
+|---|---|---|---|
+| absolute deadline | frame 4500 | frame 4920 | 420 frames (~28 s) |
+| expiring window | frame 7570 | frame 8283 | 713 frames (~47 s) |
+
+Worse, a window **shorter than the gap between rechecks can open and close
+entirely unobserved** — the cameo never appears at all, and the same
+configuration appears to behave differently from run to run depending on what
+else happened to trigger a recheck. That non-determinism is the tell.
+
+The fix is to drive the re-evaluation yourself: set `HouseClass::RecheckTechTree`
+on a timer from a per-frame seat (e.g. `0x55B6B3`, see
+[Logic-Frame-Update.md](Logic-Frame-Update.md)). Once per second was enough to
+bring the same deadline in at frame 4501 against a target of 4500 — one frame.
+
+**Multiplayer caution.** Drive it **uniformly for every house, from the shared
+frame counter**. Limiting the nudge to `CurrentPlayer` makes clients re-evaluate
+buildability on different frames, which is a lockstep divergence waiting to
+happen.
+
+**Confirmed via.** In-game measurement with a per-verdict-change log (frame
+numbers above, 15 fps); the corrected timings after adding a 1 Hz
+`RecheckTechTree` nudge. The *reason* CanBuild is event-driven was inferred from
+this behaviour, not from disassembling the sidebar refresh path — treat the
+mechanism as unconfirmed, the timings as measured.
 
 ---
 

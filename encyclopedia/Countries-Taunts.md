@@ -36,6 +36,15 @@ index 0 — countries start *sharing* ownership bits rather than crashing. The
 per-country `[CountryName]` section is honoured the whole time, which makes the
 failure look like a parser bug when it is an arithmetic one.
 
+**Where this bites in practice.** The country-set machinery surfaces as a
+crash at **`0x4F671D`** — an unguarded NULL dereference of
+`FirstBuildableFromArray(Rules->BaseUnit)`. That entry, and the fact that
+`Owner=` is resolved through **`ParentCountry`** while
+`RequiredHouses=`/`ForbiddenHouses=` use the country's own `ArrayIndex2`, are
+documented in
+[Buildability-Prerequisites.md](Buildability-Prerequisites.md) (`0x4F657A`,
+`0x4F671D`).
+
 **Do not confuse this with the player/house limit.** `IndexBitfield<HouseClass*>`
 (`HouseClass::Allies`, `AltAllies`, `TechnoClass::DisplayProductionTo`, …) is
 indexed by *house* `ArrayIndex` and caps **houses/players** at 32 — see
@@ -314,6 +323,47 @@ remove the 16-country limit, because it still reads
 `TauntDataStruct::countryIdx`, a **4-bit** bitfield — the widening lives in its
 *callers*, not here. Reading the Antares source alone strongly suggests the
 limit is fixed; it is fixed on two of three paths.
+
+⚠ **The Ares-lineage default `File.Taunt` values cannot resolve to a filename.**
+Three different placeholder conventions coexist in one feature:
+
+| Where | Convention |
+|---|---|
+| `Body.h:38` comment | *"should contain `%d` !!!"* |
+| `Body.cpp` defaults (all 10 countries + fallback) | `taunts\tauam%02i.wav` — printf |
+| `Hooks.cpp:187-193`, the **only** consumer | `~` substitution |
+
+The consumer does:
+
+```cpp
+std::string filename(pData->TauntFile);
+auto const pos = filename.rfind('~');
+if (pos != std::string::npos) {
+    filename[pos] = char('0' + idxTaunt);
+    std::replace(filename.begin(), filename.end(), '~', '0');
+}
+return AudioStream::Instance->PlayWAV(filename.c_str(), false);
+```
+
+With a default value there is **no `~`**, so `pos == npos`, no substitution
+happens, and `PlayWAV` is handed the literal string `taunts\tauam%02i.wav` —
+a filename that cannot exist. **Every country relying on the default therefore
+plays nothing**, silently, with no error path (`PlayWAV`'s return is discarded
+at two of the three call sites).
+
+The working form a mod must write explicitly is `~`-based —
+`File.Taunt=taunts\tauam~~.wav` resolves to `taunts\tauam01.wav` for taunt 1.
+Note also that the guard admits `idxTaunt` 0–9 while the shipped WAVs are
+`01`–`08`, so indices 0 and 9 miss even with a correct pattern.
+
+This is a likely first stumbling block for anyone testing taunts under the
+Ares lineage: the symptom (silence) is identical to a missing audio file, a
+closed `LANTaunts`/`WOLTaunts` gate, or a country-index problem.
+
+**Confirmed via.** Antares `Ext/HouseType/Body.cpp` (defaults + `Body.h:38`
+comment) and `Ext/HouseType/Hooks.cpp:185-195` @ `9f25bdb`; `TauntFile` has
+exactly one consumer, verified by grepping the tree. **Confirmed** from source.
+⚠ **Not reproduced in-game.**
 
 ⚠ **Latent out-of-bounds read in the Ares-lineage hook.** `PlayCountryTaunt`
 guards `idxCountry < 0` but has **no upper-bound check** before

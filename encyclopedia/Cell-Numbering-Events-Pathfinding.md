@@ -114,7 +114,7 @@ The pathfinding zone system lives in MapClass (instance `0x87F7E8`):
 
 | Offset | Meaning |
 |---|---|
-| +0x68 | zone id table (10-byte entries) |
+| +0x68 | zone id table (**4-byte** entries — see correction below) |
 | +0x6C | table entry count = **(W+H+1)²** |
 | +0x70 | subzone id table (10-byte entries, same count) |
 | +0x74 / +0x78 / +0x7C | region counts per hierarchy level (finest→coarsest) |
@@ -186,3 +186,35 @@ global faults (`cmp edx,[ecx+0x18]` @RVA 0x365CB, ECX=0) — observed in the wil
 mid-game (C0000005 at Phobos+0x365CB). Anyone hooking or patching near
 EBolt::Draw should preserve the caching hook's reachability; the robust
 upstream fix is a null check in the reader hooks.
+
+### Correction: `+0x68` stride, and when the zone tables are actually built
+
+Two corrections to the table above, both **dump-proven** on an 80x80 map
+(`extcrashdump.dmp`, 2026-08-26, Memory64List walk):
+
+- **`+0x68` entries are 4 bytes, not 10.** `+0x70 - +0x68` = `0x19518` =
+  25921 x 4 exactly, and the consumer at `0x56D496` indexes it as
+  `lea ebp,[edx+eax*4]` then reads a *byte* (`mov al,[ebp+0]; cmp al,0x7`). The
+  10-byte/`movswl` layout in the original note describes the id tables that the
+  A* sites consume, not `+0x68`. Index math itself is confirmed: `+0xF4` = W,
+  `+0xF8` = H, index = `(W+H+1)*Y + X`, and `(80+80+1)^2 = 25921` matched `+0x6C`
+  exactly. `0x56D3F0` clamps the index (negative -> 0, >= count -> count-1);
+  `0x56D430` is the same computation unclamped.
+
+- **⚠ The zone tables are NOT populated during scenario setup.** At the moment
+  houses are assigned start positions (`0x5D6C1D`/`0x5D6D3F`, and anywhere in
+  `AssignHouses` `0x687F10`-`0x688378`) the dump shows the `+0x68` table
+  uniformly `7` across all 25,921 entries, the `+0x70` table uniformly `0`, and
+  the three region counts at `+0x74`/`+0x78`/`+0x7C` all equal to `1`. That is
+  an unbuilt table, not a single-region map.
+
+  **Consequence:** any spawn-time logic that wants reachability — "is this cell
+  connected to that one", island detection, base-space validation — **cannot use
+  the zone system**, because it does not exist yet. Terrain/cell data *is*
+  loaded by then, so an own flood fill over cell passability is the available
+  route. This is worth checking before designing against zones at any early
+  stage; the tables read as plausible-but-uniform rather than as obviously
+  garbage, so the failure mode is silent (every cell compares equal to every
+  other, so a same-zone test passes universally and validates nothing).
+
+  Not yet established: exactly where in the load sequence the tables are filled.

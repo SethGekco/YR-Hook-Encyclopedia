@@ -1196,3 +1196,60 @@ Still unverified: the practical player ceiling between 25 and 30 (arithmetic
 says 30; untested in-game); the observer test `[player+0x6B] == -1`; and the
 entire downstream GUI break list (recon / diplo / score / loading) from the
 RE-vet roadmap. Those need a runtime crash-walk, not more disassembly.
+
+---
+
+### `0x5D6CFB` — the unseated-house branch and the free-position picker that runs dry
+
+The per-house loop at `0x5D6CBF`..`0x5D6D47` scans the map's 16-entry
+`HouseIndices` table for the current house (`ESI` = house index):
+
+```
+5d6cf9:  test bl,bl
+5d6cfb:  jne  0x5d6d30        ; SEATED: cell = startCellTable[edx]
+5d6cfd:  add  ebp,0x24        ; UNSEATED -> the engine's free-position picker
+5d6d07:  call 0x4068e0        ; log, fmt @0x82DD2C
+5d6d17:  mov  edx,[ecx]       ; ecx from [esp+0x1c]
+5d6d25:  call [edx+0xc4]      ; virtual, vtable slot 49
+5d6d30:  mov  ecx,[esp+0x28]  ; the seated path
+5d6d34:  mov  edx,[ecx+edx*4]
+5d6d38:  mov  ecx,edi         ; edi = the house
+5d6d3a:  call 0x50e000        ; SetBaseCell
+```
+
+**The picker is not dead code and it is not safe.** Neutral and Special are
+never seated in `HouseIndices`, so vanilla enters this branch twice in *every*
+game and it works. It draws from a pool of unused start positions, and it does
+not survive that pool being drained: on a 2-position map with 9 houses it
+returned a garbage cell `(49,0)` for the first surplus house and then
+dereferenced a stale pointer for the next — **`C0000005` at `0x5D6D17`,
+`ECX = 0x01A44850`, `ESI = 3`**. This is why an over-subscribed 8-position map
+survives (only one house is ever surplus, and it merely gets the garbage cell)
+while a 2-position map dies. `mmtrt/yrpp-spawner` hooks `0x5D6D02` in the same
+branch (`Waypoint_NotFoundSkip`), independent corroboration that this path is
+the wall.
+
+**Working avoidance.** Hook `0x5D6CFB` (5 bytes: `75 33` + `83 c5 24`). Because
+the `jne` itself is stolen the hook owns the branch — return `0x5D6D30` to take
+it, `0x5D6D00` to fall through (re-applying the stolen `add ebp,0x24`). Forcing
+`EDX = 0` and returning `0x5D6D30` sends an unseated house down the *seated*
+path, where it reads `startCellTable[0]` — a genuinely valid cell on
+well-trodden code — and the picker is never entered. Anything that overrides the
+cell at `0x5D6D3F` afterwards overwrites the placeholder anyway. **Confirmed**
+in-game: 9 houses on a 2-position map, all placed, no crash. Gate it on an
+actual shortfall so normal games keep vanilla's two picker calls.
+
+**Hook-range note.** `0x5D6CFB`-`0x5D6CFF` is clear across Antares, Phobos and
+15 other Ext DLLs; Antares' nearest hook in the region is `0x5D6D9A`.
+
+### `0x688508` — gate the deficiency-search suppression on counts, not on config
+
+Recorded as a corrective. Suppressing the non-terminating search at `0x688508`
+is right, but gating it on *"does `spawn.ini` name a start index >= the map's
+count"* is wrong and hangs the game: with every player on Random every `Multi`
+carries `start=-1`, no such index exists, the gate stays shut and the search
+runs anyway. Gate on **playing houses > start positions** instead — that is also
+the exact condition under which the engine reaches the code at all (`0x688502
+jle` skips it otherwise), so the two agree by construction. Exclude Neutral and
+Special from the count via `HouseTypeClass + 0x1A6` or the shortfall is
+overstated by two.

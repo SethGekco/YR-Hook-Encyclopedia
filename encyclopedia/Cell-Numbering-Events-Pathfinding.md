@@ -212,11 +212,9 @@ Two corrections to the table above, both **dump-proven** on an 80x80 map
   connected to that one", island detection, base-space validation — **cannot use
   the zone system**, because it does not exist yet.
 
-  **Correction (same session):** an earlier revision of this note added "terrain
-  /cell data *is* loaded by then, so an own flood fill over cell passability is
-  the available route." **That is wrong.** The `CellClass` array is *allocated*
-  but *not populated* at that point — see the cell-array note in
-  Map-Cell-Indexing.md. There is no terrain to flood-fill either. This is worth checking before designing against zones at any early
+  Cell/terrain data, by contrast, **is** available at that point — see the
+  cell-array note in Map-Cell-Indexing.md — so an own flood fill over cell data
+  is a viable route where the zone system is not. This is worth checking before designing against zones at any early
   stage; the tables read as plausible-but-uniform rather than as obviously
   garbage, so the failure mode is silent (every cell compares equal to every
   other, so a same-zone test passes universally and validates nothing).

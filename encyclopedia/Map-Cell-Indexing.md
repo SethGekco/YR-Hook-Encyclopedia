@@ -176,31 +176,52 @@ scatter + `Unlimbo` fixed it. Stride/index math cross-referenced to `0x565757`
 
 ---
 
-### ⚠ The cell array is allocated but EMPTY during scenario house assignment
+### `[MapClass+0x13C]` is a POINTER array, lazily allocated — and cells ARE
+### populated during scenario house assignment
 
-Dump-proven (`extcrashdump.dmp`, 2026-08-26, 80x80 map, crash inside the
-house→start-position loop at `0x5D6D17`):
+Corrects two things, one of them an error published earlier in this same file.
 
-- `[MapClass+0x13C]` held a valid base and `[MapClass+0x140]` a valid bound, so
-  the array **is allocated** — the region was 16 MB.
-- Of ~4096 4K pages in it, only **159** were non-zero, and a full scan for cell
-  coordinates found **none**: not `(73,105)`, not `(105,73)`, not even `(1,0)`
-  or `(40,40)`. `MapCoords` is unwritten everywhere.
+**1. The access model.** The intro above says the lookup returns
+`[MapClass+0x13C] + index * sizeof(CellClass)`, i.e. a flat object array. **It is
+a pointer array.** The population routine at `0x5663B3`-`0x5663F3` reads it as
+`mov ecx,[edx+edi*4]`, and where the slot is null it allocates a cell and stores
+the pointer back:
 
-**So terrain data does not exist yet when houses are assigned start positions**
-(`0x5D6C1D` / `0x5D6D3F`, and all of `AssignHouses` `0x687F10`-`0x688378`).
-Anything at that stage wanting to know what the ground is like — passability,
-land type, island/reachability tests, buildable-area checks — **has nothing to
-read**, from either the cell array or the pathfinding zones (which are equally
-unbuilt; see Cell-Numbering-Events-Pathfinding.md). Such work has to move to a
-later seam, after cells are populated and before the base cell is consumed by
-unit placement (`0x5D7098` MCV unlimbo is the last point that reads it).
+```
+5663b3:  mov  edx,[ebx+0x13c]     ; array base
+5663bc:  mov  ecx,[edx+edi*4]     ; slot  <- scale 4, a POINTER
+5663bf:  test ecx,ecx
+5663c1:  jne  0x5663fc            ; already there -> skip
+5663c3:  push 0x148               ; sizeof(CellClass) = 0x148 (328)
+5663c8:  call 0x7c8e17            ; YRMemory::Allocate
+5663d6:  call 0x47bbf0            ; CellClass ctor
+5663e8:  call 0x485240            ; init from coords
+5663f3:  mov  [ecx+edi*4],ebp     ; store pointer back
+```
 
-What *is* valid at that stage: `[MapClass+0xF4]`/`[MapClass+0xF8]` (map W/H)
-already hold correct values, so map-dimension-derived logic is safe.
+So the correct lookup is `*(CellClass**)(base + index*4)`, and **cells are
+allocated lazily** — a null slot means "not yet touched", not "invalid cell".
 
-**Watch the bound.** In this dump `[MapClass+0x140]` read `0x400000`
-(2048x2048), not the vanilla `0x40000` — MapSizeExt was loaded and had rescaled
-the stride. Any tool that hardcodes `(Y<<9)+X` will silently index the wrong
-cells whenever a map-resize DLL is present; read the bound and infer the stride
-rather than assuming 512.
+**2. Cells are populated at spawn-assignment time.** An earlier revision of this
+note claimed the array was allocated but empty during house assignment, and that
+terrain was therefore unavailable. **That was wrong**, and it was wrong because
+of the access model above: reading a pointer array as a flat object array yields
+zeros everywhere, which is indistinguishable from "unpopulated". Read correctly,
+the same dump shows **12,720 populated cells — exactly `(2W-1)*H` = 159x80 for
+the 80x80 map**, every one with `MapCoords` at `+0x24` and a varying tile index
+at `+0x010` (255 distinct values in a 1500-cell sample).
+
+The zone-system finding is unaffected and still stands: those tables really are
+unbuilt at this stage (see Cell-Numbering-Events-Pathfinding.md). Terrain yes,
+zones no.
+
+**⚠ YRpp field offsets do not match this build.** `CellClass.h` puts `LandType`
+at `+0xEC` and `Passability` at `+0x4C`; both read uniform across all 12,720
+cells here (`0` and `7` respectively), so they are not those fields. Derive cell
+field offsets from the binary or from a dump, not from YRpp. Confirmed good:
+`MapCoords` `+0x24`, `sizeof` `0x148`.
+
+**Watch the stride.** In this dump the index was `(Y<<11)+X`, not `(Y<<9)+X`,
+and `[MapClass+0x140]` read `0x400000` rather than `0x40000`, because MapSizeExt
+was loaded and had rescaled the stride. Read the bound and infer the stride;
+never hardcode 512.

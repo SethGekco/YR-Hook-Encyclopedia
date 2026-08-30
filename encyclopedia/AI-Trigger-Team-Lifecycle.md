@@ -300,6 +300,128 @@ loser-walk produces one event per losing trigger). **Confirmed.**
 
 ---
 
+## AI ScriptType action grammar — ordering, targeting & the unload-in-the-field trap
+
+A `ScriptType` is an ordered list of `(ActionCode, Argument)` pairs. `TeamClass::Update`
+(`0x6E9443`, above) dispatches `ScriptActions[CurrentMission]` and advances
+`CurrentMission`. **The engine does not validate ordering** — a nonsensical sequence
+executes literally and misbehaves *silently*. The grammar below is empirical (mined
+from the vanilla `aimd.ini` ScriptTypes + in-game observation), not enforced by the
+engine, so a generator that emits scripts must self-check it.
+
+**Action codes that matter for movement/cargo** (meanings cross-checked against the
+vanilla scripts and the public FinalAlert2 action list):
+
+| Code | Action | Notes |
+|---|---|---|
+| 0  | Attack quarry (target type) | |
+| 5  | Guard area (timed) | |
+| 6  | Jump to line N | `arg = line index` — control flow |
+| 8  | Unload / attack-move-unload | deposits passengers **at the team's current cell** |
+| 9  | Unload (deploy passengers) | same "drop here" semantics |
+| 14 | Load onto transport | |
+| 43 | Wait until fully loaded | must follow a load (14) |
+| 46 | Attack building | BwP-targeted (see encoding below) |
+| 47 | Move to enemy building | BwP-targeted; puts the team **onto/adjacent to** the target |
+| 49 | Repeat script | loop back to start |
+| 53 | Gather at `AISafeDistance` **outside** the enemy base | `arg` extends the distance (Antares) |
+| 54 | Regroup at own base (`AIFriendlyDistance`) | |
+| 55 | Activate Iron Curtain on the team | |
+| 58 | Move to friendly building | BwP-targeted |
+| 63 | Deploy | |
+
+**The ordering rules (empirical, vanilla-consistent):**
+- **Load sequence:** `…move… → 14 (load) → 43 (wait-loaded) → …travel… → drop`. A
+  `14` not followed by `43` lets the transport leave before troops board.
+- **Deliver sequence:** `47 (move to enemy building) → 8 (unload there) → 46 (attack)`.
+  Because `8`/`9` deposit **at the current cell**, they are only correct after a `47`
+  has actually moved the team onto the target — **never after `53`**, which parks the
+  team a safe distance *outside* the base.
+- **Open-topped transports** (e.g. a battle-fortress whose passengers fire out) must
+  **not** unload at all — they fight loaded; a script that unloads them discards the
+  whole mechanic.
+
+**⚠ The bug this section exists for (created and fixed in a generator, 2026-08).**
+Emitting `8` (unload) right after `53` (gather outside base) makes the transport dump
+its cargo **in the open field** at `AISafeDistance` from the objective, where the units
+mill about and die piecemeal — the AI looks broken for no visible reason. Vanilla never
+writes `53 → 8`; it either follows `53` with an approach/attack of the *loaded* team, or
+uses `47 → 8` for a real drop onto the target. The fix is an order-of-operations
+validator run at generation time: forbid `8`/`9` unless a prior `47` exists in the same
+script with no intervening `53`/`54`; forbid `43` unless preceded by a load; forbid
+unload on an open-topped carrier. The engine won't tell you — the log won't either;
+only the field behaviour reveals it, so validate before you ship the script.
+
+**BwP targeting encoding (the argument of 46 / 47 / 58).** The argument is
+`arg = 65536 * mode + building_index`, where `mode` selects *which* matching building:
+`0` = lowest-threat, `1` = highest-threat, `2` = **nearest** (`0x20000`), `3` = farthest;
+`building_index` is the `BuildingType` array index. So "move to the nearest enemy
+Construction Yard" = action `47`, `arg = 2*65536 + CYindex` (find the CY as the
+`BuildingType` whose `Factory=BuildingType`). This is how a script is steered at a
+specific structure *category* rather than a fixed cell.
+
+**Don't reinvent what Antares already owns.** Actions `53,X` / `54,X` already treat `X`
+as an additive offset to `AISafeDistance` / `AIFriendlyDistance` in Antares — no new hook
+is needed to "gather further out." Team retaliation, gather distance, production
+macro-behaviour and base planning are Antares-owned reactive-AI subsystems: extend
+Antares for those rather than co-hooking the engine, or you fight a replacement that has
+already taken the site (the `0x4F7870`/`0x5F7900` dead-code trap, documented in
+`Production-Queues-Factories.md` / `Buildability-Prerequisites.md`, is the same hazard).
+
+**Confirmed via.** Vanilla `aimd.ini` ScriptType mining (the grammar); in-game
+observation of the `53 → 8` field-dump misbehaviour and its correction; Antares
+`Ext/Script` source for the `53`/`54` distance offset; FinalAlert2 action list for the
+code meanings. **Grammar and BwP encoding confirmed by generated-then-tested scripts;**
+the `mode` constants verified against the emitted, in-game-correct target selection.
+
+---
+
+## AI situational-awareness data — what a house reads to react
+
+The AI's "what is threatening me and where" state lives on **`HouseClass`**, aggregated,
+not on individual targets (that is `EvaluateObject`'s job — see
+`Target-Evaluation-Threat.md`). A reactive DLL *reads* these; the engine's threat
+bookkeeping already maintains them, so do not recompute.
+
+- **`ZoneInfos[5]`** — five zones, each `{ int Aircraft; int Armor; int Infantry; }` —
+  aggregate threat by movement class per broad zone around the base. Summing a field
+  across the five zones gives a single "total air / armor / infantry pressure" number,
+  which is enough to gate reactions like "scramble AA when air pressure exceeds N."
+- **`ThreatPosedEstimates[130][130]`** — a coarse per-cell spatial threat grid over the
+  map; the base planner reads it to decide *where* danger is. Index helper reported at
+  `0x56BC54` and a rating evaluator at `0x70CF45` (per a parallel RE effort —
+  **addresses unverified in this page**; the array dimensions are the reliable part).
+- **`LATime`** (last-attacked frame) `+ LAEnemy` (attacker) — the cheap "am I under
+  attack right now / recently" signal: `CurrentFrame - LATime < window`. Basis for
+  under-attack conditions without scanning any object list.
+- **`Defeated` / `IsNeutral()` / `IsAlliedWith(HouseClass*)`** — for counting *live
+  enemy* houses; **`GetBaseCenter()`** / base-spawn cell — for base-distance gates.
+
+**⚠ Sync-safety (a non-obvious lockstep trap).** Any condition that draws randomness (a
+"% chance to fire") must key its roll to the **current frame** and cache `{rollFrame,
+rollPass}`, re-rolling only when the frame changes. Re-rolling on every evaluation makes
+the *effective* probability depend on how many times the engine happens to evaluate the
+trigger, and — worse — can diverge across machines whose evaluation counts differ,
+desyncing a networked game. Pure reads of the structures above are deterministic and safe;
+only the RNG needs the frame guard.
+
+**⚠ Log-spam (an ops trap that cost a debug round).** These evaluations sit in a hot
+per-house / per-frame path — `ConditionMet` (`0x41E720`) alone runs constantly. An
+*unconditional* `LogWrite` there (a diagnostic hook plus per-condition tracing) produced
+a **322 MB / ~4.3-million-line** `debug.log` in one session, which is both unreadable and
+a real frame-time cost. Gate every diagnostic in condition-evaluation or script-dispatch
+behind an explicit verbosity flag, default it off, and never log unconditionally inside
+these paths.
+
+**Confirmed via.** `ZoneInfos[5]` layout `{Aircraft,Armor,Infantry}` and the summing
+approach exercised by a shipped, CI-green consumer that reads `HouseClass::ZoneInfos` to
+gate a zone-threat condition; `LATime`/`Defeated`/`IsAlliedWith`/`GetBaseCenter` used by
+shipped under-attack / house-count / base-distance conditions; the sync and log-spam
+lessons from that DLL's own debugging. `ThreatPosedEstimates` dimensions from YRpp;
+the two interior addresses are **unverified here.**
+
+---
+
 ## Class-extension points (AITriggerTypeClass sidecar sites)
 
 Standard sites for attaching per-trigger extension data (an `ExtData`/container),

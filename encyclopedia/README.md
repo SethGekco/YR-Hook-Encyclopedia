@@ -25,7 +25,7 @@ widely misunderstood, or conflict-prone**, so the reference earns its keep.
 |---|---|---|
 | [Ext-Aircraft.md](Ext-Aircraft.md) | Aircraft | seed (1 exemplar entry) |
 - [Map Reveal / Sight](Map-Reveal-Sight.md) — RevealArea0/1/2; the big-map trap (YRpp hardcodes stride 512 at compile time).
-| [AI-Trigger-Team-Lifecycle.md](AI-Trigger-Team-Lifecycle.md) | AI trigger evaluation, team selection & lifecycle | vanilla-RE (7 behavioural + 4 extension sites; unhooked by frameworks) |
+| [AI-Trigger-Team-Lifecycle.md](AI-Trigger-Team-Lifecycle.md) | AI trigger evaluation, team selection & lifecycle | vanilla-RE (7 behavioural + 4 extension sites; unhooked by frameworks) + **ScriptType action grammar** (ordering rules, BwP target encoding `65536*mode+idx`, the `53→8` unload-in-the-field trap) + **AI situational-awareness data** (`HouseClass::ZoneInfos[5]{Air,Armor,Inf}`, `ThreatPosedEstimates[130][130]`, `LATime`; ⚠ frame-key RNG for lockstep; ⚠ never LogWrite unconditionally in `ConditionMet` — 322MB log) |
 | [Attachment-Cell-Placement.md](Attachment-Cell-Placement.md) | Unit placement marking, cell occupation, custom-locomotor recursion | 4 entries (2 registry-absent DEFINE_JUMPs, 1 do-not-hook, 1 three-framework conflict) |
 | [Map-Cell-Indexing.md](Map-Cell-Indexing.md) | Map coordinate→cell indexing & row stride | vanilla-RE (the 512 stride machinery; map-resize crash surface) |
 | [PlayerCount-HouseLimits.md](PlayerCount-HouseLimits.md) | Player Count & House-Array Limits | 3 entries + structural + reference impl &mdash; **RUNTIME-VALIDATED** in a live skirmish (all globals + `+0x16054` confirmed; AssignHouses runs TWICE; ⚠ AI-loop sentinels SKIP not break, EAX counts creations not slots) |

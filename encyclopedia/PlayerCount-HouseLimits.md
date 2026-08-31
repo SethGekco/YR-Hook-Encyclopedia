@@ -1253,3 +1253,50 @@ the exact condition under which the engine reaches the code at all (`0x688502
 jle` skips it otherwise), so the two agree by construction. Exclude Neutral and
 Special from the count via `HouseTypeClass + 0x1A6` or the shortfall is
 overstated by two.
+
+---
+
+### Score screen: the record array moves, the DISPLAY does not
+
+Two separate limits, and only the first is a patch.
+
+**1. Storage — fixed by relocation.** Records are 112 bytes at `0xA8D1FC` with the
+counter at `0xA8D580`, giving exactly eight slots (`0xA8D580 - 0xA8D1FC = 900 =
+8*112 + 4`) and putting the counter *four bytes inside record 8*. The ninth
+house overwrites the counter with its own name text and the next iteration reads
+that text as an index — `C0000005` at `0x5C9917`, `EBP = 0x0070006D` (UTF-16
+characters).
+
+It cannot grow in place: `0xA8D57C` and `0xA8D580` are separate scalars
+immediately after it (`0x52CA82` writes both back to back; the reads at
+`0x5C9BB8` / `0x685F58` are direct, not indexed). Relocating works — allocate a
+buffer and repoint the **seven** field displacements that appear as
+`[esi + <abs>]`:
+
+```
++0x00  +0x28  +0x2C  +0x30  +0x40  +0x50  +0x60      48 sites total
+```
+
+Fields reached through a register base need no patch (`lea ebx,[esi+0xa8d1fc]`
+at `0x5C9911`, which the name `strcpy` writes through, follows the corrected
+base). Leave the counter where it is. **Confirmed in-game**: 30 houses, 48 sites
+patched, no crash, every house given its own record.
+
+**2. Display — NOT a bounds patch.** The rows are not a loop over the array.
+`Game_GetMultiplayerScoreScreenBar` (`0x5CA110`) is a hand-unrolled chain of
+per-slot cases — `cmp ecx,1` … `cmp ecx,8` at `0x5CA13A`, `0x5CA153`,
+`0x5CA16B`, `0x5CA184`, `0x5CA19D`, `0x5CA1B5`, `0x5CA1CE`, `0x5CA1E7` — and
+each case loads its **own** globals (slot 1: `ds:0x844B28`, control `0xAC4848`)
+before calling the draw at `0x6BA140`. Eight separately-authored UI slots, not
+eight iterations.
+
+So more rows means authoring 22+ further asset/control globals and a layout that
+can hold them (scroll or paginate), not raising a bound. A separate index
+bounds-check exists at `0x7877B8` (`cmp eax,0x8` guarding `0xA8D584` before
+`add ecx,0xa8d1fc`) and *is* a simple patch, but on its own changes nothing
+visible.
+
+This is very likely where `mmtrt/yrpp-spawner`'s note — *"couldn't get loading
+screen player indicators to work more than 8, also score board to show more
+players"* — comes from: the storage yields to a patch and the presentation does
+not.

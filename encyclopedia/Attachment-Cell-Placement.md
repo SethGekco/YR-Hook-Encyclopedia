@@ -132,3 +132,55 @@ Top-priority conflict entry — three frameworks on one address.
 
 **Confirmed via.** registry (`hooks.csv`: Antares+Ares+Phobos rows); objdump of
 `gamemd.exe`; in-game testing alongside Ares.
+
+---
+
+### `MarkAllOccupationBits` / `UnmarkAllOccupationBits` — the per-class occupation virtuals  ✅ all unhooked
+
+**Framework names.** Ares (and Phobos PR #352, following it) call this pair
+`SetOccupyBit` / `ClearOccupyBit`. In YRpp it is
+`ObjectClass::MarkAllOccupationBits(const CoordStruct&)` and its `Unmark` twin —
+the same virtual, different name.
+
+**What it does.** Sets/clears the `0x20` occupation flag on the cells an object
+stands on (`CellClass::OccupationFlags` / `AltOccupationFlags`). This is the flag
+pathfinding and placement consult, so an object that never marks it does not block
+movement or building placement.
+
+**Per-class implementations** (each class overrides it):
+
+| Class | vtable slots (mark / unmark) | functions |
+|---|---|---|
+| UnitClass | `0x7F5D60` / `0x7F5D64` | `0x7441B0` / `0x744210` |
+| InfantryClass | `0x7EB148` / `0x7EB14C` | `0x5217C0` / `0x521850` |
+| BuildingClass | `0x7F4A50` / `0x7F4A54` | `0x5F60A0` / `0x5F6120` |
+| BuildingClass (alt vtable) | `0x7E8D84` / `0x7E8D88` | same as BuildingClass |
+| AircraftClass | `0x7E3FAC` / `0x7E3FB0` | `0x453D60` / `0x453DC0` |
+
+**Finding the slots — the trap.** Counting `virtual` declarations in YRpp's
+`ObjectClass.h` to derive the slot index came out **three slots off**, which would
+have replaced `SpawnParachuted` (`0x5F5940`) instead. Calibrate against a *known*
+slot in the same vtable rather than counting: the occupation pair sits at
+**`<that class's IsOnFloor slot> + 0xA0` / `+0xA4`**, and `IsOnFloor` is easy to
+confirm because every class holds the base `0x5F6B60` there. Always read the slot
+back out of the exe and check it holds a plausible function before installing.
+
+**Easily mistaken.** Wrapping only `UnitClass` covers *vehicles alone* — infantry,
+aircraft and buildings each have their own implementation and are unaffected. This
+is exactly why Phobos PR #352's `OccupiesCell=no` works for vehicle attachments and
+silently does nothing for every other type; the PR's `Ext/Cell/Hooks.cpp` ends with
+`// TODO ^ same for TA for non-UnitClass, not needed so cba for now`.
+
+**Also easily mistaken.** The occupation *flag* is not the only thing that makes an
+object block. Cell **content membership** (being in `CellClass::FirstObject`'s
+linked list) is consulted independently by placement and occupier lookups, so
+skipping the flag alone does not make an object fully non-blocking.
+
+**Used by / interactions.** Unhooked by Phobos, Antares and Kratos — all ten
+addresses above are free (registry-checked 2026-09-01). Skip mark and unmark
+together or the pair unbalances (an object that never marked must not clear).
+
+**Confirmed via.** Reading the vtable slots directly out of `gamemd.exe`
+(UnitClass pair matched the known `0x7441B0`/`0x744210`, which anchored the `+0xA0`
+offset); YRpp `ObjectClass.h`; PR #352 `src/Ext/Cell/Hooks.cpp`. Built, not yet
+play-tested.

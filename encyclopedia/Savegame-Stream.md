@@ -200,3 +200,62 @@ surface; ordering matters if more than one consumer appends stream data.
 registry cross-reference (Antares/Ares/Phobos-PR#2060); YRpp
 `SwizzleManagerClass::Instance` (`0xB0C110`, vtable `Swizzle`); and in-game
 save→load testing as described.
+
+---
+
+### `0x46C722` / `0x46C74A` — BulletTypeClass Load/Save suffix, and the `ret`-terminated stolen window
+
+**Framework names**
+| Framework | Function name | Stolen | Source file |
+|---|---|---|---|
+| Antares | `BulletTypeClass_Load_Suffix` / `_Save_Suffix` | 0x4 / 0x3 | `Ext/BulletType/Body.cpp` |
+| Phobos  | `BulletTypeClass_Load_Suffix` / `_Save_Suffix` | 0x4 / 0x3 | `Ext/BulletType/Body.cpp` |
+| Kratos  | same pair | 0x4 / 0x3 | `Hooks/BulletTypeExtHook.cpp` |
+
+**What it does.** The per-type extension save/load suffixes: where a framework
+calls its container's `LoadStatic()` / `SaveStatic()` after the vanilla routine
+has finished with a `BulletTypeClass`.
+
+**What it does *not* do — easily mistaken.** These are declared with stolen
+sizes **below Syringe's 5-byte minimum** (`0x4` and `0x3`), which normally
+means the hook resumes on orphaned bytes — the failure mode described in the
+general note about `return 0` re-executing stolen bytes from the trampoline.
+Here it is **benign**, and the reason is worth knowing because an automated
+size checker cannot infer it.
+
+Disassembly of vanilla `gamemd.exe`:
+
+```
+46C722  5E              pop  esi
+46C723  C2 08 00        ret  8
+46C726  90 90 90 90     (padding)
+
+46C74A  C2 0C 00        ret  0xC
+46C74D  90 90 90        (padding)
+```
+
+Both stolen windows **terminate in a `ret`**. Syringe writes 5 bytes
+regardless of the declared size, so it does clobber one or two padding `nop`s
+beyond the declared window — but when the handler returns 0 and the copied
+bytes run in the trampoline, the `ret` transfers control to the caller before
+the resume address is ever reached. A `ret` is position-independent, so unlike
+a `jcc rel8/rel32` it survives being executed from a relocated stub.
+
+**The general rule this illustrates.** A sub-5-byte hook is safe when the
+stolen window ends in an unconditional, position-independent transfer (`ret`,
+`ret n`) and the bytes Syringe additionally clobbers are padding. It is unsafe
+when the window contains a **relative** branch, because that branch is not
+relocated — see the trampoline footgun in `Target-Evaluation-Threat.md`.
+"Size < 5" alone is therefore not a defect; "size < 5 *and* a live relative
+branch or a real instruction in the clobbered tail" is.
+
+Declaring `0x5` at these two addresses is equally correct and arguably more
+honest, since it matches what Syringe actually overwrites; behaviour is
+identical. Doing so will disagree with the registry's recorded 4/3 for the
+other frameworks, which is expected rather than an error.
+
+**Confirmed via.** objdump of vanilla `gamemd.exe` (`0x46C71C–0x46C760`);
+framework sizes from the registry and from Phobos
+`src/Ext/BulletType/Body.cpp`. The benign-ness argument is reasoned from the
+instruction encoding, **not** verified by running a sub-5-byte hook and
+observing no fault.

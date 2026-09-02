@@ -141,3 +141,42 @@ call-site census, `ClientToCoords` at `0x6D2280` taking the raw point);
 YRpp `DisplayClass.h`, `TacticalClass.h`, `Surface.h`; **in-game** — switching a
 superweapon's hotkey targeting from `ClientToCoords` to `ProcessClickCoords`
 removed a reproducible 1-4 cell northward error on sloped terrain.
+
+---
+
+### `0x4AACD4` — the mouse handler's call to `ProcessClickCoords`  ✅ unhooked
+
+**What it is.** The `call 0x692300` inside the mouse handler at `0x4AAC60`. Its
+fourth parameter is an `ObjectClass**` out-param: on return it holds **the object
+the cursor is over**, and that object is what the cursor's shape/action is derived
+from.
+
+**Why it matters — the two mouse paths are different.** It is easy to assume
+`TacticalClass::SelectAt` (above) governs "what the mouse interacts with". It does
+not: `SelectAt` is **click-to-select** only. The **cursor** resolves its object
+through `ProcessClickCoords`. Filtering one does not filter the other, and the
+symptom of getting this wrong is precise and confusing: clicks work correctly and
+select the right object, while the *cursor* still shows "no action here" for an
+object the mod believes is mouse-transparent.
+
+**Wrapping it.** `DEFINE_FUNCTION_JUMP(CALL, 0x4AACD4, wrapper)` with the
+`__thiscall` shape of `ProcessClickCoords`, call the original, then post-process
+the out-param. Writing `nullptr` back into it makes the cursor fall through to the
+cell underneath — the object is simply not seen by the cursor logic. Wrapping the
+**call site** rather than the function leaves `ProcessClickCoords`' other three
+callers (`0x4AE571`, `0x4FB470`, and its internal uses) untouched, which is
+usually what you want.
+
+**Determinism.** Cursor/mouse state is per-client and unsynced, so filtering here
+is render/UI-only and cannot desync — provided the filter reads only type/config
+data and does not mutate synced game state.
+
+**Used by / interactions.** Both `0x4AACD4` and `0x692300` are unhooked by Phobos,
+Antares and Kratos (registry-checked 2026-09-01).
+
+**Confirmed via.** objdump of `gamemd.exe` (the six pushes at
+`0x4AACB9`-`0x4AACCE` feeding `call 0x692300` at `0x4AACD4`); YRpp
+`DisplayClass.h` (`ProcessClickCoords(Point2D*, CellStruct*, CoordStruct*,
+ObjectClass** Target, BYTE*, BYTE*)`); **in-game** — an attachment flagged
+mouse-transparent still captured the cursor until this call was filtered, even
+though the `SelectAt` filters were already in place and clicking behaved correctly.

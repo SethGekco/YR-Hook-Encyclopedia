@@ -289,6 +289,79 @@ Antares is the only registry framework at this address (as is `0x6AB312`,
 
 ---
 
+## Build time: a THIRD full-replacement cluster
+
+Production *speed* is a separate chain from queue/factory selection, and the
+Ares-lineage frameworks own **both** of its functions outright — the same trap as
+`0x4F7870` and `0x5F7900`, twice over.
+
+```
+TechnoClass::GetBuildTime          0x6F47A0   [Antares/Ares FULL REPLACEMENT → 0x6F4955]
+  └─ TechnoTypeClass::GetBuildSpeed 0x711EE0  [Antares/Ares FULL REPLACEMENT → 0x711EDE]
+```
+
+Antares' reimplementation composes, in order: `GetBuildSpeed` (itself
+`speed × cost ÷ 1000 × 900`), then `× BuildTimeMultiplier`, then `÷` a low-power
+rate clamped by `LowPowerPenaltyModifier` / `Min|MaxLowPowerProductionSpeed`,
+then `× MultipleFactory` once per **extra** matching factory, then
+`× WallBuildSpeedCoefficient` for walls.
+
+**What it does *not* do — easily mistaken.**
+- Hooking either entry to *adjust* build time is dead code under Antares/Ares —
+  they compute a value and jump past the vanilla body.
+- The "more factories = faster" behaviour is **not** a property of factories at
+  all: it is `GetFactoryCount(house, absType, naval)` feeding a `MultipleFactory`
+  exponent inside `GetBuildTime`. Anything that wants to grant that speed-up
+  without being a factory has to influence the returned time, not the factory
+  count.
+- `0x711EE0` reads `Cost` — so build time is derived from cost. A hook that
+  rewrites cost (e.g. at `0x711F31`, see
+  [Buildability-Prerequisites.md](Buildability-Prerequisites.md)) changes build
+  time as a side effect unless `BuildTime_Cost` is set independently.
+
+### ⚠ `0x6F4955` — the epilogue is a **bare `ret` in a nop bed**
+
+The obvious remedy — hook the jump target and post-process `EAX`, as one does at
+`0x4F8361` — is **not** safe here by default:
+
+```
+6f494e:  8b c3           mov eax,ebx
+6f4950:  5e              pop esi
+6f4951:  5b              pop ebx
+6f4952:  83 c4 08        add esp,0x8
+6f4955:  c3              ret          <-- the jump target: ONE byte
+6f4956:  90 90 90 ...    nop padding
+6f4960:  a1 4c 3d a8 00  mov eax,ds:0xa83d4c   <-- a DIFFERENT function
+```
+
+Syringe always writes 5 bytes, so a hook here covers the `ret` plus four
+padding nops. Returning `0` resumes at `0x6F495A` — still inside the padding —
+and then **falls through into the next function**, having never executed the
+`ret`.
+
+To use this seat the handler must return an **explicit** address that performs
+the return; the sibling bare `ret` at `0x6F494D` is the natural choice, and the
+stack is already balanced there because Antares jumps to `0x6F4955` without the
+prologue having run. (Compare the stolen-relative-branch hazard in
+[Target-Evaluation-Threat.md](Target-Evaluation-Threat.md): same family of
+mistake, different cause.)
+
+`EAX` at `0x6F4955` holds the framework's finished build time. **Unverified:**
+whether `ECX` still carries the `TechnoClass*` at that point — Antares sets
+`EAX` and jumps, so the incoming `this` *should* survive, but that has not been
+checked in a debugger, and a hook needing the object must confirm it first.
+
+No framework hooks `0x6F4955`; the nearest registry neighbour is
+`0x6F49D8` (CnCNet-Spawner, `TechnoClass_Revealed_FixCrash`).
+
+**Confirmed via.** Antares source (`src/Ext/TechnoType/Hooks.BuildTime.cpp`,
+master) for both replacements and the composition order; objdump of
+`gamemd-spawn.exe` for the epilogue bytes and the nop bed; registry for
+contention. The `0x6F494D` return-address technique is **reasoned, not yet
+runtime-tested**.
+
+---
+
 ## Related pages
 
 - **Buildability & Prerequisites** — `HouseClass::CanBuild` (`0x4F7870`), same

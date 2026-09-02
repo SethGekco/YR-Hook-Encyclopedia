@@ -130,8 +130,66 @@ classic Ares' parser (not in the registry; the docs describe the same tag).
 
 ---
 
+## The cost of `return 0` — effects ADD, they do not replace
+
+The "co-hooking is safe, just return 0" result above has a consequence that is
+easy to miss when *adding* an effect that a co-loaded framework already
+implements: returning 0 buys compatibility by giving up exclusivity. Both
+handlers run, so both effects happen.
+
+The concrete case is the **money steal**. Antares' infiltration body takes
+credits from the victim and gives them to the infiltrator
+(`src/Ext/Building/Body.cpp:650-668`, driven by `SpyEffect.StolenMoneyAmount=`
+or `SpyEffect.StolenMoneyPercentage=`). A third-party DLL that adds its own
+money steal at `0x4571E0` and returns 0 does **not** override that — the victim
+is robbed twice, once per handler, on a single infiltration.
+
+The failure mode is nasty because it is quiet: no crash, no log, and in game it
+reads as "my amount tag is wrong" rather than "two DLLs are both firing". The
+symptom scales with the other framework's tag, so it also disappears the moment
+you test on a building where only your own tag is set.
+
+Rules that fall out of this, for any effect at this site:
+
+* Adding an effect the other framework does **not** implement (stolen tech
+  indices, limbo, gap vision) composes cleanly with `return 0`.
+* Adding an effect it **does** implement means either (a) detect the other
+  framework's INI keys at parse time and warn the modder to pick one family, or
+  (b) return a jump target to suppress it and accept a load-order fight.
+  Option (a) keeps `return 0` and is what IntelExt does.
+* This generalises past money to every entry in the shared spy-effect set —
+  power/radar outage, veterancy, superweapon reset.
+
+## Randomness at this site is SYNCED — use `ScenarioClass::Random`
+
+Infiltration effects run inside synced game logic on every client, and anything
+they write (credits, veterancy, ledger state) is simulation state. A randomised
+effect here must therefore draw from **`ScenarioClass::Random`** (YRpp
+`ScenarioClass.h:137`), whose draw sequence is part of the sync stream, so every
+client produces the same number.
+
+Two traps:
+
+* **`Randomizer::Global` (`0x886B88`) is the wrong generator.** YRpp's own
+  comment in `Randomizer.h` says it is for RMG and other out-of-match
+  randomness. Using it for an in-match effect desyncs.
+* **Draw unconditionally.** Bailing out before the draw on a client-varying
+  condition consumes a different number of draws per client, which desyncs just
+  as thoroughly as using the wrong generator. Draw first, then clamp or discard.
+
+This is the opposite of the rule for gap/vision code, which runs in an *unsynced
+render* path and must hash rather than draw — see `Gap-Generator-Vision.md`.
+
+**Confirmed via** YRpp headers, Antares source (`develop`), and IntelExt's
+`SpyEffect.StolenMoney.*` implementation. **Unverified:** no deliberate
+desync reproduction was run to prove the `Randomizer::Global` failure; the
+claim rests on the generator's documented role and the sync-stream argument.
+
+---
+
 ## Related
 
+* `Gap-Generator-Vision.md` — the inverse randomness rule (render path → hash).
 * `Buildability-Prerequisites.md` — where stolen tech is consumed
   (`HouseClass::CanBuild`, and the `0x4F8361` epilogue trap).
 * `Veterancy-Abilities.md` — `TechnoClass::HasAbility`, the choke point for

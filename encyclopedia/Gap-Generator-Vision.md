@@ -140,6 +140,49 @@ the tests there as unverified.
 
 ---
 
+## VERIFIED — gap shroud is permanent because create clears `Mapped`, and that is what hides animated patterns
+
+The shrouding branch clears two `AltFlags` bits, and *which* two turns out to
+matter more than it looks. The pair is `AltCellFlags::Clear = Mapped | NoFog`,
+and `Mapped` (`0x8`) is the engine's **"this cell has been explored"** bit.
+
+Dropping it is what makes gap shroud **permanent**: the viewer must physically
+re-scout the ground, rather than the cell reverting to what they already knew.
+
+**The non-obvious consequence.** This silently defeats *any* animated or
+patterned gap field. The first pass of a pattern clears `Mapped` across the
+whole radius, so every later band paints black on black and the pattern becomes
+invisible **to the one house it is aimed at**. It appears to work only when the
+viewer has `SpySatActive`, because a spy satellite keeps the terrain revealed
+underneath, giving the darkness something to contrast against.
+
+Anyone building moving gap patterns will hit this and reasonably conclude their
+pattern code is broken. It is not — the pattern is drawing correctly onto an
+already-black map.
+
+**The fix is one bit.** Preserve the explored state across the field's lifetime
+and a second, distinct *class* of shroud falls out: identical in appearance
+while it covers a cell, but restoring exactly the prior explored state when it
+leaves. Scouted ground darkens and returns; never-scouted ground stays black, so
+it reveals nothing.
+
+Two implementation notes that cost real debugging time:
+
+* **Snapshot on entry, do not infer on exit.** A viewer can legitimately scout a
+  cell while it is concealed. Reading `Mapped` at destroy time cannot separate
+  that from a cell the field darkened.
+* **The restore must also run outside a pattern rebuild.** Gating it on rebuild
+  frames restores the moving bands but leaves the field's final radius black
+  forever — a failure that only appears when the generator dies or browns out.
+
+**Confirmed via** objdump for the flag clear, and **in-game verification**
+(IntelExt `Gap.Temporary`, 2026-09-02): a ripple field with the explored bit
+preserved animates visibly for the targeted house with no spy satellite, and
+leaves no permanent shroud behind. Before the change the same field went solid
+black after one pass.
+
+---
+
 ## Structural note — the gap shape is hard-coded
 
 The cell loop is a square scan over `[-r-1, r+1]²` gated by an inline

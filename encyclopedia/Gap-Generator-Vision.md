@@ -62,13 +62,23 @@ display needs its own bookkeeping.
 reads `+0x13C` (no reader was found in the `0x6FB000`–`0x6FB700` range; a
 whole-binary xref sweep has not been done).
 
+⚠ **Also disputed:** the `SpySatActive` term in the listing above, and the
+addresses attributed to the three tests. In-game behaviour and Antares' destroy
+gate both argue the friendly test is owner/ally only. See *UNRESOLVED — is
+`SpySatActive` a term in the create-side friendly test?* below, which carries the
+experiment that settles it.
+
 ---
 
 ## Structural note — BOTH loops apply the friendly test, and it is load-bearing
 
 The friendly/shroud split above is not a create-side quirk. `DestroyGap` applies
-the **same** three-way test at the top of its own per-cell body and skips the
-friendly cells outright — it does not even decrement `+0x13C`.
+the **same** test at the top of its own per-cell body and skips the friendly
+cells outright — it does not even decrement `+0x13C`.
+
+(Whether `SpySatActive` is one of the terms in that test is **disputed** — see
+the unresolved note below. Everything in this section holds either way; only the
+*reachability* of the trap changes.)
 
 That matters because it is easy to read the `+0x13C` asymmetry (incremented,
 never decremented) as "the two loops disagree" and conclude that the destroy side
@@ -106,37 +116,102 @@ Decrementing there is not a no-op even when it is floored against underflow:
 * `GapsCoveringThisCell` is shared with **every other gap generator** covering
   the cell, so the decrement cancels coverage someone else paid for.
 
-The reachable case needs none of the modder's own settings: **`SpySatActive` puts
-the viewer on the friendly arm for every gap on the map, including an enemy's.**
-A viewer with a satellite up is therefore never shrouded by the create pass, and
-a destroy-side hook that claims those cells anyway is decrementing counters its
-own create never incremented. With an animated field — teardown and rebuild every
-N frames — that runs once per tick and walks the whole radius to zero.
-
-Any hook at those two addresses must reproduce the test (owner, ally, *and*
-satellite) and defer the friendly arm back to vanilla. Reproduce it **once**, and
-consult the one copy from both sides: two copies drift, and the drift is
-invisible until cells stop replenishing their shroud.
+Any hook at those two addresses must reproduce the test and defer the friendly
+arm back to vanilla. Reproduce it **once**, and consult the one copy from both
+sides: two copies drift, and the drift is invisible until cells stop replenishing
+their shroud.
 
 Residual hazard, which vanilla shares and which no stateless hook can close: the
-arm is evaluated live on each pass, so a satellite that comes up or goes down
-*between* a create and its destroy still mismatches. Closing it needs per-cell
-memory of the arm taken.
+arm is evaluated live on each pass, so an input that changes *between* a create
+and its destroy still mismatches. Closing it needs per-cell memory of the arm
+taken.
 
 **Confirmed via** Antares `src/Ext/Techno/Hooks.Gap.cpp` (`0x6FB306`, `0x6FB5F0`)
-read against YRpp's `CellClass` field widths; IntelExt
-`src/Ext/Techno/Hooks.Gap.cpp` + `src/Intel/GapBranch.h`, where the shared
-predicate and its off-target round-trip test live.
+read against YRpp's `CellClass` field widths.
 
-**Open discrepancy — worth an objdump pass.** Two records of *where* the create
-test sits do not agree. The listing under the `+0x13C` note above places the
-three tests at `0x6FB3C5`–`0x6FB3EF`, i.e. **after** the shroud block at
-`0x6FB306`, which cannot be a branch that selects between them. IntelExt instead
+---
+
+## UNRESOLVED — is `SpySatActive` a term in the create-side friendly test?
+
+Two accounts, each with real evidence, and they cannot both be right. **They have
+opposite consequences for anyone hooking `0x6FB598`, so settle this before
+writing a destroy-side hook.** Recorded here rather than silently picking a
+winner.
+
+### Reading A — SpySat selects the friendly arm
+
+The `+0x13C` note above, taken from objdump, lists three tests (`0x50B6F0`,
+`0x4F9A50`, then `mov al,[edx+0x1F5]` = `SpySatActive`) feeding the increment at
+`0x6FB3F9`. DESIGN-level notes in IntelExt record the same three-way condition.
+
+**Predicts:** a spy satellite makes you *immune to gap generators* — a satellite
+viewer is never shrouded by the create pass at all.
+
+**Consequence if true:** a destroy-side hook placed at `0x6FB598`, ahead of the
+test, will decrement `ShroudCounter` and `GapsCoveringThisCell` on cells whose
+create never incremented them, for **any** viewer holding a satellite. With an
+animated field that repeats every rebuild tick and walks the whole radius to
+zero, revealing unscouted ground.
+
+### Reading B — SpySat only gates the destroy-side restore
+
+Two independent objections to A:
+
+1. **Antares' destroy gate would be dead code.** `0x6FB5F0` reads
+   `CurrentPlayer->SpySatActive` to decide whether to give vision back:
+   `if (SpySatActive && GapsCoveringThisCell <= 0) --ShroudCounter;`. Under
+   Reading A a satellite viewer never *has* a gapped cell, so that branch could
+   never fire. It reads naturally as vanilla's actual rule — *destroying a gap
+   returns your vision only if you have a satellite* — which requires satellite
+   viewers to be shrouded normally on create.
+2. **In-game observation contradicts A.** The VERIFIED section below records that
+   before `Gap.Temporary`, an animated pattern "appears to work only when the
+   viewer has `SpySatActive`". Under Reading A that viewer sees no gap darkness
+   whatsoever, so there would be nothing to observe.
+
+**Predicts:** gap blinds satellite holders like anyone else; the create-side
+friendly test is owner/ally only.
+
+**Consequence if true:** there is no create/destroy asymmetry to fix, and a hook
+that *adds* a SpySat term to its own mirror of the test introduces one — it will
+skip cells it did in fact conceal.
+
+### The address discrepancy underneath it
+
+The two records also disagree on *where* the create test sits. The `+0x13C`
+listing places the tests at `0x6FB3C5`–`0x6FB3EF`, i.e. **after** the shroud
+block at `0x6FB306`, which cannot be a branch selecting between them. IntelExt
 treats the tests as ending before `0x6FB2F7` and jumps there to force a cell down
 the shroud arm — and that jump demonstrably shrouds owner/allied cells in game,
-which is behavioural evidence the tests precede it. Treat `0x6FB3C5`–`0x6FB3F9`
-as the friendly *block* (cell fetch + increment) and the addresses attributed to
-the tests there as unverified.
+which is behavioural evidence the tests precede it. `0x6FB3C5`–`0x6FB3F9` is
+therefore most likely the friendly *block* (cell fetch + increment), and the
+`SpySatActive` read attributed to the test may belong to something else in that
+block. This is the single most likely source of the error in Reading A.
+
+### How to settle it — decisive, no code required
+
+**T1 — the one that decides it.** Skirmish, stock rules, no mod DLL. Give an
+enemy AI a plain gap generator and let it cover ground you have scouted. Build a
+Spy Satellite Uplink and keep it powered.
+
+* Gap area **stays visible** → Reading A.
+* Gap area **goes black anyway** → Reading B.
+
+**T2 — confirms the destroy gate independently.** Destroy that gap generator
+*without* a satellite: the area should stay shrouded (vanilla does not hand back
+vision). Repeat *with* a satellite up: it should clear. If T2 behaves this way
+while T1 says "stays visible", the two readings are still in conflict and the
+objdump is wrong somewhere.
+
+**T3 — the definitive read.** `objdump` `0x6FB2AE`–`0x6FB416` and record whether
+`[edx+0x1F5]` is read *before* the branch that chooses between `0x6FB2F7` and the
+`+0x13C` block, or only inside the latter. Note the exact address of every
+conditional jump. Nobody has done this pass with the branch structure in mind.
+
+Until T1 or T3 is done, treat the third term as **unknown** and keep a
+destroy-side hook's mirror to owner/ally only — the conservative choice, because
+it errs toward doing the bookkeeping you might own rather than skipping
+bookkeeping you definitely own.
 
 ---
 

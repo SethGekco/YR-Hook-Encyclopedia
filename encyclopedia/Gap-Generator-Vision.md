@@ -64,6 +64,82 @@ whole-binary xref sweep has not been done).
 
 ---
 
+## Structural note — BOTH loops apply the friendly test, and it is load-bearing
+
+The friendly/shroud split above is not a create-side quirk. `DestroyGap` applies
+the **same** three-way test at the top of its own per-cell body and skips the
+friendly cells outright — it does not even decrement `+0x13C`.
+
+That matters because it is easy to read the `+0x13C` asymmetry (incremented,
+never decremented) as "the two loops disagree" and conclude that the destroy side
+is a free-for-all. It is the opposite: `+0x13C` is the *only* thing they disagree
+about. On the two counters that drive rendering they agree exactly, and the
+agreement is what keeps them safe.
+
+**How you can tell without reading the branch.** Antares' destroy replacement at
+`0x6FB5F0` opens with a bare decrement, no guard:
+
+```cpp
+--pCell->GapsCoveringThisCell;
+if(HouseClass::CurrentPlayer->SpySatActive
+    && static_cast<int>(pCell->GapsCoveringThisCell) <= 0) { ... }
+```
+
+`GapsCoveringThisCell` is a **DWORD** (`CellClass +0x134`). A friendly-arm cell
+reaching that line would wrap to `0xFFFFFFFF`. The code can only be correct if
+the friendly arm is filtered out upstream — so it is.
+
+### The trap for third-party hooks
+
+The natural seam for a custom gap is the cell-staging instruction at the top of
+each loop body (`0x6FB2AE` on create, `0x6FB598` on destroy), because both stage
+into the same stack slot and both have an easy loop-continue target. But that
+seam is **ahead of the friendly test**. A hook that takes over cell bookkeeping
+there sees every in-field cell, including the ones vanilla was about to hand to
+`+0x13C` and never shroud.
+
+Decrementing there is not a no-op even when it is floored against underflow:
+
+* `ShroudCounter` (`+0x130`) is **shared with every other shroud source** on the
+  cell — unexplored ground, re-shrouded ground, other generators. Taking it down
+  reveals terrain the viewer never scouted.
+* `GapsCoveringThisCell` is shared with **every other gap generator** covering
+  the cell, so the decrement cancels coverage someone else paid for.
+
+The reachable case needs none of the modder's own settings: **`SpySatActive` puts
+the viewer on the friendly arm for every gap on the map, including an enemy's.**
+A viewer with a satellite up is therefore never shrouded by the create pass, and
+a destroy-side hook that claims those cells anyway is decrementing counters its
+own create never incremented. With an animated field — teardown and rebuild every
+N frames — that runs once per tick and walks the whole radius to zero.
+
+Any hook at those two addresses must reproduce the test (owner, ally, *and*
+satellite) and defer the friendly arm back to vanilla. Reproduce it **once**, and
+consult the one copy from both sides: two copies drift, and the drift is
+invisible until cells stop replenishing their shroud.
+
+Residual hazard, which vanilla shares and which no stateless hook can close: the
+arm is evaluated live on each pass, so a satellite that comes up or goes down
+*between* a create and its destroy still mismatches. Closing it needs per-cell
+memory of the arm taken.
+
+**Confirmed via** Antares `src/Ext/Techno/Hooks.Gap.cpp` (`0x6FB306`, `0x6FB5F0`)
+read against YRpp's `CellClass` field widths; IntelExt
+`src/Ext/Techno/Hooks.Gap.cpp` + `src/Intel/GapBranch.h`, where the shared
+predicate and its off-target round-trip test live.
+
+**Open discrepancy — worth an objdump pass.** Two records of *where* the create
+test sits do not agree. The listing under the `+0x13C` note above places the
+three tests at `0x6FB3C5`–`0x6FB3EF`, i.e. **after** the shroud block at
+`0x6FB306`, which cannot be a branch that selects between them. IntelExt instead
+treats the tests as ending before `0x6FB2F7` and jumps there to force a cell down
+the shroud arm — and that jump demonstrably shrouds owner/allied cells in game,
+which is behavioural evidence the tests precede it. Treat `0x6FB3C5`–`0x6FB3F9`
+as the friendly *block* (cell fetch + increment) and the addresses attributed to
+the tests there as unverified.
+
+---
+
 ## Structural note — the gap shape is hard-coded
 
 The cell loop is a square scan over `[-r-1, r+1]²` gated by an inline
@@ -147,11 +223,16 @@ untagged types on the vanilla+Antares path.
 the same way `CreateGap` did, and walks the same circle decrementing what was
 incremented.
 
-**What it does *not* do — easily mistaken.** It **recomputes the cell set from
-the radius**; it does not remember which cells were actually modified. Any hook
-that makes `CreateGap` cover a *different* set of cells (a pattern, a partial
-fill, a radius that changed in between) must also take over `DestroyGap`, or the
-cell counters leak and areas stay shrouded forever.
+**What it does *not* do — easily mistaken.**
+* It **recomputes the cell set from the radius**; it does not remember which
+  cells were actually modified. Any hook that makes `CreateGap` cover a
+  *different* set of cells (a pattern, a partial fill, a radius that changed in
+  between) must also take over `DestroyGap`, or the cell counters leak and areas
+  stay shrouded forever.
+* It does **not** decrement every cell in the circle. Friendly-arm cells
+  (own/allied/`SpySatActive`) are filtered out before the counter block, exactly
+  as on the create side — see the structural note on the friendly test, and the
+  trap it describes for hooks placed at `0x6FB598`.
 
 **Register / calling convention.** `ECX = TechnoClass*`. Inner hook `0x6FB4A3`:
 `ESI = TechnoClass*`, `EAX = TechnoTypeClass*`. Inner hook `0x6FB5F0`:

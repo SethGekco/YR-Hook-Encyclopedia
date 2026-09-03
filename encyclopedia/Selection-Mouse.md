@@ -180,3 +180,59 @@ Antares and Kratos (registry-checked 2026-09-01).
 ObjectClass** Target, BYTE*, BYTE*)`); **in-game** — an attachment flagged
 mouse-transparent still captured the cursor until this call was filtered, even
 though the `SelectAt` filters were already in place and clicking behaved correctly.
+
+---
+
+### ⚠ Isometric projection is NOT conformal — right angles do not survive it
+
+Not a hook; a geometry fact that bites anyone laying out positions in cell space
+and expecting them to *look* that way.
+
+`TacticalClass::AdjustForZShapeMove` (inlined in the engine, reproduced in YRpp
+`TacticalClass.h`) projects cell coordinates to screen as:
+
+```
+screenX = (CellWidthInPixels  * (x - y) / 2) / LeptonsPerCell
+screenY = (CellHeightInPixels * (x + y) / 2) / LeptonsPerCell
+```
+
+With the stock 2:1 tile ratio that makes the two cell axes:
+
+```
+cell +X  ->  screen (+2, +1)
+cell +Y  ->  screen (-2, +1)      dot = -3  ->  ~127 degrees apart, NOT 90
+```
+
+**Consequence.** Two directions that are perpendicular in cell space appear ~127°
+(or ~53°) apart on screen, depending on orientation. A formation, spread, line of
+objects or offset pattern built "perpendicular" in cell space therefore looks
+*skewed* — and skewed differently depending on which way it is oriented, because
+the two cases are not symmetric.
+
+Observed concretely: a paradrop line built perpendicular to the flight path in
+cell space read as "abreast" from two map edges and "trailing behind each other"
+from the other two. The cell-space maths was correct throughout; it was simply
+the wrong space for a decision the player judges visually.
+
+**Fix.** Project the reference direction to screen, do the rotation *there*, then
+convert back through the inverse of the 2×2 isometric matrix:
+
+```
+given screen (sx, sy),  cellX = (sx + 2*sy) / (2 * CellHeightInPixels)
+                        cellY = (-sx + 2*sy) / (2 * CellHeightInPixels)
+```
+
+For a 2:1 projection, the cell-space direction that appears perpendicular to a
+north-approach flight vector is `(1.25, 0.75)`; for an east approach,
+`(0.75, 1.25)`. Keep these as integer numerators over a small denominator if the
+result feeds a synced calculation — see the determinism note on `0x692300` above.
+
+**Rule of thumb.** Cell space for anything the *simulation* judges (ranges,
+distances, occupancy). Screen space for anything a *player* judges (formations,
+visual spacing, "does that look straight"). They are not interchangeable, and the
+error is invisible on any test that only checks cell coordinates.
+
+**Confirmed via.** YRpp `TacticalClass::AdjustForZShapeMove`; arithmetic on the
+projected axes; **in-game** — switching a paradrop formation's sideways axis from
+cell-perpendicular to screen-perpendicular made it read as abreast from every
+approach edge, where before it alternated between abreast and trailing.

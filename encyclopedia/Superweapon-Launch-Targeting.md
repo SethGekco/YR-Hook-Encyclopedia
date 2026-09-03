@@ -89,6 +89,26 @@ reaches it on the same frame with the same state. A veto decided here is
 lockstep-safe by position, not by care. Deciding at the cursor instead would
 not be.
 
+**Second use: a synced write point, not just a veto point.** That same "every
+client, same frame" property makes this the correct seat for *recording* a
+launch, not only for refusing one. A DLL that wants a per-house "where did the
+last superweapon land" blackboard — to make units converge on the impact, say —
+can write it from here and have every client's copy agree without any extra
+synchronisation.
+
+Two placement rules if you do that:
+
+- Write **after** your veto and any readiness check, so a refused or
+  not-yet-charged click does not record anything.
+- Write **before** any point where you abort the engine's own launch, so the
+  record happens identically whether your DLL handles the superweapon itself or
+  lets the engine run.
+
+The blackboard is session state, so it does not survive a savegame unless you
+serialize it. That is usually acceptable rather than a desync: every client
+reloads it *equally* empty, so they still agree. Make the reader treat "no
+record" as "do nothing" rather than "stop", and the gap is behavioural only.
+
 **Confirmed via.** objdump of vanilla `gamemd.exe` (call-site census, stolen
 bytes, epilogue); Antares source at the cited lines; registry query for
 contention; **in-game skirmish** — a DLL hooking this entry alongside

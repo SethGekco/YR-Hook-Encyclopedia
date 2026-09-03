@@ -68,10 +68,43 @@ break ties by array index rather than pointer value, and use integer math for
 distances. Pointer-ordered iteration is the classic source of a desync that only
 shows up after minutes of play.
 
+**⚠ The whole 5-byte range is yours — do NOT add a second hook beside it.**
+A size-0x5 hook here occupies `0x55B6B3`..`0x55B6B7`, and the very next
+instruction boundary (`0x55B6B8`) is the tail call. So a DLL that wants a
+*second* per-frame pass has nowhere adjacent to put it: a hook at, say,
+`0x55B6B6` lands **inside** the first one's stolen bytes. Syringe chains hooks
+that share an address safely, but **overlapping** ranges corrupt each other's
+stubs into a wild jump (see `Syringe-Stub-Semantics.md`).
+
+The fix is trivial and worth stating explicitly because the failure is not
+obvious from either hook's source: give the DLL **one** handler at `0x55B6B3`
+and call every per-frame consumer from inside it.
+
+```cpp
+// One seat, many consumers.
+DEFINE_HOOK(0x55B6B3, LogicClass_AI_MyDllFrameTick, 0x5)
+{
+    MyDll::TickA();
+    MyDll::TickB();   // NOT a second DEFINE_HOOK at 0x55B6B6
+    return 0;
+}
+```
+
+Hit while adding a second feature to a DLL that already owned this address —
+caught before it shipped, by checking the range rather than the address.
+
+**Useful property: no scenario-start hook required.** `Unsorted::CurrentFrame`
+(`0xA8ED84`) resets to 0 when a new scenario begins, so a once-per-frame pass can
+detect a match change itself by remembering the last frame it saw and noticing
+the counter go *backwards*. That lets a DLL clear stale session state without
+hunting for a scenario-start address — and because `CurrentFrame` is synced,
+every client notices the reset on the same tick.
+
 **Confirmed via.** objdump of `gamemd.exe` (loop exit edge at `0x55B6B1 jl 0x55B698`,
 hook site `0x55B6B3 mov ecx,0x87F7E8`, tail call `0x55B6B8`); registry
 (single PR consumer); in-DLL use for a per-frame power-network solve (built, not
-yet play-tested).
+yet play-tested), and in SuperWeaponExt for a paradrop-delay queue plus a unit
+standing-order pass sharing one handler (built, CI-green, deployed).
 
 ---
 

@@ -267,15 +267,39 @@ je   <bail>
 `MCVDeploy`, `InitialVeteran`, `FixedAlliance`, `HarvesterImmune`). The YRpp
 layout is correct, and no cell can fog while that bit is clear.
 
-**`FoggedObjectClass`**, from the same function:
+**⚠ CORRECTION — what `FogCell` actually allocates.** An earlier revision of
+this page read the `push 0x18; call 0x7C8E17` in `FogCell` as constructing a
+`FoggedObjectClass` and reported vtable `0x7E44F4` with methods
+`0x45A070`–`0x45AC90`. That was wrong, and the tell was `0x4D2790` reading
+`[ecx+0x30]` and `[ecx+0x60]` on a supposedly 24-byte object.
+
+`0x45A680` (the method called immediately after that allocation) is
+`VectorClass::SetCapacity` — it allocates `count*4` bytes for pointers and
+clears `IsAllocated`. So the 0x18 bytes are a **`DynamicVectorClass`**, whose
+field initialisation matches exactly: `+0x04` Items, `+0x08` Capacity, `+0x0C`
+IsAllocated, `+0x10` Count, `+0x14` CapacityIncrement (`0xA`).
 
 | Fact | Value |
 |---|---|
-| Instance size | `0x18` (`push 0x18; call 0x7C8E17` = operator new) |
-| Vtable | **`0x7E44F4`** |
-| Methods | `0x45A070`–`0x45AC90` |
-| Owner vector | **`CellClass +0x28`**, `DynamicVectorClass<FoggedObjectClass*>*` |
-| Entry layout | `CellStruct` at `+0x00` (`0x7FFF` sentinel), coord triple at `+0x34` |
+| `CellClass +0x28` | `DynamicVectorClass<FoggedObjectClass*>*` — the vector |
+| Vector vtable | `0x7E44F4` (generic vector, methods `0x45A070`–`0x45AC90`) |
+| Vector instance size | `0x18` |
+
+`FogCell` therefore *lazily creates the cell's vector*, then walks the cell's
+objects (from `CellClass +0xE4`) to populate it.
+
+**`FoggedObjectClass` itself is much larger**, and is only partly mapped:
+
+| Offset | Meaning |
+|---|---|
+| `+0x00` | `CellStruct` (X,Y words; `0x7FFF,0x7FFF` is the sentinel) |
+| `+0x30` | a type/RTTI enum — `0x4D2790` branches on `== 6` |
+| `+0x34` | coordinate triple (X, Y, Z dwords) |
+| `+0x60` | pointer to the object being represented |
+
+`0x4D2790` is thus a small accessor: *if this fogged object is type 6, return
+`vtable+0x90` of the object at `+0x60`, else 0* — not a fog helper as first
+assumed.
 
 **The real per-cell fog flag is `CellClass +0x140`, bit `0x400000`** — `FogCell`
 sets it with `or [ebp+0x140], 0x400000`. That, not `IsFogged()`, is what the

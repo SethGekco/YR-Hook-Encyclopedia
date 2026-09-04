@@ -7,7 +7,8 @@ are real vanilla INI tags. RA2/YR ship with it switched off.
 
 **But it is switched off because it is broken, not merely unused.** Turning the
 tag on does not get you working fog — see the warning section below before
-planning any work here. The state layer is fine; the renderer is what fails.
+planning any work here. **The state layer is fine and this is now measured, not
+inferred; the renderer is what fails.**
 
 Read this page in both directions: "add fog of war" is not a from-scratch
 project (the machinery exists), and it is also not a small one (making the rest
@@ -203,6 +204,49 @@ correspondence between `spawnmap.ini [SpecialFlags]` and YRpp `ScenarioFlags`.
 **Still unverified:** whether fog actually engages once the *scenario* bit is
 armed — that measurement has not yet been taken, so nothing on this page should
 be read as proof the state layer is dead.
+
+### VERIFIED IN GAME — the fog STATE works; the renderer is what fails
+
+Measured with the scenario bit armed (IntelExt forced
+`ScenarioClass::SpecialFlags.FogOfWar`), fog rendering visibly on screen:
+
+| Signal | Fog off | Fog on |
+|---|---|---|
+| `shrouded` (`ShroudCounter > 0`) | 5983 | 3724 |
+| `obscured` (`Foggedness != -1`) | 6047 | 5083 |
+| **excess** (obscured − shrouded) | **64** | **1359** |
+| `FoggedObjects` snapshots | 0 | **10** |
+| `CellClass::IsFogged()` | 0 | **0** ⚠ |
+
+So the state layer is **live**: cells are obscured well beyond what shroud
+explains, and the per-cell object snapshot is being built. Fog is not inert in
+YR — it engages fine once the scenario bit is actually set.
+
+**⚠ `CellClass::IsFogged()` (`0x4879B0`) is not a usable "is this cell fogged"
+test.** It returned false for every cell in a match where fog was rendering on
+screen and `FoggedObjects` were being created. Anything measuring fog should use
+the obscured-over-shroud excess and the `FoggedObjects` count instead; reading
+`IsFogged() == 0` as "no fog" produces a confident false negative. (Phobos uses
+it as a *draw* guard in `FlyingStrings.cpp`, which may be why its narrowness has
+gone unnoticed.)
+
+**The observed renderer failures**, reproduced independently of #28's list and
+matching it:
+
+* Infantry and buildings **both visible inside fog** — #28's headline bug.
+* Buildings **redraw live under fog** instead of being replaced by their
+  `FoggedObjectClass` proxy. The snapshots exist (`fogobjs > 0`); the draw path
+  simply does not use them.
+* Stale **black cell edges** around previously shrouded areas — #28's "black
+  outline of cell remains until we scroll away and back".
+
+That last point is the sharpest confirmation of this page's thesis: the
+snapshot machinery is *running and correct*, and the drawing code ignores it.
+The work is repair, not reimplementation — but it is the long tail, which is
+what has defeated three attempts.
+
+**Confirmed via** IntelExt's fog probe (26 samples, scenario bit forced) plus
+direct visual observation.
 
 ### The asymmetry worth designing around: shroud works, fog does not
 

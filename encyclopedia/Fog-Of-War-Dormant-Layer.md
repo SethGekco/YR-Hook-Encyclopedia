@@ -428,6 +428,56 @@ slots against `registry/hooks.csv` *first*. Framework hook names are the cheapes
 ground truth available for any address, and both errors here would have been
 caught immediately by checking it before reasoning from disassembly shape.
 
+### FOUND — the object draw dispatch, and the one seam for fog suppression
+
+Resolved by locating `BuildingClass::Draw` (`0x43D290`, from the registry's
+Phobos hooks at `0x43D29D`/`0x43D2B5`) inside the vtables:
+
+| Slot | Meaning | Base implementation |
+|---|---|---|
+| `+0x104` | **`ObjectClass::DrawIfVisible`** — the visibility gate | **`0x5F4B10`, used by 16 of 21 classes** |
+| `+0x114` | **`ObjectClass::Draw`** — the actual render | per-class, 17 distinct implementations |
+
+Only four classes override the *gate*:
+
+| Class | `DrawIfVisible` override |
+|---|---|
+| AnimClass | `0x422C70` |
+| BuildingClass | `0x43CEA0` |
+| TerrainClass | `0x71CC50` |
+| UnitClass | `0x73B0B0` |
+| (one more) | `0x749B20` |
+
+`ObjectClass::DrawIfVisible` reads:
+
+```
+mov  al, ds:0xA8ED6B       ; global override -- skips all checks when set
+mov  eax, ds:0xB73550      ; second global gate
+mov  al, [esi+0x80]        ; redraw flag; 0 -> do not draw
+mov  al, [esi+0x81]        ; set -> do not draw
+mov  BYTE PTR [esi+0x80],0 ; CLEARED after use -- dirty-flag pattern
+call [edx+0xAC]            ; get bounding rect
+call 0x6D2140              ; viewport intersection test (ds:0x887324)
+```
+
+**`ObjectClass +0x80` is the per-object "needs redraw" dirty flag** and `+0x81`
+suppresses drawing outright. Note the same `ds:0xA8ED6B` global short-circuits
+`ObjectClass::Select`, so it is a broad "ignore visibility rules" switch.
+
+**Why this matters for fog.** This is the per-object draw gate that every
+drawable type funnels through — five functions total (one base plus four
+overrides), not fourteen subsystems. A fog check placed here suppresses units,
+infantry, buildings, terrain, overlays and animations uniformly, using the
+`CellClass +0x140 & 0x400000` predicate.
+
+That is the correct seam for fog draw-suppression. It does **not** solve proxy
+drawing — `FoggedObjectClass` still has no Draw, so "buildings stay drawn but
+frozen" needs a separate decal/proxy layer fed from the snapshots.
+
+**Unverified:** whether the four overrides chain to the base or reimplement the
+gate; each must be read before hooking, or the override classes will silently
+keep drawing.
+
 ### Why objects show through fog — the root cause
 
 `BuildingClass::DrawVisible` (`0x43E7B0`) decides to draw from

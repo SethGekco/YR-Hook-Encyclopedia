@@ -162,3 +162,39 @@ under Antares.
 **Confirmed via.** Upstream Kratos `TechnoExtHook.cpp` (name/register/stolen);
 registry cross-reference (Antares/Phobos purposes); in-game on-death spawn
 testing from a standalone Syringe DLL coexisting with Ares + Phobos.
+
+---
+
+## VERIFIED — `ObjectClass::IsAlive` is still TRUE inside `InfantryClass::Remove`
+
+Measured, not inferred. A hook at `0x51DF13` (inside `InfantryClass::Remove`,
+entry `0x51DF10`) logged **every** infantry removal across two full matches:
+
+* **3172 removals, then 3302 — not one with `IsAlive == false`.**
+* **563 of them were already playing `Die1`** (`SequenceAnim == 11`).
+
+So the engine does **not** clear `IsAlive` when an object leaves the map. It is
+cleared later, at deletion. Any code that tests `!IsAlive` at `Remove` time to
+mean "this one died" will silently never fire — no crash, no log, just a feature
+that appears unimplemented.
+
+**Use `Health <= 0` instead**, or accept either signal (`Health <= 0 ||
+!IsAlive`) so whichever clears first is enough.
+
+### The wider trap
+
+`Remove` is not a death notification at all. In those same runs it fired for
+sequences `0` (Ready), `2` (Prone), `3` (Walk), `5` (Down), `16` (Tread), `28`
+(Deployed) and `33`, i.e. ordinary transitions — transports, garrisons,
+teleports, grinders and selling all route through it while the unit is alive and
+healthy.
+
+Positively identifying a *death* at this site therefore needs **two** facts:
+aliveness (via `Health`) **and** a death sequence
+(`Die1`–`Die5` = 11–15, `WetDie1`/`WetDie2` = 20/21). Neither alone is enough —
+the grinder destroys with no death animation, and a healthy unit can be removed
+mid-sequence.
+
+**Confirmed via** IntelExt `src/Ext/Techno/Hooks.Corpse.cpp` logging every
+removal with its facts, across two matches. **Unverified:** the exact point at
+which `IsAlive` *does* get cleared.

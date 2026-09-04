@@ -235,10 +235,19 @@ matching it:
 
 * Infantry and buildings **both visible inside fog** — #28's headline bug.
 * Buildings **redraw live under fog** instead of being replaced by their
-  `FoggedObjectClass` proxy. The snapshots exist (`fogobjs > 0`); the draw path
-  simply does not use them.
-* Stale **black cell edges** around previously shrouded areas — #28's "black
-  outline of cell remains until we scroll away and back".
+  `FoggedObjectClass` proxy. The snapshots exist (`fogobjs > 0`, measured up to
+  172 concurrently); the draw path simply does not use them. Observed concretely
+  as **AI repair being visible through fog**, and **building animations that
+  never stop**.
+* **Structures under fog cannot be targeted.** Ordering units to attack a
+  fogged building makes them *move into the area* instead of attacking — an
+  independent reproduction of #28's targeting bug, and the clearest proof that
+  fog is not merely cosmetic: it breaks command resolution too.
+* **Partial-cell shroud edges.** Not a clean outline — *half* a cell renders as
+  shroud and fades, leaving a sawtooth boundary along the fog/shroud frontier.
+  This is #28's "black outline of cell remains until we scroll away and back",
+  and it points at the `Foggedness` byte (the `0..48` fog.shp/shroud.shp frame
+  index) being resolved per-cell without a consistent edge rule.
 
 That last point is the sharpest confirmation of this page's thesis: the
 snapshot machinery is *running and correct*, and the drawing code ignores it.

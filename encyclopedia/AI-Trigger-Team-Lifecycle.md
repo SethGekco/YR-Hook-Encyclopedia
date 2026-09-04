@@ -510,12 +510,27 @@ against a single `Creating a new team named '<id>'.` — the engine logs the
 creation only on success. If you synthesise one team per unit and reuse the
 TeamType for the whole session, `Max` must cover every such unit alive at once.
 
-**Third trap: a team short of its TaskForce RECRUITS.** If `AddMember` fails, or
-the TaskForce asks for more than you add, the team goes looking for matching
-units on the map — including the human player's own production. A synthetic
-team built around `1 x E1` that ends up empty will conscript the player's GIs
-into an AI script. Either keep the task force exactly filled, or set
-`TeamClass::NeedsToDisappear` on the failure path.
+**Third trap — the nastiest: a synthetic team RECRUITS THE HUMAN PLAYER'S UNITS.**
+
+`CreateTeam(pHouse)` gives the team that house. If you are attaching a script to
+a unit delivered by a player-owned building, the team belongs to **the human**.
+A `TeamClass` that is under strength relative to its task force recruits idle
+matching units *from its own house* — so a task force reading `1 x E1` becomes a
+magnet for the player's own barracks-built GIs the moment your member dies.
+
+The symptom is indirect and easy to misattribute: infantry the player built
+start wandering off on AI missions, **not at first, but increasingly as the game
+goes on** (each recruit leaves, dies, and the team recruits again). It looks
+exactly like a misbehaving AI DLL.
+
+**Set the task force `Amount` to 0.** The team is then at full strength from
+birth and never recruits. Your own unit still joins, because `AddMember(pFoot,
+/*force=*/true)` bypasses the task-force match entirely — the entry only needs
+to exist so team creation has something non-null to walk. Keep a `Type` set;
+zero the `Amount`.
+
+Also set `TeamClass::NeedsToDisappear` if `AddMember` fails, so a half-built
+team cannot linger.
 
 **This forces late resolution.** You need the concrete `TechnoTypeClass*` to
 build the task force, which you generally do not have at INI-parse time — and

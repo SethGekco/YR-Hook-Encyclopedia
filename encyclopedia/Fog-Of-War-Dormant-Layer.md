@@ -368,67 +368,65 @@ per-subsystem check — worth identifying before writing any fog draw work.
 **Unverified:** what `+0x150` actually does; it has not yet been resolved to a
 concrete function.
 
-### RESOLVED — `ObjectClass` vtable `+0x150` is `Hide()`, and there is a display list
+### RESOLVED — `+0x14C` / `+0x150` are `Select` / `Unselect`, NOT show/hide
 
-`+0x150` resolves to **`0x5F44A0`**, present at that slot in **21 of 27**
-vtables — i.e. the inherited `ObjectClass` implementation.
+⚠ **This section previously claimed `+0x150` was `Hide()`, that `ObjectClass
++0x83` was an "on display" flag, and that the engine therefore already
+suppresses drawing for fogged objects. All of that was wrong.** The corrected
+result matters, because the wrong version made fog look far closer to working
+than it is.
 
-```
-mov  al, [esi+0x83]        ; "on display" flag; bail if already clear
-...
-mov  ecx, 0xA8ECB8         ; the global display list object
-call [edx+0x10]            ; find this object's index in it
-<compacting shift loop>    ; remove it, decrement count at 0xA8ECC8
-mov  BYTE PTR [esi+0x83], 0
-```
-
-So `Hide()` **removes the object from a global display list and clears
-`ObjectClass +0x83`**.
-
-The counterpart is **`Show()` at `0x5F4520`** (15 vtable slots): it appends the
-object to the same array (`items 0xA8ECBC`, `count 0xA8ECC8`) and sets
-`+0x83 = 1`.
+| Slot | Address | Actually is |
+|---|---|---|
+| `+0x14C` | `0x5F4520` | **`ObjectClass::Select`** (TechnoClass overrides at `0x6FBFA0`) |
+| `+0x150` | `0x5F44A0` | **`ObjectClass::Unselect`** |
 
 | Global | Meaning |
 |---|---|
-| `0xA8ECB8` | display-list object |
-| `0xA8ECBC` | its items array |
-| `0xA8ECC8` | its count |
-| `ObjectClass +0x83` | "currently on the display list" |
+| `0xA8ECB8` / `0xA8ECBC` / `0xA8ECC8` | the **selection list** object / items / count |
+| `ObjectClass +0x83` | **IsSelected** |
 
-**`+0x83` is the real draw gate.** `BuildingClass::DrawVisible` (`0x43E7B0`)
-tests it first and returns immediately when clear — so `Hide()` genuinely
-suppresses drawing, and it does so through one mechanism shared by every
-`ObjectClass` descendant: infantry, units, buildings, terrain, animations.
-
-Only four instructions in the whole binary write `+0x83`: `0` in `Hide()` and
-in `0x6E9174`, `1` at two sites inside `Show()`.
-
-### What this means for fog
-
-The engine's fog suppression is therefore **already complete in design**:
+**How to check this without guessing** — the registry already knew:
 
 ```
-FogCell -> [vtable+0x150] Hide() -> +0x83 = 0 -> DrawVisible bails
+0x5F45A0  Kratos  TechnoClass_Select
+0x5F45AF  Phobos  ObjectClass_Select_MultiSelectNotOwned
+0x6FBFA3  Phobos  TechnoClass_Select_SkipLimboDelivery
 ```
 
-`FogCell` applies it to every object in the cell it fogs — types `1`, `2`, `0xF`
-get `Hide()` alone; type `6` goes through `0x457AA0`, which calls `Hide()` and
-*then* builds the snapshot.
+All three sit *inside* these functions. Confirming behaviourally, `0x4AC2F1`
+calls `+0x14C` from inside `DisplayClass::LeftMouseButtonUp` — the click-to-select
+path — and the other callers are state changes that legitimately re-select or
+drop selection: `UnitClass::ReceiveDamage`, `UnitClass::Deploy`, building
+selling, parasite exit.
 
-**So "objects visible under fog" is not a missing check — it is objects being
-put back.** `Show()` re-adds to the display list and re-sets `+0x83`, and
-nothing re-hides an object while its cell remains fogged. With `Show()` sitting
-in 15 vtables, any state change that re-places an object on the map undoes the
-fog suppression permanently.
+**So what `FogCell` does with `[vtable+0x150]` is *deselect* objects that become
+fogged** — you lose control of units you can no longer see. Sensible, and
+nothing to do with rendering.
 
-**Unverified:** the precise re-show trigger has not been traced; `Show()` has
-one direct caller (`0x6FBFC7`) plus its 15 virtual slots, and which of those
-fire under fog in practice has not been measured.
+`BuildingClass::DrawVisible` testing `+0x83` is therefore testing *is this
+building selected*, before calling `[eax+0x458]` to draw the **selection box and
+health bar**. It is "draw the visible indicators", not "draw the building".
 
-This is a materially better position than "add a fog check to fourteen
-subsystems": there is one flag (`+0x83`), one list, and one Hide/Show pair
-covering every drawable object type.
+### The corrected bottom line for fog
+
+The engine provides, for fogged cells:
+
+* ✅ a per-cell fog flag (`CellClass +0x140` bit `0x400000`)
+* ✅ object **snapshots** for type-6 objects (`FoggedObjectClass`, correct and
+  serialisable)
+* ✅ **deselection** of fogged objects
+* ❌ **no draw suppression** for fogged objects
+* ❌ **no proxy drawing** of the snapshots (the class has no Draw method)
+
+Both of the last two have to be written. There is no dormant rendering path to
+re-enable — the snapshots are data with no consumer, and nothing stops a fogged
+object drawing normally.
+
+**Method note, since this cost two corrections on one page:** resolve vtable
+slots against `registry/hooks.csv` *first*. Framework hook names are the cheapest
+ground truth available for any address, and both errors here would have been
+caught immediately by checking it before reasoning from disassembly shape.
 
 ### Why objects show through fog — the root cause
 

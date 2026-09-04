@@ -460,9 +460,22 @@ call [edx+0xAC]            ; get bounding rect
 call 0x6D2140              ; viewport intersection test (ds:0x887324)
 ```
 
-**`ObjectClass +0x80` is the per-object "needs redraw" dirty flag** and `+0x81`
-suppresses drawing outright. Note the same `ds:0xA8ED6B` global short-circuits
-`ObjectClass::Select`, so it is a broad "ignore visibility rules" switch.
+**The three flags, confirmed independently by YRpp's field order** (`ObjectClass.h`,
+the run `NeedsRedraw`, `InLimbo`, `InOpenToppedTransport`, `IsSelected`):
+
+| Offset | YRpp name | Role here |
+|---|---|---|
+| `+0x80` | `NeedsRedraw` | dirty flag — **cleared by the gate after use** |
+| `+0x81` | `InLimbo` | "act as if it doesn't exist"; set → never drawn |
+| `+0x83` | `IsSelected` | drives `Select`/`Unselect`, and the indicator draw |
+
+That cross-check matters: it independently confirms the corrected reading above
+(`+0x83` is selection, not display) from a source that was not the disassembly.
+Two of the three flags were also mis-read here at first, and the header settles
+all three.
+
+Note the same `ds:0xA8ED6B` global short-circuits `ObjectClass::Select`, so it is
+a broad "ignore visibility rules" switch.
 
 **Why this matters for fog.** This is the per-object draw gate that every
 drawable type funnels through — five functions total (one base plus four

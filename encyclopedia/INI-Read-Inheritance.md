@@ -83,3 +83,47 @@ those are flow-replacing (they return past the vanilla body), not chainable.
 `009112c`, 2026-08-02) + objdump of vanilla `gamemd.exe` around `0x528BA0–0x528BC0`
 (branch structure matches). Cycle-overflow behaviour is by code reading, not
 tested in game.
+
+---
+
+## Load ordering: what exists when your `LoadFromINI` hook runs
+
+Not a hook — a **timing trap** that silently defeats hooks on the `LoadFromINI`
+family (`BuildingTypeClass::LoadFromINI` @ `0x464A49`, and its siblings).
+
+**The trap.** `*TypeClass::LoadFromINI` runs while **rulesmd.ini** is being
+parsed. Several arrays a modder would reasonably want to reference from a rules
+key are populated from **aimd.ini**, which the engine reads *later*:
+
+| Array | Source INI | Populated at rules-parse time? |
+|---|---|---|
+| `ScriptTypeClass::Array` | aimd.ini | **No — empty** |
+| `TeamTypeClass::Array` | aimd.ini | **No — empty** |
+| `TaskForceClass::Array` | aimd.ini | **No — empty** |
+| `AITriggerTypeClass::Array` | aimd.ini | **No — empty** |
+| `TechnoTypeClass` leaves, `WarheadTypeClass`, … | rulesmd.ini | Yes, if listed earlier in the file |
+
+So a rules key like `FreeUnit.Script=SOMESCRIPT` resolved inside the hook always
+misses. `AbstractTypeClass::Find` (the `ABSTRACTTYPE_ARRAY` macro) just walks the
+vector with `_strcmpi`, so an empty vector and a genuine typo are **indistinguishable
+from the return value** — both give `nullptr`. This reads as "unknown ScriptType"
+for a script that plainly exists in aimd.ini, and it cost a full debugging round.
+
+**What to do.** Store the *name* at parse time and resolve it at **use** time
+(for a building, `Grand_Opening`; for anything in-mission, first tick). By then
+the AI data is loaded and the lookup is reliable. Do not try to reorder the
+loads.
+
+**Diagnostic.** Log `ScriptTypeClass::Array.Count` alongside the failed lookup.
+`0` proves ordering; non-zero means it really is a bad ID. Note the array is
+declared with `DEFINE_REFERENCE`, so it is the vector **itself** — `Array.Count`,
+not `Array->Count`; the arrow does not compile.
+
+**Do NOT use `FindOrAllocate` as a workaround.** It will happily manufacture an
+empty ScriptType for the missing name, which then does nothing forever — turning
+a loud failure into a silent one.
+
+**Confirmed via.** FreeUnitExt in-game, YR + Antares + Phobos: `[GADEPT]
+FreeUnit.Script=A68CA42B-G` logged `unknown ScriptType` at parse time for a
+script present in aimd.ini; moving the identical `ScriptTypeClass::Find` call to
+delivery time resolved it.

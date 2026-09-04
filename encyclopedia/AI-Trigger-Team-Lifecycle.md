@@ -454,3 +454,64 @@ destructor `0x6E8DE0` above, which is confirmed.)
   (gating between selection and creation).
 - `registry/vanilla-tags.*` and `registry/engine-string-surface.*` for where the
   engine reads those tag strings.
+
+---
+
+## Synthesising a TeamType at runtime (to run a ScriptType on an arbitrary unit)
+
+**The problem.** A `ScriptTypeClass` cannot be attached to a unit. The engine
+only ever runs a script through a `TeamClass`, which is created from a
+`TeamTypeClass`. So handing an arbitrary existing unit a script means building a
+`TeamTypeClass` around the script, calling `TeamTypeClass::CreateTeam(pHouse)`,
+then `TeamClass::AddMember(pFoot, /*force=*/true)`.
+
+**The trap: `TaskForce = nullptr` is fatal, not merely empty.**
+
+It is tempting to leave `TaskForce` null on the grounds that you are adding the
+member yourself and have nothing to recruit. Doing so crashes:
+
+```
+Creating a new team named 'FUX_<script>'.
+Exception C0000005 at 006EA6B4     EAX: 00000000  EDX: 00000000
+```
+
+`0x6EA6B4` sits inside the team's member-consideration path — the same function
+Phobos hooks at `0x6EA6BE` (`TeamClass_CanAddMember_Consideration`). Team
+creation walks the TaskForce entries **unconditionally**; there is no null check.
+The crash lands during `CreateTeam`, i.e. *before* you ever get to `AddMember`.
+
+**What works.** Allocate a real one-entry `TaskForceClass` describing the unit
+you are about to add:
+
+```cpp
+auto const pTF = GameCreate<TaskForceClass>(id);
+pTF->Group = -1;
+pTF->IsGlobal = false;
+pTF->CountEntries = 1;
+pTF->Entries[0].Amount = 1;
+pTF->Entries[0].Type = pTechnoType;   // the unit you will AddMember
+```
+
+`TaskForceClass::Entries` is a fixed `[6]` array (`TaskForceEntryStruct{ int
+Amount; TechnoTypeClass* Type; }`), so `CountEntries` must stay ≤ 6.
+
+On the TeamType, set `ScriptType`, `TaskForce`, `Max`, and explicitly clear
+`Autocreate` / `Prebuild` / `Reinforce` / `Recruiter` / `Loadable` — otherwise
+the house's own AI team logic can pick your synthetic team up and start
+producing for it.
+
+**This forces late resolution.** You need the concrete `TechnoTypeClass*` to
+build the task force, which you generally do not have at INI-parse time — and
+`ScriptTypeClass::Array` is empty then anyway (see
+[INI-Read-Inheritance.md](INI-Read-Inheritance.md), "Load ordering"). Cache the
+synthesised type on the **(script, type) pair**, not the script alone.
+
+**Sync / save caveats.** Allocating a TeamType mid-mission is deterministic
+across clients if the trigger is (every client runs the same building's
+`Grand_Opening` on the same frame) and the cache makes it happen once. It is
+**not** known to survive save/load — the synthesised types are not part of the
+scenario's serialised AI data. Untested.
+
+**Confirmed via.** FreeUnitExt in-game, YR + Antares + Phobos. Null TaskForce
+reproduced the `0x6EA6B4` AV on every delivery; the one-entry task force above
+is the fix.

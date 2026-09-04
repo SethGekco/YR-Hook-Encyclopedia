@@ -368,6 +368,68 @@ per-subsystem check — worth identifying before writing any fog draw work.
 **Unverified:** what `+0x150` actually does; it has not yet been resolved to a
 concrete function.
 
+### RESOLVED — `ObjectClass` vtable `+0x150` is `Hide()`, and there is a display list
+
+`+0x150` resolves to **`0x5F44A0`**, present at that slot in **21 of 27**
+vtables — i.e. the inherited `ObjectClass` implementation.
+
+```
+mov  al, [esi+0x83]        ; "on display" flag; bail if already clear
+...
+mov  ecx, 0xA8ECB8         ; the global display list object
+call [edx+0x10]            ; find this object's index in it
+<compacting shift loop>    ; remove it, decrement count at 0xA8ECC8
+mov  BYTE PTR [esi+0x83], 0
+```
+
+So `Hide()` **removes the object from a global display list and clears
+`ObjectClass +0x83`**.
+
+The counterpart is **`Show()` at `0x5F4520`** (15 vtable slots): it appends the
+object to the same array (`items 0xA8ECBC`, `count 0xA8ECC8`) and sets
+`+0x83 = 1`.
+
+| Global | Meaning |
+|---|---|
+| `0xA8ECB8` | display-list object |
+| `0xA8ECBC` | its items array |
+| `0xA8ECC8` | its count |
+| `ObjectClass +0x83` | "currently on the display list" |
+
+**`+0x83` is the real draw gate.** `BuildingClass::DrawVisible` (`0x43E7B0`)
+tests it first and returns immediately when clear — so `Hide()` genuinely
+suppresses drawing, and it does so through one mechanism shared by every
+`ObjectClass` descendant: infantry, units, buildings, terrain, animations.
+
+Only four instructions in the whole binary write `+0x83`: `0` in `Hide()` and
+in `0x6E9174`, `1` at two sites inside `Show()`.
+
+### What this means for fog
+
+The engine's fog suppression is therefore **already complete in design**:
+
+```
+FogCell -> [vtable+0x150] Hide() -> +0x83 = 0 -> DrawVisible bails
+```
+
+`FogCell` applies it to every object in the cell it fogs — types `1`, `2`, `0xF`
+get `Hide()` alone; type `6` goes through `0x457AA0`, which calls `Hide()` and
+*then* builds the snapshot.
+
+**So "objects visible under fog" is not a missing check — it is objects being
+put back.** `Show()` re-adds to the display list and re-sets `+0x83`, and
+nothing re-hides an object while its cell remains fogged. With `Show()` sitting
+in 15 vtables, any state change that re-places an object on the map undoes the
+fog suppression permanently.
+
+**Unverified:** the precise re-show trigger has not been traced; `Show()` has
+one direct caller (`0x6FBFC7`) plus its 15 virtual slots, and which of those
+fire under fog in practice has not been measured.
+
+This is a materially better position than "add a fog check to fourteen
+subsystems": there is one flag (`+0x83`), one list, and one Hide/Show pair
+covering every drawable object type.
+
 ### Why objects show through fog — the root cause
 
 `BuildingClass::DrawVisible` (`0x43E7B0`) decides to draw from

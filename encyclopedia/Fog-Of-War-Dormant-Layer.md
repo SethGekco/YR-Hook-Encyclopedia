@@ -310,6 +310,64 @@ dead code. That is why it returns false even in a match where fog is visibly
 rendering and snapshots are being built. Never use it as a fog predicate; read
 `+0x140 & 0x400000` instead.
 
+### RE — `FoggedObjectClass` fully mapped, and it has NO draw method
+
+Constructor `0x4D0EF0`, allocated `push 0x78` in `0x457AA0`.
+
+| Fact | Value |
+|---|---|
+| Instance size | **`0x78`** |
+| Vtable | **`0x7E8B38`** (+ COM vtables at `+0x04`/`+0x08`/`+0x0C`) |
+| Constructor | `0x4D0EF0` |
+| Created by | `0x457AA0`, called from `FogCell` |
+
+Field layout, read off the constructor:
+
+| Offset | Meaning |
+|---|---|
+| `+0x24` | `-1` |
+| `+0x28` | `HouseClass*` owner — copied from `ObjectClass +0x21C` |
+| `+0x2C` | `0` |
+| `+0x30` | type tag — the ctor hardcodes **`6`** |
+| `+0x34` | `CoordStruct` — copied from `ObjectClass +0x9C` (`Location`) |
+| `+0x60` | pointer to the represented object |
+
+**The decisive finding: its vtable contains no Draw.** The only
+FoggedObject-specific overrides are
+
+| Slot | Address | What it is |
+|---|---|---|
+| `+0x20` | `0x4D2910` | scalar deleting destructor |
+| `+0x34` | `0x4D2810` | **Save** — streams `+0x24`, `+0x2C`, `+0x30` via `0x4A1D50` |
+| `+0x18` | `0x4D24A0` | **Load** |
+| `+0x0C`, `+0x2C`, `+0x30` | `0x4D27D0`, `0x4D27B0`, `0x4D27C0` | tiny constant accessors |
+
+Everything else is inherited `AbstractClass` (`0x410xxx`). So the class is a
+**pure serialisable data snapshot** — it records what stood where, and survives
+save/load, but nothing in it renders anything.
+
+That reframes the whole feature. The snapshots are built correctly and are
+*queryable*, but there is no proxy-drawing code to re-enable. Anything wanting
+"buildings stay drawn but frozen" has to supply the drawing itself, using the
+snapshot as its data source.
+
+### `FogCell`'s two treatments — and the `+0x150` lever
+
+`FogCell` walks the cell's object list (head at `CellClass +0xE4`, chained via
+`ObjectClass +0x30`) and dispatches on RTTI:
+
+* **type `6`** → `call 0x457AA0`, which builds the snapshot
+* **types `1`, `2`, `0xF`** → `call [vtable+0x150]` only
+
+and `0x457AA0` *also* calls `[vtable+0x150]` on its object before snapshotting.
+
+So **`ObjectClass` vtable slot `+0x150` is the engine's own "this object is now
+under fog" call, applied uniformly to every object type it fogs.** That is the
+single convergence point for fog-related object suppression, rather than a
+per-subsystem check — worth identifying before writing any fog draw work.
+**Unverified:** what `+0x150` actually does; it has not yet been resolved to a
+concrete function.
+
 ### Why objects show through fog — the root cause
 
 `BuildingClass::DrawVisible` (`0x43E7B0`) decides to draw from

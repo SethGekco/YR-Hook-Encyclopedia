@@ -30,6 +30,7 @@ widely misunderstood, or conflict-prone**, so the reference earns its keep.
 
 | Page | Subsystem | Status |
 |---|---|---|
+| [Art-Image-Redirection.md](Art-Image-Redirection.md) | `Image=` art redirection & cameo resolution | engine **data** semantics (not hooks) &mdash; unit ID != art section (MTNK->GTNK, APOC->MTNK, MGTK->RTNK); redirect also moves the cameo (`CameoPCX.Read(..., ImageFile, ...)`); cycles and cross-class art swaps render NOTHING; in-game verified |
 | [Ext-Aircraft.md](Ext-Aircraft.md) | Aircraft | seed (1 exemplar entry) |
 - [Map Reveal / Sight](Map-Reveal-Sight.md) — RevealArea0/1/2; the big-map trap (YRpp hardcodes stride 512 at compile time).
 | [AI-Trigger-Team-Lifecycle.md](AI-Trigger-Team-Lifecycle.md) | AI trigger evaluation, team selection & lifecycle | vanilla-RE (7 behavioural + 4 extension sites; unhooked by frameworks) + **ScriptType action grammar** (ordering rules, BwP target encoding `65536*mode+idx`, the `53→8` unload-in-the-field trap) + **AI situational-awareness data** (`HouseClass::ZoneInfos[5]{Air,Armor,Inf}`, `ThreatPosedEstimates[130][130]`, `LATime`; ⚠ frame-key RNG for lockstep; ⚠ never LogWrite unconditionally in `ConditionMet` — 322MB log) |

@@ -248,6 +248,81 @@ what has defeated three attempts.
 **Confirmed via** IntelExt's fog probe (26 samples, scenario bit forced) plus
 direct visual observation.
 
+### RE — the fog draw path, from disassembly
+
+Disassembled from `gamemd.exe` md5 `fe2301a1f48841aa084aade100b25335`, verified
+against the documented `CreateGap` prologue before trusting anything.
+
+**The scenario gate, exactly.** `CellClass::FogCell` (`0x486A70`) opens with:
+
+```
+mov  eax, ds:0xA8B230      ; ScenarioClass::Instance
+mov  edx, [eax]            ; SpecialFlags dword
+test dh, 0x10              ; bit 12
+je   <bail>
+```
+
+`dh & 0x10` is **bit 12**, which is exactly where `FogOfWar` sits in YRpp's
+`ScenarioFlags` (after `CTFMode`, `Inert`, `TiberiumGrows`, `TiberiumSpreads`,
+`MCVDeploy`, `InitialVeteran`, `FixedAlliance`, `HarvesterImmune`). The YRpp
+layout is correct, and no cell can fog while that bit is clear.
+
+**`FoggedObjectClass`**, from the same function:
+
+| Fact | Value |
+|---|---|
+| Instance size | `0x18` (`push 0x18; call 0x7C8E17` = operator new) |
+| Vtable | **`0x7E44F4`** |
+| Methods | `0x45A070`–`0x45AC90` |
+| Owner vector | **`CellClass +0x28`**, `DynamicVectorClass<FoggedObjectClass*>*` |
+| Entry layout | `CellStruct` at `+0x00` (`0x7FFF` sentinel), coord triple at `+0x34` |
+
+**The real per-cell fog flag is `CellClass +0x140`, bit `0x400000`** — `FogCell`
+sets it with `or [ebp+0x140], 0x400000`. That, not `IsFogged()`, is what the
+engine itself uses.
+
+**⚠ `CellClass::IsFogged()` (`0x4879B0`) has ZERO callers in the binary.** It is
+dead code. That is why it returns false even in a match where fog is visibly
+rendering and snapshots are being built. Never use it as a fog predicate; read
+`+0x140 & 0x400000` instead.
+
+### Why objects show through fog — the root cause
+
+`BuildingClass::DrawVisible` (`0x43E7B0`) decides to draw from
+**`ObjectClass +0x210`, `DiscoveredByHouses`**:
+
+```
+mov  eax, [esi+0x210]          ; DiscoveredByHouses
+mov  ecx, [ecx+0xB8]           ; CurrentPlayer house index
+shl  edx, cl
+test eax, edx                  ; discovered by me?
+```
+
+It never consults shroud or fog. Neither does anything else in the draw path —
+`CellClass::IsShrouded()` (`0x487950`) has 9 callers and **none of them are
+drawing code**; they are targeting and AI checks.
+
+So **shroud does not hide objects by skipping their draw. It paints an opaque
+layer over them afterwards.** Objects are drawn whenever they have been
+discovered, and shroud simply covers the result.
+
+This is the actual explanation for "everything is visible under fog": the fog
+layer is *translucent by design* — that is the entire point of fog — so the
+objects drawn underneath show straight through it. It is not fourteen
+subsystems each forgetting a fog check; it is one architectural consequence of
+concealment being a paint-over rather than a draw-suppression.
+
+The engine's intended answer is the snapshot: a fogged cell should draw its
+`FoggedObjectClass` proxies *instead of* the live objects. The snapshots are
+built correctly (`fogobjs > 0` measured in game). **Unverified:** whether
+anything still draws them — the class's methods are reachable only through the
+vtable, so their zero direct xrefs proves nothing either way, and the consumer
+has not yet been located.
+
+**Hook contention:** `0x43E7B0` is already held by **Antares and Ares**
+(`BuildingClass_DrawVisible`, 5 bytes, `Ext/Building/Hooks.Infiltrate.cpp`).
+Chain with `return 0`; do not contest it.
+
 ### The asymmetry worth designing around: shroud works, fog does not
 
 The single most useful takeaway for anyone planning concealment work in YR:

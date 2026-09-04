@@ -195,6 +195,32 @@ aliveness (via `Health`) **and** a death sequence
 the grinder destroys with no death animation, and a healthy unit can be removed
 mid-sequence.
 
+### VERIFIED — the working discriminator, measured
+
+A third run with `Health` logged settled it. Of 1129 removals:
+
+| Facts | Count | Verdict |
+|---|---|---|
+| `alive=1 hp=0 seq=11` (Die1) | 525 | **death** |
+| `alive=1 hp=0 seq=12` (Die2) | 2 | **death** |
+| `alive=1 hp=50 seq=0 limbo=1` | 109 | transport / garrison |
+| `alive=1 hp=0 seq=0` | 95 | **dead, but no death animation** |
+| `alive=1 hp=0 seq=33` | 86 | not a death sequence |
+| `alive=1 hp=0 seq=2/28/5` | 60 | Prone / Deployed / Down |
+| `alive=1 hp=50 seq=3` | 10 | alive and walking |
+
+`IsAlive == 1` in **every single row**, including all 527 real deaths — so it is
+useless here. `Health == 0` is the signal that fires.
+
+Requiring *both* `Health <= 0` **and** a death sequence gave **zero misses and
+zero false positives**. Each half is load-bearing: `Health` alone would have
+admitted **241** removals where the unit died with no death animation at all
+(grinder, and every `InfDeath` value other than 1 and 2), and the sequence alone
+would admit a healthy unit removed mid-animation.
+
+Note `Die1` dominates 525:2 over `Die2`, consistent with `InfDeath=1` being the
+common warhead setting.
+
 **Confirmed via** IntelExt `src/Ext/Techno/Hooks.Corpse.cpp` logging every
-removal with its facts, across two matches. **Unverified:** the exact point at
+removal with its facts, across three matches. **Unverified:** the exact point at
 which `IsAlive` *does* get cleared.

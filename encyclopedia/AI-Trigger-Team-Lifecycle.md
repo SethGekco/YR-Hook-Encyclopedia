@@ -500,6 +500,23 @@ On the TeamType, set `ScriptType`, `TaskForce`, `Max`, and explicitly clear
 the house's own AI team logic can pick your synthetic team up and start
 producing for it.
 
+**Second trap: `TeamTypeClass::Max` caps TEAMS, not members.** It is the number
+of simultaneously-existing `TeamClass` instances of that type; the member count
+comes from the TaskForce `Amount`. Setting `Max = 1` because you want a
+one-member team means the *first* `CreateTeam` succeeds and every later one
+silently returns `nullptr`. Symptom: deliver two scripted units, exactly one
+obeys the script. The give-away in the log is two `Create_One_Of...` lines
+against a single `Creating a new team named '<id>'.` — the engine logs the
+creation only on success. If you synthesise one team per unit and reuse the
+TeamType for the whole session, `Max` must cover every such unit alive at once.
+
+**Third trap: a team short of its TaskForce RECRUITS.** If `AddMember` fails, or
+the TaskForce asks for more than you add, the team goes looking for matching
+units on the map — including the human player's own production. A synthetic
+team built around `1 x E1` that ends up empty will conscript the player's GIs
+into an AI script. Either keep the task force exactly filled, or set
+`TeamClass::NeedsToDisappear` on the failure path.
+
 **This forces late resolution.** You need the concrete `TechnoTypeClass*` to
 build the task force, which you generally do not have at INI-parse time — and
 `ScriptTypeClass::Array` is empty then anyway (see

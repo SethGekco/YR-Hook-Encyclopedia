@@ -168,6 +168,41 @@ structural reason this is a long project rather than a feature.
   is for the silhouette to persist until re-sighted).
 * `RevealToAll=yes` buildings get re-fogged shortly after reveal.
 
+### VERIFIED — which toggle is the live gate, and which is only a default
+
+Three `FogOfWar` fields exist, and they are **not** interchangeable. Measured in
+game (IntelExt fog probe, 51 samples over ~25 minutes of play):
+
+| Field | Fed from | Role |
+|---|---|---|
+| `RulesClass::FogOfWar` | `rulesmd.ini` **`[MultiplayerDialogSettings]`** | the lobby **default** only |
+| `ScenarioClass::SpecialFlags.FogOfWar` | the map / `spawnmap.ini` **`[SpecialFlags]`** | the live **per-match gate** |
+| `GameModeOptionsClass::FogOfWar` | `spawn.ini` | session option; the client rewrites this file at launch |
+
+**`[SpecialFlags]` is `ScenarioClass::SpecialFlags` in INI form.** Its keys map
+one-to-one onto YRpp's `ScenarioFlags` bitfield — `MCVDeploy`, `InitialVeteran`,
+`FixedAlliance`, `HarvesterImmune`, `FogOfWar`, `Inert`, `IonStorms`,
+`Meteorites`, `DestroyableBridges`. That is the section to edit for any of those
+flags, and it explains why the struct looks like TS residue: it is the TS
+scenario flag set, still wired to the INI.
+
+**The trap this creates.** Setting `FogOfWar=yes` in `rulesmd.ini` makes
+`RulesClass::FogOfWar` read 1 while the scenario bit stays 0, because the map's
+`[SpecialFlags]FogOfWar=no` wins. A probe then observes "fog is on, nothing is
+fogged" and concludes the fog layer is dead — a **false negative**, because fog
+was never armed for that match. Any measurement here must report the scenario
+bit, not the rules field, before drawing a conclusion.
+
+Likewise `spawn.ini` is not a reliable place to set it: the CnCNet client
+regenerates that file from the lobby immediately before launch (observed
+overwriting a manual edit 4 seconds pre-launch).
+
+**Confirmed via** IntelExt's fog probe reading both fields live, and the key/bit
+correspondence between `spawnmap.ini [SpecialFlags]` and YRpp `ScenarioFlags`.
+**Still unverified:** whether fog actually engages once the *scenario* bit is
+armed — that measurement has not yet been taken, so nothing on this page should
+be read as proof the state layer is dead.
+
 ### The asymmetry worth designing around: shroud works, fog does not
 
 The single most useful takeaway for anyone planning concealment work in YR:

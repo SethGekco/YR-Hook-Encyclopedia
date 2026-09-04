@@ -21,12 +21,13 @@ of the renderer respect it has defeated three attempts).
 |---|---|---|
 | `RulesClass::FogOfWar` | `RulesClass.h:798` | `0x6721E7` |
 | `GameModeOptionsClass::FogOfWar` | `GameModeOptionsClass.h:40` | `0x6B8C1B`, `0x6B8E6F` |
-| `ScenarioClass::FogOfWar : 1` | `ScenarioClass.h:39` | — (scenario bitfield) |
+| `ScenarioClass::SpecialFlags.FogOfWar` | `ScenarioClass.h:39`, a bit in `ScenarioFlags` — **not** a direct member | — (fed from `[SpecialFlags]`; this is the LIVE gate, see below) |
 
 Three levels — rules default, per-session game option, per-scenario bit — which
 is the same shape as other TS-era session options (`Shroud`, `Crates`,
 `ShortGame`). A *map* can therefore demand fog independently of the rules
-default. The registry lists `FogOfWar` as scope `map|ra2|rules|ts`, consistent
+default, **and in practice the map is what decides** — see the verified section
+on which toggle is the live gate. The registry lists `FogOfWar` as scope `map|ra2|rules|ts`, consistent
 with that.
 
 Related vanilla tags, all already parsed:

@@ -523,14 +523,27 @@ start wandering off on AI missions, **not at first, but increasingly as the game
 goes on** (each recruit leaves, dies, and the team recruits again). It looks
 exactly like a misbehaving AI DLL.
 
-**Set the task force `Amount` to 0.** The team is then at full strength from
-birth and never recruits. Your own unit still joins, because `AddMember(pFoot,
-/*force=*/true)` bypasses the task-force match entirely — the entry only needs
-to exist so team creation has something non-null to walk. Keep a `Type` set;
-zero the `Amount`.
+**Do NOT try to fix this with `Amount = 0`.** Starving the task force so the
+team is never under strength does stop the recruiting — and also stops the
+script from ever running. Tested: four teams created, `AddMember` succeeded on
+every one, not a single `GatherAtEnemy` followed. A team with nothing to field
+never starts its script. `IsFullStrength = true` on the created team does not
+rescue it either.
 
-Also set `TeamClass::NeedsToDisappear` if `AddMember` fails, so a half-built
-team cannot linger.
+**Fix it at the other end: do not let the team outlive its member.** Keep
+`Amount` at the real member count, and when the member dies mark its team
+`NeedsToDisappear`. The techno destructor (`0x6F4500`) is a convenient place to
+hang that off.
+
+**Validate the team pointer before touching it.** By the time the member dies
+the team may already be gone and its address reused, and writing
+`NeedsToDisappear` into a recycled allocation corrupts something unrelated.
+`TeamClass` keeps a global array at `0x8B40E8`, so
+`TeamClass::Array.FindItemIndex(pTeam) == -1` is a liveness test that never
+dereferences a dead pointer.
+
+Also set `NeedsToDisappear` if `AddMember` fails, so a half-built team cannot
+linger.
 
 **This forces late resolution.** You need the concrete `TechnoTypeClass*` to
 build the task force, which you generally do not have at INI-parse time — and

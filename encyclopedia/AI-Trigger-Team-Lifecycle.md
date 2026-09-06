@@ -560,3 +560,29 @@ scenario's serialised AI data. Untested.
 **Confirmed via.** FreeUnitExt in-game, YR + Antares + Phobos. Null TaskForce
 reproduced the `0x6EA6B4` AV on every delivery; the one-entry task force above
 is the fix.
+
+---
+
+## `QueueMission` silently beats the team you just assigned
+
+Symptom: the team is created, `AddMember` succeeds, the log even shows the
+script starting (`A <team> Team has chosen (x, y) for its GatherAtEnemy cell.`)
+— and the unit stands still.
+
+Cause: `FootClass::QueueMission(mission, /*rush=*/false)` does not take effect
+immediately. It is applied on the **next mission update**, which happens after
+the team assignment, so a mission queued before `AddMember` lands *after* it and
+the unit settles into that mission instead of following its script. Giving a
+delivered unit a sensible default like `Area_Guard` and then putting it on a
+team therefore produces a team that runs while every member ignores it.
+
+`Area_Guard` makes this especially hard to spot: infantry on Area Guard chase
+nearby enemies, so a pinned unit can look exactly like a unit obeying an attack
+script. Do not confirm script behaviour from movement alone — check the log for
+the script's own lines.
+
+**Fix.** Assign the team first and give the unit no mission of your own when it
+is under team control. Queue a mission only as the fallback for units that did
+not end up on a team.
+
+**Confirmed via.** FreeUnitExt in-game, YR + Antares + Phobos.

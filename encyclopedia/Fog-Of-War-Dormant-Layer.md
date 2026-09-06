@@ -537,6 +537,51 @@ has not yet been located.
 (`BuildingClass_DrawVisible`, 5 bytes, `Ext/Building/Hooks.Infiltrate.cpp`).
 Chain with `return 0`; do not contest it.
 
+### VERIFIED — a full map reveal clears SHROUD but not FOG
+
+Not on #28's list, and it explains a confusing late-game symptom: *the fog
+visually disappears, but buildings keep behaving as though fogged.*
+
+Measured across one match, sampling every 450 frames. Between frame 34200 and
+34650 the map was fully revealed:
+
+| Frame | shrouded | mapped | obscured | fogobjs |
+|---|---|---|---|---|
+| 34200 | 16495 | 25239 | 33817 | 302 |
+| **34650** | **0** | **41734** | 31225 | 307 |
+| 35550 | 0 | 41734 | 23123 | 309 |
+
+`cells` was 41734, so `mapped` reaching 41734 is *every cell on the map*, and
+`shrouded` fell to exactly zero in a single sample window — an instantaneous
+full reveal.
+
+**What survived the reveal:**
+
+* `ScenarioClass::SpecialFlags.FogOfWar` — still set.
+* `FoggedObjects` — **unaffected** (307, and still ~340 twenty samples later).
+  The per-cell object snapshots were neither cleared nor rebuilt.
+* `Foggedness != -1` — still true on tens of thousands of cells, decaying only
+  slowly afterwards.
+
+So the reveal path clears `ShroudCounter` and sets `Mapped`, but does **not**
+call `CleanFog` / `ClearFoggedObjects` for the revealed cells. Shroud and fog
+are separate states, and revealing the map only unwinds one of them.
+
+**The consequence is worse than a cosmetic glitch.** With shroud gone there is
+nothing to composite the translucent layer against, so fog stops being *visible*
+— while the fog *state* remains live, so everything driven by it continues:
+buildings still render from stale snapshots, still fail to update, and are still
+mis-targeted (units move instead of attacking). The player loses the only visual
+cue that fog is in effect while keeping all of its gameplay consequences.
+
+Anything enabling fog needs to clear fog state wherever it clears shroud, or the
+two drift apart permanently the first time anything reveals the map — a spy
+satellite, a reveal trigger, or a map-wide reveal superweapon.
+
+**Confirmed via** IntelExt's fog probe, one match, 450-frame sampling.
+**Unverified:** which specific reveal path fired here; the correlation is with a
+full-map reveal in general, not with an identified caller.
+
 ### The asymmetry worth designing around: shroud works, fog does not
 
 The single most useful takeaway for anyone planning concealment work in YR:

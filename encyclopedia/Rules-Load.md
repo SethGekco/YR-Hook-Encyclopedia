@@ -115,3 +115,57 @@ this address.
 
 **Confirmed via.** Phobos source (clone `009112c`) Body.cpp lines 1207/1252 +
 objdump of vanilla gamemd.exe at `0x668F55–0x668F95`.
+
+---
+
+## Type identity: `GetArrayIndex()` is per-subclass  ⚠ silent cross-category collisions
+
+Not a hook — a data fact that bites any DLL storing parsed INI type lists.
+
+**`TechnoTypeClass::GetArrayIndex()` does not return a unique id.** It returns the
+index within the type's OWN subclass array, and those are four separate arrays:
+
+| array | address |
+|---|---|
+| `UnitTypeClass::Array` | `0xA83CE0` |
+| `BuildingTypeClass::Array` | `0xA83C68` |
+| `InfantryTypeClass::Array` | `0xA8E348` |
+| `TechnoTypeClass::Array` (unified) | `0xA8EB00` |
+
+So an index is unique only *within* a category. Measured against a stock
+`rulesmd.ini`:
+
+| index | vehicle | building | infantry |
+|---|---|---|---|
+| 2 | `APOC` | `GACNST` | `SHK` |
+| 3 | `HTNK` | `GAPILE` | `ENGINEER` |
+| 9 | `MTNK` | `NAPOWR` | `DOG` |
+
+**The failure mode.** Parse an INI list of vehicles into `GetArrayIndex()`
+values, then at runtime compare each techno's `GetArrayIndex()` against that
+list: buildings and infantry match silently. In SuperWeaponExt a rule meant to
+count nearby *tanks* was counting the player's Construction Yard and barracks, so
+the effect scaled with base size and read in game as a mysterious *time-based*
+increase — on a feature whose time-based growth was explicitly set to zero.
+Nothing logs, nothing crashes, and the tag simply appears to behave wrongly.
+
+**Confirming tell.** Phobos keeps four separate counter arrays —
+`LimboAircraft` / `LimboBuildings` / `LimboInfantry` / `LimboVehicles` in
+`Ext/House/Body.cpp::AddToLimboTracking` — all indexed by `GetArrayIndex()`. One
+array would suffice if the index were unique across techno types.
+
+**Fix.** Key on the unified array instead:
+
+```cpp
+const int id = TechnoTypeClass::Array.FindItemIndex(pType);   // unique
+```
+
+Cache it per type: `FindItemIndex` is a linear scan and runtime callers typically
+run per object per frame. **Convert parse-time and runtime together** — changing
+one side only is worse than the original bug, because the lists then never match
+at all. Comparing `TechnoTypeClass*` pointers directly is equally correct and
+needs no cache; prefer that when the value never crosses an engine-free boundary.
+
+**Confirmed via.** YRpp array declarations; index census over a stock
+`rulesmd.ini`; Phobos source at the cited function; observed in game as a wrong
+radius, then fixed and re-deployed.

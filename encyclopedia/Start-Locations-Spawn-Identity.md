@@ -143,6 +143,76 @@ boundary. Resolving lazily at point of use avoids the problem entirely.
 array widths quoted above). **Confirmed.** The many-to-one *consumer* behaviour
 (observation 3) is **explicitly unverified**.
 
+### ✅ RUNTIME-CONFIRMED (2026-09-06): the table is populated as described
+
+Live skirmish, 1 human + 1 AI, read on the first logic frame (`0x55B6B3`) by a
+third-party DLL that inverts the table independently:
+
+```
+NumberStartingPoints = 8
+HouseClass::Array.Count = 4
+  HouseIndices[ 0] = 0
+  HouseIndices[ 7] = 1
+  (all other 14 slots = -1)
+  house[ 0] Americans    human=1  starts=0       GetSpawnPosition=0
+  house[ 1] Yugoslavia   human=0  starts=7       GetSpawnPosition=7
+  house[ 2] Neutral      human=0  starts=(none)  GetSpawnPosition=-1
+  house[ 3] Special      human=0  starts=(none)  GetSpawnPosition=-1
+```
+
+Four claims on this page move from inferred to **confirmed**:
+
+1. **`HouseIndices` really does hold house `ArrayIndex` values during play**, and
+   is indexed by *start position*. Previously only inferred from
+   `IsInitiallyObserver()` being built on the inversion.
+2. **`-1` is the empty-slot sentinel** — 14 of 16 slots held it.
+3. **The array is sparse.** Only *occupied* starts carry a value; an 8-start map
+   with 2 players leaves six `-1` holes *between* live entries (here 0 and 7).
+   Consumers must skip holes, not stop at the first one.
+4. **Non-player houses resolve to no start.** Neutral and Special both returned
+   `-1`, matching the `IsInitiallyObserver()` shape.
+
+An independent inversion agreed with `GetSpawnPosition()` on all four houses.
+**No out-of-range or cell-value entries appeared in this run** — which does not
+disprove observation 5, only shows the corrupt state was not reached here.
+
+---
+
+## ⚠ `NumberStartingPoints` did NOT equal the player count in a live run
+
+The section above ("`NumberStartingPoints` is the engine's de-facto player
+count") needs qualifying. In the 2026-09-06 run it read **8** while the game held
+**2 real houses** (1 human + 1 AI, plus Neutral and Special). All eight
+`StartingPoints[0..7]` carried distinct coordinates, so 8 is the number of start
+positions **the map defines** — not the number of players.
+
+That is not a contradiction of the Phobos citation, which remains a fact:
+`src/Ext/House/Hooks.cpp:475` really does assign this field to a local named
+`playerCount`. It does mean **the two readings can disagree**, and on this
+evidence the field tracks the *map*, at least at first-logic-frame time.
+
+What remains **unresolved**:
+
+- Whether the value is later narrowed toward the house total (the `min` against
+  `players − observers + AIPlayers` at `0x6883E6` runs during scenario setup —
+  the observation above is from the first logic frame, which is after that, so a
+  narrowing would have to happen elsewhere or not at all).
+- Whether Phobos' team-delay feature is therefore reading a map-derived number
+  where it intends a player count. On this run it would have seen 8 for a
+  2-player game. Not investigated; flagged because the feature's
+  `DynamicTeamDelayType::StartingPoint` mode is explicitly documented as deriving
+  player count this way.
+
+**Practical guidance:** do not treat `NumberStartingPoints` as a player count.
+Use it for what it demonstrably is — a bound on how many entries of
+`HouseIndices` / `StartingPoints` are meaningful — and get the house count from
+`HouseClass::Array.Count`.
+
+**Confirmed via.** Live skirmish under Antares + Phobos + 16 co-loaded DLLs,
+logged at `0x55B6B3` on the first logic frame; full dump quoted above.
+**Confirmed** as an observation. The two unresolved points are explicitly **not**
+investigated.
+
 ---
 
 ## ⚠ `NumberStartingPoints` is the engine's de-facto player count

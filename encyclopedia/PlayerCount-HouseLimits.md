@@ -1300,3 +1300,40 @@ This is very likely where `mmtrt/yrpp-spawner`'s note — *"couldn't get loading
 screen player indicators to work more than 8, also score board to show more
 players"* — comes from: the storage yields to a patch and the presentation does
 not.
+
+---
+
+### Country axis: `1u << ArrayIndex2` is unguarded (RequiredHouses / ForbiddenHouses)
+
+Recorded for [[CountryLimitExt]]; **not** a player-count issue. Raising the
+player count does not raise the country count — many houses may share a country
+— so these two limits move independently and should not be conflated.
+
+The house→country membership test shifts the country index into a 32-bit value
+with no bound:
+
+```cpp
+bool InRequiredHouses(const TechnoTypeClass* pItem) const {
+    return pItem->InRequiredHouses(1u << this->Type->ArrayIndex2);
+}
+bool InForbiddenHouses(const TechnoTypeClass* pItem) const {
+    return pItem->InForbiddenHouses(1u << this->Type->ArrayIndex2);
+}
+```
+
+At `ArrayIndex2 >= 32` this is undefined behaviour, and on x86 the shift count
+is masked to 5 bits — country 32 aliases country 0, 33 aliases 1, and so on.
+`ReadHouseTypesList` returns a DWORD as well, so the INI list cannot express
+more than 32 countries in the first place.
+
+**Failure mode: silent.** Past the vanilla limit `SW.RequiredHouses` (and the
+`Owners=` family generally) gates on the *wrong* country — no log, no crash,
+just a superweapon or unit that is available to someone it should not be, or
+withheld from someone it should not be. That is considerably harder to notice
+than the house-axis aliasing, which at least tends to surface as visible team
+misbehaviour.
+
+CountryLimitExt does not currently touch these sites (no hits for the shift
+pattern in its source). Lifting the 32-country bitfield means finding every
+`1u << ArrayIndex2` consumer, not only the parser at `0x4750D0` and its four
+write sites already recorded above.

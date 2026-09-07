@@ -582,6 +582,38 @@ satellite, a reveal trigger, or a map-wide reveal superweapon.
 **Unverified:** which specific reveal path fired here; the correlation is with a
 full-map reveal in general, not with an identified caller.
 
+### VERIFIED — `AnimTypeClass::Layer = Layer::Surface` stops an anim drawing
+
+Bisected in game across four builds. An `AnimClass` whose type is set to
+`Layer::Surface` is **not drawn at all** — the object exists (counted live in
+`AnimClass::Array` every frame), it simply never appears.
+
+The sequence, because the failure mimics several other bugs:
+
+| Build | Layer | Result |
+|---|---|---|
+| palette fix | untouched | bodies **visible** |
+| z-order "fix" | `Layer::Surface` | bodies invisible |
+| +3 lifetime fixes | `Layer::Surface` | still invisible |
+| layer reverted | untouched | bodies **visible** again |
+
+**Why this is worth writing down:** an anim on `Surface` that never draws looks
+exactly like an anim that expired early. Three separate lifetime theories
+(`Rate` semantics, `RemainingIterations`, `Paused`/`NeedsRedraw`) were each
+plausible, each produced a real fix for a real bug, and none of them was the
+cause. The census that proved the objects were alive the whole time is what
+eventually separated "not drawn" from "not there".
+
+`Layer::Surface` (1) sits below `Ground` (2) in the enum, but the layer is
+evidently not part of the normal anim draw pass. Use `ZAdjust` for depth bias
+**within** the default layer instead — it biases sorting without moving the
+object between draw passes.
+
+**Confirmed via** IntelExt corpse carriers, four in-game builds with a per-frame
+census distinguishing existence from visibility. **Unverified:** whether
+`Surface` is drawn by some other pass entirely (smudges/craters live there), or
+never drawn for `AnimClass` specifically.
+
 ### The asymmetry worth designing around: shroud works, fog does not
 
 The single most useful takeaway for anyone planning concealment work in YR:

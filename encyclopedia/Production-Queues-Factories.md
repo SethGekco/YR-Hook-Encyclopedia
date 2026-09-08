@@ -362,6 +362,63 @@ runtime-tested**.
 
 ---
 
+### `0x5004E0` — ObjectTypeClass::IsBuildCat5 (the whole Buildings-vs-Defense split)
+
+**Framework names.** Hooked by **no framework** in the registry. Called, not patched.
+
+**What it does.** Answers "is this building type `BuildCat` 5, i.e. `Combat`?" —
+and that single comparison is the *entire* mechanism separating the Defense tab
+and its queue from the main Buildings tab. It is why `Update_FactoriesQueues`
+takes `BuildCat` as an argument distinct from `factoryOf` (see `0x509140`).
+
+`BuildCat` (`YRpp/GeneralDefinitions.h:644`) is six-valued:
+`DontCare=0, Tech=1, Resoure=2, Power=3, Infrastructure=4, Combat=5`.
+⚠ The **enum identifier** is misspelled `Resoure`; the **INI string** is `Resource`.
+Accepted INI spellings: `Combat`, `Infrastructure`, `Resource`, `Power`, `Tech`,
+`DontCare`.
+
+**What it does *not* do — easily mistaken.**
+- **The other five values are not five more queues.** Only `Combat` is special.
+  Every other value lands in the main Buildings tab and its queue.
+  ✔ *Verified in-game 2026-09-08:* a base-defense flipped from `BuildCat=Combat`
+  to `BuildCat=Power` moved to the Buildings tab and shared its queue.
+- **Non-`Combat` values are not even looked up by their own value.** Every
+  framework call site passes the literal `BuildCat::DontCare` when resolving a
+  factory for a non-defense building — Antares `Ext/Building/Body.cpp:68`,
+  `Ext/House/Hooks.Queue.cpp:125`, `Ext/Rules/Hooks.CameoList.cpp:59`,
+  `Ext/Building/Hooks.Infiltrate.cpp:110`; Phobos `Ext/Sidebar/Hooks.cpp:53-61`.
+  Phobos comments it directly: *"Vanilla and Ares all only hardcoded to find
+  factory with BuildCat::DontCare…"* So `Tech`/`Resource`/`Power`/`Infrastructure`
+  resolve **as `DontCare`**. Anyone adding a new build category must update that
+  whole call-site list, not just this comparison.
+- **It does not drive AI base planning.** A natural-sounding guess with no
+  evidence behind it: neither Antares nor Phobos reads `BuildCat` for anything
+  but sidebar placement and factory lookup.
+- **`DontCare` is a sentinel meaning "unset", not a normal value.** Antares
+  rewrites it at load (`Misc/Invalidators.cpp:191-201`): any BuildingType within
+  `RulesClass::TechLevel` carrying `DontCare` is reassigned to `Combat` when
+  `SuperWeapon != -1 || IsBaseDefense || Wall`, else to **`Infrastructure`**, and
+  emits *"Building Type [%s] does not have a valid BuildCat set!"* plus a parser
+  error. Consequences: under Antares `Infrastructure` is the de-facto default for
+  ordinary buildings (ModEnc's "no vanilla building uses Infrastructure" holds for
+  vanilla only), and a type you deliberately leave as `DontCare` will not stay
+  that way. ModEnc separately notes `DontCare` renders the cameo "as if the
+  building was partly built".
+
+**Register / calling convention.**
+`static bool __fastcall IsBuildCat5(AbstractType abstractID, int idx)`
+(✔ `YRpp/ObjectTypeClass.h:45`) — note it takes an **array index**, not a pointer.
+
+**Confirmed via.** YRpp declarations; Antares source (`~/Claude/Antares-src`,
+master) for the call sites and `Invalidators.cpp`; Phobos submodule source
+(`47475624`) for `Ext/Sidebar/Hooks.cpp`; ModEnc's `BuildCat` page for the
+accepted spellings and the `DontCare` cameo bug; **in-game test 2026-09-08** for
+the tab-move result. The vanilla body of `0x5004E0` was **not** disassembled — the
+"single comparison" claim rests on the function's name, its use at `0x509140`, and
+the observed behaviour, not on reading its instructions.
+
+---
+
 ## Related pages
 
 - **Buildability & Prerequisites** — `HouseClass::CanBuild` (`0x4F7870`), same

@@ -3792,8 +3792,8 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x6F3283,Antares,release,TechnoClass_CanScatter_KillDriver,0x8,Ext/Techno,src/Ext/Techno/Hooks.cpp
 0x6F3283,Ares,release,TechnoClass_CanScatter_KillDriver,0x8,Ext/Techno,src/Ext/Techno/Hooks.cpp
 0x6F3283,Phobos,PR#352,TechnoClass_CanScatter_CheckIfAttached,0x8,Ext/Techno,src/Ext/Techno/Hooks.TechnoAttachment.cpp
-0x6F3330,Antares,release,TechnoClass_SelectWeapon,0x5,Ext/Techno,src/Ext/Techno/Hooks.cpp
-0x6F3330,Ares,release,TechnoClass_SelectWeapon,0x5,Ext/Techno,src/Ext/Techno/Hooks.cpp
+0x6F3330,Antares,COMMENTED-OUT,TechnoClass_SelectWeapon,0x5,Ext/Techno,src/Ext/Techno/Hooks.cpp
+0x6F3330,Ares,UNVERIFIED,TechnoClass_SelectWeapon,0x5,Ext/Techno,src/Ext/Techno/Hooks.cpp
 0x6F3339,Phobos,release,TechnoClass_WhatWeaponShouldIUse_Interceptor,0x8,Ext/Techno,src/Ext/Techno/Hooks.Firing.cpp
 0x6F3360,Phobos,release,TechnoClass_WhatWeaponShouldIUse_MultiWeapon,0x6,Ext/Techno,src/Ext/Techno/Hooks.Firing.cpp
 0x6F33CD,Phobos,release,TechnoClass_WhatWeaponShouldIUse_ForceFire,0x6,Ext/Techno,src/Ext/Techno/Hooks.Firing.cpp

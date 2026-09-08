@@ -50,6 +50,8 @@ widely misunderstood, or conflict-prone**, so the reference earns its keep.
 
 | [Building-Production-KickOut.md](Building-Production-KickOut.md) | Factory unit ejection (KickOutUnit) — the "built by a factory" event | 1 entry (0x443C60 entry: pTechno at [esp+4]; the built-only-gate hook, excludes paradrop/crate/map/spawn) |
 
+| [Kill-Registration-Bounty.md](Kill-Registration-Bounty.md) | Kill registration & bounty payouts (`TechnoClass::RegisterDestruction`) | source-derived, 6-site cluster 0x702D6D–0x702E9D (0x702E64 Antares bounty EDI=killer/ESI=victim, returns 0 so co-hooks chain; ⚠ 0x702E6A reserved by open Phobos PR#2118 "New bounty logic", exactly adjacent to 0x702E64+6; 0x702E9D triple-owned Antares/Ares/Kratos; co-hook existing addresses at same size — the 0x150-byte window is crowded) |
+
 _(Add a row per subsystem page as it's created. Subsystem names mirror the
 `Subsystem` column in the registry.)_
 

@@ -605,9 +605,22 @@ cause. The census that proved the objects were alive the whole time is what
 eventually separated "not drawn" from "not there".
 
 `Layer::Surface` (1) sits below `Ground` (2) in the enum, but the layer is
-evidently not part of the normal anim draw pass. Use `ZAdjust` for depth bias
-**within** the default layer instead — it biases sorting without moving the
-object between draw passes.
+evidently not part of the normal anim draw pass.
+
+**⚠ And `ZAdjust` is not the safe alternative either.** The obvious follow-up —
+keep the default layer and bias depth with `AnimTypeClass::ZAdjust` — was tried
+next and produced the SAME disappearance at `ZAdjust = 128`, reverting to
+visible at `0`. Two independent depth controls, same result.
+
+So an `AnimClass` carrier gives reliable **visibility** but no usable **depth
+control**: any attempt to push it back in the sort order so far removes it from
+the draw entirely. Anything needing a ground-hugging decal under units should
+expect to solve depth some other way, and should not assume these two knobs
+behave like a sort bias.
+
+**Unverified:** whether a *negative* `ZAdjust` behaves differently (only the
+positive direction was tested), and whether the cut-off is a threshold or any
+non-zero value at all.
 
 **Confirmed via** IntelExt corpse carriers, four in-game builds with a per-frame
 census distinguishing existence from visibility. **Unverified:** whether

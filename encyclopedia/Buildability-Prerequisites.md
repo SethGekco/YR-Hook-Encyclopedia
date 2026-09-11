@@ -177,11 +177,13 @@ vanilla body never executes**. Ares does the same.
   Antares' handler writes `EAX` and jumps past the vanilla body, so a chained
   handler has nothing useful to extend and merely fights over `EAX`.
   **Use `0x4F8361` instead** (below).
-  *(Precision note: such a handler does still **execute** — Syringe runs every
-  registered handler and the first non-zero return only decides control flow.
-  An earlier revision of this page said it "never runs", which is wrong; see the
-  runtime verification in [Spy-Infiltration.md](Spy-Infiltration.md#verified-co-hooking-0x4571e0-alongside-antares).
-  The practical advice is unchanged.)*
+  *(Precision note — now **disputed**. This page has said both "it never runs"
+  and "it does still execute, because Syringe runs every registered handler and
+  the first non-zero return only decides control flow". There is a runtime
+  observation for each: see the ⚠ UNRESOLVED section in
+  [Syringe-Stub-Semantics.md](Syringe-Stub-Semantics.md). **Assume nothing —
+  prove your handler is live with a log line before its first bail.** The
+  practical advice is unchanged either way: use `0x4F8361`.)*
 
 **Register / calling convention** (Antares `src/Ext/House/Hooks.cpp:26`):
 ```

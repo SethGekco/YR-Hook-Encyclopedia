@@ -334,20 +334,54 @@ every consumer's answer, independent of load order. A second implementation that
 also only ever raises therefore composes rather than conflicts, and one whose
 answer is provably `>=` another's makes the other's handler a no-op underneath it.
 
-Two consequences follow, and they cut in opposite directions:
+**Safe to layer.** You can run an alternative promotion model on top of a
+framework's without disabling it and without controlling load order, provided
+yours also only raises.
 
-- **Safe:** you can layer an alternative promotion model on top of a framework's
-  without disabling it, and without controlling load order.
-- **Limiting:** you cannot build a *reducing* effect this way. A "cap",
-  "override" or "demote" academy is unreachable from a chained hook, because
-  whichever consumer wants the lower value is overruled by whichever wants the
-  higher. The only lever a chained hook has is to raise.
+**✅ VERIFIED in game.** A third-party DLL co-loaded with Antares, injected after
+it, computing `max(best non-stacking, sum of stacking)` over its own academy
+list: with a stacking academy worth `0.5`, one building produced no chevron, two
+produced **veteran**, four produced **elite**. Antares takes the `max` of its
+academies and was reading the same `Academy.*Veterancy` tags, so it resolved
+`0.5` throughout and could never have produced either promotion. Both handlers
+ran; the larger answer won, exactly as the commutativity argument predicts.
+
+### ⚠ A *reducing* effect is NOT impossible — an earlier revision said it was
+
+This page previously claimed a "cap", "override" or "demote" academy was
+unreachable. **That is wrong**, and it confused a property of *raise-only
+handlers* with a property of the subsystem. Two separate levers exist:
+
+1. **Starve the framework's academy.** `BuildingTypeExt::Academy` is computed
+   once at INI-parse time and `IsAcademy()` is the *only* gate on list
+   membership across all four bookkeeping hooks. Leave the `Academy.*Veterancy`
+   tags unset and the framework's list is permanently empty, its `ApplyAcademy`
+   resolves `0.0`, and its `if (bonus > value)` never fires. **No patching and
+   no "disable" switch are required — configuration alone makes it inert.**
+2. **Be last and write unconditionally.** Syringe runs handlers in `-i=` order,
+   so a DLL injected after the framework runs last at every apply site. Dropping
+   the raise-only clamp there makes its value final. Nothing re-raises it
+   afterwards: the per-frame `TechnoClass_Update_Veterancy` (`0x6FA054`) calls
+   `HandlePromotion`, which reacts to rank *changes* and never writes veterancy.
+
+The cost is the obvious one — lever 2 trades the commutativity that made the
+default safe, so it is **correct only for a specific load order** and should be
+opt-in rather than a library's default behaviour.
+
+**⚠ Cosmetic hazard for a *runtime* demote.** `HandlePromotion` selects its
+sound, flash and `Promote_VeteranType` conversion by the **new** rank, so
+lowering a rank mid-life fires the *promotion* effects for the rank landed on,
+and can convert the object's type. Reducing at creation time is unaffected — the
+object's `CurrentRanking` is still `Rank::Invalid` there, which that function
+guards against.
 
 **Confirmed via.** Antares source (`HouseExt::ApplyAcademy`,
 `src/Ext/House/Body.cpp:856-902`) for the raise-only shape and the `0.0` seed;
-`Hooks.Academy.cpp` for all nine `return 0`s; registry `hooks.csv` for consumer
-lists. **Unverified:** no runtime experiment with two independent promotion DLLs
-loaded simultaneously is recorded here yet.
+`Hooks.Academy.cpp` for all nine `return 0`s; `BuildingType/Body.cpp:270` for the
+parse-time `Academy` flag; `Hooks.Veterancy.cpp` for `HandlePromotion`; registry
+`hooks.csv` for consumer lists. Stacking behaviour **observed in game** as
+described above. **Unverified:** the unconditional-write path (lever 2) is
+implemented but has not yet been exercised in game.
 
 ---
 

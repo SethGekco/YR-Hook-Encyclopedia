@@ -72,3 +72,60 @@ the two would corrupt each other's stubs.
 **Confirmed via.** Antares source at the cited line numbers (comment block
 boundaries checked explicitly); Phobos `develop` source; the registry, whose
 error prompted this page.
+
+---
+
+## Wrapping it safely: the four vtable slots  ✅ verified in use
+
+`SelectWeapon` is virtual (`YRpp/TechnoClass.h:227`) and `0x6F3330` is referenced
+by exactly four `.rdata` vtable slots, one per TechnoClass subclass:
+
+| slot | notes |
+|---|---|
+| `0x7E2588` | |
+| `0x7E41A0` | |
+| `0x7E8F78` | |
+| `0x7F4C44` | |
+
+All four are unclaimed by Phobos, Antares and the registry. They are confirmed
+real vtable entries rather than raw bytes equal to `0x6F3330`: every neighbouring
+word at each address is a valid `.text` pointer, and all four are followed by the
+same next virtual (`0x6F3820`). `AircraftClass::AbsVTable` is `0x7E22A4`.
+
+Replacing these slots is the **only** safe way to influence weapon choice without
+disabling somebody else's work: the wrapper calls the original, so all nine
+Phobos and two Antares in-body hooks still run and decide, and you adjust their
+answer afterwards.
+
+### ⚠ The wrapper MUST be `__fastcall` with a dummy EDX parameter
+
+A vtable slot is invoked as `__thiscall`: `this` in ECX, arguments on the stack,
+callee cleans. MSVC will not accept `__thiscall` on a free function, so:
+
+```cpp
+using SelectWeaponFunc = int(__fastcall*)(TechnoClass*, void*, AbstractClass*);
+
+int __fastcall Wrapper(TechnoClass* pThis, void* /*edx*/, AbstractClass* pTarget)
+{
+    const auto original = reinterpret_cast<SelectWeaponFunc>(0x6F3330);
+    const int chosen = original(pThis, nullptr, pTarget);
+    ...
+}
+```
+
+Declaring it `__stdcall(pThis, pTarget)` instead fails twice, silently: `this` is
+read off the stack (so the first parameter receives the first real *argument*),
+and a two-parameter `__stdcall` callee pops 8 bytes where the caller pushed 4 —
+**four bytes of stack imbalance per call**. On a function this hot the return
+address is destroyed almost immediately.
+
+**Symptom to recognise:** `C0000005` with **EIP inside `.rdata`** (observed:
+`0x007FA9A0`) — the CPU executing data, which means smashed control flow rather
+than a null dereference. Map EIP against the section table (`.text` `0x401000`,
+`.rdata` `0x7E1000`, `.data` `0x812000`) before theorising about the feature that
+appeared to trigger it; in the observed case a paradrop was blamed, but it was
+merely the first event that spawned enough objects to call the wrapper.
+
+**Confirmed via.** In-game crash and its `except.txt`; PE section mapping of the
+faulting EIP; neighbour analysis of all four slots in `gamemd.exe`; fixed build
+re-deployed.

@@ -129,3 +129,37 @@ merely the first event that spawned enough objects to call the wrapper.
 **Confirmed via.** In-game crash and its `except.txt`; PE section mapping of the
 faulting EIP; neighbour analysis of all four slots in `gamemd.exe`; fixed build
 re-deployed.
+
+---
+
+## Second occurrence, and the misdiagnosis it invites  ✅ re-confirmed 2026-09-11
+
+The `__stdcall` wrapper bug recurred and was re-diagnosed from scratch. Recording
+it because the *wrong* answer is very attractive and cost a full analysis pass.
+
+**The evidence.** Two `C0000005 at 007FA9A0`, 16:33 and 18:42. The fix commit
+(`SuperWeaponExt c76b367`, "the SelectWeapon vtable wrapper used the wrong
+calling convention") landed 18:45 and the rebuilt DLL was deployed 19:49. No
+crash after. Section table of the running `gamemd-spawn.exe` confirms
+`.text` = `0x401000`–`0x7E038D`, `.rdata` = `0x7E1000`–`0x811074`, so
+`0x7FA9A0` is **`.rdata`** — EIP executing data.
+
+**The trap.** `0x7FA9A0` looks like it implicates whoever *calls* `SelectWeapon`,
+and a search will find callers passing a target pointer straight through. That
+reasoning is wrong on mechanism: a bad pointer handed to `SelectWeapon` faults
+**inside** it, at `0x6F33xx` in `.text`. Only a stack-imbalanced wrapper produces
+an EIP in `.rdata`. **Map EIP to a section before naming a suspect** — it
+discriminates "bad data" from "smashed control flow" in one step, and the two
+have disjoint suspect lists.
+
+**The second trap: simultaneous redeploys.** Eight DLLs were redeployed in the
+same window. "Crashes stopped after X was deployed" identifies nothing when X was
+one of eight; the attribution landed on an unrelated DLL whose commit message
+happened to mention the same subsystem. Prefer a commit that *names the
+mechanism* over one that merely correlates in time.
+
+**Also worth knowing:** an armed building reproduces this on demand, because an
+armed building is a target, so `SelectWeapon` gets dispatched at all. Removing
+the weapon or moving it to another building tracks the crash exactly — which
+looks like evidence for a targeting-logic theory but is really just "does the
+broken wrapper get invoked".

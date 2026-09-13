@@ -224,3 +224,77 @@ common warhead setting.
 **Confirmed via** IntelExt `src/Ext/Techno/Hooks.Corpse.cpp` logging every
 removal with its facts, across three matches. **Unverified:** the exact point at
 which `IsAlive` *does* get cleared.
+
+---
+
+## VERIFIED — `TechnoClass::Unlimbo` can destroy the object, re-entering your removal hook
+
+**Symptom.** `C0000005`, `READ at 0x00000081` — offset `0x81` is
+`ObjectClass::InLimbo` — with EIP inside your own DLL, on a member pointer you
+already null-checked earlier in the same function. Ten identical dumps.
+
+**Mechanism.** Placing an object is not a pure "move it there" operation. A
+failed placement is destructive: the engine destroys the object rather than
+leaving it half-placed. If your DLL hooks destruction to clear a back-pointer —
+and any extension tracking parent/child relationships does — that hook runs
+**re-entrantly, inside your own call**, and nulls your member underneath you:
+
+```
+YourClass::AI()
+  if (this->Child)              <-- guard passes, Child is valid
+    this->Unlimbo()
+      this->Child->Unlimbo(...) <-- ENGINE. placement fails -> object destroyed
+        <destruction hook>
+          ChildDestroyed()
+            this->Child = nullptr    <-- your member, cleared mid-call
+  this->Child->InLimbo          <-- CRASH. the guard above is stale
+```
+
+**The rule.** *A null-check taken before a call into the engine is stale after
+it.* Any engine call that can destroy, remove, limbo or transform an object
+invalidates every pointer you hold to it and to anything that references it.
+Re-check after the call — do not hoist the guard to the top of the function and
+assume it holds for the body.
+
+**Why it looks like a targeting or combat bug.** It correlates with "something
+just died", because a death is what changes cell occupancy and makes the next
+placement fail. The visible trigger (a unit sniped, a structure sold, a firefight)
+is one causal step removed from the actual fault, so surface details look
+scattered and unrelated across dumps. Identical EIP across every dump is the
+signal to trust; the surrounding story is not.
+
+**Diagnosis notes that saved time.**
+- `READ at 0x00000081` names the *field*, not just "a null deref" — `InLimbo`
+  at `+0x81` immediately identifies which member was touched.
+- Resolve the RVA with the build's `.map` and then **disassemble the deployed
+  binary**. Reading the listing showed an inlined `Unlimbo()` directly before the
+  faulting instruction, which is what identified the re-entrancy; the source line
+  alone would not have.
+- Beware inlining when reading the listing. A `test reg,reg` *after* the faulting
+  dereference looked like "the null check is one instruction too late" — a
+  compiler bug, essentially. It was not: it belonged to a *different*, inlined
+  callee that follows. At `/O2` adjacent instructions can come from three
+  different source functions.
+- Confirm which member an offset is before fixing. A class with no virtuals has
+  no vtable pointer, so the first member is at `+0x0`; guessing cost a
+  near-miss fix on the wrong pointer (`Parent` at `+0x4` vs `Child` at `+0x8`).
+
+**Present in Phobos PR #352 (`feature/techno-attachment`), still open.** Fetched
+from the live branch, `AttachmentClass::AI()`:
+
+```cpp
+if (this->Child)
+{
+    if (this->Child->InLimbo && !this->Parent->InLimbo)
+        this->Unlimbo();
+    ...
+    this->Child->SetLocation(this->GetChildLocation()); // deref after Unlimbo()
+```
+
+with `ChildDestroyed()` setting `this->Child = nullptr`. Both halves of the
+mechanism are upstream, so anything porting that PR inherits the crash.
+
+**Confirmed via.** Ten in-game dumps with identical EIP; `.map` symbol resolution
+against the byte-verified deployed DLL; disassembly of the faulting site;
+upstream source fetched from the PR branch.
+

@@ -466,6 +466,81 @@ open-topped:
 entered" seams sit at *different* addresses, which is exactly how a DLL could
 offer **both** garrison and open-topped as per-building toggles.
 
+## The complete `Occupier=` gate map — every site that can refuse entry
+
+**Source.** PayloadExt, 2026-09-14. Exhaustive: found by disassembling
+`gamemd.exe` and grepping every access to `InfantryTypeClass+0xEB4` (`Occupier=`)
+and `+0xEB5` (`Assaulter=`). Offsets objdump-verified.
+
+Widening garrison admission needs **all** of these, not just `CanBeOccupiedBy`.
+They are independent gates at different stages, and the later ones are never
+reached if an earlier one refuses.
+
+| Address | Function (vtable slot) | Role | Bail target | Proceed target |
+|---|---|---|---|---|
+| `0x457D4E` | `BuildingClass::CanBeOccupiedBy` (`0x457CE0`) | the nominal decision | `0x457DAD` assault branch | `0x457D58` |
+| `0x51F489` | `InfantryClass::ActionOnObject` | what the ORDER becomes | — | `0x51F49D` |
+| `0x519698` | `InfantryClass::UpdatePosition` | arrival | — | `0x5196A6` |
+| `0x522920` | `InfantryClass::GarrisonBuilding` | the actual entry | — | `0x52292C` |
+| **`0x4D4B96`** | **`FootClass::Mission_Capture` (slot `+0x214`)** | **sets the Destination — the WALK** | `0x4D4BC7` | `0x4D4BB4` |
+| `0x51F576` | `InfantryClass::Mission_Hunt` (slot `+0x228`) | AI: objective → `ForceMission(Capture)` | `0x51F5C0` | `0x51F58A` (→`CanBeOccupiedBy`) / `0x51F59A` (skip) |
+| `0x4D9A83` | near `SelectAutoTarget` (`0x4D9920`) | destination retention while `mission==8` | falls through to generic set at `0x4D9ABD` | — |
+| `0x6F8322` | `TechnoClass` threat/target eval | AI scoring of garrisonable targets | `0x6F833C` | calls `0x457CE0` |
+
+### `0x4D4B96` is the one that bites
+
+**Garrisoning runs as `Mission::Capture` (=8), not `Mission::Enter`.**
+`ActionOnObject` merely force-missions Capture and stores the objective;
+`FootClass::Mission_Capture` does the walking. Its gate:
+
+```
+4d4b43  mov ecx,[esi+0x2B4]        ; objective
+4d4b4f  call [edx+0x2C]            ; WhatAmI() == 6 (Building)?
+4d4b57  mov eax,[esi+0x5A4]        ; already have a Destination -> 4d4c14
+4d4b96  mov al,[edi+0xEB4]         ; Occupier   -> jne 4d4bb4
+4d4ba0  mov al,[edi+0xEB5]         ; Assaulter  -> jne 4d4bb4
+4d4baa  mov al,[edi+0xEBE]         ;            -> je  4d4bc7   BAIL
+4d4bb4  SetDestination(objective, 1)          ; THE WALK
+```
+
+Bailing skips `SetDestination`, so the infantry keeps the Capture mission with a
+**null Destination and simply stands still**. Symptom: the cursor offers "enter",
+the order is accepted with its confirmation, and the unit never moves. Every
+other gate above is downstream, so none of them ever fire — which makes this
+failure mode look like "the order is being silently dropped".
+
+**Registers at `0x4D4B96` — read carefully.** The prologue is a branchless
+`abstract_cast<InfantryClass*>`:
+
+```
+mov edi,eax / sub edi,0xF / neg edi / sbb edi,edi / not edi / and edi,esi
+```
+
+`EDI = (WhatAmI()==Infantry) ? this : NULL`, null-rejected at `0x4D4B67`. But
+`0x4D4B86` **reassigns EDI to the Type**, so at `0x4D4B96` `EDI` is an
+`InfantryTypeClass*` and the instance is **`ESI`**. Taking EDI as the infantry
+here silently reads garbage. Stolen bytes = the whole 6-byte `mov`.
+
+### Identifying the mission slots
+
+`InfantryClass` vtable = **`0x7EB058`** (assigned in the ctor at `0x517ACC` /
+`0x521A11`; `0x7EB03C` is the secondary/vector-deleting table). Anchoring
+`MissionClass`'s declared virtual order at `+0x204 = Mission_Sleep` gives
+`+0x214 = Mission_Capture` and `+0x228 = Mission_Hunt`. Corroborated
+independently: `0x51F540` (slot `+0x228`) ends in `SetDestination(building,1)` +
+`ForceMission(8)`, and `Mission::Capture == 8`.
+
+### Field notes
+
+- `InfantryTypeClass+0xEBE`, `+0xEC2`, `+0xEC3` are additional unnamed entry
+  flags tested alongside `Occupier`. `+0xEBE` is notable because at `0x51F574`
+  the engine uses it to jump **past** `CanBeOccupiedBy` entirely — so anything
+  setting it bypasses every occupancy whitelist.
+- `Occupier`'s INI default **cannot be read statically**: `0x5244CE` does
+  `mov al,[esi+0xEB4]` and passes that as the default to the read, so the value
+  is whatever the ctor or an inheritance pass left. Log it at runtime instead of
+  inferring it from rules.
+
 ## The bridge: why buildings can't be open-topped without help
 
 Release Phobos, `src/Ext/Techno/Body.Update.cpp` (~line 1234), comments:

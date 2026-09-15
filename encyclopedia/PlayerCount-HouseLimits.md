@@ -1337,3 +1337,102 @@ CountryLimitExt does not currently touch these sites (no hits for the shift
 pattern in its source). Lifting the 32-country bitfield means finding every
 `1u << ArrayIndex2` consumer, not only the parser at `0x4750D0` and its four
 write sites already recorded above.
+
+---
+
+### ⚠ `CellClass` sensor arrays hold 24 houses, not 32 — and the accessors are unbounded
+
+**CONFIRMED in-game**, not inferred: at 30 players a guard reported eight
+out-of-range writes at house index 25.
+
+Cloak- and disguise-detection coverage is one WORD per house, but only
+TWENTY-FOUR of them:
+
+```
++0x7C   unsigned short SensorsOfHouses[24]
++0xAC   unsigned short DisguiseSensorsOfHouses[24]     (0x7C + 24*2 — confirms the 24)
++0xDC   DWORD          BaseSpacerOfHouses
++0xE0   FootClass*     Jumpjet
++0xE4   ObjectClass*   FirstObject      <- head of the cell's object list
++0xE8   ObjectClass*   AltObject
+```
+
+The four accessors are one-line leaves that take the index straight off the
+stack with **no bound at all**:
+
+```
+487150:  mov eax,[esp+0x4] / inc WORD PTR [ecx+eax*2+0x7c]   Sensors_AddOfHouse
+487160:                      dec WORD PTR [ecx+eax*2+0x7c]   Sensors_RemOfHouse
+487170:                      inc WORD PTR [ecx+eax*2+0xac]   DisguiseSensors_AddOfHouse
+487180:                      dec WORD PTR [ecx+eax*2+0xac]   DisguiseSensors_RemOfHouse
+```
+
+Vanilla tops out at 10 houses, so 24 is unreachable and the missing check is
+free. Past it the damage is **graduated**, which is why symptoms vary per game:
+
+```
+SensorsOfHouses[25]         -> 0xAE = DisguiseSensorsOfHouses[1]   (phantom detection)
+DisguiseSensorsOfHouses[24] -> 0xDC = BaseSpacerOfHouses
+DisguiseSensorsOfHouses[28] -> 0xE4 = FirstObject                  (breaks targeting)
+```
+
+Corrupting `FirstObject` stops anything enumerating what stands in the cell,
+which presents as units refusing to acquire targets — no crash, nothing logged.
+It only fires when a house past the 24th owns a unit with cloak or disguise
+detection, so a 30-player game can look fine and then misbehave depending on who
+built what.
+
+**⚠ The array size is real but YRpp's cell offsets are not trustworthy** — its
+`LandType` (+0xEC) and `Passability` (+0x4C) both read uniform garbage on this
+build. The 24 here is confirmed arithmetically (0xAC − 0x7C = 48 = 24 × 2) and
+from the disassembly, not taken on faith.
+
+**Containment, not a fix.** Skip the operation when the index is out of range;
+do NOT clamp to 23, which corrupts house 23's counters instead and trades a
+silent bug for a subtler one. Skipping costs houses past the 24th their cloak
+and disguise detection and nothing else. Widening is not possible from a DLL:
+the arrays live inside `CellClass`, which the engine allocates at a fixed 0x148
+bytes (`push 0x148` at 0x5663C3), so growing them would shift every field after
+them engine-wide.
+
+**Practical ceiling.** 30 players is structurally safe (32-bit house bitfields),
+but only the first 24 houses get working detection. 22 players (24 houses) is
+the largest count with no asymmetry at all.
+
+### `FirstBuildableFromArray` (0x5051E0) — six unguarded call sites
+
+Antares replaces this function and guards its NULL return at `0x4F65BF` and
+`0x5D705E`, but three of the twelve call sites already `test eax,eax` while six
+dereference immediately:
+
+```
+unguarded:  0x4F671D  0x4F6794  0x4FDE63  0x4FDE8B  (mov edx,[eax])
+            0x4FE175  0x4FE305                       (mov reg,[eax+0xDF8])
+guarded:    0x4FDD56  0x4FEAEC  0x4FEB53             (test eax,eax)
+```
+
+That three sites test for NULL is the point: the engine treats a NULL return as
+a legitimate transient state, so the six that do not are simply missing the
+check. Trigger is any house that can build nothing from `[General]BaseUnit=` —
+in practice a country whose MCV prerequisite chain is not owned by it. Raising
+the player count does not cause this; it draws more countries per game and makes
+it near-certain.
+
+The vanilla implementation is itself an unguarded country-index shift:
+
+```
+5051e9:  mov ecx,[ebp+0x34] / add ecx,0x98   ; &ParentCountry
+5051f2:  call 0x5117d0                       ; FindIndexOfName -> EAX
+50520d:  shl ebx,cl                          ; 1 << index, CL masked to 5 bits
+505224:  test [eax+0x6cc],ebx                ; against Owner=
+```
+
+A −1 return becomes `1 << 31`, matches nothing, and yields NULL. Same class as
+the `ArrayIndex2` shift recorded earlier on this page.
+
+**Guarding is worth it even when the data is at fault**, because the guard names
+the country: a bare `C0000005` became *"house (country AntonGen) can build
+nothing from [General]BaseUnit="*, which is what made the real cause findable.
+At `0x4F671D` the substitute must be `EBX = 0`, not the engine's `0x7FFFFFFF`
+sentinel — 0x4F676E does `add ebx,edi` where EDI already holds that sentinel, so
+using it twice overflows to −2 and inverts the affordability test.

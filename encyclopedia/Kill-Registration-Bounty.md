@@ -54,11 +54,24 @@ building list non-empty and killer owns none → no pay; then pays victim's
   the **same size** rather than picking a fresh nearby address (overlap risk
   with the six sites above is high in this 0x150-byte window).
 
+## Runtime validation (2026-09-14, WeaponExt P0 probe)
+
+A read-only co-hook at `0x702E64` (size 0x6, returning 0) ran in a live
+skirmish alongside Antares, Phobos, Kratos and ~20 other DLLs:
+
+- **EDI=killer / ESI=victim CONFIRMED live** — 29 kill events logged with
+  sane types, houses, costs (`E1` 50, `GGI` 100, `CMIN` 3000, `ATESLA` 9000).
+- **Victim object still fully live at this site** — `GetTechnoType()`,
+  `Owner`, and `Location` all readable; death coordinates are available here,
+  so range-based kill logic can be built at this funnel.
+- **Kills by Neutral-owned units DO pass through this site** (Neutral `E1`
+  killing player units logged) — house filters must expect civilian houses.
+- Chain health: both handlers (Antares's + the probe's) ran; same-address
+  co-hooking at matching size behaves as documented.
+
 ## RE-VERIFY
 
 - [ ] Function entry address of `TechnoClass::RegisterDestruction` (PDB list
       names only interior sites; entry not recorded here)
 - [ ] Whether `EDI`/`ESI` still hold killer/victim at `0x702E9D` (Kratos and
       Ares both hook it; their sources imply yes, unconfirmed)
-- [ ] Victim death coordinates availability at these sites (needed for
-      range-based "kill leech" logic; victim object is still live here?)

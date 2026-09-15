@@ -479,15 +479,27 @@ reached if an earlier one refuses.
 | Address | Function (vtable slot) | Role | Bail target | Proceed target |
 |---|---|---|---|---|
 | `0x457D4E` | `BuildingClass::CanBeOccupiedBy` (`0x457CE0`) | the nominal decision | `0x457DAD` assault branch | `0x457D58` |
-| `0x51F489` | `InfantryClass::ActionOnObject` | what the ORDER becomes | — | `0x51F49D` |
+| `0x51F489` | `InfantryClass::Mission_Attack` (slot `+0x210`) | per-frame: convert "attack this building" into garrisoning | — | `0x51F49D` |
 | `0x519698` | `InfantryClass::UpdatePosition` | arrival | — | `0x5196A6` |
 | `0x522920` | `InfantryClass::GarrisonBuilding` | the actual entry | — | `0x52292C` |
-| **`0x4D4B96`** | **`FootClass::Mission_Capture` (slot `+0x214`)** | **sets the Destination — the WALK** | `0x4D4BC7` | `0x4D4BB4` |
+| `0x4D4B96` | `FootClass::Mission_Capture` (slot `+0x214`) | sets the Destination — but only reachable when Destination is null (see below) | `0x4D4BC7` | `0x4D4BB4` |
 | `0x51F576` | `InfantryClass::Mission_Hunt` (slot `+0x228`) | AI: objective → `ForceMission(Capture)` | `0x51F5C0` | `0x51F58A` (→`CanBeOccupiedBy`) / `0x51F59A` (skip) |
 | `0x4D9A83` | near `SelectAutoTarget` (`0x4D9920`) | destination retention while `mission==8` | falls through to generic set at `0x4D9ABD` | — |
 | `0x6F8322` | `TechnoClass` threat/target eval | AI scoring of garrisonable targets | `0x6F833C` | calls `0x457CE0` |
 
-### `0x4D4B96` is the one that bites
+### `0x4D4B96` — a real gate, but usually UNREACHABLE (corrected 2026-09-14)
+
+⚠ **First published here as "the one that bites". That was wrong; corrected after
+testing.** It IS a genuine gate, but only when `Destination` is null. The player
+path sets the destination first — `Mission_Attack`'s success path at `0x51F4AD` does
+**`SetDestination(building,1)` then `ForceMission(8)`** — and Mission_Capture branches
+away at `0x4D4B5F` (`mov eax,[esi+0x5A4]; test eax,eax; jne 0x4D4C14`) whenever a
+Destination already exists. Verified empirically: a garrison that WORKS (E1 into a
+Battle Bunker) produces no trace through `0x4D4B96` at all.
+
+Note also that the `0x4D4C14` branch is nearly inert — with a live target it falls
+straight to `0x4D4C71` and only returns a delay. The walking is driven by the
+Destination in the FootClass update, not by Mission_Capture.
 
 **Garrisoning runs as `Mission::Capture` (=8), not `Mission::Enter`.**
 `ActionOnObject` merely force-missions Capture and stores the objective;

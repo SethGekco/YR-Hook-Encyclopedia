@@ -163,3 +163,37 @@ armed building is a target, so `SelectWeapon` gets dispatched at all. Removing
 the weapon or moving it to another building tracks the crash exactly — which
 looks like evidence for a targeting-logic theory but is really just "does the
 broken wrapper get invoked".
+
+---
+
+## Data-side: `Primary=` is dead on any type that defines `WeaponCount`
+
+Not a hook — a rules-data fact that matters to anyone *writing* weapons through
+the INI, and one that fails in the most misleading way possible.
+
+A TechnoType with `WeaponCount=N` answers from its **`Weapon1`..`WeaponN`**
+list. Its `Primary=` / `Secondary=` are simply not consulted. Two shapes:
+
+* **`Gunner=yes`** — the slot is chosen by **passenger**. The Allied IFV (`FV`)
+  is `Gunner=yes`, `WeaponCount=17`, `Weapon1=HoverMissile ;Normal`. `Weapon1`
+  is therefore the *empty transport* weapon, and the rest map to passenger type.
+* **Multi-turret** — the slot is chosen by turret/range. The Prism Tank (`SREF`)
+  is `WeaponCount=1` with `Weapon1=Comet`, and ships with its `Primary=` line
+  **commented out in vanilla** — a good tell that the key is inert there.
+
+**Why this wastes an afternoon.** Writing `[FV] Primary=Comet` succeeds. The INI
+accepts it, a tool that logs its own writes reports a clean
+`FV.Primary: 'HoverMissile' -> 'Comet'`, and the unit keeps firing missiles. The
+log says the change landed — and it did land; it is just never read. A silent
+no-op that *reports success* is worse than an outright failure, so a tool writing
+weapon keys should check the target for `WeaponCount` and say so.
+
+Note `Primary=` is usually still *present* on these types (the IFV has
+`Primary=HoverMissile`), so "the key exists in the section" is not evidence that
+it is used. Check `WeaponCount`, not `Primary`.
+
+**Confirmed via.** Vanilla `rulesmd.ini` `[FV]` (`Gunner=yes`, `WeaponCount=17`,
+`Weapon1`..`Weapon17`) and `[SREF]` (`WeaponCount=1`, `Weapon1=Comet`, `Primary`
+commented out); observed in-game in TraitExt — a type-scope random pool writing
+`FV.Primary` logged the change across matches and never altered what the IFV
+fired. The corrected test uses `Weapon1=`.

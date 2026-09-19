@@ -1387,17 +1387,67 @@ built what.
 build. The 24 here is confirmed arithmetically (0xAC − 0x7C = 48 = 24 × 2) and
 from the disassembly, not taken on faith.
 
-**Containment, not a fix.** Skip the operation when the index is out of range;
-do NOT clamp to 23, which corrupts house 23's counters instead and trades a
-silent bug for a subtler one. Skipping costs houses past the 24th their cloak
-and disguise detection and nothing else. Widening is not possible from a DLL:
-the arrays live inside `CellClass`, which the engine allocates at a fixed 0x148
-bytes (`push 0x148` at 0x5663C3), so growing them would shift every field after
-them engine-wide.
+**First response — containment.** Skip the operation when the index is out of
+range; do NOT clamp to 23, which corrupts house 23's counters instead and trades
+a silent bug for a subtler one. Skipping costs houses past the 24th their cloak
+and disguise detection and nothing else.
 
-**Practical ceiling.** 30 players is structurally safe (32-bit house bitfields),
-but only the first 24 houses get working detection. 22 players (24 houses) is
-the largest count with no asymmetry at all.
+**⚠ CORRECTION.** An earlier revision of this page claimed widening was
+"not possible from a DLL, because `CellClass` is a fixed 0x148 bytes." That
+conclusion was wrong, and the error is worth naming: it assumed the only way to
+get more entries was more *bytes*. The entries are reference counts, not
+identifiers — incremented when a detector enters range, decremented when it
+leaves, read only as `> 0` — and a count that never passes a dozen does not need
+16 bits.
+
+### The fix — re-encode the same 96 bytes as two BYTE arrays
+
+```
++0x7C   unsigned char Sensors[48]           0x7C..0xAB -> next array at 0xAC  ✓
++0xAC   unsigned char DisguiseSensors[48]   0xAC..0xDB -> BaseSpacer at 0xDC  ✓
+```
+
+Each ends exactly where the following field begins. `sizeof(CellClass)` is
+untouched, so 48 house slots cover the engine's hard ceiling of 32 with 50%
+headroom, and **the 24-house detection limit disappears entirely**.
+
+**Do NOT instead enlarge `CellClass` and append.** It looks cleaner and is a
+trap: cells are block-copied by `mov ecx,0x52` + `rep movsd` at **0x406401,
+0x40640C and 0x57DF11** — 82 dwords, exactly 0x148 — so anything past the end is
+silently dropped by those copies. Re-encoding in place is immune, and it also
+leaves MapSizeExt's reallocation of the cell array undisturbed.
+
+**Only seven instructions in the binary touch these arrays**, and six are
+one-instruction leaf accessors that all 29 other consumers call through — which
+is what makes the re-encode safe to do unilaterally:
+
+```
+0x4870D0  IsSensedByHouse             <- 19 callers   cmp WORD [ecx+edx*2+0x7c],ax
+0x4870F0  IsDisguiseSensedByHouse     <-  4 callers   cmp WORD [ecx+edx*2+0xac],ax
+0x487150  Sensors_AddOfHouse          0x487160  Sensors_RemOfHouse
+0x487170  DisguiseSensors_AddOfHouse  0x487180  DisguiseSensors_RemOfHouse
+0x48682D  inlined visibility test — the only non-accessor
+```
+
+Find them by scanning the disassembly for the addressing mode (`*2+0x7c`,
+`*2+0xac`), not by trusting a header. Check `lea` forms too: a computed pointer
+would not match that pattern, and on this build the 136 `lea …+0x7c]` hits are
+all `[esp+0x7c]` stack locals.
+
+**Saturate, do not wrap.** A byte tops out at 255 where a word topped out at
+65535. An `inc` that wrapped to 0 would read as "not covered" and blink the cell
+out of detection, so clamp instead — free, since the add/remove paths are
+already hooked. Clamp unmatched removes as well: vanilla wraps those to 65535
+and leaves the cell permanently detected.
+
+Zero-init needs no change — the same 96 bytes, and all zeroes mean "no coverage"
+under either reading. The encoding is identical on every client running the DLL,
+so netplay stays deterministic.
+
+**Ceiling after the fix.** 30 players, with no detection asymmetry. Before it,
+30 worked but only the first 24 houses could see cloaked or disguised units, so
+22 players (24 houses) was the largest fully symmetric count — relevant only to
+builds that predate this.
 
 ### `FirstBuildableFromArray` (0x5051E0) — six unguarded call sites
 

@@ -379,6 +379,43 @@ holds `0x6D9076` and `0x6D9134` (both size 5), Antares `0x6D9427` (size 9);
 
 Verified by IntelExt (`src/Ext/Techno/Hooks.ShroudLeak.cpp`).
 
+#### Addendum — the shroud cull is PER CLASS, inside each `Draw`
+
+The table above is complete for `RenderLayers`, but "buildings have no cull"
+must not be read as "nothing hides a building". Visibility is **not
+centralised**. `CellClass::IsShrouded` (`0x487950`, a thin wrapper over
+`MapClass::IsLocationShrouded` `0x586360`) has exactly **nine** call sites, and
+they live inside the individual draw routines:
+
+| Call site | Enclosing function |
+|---|---|
+| `0x423621` | `AnimClass::Draw` (`0x422CA0`) |
+| `0x43D539` | `BuildingClass::Draw` (`0x43D290`) |
+| `0x43DDE0` | `0x43DA80` (BuildingClass draw helper) |
+| `0x5190D1` | `0x518F90` (InfantryClass draw) |
+| `0x6D7A5F` | `0x6D7840` (TacticalClass cell pass) |
+| `0x6F51E3`, `0x6F52AA` | `0x6F5190` |
+| `0x7063D7` | `0x705E00` |
+| `0x73B197` | `0x73B140` (UnitClass draw) |
+
+⚠ **Every one of these has the same shape, and it is not an early return:**
+
+```
+call 0x5657A0            ; MapClass::GetCellAt
+call 0x487950            ; CellClass::IsShrouded
+test al,al
+je   +N
+mov  DWORD PTR [esp+X],0 ; zero a LOCAL, then carry on drawing
+```
+
+So the per-class shroud test *modifies* how the object is drawn rather than
+skipping it. Anyone planning a "draw this type through shroud" feature should
+budget for N seats, one per class, and should not assume a single choke point
+exists — and should first establish what each zeroed local actually controls.
+(Unresolved at time of writing: which of these, if any, hides a building's main
+SHP. A reported symptom worth correlating is that voxel components on buildings
+*do* vanish under shroud while the structure does not.)
+
 ### RE — `FoggedObjectClass` fully mapped, and it has NO draw method
 
 Constructor `0x4D0EF0`, allocated `push 0x78` in `0x457AA0`.

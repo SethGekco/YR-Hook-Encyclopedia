@@ -319,6 +319,66 @@ dead code. That is why it returns false even in a match where fog is visibly
 rendering and snapshots are being built. Never use it as a fog predicate; read
 `+0x140 & 0x400000` instead.
 
+### RE — `MapClass::IsLocationFogged` (`0x5865E0`) is a STUB, and it breaks `ShouldFogRemove`
+
+The second gutted fog predicate, and this one is worse than `IsFogged()`
+because it **has live callers**.
+
+```
+5865e0  32 c0        xor al,al
+5865e2  c2 04 00     ret 4
+```
+
+It returns false unconditionally. Its neighbour, `MapClass::IsLocationShrouded`
+(`0x586360`), takes the same argument, is immediately before it in the binary,
+and is **real** — nine callers, and `CellClass::IsShrouded` (`0x487950`) is a
+thin wrapper over it. A matched pair where only one survived YR disabling fog.
+
+**What depends on the stub.** `TacticalClass::RenderLayers` (`0x6D8DB0`) walks
+all five `ObjectsInLayers` and routes each object by `AbstractClass::
+AbstractFlags` (`+0x14`; `Techno = 0x1`, `Object = 0x2`, `Foot = 0x4`):
+
+| Route | Site | Visibility cull |
+|---|---|---|
+| `Foot` | `0x6D8FB2` | `IsLocationFogged`, **only if the FogOfWar scenario bit is set** (`test ah,0x10 / je draw`) |
+| `Techno` non-`Foot` (buildings) | `0x6D90B5` | **none** |
+| neither, `WhatAmI() == 4` (Anim) | `0x6D9177` | `IsLocationFogged`, gated on `AnimTypeClass::ShouldFogRemove` |
+| neither, `WhatAmI() == 36` (Terrain) | `0x6D929F` | `IsLocationFogged`, unconditional |
+
+The Anim arm at `0x6D91E9` reads:
+
+```
+mov  ecx,[esi+0xC8]          ; AnimClass::Type
+mov  al,[ecx+0x374]          ; AnimTypeClass::ShouldFogRemove
+test al,al
+je   draw                    ; ShouldFogRemove=no -> never hidden
+...
+call 0x5865E0                ; MapClass::IsLocationFogged  <-- the stub
+test al,al
+jne  0x6D940C                ; hidden
+```
+
+`AnimTypeClass`'s constructor (`0x4276D4`) defaults `ShouldFogRemove` to
+**true**, so this should apply to essentially every animation.
+
+**⚠ Consequence: `ShouldFogRemove=` has no observable effect anywhere in YR,
+and animations draw over shroud.** Both shroud paint passes (`0x6D448B` and
+`0x6D44C1`, reaching `CellClass` shroud/fog draw at `0x4801F0` → `0x47EFE0`)
+run *before* the object pass at `0x6D465F`, and the only per-object cull that
+could hide an anim afterwards is the stub. This is the mechanism behind the
+long-standing "you can faintly see animations through shroud" complaint.
+
+**Fix pattern.** Do not hook `0x5865E0` itself: it is 3 bytes and its body is
+the `ret`, so Syringe's 5-byte patch destroys the return path. Seat instead at
+`0x6D9213` (`test al,al` + `jne rel32`, size **8**) and return an explicit
+vanilla label — `0x6D940C` to skip, `0x6D921B` to draw. The stolen bytes
+contain a rel32, so such a handler must **never** return 0. Answer with
+`IsLocationShrouded` (`0x586360`), the live half of the pair. Registry: Phobos
+holds `0x6D9076` and `0x6D9134` (both size 5), Antares `0x6D9427` (size 9);
+`0x6D9213..0x6D921A` is clear of all three.
+
+Verified by IntelExt (`src/Ext/Techno/Hooks.ShroudLeak.cpp`).
+
 ### RE — `FoggedObjectClass` fully mapped, and it has NO draw method
 
 Constructor `0x4D0EF0`, allocated `push 0x78` in `0x457AA0`.

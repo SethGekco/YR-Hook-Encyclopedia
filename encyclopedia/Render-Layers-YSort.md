@@ -87,10 +87,26 @@ forward at one index per frame. If you ever insert into `Ground` unsorted, a
 
 ## `GetYSort` (vtable `+0x0B8`)
 
-`ObjectClass::GetYSort` (`0x5F6BD0`) calls the render-dimensions getter
-(vtable `+0xAC`) and combines two components of the resulting rectangle. The
-units are therefore **render-rectangle units (screen-ish pixels), not leptons** —
-do not assume a cell is 256.
+`ObjectClass::GetYSort` (`0x5F6BD0`) calls vtable `+0xAC` twice and sums two
+components of the result:
+
+```
+5f6be0  call [eax+0xac]        ; -> edi
+5f6bf1  call [edx+0xac]        ; -> eax   (same function, second buffer)
+5f6bf7  mov  ecx,[edi+0x4]     ; .Y
+5f6bfa  mov  edx,[eax]         ; .X
+5f6bfc  add  ecx,edx
+```
+
+⚠ **vtable `+0xAC` is `ObjectClass::GetRenderCoords` (`0x41BE00`), which returns
+a `CoordStruct`** — not a rectangle. So the key is
+`renderCoords.X + renderCoords.Y` **in leptons, and one cell is 256.**
+
+(An earlier revision of this page called it a render rectangle and warned
+against assuming 256. That was wrong. Measured in game: a corpse anim reported
+a base value of `73036`, exactly the magnitude a world position gives, and the
+correction came only after two sub-cell bias values — `-16` and `-64`, i.e. a
+sixteenth and a quarter of a cell — visibly did nothing.)
 
 `AnimClass::GetYSort` (`0x422BC0`) overrides it:
 
@@ -148,9 +164,11 @@ buys nothing over `Ground` anyway.
 
 1. `pType->Layer = Layer::Ground;` — **without this nothing else matters.**
 2. `pAnim->YSortAdjust = <small negative>;` on the **instance**, not the type.
-3. Keep the magnitude small. The sort is comparison-based over screen-space
-   values; a large bias sorts the object behind things several cells in front of
-   it, which looks just as wrong as being on top.
+3. Size the magnitude in **cells: one cell = 256 leptons**. Sub-cell values are
+   invisible in practice — they only break exact ties, and two objects rarely
+   share a lepton-exact position. `-256` biases by one cell. A very large value
+   sorts the object behind things many cells away, which looks as wrong as
+   being on top.
 4. If the object is paused or otherwise never advances, also re-set
    `ObjectClass +0x80` (`NeedsRedraw`) each frame — `ObjectClass::DrawIfVisible`
    (`0x5F4B10`) clears it after use, so a frozen anim is drawn exactly once.

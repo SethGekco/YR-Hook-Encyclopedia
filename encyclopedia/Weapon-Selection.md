@@ -194,6 +194,16 @@ it is used. Check `WeaponCount`, not `Primary`.
 
 **Confirmed via.** Vanilla `rulesmd.ini` `[FV]` (`Gunner=yes`, `WeaponCount=17`,
 `Weapon1`..`Weapon17`) and `[SREF]` (`WeaponCount=1`, `Weapon1=Comet`, `Primary`
-commented out); observed in-game in TraitExt — a type-scope random pool writing
-`FV.Primary` logged the change across matches and never altered what the IFV
-fired. The corrected test uses `Weapon1=`.
+commented out).
+
+**A/B VERIFIED IN-GAME** (TraitExt, 2026-09-19), same unit, same build, same
+mechanism — only the key changed:
+
+* `FV.Primary: 'HoverMissile' -> 'Comet'` — logged clean across several
+  matches; the IFV kept firing missiles.
+* `FV.Weapon1: 'HoverMissile' -> '105mm'` — the empty IFV fired a cannon.
+
+So `Weapon1` is the **empty-transport** slot (vanilla comments it `;Normal`),
+and `Primary=` is genuinely never consulted on a `Gunner=yes` type. The negative
+half of that A/B is the load-bearing part: it is the case that *looks* like it
+worked.

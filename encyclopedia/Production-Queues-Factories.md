@@ -419,6 +419,71 @@ the observed behaviour, not on reading its instructions.
 
 ---
 
+### `0x500510` / `0x500850` — HouseClass::GetPrimaryFactory / SetPrimaryFactory
+
+**Framework names.** Hooked by **no framework** in the registry — despite being the
+funnel that Antares' and Phobos' ~8 hardcoded `BuildCat::DontCare` call sites all pass
+through. Since those call sites live in compiled DLLs and cannot be edited, this pair is
+the only available lever for changing channel routing.
+
+**What they do.** Resolve the house's *primary* factory for a production channel.
+Both dispatch identically: index a 40-entry byte table by `AbstractType - 1`, then jump
+through a **five-case** table. The verified slot map:
+
+| offset | field | selected when |
+|---|---|---|
+| `0x53AC` | `Primary_ForAircraft` | `AircraftType` |
+| `0x53B0` | `Primary_ForInfantry` | `InfantryType` |
+| `0x53B4` | `Primary_ForVehicles` | `UnitType`, naval = false |
+| `0x53B8` | `Primary_ForShips` | `UnitType`, naval = true |
+| `0x53BC` | `Primary_ForBuildings` | `BuildingType`, `BuildCat != Combat` |
+| `0x53C0`–`0x53C8` | `Primary_Unused1/2/3` | **never** |
+| `0x53CC` | `Primary_ForDefenses` | `BuildingType`, `BuildCat == Combat` |
+
+**What they do *not* do — easily mistaken.**
+- **`Primary_Unused1/2/3` are not spare capacity.** No case in either jump table reads
+  or writes `0x53C0`/`0x53C4`/`0x53C8`. They are structurally unreachable through the
+  engine's own accessors — dead storage. The name invites "three free channels I can
+  repurpose"; the dispatch tables say otherwise. Their position *between* `Buildings`
+  and `Defenses` (rather than trailing) makes them look like live enum indices, which
+  makes the wrong guess more tempting, not less.
+- **`BuildCat` is only consulted for `BuildingType`,** and only as `== Combat`. For
+  every other `AbstractType` the argument is ignored entirely, which is why callers pass
+  a literal `BuildCat::DontCare` for units and infantry without consequence.
+- **The getter does not find *a* factory, it returns *the designated primary*.** Every
+  producing building already owns its own `FactoryClass` (`BuildingClass::Factory`);
+  these functions only say which one the house and sidebar treat as authoritative.
+  "One item at a time per category" is a consequence of this designation, not of a
+  shortage of `FactoryClass` instances.
+- An out-of-range `AbstractType` is a silent no-op (getter returns 0, setter writes
+  nothing) rather than an error.
+
+**Register / calling convention.**
+```
+GetPrimaryFactory  0x500510   __thiscall, ret 0x0C
+  ECX = HouseClass*, [ESP+4] = AbstractType, [ESP+8] = bool naval,
+  [ESP+0xC] = BuildCat                      → EAX = FactoryClass*
+
+SetPrimaryFactory  0x500850   __thiscall, ret 0x10
+  ECX = HouseClass*, [ESP+4] = FactoryClass*, [ESP+8] = AbstractType,
+  [ESP+0xC] = bool naval, [ESP+0x10] = BuildCat
+```
+
+**Stolen bytes.** Both begin `mov eax,[esp+N]` (4) + `dec eax` (1) = **exactly 5**,
+ending on a real instruction boundary, and neither sequence contains a relative branch —
+so a `return 0` entry hook is safe *here*. Do not generalise that: see
+Syringe-Stub-Semantics.md for sites where the same pattern crashes.
+
+**Confirmed via.** `objdump` of vanilla `gamemd.exe` (imagebase 0x400000) at both
+addresses, including the byte-index tables at `0x500588`/`0x5008DC` and the jump tables
+at `0x500574`/`0x5008C8`; field names cross-checked against
+`YRpp/HouseClass.h:928-936`, whose declaration order matches the offsets exactly.
+Getter and setter were disassembled independently and agree. **Not** yet validated at
+runtime — a shadow hook recording the setter and cross-checking the getter is written
+but has not been run in a game.
+
+---
+
 ## Related pages
 
 - **Buildability & Prerequisites** — `HouseClass::CanBuild` (`0x4F7870`), same

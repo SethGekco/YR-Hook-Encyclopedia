@@ -77,6 +77,36 @@ Practical consequence for anyone mutating INI content here: the hook fires more
 than once, so any non-idempotent edit (accumulating `+=`/`*=` style folds) must
 carry its own applied-guard, e.g. a sentinel key written into the INI object.
 
+**⚠ The same multi-pass fact has a second, nastier consequence: *reading* config
+here.** A DLL that loads its own settings at this hook will have them **silently
+erased** by a later pass, because the later INI does not contain its section:
+
+```cpp
+// WRONG — the map INI has no [MyDLL], so ReadBool returns the literal
+// default and switches the feature off after rules already enabled it.
+Enabled = pINI->ReadBool("MyDLL", "Enabled", false);
+
+// RIGHT — absent key changes nothing; an explicit value still applies.
+Enabled = pINI->ReadBool("MyDLL", "Enabled", Enabled);
+```
+
+**Why this is brutal to diagnose.** If the only log line is gated on the feature
+being enabled, the shutdown is *invisible*: you get one "feature enabled" line at
+startup and then total silence, which reads exactly like "my hooks never fired"
+and sends you off disassembling perfectly good addresses. Worse for containers —
+an unconditional `clear()` at the top of such a handler discards everything the
+rules pass populated.
+
+**This is precisely why Phobos reads through `Valueable<T>::Read`,** which leaves
+the value untouched when the key is absent, making handlers idempotent across
+passes by construction. Hand-rolled `ReadBool`/`ReadInteger` calls do not get that
+for free and must replicate it.
+
+**Defensive habit:** log *every* invocation with a pass counter and the resolved
+values (`ReadConfig pass %d: Enabled=%s`), not just the enabling one — then
+multi-pass behaviour is visible in the log instead of inferred after two failed
+test sessions.
+
 ---
 
 ### `0x668F6A` — RulesClass::Read_File (tail)

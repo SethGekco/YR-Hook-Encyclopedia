@@ -553,6 +553,53 @@ independently: `0x51F540` (slot `+0x228`) ends in `SetDestination(building,1)` +
   is whatever the ctor or an inheritance pass left. Log it at runtime instead of
   inferring it from rules.
 
+## ★ The gate that actually decides player-ordered garrisoning: `C4=`
+
+**Source.** PayloadExt, 2026-09-19, in-game A/B verified in both directions.
+This is the single most load-bearing fact on this page for anyone widening
+garrison admission, and it is *not* `Occupier=`.
+
+**`InfantryTypeClass::C4` = `+0xEC2`** (INI key `"C4"` at `0x825978`; read at
+`0x524545`, stored at `0x524559`).
+
+It guards the whole "convert my building target into garrisoning it" branch, at
+the **top** of both mission handlers — before the target is even examined:
+
+```
+Mission_Attack   0x51F3E9  mov cl,[Type+0xEC2]       ; C4?
+                 0x51F3F1  jne 0x51F400              ; yes -> consider garrison
+                 0x51F3F3  push 0xE / call 0x70D0D0  ; else HasAbility(14)?
+                 0x51F3FE  je  0x51F456              ; neither -> never looks
+Mission_Capture  0x4D4B6F  same shape   -> 0x4D4BB4 (SetDestination)
+```
+
+`0x70D0D0` is `HasAbility` (reads the veterancy struct at `techno+0x150` via
+`0x74FF90`/`0x750010`), so the vanilla rule is **"C4 or the ability"**.
+
+**Why this matters more than it looks.** `CanBeOccupiedBy` (`0x457CE0`),
+`Mission_Attack`'s occupier test (`0x51F489`), `Mission_Capture`'s (`0x4D4B96`),
+`UpdatePosition` (`0x519698`) and `GarrisonBuilding` (`0x522920`) **all sit
+INSIDE this branch**. An extension that forces admission at any of them will see
+its own logic report "admitted" and still observe nothing happen, because for a
+non-C4 infantry the branch is never entered. Open this gate too.
+
+**Verified in game, both directions:** a Navy SEAL (`C4=yes`, `Occupier` absent
+⇒ 0 at runtime) garrisons happily; comment out its `C4=` and it stops. Add
+`C4=yes` to a Guardian GI (`Occupier=no`) and it starts. A sniper with neither
+never does. `Occupier=` is independently disproven as the differentiator: an
+`Occupier=0` unit was logged entering and being appended to `Occupants`.
+
+**The AI is unaffected** — `Mission_Hunt` (`0x51F540`, InfantryClass vtable slot
+`+0x228`) has **no** C4 gate, which is why AI-hunted infantry garrison fine while
+the same type refuses a player's click. If you are debugging this, make sure your
+repro is a *player order*, not AI behaviour; they take different paths.
+
+**Not the order-event path.** Worth recording to save the search: the dispatcher
+at `0x4C73A5` obtains the mission via `call [vtable+0x4A4]` then queues it at
+`0x4C73B9`, and for infantry that virtual (`0x4DF0E0`) only reads the mission
+byte out of the event (`movsbl 0xC(%edi),%ebp`). Nothing type-specific happens
+there, so it is not where units diverge.
+
 ## The bridge: why buildings can't be open-topped without help
 
 Release Phobos, `src/Ext/Techno/Body.Update.cpp` (~line 1234), comments:

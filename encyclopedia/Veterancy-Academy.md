@@ -338,13 +338,34 @@ answer is provably `>=` another's makes the other's handler a no-op underneath i
 framework's without disabling it and without controlling load order, provided
 yours also only raises.
 
-**✅ VERIFIED in game.** A third-party DLL co-loaded with Antares, injected after
-it, computing `max(best non-stacking, sum of stacking)` over its own academy
-list: with a stacking academy worth `0.5`, one building produced no chevron, two
-produced **veteran**, four produced **elite**. Antares takes the `max` of its
-academies and was reading the same `Academy.*Veterancy` tags, so it resolved
-`0.5` throughout and could never have produced either promotion. Both handlers
-ran; the larger answer won, exactly as the commutativity argument predicts.
+**✅ VERIFIED in game — both directions.** A third-party DLL co-loaded with
+Antares, injected after it, computing `max(best non-stacking, sum of stacking)`
+over its own academy list, against a stacking academy worth `0.5` and a
+non-stacking one worth `1.0`:
+
+| Owned | Rule gives | Observed |
+|---|---|---|
+| 1 stacking | `0.5` | no chevron |
+| 2 stacking | `1.0` | **veteran** |
+| 4 stacking | `2.0` | **elite** |
+| 1 stacking + the non-stacking | `max(1.0, 0.5) = 1.0` | **veteran** |
+| 4 stacking + the non-stacking | `max(1.0, 2.0) = 2.0` | **elite** |
+
+Rows 2–3 confirm the summation; rows 4–5 confirm the `max` — the non-stacking
+academy wins when it is larger and is overtaken when the stack exceeds it. Row 4
+is the sharp one: one stacking building *alone* produces no chevron, so the
+promotion there can only come from the non-stacking academy competing rather
+than adding.
+
+Antares was reading the same `Academy.*Veterancy` tags and takes the `max` of
+its own list, so it resolved `0.5` throughout and could not have produced any of
+these promotions. Both handlers ran and the larger answer won, exactly as the
+commutativity argument predicts.
+
+Also worth recording from that exercise: partial levels are **invisible** —
+`0.5` and `0.0` render identically — so a promotion system of this kind needs a
+decision log to be testable at all. Reading chevrons cannot distinguish "applied
+a partial bonus" from "did nothing".
 
 ### ⚠ A *reducing* effect is NOT impossible — an earlier revision said it was
 

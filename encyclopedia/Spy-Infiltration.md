@@ -76,17 +76,27 @@ real games:
 
 8 occurrences across the `RA2/debug/debug.*.log` history.
 
-**Therefore:** Syringe invokes **every** registered handler for an address. The
-first non-zero return decides only where control ultimately transfers; it does
-**not** prevent subsequent handlers from executing.
+**Therefore, at this address:** a later-registered handler ran despite an
+earlier non-zero return. The infiltration observer is live here, and that is a
+measurement, not inference.
+
+**⚠ Do NOT generalise this into "Syringe always invokes every handler."** An
+earlier revision of this section did exactly that, and there is now a
+contradicting runtime observation elsewhere in this repository — a later handler
+at `0x449CC1` that never emitted a log line at all. The general question is
+**UNRESOLVED**; see the ⚠ section in
+[Syringe-Stub-Semantics.md](Syringe-Stub-Semantics.md). What is recorded here is
+one address's behaviour, not a dispatch rule.
 
 **Practical rule.** Co-hooking a fully-wrapped function entry is fine as an
 *observer* — return `0` and you will run in either load order. It stops being
 fine the moment you want to *suppress* the upstream effect, because then you must
 return a jump target and load order decides the winner.
 
-**⚠ This generalises beyond this address.** Any page claiming a chained hook
-"never runs" because an incumbent returns a jump target is overstating the case.
+**⚠ Treat neighbouring claims with the same caution.** A page claiming a chained
+hook categorically "never runs" because an incumbent returns a jump target is
+overstating its case in the other direction — but so was this one. Both
+absolutes are unsupported; only the per-address observations are solid.
 Compare the wording at `0x4F7870` in
 [Buildability-Prerequisites.md](Buildability-Prerequisites.md), which is right
 that a second handler there cannot usefully *extend the verdict* (it would fight

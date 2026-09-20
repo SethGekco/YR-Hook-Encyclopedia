@@ -5326,3 +5326,9 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x7CD8EF,Ares,release,ExeTerminate,0x9,.,src/Ares.cpp
 0x7E3C94,Phobos,PR#1872,Skip_RefinerySmoke_Call_UnitUnload,0x5,Misc,src/Misc/FogOfWar.cpp
 0x7E4324,Phobos,PR#1872,RefinerySmoke_FogGate,0x6,Misc,src/Misc/FogOfWar.cpp
+0x6CFD08,CommandBarExt,release,ShapeButtonClass_FindIndex_NewButtons,0x5,Commands,src/Hooks.Probe.cpp
+0x6D0233,CommandBarExt,release,AdvancedCommandBar_Init_NewButtons,0x6,Commands,src/Hooks.Probe.cpp
+0x6D0827,CommandBarExt,release,AdvancedCommandBar_Update_NewButtonClicked,0x6,Commands,src/Hooks.Probe.cpp
+0x6D10DF,CommandBarExt,release,AdvancedCommandBar_InitButtonIO_NewButtons,0x6,Commands,src/Hooks.Probe.cpp
+0x6D14DD,CommandBarExt,release,AdvancedCommandBar_InitToolTip_NewButtons,0x5,Commands,src/Hooks.Probe.cpp
+0x533066,CommandBarExt,release,CommandClassCallback_Register_CommandBarExt,0x6,Commands,src/Hooks.Probe.cpp

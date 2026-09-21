@@ -636,3 +636,36 @@ this is inferred (PR diff not read).
 All from release Phobos unless a Channel says otherwise. Addresses are ⚠ until
 re-derived from vanilla `gamemd.exe` in Ghidra; names/subsystems are from the
 registry (harvested from upstream source).
+
+## ★ Garrisoned infantry physically do not exist (Rex, 2026-09-21)
+
+**Source.** Rex, from play; corroborated in YRpp + Phobos source the same day.
+
+Once an occupier reaches the building it is **limboed and removed from the
+map**, not merely hidden or moved inside the footprint. It survives only as a
+pointer in `BuildingClass::Occupants`
+(`DynamicVectorClass<InfantryClass*>`, BuildingClass.h:314), which is what
+re-spawns the squad when the building is sold/undeployed or
+`KillOccupants` (0x457xxx region, BuildingClass.h:193) runs.
+
+**Consequences, all of which bite silently:**
+
+- **They cannot be targeted or hit by anything position-based.** There is no
+  object at those cells to find. A CellSpread sweep over a garrisoned building
+  affects the *building*, never its occupants.
+- **They cannot receive warhead effects at all**, including Phobos
+  AttachEffects: `WarheadTypeExt::ExtData::DetonateOnOneUnit`
+  (src/Ext/WarheadType/Detonate.cpp:200) early-returns on
+  `pTarget->InLimbo` before any effect is applied. Both the CellSpread route
+  and the bullet-target route end there.
+- **Do not use "infantry in a garrison" as a test case for cell-overlap
+  bugs** — it proves nothing, because the infantry are not on the map. Use
+  units sharing a cell, units on a bridge, or aircraft over a structure
+  instead.
+- Anything iterating technos to apply per-unit state (stances, hold-fire
+  flags, buffs) will **skip garrisoned infantry entirely**. If that state must
+  survive garrisoning, it has to be stored against the infantry object and
+  re-applied on exit, not swept over the map.
+
+See also [[yr-hunt-is-an-ai-mission]] for the other "the order is accepted and
+nothing happens" failure shape.

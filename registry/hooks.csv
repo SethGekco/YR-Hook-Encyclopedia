@@ -5334,3 +5334,4 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x533066,CommandBarExt,release,CommandClassCallback_Register_CommandBarExt,0x6,Commands,src/Hooks.Probe.cpp
 0x4D54EE,CommandBarExt,release,FootClass_Mission_Hunt_PlayerSeeksEnemy,0x6,Ext/Foot,src/Hooks.Probe.cpp
 0x4D5514,CommandBarExt,release,FootClass_Mission_Hunt_RetargetHouse,0x6,Ext/Foot,src/Hooks.Probe.cpp
+0x55B6FC,CommandBarExt,release,LogicClass_Update_DrainHuntQueue,0x8,Misc,src/Hooks.Probe.cpp

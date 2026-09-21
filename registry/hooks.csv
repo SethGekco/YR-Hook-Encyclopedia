@@ -5332,3 +5332,5 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x6D10DF,CommandBarExt,release,AdvancedCommandBar_InitButtonIO_NewButtons,0x6,Commands,src/Hooks.Probe.cpp
 0x6D14DD,CommandBarExt,release,AdvancedCommandBar_InitToolTip_NewButtons,0x5,Commands,src/Hooks.Probe.cpp
 0x533066,CommandBarExt,release,CommandClassCallback_Register_CommandBarExt,0x6,Commands,src/Hooks.Probe.cpp
+0x4D54EE,CommandBarExt,release,FootClass_Mission_Hunt_PlayerSeeksEnemy,0x6,Ext/Foot,src/Hooks.Probe.cpp
+0x4D5514,CommandBarExt,release,FootClass_Mission_Hunt_RetargetHouse,0x6,Ext/Foot,src/Hooks.Probe.cpp

@@ -669,3 +669,40 @@ re-spawns the squad when the building is sold/undeployed or
 
 See also [[yr-hunt-is-an-ai-mission]] for the other "the order is accepted and
 nothing happens" failure shape.
+
+## Appendix: the click-mode system (beacon / waypoint / sell / repair)
+
+**Source.** CommandBarExt, 2026-09-24, while designing a map-drawing tool.
+Recorded here because it is the template for ANY "click the bar, then click
+the battlefield" feature.
+
+YRpp already names the entry points on MapClass/DisplayClass (`0x87F7E8`):
+
+| Address | YRpp name |
+|---|---|
+| `0x4AC960` | `SetPlaceBeaconMode(int mode)` |
+| `0x4AC700` | `SetWaypointMode(int mode, bool)` |
+| `0x4AC660` | `SetSellMode(int mode)` |
+| `0x4AC8C0` | `SetRepairMode(int mode)` |
+| `0x4AC820` | `SetTogglePowerMode(int mode)` |
+
+`mode` is **-1 = toggle, 0 = off, 1 = on** (decoded from 0x4AC960's prologue).
+
+**Mode flags are bytes on the display class:**
+`+0x11B0` beacon, `+0x11B1` repair, `+0x11B2` sell, `+0x11B8` (dword, -1 when
+idle), `+0x11A8` (dword). `0x4AC310` is the "is any special click mode
+active?" predicate and tests all of them in sequence — a good place to make a
+custom mode visible to the rest of the UI.
+
+**Command plumbing:** `BeaconPlacementCommandClass::Execute` is `0x5370A0`; it
+guards on session type (`0xA8B238`) then calls `0x731A30`, which is the shared
+"enter beacon mode" thunk that the AdvancedCommandBar's Beacon button also
+calls (from the Update dispatcher at `0x6D0742`). So a bar button and a hotkey
+command converge on one routine — mirror that shape for custom modes.
+
+**Drag capture** (for a paint/drag tool rather than a single click) lives in
+`DisplayClass::LeftPressAndDragging`; Phobos PR#1993 takes `0x4AC4B9` (drag
+start), `0x4AC411` (drag update) and `0x4ABCA7` (drag end) for its distribution
+range. Those seats are unmerged, so free — but note the open problem: a drag
+on the tactical map also runs band-box selection, so a drawing tool must
+suppress that while its mode is active.

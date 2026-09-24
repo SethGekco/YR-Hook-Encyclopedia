@@ -416,7 +416,45 @@ exists — and should first establish what each zeroed local actually controls.
 SHP. A reported symptom worth correlating is that voxel components on buildings
 *do* vanish under shroud while the structure does not.)
 
-### RE — fogged cells are EXCLUDED from refresh paths (`AltCellFlags::NoFog`)
+### ⚠ RETRACTION — `AltCellFlags::NoFog` tracks SHROUD, not fog
+
+**The section immediately below is wrong and is kept only so the error is not
+silently repeated.** Direct measurement, sampling every cell on a 29,875-cell
+map every 450 frames for a full match:
+
+```
+early:  mapped=258    shrouded=29617  nofog_clear=29617  flagged=0
+        mapped=300    shrouded=29575  nofog_clear=29575  flagged=0
+        mapped=558    shrouded=29317  nofog_clear=29317  flagged=0
+late:   mapped=29875  shrouded=0      nofog_clear=0      flagged=80
+```
+
+`nofog_clear` — cells with `AltCellFlags::NoFog` **absent** — equals `shrouded`
+**exactly**, sample after sample, and falls to **zero** once the map is
+explored. `AltCellFlags::Clear` is defined as `Mapped | NoFog`, so an
+unexplored cell simply has neither bit; NoFog's absence means *never
+revealed*, not *currently fogged*.
+
+So the refresh paths below skip **shrouded** cells. On an explored map they
+skip nothing, and they are **not** a mechanism for ghost images under fog.
+
+Two further corrections from the same data:
+
+* **`CellFlags::Fogged` (`+0x140` bit `0x400000`) is the real fog flag, and it
+  barely engages** — it moved 0 → 1 → 3 → 9 → 24 → 80 → 157 → 199 across an
+  entire match, peaking at **199 of 29,875 cells (0.7%)**.
+* **Do not infer fog from `CellClass::Foggedness`.** "Cells obscured beyond
+  shroud" was a proxy invented for an earlier probe, and it is noise: early in
+  the same match `obscured=29691` against `shrouded=29617`, i.e. it was
+  tracking shroud all along. A verdict of "fog cell state IS LIVE (3338 cells
+  obscured beyond shroud)" printed from that proxy while the direct flag read
+  80. **Measure `Flags & 0x400000` directly.**
+
+The wider conclusion this overturns: fog's **state layer is not meaningfully
+live either**. The earlier framing — "the state works, only the renderer is
+broken" — came from the same proxy and does not survive direct measurement.
+
+### RE — fogged cells are EXCLUDED from refresh paths (`AltCellFlags::NoFog`) — ⚠ SEE RETRACTION ABOVE
 
 `CellClass::AltFlags` is at **`+0x12C`**, and `AltCellFlags::NoFog` is `0x10` —
 i.e. the bit is set when a cell is *not* fogged. Two confirmed consumers both

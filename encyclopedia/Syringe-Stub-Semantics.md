@@ -105,6 +105,18 @@ list. Do not treat either as settled.
 registers later at the same address and returns `0`. **IntelExt's log lines
 appear in real games**, so its handler ran despite the earlier non-zero return.
 
+**Observation A, independently reproduced (2026-09).** A *second*, unrelated
+third-party DLL (`AcademyExt`) later registered its own `return 0` observer at
+the same `0x4571E0`, behind Antares in the same inject list. Its handler logged
+**12 fires, 12 of them proceeding to do real work**, in the same session where
+`IntelExt`'s handler was also logging. So at this address, *two* later-registered
+handlers run alongside the wrapping framework — the behaviour is repeatable and
+not an artefact of one DLL's build.
+
+This strengthens A without resolving the split: B is still unexplained, so the
+general dispatch rule remains unknown. What it does settle is that `0x4571E0`
+specifically is a live co-hook site for multiple consumers.
+
 **Observation B — a later handler did NOT run.** `PrerequisiteExt`'s sell hook at
 `0x449CC1` (an address a co-loaded framework wraps) **never produced a single log
 line**, with a log statement placed as the handler's first statement, before any

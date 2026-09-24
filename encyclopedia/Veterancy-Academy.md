@@ -194,6 +194,24 @@ return (pBuilding->InfiltratedBy(Enterer)) ? 0x4575A2 : 0;
 
 i.e. on success it **jumps to `0x4575A2`** and the vanilla body never runs.
 
+**✅ Stolen veterancy at a configurable magnitude — VERIFIED in game.** A
+third-party DLL co-loaded with Antares, recording infiltration from a `return 0`
+observer at this address and feeding the result into its own promotion
+resolver as a *non-stacking* contribution worth `2.0`:
+
+```
+before:  4 source(s), bestSingle=1.000 stackSum=1.500 -> resolved=1.500
+after :  5 source(s), bestSingle=2.000 stackSum=1.500 -> resolved=2.000   ELITE
+```
+
+`bestSingle` rose while `stackSum` was untouched, i.e. the stolen bonus competed
+rather than added, matching its configured stacks flag. 12 infiltrations, 12
+recorded. This demonstrates that the **hardcoded `SetVeteran()` magnitude is not
+a real constraint** on a co-loaded DLL: the framework's own boolean still forces
+its `1.0` floor, but any value *above* that is reachable by resolving separately
+and raising. Only going *below* `1.0` is blocked while the framework's boolean
+is set — see the raise-only discussion at the end of this page.
+
 **✅ Co-hooking is safe if you return `0` — verified at runtime.** It is tempting
 to assume that because Antares returns a jump target, a later-registered handler
 never executes. **That is wrong.** Syringe invokes *every* registered handler for

@@ -706,3 +706,21 @@ start), `0x4AC411` (drag update) and `0x4ABCA7` (drag end) for its distribution
 range. Those seats are unmerged, so free — but note the open problem: a drag
 on the tactical map also runs band-box selection, so a drawing tool must
 suppress that while its mode is active.
+
+### Where a click in a special mode is consumed
+
+`DisplayClass::LeftMouseButtonUp` = **0x4AC20C** (PDB-named; the neighbouring
+`0x4ABFBE DisplayClass_LeftMouseButtonUp_ExecPowerToggle` shows each special
+mode dispatching from here). This is the seat for consuming a click while a
+custom mode is active.
+
+**Beacon placement is EVENTED, and that is the template to copy.** At 0x4AC22C
+the handler builds an `EventClass` of type **0x12** via `0x4C6B60` and pushes
+it onto `OutList` — complete with the same `cmp OutList.Count,0x80` drop check
+and the `and edx,0x7f` ring mask documented in
+[[yr-outlist-128-event-ceiling]]. So a player placing a beacon does not mutate
+game state locally; it travels as an event.
+
+Any custom map-placement tool that changes SIMULATION state (a pathfinding
+no-go zone, for instance) must do the same or it desyncs — see
+[[yr-iscelloccupied-is-the-per-unit-path-gate]].

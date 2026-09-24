@@ -5340,3 +5340,5 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x70FB50,BunkerExt,release,FootClass_IsBunkerableNow_BunkerExtProbe,0x5,src,src/Hooks.Probe.cpp
 0x458E99,BunkerExt,release,BuildingClass_UpdateBunker_BunkerExtProbe,0x6,src,src/Hooks.Probe.cpp
 0x458EAF,BunkerExt,release,BuildingClass_UpdateBunker_Idle_BunkerExtProbe,0x5,src,src/Hooks.Probe.cpp
+0x43C52C,BunkerExt,release,BuildingClass_EnterHelper_QueryOnBuilding_BunkerExtProbe,0x9,src,src/Hooks.Probe.cpp
+0x458E50,BunkerExt,release,BuildingClass_UpdateBunker_BunkerExtAdopt,0x5,src,src/Hooks.Probe.cpp

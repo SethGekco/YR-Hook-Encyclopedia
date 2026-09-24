@@ -416,6 +416,44 @@ exists — and should first establish what each zeroed local actually controls.
 SHP. A reported symptom worth correlating is that voxel components on buildings
 *do* vanish under shroud while the structure does not.)
 
+### RE — fogged cells are EXCLUDED from refresh paths (`AltCellFlags::NoFog`)
+
+`CellClass::AltFlags` is at **`+0x12C`**, and `AltCellFlags::NoFog` is `0x10` —
+i.e. the bit is set when a cell is *not* fogged. Two confirmed consumers both
+use it to **skip work on fogged cells**:
+
+```
+; VoxelAnimClass::DrawIfVisible, 0x749B3D
+test BYTE PTR [eax+0x12c],0x10   ; cell NOT fogged?
+je   +7                          ; fogged -> leave NeedsRedraw alone
+mov  BYTE PTR [esi+0x80],0x1     ; else force a redraw
+
+; TacticalClass per-cell pass, 0x6D7A4F
+mov  al,BYTE PTR [esi+0x12c]
+test al,0x10
+je   skip_cell                   ; fogged -> skip the cell entirely
+call 0x487950                    ; CellClass::IsShrouded
+test al,al
+jne  skip_cell                   ; shrouded -> skip too
+```
+
+So a fogged cell does not get objects re-marked dirty and is dropped from that
+cell pass. Combined with the dirty-rectangle renderer — `ObjectClass::
+DrawIfVisible` (`0x5F4B10`) draws only when `NeedsRedraw` (`+0x80`) is set, and
+clears it after use — stale pixels over a fogged cell have nothing to repaint
+them.
+
+⚠ **Symptom signature:** an object image that *appears, persists, and clears
+only when you scroll it off-screen and back* is a dirty-rect invalidation bug,
+not a logic bug. Scrolling forces a full repaint. If it clusters on fogged
+cells, this exclusion is the first place to look.
+
+⚠ **Consequence for anyone adding a fog cull**: the moment you stop drawing
+something on a fogged cell, its last-drawn pixels may persist, because the
+repaint that would erase them is exactly what these paths skip. Expect to have
+to invalidate on the visible→fogged *transition* (once — not every frame, which
+would defeat the dirty-rect system).
+
 ### RE — `FoggedObjectClass` fully mapped, and it has NO draw method
 
 Constructor `0x4D0EF0`, allocated `push 0x78` in `0x457AA0`.

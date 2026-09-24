@@ -5337,3 +5337,6 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x55B6FC,CommandBarExt,release,LogicClass_Update_DrainHuntQueue,0x8,Misc,src/Hooks.Probe.cpp
 0x51BF90,CommandBarExt,release,InfantryClass_IsCellOccupied_NoGoZone,0x5,Ext/Foot,src/Hooks.PatherProbe.cpp
 0x73F0A0,CommandBarExt,release,UnitClass_IsCellOccupied_NoGoZone,0x6,Ext/Foot,src/Hooks.PatherProbe.cpp
+0x70FB50,BunkerExt,release,FootClass_IsBunkerableNow_BunkerExtProbe,0x5,src,src/Hooks.Probe.cpp
+0x458E99,BunkerExt,release,BuildingClass_UpdateBunker_BunkerExtProbe,0x6,src,src/Hooks.Probe.cpp
+0x458EAF,BunkerExt,release,BuildingClass_UpdateBunker_Idle_BunkerExtProbe,0x5,src,src/Hooks.Probe.cpp

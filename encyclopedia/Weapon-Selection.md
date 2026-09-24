@@ -192,6 +192,36 @@ Note `Primary=` is usually still *present* on these types (the IFV has
 `Primary=HoverMissile`), so "the key exists in the section" is not evidence that
 it is used. Check `WeaponCount`, not `Primary`.
 
+### `TurretCount` > 1 does it too, with no `WeaponCount` in sight
+
+**A/B VERIFIED IN-GAME** (TraitExt, 2026-09-23). A synthesised type was written
+with `TurretCount=4` + `Turret.RangeBands` borrowed from the Prism Tank, plus
+`Primary=Comet`, and **no** `WeaponCount`. The section was dumped back key by key
+to prove the write landed:
+
+```
+$Inherits=MTNK Image=SREF Turret=yes TurretCount=4
+Turret.RangeBands=3,6 Turret.RangeIndices=0,1,3 Primary=Comet
+```
+
+The parsed type came out with **`WeaponCount=0` and all 18 weapon slots null** —
+not the inherited `105mm` from its `$Inherits` parent either. Replacing
+`Primary=Comet` with `WeaponCount=1` + `Weapon1=Comet` on the same section, same
+build, made it fire.
+
+So the rule is broader than `Gunner`/`WeaponCount`: **once a type's turret ⇄
+weapon mapping is engaged — which `TurretCount>1` alone is enough to do — the
+engine resolves weapons through the `WeaponN` list, and `Primary=` is dead.** A
+multi-turret type that declares only `Primary=` ends up with **no weapon at
+all**, which reads in game as a unit that simply never fires.
+
+Practical consequence for tooling: if you synthesise or edit a type and copy the
+turret family from a multi-turret donor, you must also express its weapons in
+`WeaponN` form. TraitExt now translates `Primary=`/`Secondary=` into
+`Weapon1`/`Weapon2` (+ `WeaponCount`) whenever the resulting type has
+`TurretCount>1` or `WeaponCount>0`, because both forms mean the same thing to an
+author and only one of them works.
+
 **Confirmed via.** Vanilla `rulesmd.ini` `[FV]` (`Gunner=yes`, `WeaponCount=17`,
 `Weapon1`..`Weapon17`) and `[SREF]` (`WeaponCount=1`, `Weapon1=Comet`, `Primary`
 commented out).

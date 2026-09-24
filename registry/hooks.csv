@@ -5344,3 +5344,4 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x458E50,BunkerExt,release,BuildingClass_UpdateBunker_BunkerExtAdopt,0x5,src,src/Hooks.Probe.cpp
 0x74022D,BunkerExt,release,UnitClass_GetActionOnObject_BunkerExtEnterUX,0x5,src,src/Hooks.Probe.cpp
 0x74018D,BunkerExt,release,UnitClass_GetActionOnObject_BunkerExtFlyVeto,0x6,src,src/Hooks.Probe.cpp
+0x6DBE74,CommandBarExt,release,TacticalClass_DrawRadialIndicators_NoGoZones,0x7,UI,src/Hooks.PatherProbe.cpp

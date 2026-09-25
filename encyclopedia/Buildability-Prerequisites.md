@@ -389,6 +389,54 @@ third-party refusal that wants to be real has to do the same.
 the `buildLimitOnly = false` call produced a darkened-but-buildable cameo, and
 answering both produced a real refusal.
 
+### …and even answering BOTH calls is not enough — `ShouldDisableCameo`
+
+Both sections above are about what `CanBuild` returns. **A third-party gate can
+get every one of those right and still ship a clickable, greyed-out cameo**,
+because whether a cameo is *disabled* is decided somewhere else entirely.
+
+`StripClass_Draw_GetCameo1` does two independent things (`0x6A97D2` onward):
+
+```
+6a97d2:  call 0x4F7870        ; CanBuild(type, 0, 0)
+6a97e1:  cmp  eax,0xFFFFFFFF
+6a97e5:  sete [esp+0x16]      ; darken flag = (result == -1)   <- your -1 lands here
+6a97ea:  call 0x50B370        ; HouseClass::ShouldDisableCameo  <- and here it does NOT
+```
+
+**`0x50B370` is a fifth Ares-lineage full replacement** in this path (after
+`0x4F7870`, `0x5F7900`, `0x6F47A0`, `0x500910`). Antares'
+`HouseClass_ShouldDisableCameo` (`src/Ext/House/Hooks.Queue.cpp:115`) recomputes
+availability from **`pItem->BuildLimit` — the vanilla INI field** — via
+`HouseExt::BuildLimitRemaining`, and **never calls `CanBuild` at all**. A
+third-party build limit is invisible to it by construction.
+
+Symptom: the cameo greys (your `-1` reached the draw path) and stays clickable
+(you were never party to the disable decision). It looks identical to "the
+refusal half worked", which is why it gets misdiagnosed as a `-1`-vs-`0` problem.
+
+⚠ **Correction to a claim previously made on this page:** `-1` is not uniformly
+"too weak". Antares' `HouseExt::HasFactory` gates on
+`(int)pHouse->CanBuild(pItem, true, true) <= 0` (`src/Ext/House/Body.cpp:382`) —
+a **signed** compare, where `-1` blocks exactly like `0`. The eight
+`test eax,eax` sites in *vanilla* are real, but several of them are inside
+functions the frameworks replace, so under Antares the population of live
+readers is different. Check the framework's code, not just `gamemd`.
+
+**Seat for fixing it:** `0x50B669`, Antares' own jump target — the same
+post-process-the-epilogue pattern as `0x4F8361`. At the `ret 0x4` the frame is
+still the callee's: `ECX = HouseClass*`, `[ESP+4] = TechnoTypeClass*`,
+`AL` = the bool Antares computed. Raise it to `true` to disable; never lower it,
+or you grant buildability that other layers have refused. The 5-byte patch
+spills into the vanilla switch jump table at `0x50B66C`, which is unreachable
+for the same reason the `0x4F8361` waiver is valid — Antares owns the only entry
+and always returns here.
+
+**Confirmed via.** objdump of `gamemd.exe` at `0x6A97D2`–`0x6A97F3` and
+`0x50B650`–`0x50B66C`; Antares `src/Ext/House/Hooks.Queue.cpp:115` and
+`src/Ext/House/Body.cpp:174-186, 377-382`; the in-game symptom that prompted the
+search (a globally build-limited Chronosphere darkening but still building).
+
 ### …and it is **not** evaluated every frame
 
 `CanBuild` is consulted when the engine rebuilds the sidebar / rechecks the tech

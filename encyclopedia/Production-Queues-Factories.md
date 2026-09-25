@@ -360,6 +360,83 @@ master) for both replacements and the composition order; objdump of
 contention. The `0x6F494D` return-address technique is **reasoned, not yet
 runtime-tested**.
 
+#### ✅ RESOLVED — `ECX` *does* survive to `0x6F4955` (given an Ares-lineage DLL)
+
+The entry above left this open. It is answered by Syringe's own calling
+convention plus an existing working hook, with no debugger needed.
+
+`REGISTERS` (`YRpp/Syringe.h`) is laid out `origin, flags, EDI, ESI, EBP, ESP,
+EBX, EDX, ECX, EAX` — a **`PUSHFD`/`PUSHAD` frame**. The stub saves every
+register, hands the handler a pointer to that frame, then restores from it. So a
+handler that only writes `EAX` leaves every other register at its **entry**
+value, and a `return <addr>` jumps there with those entry values intact.
+
+Antares' `0x6F47A0` handler does exactly that — `GET(TechnoClass*, pThis, ECX)`,
+`R->EAX(...)`, `return 0x6F4955`. Its C++ body clobbers the physical `ECX` freely
+(it calls `GetBuildTimeMult`, `GetFactoryCount`, …), but that is irrelevant: the
+restore puts `ECX` back from the saved frame. **At `0x6F4955`, `ECX` is the
+`TechnoClass*` that entered `GetBuildTime`.**
+
+Empirical confirmation of the same shape: `0x4F8361` is reached only by Antares'
+`return 0x4F8361` from its full replacement of `0x4F7870`, and third-party
+handlers there read `ECX` as `HouseClass*` successfully in live games
+(PrerequisiteExt, verified across many sessions). Identical mechanism, identical
+guarantee.
+
+⚠ The guarantee is **conditional on a framework having replaced `0x6F47A0`**. With
+no Ares-lineage DLL loaded the vanilla body runs and falls through to `0x6F4955`
+with `ECX` holding whatever that body last left there — not `this`. Since hooking
+here already requires Antares/Ares for the value in `EAX` to mean anything, that
+is the same hard dependency `0x4F8361` carries, not a new one.
+
+---
+
+### `0x500910` — HouseClass::GetFactoryCount — **a fourth full replacement**
+
+**Framework names.** `Phobos` `HouseClass_GetFactoryCount` (size `0x5`).
+
+**Why it matters.** This is the function whose return value drives the
+"more factories = faster" exponent inside `GetBuildTime` (Antares calls it
+through a raw pointer to `0x500910`). It is therefore the natural place to make a
+**non-factory building grant factory-like production speed** — inflate the count
+and the engine's own `MultipleFactory` curve does the rest, with no new math and
+no divergence from what modders already expect.
+
+**But it is a full replacement, like the other three.** Phobos computes
+`GetFactoryCountWithoutNonMFB(rtti, isNaval)` and returns `0x50095D`, so the
+vanilla body never runs when Phobos is loaded.
+
+**⚠ And unlike `0x4F7870`/`0x6F47A0`, the epilogue trick does NOT work here.**
+The function is tiny and its two exits are adjacent:
+
+```
+500957:  85 c0        test eax,eax
+500959:  74 05        je   0x500960     <-- branch target
+50095b:  8b 00        mov  eax,[eax]
+50095d:  c2 08 00     ret  0x8          <-- Phobos' jump target: THREE bytes
+500960:  33 c0        xor  eax,eax      <-- branch target (also from ja @0x500918)
+500962:  c2 08 00     ret  0x8
+```
+
+A 5-byte Syringe patch at `0x50095D` covers `0x50095D`–`0x500961`, swallowing the
+`ret 0x8` **and** the `xor eax,eax` at `0x500960`. `0x500960` is a live branch
+target from *two* sites (`ja` at `0x500918`, `je` at `0x500959`), so both
+zero-return paths would jump into the middle of the written `E9 rel32`. There is
+no safe post-processing seat inside this function — the only options are
+co-hooking `0x500910` itself (subject to the unresolved chaining question, see
+[Syringe-Stub-Semantics.md](Syringe-Stub-Semantics.md)) or influencing the
+consumer instead.
+
+**Practical guidance.** For build-speed work, prefer the `0x6F4955` epilogue: it
+is uncontended, it sees the finished time, and `ECX` gives both the type and
+(via `->Owner`) the house — everything `0x500910` would have offered, without
+the collision.
+
+**Confirmed via.** objdump of `gamemd.exe` (`0x500910`–`0x500962`, the jump table
+at `0x500968`/`0x50097C`); Phobos `src/Ext/House/Hooks.cpp:418`; Antares
+`src/Ext/TechnoType/Hooks.BuildTime.cpp:17` for the raw-pointer call; registry
+for contention.
+
 ---
 
 ### `0x5004E0` — ObjectTypeClass::IsBuildCat5 (the whole Buildings-vs-Defense split)

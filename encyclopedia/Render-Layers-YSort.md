@@ -83,6 +83,14 @@ per call**. Anything that needs a *lower* `GetYSort` than its neighbours creeps
 forward at one index per frame. If you ever insert into `Ground` unsorted, a
 "draw behind" object is mis-ordered for up to `Count` frames.
 
+**Observable signature:** a *moving* object briefly draws in the wrong order
+against a *static* neighbour one cell away, then corrects itself. Confirmed in
+the field with corpse decals — a decal never moves, so it is a fixed reference
+that makes the lag visible where two moving units would not. Do not chase it
+with a larger `YSortAdjust`: a bias big enough to outrun the transient also
+sorts the object behind things several cells away, trading a brief artifact for
+a permanent one.
+
 ---
 
 ## `GetYSort` (vtable `+0x0B8`)

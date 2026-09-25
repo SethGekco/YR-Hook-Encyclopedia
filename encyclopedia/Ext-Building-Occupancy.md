@@ -600,6 +600,151 @@ at `0x4C73A5` obtains the mission via `call [vtable+0x4A4]` then queues it at
 byte out of the event (`movsbl 0xC(%edi),%ebp`). Nothing type-specific happens
 there, so it is not where units diverge.
 
+## ★★ POST-MORTEM: forcing a non-Occupier to garrison on a PLAYER order — UNSOLVED
+
+**Source.** PayloadExt, 2026-09-08 → 2026-09-24. Roughly twenty build/test rounds,
+three vanilla regressions, then a deliberate rewind. Written up in full because
+the *negative* result and the mechanism map are worth far more than another
+attempt from scratch — and because everything that looked like the answer along
+the way was wrong for a reason that is now explainable.
+
+**The goal.** Let a BuildingType declare, in INI, that infantry without
+`Occupier=yes` may garrison it, and have a player able to order such a unit in by
+clicking. Admission itself was never the hard part.
+
+### What is actually true (all verified in game, not inferred)
+
+| Fact | Evidence |
+|---|---|
+| **Admission works.** `CanBeOccupiedBy` can be made to say yes for any type. | Overriding at `0x457D58` yields `ADMITTED` for a unit with `Occupier=0`. |
+| **The whole downstream chain works once entry begins.** | A non-Occupier (Navy SEAL, `Occupier=0`, `C4=yes`) walks in, is appended to `Occupants`, is limboed, and fires. Log: `occupants=2/4 appended=1 inLimbo=1`. |
+| **The AI path works and needs nothing.** | `Mission_Hunt` (`0x51F540`, vtable `+0x228`) has **no** `C4=` gate, so AI-hunted infantry garrison regardless of `Occupier=`. |
+| **The player path is the only broken one.** | Same unit, same building: AI reaches `GarrisonBuilding`, a player order does not. |
+| **`C4=` is the real player-side gate**, not `Occupier=`. | See the starred `C4=` section above — A/B verified in both directions. |
+
+### Why the player path dies
+
+`Mission_Capture` (`0x4D4B20`) is the mission a garrison order runs under
+(`Mission::Capture == 8`, **not** `Mission::Enter`). For a non-Occupier it bails
+before it ever reaches its own `SetDestination` at `0x4D4BB4`:
+
+```
+0x4D4B43  mov ecx,[this+0x2B4]   ; Target
+0x4D4B4B  je  0x4D4BC7           ; null -> bail
+0x4D4B6F  C4 || HasAbility(14)   ; else -> 0x4D4BB4
+0x4D4B96  Occupier               ; else -> 0x4D4BB4
+0x4D4BA0  Assaulter              ; else -> 0x4D4BB4
+0x4D4BAA  +0xEBE                 ; none of the above -> 0x4D4BC7
+0x4D4BB4  SetDestination(target,1)   ; THE ONLY CALL THAT STARTS THE WALK
+0x4D4BC7  ... [vtable+0x484] -> re-derives the mission -> Guard
+```
+
+**Nothing else in the player path ever calls `SetDestination` for that unit.** The
+order arrives with the mission correct and the `Destination` *field* sometimes
+already populated, but the field being right is not the same as the move having
+been dispatched — and the unit simply stands still. `Occupier` units move because
+vanilla makes that call for them.
+
+### Four approaches tried, and exactly how each failed
+
+1. **Open the `Occupier`/`C4` gates** (`0x457D48`, `0x51F489`, `0x519698`,
+   `0x522920`, `0x4D4B96`, `0x51F576`, `0x51F3E9`, `0x4D4B6F`).
+   Read-only, harmless, still shipped — and **insufficient**: `0x4D4B43` bails on a
+   null `Target` 0x2C bytes *before* the `C4` gate, so the gate is unreachable on
+   the path that matters.
+2. **Inject `Target`.** Worked mechanically; **broke the game**. `Target`
+   (`+0x2B4`) is read by the attack logic *and* the order-line renderer, so the
+   unit rendered an attack line and **shot the building it was sent to occupy**.
+   A raw write also skips the bookkeeping the engine's `SetTarget` does
+   (`0x51B2A2` resets `+0x5E0`; `0x51B25D`–`0x51B26D` relinks the targeting chain),
+   leaving stale attack state that discharged one round before entry.
+3. **Inject `Destination` instead.** Cleaner, and it got units in — but
+   `Mission_Capture`'s cancel path (`0x4D4BC7` → `[vtable+0x484]`) drops the mission
+   again, so the order had to be re-asserted every frame, which is a fight rather
+   than a fix.
+4. **Raise the engine's own garrison-seek flag, `FootClass+0x691`.**
+   The dispatcher at `0x4D5070`, reached from `Mission_Guard` (`0x51F62F`), calls
+   `FindGarrisonStructure` (`0x4DFE00`) while the flag is set; that function
+   consults `CanBeOccupiedBy`, so a forced occupant *is* accepted. This is the most
+   vanilla-shaped route and it did produce entries. It still failed, twice over:
+   - **`FindGarrisonStructure` picks the NEAREST valid structure, not the one
+     clicked.** Units ordered into one building walked to another; unsupervised, they
+     shopped around whenever the intended one filled or was sold.
+   - **`GarrisonBuilding` clears both seek flags on entry** (`0x5229F4` for `+0x691`,
+     `0x5229FA` for `+0x690`). Re-asserting the flag past that boundary made units
+     **walk straight back out of the building they had just entered.**
+
+### The three vanilla regressions, and the rule that prevents them
+
+Each was introduced by a fix for the previous one — the signature of a wrong
+approach rather than an incomplete one.
+
+| Regression | Cause |
+|---|---|
+| Infantry shot the building they were sent to occupy | wrote `Target`, which is also the attack field |
+| `E1` could no longer garrison **civilian** buildings at all | an intent record naming an ungoverned building made a state machine **cancel the player's order** |
+| `E1` ignored orders and entered whichever building was **nearest** | a per-frame destination pin fighting `FindGarrisonStructure` |
+
+> **RULE. A hook may ANSWER QUESTIONS — return a branch target, report a verdict —
+> but must not WRITE state the engine owns.**
+>
+> In PayloadExt every feature that works obeys this (the permission matrix,
+> RA2-mode garrison, open-topped buildings, the per-entry ROF/Firepower/Range
+> modifiers). Every vanilla break violated it. `Target`, `Destination` and
+> `+0x691` are all owned by the engine, are all read by more systems than they
+> appear to be, and are all cleared at lifecycle boundaries you must know about
+> before writing them.
+
+### Two traps that cost whole rounds and are not obvious
+
+- **`CanBeOccupiedBy` has NINE callers, and one is an exhaustive engine search.**
+  `FindGarrisonStructure` walks the entire building array asking about every
+  candidate (`0x4DFE54`). Recording "the building we were asked about" therefore
+  gets clobbered by the engine's own scan within a frame. If intent matters, gate
+  on the caller's return address — `0x51E699` is the call inside
+  `InfantryClass::WhatAction`, i.e. the cursor query, the only caller that means
+  "a human pointed at this".
+- **Setting a state field is not invoking the action that consumes it.**
+  `Destination` reading back correct proves nothing; something must *call*
+  `SetDestination` to start the locomotor. Verify the side effect fired, not that
+  the value looks right.
+
+### Diagnostic method, for the next attempt
+
+The investigation only converged once one run could answer everything. Three
+properties did it, and their absence is what wasted the earlier rounds:
+
+1. **Per-subject budgets.** A global log budget is spent by common types (`E1`,
+   `E2`) before the unit under test ever moves.
+2. **Log on change.** Sample every frame, emit only on transition — a timeline,
+   not thousands of duplicates.
+3. **An automatic control.** Key tracking on "was asked about a governed building"
+   and a *working* unit is captured in the same run as the failing one. The answer
+   here was visible in two lines side by side:
+   `E2 … seekGarrison=1` surviving 219 frames against `GGI … seekGarrison=0` wiped
+   the next frame.
+
+Corollary: **absence of a log line is only evidence when the run is known to
+contain the event.** Three wrong conclusions in this investigation came from
+reading silence as a finding.
+
+### Where to start next time
+
+Do **not** supply the missing `SetDestination` from outside — that is approach 3
+and 4, and both fight the engine every frame. Look instead for a way to make
+**vanilla itself** make the call: i.e. get a non-Occupier past `0x4D4B43`'s
+null-`Target` bail *with a Target the engine set*, so the existing `C4`/`Occupier`
+gates at `0x4D4B6F`/`0x4D4B96` (already hooked and harmless) carry it into
+vanilla's own `SetDestination` at `0x4D4BB4`. The unanswered question that blocks
+this is **why a player-issued Capture order arrives with a null `Target` at all**,
+when the dispatcher at `0x4C7467` does call `SetTarget` with the event's decoded
+target. Two attempts to name the responsible site (the event's mission byte at
+`0x4DF0E0`; `SetTarget` at `0x51B1F0`) were both wrong, so treat that as open.
+
+**Status.** Shipped as: permission matrix + `Deny=` blacklist, RA2-mode garrison,
+open-topped buildings, per-entry modifiers — all working. Forced non-Occupier
+entry on a player order: **removed, unsolved, documented here.**
+
 ## The bridge: why buildings can't be open-topped without help
 
 Release Phobos, `src/Ext/Techno/Body.Update.cpp` (~line 1234), comments:

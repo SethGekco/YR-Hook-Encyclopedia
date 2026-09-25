@@ -192,35 +192,45 @@ Note `Primary=` is usually still *present* on these types (the IFV has
 `Primary=HoverMissile`), so "the key exists in the section" is not evidence that
 it is used. Check `WeaponCount`, not `Primary`.
 
-### `TurretCount` > 1 does it too, with no `WeaponCount` in sight
+### The real rule: the weapon declaration must be COMPLETE on the type
 
-**A/B VERIFIED IN-GAME** (TraitExt, 2026-09-23). A synthesised type was written
-with `TurretCount=4` + `Turret.RangeBands` borrowed from the Prism Tank, plus
-`Primary=Comet`, and **no** `WeaponCount`. The section was dumped back key by key
-to prove the write landed:
+**CORRECTED 2026-09-24.** An earlier revision of this section claimed
+"`TurretCount>1` alone kills `Primary=`" and marked it A/B verified. The A/B was
+real, but that mechanism was the wrong attribution and it only explained one of
+two failures. The measured cause is narrower and more useful:
 
-```
-$Inherits=MTNK Image=SREF Turret=yes TurretCount=4
-Turret.RangeBands=3,6 Turret.RangeIndices=0,1,3 Primary=Comet
-```
+> **`WeaponN` is only read when `WeaponCount` covers it, and a type's weapon
+> declaration is NOT delivered by `$Inherits`.**
 
-The parsed type came out with **`WeaponCount=0` and all 18 weapon slots null** —
-not the inherited `105mm` from its `$Inherits` parent either. Replacing
-`Primary=Comet` with `WeaponCount=1` + `Weapon1=Comet` on the same section, same
-build, made it fire.
+Evidence, from synthesised types whose sections were dumped back key by key so
+the write itself was never in doubt (TraitExt, 2026-09-23/24):
 
-So the rule is broader than `Gunner`/`WeaponCount`: **once a type's turret ⇄
-weapon mapping is engaged — which `TurretCount>1` alone is enough to do — the
-engine resolves weapons through the `WeaponN` list, and `Primary=` is dead.** A
-multi-turret type that declares only `Primary=` ends up with **no weapon at
-all**, which reads in game as a unit that simply never fires.
+| Section as written | Parsed result |
+|---|---|
+| `$Inherits=FV` + `Weapon1=Comet` (base `FV` is `WeaponCount=17`) | `WeaponCount=0`, **all 18 slots null** |
+| `$Inherits=MTNK` + `TurretCount=4` + `Primary=Comet` | `WeaponCount=0`, **all 18 slots null** — not even the parent's `105mm` |
+| same section, `Primary=Comet` → `WeaponCount=1` + `Weapon1=Comet` | fires |
 
-Practical consequence for tooling: if you synthesise or edit a type and copy the
-turret family from a multi-turret donor, you must also express its weapons in
-`WeaponN` form. TraitExt now translates `Primary=`/`Secondary=` into
-`Weapon1`/`Weapon2` (+ `WeaponCount`) whenever the resulting type has
-`TurretCount>1` or `WeaponCount>0`, because both forms mean the same thing to an
-author and only one of them works.
+The first row is the decisive one. `Weapon1=Comet` was a **literal key on the
+section**, and it was still ignored — because the child inherited no
+`WeaponCount`, so slot 1 was outside the declared range. `$Inherits` supplies
+individual keys lazily on lookup, but the engine reads the weapon list by
+*counting*, so a child that does not restate `WeaponCount` has an empty list no
+matter what `WeaponN` keys it carries.
+
+That also explains the `Primary=` row without appealing to turrets: with
+`WeaponCount=0` **and** a multi-turret mapping engaged, neither path yields a
+weapon. Whether `TurretCount>1` alone would suppress `Primary=` on an otherwise
+well-formed type was **never isolated** and should be treated as unproven.
+
+**The practical rule.** A partial weapon declaration is not a smaller version of
+the base — it is a broken type, and it reads in game as a unit that simply never
+fires. If you synthesise or edit a type that touches weapons, copy the base's
+**whole** declaration (`WeaponCount`, `Gunner`, `Primary`/`Secondary`, `Elite*`,
+`Weapon1..18`, `EliteWeapon1..18`) and overwrite individual slots from there;
+and raise `WeaponCount` to cover the highest slot you declare, or that slot is
+silently never read. For a `Gunner` unit this is also what keeps the passenger
+slots working instead of emptying the list.
 
 **Confirmed via.** Vanilla `rulesmd.ini` `[FV]` (`Gunner=yes`, `WeaponCount=17`,
 `Weapon1`..`Weapon17`) and `[SREF]` (`WeaponCount=1`, `Weapon1=Comet`, `Primary`

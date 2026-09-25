@@ -64,3 +64,58 @@ not the benign "everyone hooks the same call site" case — Kratos hooks it
   Phobos and Kratos source. `0x4147FF` (skip-Phobos-only) is Kratos-specific and
   is the instruction right after the hooked bytes. Not re-derived from
   `gamemd.exe` disassembly here, but corroborated across two frameworks.
+
+---
+
+### `0x4157C0` — AircraftClass spy-plane / paradrop overfly  ⚠ five passes are hardcoded
+
+Not a hook recommendation — a behavioural fact that reads as a bug and costs real
+debugging time. Reported in game as **"the spy plane circles its target instead of
+doing a flyby."**
+
+**The mechanism.** The overfly mission (function start `0x4157C0`, ends `0x41595C`)
+re-tests distance every tick rather than following a fixed trail:
+
+```
+415934:  mov ecx, ds:0x8871E0          ; RulesClass::Instance
+41593a:  cmp eax, [ecx+0x54C]          ; distance vs [General]ParadropRadius
+415940:  jg  0x415956                  ; too far -> keep flying
+415942:  ...call [edx+0x1E8]...        ; in range -> do the pass
+415950:  dec BYTE PTR [esi+0x6D3]      ; <-- passes remaining
+415956:  mov eax,3 ; pop esi ; ret
+```
+
+`[esi+0x6D3]` is `AircraftClass::NumParadropsLeft` (`sizeof(FootClass)` is `0x6C0`;
+the field sits at +0x13 into `AircraftClass`). **Exactly one site initialises it:**
+
+```
+0x413D74:  mov byte ptr [esi+0x6D3], 5     ; inside AircraftClass::AircraftClass (0x413D20)
+```
+
+So every aircraft is born with five passes, and a spy plane makes all five unless
+something caps it. Five passes over one target is what looks like orbiting. The
+flight path itself is fine — it simply repeats.
+
+**The cap is a Phobos tag, on the WEAPON, not the aircraft.**
+`CheckSpyPlaneCameraCount` (Phobos `Ext/Aircraft/Hooks.cpp`, hooks at `0x415666`
+and `0x4157EB`) returns "no limit" when `Strafing.Shots` is unset, so a stock
+configuration inherits the hardcoded 5:
+
+```ini
+[SpyCameraWeapon]      ; the aircraft's Primary, NOT the aircraft section
+Strafing.Shots=1       ; one pass, then leave
+```
+
+✅ **Verified in game:** that single line turned persistent circling into a clean
+flyby.
+
+**Ruled out along the way, so nobody repeats it:**
+- **Speed.** The plane's `Speed` had been doubled (15 → 30) with `ROT` left at 2 —
+  a very plausible "wider turn radius" story. Reverting it changed nothing: speed
+  alters how wide each loop is, not how many there are.
+- **A third-party DLL.** Settled by uninjecting the suspect DLL entirely and
+  observing identical behaviour, with its absence confirmed in the log.
+
+**Confirmed via.** objdump of `gamemd.exe` at the cited addresses; a byte-pattern
+search for writes to `+0x6D3` (exactly one — the constructor); Phobos source; and
+an in-game before/after.

@@ -5361,3 +5361,4 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x422967,WeaponExt,release,AnimClass_DTOR_WarheadSize,0x6,src,src/Hooks.WarheadSize.cpp
 0x422CD8,WeaponExt,release,AnimClass_DrawIt_WarheadSizeProbe,0x6,src,src/Hooks.WarheadSize.cpp
 0x423122,WeaponExt,release,AnimClass_DrawIt_WarheadSizeProbe,0x6,src,src/Hooks.WarheadSize.cpp
+0x4AB9B0,CommandBarExt,release,DisplayClass_LeftMouseButtonUp_NoGoZone,0x5,UI,src/Hooks.PatherProbe.cpp

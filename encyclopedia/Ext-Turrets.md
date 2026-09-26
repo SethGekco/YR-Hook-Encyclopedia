@@ -194,7 +194,65 @@ adds disguise-turret-facing hooks at overlapping addresses. This region is
 
 **Confirmed via.** Phobos source read directly (`Hooks.MatrixOp.cpp`, the
 `SkipGameCode`/`getTurretVoxel`/`getBarrelVoxel` bodies). Draw-order claim is
-from reading that rewrite; **not** confirmed by in-game test.
+from reading that rewrite, and is now corroborated by the blitter-flag survey
+below.
+
+---
+
+### ★ Why a voxel body can never occlude its turret — the blitter flags settle it
+
+**Source.** PayloadExt, 2026-09-25. `objdump` survey of every voxel blit in
+`UnitClass::DrawAsVXL`. This is a NEGATIVE result, recorded deliberately: it
+closes off the cheap fix that looks obviously available, and it is the reason the
+"voxel body occludes turret" feature was shelved rather than attempted.
+
+**Every voxel draw in the function pushes the same blitter flags — `0x2800`:**
+
+```
+73B69D  push $0x2800     ; body   (before Phobos's 0x73BA12 takeover point)
+73B6F9  push $0x2800     ; body
+73BCA0  push $0x2800     ; turret / barrel  (inside the block Phobos replaces)
+73BCEE  push $0x2800
+73BD47  push $0x2800
+73BDDF  push $0x2800
+73BE1E  push $0x2800
+73BE76  push $0x2800
+```
+
+`0x2800` = `Alpha (0x800) | Flat (0x2000)`. **No `ZRead` (0x3000) and no
+`ZReadWrite` (0x4000) appears anywhere in the function.**
+
+**What that means.**
+- Vanilla **never depth-tests voxel sub-objects against one another**. Body,
+  turret and barrel are painted in a fixed order into the same surface, and
+  whatever is painted last wins. The turret sits on top because it is drawn
+  second, not because of any depth decision.
+- So **turret-over-body is inherent to the vanilla renderer** — not a Phobos
+  regression, and not a flag someone forgot to set.
+- **Phobos is faithful here.** Its rewrite emits the same `Alpha | Flat`, so it
+  neither introduced the behaviour nor can cheaply fix it.
+
+**Why the obvious fix does not work — read this before trying it.** Setting the
+turret draw to `ZRead` cannot help: it would test against a depth buffer the body
+never wrote, because the body draw is `Flat` too. And switching *everything* to
+`ZReadWrite` is not a small change either — these values **overlap bitwise**
+(`ZRead` 0x3000 contains `Flat` 0x2000), which means they are **mode selectors,
+not independent flags**. Changing the mode alters the blit for every voxel in the
+game, shadows and translucency included, on the strength of a guess.
+
+**What an actual fix would require**, in increasing order of cost:
+1. **Facing-based ordering.** Draw the turret BEFORE the body when the turret is
+   on the far side. Not true occlusion, but it is exactly the trick the engine
+   already uses to order barrel vs turret, so it is idiomatic. Note the body is
+   drawn *before* `0x73BA12`, so this needs a hook earlier in the function than
+   Phobos's — you cannot get it from the existing takeover point.
+2. **True per-voxel depth compositing.** Render body, turret and barrel through a
+   shared depth-aware pass. Correct in all cases; a real renderer change in a
+   region already carrying ~14 hooks across four frameworks.
+
+**Confirmed via.** `objdump -D` of a clean `gamemd.exe`; all eight pushes read
+directly. Flag arithmetic from the `BlitterFlags` enum. Not in-game tested,
+because the conclusion is that there is nothing to test.
 
 ---
 

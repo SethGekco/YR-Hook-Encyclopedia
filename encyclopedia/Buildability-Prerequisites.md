@@ -153,6 +153,104 @@ is **inferred** from the field order in `RulesClass.h` plus the engine's own
 
 ---
 
+### `0x4F79E4` / `0x4F7A77` — the `RequiredHouses` / `ForbiddenHouses` tests
+
+**Framework names** — *no framework hooks these addresses.* They are interior
+points of `HouseClass::CanBuild` (`0x4F7870`), which the Ares lineage replaces
+wholesale — so under Antares this vanilla code is dead and the framework's own
+implementation decides. Documented because it is the reference semantics.
+
+**What it does.** `EDI` = `TechnoTypeClass*`, `EBP` = `HouseClass*`.
+
+```asm
+; RequiredHouses (+0xDA0)
+4f79e4:  mov 0xda0(%edi),%eax
+4f79ea:  cmp $0xffffffff,%eax
+4f79ed:  je  0x4f7a77             ; -1 = no restriction -> straight to Forbidden
+4f79fb:  mov 0xb8(%ecx),%ecx      ; House->Type->ArrayIndex2  (the country's OWN index)
+4f7a01:  shl %cl,%edx             ; 1 << ArrayIndex2
+4f7a03:  test %edx,%eax
+4f7a05:  jne 0x4f7a77             ; match -> go check Forbidden
+         ;  ...else fall into the four AltOwner paths below; if they also fail,
+         ;  jump to 0x4F7994 (FAIL) and Forbidden is NEVER evaluated
+
+; ForbiddenHouses (+0xDA4)
+4f7a77:  mov 0xda4(%edi),%eax
+4f7a7d:  cmp $0xffffffff,%eax
+4f7a80:  je  0x4f7a9a             ; -1 -> continue past
+4f7a92:  test %edx,%eax           ; same 1 << ArrayIndex2
+4f7a94:  jne 0x4f7994             ; match -> FAIL
+```
+
+**Precedence — it is an AND, not an override.**
+
+| `RequiredHouses` | `ForbiddenHouses` | Result |
+|---|---|---|
+| fails | **not evaluated** | unbuildable |
+| passes or `-1` | matches | unbuildable |
+| passes or `-1` | no match or `-1` | continue |
+
+"Forbidden wins when both name the country" is a correct *outcome*, but there is
+no priority rule in the code: the semantics are
+`Required_satisfied AND NOT Forbidden_matched`, with Forbidden evaluated second
+and only when Required already passed.
+
+**What it does *not* do — easily mistaken.** `RequiredHouses` is **not** a single
+test. When the direct `ArrayIndex2` check fails, the engine tries four
+alternate-ownership bitfields on the *house*, each gated on the item's abstract
+type (`0x4F7A07`–`0x4F7A71`):
+
+| House field | Offset | `WhatAmI()` | Type |
+|---|---|---|---|
+| `InfantryAltOwner` | `+0x2C4` | `0x10` | `InfantryType` = 16 |
+| `UnitAltOwner` | `+0x2C8` | `0x28` | `UnitType` = 40 |
+| `AircraftAltOwner` | `+0x2CC` | `0x03` | `AircraftType` = 3 |
+| `BuildingAltOwner` | `+0x2D0` | `0x07` | `BuildingType` = 7 |
+
+Each is `RequiredHouses & <AltOwner>` — the captured-factory mechanic. So a house
+may satisfy `RequiredHouses=` **without its own country being listed at all**.
+Anyone reimplementing or gating on `RequiredHouses` who tests only
+`1 << ArrayIndex2` silently breaks captured-factory buildability.
+
+These four are also **32-bit country bitfields**, so they carry the same ceiling
+and the same mod-32 aliasing as the INI-side tags (see
+[Countries-Taunts.md](Countries-Taunts.md)) — but they are *runtime* state, so a
+hook on the INI parser `0x4750D0` does not reach them.
+
+**Used by / interactions — the Ares lineage keeps the precedence but DROPS the
+AltOwners.** Antares replaces `0x4F7870` wholesale
+(`Ext/House/Hooks.cpp:26` → `HouseExt::PrereqValidate` → `RequirementsMet`), and
+the operative line is `Ext/House/Body.cpp:115`:
+
+```cpp
+if(!pHouse->InRequiredHouses(pItem) || pHouse->InForbiddenHouses(pItem)) {
+    return RequirementStatus::Forbidden;
+}
+```
+
+- **Precedence: identical.** C++ `||` short-circuits, so a failed
+  `RequiredHouses` returns before `InForbiddenHouses` is evaluated — the same
+  conjunction, in the same order, as the vanilla asm above.
+- **AltOwners: gone.** YRpp's `HouseClass::InRequiredHouses` (`HouseClass.h:637`)
+  is purely `pItem->InRequiredHouses(1u << this->Type->ArrayIndex2)`. No
+  AltOwner test exists in the Ares-lineage path, so **captured-factory
+  satisfaction of `RequiredHouses=` does not happen under Antares/Ares.** A mod
+  that depends on it loses it silently when the framework is loaded.
+
+⚠ **YRpp mislabels these four fields.** `HouseClass.h:874-884` carries exactly
+this AltOwner logic as commented-out pseudo-code introduced by *"these four are
+unused horrors"*. They are **not** unused in vanilla — the disassembly above
+reads all four. The comment is true only of the Ares lineage.
+
+**Confirmed via.** `objdump` of vanilla `gamemd.exe` (sha1 `189a5a86…`),
+2026-09-25 — instruction bytes quoted. **Confirmed.** Field identification
+corroborated by YRpp `HouseClass.h:885-888` (four consecutive `DWORD`s in the
+order Infantry/Unit/Aircraft/Building, matching the `WhatAmI()` constants
+16/40/3/7) and the constants themselves by `GeneralDefinitions.h`.
+**Confirmed.** Antares behaviour from source at `9f25bdb`. **Confirmed.**
+
+---
+
 ### `0x4F7870` — HouseClass::CanBuild
 
 **Framework names**

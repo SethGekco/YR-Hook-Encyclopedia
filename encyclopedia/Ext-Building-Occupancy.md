@@ -745,6 +745,80 @@ target. Two attempts to name the responsible site (the event's mission byte at
 open-topped buildings, per-entry modifiers — all working. Forced non-Occupier
 entry on a player order: **removed, unsolved, documented here.**
 
+## ★★ Setting `Occupier=` on a type BREAKS engineer capture and spy infiltration
+
+**Source.** PayloadExt, 2026-09-27, found in game and traced end to end. This is the
+single most expensive trap on this page for any DLL that grants `Occupier=`
+programmatically, and it is completely silent: nothing logs, nothing crashes, the
+cursor is still correct, and the unit still walks to the building.
+
+**Symptom.** An engineer under the Capture cursor approaches normally, reaches the
+building's centre cell, **turns around and walks away**. No capture ever completes,
+on any untagged building, enemy-owned included.
+
+**Cause — garrison entry and engineer capture share `Mission::Capture` (8), and the
+arrival dispatch tests `Occupier=` FIRST.** In `InfantryClass::UpdatePosition`:
+
+```
+51966C  cmp  [esp+0x54],2      ; PCPType::End — fires only at CELL-CENTRE arrival
+51967F  cmp  eax,8             ; Mission::Capture (garrison AND engineer capture)
+51968E  mov  cl,[Type+0xEB5]   ; Assaulter=
+519698  mov  cl,[Type+0xEB4]   ; Occupier=     <-- a granted flag lands here
+5196A0  je   0x51973C          ; NEITHER set -> the normal engineer/spy handling
+5196D4  call 0x457CE0          ; CanBeOccupiedBy
+5196DB  jne  0x519710          ; admitted -> garrison
+        ; ---- REFUSED ----
+5196E5  SetDestination(null)   ; clear
+519700  Scatter                ; walk away
+51970D  ret                    ; UpdatePosition RETURNS
+```
+
+At an **arrival**, a `CanBeOccupiedBy` refusal is not "try the other branch" — the
+engine treats it as **mission failed**: it clears the destination, scatters the unit
+and returns. The engineer-capture commit further down (`0x519A1F` / `0x519F71`) is
+never reached. Vanilla never hits this because vanilla never sets `Occupier=` on an
+engineer.
+
+**A permission veto at `0x457D58` CANNOT fix it** — that is the natural instinct, and
+it is wrong: there, *the refusal is the abort*. The grant has to be made invisible
+**before** the dispatch, or not made at all.
+
+**Exactly which roles are affected** — determined, not guessed. The only
+`InfantryTypeClass` flags read downstream of the abort (`0x51973C`–`0x51A200`) are:
+
+| Offset | Flag | Role lost |
+|---|---|---|
+| `+0xEC3` | `Engineer` | engineer capture |
+| `+0xEC4` | `Agent` | spy infiltration |
+
+(Adjacent bools in YRpp `InfantryTypeClass.h`, which corroborates the offsets.)
+**`C4` and `VehicleThief` are NOT affected** and must not be swept in with a wider
+guess: C4 demolition is `Mission::Sabotage` (0x11), not Capture, so excluding C4
+types needlessly stops SEAL/Tanya-style units garrisoning.
+
+**Two fixes, and you likely want both.**
+1. **Never grant to `Engineer` or `Agent` types.** Also fixes the mirror case: at a
+   building that *does* admit them, a granted engineer garrisons instead of
+   capturing.
+2. **Make the grant invisible at the dispatch.** Hook `0x519698` and, for a
+   *synthesised* occupier whose destination building you do not govern, return
+   `0x51973C` — vanilla's own "not a garrison arrival" branch. Without this, every
+   granted type still walks up to an ordinary garrisonable building and bounces off
+   it, because the veto refuses and the engine scatters. Read-only: it only picks a
+   branch.
+
+**Diagnostic tell.** The AI may still capture fine while the human cannot. The abort
+additionally requires `Destination` to BE the building object (`0x5196CF`), which a
+player's click produces; AI script paths that set a *cell* destination skip the block
+entirely. So "the AI can do it, I can't" is a signature of this bug, not evidence
+against it.
+
+**Confirmed via.** `objdump` of the arrival block; in-game reproduction; a tripwire
+at the capture commit (`0x519F71`) that never fired; and the grant lines in
+`debug.log`. Fixed in PayloadExt with both measures above.
+
+---
+
 ## The bridge: why buildings can't be open-topped without help
 
 Release Phobos, `src/Ext/Techno/Body.Update.cpp` (~line 1234), comments:

@@ -66,6 +66,50 @@ that value is not exceptional — it is expected, and your handler will produce 
 
 ---
 
+## Shape 3 — `R->ESP()` cannot adjust the stack (it is silently ignored)
+
+The tempting way to skip a call whose arguments are already pushed:
+
+```cpp
+// WRONG — does nothing, and corrupts the caller's epilogue
+R->ESP(R->ESP() + 4);
+return resume_after_the_call;
+```
+
+`REGISTERS` is laid out `EDI, ESI, EBP, ESP, EBX, EDX, ECX, EAX` — **exactly
+the `PUSHAD` frame** — and `POPAD` architecturally **discards** the ESP slot
+rather than loading from it. So the write is accepted by the setter, stored in
+the struct, and then thrown away on restore.
+
+The pushed argument survives. Execution resumes with the stack four bytes deep,
+the enclosing function's `pop`/`ret` epilogue reads shifted values, and `ret`
+jumps to whatever that misalignment happens to expose.
+
+**Crash signature:** `C0000005` at a wild or null EIP — observed as
+`Exception C0000005 at 00000000` — occurring immediately *after* the handler's
+own logging, i.e. the handler ran fine and the fault is in the return path.
+
+**Correct fix: never adjust ESP. Move the seat earlier so the `push` is part of
+the stolen bytes**, then nothing is stranded:
+
+```
+50900c  push esi              (1)   <- seat here, size 0xB
+50900d  mov  ecx,0x87F7E8     (5)
+509012  call 0x577AB0         (5)   <- NOT here
+509017  ...                         resume, stack already balanced
+```
+
+⚠ **Static checks cannot catch this.** Hook-overlap and instruction-boundary
+checkers both pass the bad seat, because its geometry is perfect — `0x509012`
+is a real instruction start and 5 bytes is a real instruction length. The
+defect is entirely in what the handler does at runtime.
+
+Related: if the handler needs to *read* stack arguments rather than remove
+them, `R->Stack<T>(offset)` and `lea_Stack` are the supported accessors and
+they work fine. It is only *moving* ESP that is a no-op.
+
+---
+
 ## Reading the crash
 
 An EIP inside a Syringe stub — a small offset into an address unlike any module

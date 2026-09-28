@@ -8,6 +8,13 @@ This tier is deliberately incomplete and always will be. The goal is not to
 write up all ~2,900 addresses — it's to cover the hooks that are **widely used,
 widely misunderstood, or conflict-prone**, so the reference earns its keep.
 
+## Start here
+
+| Page | Why |
+|---|---|
+| **[_TRAPS-READ-FIRST.md](_TRAPS-READ-FIRST.md)** | The cross-cutting traps — full-replacement functions, `return 0`, legal-vs-live, inverted enums, reference-not-pointer globals. Each cost a debugging round, most of them more than once. **Read before hooking anything.** |
+| **[_CONVENTIONS.md](_CONVENTIONS.md)** | How much to trust a claim (status markers), what to do when one turns out wrong (disclaim in place, archive only when repeatedly confirmed, never delete), and ⚠ **why `git add -A` is banned in this repo**. |
+
 ## Priority order for what to write up next
 
 1. **Shared addresses** (`registry/conflicts.md`) — 300 addresses where two or

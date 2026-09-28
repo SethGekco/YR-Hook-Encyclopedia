@@ -454,8 +454,26 @@ the sidebar cameo goes dark, and the unit builds anyway when clicked. It looks
 like the refusal "half worked", which sends people hunting for a second gate
 that does not exist.
 
+> ⛔ **SUPERSEDED, in two ways — do not stop reading here.** Kept because the
+> symptom description is accurate and is what you will actually observe.
+>
+> 1. **There IS a second gate.** `HouseClass::ShouldDisableCameo` (`0x50B370`)
+>    decides the cameo's disabled state without consulting `CanBuild` at all. See
+>    *"…and even answering BOTH calls is not enough"* below. Hunting for a second
+>    gate was the correct instinct.
+> 2. **`-1` is not uniformly ignored.** Antares' `HouseExt::HasFactory` compares
+>    `(int)CanBuild(...) <= 0` — signed — so `-1` blocks there exactly like `0`.
+>    The vanilla `test eax,eax` sites counted below are real, but several sit
+>    inside functions Antares *replaces*, so they are not all live.
+>
+> What survives: `0` is the only value every reader agrees on, so prefer it when
+> you want a hard refusal — but if you want **greyed-and-still-blocked**, `-1`
+> alone will not get you there, and neither will `0` (it removes the cameo).
+> That combination needs `0x50B669`.
+
 Write **`Unbuildable` (0)** to actually refuse — it is falsy, so every caller
-agrees, and removing the cameo is what vanilla itself does for
+agrees *(true, and the one part of this section that never needed correcting)*,
+and removing the cameo is what vanilla itself does for
 `RequiresStolenAlliedTech` / `…SovietTech` / `…ThirdTech`. Reserve `-1` for
 conditions the *engine* already treats that way (insufficient power, factory
 busy), where the surrounding code knows to re-check.

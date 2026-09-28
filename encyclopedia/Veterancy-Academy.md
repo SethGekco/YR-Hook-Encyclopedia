@@ -28,9 +28,11 @@ sit right next to each other:
 - The **nine academy addresses are all interior points of larger routines**, and
   every framework handler there returns `0`. They chain cleanly — several
   independent DLLs can compute a promotion at the same address without fighting.
-- **`BuildingClass::Infiltrate` (`0x4571E0`) is the opposite**: a function entry
-  that Antares/Ares wrap wholesale and exit via a jump target. A second hook
-  there is silently dead. See that entry before hooking anything spy-related.
+- **`BuildingClass::Infiltrate` (`0x4571E0`) is different in kind**: a function
+  entry that Antares/Ares wrap wholesale and exit via a jump target. A `return 0`
+  observer there *does* still run — verified twice, by two independent DLLs — but
+  anything wanting to *suppress* the framework's effects has to fight for control.
+  Read that entry before hooking anything spy-related.
 
 > **Naming caveat.** The PDB symbol map labels these addresses
 > `*_Academy` (e.g. `0x413FD2 AircraftClass_Init_Academy`). Those names come from

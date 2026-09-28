@@ -143,17 +143,47 @@ The asymmetry is the useful part: there is no scenario in which a destructive
 handler *gains* from the second seat, so the conservative choice is also the
 complete one.
 
-**⚠ Unverified.** Which of `0x716123` / `0x716132` is reached under what
-condition has **not** been established here by disassembly — no vanilla
-`gamemd.exe` was available. What is established is the source-level divergence
-and Phobos' stated reason. Anyone with the binary should resolve the actual
-control flow between `0x716123` and `0x716132` (15 bytes apart, both inside
-`TechnoTypeClass::LoadFromINI`) and replace this section with the answer.
+**✅ RESOLVED by disassembly (2026-09-27).** They are the function's **two return
+paths**, and the boolean each one loads is the whole answer:
 
-**Confirmed via.** Antares source (`src/Ext/TechnoType/Body.cpp:1212-1213`),
-Phobos source (`develop`, `src/Ext/TechnoType/Body.cpp:2022-2023`), registry
-`hooks.csv` rows for `0x716132`. Register layout is shared with `0x716123` in
-every framework that hooks both (`EBP` / `[ESP+0x380]`).
+```
+716123:  b0 01              mov al,0x1        <-- SUCCESS: returns true
+716125:  5f 5e 5d 5b        pop edi/esi/ebp/ebx
+716129:  81 c4 6c 03 00 00  add esp,0x36c
+71612f:  c2 04 00           ret 0x4
+
+716132:  5f 5e 5d           pop edi/esi/ebp
+716135:  32 c0              xor al,al         <-- FAILURE: returns false
+716137:  5b                 pop ebx
+716138:  81 c4 6c 03 00 00  add esp,0x36c
+71613e:  c2 04 00           ret 0x4
+```
+
+So `0x716123` is reached when the type's INI section **was** read, and `0x716132`
+when it **was not** — which is precisely what Phobos' `// Section dont exist!`
+comment is recording. Phobos is right, and the frameworks that hook both are
+running their handler on a path where the section is absent.
+
+**Practical consequence.** Whether you want the second seat depends entirely on
+whether your handler is *additive* or *destructive*:
+
+- **Additive** (reads keys into existing state): hooking `0x716132` is harmless
+  and arguably more complete — you simply find nothing to read.
+- **Destructive** (clears its own containers before parsing, as PrerequisiteExt
+  does): hooking it is a **bug**. The failure path cannot supply data, so the only
+  possible effect is to wipe what the success path already parsed.
+
+The asymmetry *is* the argument: there is no scenario in which a destructive
+handler gains from the second seat, so for that shape the conservative choice is
+also the complete one.
+
+**Confirmed via.** `objdump` of vanilla `gamemd.exe` at `0x7160F0`–`0x71613E`
+(instruction bytes quoted above) for the success/failure split; Antares source
+(`src/Ext/TechnoType/Body.cpp:1212-1213`), Phobos source (`develop`,
+`src/Ext/TechnoType/Body.cpp:2022-2023`), registry `hooks.csv` rows for
+`0x716132`. Register layout is shared with `0x716123` in every framework that
+hooks both (`EBP` / `[ESP+0x380]`); the `add esp,0x36C` in both epilogues
+corroborates that deeper frame.
 
 ---
 

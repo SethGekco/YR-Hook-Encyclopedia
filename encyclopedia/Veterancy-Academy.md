@@ -403,6 +403,25 @@ handlers* with a property of the subsystem. Two separate levers exist:
    afterwards: the per-frame `TechnoClass_Update_Veterancy` (`0x6FA054`) calls
    `HandlePromotion`, which reacts to rank *changes* and never writes veterancy.
 
+**✅ Lever 2 VERIFIED in game.** A co-loaded DLL injected after Antares,
+writing unconditionally instead of raise-only, with a per-academy ceiling of
+`1.0`:
+
+```
+12 source(s), bestSingle=1.000 stackSum=5.500 -> resolved=2.000 | cap=1.000
+  -> wrote 1.000 (authoritative)
+```
+
+Resolved `2.000`, wrote `1.000`. A rank was **lowered** from a chained hook,
+which the retracted claim above said was unreachable. The same run also shows
+`resolved=1.500 -> wrote 1.000`.
+
+⚠ **It was invisible on screen.** `1.5` and `1.0` both render as one chevron, and
+in the capped case the written value coincided with what the framework had
+already set, so nothing looked different in game — the reduction is only
+demonstrable from a decision log. Any reducing effect in this subsystem needs
+one.
+
 The cost is the obvious one — lever 2 trades the commutativity that made the
 default safe, so it is **correct only for a specific load order** and should be
 opt-in rather than a library's default behaviour.

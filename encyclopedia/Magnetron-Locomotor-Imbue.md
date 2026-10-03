@@ -86,6 +86,34 @@ Finally clears `firer->LocomotorTarget`, and if `setTarget` calls firer vtable
 Note it does **not** restore a locomotor — see the warning above. The victim is
 left with the imbued locomotor still installed.
 
+### ⚠ VERIFIED: `ReleaseLocomotor` does NOT clear `IsAttackedByLocomotor`
+
+Scan the whole function and the only one of the two magnetron bools it ever
+writes is `IsLetGoByLocomotor` (`+0x6AE`, set to 1 at `0x70FFBB`).
+**`IsAttackedByLocomotor` (`+0x6AD`) is never touched.** Since that flag is
+what marks a unit "jammed by a magnetron", calling `ReleaseLocomotor` alone
+frees the victim from its captor and leaves it **still completely
+uncontrollable**.
+
+Who does clear it: the jumpjet, as part of its landing sequence, and it clears
+**both** flags together —
+
+```
+54da73   cmp  [eax+0x6ad],bl      ; bl = 0
+54da79   jne  0x54da83
+54da7b   cmp  [eax+0x6ae],bl
+54da81   je   0x54dac1            ; neither set -> nothing to do
+54da83   mov  [eax+0x6ad],bl      ; IsAttackedByLocomotor = 0
+54da8c   mov  [eax+0x6ae],bl      ; IsLetGoByLocomotor   = 0
+```
+
+**VERIFIED in game (2026-10-03):** a third-party DLL released victims held by
+a Drive-locomotor magnetron via `ReleaseLocomotor(true)`; the log confirmed
+four releases firing, and the tanks stayed frozen regardless. Clearing both
+bools by hand after the release — mirroring `0x54DA83`/`0x54DA8C` — is what
+actually returns control. Anything reimplementing magnetron release for a
+non-jumpjet locomotor must do this; nothing else in the engine will.
+
 ## Why alternate `Locomotor=` CLSIDs paralyse the victim — the root cause
 
 `ReleaseLocomotor` has **11 callers**:

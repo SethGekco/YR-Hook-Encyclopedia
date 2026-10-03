@@ -51,10 +51,26 @@ value from `WarheadTypeClass+0x15C`.
 What it does, in order:
 1. If the **firer** already holds a victim → `ReleaseLocomotor` (`0x7102A6`).
    If the **victim** is itself holding someone → release that too (`0x7102B7`).
-2. Creates the new locomotor via the COM path at `0x5233A0`, then **overwrites
-   `victim->Locomotor` (`FootClass+0x674`) and `Release()`s the old one**
+2. Creates the new locomotor via the COM path at `0x5233A0`, links it to the
+   victim, and installs it at `victim->Locomotor` (`FootClass+0x674`)
    (`0x7102E5`–`0x7102F6`).
-   ⚠ **The victim's original locomotor is destroyed, not saved anywhere.**
+
+   > ⚠ **CORRECTION (2026-10-03). An earlier revision of this page claimed
+   > "the victim's original locomotor is destroyed, not saved anywhere",
+   > reading the `Release()` at `0x7102F6` as the original being freed. That
+   > was WRONG and it sent an implementation down a dead end.**
+   >
+   > The magnetron **piggybacks**. YRpp spells the sequence out in
+   > `LocomotionClass::ChangeLocomotorTo` (commented "Magnetron style"):
+   > create the new locomotor, `Link_To_Object`, then
+   > `IPiggyback::Begin_Piggyback(Original)` — which takes ownership of the
+   > original and keeps it alive *inside* the new one. The `Release()` is just
+   > the local smart pointer dropping its own reference afterwards.
+   >
+   > So the original locomotor **survives and is recoverable**, and the
+   > correct way to hand control back is
+   > `LocomotionClass::End_Piggyback(pFoot->Locomotor)` — not re-creating a
+   > locomotor from the TechnoType.
 3. `firer->LocomotorTarget = victim` (`0x710307`),
    `victim->LocomotorSource = firer` (`0x710318`).
 4. `victim->IsAttackedByLocomotor = 1` (`0x710352`).
@@ -110,9 +126,32 @@ Who does clear it: the jumpjet, as part of its landing sequence, and it clears
 **VERIFIED in game (2026-10-03):** a third-party DLL released victims held by
 a Drive-locomotor magnetron via `ReleaseLocomotor(true)`; the log confirmed
 four releases firing, and the tanks stayed frozen regardless. Clearing both
-bools by hand after the release — mirroring `0x54DA83`/`0x54DA8C` — is what
-actually returns control. Anything reimplementing magnetron release for a
-non-jumpjet locomotor must do this; nothing else in the engine will.
+bools by hand after the release — mirroring `0x54DA83`/`0x54DA8C` — is
+necessary but **not sufficient**.
+
+### The complete non-jumpjet release: end the piggyback
+
+**VERIFIED in game (2026-10-03):** after clearing both bools the victims were
+no longer *flagged*, and still could not move. The missing piece is that the
+imbued locomotor is **piggybacked over the original** (see the correction
+above), and `IPiggyback::Is_Ok_To_End` — which YRpp documents as honoured
+automatically in `FootClass::AI` — only ever goes true for the jumpjet, once
+it has landed. For Drive/Teleport/Tunnel/etc. the piggyback never ends, so the
+unit keeps being driven by a locomotor that is not its own.
+
+A complete hand-back for a non-jumpjet locomotor is therefore three steps:
+
+```cpp
+pFirer->ReleaseLocomotor(true);                        // drop the link
+LocomotionClass::End_Piggyback(pVictim->Locomotor);    // restore the original
+pVictim->IsAttackedByLocomotor = false;                // clear the jam bools
+pVictim->IsLetGoByLocomotor    = false;
+```
+
+`End_Piggyback` deliberately ignores `Is_Ok_To_End`, which is what makes it
+usable here. Phobos calls it the same way in
+`Ext/WarheadType/Detonate.cpp` (`ApplyLocomotorInflictionReset`), so it is
+safe under an `HAS_EXCEPTIONS=0` build.
 
 ## Why alternate `Locomotor=` CLSIDs paralyse the victim — the root cause
 

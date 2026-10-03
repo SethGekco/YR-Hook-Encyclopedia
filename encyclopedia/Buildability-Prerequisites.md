@@ -617,10 +617,40 @@ there is no ordering guarantee beyond load order.
 
 **Confirmed via.** Antares `src/Ext/House/Hooks.Queue.cpp:115-180`; Phobos
 `src/Ext/House/Hooks.cpp:349-362`; in-game 2026-10-02 as quoted above.
-⚠ Not yet confirmed: whether lowering here is *sufficient* to make the cameo
-both live and clickable, or whether the click path's own factory re-check at
-`0x6AB312` (rejects to `0x6AB95A` on an unpowered factory,
-Antares `src/Misc/Interface.Sidebar.cpp:352-367`) also has to be satisfied.
+
+#### ✅ CONFIRMED SUFFICIENT — in game, 2026-10-02
+
+Lowering at `0x50B669` **is** enough to make the cameo both live and clickable.
+A BuildingType with its Construction Yard gone became fully buildable, and the
+produced building placed and completed normally:
+
+```
+disable-probe #1 GAPILL: incoming=1 hasFactory=0 limitReached=0 spectating=0
+ENABLE-CAMEO #1 GAPILL -- lowered ShouldDisableCameo (no usable factory, limit ok)
+SUBSTITUTE #1 GAPILL -> stand-in YABRCK
+```
+
+`incoming=1` is the important field: Antares really had disabled the cameo via
+the `HasFactory` clause, so the lower is doing real work rather than riding a
+verdict that was already permissive.
+
+⚠ **The click-time gate at `0x6AB312` did NOT need satisfying, and the
+"unpowered factory" reading of it was WRONG.** It was predicted that an
+unpowered stand-in would be rejected there. Tested directly: the only owned
+building was an **unpowered barracks** (no power plant anywhere on the base) and
+production started and finished regardless. So either that gate does not reject
+on power the way it appears to, or it is not on this path. Treat `0x6AB312` as
+**uncharacterised** rather than as a power check.
+
+**What a `FindFactory` stand-in must actually satisfy:** merely existing. Any
+owned building works — powered or not, factory or not. The only failing case is
+owning **zero** buildings, which yields a null factory and a cameo that
+highlights on click without starting production.
+
+**Confirmed via.** In-game 2026-10-02, two runs: one with a self-powered power
+plant as the only building, one with an unpowered barracks as the only building.
+Both built. A third with no buildings produced the highlight-but-no-build
+symptom.
 
 ### …and it is **not** evaluated every frame
 

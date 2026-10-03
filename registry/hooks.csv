@@ -5363,4 +5363,4 @@ Address,Framework,Channel,Function,StolenBytes,Subsystem,SourceFile
 0x423122,WeaponExt,release,AnimClass_DrawIt_WarheadSizeProbe,0x6,src,src/Hooks.WarheadSize.cpp
 0x4AB9B0,CommandBarExt,release,DisplayClass_LeftMouseButtonUp_NoGoZone,0x5,UI,src/Hooks.PatherProbe.cpp
 
-0x43FB23,BunkerExt,release,BuildingClass_AI_BunkerExtCapture,0x5,src,src/Hooks.Probe.cpp
+0x7360C0,BunkerExt,release,UnitClass_Update_BunkerExtCapture,0x5,src,src/Hooks.Probe.cpp

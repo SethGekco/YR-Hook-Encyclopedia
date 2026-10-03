@@ -161,6 +161,47 @@ the per-frame `FootClass` AI region (`0x4DA59F` is a known Phobos
 `FootClass_AI` hook), which is the most promising seat for a per-frame
 "is the beam still on me?" check.
 
+## ⚠ VERIFIED TRAP: Phobos replaces the imbue path, killing every seat after it
+
+**Do not hook anything between `0x4696CE` and `0x469AA4` and expect it to run.**
+Phobos's release handler at `0x4696CE`
+(`BulletClass_Detonate_ImbueLocomotor`, `Ext/WarheadType/Hooks.cpp`) is a
+**full replacement**:
+
+```cpp
+DEFINE_HOOK(0x4696CE, BulletClass_Detonate_ImbueLocomotor, 0x6)
+{
+    enum { SkipGameCode = 0x469AA4 };
+    ...
+    pBullet->Owner->ImbueLocomotor(pTarget, pWH->Locomotor);
+    return SkipGameCode;          // jumps past 0x4696FB AND 0x469700
+}
+```
+
+It performs the imbue from C++ and returns `0x469AA4`, so the vanilla
+`call ImbueLocomotor` at `0x4696FB` and everything up to `0x469AA4` never
+execute when Phobos is loaded.
+
+**VERIFIED** (2026-10-03): WeaponExt hooked `0x469700` — the instruction
+immediately after the vanilla call — to post-process a magnetron grab. The
+seat had perfect geometry, no registry overlap, and the hook-overlap and
+hook-bounds checkers both passed it. It ran **zero times** in a live skirmish;
+the only evidence was the complete absence of its log lines. Moving to
+`ImbueLocomotor`'s own entry (`0x710000`, stolen bytes
+`83 EC 1C | 53 | 55` — three whole instructions, no relative branch) fixed it,
+because that function is the single funnel both the vanilla call site and
+Phobos's C++ call must pass through.
+
+**Generalisable lesson:** overlap checking compares *addresses*. It cannot see
+a rival handler whose **return value** routes control around your seat. When
+placing a hook downstream of another framework's hook in the same function,
+read that handler's return statement, not just the registry row. See also
+`_TRAPS-READ-FIRST.md` (full-replacement functions, legal-vs-live) and the
+same shape in `Buildability-Prerequisites.md` (Ares replacing `0x4F7870`).
+
+Corollary for this subsystem: `0x710000` is the correct seat for *any*
+magnetron work, and it is unhooked by every framework.
+
 ## Framework co-tenancy
 
 None of `0x710000`, `0x70FEE0`, `0x4696FB` or `0x54C1CB` appears in

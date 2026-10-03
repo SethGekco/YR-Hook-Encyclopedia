@@ -89,7 +89,34 @@ reentrancy.
 
 ---
 
-## ⚠ OPEN: a 1-cell build radius with no Construction Yard
+## ✅ RESOLVED — the "1-cell radius" was never real
+
+**This function is correct. There is no bug here.** Kept as a worked example of
+how a placement restriction masquerades as an adjacency one.
+
+Runtime measurement settled the arithmetic: `ADJACENT=8` on the placed type, so
+the radius really was 9 and the `Adjacent + 1` maths above is sound. The apparent
+1-cell limit came from an **unrelated experimental tag on the same type** —
+`Prerequisite.Foundation.Forbidden=road` (PrerequisiteExt) — which rejected
+every candidate cell whose foundation touched a road. The test base happened to
+sit among roads, so the only legal sites were the few non-road cells hugging the
+anchor. Remove the tag and placement behaves exactly as this page describes.
+
+⚠ **The lesson is about diagnosis, not about the engine.** Three distinct
+hypotheses were built on the assumption that the observed radius reflected
+adjacency logic, and the real cause was a sibling project's test tag sitting
+four lines above the one being edited — visible in tool output repeatedly and
+read past every time, because the search was framed as "why is adjacency wrong"
+rather than "what else could reject this cell".
+
+**Before investigating any placement anomaly, enumerate every key on the type.**
+Foundation, terrain, occupancy and prerequisite-family restrictions all surface
+as "the build area looks wrong", and in a shared test install they may belong to
+a different DLL than the one under test.
+
+---
+
+## (historical) the investigation, as it stood before the cause was found
 
 **Observed in game 2026-10-02** (BuildQueueExt `AlwaysAvailable`): with the
 Construction Yard gone and a single owned barracks as the anchor, a
@@ -120,6 +147,39 @@ confirmed:
 **Next step:** log `pType->Adjacent` at runtime. If it reads 8, this function is
 exonerated and the limiter is elsewhere; if it reads 0, the question becomes why.
 Do not assume (1) — it is the most appealing explanation and the least evidenced.
+
+**Outcome:** it read **8**, so (1) was refuted and the function exonerated —
+and the true cause was none of the three candidates above. See the RESOLVED
+section at the top. All three hypotheses shared one unexamined premise: that the
+limiting rule had anything to do with adjacency.
+
+---
+
+## `BuildOffAnyBuilding` — anchoring on non-`BaseNormal` buildings
+
+**Confirmed working in game 2026-10-02** (BuildQueueExt). Skipping the
+`BaseNormal` test at `0x4A8FE6` and falling through to the accept at `0x4A8FF5`
+is sufficient to make any owned building a valid anchor.
+
+Seats, for anyone doing the same:
+
+- **`0x4A8F20`** (entry, size `0x5`, stolen `55 6a 00 8b ce` = three whole
+  instructions) to capture the type being **placed**. Necessary because that
+  type is in no register by the time the anchor loop runs.
+  ⚠ **Not `0x4A8F3E`**, where it is also in `ESI`: Phobos occupies that address
+  and **returns non-zero**, which aborts the rest of the Syringe chain. Phobos is
+  injected before most third-party DLLs, so a handler there never runs.
+- **`0x4A8FE6`** (size `0x6` — one whole instruction; a 5-byte stamp splits it).
+  Reaching this address **already proves the building belongs to the asking
+  house**, since the owner comparison is the branch immediately above, so no
+  ownership re-check is needed.
+
+Returning `0x4A8FF5` deliberately enters **Antares'** stamp at that address, so
+its handler still gets to refuse the anchor; skipping past it would silently
+cancel whatever `MapClass_CanBuildingTypeBePlacedHere_Ignore` exists to do.
+
+An **unpowered** building is a perfectly good anchor — the engine's own
+`BaseNormal` test ignores power, so adding a power condition would invent a rule.
 
 **Confirmed via.** objdump of `gamemd-spawn.exe` `0x4A8F20`–`0x4A9059`; Phobos
 `src/Ext/BuildingType/Hooks.cpp:195-265`; Antares symbol dump

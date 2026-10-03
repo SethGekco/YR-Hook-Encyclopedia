@@ -586,3 +586,42 @@ is under team control. Queue a mission only as the fallback for units that did
 not end up on a team.
 
 **Confirmed via.** FreeUnitExt in-game, YR + Antares + Phobos.
+
+## `0x6EA870` (`TeamClass::LiberateMember`) runs during teardown with a freed `this`
+
+Signature (from vanilla disasm): `__thiscall`, `ret 0xc`. `ECX` = the
+`TeamClass`; stack `arg1` = the `FootClass` member being removed; `arg2` is a
+flag (the Magnetron imbue path calls it `(victim, -1, 0)`, so `arg2` can be
+`-1` — but that is **arg2, not the member**; `arg1` is always a live unit). The
+body confirms the roles: it reads `[arg1+0x5D4]` ( = `FootClass::Team`) and
+compares it to `this`, bailing if the member isn't on this team.
+
+**The trap.** The engine calls this *during team destruction*, when `this` may
+already be freed and its memory reused. Observed crash (`YRAggressiveStance`,
+`snapshot-20260930-205633`): `ECX = 0x42555100` — non-null, and the reused bytes
+spell "BUQ". A hook that guarded with `if (pTeam && ... && pTeam->Type)` passed
+the non-null test and faulted dereferencing `pTeam->Type` (`[ECX+0x24]`),
+`C0000005`. **A non-null `this` is not a live `this` in a teardown hook.** Prefer
+not to dereference `this` at all here — `arg1` (the member) is valid and the
+engine dereferences it two instructions later, so decisions about the member can
+be made from it alone. If you must read `this`, validate it is in
+`TeamClass::Array` first (note `DynamicVectorClass::Count` is at `+0x10`, not
+`+0x0C`). The hook geometry is otherwise clean: 6 stolen bytes
+`51 55 8B 6C 24 0C` (`push ecx; push ebp; mov ebp,[esp+0xC]`), boundary at
+`0x6EA876`.
+
+Sibling `0x6EA500` (`AddMember`) shares the "trust the pointer" shape but runs
+during live recruitment, so it has not been seen to crash; it genuinely needs
+`pTeam->Type` and can't avoid it.
+
+**Pointer-keyed caches, scrub on `0x7258D0`.** Any `std::map<TechnoClass*, …>`
+written with `operator[]` accumulates dead keys for the whole match and lets a
+reused address inherit the previous occupant's state. `AnnounceInvalidPointer`
+(`0x7258D0`) fires per dying AbstractClass pointer — `ECX` = the pointer, stolen
+`51 53 55 56 8B F1` (6 bytes, resume `0x7258D6`, not a branch so `return 0` is
+safe). Antares/Ares/Phobos all co-hook it as observers, so chaining is
+load-order independent; erase your key there.
+
+**Confirmed via.** vanilla `gamemd.exe` disasm (`0x6EA870`, `0x7258D0`); crash
+`snapshot-20260930-205633` minidump; fix applied in YRAggressiveStance. Which
+exact caller passed the dead team was not isolated (teardown path inferred).

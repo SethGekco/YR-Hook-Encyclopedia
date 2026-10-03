@@ -553,6 +553,75 @@ and always returns here.
 `src/Ext/House/Body.cpp:174-186, 377-382`; the in-game symptom that prompted the
 search (a globally build-limited Chronosphere darkening but still building).
 
+### `ShouldDisableCameo` has a SECOND clause — and it is the one that bites
+
+The description above ("recomputes availability from `pItem->BuildLimit`") is
+accurate but **incomplete**, and the omitted half is the dominant one. Antares'
+replacement (`src/Ext/House/Hooks.Queue.cpp:115-180`) is two tests, not one:
+
+```cpp
+if(HouseExt::BuildLimitRemaining(pThis, pType) - queued <= 0) {
+    ret = true;                       // the documented clause
+} else {
+    auto const state = HouseExt::HasFactory(pThis, pType, true, true, false, true).State;
+    ret = (state < HouseExt::FactoryState::Available);   // THE OTHER ONE
+}
+```
+
+So `ShouldDisableCameo` is **also a factory check**. For a BuildingType with no
+Construction Yard, `HasFactory` yields `NoFactory`, which is `< Available`, so
+the cameo is disabled **unconditionally** — and since the function never calls
+`CanBuild`, *no* verdict at `0x4F8361`, `0x5F7A89` or any other `CanBuild`-side
+seat can reach it.
+
+**Measured, in game (BuildQueueExt, 2026-10-02).** A tagged BuildingType with
+its ConYard gone, with all three `CanBuild`-side pieces independently verified
+working — cameo force-inserted via `AddCameo`, `CanBuild` promoted to
+`Buildable`, `FindFactory` substituted with a real owned building:
+
+```
+frame 51221: GAPILL house 0 -> ALLOWED (engine said unbuildable)
+  T25_NoConYard: gate=active test=pass
+```
+
+…and the cameo was **still dark and still refused clicks**. The `CanBuild` path
+was never the binding constraint. ⚠ This is worth internalising as a pattern:
+*a seat can be where a verdict is **observable** without being where it is
+**decided**.* The same mistake had already been made once on this feature, at the
+`CanBuild` epilogue.
+
+#### A sanctioned exception to "never lower it"
+
+The guidance above — raise to `true`, never lower — is right as a default, and
+the reason given is correct: lowering grants buildability other layers refused.
+There is one case where lowering is the entire point, and it can be scoped
+safely. BuildQueueExt's `AlwaysAvailable` lowers at `0x50B669` only when **all**
+of these hold:
+
+- the type carries the feature's own opt-in tag;
+- the house has **no usable factory** for the type's abstract — i.e. the disable
+  can only have come from the `HasFactory` clause, never from something else;
+- `BuildLimit` is **not** genuinely spent, mirroring Antares'
+  `BuildLimitRemaining` semantics (`> 0` counts owned-now, `< 0` counts
+  owned-ever, **`0` means unlimited** — treating `0` as a limit of zero disables
+  every ordinary building, a trap worth naming);
+- the house is not an observer or defeated.
+
+Everything any other layer disabled for any other reason stays disabled.
+
+⚠ **Chain order is load-bearing for this.** Phobos occupies this same epilogue
+(`Phobos/src/Ext/House/Hooks.cpp:349`, size `0x5`, always returns `0`) and
+raises. A handler that lowers must be injected **after** Phobos or its result is
+overwritten — verify with the `-i=` order in `syringe.log` rather than assuming;
+there is no ordering guarantee beyond load order.
+
+**Confirmed via.** Antares `src/Ext/House/Hooks.Queue.cpp:115-180`; Phobos
+`src/Ext/House/Hooks.cpp:349-362`; in-game 2026-10-02 as quoted above.
+⚠ Not yet confirmed: whether lowering here is *sufficient* to make the cameo
+both live and clickable, or whether the click path's own factory re-check at
+`0x6AB312` (rejects to `0x6AB95A` on an unpowered factory,
+Antares `src/Misc/Interface.Sidebar.cpp:352-367`) also has to be satisfied.
+
 ### …and it is **not** evaluated every frame
 
 `CanBuild` is consulted when the engine rebuilds the sidebar / rechecks the tech

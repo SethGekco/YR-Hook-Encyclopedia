@@ -382,10 +382,35 @@ its own list, so it resolved `0.5` throughout and could not have produced any of
 these promotions. Both handlers ran and the larger answer won, exactly as the
 commutativity argument predicts.
 
+**A per-house promotion source composes with the per-building ones.** The same
+DLL adds a passive per-country contribution resolved through the same rule. With
+a stacking country bonus of `0.5` and the stacking `0.5` academy, the entire
+curve shifts by exactly one building:
+
+| Buildings | with the country bonus | without |
+|---|---|---|
+| 0 | `0.5` → none | `0.0` → none |
+| 1 | `1.0` → **veteran** | `0.5` → none |
+| 2 | `1.5` → veteran | `1.0` → **veteran** |
+| 3 | `2.0` → **elite** | `1.5` → veteran |
+| 4 | `2.0` → elite | `2.0` → **elite** |
+
+Verified in game across both countries. The non-stacking academy present in the
+same run never added to either column — it only ever competed, i.e.
+`max(1.0, stack)` — which is the last piece of the rule to be observed directly.
+
+So all three *kinds* of source — per-building, per-house, and
+infiltration-granted — feed one resolver and compose as specified. There is no
+engine obstacle to treating promotion as a single composable quantity; the
+"highest academy wins, no stacking" rule is a framework policy choice, not an
+engine constraint.
+
 Also worth recording from that exercise: partial levels are **invisible** —
 `0.5` and `0.0` render identically — so a promotion system of this kind needs a
 decision log to be testable at all. Reading chevrons cannot distinguish "applied
-a partial bonus" from "did nothing".
+a partial bonus" from "did nothing". Note how the table above is only legible
+because the values were chosen to land on `1.0` and `2.0`; the intermediate rows
+are indistinguishable on screen from the rows above them.
 
 ### ⚠ A *reducing* effect is NOT impossible — an earlier revision said it was
 

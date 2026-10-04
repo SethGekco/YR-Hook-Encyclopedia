@@ -74,6 +74,36 @@ building does not extend your build area at all.
 Offsets `0x154F` / `0x1550` are adjacent bytes, matching YRpp's declaration
 order (`YRpp/BuildingTypeClass.h:193` `bool BaseNormal`).
 
+### ⚠⚠ ONLY EVER JUMP FORWARD OUT OF THE PER-CELL LOOP
+
+**This froze a game solid.** The accept and skip labels in this function are
+**fall-throughs**, not isolated blocks:
+
+```
+4a8ff5:  mov  BYTE PTR [esp+0x3c],0x1   ; ACCEPT (own branch)
+4a8ffa:  mov  dl,BYTE PTR ds:0xa8b264   ; ...falls straight into the ally branch
+...
+4a9027:  mov  BYTE PTR [esp+0x3c],0x1   ; ACCEPT (ally branch) -- identical bytes
+4a902c:  mov  esi,DWORD PTR [esp+0x18]  ; ...falls into the loop-continue
+```
+
+So `0x4A8FF5` and `0x4A9027` are the **same instruction** (`c6 44 24 3c 01`) with
+**different successors**. A hook at `0x4A8FFA` that returns `0x4A8FF5` to accept
+creates a two-instruction infinite loop — accept, fall into the hook, accept
+again — and the game hangs with no crash and no log line. Returning `0x4A9027`
+from the same hook is correct: identical effect, falls into the loop-continue.
+
+⚠ Symptom to recognise: a **progressive slowdown to a total halt during
+placement**, which is easily mistaken for the well-known high-`Adjacent=`
+performance problem, since both only bite while the placement cursor is active.
+Measured: triggered on the first candidate cell containing a qualifying building,
+with `Adjacent=8` (a 19x19 scan).
+
+**Rule:** from a hook at address X in this function, every jump target must be
+**greater than X**. Verifying that a target is a valid instruction boundary and
+the semantically right label is **not sufficient** — the direction matters
+independently, and that is exactly the check that was skipped.
+
 ### Known hooks here
 
 | Address | Owner | Note |

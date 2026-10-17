@@ -20,6 +20,33 @@ Syringe's chain is **return-value driven**:
 So at a shared address, the first handler to return non-zero **truncates the
 chain**. Everything downstream is silently skipped.
 
+### ⚠ Injector split — how much of this is confirmed on CLASSIC Syringe
+
+The "skips the remaining handlers" half comes from KratosPP's design notes, which
+describe **SyringeEx** (Phobos-developers/SyringeEx, mandated by current Phobos).
+Rex's injector is `Syringe.exe` **0.7.2.0 (modified)** — classic.
+
+What IS confirmed for classic, from its stub layout:
+
+```
+pushad; pushfd; push origin; push esp; call handler; add esp,8
+mov fs:[0x14],eax; popfd; popad
+cmp fs:[0x14],0; jz <replay>; jmp fs:[0x14]
+```
+
+A non-zero return goes to `jmp fs:[0x14]`, so the **stolen original instructions
+are definitely not replayed** on classic either — that half holds on both
+injectors, and it is enough to cause the IntelExt-shaped problem.
+
+**⚠ Unverified on classic:** whether a multi-hook stub runs *subsequent*
+handlers after one returns non-zero, which depends on how classic Syringe emits
+a stub for several hooks at one address. Not read. Treat "downstream handlers are
+lost" as confirmed under SyringeEx and likely-but-unchecked under classic.
+
+See the `syringe-hook-crash-forensics` note for why this split matters: the
+stolen-rel32 defect class is moot under SyringeEx because it relocates stolen
+instructions, and the same kind of divergence could apply here.
+
 Nothing is malformed when this happens. Your bytes are correct, theirs are
 correct, every bounds check and range-overlap check passes. There is no crash
 and no module to blame — only behaviour that quietly stops working, on whatever
@@ -151,7 +178,10 @@ if (ShouldOverride) return 0x6FE360;   // CHAIN-OK: replaces Phobos' handler
 
 ## Confirmed via
 
-- **Chaining semantics** — KratosPP design notes (`docs/替身渲染层级与遮挡-2026-10-04.md`,
+- **Classic-Syringe stub layout** (`cmp fs:[0x14],0; jz; jmp fs:[0x14]`) — the
+  2026-09-28 dump-forensics work; this is what confirms the stolen-instruction
+  replay is skipped on a non-zero return under classic Syringe 0.7.x.
+- **Chaining semantics under SyringeEx** — KratosPP design notes (`docs/替身渲染层级与遮挡-2026-10-04.md`,
   `docs/快捷键附加AE-2026-10-05.md`), which state that a non-zero return jumps
   immediately and skips both the rest of the chain and the original-instruction
   replay. Third-party source reading, not independently executed here.

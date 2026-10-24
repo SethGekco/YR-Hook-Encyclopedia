@@ -109,11 +109,53 @@ serialize it. That is usually acceptable rather than a desync: every client
 reloads it *equally* empty, so they still agree. Make the reader treat "no
 record" as "do nothing" rather than "stop", and the gap is behavioural only.
 
+**Third use: a synced write point for the TARGET CELL itself.** `[esp+8]` is a
+`CellStruct*` into the **caller's** storage, and the function has not read it
+yet at the entry, so writing through it redirects the launch. Everything
+downstream — framework launch handlers, paradrops, the engine's own
+`SuperClass::Launch` — takes the cell from that pointer, so one write moves them
+all consistently. The caller's copy is dead after the call at all 17 sites (each
+picks a cell, fires, discards), including the `RespondToEvent` path where the
+storage is inside the already-dispatched `EventClass`.
+
+Used in anger by SuperWeaponExt to jitter an AI-chosen target by a few cells
+(`SWExt.AITargeting.RandomX/Y`). If you draw random numbers here, draw them from
+`ScenarioClass::Instance->Random` (`0xA8B230` → `Randomizer::RandomRanged`
+`0x65C7E0`), **never** `Randomizer::Global` (`0x886B88`), which YRpp's own header
+reserves for the map generator and other out-of-match randomness. And draw the
+**same count in the same order on every path**: this site is reached by every
+client on the same frame, so an identical sequence of draws keeps the generators
+in step, while one client skipping a draw another makes desyncs the match from
+that point.
+
+**⚠ What you CANNOT learn here: who chose the cell.** This is the one thing the
+funnel costs you. Antares routes launches two different ways and both arrive
+here identically:
+
+| Route | Reaches `Fire_SW` | Cell came from |
+|---|---|---|
+| `HouseClass_Update_AI_TryFireSW` (`0x5098F0`) → `SWTypeExt::TryFire` | AI houses, and humans with `SW.AutoFire=yes` | `PickSuperWeaponTarget` |
+| `RespondToEvent(SpecialPlace)` (`0x4C78D6`) → `TryFire` | any house, when `SW.UseAITargeting=yes` | `PickSuperWeaponTarget` |
+| `RespondToEvent(SpecialPlace)` → `Fire_SW` directly | everything else a human fires | the player's click |
+
+Both `TryFire` and the event handler live in **Antares.dll**, so the return
+address does not separate them either (and keying on an address inside a
+third-party DLL would break on its next release). The practical substitute is to
+read `SW.UseAITargeting` and `SW.AutoFire` out of the **same INI section**
+yourself — Antares' parsed copy is not reachable, the INI is — and combine them
+with `HouseClass::IsControlledByHuman()`. That reproduces Antares' own routing
+exactly except for one case: a human house with `SW.AutoFire=yes` that is also
+clicked manually. In practice the auto-fire tick launches it the frame it
+charges, so the window is theoretical, but it is an approximation and worth
+saying so rather than claiming a clean test.
+
 **Confirmed via.** objdump of vanilla `gamemd.exe` (call-site census, stolen
-bytes, epilogue); Antares source at the cited lines; registry query for
+bytes, epilogue); Antares source at the cited lines, including
+`Ext/SWType/Hooks.Targeting.cpp` for the routing table above; registry query for
 contention; **in-game skirmish** — a DLL hooking this entry alongside
 Antares+Phobos+13 other Syringe DLLs loaded clean, vetoed launches correctly,
-and produced zero access violations.
+and produced zero access violations. The cell-rewrite use is **built and CI-green
+but not yet observed in a game**; update this when a log lands.
 
 ---
 

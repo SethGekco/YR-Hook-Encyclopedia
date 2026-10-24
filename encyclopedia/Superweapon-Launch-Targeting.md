@@ -139,15 +139,23 @@ here identically:
 | `RespondToEvent(SpecialPlace)` → `Fire_SW` directly | everything else a human fires | the player's click |
 
 Both `TryFire` and the event handler live in **Antares.dll**, so the return
-address does not separate them either (and keying on an address inside a
-third-party DLL would break on its next release). The practical substitute is to
-read `SW.UseAITargeting` and `SW.AutoFire` out of the **same INI section**
-yourself — Antares' parsed copy is not reachable, the INI is — and combine them
-with `HouseClass::IsControlledByHuman()`. That reproduces Antares' own routing
-exactly except for one case: a human house with `SW.AutoFire=yes` that is also
-clicked manually. In practice the auto-fire tick launches it the frame it
-charges, so the window is theoretical, but it is an approximation and worth
-saying so rather than claiming a clean test.
+address does not separate them either — and keying on an address inside a
+third-party DLL would break on its next release.
+
+You can *approximate* it by reading `SW.UseAITargeting` and `SW.AutoFire` out of
+the **same INI section** yourself (Antares' parsed copy is unreachable; the INI
+is not) and combining them with `HouseClass::IsControlledByHuman()`. That
+reproduces Antares' routing except for a human house with `SW.AutoFire=yes` that
+is also clicked manually.
+
+**But check first whether you need the routing at all.** SuperWeaponExt built
+that approximation, shipped it, and then deleted it: the question its feature
+actually asked was "is this an AI shot or a human shot", and
+`IsControlledByHuman()` on the owning house answers *that* one exactly, with no
+mirrors and no residual case. Wanting to know the route is often a sign of
+having framed the question around Antares' plumbing rather than around the
+behaviour. Reach for the approximation only when you genuinely need to know
+*which code chose the cell*, not merely *whose superweapon fired*.
 
 **Confirmed via.** objdump of vanilla `gamemd.exe` (call-site census, stolen
 bytes, epilogue); Antares source at the cited lines, including

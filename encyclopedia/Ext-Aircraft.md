@@ -119,3 +119,139 @@ flyby.
 **Confirmed via.** objdump of `gamemd.exe` at the cited addresses; a byte-pattern
 search for writes to `+0x6D3` (exactly one — the constructor); Phobos source; and
 an in-game before/after.
+
+---
+
+### `0x415960` — AircraftClass::Mission_ParadropOverfly  ⚠ a hidden map gate hangs the plane
+
+The paradrop mission, `0x415960`–`0x415A42`. The address usually hooked inside it
+is `0x415997` (the distance-vs-`[General]ParadropRadius` compare). This entry is
+about what happens **after** that compare says yes, because that is where a
+paradrop silently fails.
+
+**The whole function, annotated.**
+
+```
+415960:  sub  esp,0xC
+415964:  mov  esi,ecx                    ; esi = AircraftClass* this
+415966:  mov  eax,[esi+0x2B4]            ; this->Target
+41596C:  movb [esi+0x6D2],1              ; IsLocked = true
+415975:  je   0x415A0A                   ; no target      -> leave
+41597B:  mov  ecx,[esi+0x118]            ; Passengers.FirstPassenger
+415983:  je   0x415A0A                   ; nobody aboard  -> leave
+41598C:  call 0x5F6440                   ; distance to target -> eax
+415991:  mov  ecx,[0x8871E0]             ; RulesClass::Instance
+415997:  cmp  eax,[ecx+0x54C]            ; vs [General]ParadropRadius
+41599D:  jle  0x4159C8                   ; close enough   -> DROP branch
+; ---- too far -------------------------------------------------------------
+41599F:  mov  al,[esi+0x6D3]             ; NumParadropsLeft
+4159A5:  movb [esi+0x6D2],0              ; IsLocked = false
+4159AE:  jle  0x415A11                   ; out of passes  -> leave
+4159B8:  call [edx+0x1E8]                ; QueueMission(0x1A) -> come around again
+4159BE:  mov  eax,5 ; ret
+; ---- DROP branch ---------------------------------------------------------
+4159C8:  lea  ecx,[esi+0x9C]             ; the PLANE's own Location, not the target
+4159EB:  mov  ecx,0x87F7E8               ; MapClass::Instance
+4159F0:  call 0x5785F0                   ; MapClass::IsWithinUsableArea(CoordStruct)
+4159F5:  test al,al
+4159F7:  je   0x415A39                   ; <-- FALSE: mov eax,5 ; ret. NOTHING ELSE.
+4159FB:  call 0x415C60                   ; AircraftClass::Paradrop (one passenger)
+415A00:  mov  eax,5 ; ret
+; ---- leave ---------------------------------------------------------------
+415A11:  call [eax+0x3C8] / [edx+0x480] / QueueMission(4)
+```
+
+**The trap.** The `je 0x415A39` at `0x4159F7` returns a five-frame delay and does
+**nothing else** — no drop, no new mission, no change of destination. Every other
+exit from this function either drops, re-queues a pass, or sends the plane away.
+That one does not. So an aircraft that has reached its destination, is inside the
+drop radius, and whose **own coordinates** read as outside the usable area will
+re-ask the same question every five frames for the rest of the match.
+
+Reported in game as **"the paradrop plane hovers in the air exactly where it is
+supposed to drop, instead of doing a flyby"** — intermittently, on the same map,
+with the same country.
+
+**It also explains partial payloads.** `AircraftClass::Paradrop` releases exactly
+one passenger per call (see `0x415C60` below), so a five-man stick needs five
+mission ticks. An interruption part-way leaves the rest aboard. "Some planes drop
+a fraction of their payload" and "some planes hover" are the **same event** at
+different moments in the sequence, not two bugs.
+
+**What the gate actually tests.** `MapClass::IsWithinUsableArea(const CoordStruct&)`
+at `0x5785F0` truncates the coords to a cell (`>>8`, X and Y only — altitude is
+irrelevant) and tails into `IsWithinUsableArea(CellStruct, checkLevel=true)` at
+`0x578460`. That one reads `MapClass+0xF4/0xFC/0x100/0x104/0x108` (the map and
+visible rects) and, **when `checkLevel` is set, shifts the test by the cell's
+`Level`** (`movsbl 0x11B(%eax)` — `CellClass::Level`) before comparing. So the
+playable-area boundary this test draws is **height-dependent**: the same cell can
+pass or fail depending on terrain elevation. That is the mechanism behind the
+"maybe it is cliff-related" hunch — it is not cliffs as such, it is elevation
+anywhere near the usable-area boundary.
+
+**Do not try to fix it by widening the radius.** A larger `ParadropRadius` makes
+the plane enter the DROP branch *earlier*, i.e. further out and closer to the map
+edge it spawned from, which makes the gate *more* likely to refuse. If anything
+the override pushes in the wrong direction.
+
+**Ruled out, so nobody repeats it:** a third-party superweapon DLL was suspected
+twice and cleared twice by uninjecting it and reproducing the hover anyway. The
+gate is vanilla.
+
+**Confirmed via.** objdump of `gamemd-spawn.exe` at every address quoted;
+`MapClass.h` in YRpp, which names `0x5785F0` / `0x578460` / `0x578540` as the
+three `IsWithinUsableArea` overloads and `0x87F7E8` as `MapClass::Instance`,
+matching the `mov ecx,0x87F7E8` in the call site. The in-game confirmation that
+the gate is the one refusing is instrumented but **not yet observed** — a
+diagnostic in SuperWeaponExt evaluates the same predicate one hook earlier in the
+same tick and logs `usable=`; update this entry when a log lands.
+
+---
+
+### `0x415C60` — AircraftClass::Paradrop (function entry)  — unclaimed, one passenger per call
+
+```
+415C60:  sub  esp,0x20              ; 5-byte hook: 83 ec 20 53 56
+415C63:  push ebx
+415C64:  push esi                   ; 0x415C65 is the next boundary (57 push edi)
+415C66:  mov  edi,ecx               ; ecx = AircraftClass* this
+415C68:  lea  ecx,[edi+0x114]       ; &this->Passengers
+415C6E:  call 0x473430              ; PassengersClass::RemoveFirstPassenger
+415C73:  mov  esi,eax
+415C77:  je   0x415ECD              ; nobody aboard -> bail
+415C7D:  mov  ebx,[edi+0x2FC]       ; a counter, decremented per release...
+415C89:  dec  ebx
+415CA6:  mov  al,[edi+0x2FC]        ; ...whose LOW BIT picks the drop side
+415CAC:  test al,1                  ;    (+0x3FFF vs -0x3FFF on the facing)
+```
+
+**One passenger per call.** This is the fact that makes partial payloads legible:
+the function does not loop over the cargo. Its caller
+(`Mission_ParadropOverfly`, above) calls it once per mission tick, every five
+frames, until `FirstPassenger` is null.
+
+**Availability.** The entry is **free**. In the registry, the nearest claims
+inside this function are Antares/Ares `AircraftClass_Paradrop_Units` at
+`0x415CA6` and `AircraftClass_Paradrop_Carryall` at `0x415DF6`, both far past the
+five-byte window, and nothing is registered between `0x415A7A` and `0x415CA6`. A
+size-5 hook at `0x415C60` lands cleanly on the boundary at `0x415C65`.
+
+**Good for.** Counting or logging actual releases; reading the payload before it
+shrinks (`Passengers.NumPassengers` is still pre-decrement here); vetoing a drop
+by returning past the function.
+
+**Not good for.** Changing *where* the stick lands — the lateral offset is picked
+later from `[edi+0x2FC]`'s parity, and the Antares hook at `0x415CA6` already sits
+in that code.
+
+**Field notes.** `AircraftClass` layout used above is confirmed against the
+disassembly rather than assumed: `+0x114` `Passengers.NumPassengers`, `+0x118`
+`Passengers.FirstPassenger`, `+0x6D2` `IsLocked`, `+0x6D3` `NumParadropsLeft`.
+YRpp's declaration order in `AircraftClass.h` agrees with all four. Nothing is
+claimed about `+0x2FC` beyond what the two instructions above show.
+
+**Confirmed via.** objdump of `gamemd-spawn.exe`; `registry/hooks.csv`;
+SuperWeaponExt's `check_hook_bounds.py --exe`, which boundary-checks the hook
+against the shipped binary. Used in anger: SuperWeaponExt
+`src/Ext/SWType/Hooks.ParaDrop.cpp`, `AircraftClass_Paradrop_Trace` (observe-only,
+returns 0).

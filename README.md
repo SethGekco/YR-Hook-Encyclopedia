@@ -243,6 +243,7 @@ hopefully evolve with it.
   and fill it in. Verify claims against real source or reverse-engineering, and
   say how you confirmed each fact. "Unverified" is a legitimate, honest status —
   a guess presented as fact is not.
+- [Cargo-KillCargo-Recursion](encyclopedia/Cargo-KillCargo-Recursion.md) — KillCargo recurses on passengers, so `0x707CB3`/`0x5F6609` are NOT Techno-only; `Find()` vs `TryFind()`
 - [Radar-Minimap-Events](encyclopedia/Radar-Minimap-Events.md) — minimap event pulse; 0x660540 is Erase, not sync logging
 - [Cell-Numbering-Events-Pathfinding](encyclopedia/Cell-Numbering-Events-Pathfinding.md) — base-1000 cell numbers, order targets, A* pools, diamond geometry
 - [Building-GrandOpening-FreeUnits](encyclopedia/Building-GrandOpening-FreeUnits.md) — `FreeUnit=` / pad-aircraft blocks, the once-only guard, and why `0x446EE2` must not be claimed

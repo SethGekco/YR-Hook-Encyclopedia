@@ -71,6 +71,54 @@ reroute the typed readers through the same fallback.
   to inheritance; writes *after* a section's `$Inherits` string has been cached
   will see the old parent list until the INI object changes.
 
+## ⚠ VERIFIED IN GAME (2026-10-23): a DLL-written section did NOT inherit `Strength`
+
+A section **written into the rules INI by a DLL before the engine parses it**,
+carrying `$Inherits=PARENT`, produced a `TechnoTypeClass` whose `Strength` was
+**zero**. Proven by runtime read rather than inference: a unit converted onto
+that type logged
+
+```
+CONVERT E1 @16685758: E1 -> E1$C8 (gate opened) hp 31/31 -> 1/0
+```
+
+— the `0` is `pToType->Strength` after parsing. The section held four literal
+keys (`$Inherits`, `Image`, `Turret`, `Speed`) and relied on inheritance for
+everything else. Install: Phobos Dev Build #48 + Antares, Phobos present and
+loaded, so `$Inherits` *was* implemented.
+
+**Mechanism NOT established.** Candidates, in the order I would check them:
+
+1. A **typed-reader collision**. The int path is a separate hook from
+   `0x528BAC`, and the note above says those typed hooks are flow-replacing
+   rather than chainable — so another framework hooking `0x5276D0` would take
+   the slot and ints would stop inheriting while strings carried on.
+2. The **`$Inherits` string cache** being populated for that section CRC before
+   the DLL's write, though the write here happened before any read of the
+   section, which argues against it.
+3. `Strength` not going through the hooked reader at all for this type class.
+
+I did not narrow it further, because the mitigation does not depend on knowing.
+
+**Mitigation — do not depend on `$Inherits` for a synthesised type.** A DLL
+that writes sections before parsing can copy the parent's keys **literally**,
+which is immune to read-path hook ordering and to Phobos being absent. Keep
+`$Inherits` as well; it costs nothing and covers keys added later.
+
+**The trap worth remembering** is how long this stayed invisible. The
+synthesised types had been used for **drawing and weapon lookup only**, and
+for the width of one `DrawIt` call nothing asks for `Strength` — so a hollow
+type behaved perfectly. The defect surfaced the moment something made a unit
+*be* that type (see
+[Techno-Type-Conversion.md](Techno-Type-Conversion.md)). If you synthesise
+types, assert on a field you do not otherwise read.
+
+A second-order trap in the same place: the hollow type was also kept out of the
+sidebar **by the bug**. `TechLevel` is an int, int inheritance was the broken
+half, so the clone was unbuildable by accident. Fixing inheritance by copying
+keys literally made it buildable — so a literal copy must skip the build-list
+keys and force `TechLevel=-1`.
+
 **Used by / interactions.** Phobos only (release). Anything else that hooks the
 typed INI readers (`0x5276D0` family) collides with Phobos's overwrite hooks —
 those are flow-replacing (they return past the vanilla body), not chainable.

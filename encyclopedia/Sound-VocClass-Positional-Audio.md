@@ -111,6 +111,28 @@ controller update `0x750D40` (return address `0x750D7B`). It computes the
 So **Range is in cells beyond the screen edge**, with the edge distance
 measured as a Chebyshev distance. On screen is distance 0, at full volume.
 
+**Two `Type` bits change this** (YRpp `SoundType` names). Both were read
+from the disassembly; **⚠ not yet observed in game**.
+
+- **`0x800` (`Shroud`), at `0x750B2D`** (`test bh,0x8`). The source's cell
+  (`MapClass::GetCellAt` `0x5657A0`) must have flags `+0x12C & 0x18`, i.e.
+  be revealed. Otherwise the function returns 0.0 at `0x750B9D`, before the
+  distance is computed. The sound is silent, and a hook at `0x750C9B` never
+  sees it.
+- **`0x40` (`Local`), at `0x750BFA`** (`test bl,0x40`). Before it,
+  `[esp+0x38]` = |client x − half width| and `[esp+0x28]` = |client y − half
+  height| (the halves are `ViewBounds` × 0.5 at `0x7E5168`). A non-Local
+  sound then subtracts the half sizes and clamps at 0, giving beyond-the-edge
+  distance. A **Local sound skips that**, so its `Range` is measured from the
+  **screen centre**, and `[esp+0x38]`/`[esp+0x20]` at the volume seat hold
+  centre distances.
+- **`Screen` (`0x20`) is not tested** in this function or in PlayAt.
+
+**Easily mistaken:** a hook that recomputes "cells beyond the edge" for
+itself, for example to pick a variant at PlayAt, disagrees with the
+engine for `Type=LOCAL` sounds. Vanilla YR has 31 of them, all ambients and
+loops. Branch on `Type & 0x40` the way the engine does.
+
 **What it does *not* do — easily mistaken.**
 
 - `Range` is **not** measured from the screen centre or from any unit. A

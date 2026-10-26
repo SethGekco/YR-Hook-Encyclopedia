@@ -198,13 +198,51 @@ the override pushes in the wrong direction.
 twice and cleared twice by uninjecting it and reproducing the hover anyway. The
 gate is vanilla.
 
+**✅ CONFIRMED IN GAME, 2026-10-25.** One skirmish, 18 hover events, every single
+one of them `usable=0` — no exceptions, no other correlate. The boundary is
+exact: of **217 distinct plane positions** logged, every cell with `X+Y <= 220`
+passed and every cell with `X+Y >= 221` failed, on a map whose `MapRect` is
+`(0,0 76x75)` and `MapCoordBounds` `(L1 T1 R150 B150)`. All eleven refused cells
+sit in one small patch (X 116–122, Y 102–105) at the south-east edge of the
+playable diamond. The plane overshoots its target by a cell or two and crosses
+the line while still inside the drop radius:
+
+```
+f28031  at=(117,103)  usable=1  dist=30   -> released
+f28036  at=(118,103)  usable=0  dist=349  -> refused, 5 of 8 still aboard
+```
+
+**The payload arithmetic checks out too.** Planes carried **8**, not five, and
+released one per tick; 17 of the 18 were refused holding exactly 5, having
+already dropped 3. "Partial payload" and "hover" are one event, as predicted.
+
+**It is not always permanent.** One plane recovered unaided — refused at
+f100920, came around, found a usable cell at f101034 and finished its stick. The
+other 14 left the overfly trace entirely after being refused and never came
+back; that log cannot say whether they were shot down, retreated, or stalled in
+`Mission_ParadropApproach` (mission 26, a different function, not instrumented).
+
+**The repair, if you need one.** Do not try to force the drop — `Paradrop`
+releases at the plane's own position and that position is the thing the gate
+just rejected. Instead, answer the *distance* test with "not close enough":
+a hook at `0x415997` that returns `0x41599F` instead of `0x4159C8` when
+`IsWithinUsableArea(plane coords)` is false sends the engine down a branch it
+already runs thousands of times a match — clear `IsLocked`, queue
+`ParadropApproach`, come around — rather than into the branch that does nothing.
+No new address, no invented behaviour.
+
+⚠ **Bound it.** That branch reads `NumParadropsLeft` and only gives up at zero,
+and across the whole match above that field was observed at 4 and 5 and never
+lower, so nothing guarantees the engine would ever stop re-approaching.
+Unbounded deferral trades a plane that hovers for a plane that circles.
+SuperWeaponExt caps it at three go-arounds and then hands the plane back.
+
 **Confirmed via.** objdump of `gamemd-spawn.exe` at every address quoted;
 `MapClass.h` in YRpp, which names `0x5785F0` / `0x578460` / `0x578540` as the
 three `IsWithinUsableArea` overloads and `0x87F7E8` as `MapClass::Instance`,
-matching the `mov ecx,0x87F7E8` in the call site. The in-game confirmation that
-the gate is the one refusing is instrumented but **not yet observed** — a
-diagnostic in SuperWeaponExt evaluates the same predicate one hook earlier in the
-same tick and logs `usable=`; update this entry when a log lands.
+matching the `mov ecx,0x87F7E8` in the call site; and the in-game log above,
+from a diagnostic that evaluates the same predicate one hook earlier in the same
+tick.
 
 ---
 

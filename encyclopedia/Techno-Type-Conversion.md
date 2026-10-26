@@ -77,6 +77,49 @@ converts on a condition needs a dwell/deadband, or a unit sitting on a
 threshold boundary converts every tick and bleeds HP while thrashing its
 locomotor.
 
+## ⚠ Your own per-type registries break the moment you convert (2026-10-25)
+
+The trap that cost the most, and it is not in the engine — it is in the code
+doing the converting.
+
+Extension DLLs keep per-type data in maps **keyed by type ID**. A converted
+object reports the *new* type's ID, so every one of those lookups misses. The
+object silently drops out of your own feature.
+
+Observed: a gate that converted a unit when a condition held could never
+**un**-convert it, because the evaluator began with
+
+```cpp
+auto* pType = pThis->GetTechnoType();
+auto* pList = Registry::Find(pType->ID);   // now "E1$C8", not "E1"
+if (!pList) return;                        // converted units leave here, forever
+```
+
+The conversion was therefore a one-way door, and every closing-direction
+behaviour was dead code. Counters were affected too: a profiler counting
+evaluations showed almost no activity, because converted objects had stopped
+being evaluated at all.
+
+**Fix:** record what the object was before the first conversion and key every
+per-type lookup on that, not on `GetTechnoType()`. Anything that already
+supports reversal has this value to hand.
+
+**Where else to look** — the same question applies to every keyed-by-ID lookup
+in the process, not just the one that noticed:
+
+- periodic per-type work (re-rolls, timers, pools)
+- "does this type have feature X" caches
+- another DLL's registry, if it also keys by ID and yours does the converting.
+  A co-loaded DLL cannot know your clone IDs, so **it will report the converted
+  object under your internal type name**. That is a diagnosis aid as much as a
+  hazard: a foreign DLL's log printing `E1$C8` is how this one was found.
+
+**Confirmed via.** In-game log correlation: a squad-manager DLL reported an
+escort as `E1$C8` (the converting DLL's own synthesised clone id) while
+following an anchor eighteen cells outside the gate's six-cell radius, against a
+gate that had logged 2 opens and 0 closes. Fixed and rebuilt; the fix itself is
+**not yet re-tested in game** at the time of writing.
+
 ## Reversing it
 
 Phobos' conversion is one-way: a warhead converts a unit and that is its new

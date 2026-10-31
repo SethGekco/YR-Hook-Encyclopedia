@@ -243,6 +243,7 @@ hopefully evolve with it.
   and fill it in. Verify claims against real source or reverse-engineering, and
   say how you confirmed each fact. "Unverified" is a legitimate, honest status —
   a guess presented as fact is not.
+- [Pointer-Invalidation-Lifetime](encyclopedia/Pointer-Invalidation-Lifetime.md) — `0x7258D0` nulls your pointers but empties no containers; the two mirror-image dangling bugs
 - [Cargo-KillCargo-Recursion](encyclopedia/Cargo-KillCargo-Recursion.md) — KillCargo recurses on passengers, so `0x707CB3`/`0x5F6609` are NOT Techno-only; `Find()` vs `TryFind()`
 - [Radar-Minimap-Events](encyclopedia/Radar-Minimap-Events.md) — minimap event pulse; 0x660540 is Erase, not sync logging
 - [Cell-Numbering-Events-Pathfinding](encyclopedia/Cell-Numbering-Events-Pathfinding.md) — base-1000 cell numbers, order targets, A* pools, diamond geometry

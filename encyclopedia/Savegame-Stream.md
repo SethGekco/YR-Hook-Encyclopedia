@@ -190,6 +190,18 @@ loop your reads for you. If your marker/layout doesn't match what was written
 keep reading, or you'll consume unrelated bytes. A leading magic value handles
 this cleanly.
 
+**What reading past the end does (source-read, 2026-10-30).** The stream is
+the game's own block-compressing COM object (CLSID
+`b48fa168-646f-11d2-9b74-00104b972fe8`, created at `0x67E5BC`; vtable
+`0x7E5DAC`, `Read` = `0x4A2B60`). `Read` sets `*pcbRead = 0`, then refills its
+64 KiB buffer from an 8-byte block header read off the inner OLE stream. When
+that header read comes back short, it returns `E_FAIL` (`0x80004005`) and
+throws nothing (`_com_issue_error` at `0x7DC720` fires only on a null inner
+stream). So the **last** DLL in the inject list can append a magic-led block
+here and still load saves made without it: its magic read simply fails. Any
+DLL that is *not* last would instead read the next DLL's block. CosmeticExt
+relies on this (ColorRules, 2026-10-30). ⚠ Unverified in game.
+
 **Used by / interactions.** Antares/Ares/Kratos hook it at release; Phobos has a
 loose `PR#2060` hook here (`LoadGame_ClearShared`). Co-loadable → real conflict
 surface; ordering matters if more than one consumer appends stream data.

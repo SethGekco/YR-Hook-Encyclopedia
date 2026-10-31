@@ -195,6 +195,28 @@ pop ebp; add esp,0x824` (9 bytes, no branch).
 Tags that name other sounds can't be resolved there, because later sounds
 don't exist yet.
 
+**How it builds the list** (read from the disassembly, 2026-10-30). The
+`[SoundList]` loop starts at `0x7512C6` and runs over `GetKeyCount`, in key
+order:
+
+- Each value is read with `GetString` into a **32-byte** buffer
+  (`[esp+0x10]`), so a name is at most 31 characters.
+- It is compared against every existing sound by `_strcmpi` (`0x7C8D20`) on
+  the name getter `0x405170`. A duplicate name adds nothing, which is why
+  vanilla's 847 entries make 818 sounds.
+- A new name gets a 4-byte handle (`0x7513B2` → `0x4063B0` builds the
+  data). The handle is appended only if `VocClass::Array` can grow.
+  `Count >= Capacity` with a static buffer, or with `CapacityIncrement <= 0`,
+  skips the append silently (`0x75135F..0x7513AE`).
+- `FindIndex` (`0x7514D0`) is the same linear `_strcmpi` search and never
+  allocates.
+
+**⚠ Open:** with a loose soundmd.ini that added three sounds (850 keys, 821
+distinct names), the engine made 820 sounds, all three new ones among them.
+Duplicate keys, WW-CRC clashes of key or section names, non-numeric keys and
+names over 31 characters were ruled out offline. CosmeticExt now logs each
+name that did not become a sound; record the cause here once it is known.
+
 ---
 
 ## Structural: what the mixer cannot do, and why to bake instead

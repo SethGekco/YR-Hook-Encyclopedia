@@ -202,6 +202,59 @@ or navy slot.
   (`…_NoAlternateKickout`) as its counterpart; the barracks exit cell is a
   separate Phobos hook at `0x444B83`.
 
+### ⚠ The alternate-kickout search matches on TYPE IDENTITY, not on category
+
+Measured by objdump, `0x4444B3`-`0x444509`. When a finished object cannot leave
+its factory, the engine walks the owner's building list looking for somewhere
+else to exit from — and the only candidates it will accept are buildings of the
+**exact same BuildingType**:
+
+```
+4444b3:  mov eax,[esi+0x21c]      ; pFactory->Owner        (ESI = blocked factory)
+4444bb:  mov eax,[eax+0x78]       ; count of owned buildings
+4444be:  test eax,eax / jle ...   ; none -> the refund path
+4444ca:  mov ecx,[esi+0x21c]
+4444d0:  mov edx,[ecx+0x6c]       ; Owner's building array
+4444d3:  mov ebp,[edx+ebx*4]      ; candidate                (EBP)
+4444d6:  mov edx,[esi+0x520]      ; THIS factory's Type
+4444dc:  mov ecx,[ebp+0x520]      ; candidate's Type
+4444e2:  cmp ecx,edx              ; <-- POINTER EQUALITY OF THE TYPES
+4444e4:  jne 0x444508             ; different type -> skip entirely
+4444e6:  cmp ebp,esi / je ...     ; itself -> skip
+```
+
+So a blocked **GAWEAP** looks only for **another GAWEAP**. It does *not* consider
+"any building whose `Factory=UnitType`", and it does *not* consult `Naval` at any
+point in this search. A war factory and a ship yard can never substitute for one
+another here, however the produced unit is configured.
+
+⚠ **This is the real cause of "Failed to exit object from factory - refunding
+money"** when a single factory is walled in, and it is easily misattributed to
+whatever production feature is being tested at the time. Measured in game
+2026-10-30: a `UnitType` made buildable at both factory kinds still refunded
+when its war factory was blocked, because *buildability* and *exit selection*
+are unrelated code paths. The vanilla workaround is a second factory of the
+same type.
+
+**Seats.** `0x4444E2` is **fully replaced by Antares and Ares** (size `0x6`,
+`BuildingClass_KickOutUnit_FindAlternateKickout`), and the 6 bytes swallow the
+compare, its `jne`, and the `cmp ebp,esi` after it — so a third-party handler
+there is both contended and, if Antares returns a jump, unreachable. The
+adjacent `0x4444B3` (`…_NoAlternateKickout`, Antares, `0x6`) is the bail path.
+
+⚠ Note `0x4444D6` (`mov edx,[esi+0x520]`, 6 bytes, one whole instruction) is
+**uncontended**, sits before Antares' stamp, and has both ESI (blocked factory)
+and EBP (candidate) live. Writing EDX there and jumping to `0x4444DC` feeds the
+comparison a chosen value instead of fighting it — Antares' handler still runs.
+Unverified in game; and the object being kicked out appears to be in **EDI**
+(`mov ecx,edi` / `mov edx,[edi]` at `0x44440A`/`0x444424`), which must be
+confirmed before relying on it.
+
+⚠ **Correctness caution for any such widening:** a land-only unit exiting from a
+ship yard spawns on water. Amphibious and hover units are fine; the general case
+is not, so a feature that relaxes this test needs to check the unit's
+locomotor/`SpeedType` rather than relax it unconditionally.
+
 **Used by / interactions.** All four are **triple-hooked** (Antares + Ares +
 Phobos) — the busiest cluster in this subsystem. Live collision is Antares +
 Phobos. Check load order before adding anything here.

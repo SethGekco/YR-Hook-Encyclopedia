@@ -223,10 +223,44 @@ else to exit from — and the only candidates it will accept are buildings of th
 4444e6:  cmp ebp,esi / je ...     ; itself -> skip
 ```
 
-So a blocked **GAWEAP** looks only for **another GAWEAP**. It does *not* consider
-"any building whose `Factory=UnitType`", and it does *not* consult `Naval` at any
-point in this search. A war factory and a ship yard can never substitute for one
-another here, however the produced unit is configured.
+So in **vanilla** a blocked **GAWEAP** looks only for **another GAWEAP**. It does
+*not* consider "any building whose `Factory=UnitType`", and it does *not* consult
+`Naval` at any point in this search.
+
+### ⚠ But with Antares/Ares loaded the live rule is DIFFERENT — read this first
+
+`0x4444E2` is fully replaced, and Antares does not reproduce the type-identity
+test. It recomputes the whole predicate in C++
+(`Antares-src/src/Ext/TechnoType/Hooks.cpp:144`):
+
+```cpp
+DEFINE_HOOK(0x4444E2, BuildingClass_KickOutUnit_FindAlternateKickout, 0x6)
+{
+    GET(BuildingClass*, Src, ESI);        // the blocked factory
+    GET(BuildingClass*, Tst, EBP);        // the candidate
+    GET(TechnoClass*, Production, EDI);   // the object being kicked out
+    auto pData = TechnoTypeExt::ExtMap.Find(Production->GetTechnoType());
+
+    if (Src != Tst
+     && Tst->GetCurrentMission() == Mission::Guard
+     && Tst->Type->Factory == Src->Type->Factory   // CATEGORY, not identity
+     && Tst->Type->Naval   == Src->Type->Naval     // <-- the live blocker
+     && pData->CanBeBuiltAt(Tst->Type)             // Ares `BuiltAt=`
+     && !Tst->Factory)
+        return 0x44451F;                  // accept
+    return 0x444508;                      // next candidate
+}
+```
+
+So under Antares the rule is already **same `Factory=` category**, not same type:
+a blocked GAWEAP *can* exit from a second GAWEAP of a different ID, or from any
+`Factory=UnitType` building — **except** that `Naval` must match. That single
+clause is what still rules out a ship yard for a war factory. It also returns
+non-zero on **both** paths, so a later handler at `0x4444E2` never runs.
+
+⚠ Do not quote the vanilla disassembly above as the behaviour of a modded game.
+Describing this seat as "type identity" is accurate only without Antares/Ares,
+and it sent one investigation down the wrong path (see below).
 
 ⚠ **This is the real cause of "Failed to exit object from factory - refunding
 money"** when a single factory is walled in, and it is easily misattributed to
@@ -242,26 +276,74 @@ compare, its `jne`, and the `cmp ebp,esi` after it — so a third-party handler
 there is both contended and, if Antares returns a jump, unreachable. The
 adjacent `0x4444B3` (`…_NoAlternateKickout`, Antares, `0x6`) is the bail path.
 
-⚠ Note `0x4444D6` (`mov edx,[esi+0x520]`, 6 bytes, one whole instruction) is
-**uncontended**, sits before Antares' stamp, and has both ESI (blocked factory)
-and EBP (candidate) live. Writing EDX there and jumping to `0x4444DC` feeds the
-comparison a chosen value instead of fighting it — Antares' handler still runs.
-Unverified in game; and the object being kicked out appears to be in **EDI**
-(`mov ecx,edi` / `mov edx,[edi]` at `0x44440A`/`0x444424`), which must be
-confirmed before relying on it.
+#### `0x4444D6` — the usable seat, and the trap next to it
+
+`0x4444D6` (`mov edx,[esi+0x520]`, 6 bytes, one whole instruction) is
+**uncontended** by Antares, Ares and Phobos alike, sits one instruction before
+Antares' stamp, and has ESI (blocked factory), EBP (candidate) and EDI (the
+produced object, confirmed — it is Antares' own `Production` at `0x4444E2`) all
+live.
+
+❌ **Feeding EDX here does NOT work.** Writing the candidate's type into EDX so
+the comparison passes, then jumping to `0x4444DC`, is inert: Antares never reads
+EDX. Measured in game 2026-10-30 — the accept was logged and the unit refunded
+on the very next log line. Confirmed against Antares' source afterwards.
+
+✅ **Deciding here and jumping to `0x44451F` does work.** `0x44451F` is the
+engine's own accept label, and it needs only ESI, EBP and EDI — all already
+correct at `0x4444D6` — while overwriting EAX/EBX/ECX itself:
+
+```
+444502:  je 0x44451f              ; the engine's own ACCEPT
+444508:  inc ebx                  ; next candidate
+44450d:  ...                      ; search exhausted -> return 1 -> refund
+44451f:  mov ebx,[esi+0x524]      ; hand the blocked building's Factory to EBP
+444525:  mov [ebp+0x524],ebx
+44452b:  mov [esi+0x524],0
+44453f:  push edi / mov ecx,ebp / call [eax+0x100]   ; exit from the candidate
+```
+
+Returning `0x44451F` from `0x4444D6` therefore steps over Antares entirely and
+accepts the candidate. Two disciplines make this safe:
+
+- **Jump only to accept.** Return `0` on every other verdict so the stub replays
+  the stolen `mov` and Antares decides as it always has. Jumping to the reject
+  label `0x444508` instead would be wrong — Antares may well have accepted that
+  candidate on its own terms, so a widening feature would silently *narrow*
+  the search for everything it did not tag.
+- **Re-apply what you jumped over.** Reaching `0x44451F` directly skips not only
+  Antares' predicate but the engine's remaining tests at `0x4444EA`-`0x444502`:
+  the candidate must be on `Mission::Guard` (vtable `+0x184`, value `5`) and its
+  `Factory` (`+0x524`) must be null — the accept path *moves* the blocked
+  building's `FactoryClass*` into that slot and would otherwise overwrite a live
+  one. Accepting also bypasses Ares' `BuiltAt=` (`CanBeBuiltAt`), which lives in
+  Antares' ext map and cannot be called from outside it.
+
+⚠ Derived from objdump and Antares' source; **the jump itself is not yet
+confirmed in game** (BuildQueueExt `KickOut.AltFrom=`, test pending). The
+register requirements at `0x44451F` are verified statically, the behaviour is
+not. Update this line with the result either way.
 
 ⚠ **Correctness caution for any such widening:** a land-only unit exiting from a
 ship yard spawns on water. Amphibious and hover units are fine; the general case
-is not, so a feature that relaxes this test needs to check the unit's
-locomotor/`SpeedType` rather than relax it unconditionally.
+is not. A feature that relaxes this test should either check the unit's
+locomotor/`SpeedType` or — as BuildQueueExt does, by the modder's explicit
+choice — require the alternates to be named by hand and treat a bad pairing as
+the modder's error. Note the object is in **EDI** at this seat, so a per-unit
+check *is* possible here; the earlier claim that the produced object is not a
+party to the decision was wrong, and came from reading the vanilla loop's
+register use rather than Antares' replacement.
 
 **Used by / interactions.** All four are **triple-hooked** (Antares + Ares +
 Phobos) — the busiest cluster in this subsystem. Live collision is Antares +
 Phobos. Check load order before adding anything here.
 
-**Confirmed via.** Antares source `src/Ext/House/Hooks.Queue.cpp:75-112`
-(registers read directly from the `GET` macros); registry `hooks.csv` for the
-Phobos and Ares rows and for `0x4444E2` / `0x4444B3` / `0x444B83`.
+**Confirmed via.** Antares source `src/Ext/House/Hooks.Queue.cpp:75-112` and
+`src/Ext/TechnoType/Hooks.cpp:144` (registers read directly from the `GET`
+macros); objdump of `0x4444A0`-`0x444558`; registry `hooks.csv` for the Phobos
+and Ares rows and for `0x4444E2` / `0x4444B3` / `0x444B83`; a BuildQueueExt playthrough
+2026-10-30 disproving the EDX seat. The `0x44451F` jump is static analysis only
+so far.
 
 ---
 

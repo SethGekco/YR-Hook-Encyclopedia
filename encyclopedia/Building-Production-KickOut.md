@@ -62,6 +62,30 @@ at `0x443C5C`); it is NOT KickOutUnit even though it sits just before the
 Two additions from using this entry to drive a per-type "only if constructed"
 profile.
 
+### ⚠ Correction (2026-10-30): `building->Factory` is empty for sidebar production
+
+The test below never matches a unit a human player builds. Sidebar
+production belongs to the house: `HouseClass::Begin_Production` creates
+the `FactoryClass` (`new` + ctor at `0x4FA4F5`) and keeps it in
+`HouseClass::Primary_For*`. It never writes `BuildingClass::Factory`
+(`+0x524`). The only writes that set that field are a building's own
+factory (`0x450387`) and, inside `KickOutUnit`, a busy factory lending its
+pointer to an idle twin for the recursive call (`0x44451F`–`0x444552`).
+The house's placement code then picks a building with the product's
+`FindFactory` (vtable `+0x190`) and calls `KickOutUnit` on it (`0x4FB563`;
+the enclosing function was not named), with that building's `Factory`
+still null.
+
+**Found in game:** CosmeticExt's `Factory.ColorRules` used this test and
+logged no factory product in a whole game in which Rex built units from an
+Allied war factory (2026-10-30). **Fix:** scan `FactoryClass::Array`
+(`0xA83E30`) for a factory whose `Object` is the unit. It covers house and
+building factories alike, and a clone or a free unit is still no factory's
+object. The factory clears `Object` only after a successful kick-out, so
+it is still set at the entry. CloningExt's `.construct` profile
+(`Hooks.ConstructProfile.cpp`) uses the old test, so it most likely never
+fires for human players either (not checked in game).
+
 ### `Factory->Object == pTechno` beats "is a production factory"
 
 The stamp this page describes admits everything a factory ejects. That is not
@@ -71,7 +95,9 @@ the same as "the thing the factory was building". The sharper test is
 pBuilding->Factory && pBuilding->Factory->Object == pTechno
 ```
 
-which additionally excludes anything else the same building might eject —
+(⚠ read `Factory` as "the factory producing it", found through
+`FactoryClass::Array`, per the correction above) which additionally excludes
+anything else the same building might eject —
 notably a **clone** (which never matches the factory's current product) and a
 **free unit**. It matters for a barracks that also clones, where the clone and
 the primary leave the *same* building, so building identity cannot separate them.

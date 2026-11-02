@@ -144,6 +144,36 @@ removed a reproducible 1-4 cell northward error on sloped terrain.
 
 ---
 
+### `0x692423` — DisplayClass click path, order-suppression seam  ⚠ source: Enthalpy
+
+Source: **Enthalpy v1.0.3** (`CCrispS/Enthalpy`). When its middle-button
+formation drag is in progress the engine must not see the button release at all —
+otherwise the engine's own order races the drop point the plugin commits, and
+sometimes wins. Enthalpy intercepts here and, while suppressing, returns the
+engine's own **"nothing happened" exit at `0x6925FC`**, which cancels both buttons
+from producing an order.
+
+⚠ **Instruction-boundary choice to dodge Phobos.** The hook sits on `add ecx, 80h`
+(6 bytes) ending exactly at `0x692429` — *not* on `0x692419`, which **Phobos
+already owns**. Execution state is identical at the two points, so the same
+epilogue is safe. This is the rare case of two plugins hooking the *same engine
+function* without colliding, purely because each picked a different instruction
+boundary — so `0x692423` shows up Enthalpy-only in `registry/conflicts.md`, by
+design, even though Phobos is 10 bytes away. If you hook anywhere in `0x6924xx`,
+check both.
+
+**What it does *not* do.** It does not consume a real queued order — suppression
+happens before the order is formed, by redirecting to the no-op exit. It is not a
+general "eat all clicks" seam; it only fires while the plugin's own gesture state
+says a drag is live.
+
+**Confirmed via.** Enthalpy v1.0.3 source (`src/Hooks.cpp` `Enthalpy_SuppressClick`,
+comments) and its startup `VerifyGameBuild` byte-check. The `0x692419` Phobos
+ownership is from `registry/hooks.json`. Engine semantics of `0x6925FC` as the
+no-order exit are Enthalpy's reading, not independently disassembled here.
+
+---
+
 ### `0x4AACD4` — the mouse handler's call to `ProcessClickCoords`  ✅ unhooked
 
 **What it is.** The `call 0x692300` inside the mouse handler at `0x4AAC60`. Its

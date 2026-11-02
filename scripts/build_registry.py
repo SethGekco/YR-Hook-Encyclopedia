@@ -48,7 +48,10 @@ PR_JSON = os.path.join(ROOT, "sources", "pr_hooks.json")
 # CnCNet-Spawner is CnCNet's online spawner DLL (repo `CnCNet/yrpp-spawner`): a
 # Syringe DLL built on the same YRpp framework, so it co-loads like Phobos — its
 # hooks are the network/online layer (spawn.ini launch, netcode, online QoL/balance).
-FRAMEWORKS = ["Ares", "Antares", "Phobos", "Kratos", "AggressiveStance", "CnCNet-Spawner"]
+# Enthalpy (repo `CCrispS/Enthalpy`): small standalone GPLv3 Syringe DLL adding an
+# RA3-style formation/queue gesture (middle-mouse drag). Co-loadable; ~7 hooks, all
+# in rendering/input, so it rarely collides with gameplay frameworks.
+FRAMEWORKS = ["Ares", "Antares", "Phobos", "Kratos", "AggressiveStance", "CnCNet-Spawner", "Enthalpy"]
 
 # Mutually-exclusive frameworks: you load at most ONE from each group at a time,
 # so two of them hooking the same address is NOT a real conflict — it's usually

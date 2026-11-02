@@ -191,6 +191,40 @@ visible change, and that is itself the check that the layer is right.
 
 ---
 
+## Drawing *into* the tactical render pass — and the layerless-map trap
+
+Source: **Enthalpy v1.0.3** (`CCrispS/Enthalpy`, GPLv3), which draws a
+semi-transparent formation-preview silhouette over the battlefield. Its hook
+sites map out where you can safely paint on top of the rendered world:
+
+| Address | Role | Enthalpy name | Also hooked by |
+|---|---|---|---|
+| `0x6D3D10` | start of `TacticalClass::Render` (before all) | `TacticalRender_Before` | Phobos `TacticalClass_Render_BeforeAll` |
+| `0x6D9076` | every frame, just after the terrain | `TacticalRender_Layers` | Phobos `…RenderLayers_DrawBefore` |
+| `0x6D9134` | late in `Render`, after world/trees/units/pips | `TacticalRender_AfterWorld` | Phobos `…RenderLayers_DrawBefore` |
+
+⚠ **The late draw point (`0x6D9134`) does not run on every map.** It sits inside
+the render-**layer** pass, and a map that is plain terrain with no layers at all
+never executes it — so anything drawn only there silently vanishes on those maps.
+Enthalpy's fix is the reason it hooks *two* sites: `0x6D9076` runs every frame
+right after the terrain and covers exactly the layerless maps, while `0x6D9134`
+is preferred where it runs (later = on top of more). Whichever fires first in a
+frame paints; the other **de-dupes by frame id** so the silhouette isn't drawn
+twice. The overwritten instruction at `0x6D9134` is `push 0x886FA0` (5 bytes).
+
+⚠ **`0x6D9134` collides with Phobos** (and `0x6D3D10`, `0x6D9076` do too — see
+`registry/conflicts.md`). Enthalpy even ships a runtime guard: if its draw hook
+never fires it logs *"another plugin probably owns 0x6D9134"*. So two render
+plugins at these addresses is a real incompatibility, not a benign shared call
+site — whichever Syringe installs last can leave the other's draw dead.
+
+**Confirmed via.** Enthalpy v1.0.3 source comments (`src/Hooks.cpp`,
+`src/Formation.cpp`) and its startup `VerifyGameBuild` byte-check of these sites;
+the Phobos overlap is from this repo's `registry/conflicts.md`. Not independently
+disassembled here — treat the per-address roles as Enthalpy's reading.
+
+---
+
 ## Provenance
 
 `objdump -d` of vanilla `gamemd-spawn.exe`: `0x4A9720`, `0x5519B0`, `0x551A90`,

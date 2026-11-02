@@ -15,6 +15,9 @@ declare -A URLS=(
   # CnCNet's online spawner (netcode + online QoL/balance patches). Repo is
   # `yrpp-spawner`; cloned under the dir name that matches its framework label.
   [CnCNet-Spawner]=https://github.com/CnCNet/yrpp-spawner.git
+  # Enthalpy: small standalone GPLv3 Syringe DLL — RA3-style formation/queue
+  # command gesture (middle-mouse drag). Co-loadable; no Phobos dependency.
+  [Enthalpy]=https://github.com/CCrispS/Enthalpy.git
 )
 
 for name in "${!URLS[@]}"; do

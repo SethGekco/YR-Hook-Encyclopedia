@@ -109,6 +109,12 @@ holds *only* while a framework really does replace the entry.
 - **`DEFINE_REFERENCE` globals are references, not pointers.** `HouseClass::Array`,
   `BuildingClass::Array`, `MapClass::Instance` — use `.`, not `->`. Three separate
   compile failures in one session; it reads as a pointer everywhere else.
+  The second shape of the same mistake is **calling one**: `RulesClass::Instance()`
+  or `CCINIClass::INI_Art()` parses as a call on the referenced pointer, and MSVC
+  reports `C2064: term does not evaluate to a function taking 0 arguments`
+  *followed by a misleading* `C2737: const object must be initialized` on the
+  variable you were assigning. Drop the parens. Both shapes have now cost four
+  CI rounds across three different subsystems.
 - **`R0`/`RX` virtuals have no address.** Calling one *qualified* silently no-ops;
   it only works through vtable dispatch on an object. `GetFoundationData` is one.
 - **`R->ESP()` cannot move the stack.** `POPAD` discards the ESP slot, so the write

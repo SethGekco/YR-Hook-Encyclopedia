@@ -202,6 +202,10 @@ two failures. The measured cause is narrower and more useful:
 > **`WeaponN` is only read when `WeaponCount` covers it, and a type's weapon
 > declaration is NOT delivered by `$Inherits`.**
 
+**CORRECTED AGAIN 2026-11-02.** The `WeaponCount` half of that is the wrong way
+round, and the turret question below is now isolated. See
+[What engages the list](#what-engages-the-list-isolated-2026-11-02).
+
 Evidence, from synthesised types whose sections were dumped back key by key so
 the write itself was never in doubt (TraitExt, 2026-09-23/24):
 
@@ -220,8 +224,98 @@ matter what `WeaponN` keys it carries.
 
 That also explains the `Primary=` row without appealing to turrets: with
 `WeaponCount=0` **and** a multi-turret mapping engaged, neither path yields a
-weapon. Whether `TurretCount>1` alone would suppress `Primary=` on an otherwise
-well-formed type was **never isolated** and should be treated as unproven.
+weapon.
+
+### What engages the list (isolated 2026-11-02)
+
+The paragraph that used to sit here said the `TurretCount>1` question was
+"never isolated". It is isolated now, and the answer is the opposite of what
+`WeaponCount` being named in the rule above implies:
+
+> **`TurretCount>1`, `Gunner=yes` or `IsGattling=yes` engages the `WeaponN`
+> list. `WeaponCount` only BOUNDS it — on its own it engages nothing.**
+
+Four synthesised types from one match, dumped from the live objects at
+`GetWeapon` time (TraitExt, 2026-11-02):
+
+| type | `WeaponCount` | `TurretCount` | key written | parsed |
+|---|---|---|---|---|
+| `SREF$C0` | 1 | 0 | `Weapon1=105mm` | **all 18 slots null** |
+| base `SREF` | 1 | 4 | `Weapon1=Comet` | `Weapon[0]=Comet` |
+| `MGTK$C2` | 0 | 0 | `Primary=Comet` | `Weapon[0]=Comet` |
+| `BFRT$C1` | 0 | 0 | `Primary=105mm` | `Weapon[0]=105mm` |
+
+Rows 1 and 2 are the isolation: same `WeaponCount`, same key spelling, and only
+the turret count differs. Rows 3 and 4 kill the converse reading — that
+`WeaponCount=0` suppresses `Primary=` — which an earlier revision of this page
+inferred from `MTNK$C0`. That case had `TurretCount=4`, so the turret was doing
+the work and the count was never the variable.
+
+**Gattling types enter through neither.** Vanilla `[YTNK]` is `TurretCount=1`
+with `WeaponCount=6` and `Weapon1..6`, so `IsGattling=yes` is its only way into
+the list. A predicate written as "turret count or gunner" silently mistranslates
+every Gattling type.
+
+**Why it matters when you synthesise a type.** The selector is a property of the
+type you *end up with*, not the one you copied from. A clone that borrows
+another unit's art drops the turret family to keep the voxel coherent — and
+drops the engagement with it, so a weapon key copied across in `WeaponN` form
+becomes unreadable. Translate the key into the form the finished type is read
+through (`Weapon1` ↔ `Primary`, `Weapon2` ↔ `Secondary`) rather than trusting
+the spelling the author chose. Slots 3 and up have no `Primary`-style spelling,
+so a two-slot type cannot express them at all.
+
+Still **unmeasured**: whether a `WeaponCount>0` left on an otherwise
+`Primary`-style type suppresses `Primary=`. `SREF$C0` is not evidence either
+way — it carried no `Primary` key at all. Zero the count when you de-engage the
+list and the question does not arise.
+
+### ⚠ Elite weapons are a PARALLEL array, not a fallback (2026-11-02)
+
+`TechnoTypeClass::GetWeapon(index, elite)` is a hard pick —
+`elite ? EliteWeapon[index] : Weapon[index]` (`YRpp/TechnoTypeClass.h:164-173`)
+— and `elite` is `TechnoClass::Veterancy.IsElite()`, i.e. `Veterancy >= 2.0f`
+(`YRpp/TechnoClass.h:96-98`). There is no fallback from a null elite slot to the
+base-rank one at this level; the *callers* fall back to the primary, which is a
+different thing.
+
+Two consequences for anything that writes or repoints a type:
+
+1. **A type that declares only `Primary=` is invisible to an elite unit.** This
+   is not an edge case: an Academy (`Veterancy-Academy.md`) makes units elite
+   **at build time**, so on such a mod the elite array is the *only* one ever
+   read. A feature tested on a rookie unit and shipped can be inert for every
+   unit the player actually owns.
+2. **Copying a base type's section carries its elite guns, which then beat
+   yours.** Observed, with the override written and parsed correctly and the
+   unit still firing the original:
+
+   ```
+   MGTK$C2: Weapon[0]=Comet        EliteWeapon[0]=(null)
+            Weapon[1]=HoverMissile EliteWeapon[1]=MirageGunE   <- base's, wins
+   ```
+
+   Vanilla `[MGTK]` declares `EliteSecondary=MirageGunE`, so a literal section
+   copy hands the clone an elite gun the author never asked for.
+
+**What to do.** Mirror every weapon key you write into its elite spelling
+(`Primary`→`ElitePrimary`, `Secondary`→`EliteSecondary`, `WeaponN`→`EliteWeaponN`)
+unless the author spelled the elite form out themselves. Decide that on the
+*translated* key, or `Weapon1=` and `EliteWeapon1=` race each other into
+`Primary=`/`ElitePrimary=` in whatever order the entries happen to be in.
+
+**If you hook `GetWeapon` and return a weapon**, returning "no opinion" on an
+empty slot is not neutral: the engine then applies its own primary fallback to
+the **real** type, so your variant's gun loses to the original. Answer from your
+own arrays instead — base rank when the elite slot is empty, and your primary
+when the asked-for slot is empty on the real type too. Not when the real slot is
+*populated*: that is the `Gunner` passenger case, and it belongs to vanilla.
+
+**Confirmed via.** In-game, three units in one match, `elite=1` logged on all
+three while each kept its original weapon and (where the trait set one) wore the
+variant's art — art and weapons travel different paths, so art changing is not
+evidence the weapon did. Fix built and **not yet re-tested in game** at the time
+of writing.
 
 **The practical rule.** A partial weapon declaration is not a smaller version of
 the base — it is a broken type, and it reads in game as a unit that simply never

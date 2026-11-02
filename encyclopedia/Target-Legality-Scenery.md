@@ -70,21 +70,57 @@ than the behaviour.
 |---|---|---|
 | `0x7002EE` | `0x7002F4` | `TechnoClass::WhatAction` — cursor over an object |
 | `0x700A4F` | `0x700A55` | `TechnoClass::GetActionOnCell` — cursor over a cell |
-| `0x7466C0` | `0x7466C6` | `UnitClass::DisguiseAs` — **the trap** |
+| `0x7466C0` | `0x7466C6` | `UnitClass::DisguiseAs` — reached only with a **Cell**, see below |
 
-A **Mirage Tank asks this predicate whether it may disguise itself as a tree.**
-Soften the Terrain arm to "only attackers that can hurt the tree may target it"
+⛔ **SUPERSEDED — the first revision of this page claimed:** *"A Mirage Tank asks
+this predicate whether it may disguise itself as a tree. Soften the Terrain arm
 and you also take tree disguises away from every Mirage whose own gun is not
-wood-capable. **In vanilla RA2/YR rules that is the Mirage Tank itself** —
-`MGTK`'s `MirageGun` uses `MirageWH`, which has no `Wood=yes`. So this is not a
-hypothetical coupling; a naive change breaks the signature unit of the feature
-you were trying to improve.
+wood-capable — in vanilla rules that is the Mirage Tank itself, since `MirageWH`
+has no `Wood=yes`."* It then recommended excluding the disguise caller by return
+address (`0x7466C6`).
 
-If you need to change only the targeting answer, exclude the disguise caller by
-its return address. At `0x70EF37` the frame is provable from the prologue — three
-pushes, and both intervening calls are `ret 4` callees that clean their own
-argument, which the engine itself confirms at `0x70EF05` by reading its parameter
-from `[esp+0x10]` — so `[esp+0xC]` is the return address.
+**Both halves are wrong**, and an implementation shipped the guard before the
+correction landed. Recorded rather than deleted because the claim is plausible
+enough to re-derive:
+
+1. **The Mirage does not disguise by targeting anything.** It takes a
+   `TerrainType` from `[General]DefaultMirageDisguises=` (`TREE01..TREE04` in
+   vanilla `rulesmd.ini`) with `DisguiseWhenStill=yes`. Nothing clicks a tree.
+2. **`UnitClass::DisguiseAs` never reaches the Terrain arm.** `0x746670`
+   dispatches on the target's `WhatAmI` at `0x746687`:
+
+```
+746684  call [vtable(esi)+0x2C]       ; pTarget->WhatAmI()
+746687  dec eax;      je 0x7466d8     ; type 1   -> the vehicle branch
+74668a  sub eax,0x0a; je 0x7466bb     ; type 11  Cell -> calls slot +0x398
+74668f  sub eax,0x19; jne 0x746712    ; type 36  Terrain -> falls through
+746694  call [vtable(esi)+0x88]       ; ...reads the TerrainType directly
+7466b1  call 0x70e280                 ; TechnoClass::DisguiseAs
+```
+
+   The `Terrain` case goes to `0x746694` and **never calls the predicate**. The
+   only way `DisguiseAs` reaches `0x70EF00` is with a **`Cell`**, which takes the
+   non-Terrain arm at `0x70EF53` and never reads `TreeTargeting`. A seat on the
+   `TreeTargeting` read is unreachable from the disguise path.
+
+**So no caller exclusion is needed.** If you seat at `0x70EF37`, the three
+callers are still worth knowing — `WhatAction` and `GetActionOnCell` are the two
+that get there — but there is nothing to guard against. Should you ever need the
+return address anyway, the frame is provable from the prologue: three pushes, and
+both intervening calls are `ret 4` callees that clean their own argument, which
+the engine itself confirms at `0x70EF05` by reading its parameter from
+`[esp+0x10]`, so `[esp+0xC]` holds it.
+
+**⚠ The attacker is not available at `0x70EF37`.** `this` arrives in `ECX` and
+lives in `ESI` only until `0x70EF1B`, where `mov esi,[eax]` overwrites it with
+the `WeaponTypeClass`. By `0x70EF37`, `ECX` holds `RulesClass::Instance` and
+`EBX` holds the attacker's **vtable**, not the attacker. Anything per-attacker
+needs a second seat in the window where `ESI` is still `this` — `0x70EF05`
+(6 bytes, `mov edi,[esp+0x10]` + `mov ebx,[esi]`) is the clean one: two plain
+loads, no IP-relative branch. A static handoff between the two is safe because
+all three callers of the slot are known and none is reachable from
+`SelectWeapon`/`GetWeapon`, the only calls in between; cross-check it by
+comparing the seated pointer's vtable against `EBX`.
 
 **Easily mistaken.**
 
@@ -104,9 +140,10 @@ derived from six `dword` references cross-checked against `GetTurretWeapon`
 `ff 9x 98 03 00 00`; caller identities from the YR Hook Encyclopedia registry
 (`0x7002E9` Phobos `TechnoClass_WhatAction_PassableTerrain`, `0x700600` Antares
 `TechnoClass_GetActionOnCell_Cursors`, `0x7466D8` Kratos/Phobos
-`UnitClass_DisguiseAs`). The Mirage-breaks claim is **⚠ Unverified in game** —
-it is a rules reading (`MirageWH` has no `Wood`) plus the call-graph above, and
-it was designed around rather than observed.
+`UnitClass_DisguiseAs`). The retraction of the Mirage claim is from `objdump` at
+`0x746670`–`0x746716` (the `WhatAmI` dispatch) plus `rulesmd.ini`
+(`DefaultMirageDisguises=TREE01,TREE02,TREE03,TREE04`); the original claim was
+**reasoned and never executed**, which is how it survived into shipped code.
 
 ---
 

@@ -269,3 +269,41 @@ because the conclusion is that there is nothing to test.
 
 *Recipe derived while implementing PayloadExt's turret selectors; steps 3–4 are
 reasoned from the source above and are **not yet in-game verified**.*
+
+## ⚠ A draw-time type swap cannot give a unit a working turret (2026-11-02)
+
+`Turret=` is read by the **aiming** code, not only by the drawing code, and the
+two run at different times. That makes it one of the tags a draw-time type swap
+(see [Techno-Type-Conversion.md](Techno-Type-Conversion.md)) genuinely cannot
+deliver, which is worth knowing before reaching for the cheap path:
+
+> A unit whose real type is `Turret=no`, swapped to a `Turret=yes` type for the
+> duration of the draw only, **draws the turret and never turns it.**
+
+The turret facing is instance state that the engine drives from the real type
+each frame. A `Turret=no` object never has its turret facing driven at all, so
+when the renderer briefly sees `Turret=yes` it draws the turret voxel at
+whatever angle the facing was left at — north, on a unit that has never aimed.
+Nothing in the draw path repairs this, because by then the aiming for that frame
+has already happened against the other type.
+
+**Observed in game** (TraitExt, 2026-11-02): a `Turret=no` Battle Fortress wearing
+Grizzly art drew the Grizzly's turret, fired the correct weapon, and kept the
+turret pointing the same way throughout. The body, the weapon and the art were
+all correct — only the facing was not, which is what makes this easy to miss in
+testing.
+
+**What to do.** Adopt a donor's turret only when the unit itself has one. A hull
+with no turret is coherent; a turret frozen at north is a visible bug. If the
+turret must genuinely work, the type has to **convert** rather than swap at draw
+time, so that the aiming code sees `Turret=yes` too — plausible from the
+mechanism, since the facing object exists on every `TechnoClass`, but **not
+verified**: nothing has yet driven a turret onto a `Turret=no` object this way.
+
+**The symmetric trap.** Stripping the turret on a *failed art lookup* produces
+the opposite bug — a turretless hull on a unit that should have one — and that
+is what an earlier revision of the converting code did, because art sections
+live in `artmd.ini` and a rules-INI lookup for `[GTNK]` finds nothing. Let the
+**base type's own** `Turret=` decide, not whether the donor lookup happened to
+succeed. See [INI-Read-Inheritance.md](INI-Read-Inheritance.md) for why the
+lookup silently returns empty rather than failing loudly.

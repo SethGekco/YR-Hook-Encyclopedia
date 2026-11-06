@@ -300,6 +300,24 @@ time, so that the aiming code sees `Turret=yes` too — plausible from the
 mechanism, since the facing object exists on every `TechnoClass`, but **not
 verified**: nothing has yet driven a turret onto a `Turret=no` object this way.
 
+**The mapping travels with the count.** If you drop `TurretCount` from a
+synthesised type, drop its per-weapon turret mapping too. The engine validates
+the two against each other and says so in its own log:
+
+```
+Weapon 1 on [FV$C4] has an invalid turret index of 0.
+Weapon 2 on [FV$C4] has an invalid turret index of 2.
+```
+
+Those are `[FV]`'s own `NormalTurretIndex=0` and `RepairTurretIndex=2`, copied
+onto a clone whose `TurretCount=4` had been removed so it could wear
+single-turret art. Antares spells this surface as `<Name>TurretIndex=` /
+`<Name>TurretWeapon=` over the IFV name list rather than as a fixed set of keys
+(see `0x7178B0` above), so a copier has to match the **suffix** — enumerating
+`WeaponTurretIndex1..4` misses all of it. An out-of-range index is read during
+drawing, past `ChargerTurrets[]`, so these warnings are worth acting on rather
+than filtering out.
+
 **The symmetric trap.** Stripping the turret on a *failed art lookup* produces
 the opposite bug — a turretless hull on a unit that should have one — and that
 is what an earlier revision of the converting code did, because art sections

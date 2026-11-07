@@ -95,7 +95,10 @@ safe under classic Syringe. The `test` flags survive the stub's `jmp` back to th
 `je` at `0x4AE606`. All three paths to the name pass through it. To give no
 tooltip, return `0x4AE69B`. The object is at `[esp+0xC]`, the same slot `0x4AE668`
 reads. ⚠ It may be a non-techno (a tree), so the handler must not assume
-TechnoClass. ⚠ Unverified in game: seat reasoned from disassembly only.
+TechnoClass. **VERIFIED in game for the own-techno path** (2026-11-07, 1000x1000, 30 players,
+the launch list that crashed): the own MCV's name tooltip showed, 300 s with no crash, and a
+live dump showed `0x4AE600` patched and `0x4AE668..0x4AE66F` original. ⚠ The non-techno
+(tree) path was not exercised; that map had no trees.
 
 **Used by / interactions.** A private disguise-tooltip DLL (MirageTreesExt) used
 `0x4AE668` with stolen size 8; that is the crash above. It moved to `0x4AE600`

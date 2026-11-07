@@ -152,6 +152,48 @@ The engine's own prerequisite check reads `ActiveBuildingTypes`. Taking
 
 ---
 
+## 9. A hook must not cover a branch target
+
+A patch is `E9 rel32` plus NOPs. If any instruction elsewhere jumps to an address
+*inside* the patch, after its first byte, the CPU decodes a byte of the rel32 as
+an instruction. Size, overlap and stolen-byte checkers all pass these seats.
+
+**The tell:** a crash that depends on the launch rather than the code. The byte the
+CPU runs is part of `stub − next_ip`, and the stub address moves with what other
+DLLs allocate at start-up. So adding or removing an *unrelated* DLL turns the crash
+on or off, and the same DLL list can crash on one map and not another. Seen so far:
+
+- `C0000005 at 00000000` with a **segment selector in a register** (`ESI = 0x2B`):
+  the byte was `06`, `push es`, which leaves ESP 4 bytes low until the `ret`.
+  See [Tooltip-GetToolTip.md](Tooltip-GetToolTip.md) (`0x4AE66C`).
+- `C0000096`, or an AV at the target address, or a wild jump: see
+  [Scenario-Smudge-Read.md](Scenario-Smudge-Read.md) (`0x6B4DBA`) and
+  [Production-Queues-Factories.md](Production-Queues-Factories.md) (`0x500960`).
+
+**The check:** for every address strictly inside `(seat, seat + stolen)`, search the
+disassembly for a direct branch to it (`j.. 0x<addr>`, `call 0x<addr>`). Also
+look at the switch tables, which objdump does not resolve. Branching to the seat
+itself is fine.
+
+**A 2026-11-07 sweep of 3,483 deployed hooks (31 DLLs) found these framework seats
+covering a direct branch target.** ⚠ Reachability unchecked: a handler that never
+returns 0, or a loop it replaces whole, can make the inner branch dead. Read the
+handler before trusting or blaming one.
+
+| Seat (stolen) | Framework | Name | Covered target ← branch |
+|---|---|---|---|
+| `0x41CE7E` (6) | Phobos | `AircraftTypeClass_Load` | `0x41CE80` ← `0x41CE32 jl` |
+| `0x523932` (8) | Antares | `InfantryTypeClass_CTOR_Initialize` | `0x523934` ← `0x52396E jl` |
+| `0x524B53` (5) | Phobos | `InfantryTypeClass_Load` | `0x524B57` ← `0x524994 jl` |
+| `0x528BAC` (0xA) | Phobos | `INIClass_GetString_Inheritance_NoEntry` | `0x528BB2` ← `0x528A5A je` |
+| `0x5A5C6A` / `0x5A5D6F` / `0x5A6464` (9) | Antares | `MapSeedClass_Generate_PlacePavedRoads_RoadEnd{NE,SW,SE}` | `+4` ← a `ja` just after each |
+| `0x685354` (9) | Phobos | `ClearLotsOfShit_GlobalVariable` | `0x685358` ← `0x68538D jl` |
+| `0x6AC02F` (8) | Antares | `sub_6ABD30_Strip3` | `0x6AC031` ← `0x6AC047 jl` |
+| `0x6B73BE` (6) | Phobos | `SpawnManagerClass_AI_SpawnTimer` | `0x6B73C1` ← `0x6B73B0 jmp` |
+| `0x74809E` (9) | Phobos | `UnitTypeClass_Load` | `0x7480A0` ← `0x74802B jl` |
+
+---
+
 ## How much to trust a claim on any page
 
 See [_CONVENTIONS.md](_CONVENTIONS.md). In short: look for the status marker.

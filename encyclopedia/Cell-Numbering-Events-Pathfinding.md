@@ -103,6 +103,34 @@ idiv, magic 0x10624DD3, sprintf-"%d" text form, and constants passed as
   pool: 256 buckets × 24-byte vectors (vtable 0x7F042C) at `[[Radar+0x1258]]`,
   hash `(dx − 5·dy) & 0xFF`, walked by `0x656750` — trampling it fatals there.
   Vanilla-safe only because vanilla maps cannot produce such searches.
+- **The finished path has a 2,000-step ceiling that nothing enforces.**
+  `UpdatePathfinding @0x4D3920` keeps `FacingType path[2000]` at `[esp+0x6C]`
+  (after its 4 pushes) of its 0x1F9C frame, so the buffer **ends exactly at its
+  own return address**. It calls `Find_Path @0x4CBBA0(dest*, buf, 0x7D0, …)`, which
+  never reads the 0x7D0: `AStarClass::Find_Path @0x42C900` gets only the buffer
+  pointer. The cell search `0x429A90` hands the goal node to the path builder
+  `0x42AA90` (its only caller is `0x42A406`). The builder takes `Length` from
+  `[node+0xC]`, walks the step list from the goal (`[elem+8]` links toward the
+  start), writes facings at index `Length-2` down to 0, then `-1` at `Length-1`.
+  It also writes a parallel array at static `0x89A324`, which has 2,001 slots
+  before the next referenced global (`0x89C268`). The static `PathType` result is
+  at `0x89A2D8` (`+8` Length = `0x89A2E0`, `+0xC` = buffer pointer). The other
+  `0x42C900` caller (`HouseClass` fn `0x5048A0`, frame 0x207C) has room for about
+  2,048 steps. Vanilla maps never reach 2,000 steps; a 1000x1000 map with widened
+  A* pools does. **VERIFIED crash signature** (2026-11-07, two runs, from
+  `except.txt`): `C0000005 at 00000000`, `ESP 0036D16C`, and `EBP`/`ESI`/`EBX` =
+  a WalkLocomotionClass object `+0`/`+0x1C`/`+0x28`. Step 2,000 (a facing 0..7)
+  overwrote the return slot; the path's terminator then sits above `ESP`
+  (Length 2,013 and 2,085). `EAX = 0x0036B1xx` with `AL = 1`, because the path
+  was found. ⚠ Do not read a Syringe stub frame found above `ESP` there as the
+  culprit: hooks earlier in `FootClass::AI` leave stale frames. **Fix seat:**
+  `0x42AAFC`, stolen 5 (`mov ebp,[esi]`; `mov eax,[esi+0xC]`). Nothing branches
+  into it and neither instruction is relative. Skip `Length-2000` elements from
+  the goal end, then write 2,000 back to `[node+0xC]` (the terminator store
+  @`0x42ABAF` re-reads it) and to `0x89A2E0`. Resume at `0x42AB01` with `EBP` =
+  the new first element and `EAX` = 2,000. MapSizeExt uses this seat
+  (`AStar_BuildPath_LengthCap`, 2026-11-07). ⚠ Unverified in game until a long
+  run logs a cut without crashing.
 - Frame-update dispatch loop (crash-forensics anchor): `0x55B5FB-0x55B61B` iterates
   a list object (items @[list+4], count @[list+0x10]) calling `[vtable+0x5C]` on
   each element; return address **0x55B613** on the stack + a misaligned vtable in

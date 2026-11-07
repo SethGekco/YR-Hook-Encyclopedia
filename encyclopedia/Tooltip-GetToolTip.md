@@ -97,8 +97,9 @@ tooltip, return `0x4AE69B`. The object is at `[esp+0xC]`, the same slot `0x4AE66
 reads. ⚠ It may be a non-techno (a tree), so the handler must not assume
 TechnoClass. ⚠ Unverified in game: seat reasoned from disassembly only.
 
-**Used by / interactions.** A private disguise-tooltip DLL used `0x4AE668` with
-stolen size 8; that is the crash above. The registry has no framework hook here.
+**Used by / interactions.** A private disguise-tooltip DLL (MirageTreesExt) used
+`0x4AE668` with stolen size 8; that is the crash above. It moved to `0x4AE600`
+(stolen 6) on 2026-11-07. The registry has no framework hook here.
 
 ---
 

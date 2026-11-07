@@ -137,8 +137,37 @@ idiv, magic 0x10624DD3, sprintf-"%d" text form, and constants passed as
   both `buf[1999]` and `buf[2000]` (the return slot) held `-1`. MapSizeExt uses
   this seat (`AStar_BuildPath_LengthCap`) with a cap of 1,990, leaving headroom
   for the optimizer's segment rewrite `0x42BE20`, which is not traced. `0x42B420`
-  (called by `0x42B210`) writes only its own locals. ⚠ The 1,990 cap is
-  unverified in game until a long run logs a cut without crashing.
+  (called by `0x42B210`) writes only its own locals. **VERIFIED** in game
+  (2026-11-07): six 30-player 1000x1000 runs, three of them full 30-minute
+  games, logged 14 cuts (longest Length 2,514) and did not crash.
+- **Why units search so often: order re-sends end the queued path.**
+  `PathDirections[24]` is FootClass `+0x5E0`; the walk locomotor (`0x75AF1D`)
+  calls `UpdatePathfinding(dest, 0, 0)` (`0x75AFC5`) once `[0]` is `-1` and
+  PathDelayTimer (`+0x640`) has run out. `InfantryClass::SetDestination`
+  `0x51AA40` (vtable `+0x480`) stores `-1` into `[0]` at `0x51AD11`, and
+  `InfantryClass::AssignTarget` `0x51B1F0` (vtable `+0x3C8`) does at `0x51B2A2` on
+  every call. Infantry approaching a far target get these re-sent about once per
+  cell by `FootClass::ApproachTarget` `0x4D5AC0` (SetDestination at `0x4D68B7`) and
+  the team code (`0x6EB490` assigns the team Focus as target, `0x6EB801`). Each
+  re-send costs a search of the whole route, but only 24 facings are kept
+  (`min(Length, 24-kept)` copied at `0x4D3E82`). **MEASURED** (2026-11-07, 30
+  players, 1000x1000, PerfExt path meter): 349,194 searches in 10,969 frames,
+  99% infantry, 70% asked with 22 of `[1..23]` still set; unit pathfinding was
+  52-58% of the game thread over 30 minutes. Layouts read on the way:
+  `Find_Path @0x4CBBA0(&dest, buf, 0x7D0, 0, kept, arg6)` is `ret 0x18`, frame
+  base = entry−0x1C (`[esp+0x8]` = the unit's cell); it calls `0x429780` (start
+  cell after the kept steps; facing 8 = tunnel via cell `+0x116` → `0x8B413C`)
+  then `AStarClass::FindPath 0x42C900` (7 args, `ret 0x1C`, `ECX = 0x87E8B8`).
+  The PathType at `0x89A2D8`: `+0` StartCell, `+4` TotalDistance (rounded cost,
+  forced to 1 if 0; UpdatePathfinding needs it non-zero, `0x4D3E5A`), `+8`
+  Length including the `-1`, `+0xC` buffer, `+0x10` 0, `+0x14` `0x89A324`,
+  `+0x18` two zero words. UpdatePathfinding also reads `buf[Length-2]` for team
+  followers (`0x4D3EEB`) and hands a copy to vtable slot `0x540` (`0x41C140`,
+  `ret 4`). Facing deltas: `int16 X,Y` per facing at `0x89F688` (filled at
+  startup). ⚠ Profilers: the stale words in UpdatePathfinding's 8 KB buffer look
+  like a call chain (a Phobos `MapClass_PlaceDown` hook → `RecalcAttributes`);
+  attribute samples by the return addresses `0x4CBC36` (in Find_Path) and
+  `0x4D3E50` (in UpdatePathfinding) instead.
 - Frame-update dispatch loop (crash-forensics anchor): `0x55B5FB-0x55B61B` iterates
   a list object (items @[list+4], count @[list+0x10]) calling `[vtable+0x5C]` on
   each element; return address **0x55B613** on the stack + a misaligned vtable in

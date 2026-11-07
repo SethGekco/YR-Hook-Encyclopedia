@@ -66,8 +66,35 @@ default this restriction **does not engage at all**.
 
 **What it does *not* do — easily mistaken.**
 - It is **not** a general "one factory at a time" rule for every house. It is
-  gated on `H->Production` (⚠ believed to be the AI-production flag — *not
-  verified here*). Do not assume it constrains the human player.
+  gated on `H->Production`, the AI-production flag. Do not assume it
+  constrains the human player.
+
+  **`H->Production` is the AI's (verified 2026-11-07).** It is the byte at
+  `HouseClass +0x1EE`, right after `IsHumanPlayer` (`+0x1EC`) and
+  `IsInPlayerControl` (`+0x1ED`). objdump of `gamemd-spawn.exe` finds eight
+  writes to it:
+  - `0x4F56F1`: the `HouseClass` ctor clears it.
+  - `0x4F85B0` (house AI) and `0x7398FF` (an MCV deploying) set it. Each sits
+    behind a human-control test: `IsControlledByHuman` inlined at
+    `0x4F8564`–`0x4F8589`, and `call 0x50B730` at `0x73985B`. Both skip
+    human houses.
+  - `0x50A7EF` sets it inside `0x50A5C0`. That function runs only for a
+    human-controlled house. It clears `IsHumanPlayer` and `IsInPlayerControl`
+    first (`0x50A5F4`/`0x50A5FB`), so it hands the house to the computer.
+    Its one caller is `0x5F031A`; neither function was named.
+  - `0x6DEAC0` (inside `TActionClass::Execute`, `0x6DD5B0`) and `0x6E1E86`
+    (`TActionClass::EnableProductionForHouse`, `0x6E1E40`) set it for the
+    house a map trigger names. `0x6E99CC` and `0x6EDF95` are in `TeamClass`
+    code (not identified further). These follow map scripts, so a map could
+    in principle switch it on for a human house.
+
+  The building factory code below the gate depends on it. At `0x4502FA`,
+  `cmp [Owner+0x1EE],0; je 0x4503CA` skips the branch in which a building
+  creates its **own** `FactoryClass` (stored to `BuildingClass::Factory` at
+  `0x450387`). So a building gets its own factory only when an AI house
+  produces with it. Sidebar production is house-owned and never sets that
+  field. See the `KickOutUnit` correction in
+  [Building-Production-KickOut.md](Building-Production-KickOut.md).
 - It does **not** limit how many *items* advance — only how many *buildings*
   produce for a channel. One `FactoryClass` still advances exactly one object;
   that limit lives elsewhere and is untouched by `AllowParallelAIQueues`.

@@ -82,9 +82,21 @@ Allied war factory (2026-10-30). **Fix:** scan `FactoryClass::Array`
 (`0xA83E30`) for a factory whose `Object` is the unit. It covers house and
 building factories alike, and a clone or a free unit is still no factory's
 object. The factory clears `Object` only after a successful kick-out, so
-it is still set at the entry. CloningExt's `.construct` profile
-(`Hooks.ConstructProfile.cpp`) uses the old test, so it most likely never
-fires for human players either (not checked in game).
+it is still set at the entry.
+
+**The old test is not dead: it sees the AI (2026-11-07).** The building's
+own factory (`0x450387`) is created only past the `HouseClass::Production`
+check at `0x4502FA`, and that flag is the AI's. The writer list is under
+`0x4502F4` in [Production-Queues-Factories.md](Production-Queues-Factories.md).
+So `building->Factory->Object == pTechno` matches units an AI house builds
+and never a unit built from the sidebar. In game, CloningExt's `.construct`
+profile with the old test logged 68 conversions of factory-built engineers
+across 8 games with many AI players (10-30 to 11-06). Those log lines name no
+owner, so "AI-built" comes from the code above. In CosmeticExt's 10-30 test
+game, the same test matched nothing that Rex built himself. A gate built on
+the old test therefore looks like it works in a game with AI players while
+missing the human player. Both DLLs now scan `FactoryClass::Array`, which
+covers both cases.
 
 ### `Factory->Object == pTechno` beats "is a production factory"
 

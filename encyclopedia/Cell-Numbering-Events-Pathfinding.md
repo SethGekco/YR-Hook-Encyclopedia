@@ -125,12 +125,20 @@ idiv, magic 0x10624DD3, sprintf-"%d" text form, and constants passed as
   was found. ⚠ Do not read a Syringe stub frame found above `ESP` there as the
   culprit: hooks earlier in `FootClass::AI` leave stale frames. **Fix seat:**
   `0x42AAFC`, stolen 5 (`mov ebp,[esi]`; `mov eax,[esi+0xC]`). Nothing branches
-  into it and neither instruction is relative. Skip `Length-2000` elements from
-  the goal end, then write 2,000 back to `[node+0xC]` (the terminator store
+  into it and neither instruction is relative. Skip `Length-cap` elements from
+  the goal end, then write the cap back to `[node+0xC]` (the terminator store
   @`0x42ABAF` re-reads it) and to `0x89A2E0`. Resume at `0x42AB01` with `EBP` =
-  the new first element and `EAX` = 2,000. MapSizeExt uses this seat
-  (`AStar_BuildPath_LengthCap`, 2026-11-07). ⚠ Unverified in game until a long
-  run logs a cut without crashing.
+  the new first element and `EAX` = the cap. **⚠ The cap must be at most 1,999,
+  not 2,000.** After the builder, `0x429A90` runs `0x42B210` and the optimizer
+  `0x42B7F0`. The optimizer compacts the moves, then fills `-1` from the new end
+  **through index `Length` inclusive** (`cmp ebx, Length+1` @`0x42BC70`), so a
+  path needs `Length+1` slots. **VERIFIED** from a full crash dump (2026-11-07):
+  a 2,000 cap still crashed with `EIP FFFFFFFF`; PathType Length read 2,000, and
+  both `buf[1999]` and `buf[2000]` (the return slot) held `-1`. MapSizeExt uses
+  this seat (`AStar_BuildPath_LengthCap`) with a cap of 1,990, leaving headroom
+  for the optimizer's segment rewrite `0x42BE20`, which is not traced. `0x42B420`
+  (called by `0x42B210`) writes only its own locals. ⚠ The 1,990 cap is
+  unverified in game until a long run logs a cut without crashing.
 - Frame-update dispatch loop (crash-forensics anchor): `0x55B5FB-0x55B61B` iterates
   a list object (items @[list+4], count @[list+0x10]) calling `[vtable+0x5C]` on
   each element; return address **0x55B613** on the stack + a misaligned vtable in

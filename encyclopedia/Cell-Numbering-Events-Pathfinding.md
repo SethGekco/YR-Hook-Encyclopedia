@@ -168,6 +168,40 @@ idiv, magic 0x10624DD3, sprintf-"%d" text form, and constants passed as
   like a call chain (a Phobos `MapClass_PlaceDown` hook → `RecalcAttributes`);
   attribute samples by the return addresses `0x4CBC36` (in Find_Path) and
   `0x4D3E50` (in UpdatePathfinding) instead.
+- **Path continuation seats (hand a unit the rest of its last route).** MapSizeExt
+  `[Path] ReuseSteps` (2026-11-07) uses these:
+  - `0x4CBBF8` in Find_Path, stolen 10 (`mov ecx,[esp+0x30]`;
+    `lea eax,[esi+0x5E0]`). It is the target of the `jne` at `0x4CBBEC`, which
+    lands on the seat start (fine), and nothing branches inside it. At the seat
+    ESP is the frame base: `ESI` = unit, `EDI` = the caller's 2,000-slot buffer,
+    `[esp+0x8]` = the unit's cell, `[esp+0x20]` = &dest, `[esp+0x30]` = kept. A
+    hook can fill the buffer, put a PathType in `EAX` and resume at `0x4CBC36`. It
+    may skip `0x429780` only when kept = 0.
+  - `0x4D3E50` in UpdatePathfinding, stolen 8 (`mov edi,eax; test edi,edi;
+    mov [esp+0x14],edi`). It sits right after Find_Path returns: `EAX` = PathType
+    or 0, `EBP` = unit, `EBX` = kept, `[esp+0x6C]` = facings,
+    `[esp+0x1FB0]` = destination cell.
+  - Order wipes. `0x51AD11` `mov [ebp+0x5E0],esi` (6; a wipe only when `ESI = -1`;
+    branch target of `0x51AC3C`/`0x51AC4B`, which land on the seat start).
+    `0x51B2A2` `mov dword [esi+0x5E0],-1` (10).
+  - The walk locomotor ends a path itself when the next cell is blocked, with six
+    10-byte stores `mov dword [reg+0x5E0],-1`: `0x75B554` (EDX), `0x75B6D4`
+    (EDX; vtable `+0x1AC` cell check result 6), `0x75B828` (EAX), `0x75BA79`
+    (EAX; results 4/5), `0x75BB60` (EAX), `0x75BBC2` (ECX). A continuation scheme
+    must let these units search again, or a blocked unit keeps its blocked route
+    while order re-sends keep coming.
+  - Every input is synchronized state: UniqueID `+0x10`, cells, the frame
+    `0xA8ED84`, and order calls.
+  - **MEASURED** (30 players, 1000x1000, `ReuseSteps=24`): a full 30-minute run
+    with no crash. 61% of asks were handed out. Unit pathfinding fell to 17% of
+    the game thread; M-1/M-2/G measured 52-58%. A control game with it off
+    measured only 30% (its armies stalled at ~5,400 units). Logic time varies
+    3-5x between games with identical settings, so measure within one game.
+    **MEASURED within one game** (`ABPeriod=300`, hand-outs on and off in
+    alternating 300-frame blocks): logic ms/frame was higher with it off in all
+    7 pairs, median 1.14x (1.03-1.20; the same split with no A/B gives
+    0.97-1.01). A* time was 15.9 vs 8.9 ms/frame, at only 18-27% hand-outs (that
+    game's targets kept moving). On by default since MapSizeExt 2c783be.
 - Frame-update dispatch loop (crash-forensics anchor): `0x55B5FB-0x55B61B` iterates
   a list object (items @[list+4], count @[list+0x10]) calling `[vtable+0x5C]` on
   each element; return address **0x55B613** on the stack + a misaligned vtable in

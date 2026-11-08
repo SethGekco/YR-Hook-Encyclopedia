@@ -181,6 +181,19 @@ on or off, and the same DLL list can crash on one map and not another. Seen so f
   `C0000005 at 00740805`, "read from FFFFFFFF". It fires when a deactivated unit
   (no operator, no Robot Control Center, EMP) is selected with the cursor over
   the map (stack: DisplayClass `0x692300`/`0x692610`).
+  **FIXED 2026-11-07** (FreeUnitExt `d24657c`): the seat moved to `0x740805`
+  itself, size 7 (`pop edi; pop esi; pop ebp; pop ebx; add esp,0x1C`, then
+  `ret 0xC` at `0x74080C`), so Antares' return now lands on the patch's first
+  byte. The hook sets EAX, because on Antares' path `[esp+0x30]` still holds the
+  cell argument, and it skips deactivated units (gamemd `0x70FBD0`, byte
+  `+0x1C8`, the same byte Antares tests). Nothing in gamemd branches into
+  `0x740806`–`0x74080B`, and no DLL in the game folder holds a constant there.
+  Phobos' DisallowMoving `ReturnResult` still jumps to `0x740801`, which now
+  runs the original `mov eax` and falls into the new seat. Deployed md5
+  `0ed9455a` (backup `FreeUnitExt.dll.bak-20261107-184242`). **Unverified
+  in-game**: no deactivated unit has been selected with this build yet. Details:
+  [Building-GrandOpening-FreeUnits.md](Building-GrandOpening-FreeUnits.md),
+  appendix.
 
 **The check:** for every address strictly inside `(seat, seat + stolen)`, search the
 disassembly for a direct branch to it (`j.. 0x<addr>`, `call 0x<addr>`). Also

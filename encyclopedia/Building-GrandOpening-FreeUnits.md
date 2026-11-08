@@ -301,7 +301,7 @@ confirmed in-game**.
 
 ---
 
-## Appendix: `UnitClass::What_Action` @ `0x740801` — re-enabling a suppressed move click
+## Appendix: `UnitClass::What_Action` @ `0x740805` — re-enabling a suppressed move click
 
 Not part of Grand_Opening, but discovered while building the same DLL and it has
 the same shape of trap.
@@ -318,16 +318,22 @@ Verified in-game: the only MegaMissions such a unit produced were
 
 **Where the answer is.** Phobos' `DisallowMoving` (`src/Ext/Unit/Hooks.DisallowMoving.cpp`)
 hooks `0x740709` and `0x740744` to force `Action::NoMove`. The inverse — forcing
-`Action::Move` — is done at `0x740801`, the function's single final return:
+`Action::Move` — is done in the function's final epilogue. FreeUnitExt seats at
+`0x740805`, size 7, just after the load (it was `0x740801` until 2026-11-07; see
+the second trap below):
 
 ```
 740801  8b 44 24 30     mov eax, [esp+0x30]    ; the decided Action
-740805  5f              pop edi
+740805  5f              pop edi                ; <- seat, 7 stolen bytes
 740806  5e              pop esi
-...     add esp,0x1c ; ret 0xC
+740807  5d              pop ebp
+740808  5b              pop ebx
+740809  83 c4 1c        add esp, 0x1c
+74080c  c2 0c 00        ret 0xc
 ```
 
-`ESI` = `UnitClass*`, `[ESP+0x30]` = the decided `Action`.
+At `0x740805`: `ESI` = `UnitClass*`, `EAX` = the decided `Action`. (At
+`0x740801` it is still in `[ESP+0x30]`.)
 
 Observed value for an immobile unit: **`Action::None` (0)**, not `NoMove` (2) —
 so a hook that only rewrites `NoMove` will miss it. Rewrite both.
@@ -346,15 +352,9 @@ own JMP**. Control resumes mid-instruction, executes a fragment of the patch, an
 lands on a wild EIP — observed as `Exception code: C0000005 at 00005280`, which
 looks like heap corruption and is not.
 
-Write the value into the stack slot and return `0` instead. The stolen
-`mov eax,[esp+0x30]` then performs the load itself:
-
-```cpp
-REF_STACK(Action, decided, 0x30);
-if (decided == Action::NoMove || decided == Action::None)
-    decided = Action::Move;
-return 0;
-```
+The first fix wrote the value into the stack slot and returned `0`, so the
+stolen `mov eax,[esp+0x30]` did the load itself. That fixed this crash, but the
+seat had a second problem (next section).
 
 **General rule for any Syringe hook:** the only safe return targets are `0`
 (re-executes the stolen bytes) or an address `>= addr + size`. Returning
@@ -362,9 +362,41 @@ anywhere inside `[addr, addr+size)` is a wild jump. This is cheap to check
 mechanically — FreeUnitExt now runs a CI script that parses every `DEFINE_HOOK`
 and fails the build on such a return.
 
+### ⚠ The second trap: another DLL returned into the same patch
+
+Antares' `UnitClass_GetActionOnCell_Deactivated` (`0x7404B9`) sets `EAX = None`
+and returns `0x740805` for a deactivated unit (no operator, no Robot Control
+Center, EMP). With FreeUnitExt's 5-byte hook at `0x740801`, that is the top byte
+of the patch's `E9 rel32`. The byte follows Syringe's stub address, so the
+symptom changes per launch; a 2026-11-07 dump had `0F` (`divps
+xmm3,[ebp+0x5B]`, a misaligned access): `C0000005 at 00740805`. It fired when a
+deactivated unit was selected with the cursor over the map. See
+[_TRAPS-READ-FIRST.md](_TRAPS-READ-FIRST.md) §9.
+
+Fix (FreeUnitExt `d24657c`): seat at `0x740805` itself, size 7, so Antares'
+return lands on the hook's first byte, which is a legal entry. Set `EAX`, not the
+slot, because on Antares' path `[ESP+0x30]` still holds the cell argument. Skip
+deactivated units, because Antares' path used to bypass the hook and such a unit
+must stay `None`:
+
+```cpp
+GET(UnitClass*, pThis, ESI);
+GET(Action, decided, EAX);
+if (pThis->IsDeactivated())          // gamemd 0x70FBD0, byte +0x1C8; Antares tests the same byte
+    return 0;
+if (decided == Action::NoMove || decided == Action::None)
+    R->EAX(Action::Move);
+return 0;                            // replays the four pops and `add esp,0x1c`
+```
+
+Phobos' `DisallowMoving` `ReturnResult` (`0x740744` → `0x740801`) now runs the
+original `mov eax,[esp+0x30]` and falls into the new seat, so its result still
+reaches the hook. Nothing in gamemd branches into `0x740806`–`0x74080B`.
+
 **Confirmed via.** objdump of vanilla `gamemd.exe`; Phobos `DisallowMoving` for
 the seam; and in-game — an immobile MCV that now turns to face right-clicked
-cells while remaining unable to move.
+cells while remaining unable to move (with the old `0x740801` seat; the
+`0x740805` seat is not yet exercised in-game).
 
 ---
 

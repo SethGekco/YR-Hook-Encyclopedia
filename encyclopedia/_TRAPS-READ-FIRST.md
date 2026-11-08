@@ -221,6 +221,41 @@ handler before trusting or blaming one.
 
 ---
 
+## 10. A plain field the engine maintains through a function is the function's business
+
+Reaching a field needs no address, so a field write looks like the cheap way to
+change state from a seat you already own. Ask first whether the engine ever
+*writes that field anywhere but inside one function*. If it does not, that
+function is the API, and the field is its implementation detail.
+
+**VERIFIED (2026-11-07, IntelExt)** — `TechnoClass::Deactivated` (byte `+0x1C8`)
+is the worked example. It is a plain `bool`, and YRpp even documents it
+(*"Robot Tanks without power for instance"*). Writing it directly instead of
+calling `TechnoClass::Deactivate()` (`0x70FC90`) skipped:
+
+* `ObjectClass::Unselect` (vtable `+0x150`) — so the unit stayed **selected
+  while deactivated**, which is the documented precondition for the `0x740805`
+  click crash in trap 9 above,
+* the stop-and-park virtual (`+0x3D0`) — so the locomotor kept its last move
+  and hover units never settled,
+* the power-down sound (`TechnoTypeClass +0x5AC`),
+* and a **refusal path** that returns without touching the byte for a unit
+  docked at the building on its own cell — bypassing it froze units in the war
+  factory door.
+
+Four field-visible bugs, one of them a crash, from one byte write. `Deactivate`
+and `Reactivate` had real addresses in YRpp the entire time.
+
+The tell is asymmetry: if your code writes a field that the engine only ever
+writes at the end of a longer routine, you are re-implementing that routine
+badly. Also check the inverse — nothing clears a field you latch unless you
+clear it, and `Deactivated` had **no** code path writing `false`, which is how
+"powers off and never comes back" shipped.
+
+Details: [Techno-Deactivation-Power.md](Techno-Deactivation-Power.md).
+
+---
+
 ## How much to trust a claim on any page
 
 See [_CONVENTIONS.md](_CONVENTIONS.md). In short: look for the status marker.

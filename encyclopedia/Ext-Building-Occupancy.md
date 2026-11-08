@@ -943,3 +943,74 @@ game state locally; it travels as an event.
 Any custom map-placement tool that changes SIMULATION state (a pathfinding
 no-go zone, for instance) must do the same or it desyncs — see
 [[yr-iscelloccupied-is-the-per-unit-path-gate]].
+
+---
+
+## `0x522910` — `InfantryClass::GarrisonBuilding`, the append anatomy (2026-11-08)
+
+The function the arrival dispatch calls at `0x51972B` once `CanBeOccupiedBy`
+has said yes. `ECX` = infantry, `[ESP+0x20]` = building (→ `EBP`).
+
+```asm
+522920  cmp  byte [InfType+0xeb4],0  ; Occupier= -- bail out entirely if clear
+522926  je   0x522a09
+522931  call [inf vtable+0xd4]       ; the into-building step; the BUILDING is
+                                     ; pushed as its argument. Runs BEFORE the
+                                     ; append, and is not undone if the append
+                                     ; is skipped.
+522937  mov  ebp,[esp+0x20]          ; EBP = building
+52293b  mov  eax,[ebp+0x68c]         ; Occupants.Capacity
+522941  mov  ecx,[ebp+0x694]         ; Occupants.Count
+522947  lea  edi,[ebp+0x684]         ; EDI = &Occupants
+52294d  cmp  ecx,eax
+52294f  jl   0x522970                ; Count < Capacity -> append
+522951  cmp  byte [edi+0xd],0        ; may-grow flag (building+0x691)
+522954  jne  0x52295a
+522956  cmp  eax,0                   ; Capacity == 0 ?
+522958  jne  0x52297f                ; ** SKIP THE APPEND **
+52295a  mov  ecx,[edi+0x14]          ; CapacityIncrement (building+0x698)
+52295d  cmp  ecx,0
+52295f  jle  0x52297f                ; ** SKIP THE APPEND **
+522969  call [vec vtable+0x8]        ; SetCapacity(Capacity + increment)
+52296e  je   0x52297f                ; ** SKIP THE APPEND **
+522970  mov  eax,[edi+0x10]          ; the ONLY place Occupants.Count is raised
+522979  mov  [edi+0x10],eax+1
+52297c  mov  [edx+eax*4],esi         ; Items[n] = infantry
+52297f  ...                          ; (PayloadExt hooks here, 0x5 stolen)
+522992  cmp  [ebp+0x694],1           ; first occupant? -> UpdatePosition(2) etc.
+```
+
+**Verified `Occupants` layout** (`DynamicVectorClass<InfantryClass*>`, base
+`building+0x684`): `+0x688` Items, `+0x68C` Capacity, `+0x690`/`+0x691` flags,
+`+0x694` Count, `+0x698` CapacityIncrement, `+0x69C` `FiringOccupantIndex`.
+
+**⚠ The vector grows exactly ONCE.** The `BuildingClass` constructor sets the
+may-grow flag `+0x691` to **0** (`0x43B8EF`) and `CapacityIncrement` to **10**
+(`mov edx,0xa` at `0x43B8A6`, stored at `0x43B8FB`). With the flag clear,
+`0x522956` permits a grow *only while Capacity is still 0*. So `Occupants`
+allocates once, to **10**, and `0x522958` then refuses forever.
+
+**⚠⚠ Therefore `MaxNumberOccupants` must be ≤ 10.** Nothing in the engine sizes
+`Occupants` from `MaxNumberOccupants` — the two reads of `Type+0x1580` in
+`BuildingClass` (`0x4403E0`, `0x4404E3`) are a muzzle-flash loop, not a reserve.
+Author `MaxNumberOccupants=12` and occupants 11 and 12 take the `0x522958`
+skip: the into-building step at `0x522931` has already run, so **the infantryman
+is consumed and lost while `Occupants.Count` stays frozen at 10**.
+
+That interacts viciously with the capacity gate documented above, which compares
+for **equality** (`0x457D8B je`), not `>=`. A frozen count of 10 never equals a
+`MaxNumberOccupants` of 12, so the building never reports full and **keeps
+swallowing infantry indefinitely**. The two observable symptoms are a building
+that collects infantry without limit and shows no occupant pips, because pips
+read the same frozen `Occupants.Count`.
+
+**The general rule this gives you.** Any time a garrison shows "no pips and no
+limit", the question is only whether `Occupants.Count` is **frozen below** the
+max or was pushed **past** it — the equality gate makes both permanent and makes
+them indistinguishable from outside. Measure the count before changing anything;
+`MaxNumberOccupants > 10` is the first thing to rule out.
+
+**Confirmed via.** `objdump -d -M intel` of a clean `gamemd.exe`: the function
+body above, the constructor stores at `0x43B8A6`/`0x43B8EF`/`0x43B8FB`/`0x43B901`,
+every `+0x694` access in the image (only the two constructors write it directly;
+all other writes go through the vector), and all nine callers of `0x457CE0`.

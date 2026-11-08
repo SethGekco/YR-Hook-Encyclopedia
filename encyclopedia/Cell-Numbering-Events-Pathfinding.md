@@ -168,8 +168,9 @@ idiv, magic 0x10624DD3, sprintf-"%d" text form, and constants passed as
   like a call chain (a Phobos `MapClass_PlaceDown` hook → `RecalcAttributes`);
   attribute samples by the return addresses `0x4CBC36` (in Find_Path) and
   `0x4D3E50` (in UpdatePathfinding) instead.
-- **Path continuation seats (hand a unit the rest of its last route).** MapSizeExt
-  `[Path] ReuseSteps` (2026-11-07) uses these:
+- **Path continuation seats (hand a unit the rest of its last route).** PathReuseExt
+  (`~/Claude/PathReuseExt`, 2026-11-07; first built in MapSizeExt 758818f..31ba051)
+  uses these:
   - `0x4CBBF8` in Find_Path, stolen 10 (`mov ecx,[esp+0x30]`;
     `lea eax,[esi+0x5E0]`). It is the target of the `jne` at `0x4CBBEC`, which
     lands on the seat start (fine), and nothing branches inside it. At the seat
@@ -201,7 +202,12 @@ idiv, magic 0x10624DD3, sprintf-"%d" text form, and constants passed as
     alternating 300-frame blocks): logic ms/frame was higher with it off in all
     7 pairs, median 1.14x (1.03-1.20; the same split with no A/B gives
     0.97-1.01). A* time was 15.9 vs 8.9 ms/frame, at only 18-27% hand-outs (that
-    game's targets kept moving). On by default since MapSizeExt 2c783be.
+    game's targets kept moving). A second game (PathReuseExt, standalone)
+    compared 96-cell windows with destination tolerance 2 against 24 cells
+    without: logic 1.24x higher with the old setting (10 pairs, 1.14-1.57), A*
+    25.2 vs 8.8 ms/frame. Most of the gain came from the tolerance: re-searches
+    after the target moved 1-2 cells cost 29.6 s vs 1.7 s of A* time. The
+    24-cell re-plans cost 8.0 s vs 0.4 s.
 - Frame-update dispatch loop (crash-forensics anchor): `0x55B5FB-0x55B61B` iterates
   a list object (items @[list+4], count @[list+0x10]) calling `[vtable+0x5C]` on
   each element; return address **0x55B613** on the stack + a misaligned vtable in

@@ -170,10 +170,24 @@ on or off, and the same DLL list can crash on one map and not another. Seen so f
   [Scenario-Smudge-Read.md](Scenario-Smudge-Read.md) (`0x6B4DBA`) and
   [Production-Queues-Factories.md](Production-Queues-Factories.md) (`0x500960`).
 
+- **Another DLL's hook can be the branch.** A handler that returns an address
+  continues there, so a return value that lands inside a *different* DLL's patch
+  is a mid-patch entry too; gamemd's own code never jumps there. **VERIFIED**
+  (2026-11-07, crash dump): Antares `UnitClass_GetActionOnCell_Deactivated`
+  (`0x7404B9`) sets EAX = 0 and returns `0x740805` for a deactivated unit, and
+  FreeUnitExt hooks `0x740801` with 5 stolen bytes (`mov eax,[esp+0x30]`;
+  `pop edi`), so `0x740805` is the top byte of its rel32. Byte `0F` then decoded
+  `0F 5E 5D 5B` = `divps xmm3,[ebp+0x5B]`, a misaligned 16-byte access:
+  `C0000005 at 00740805`, "read from FFFFFFFF". It fires when a deactivated unit
+  (no operator, no Robot Control Center, EMP) is selected with the cursor over
+  the map (stack: DisplayClass `0x692300`/`0x692610`).
+
 **The check:** for every address strictly inside `(seat, seat + stolen)`, search the
 disassembly for a direct branch to it (`j.. 0x<addr>`, `call 0x<addr>`). Also
-look at the switch tables, which objdump does not resolve. Branching to the seat
-itself is fine.
+look at the switch tables, which objdump does not resolve, and at every other
+DLL's code for a returned constant (`B8 imm32`, `mov eax, <addr>`). A sweep of
+the 32 launch-list DLLs on 2026-11-07 found only the Antares/FreeUnitExt pair
+above. Branching to the seat itself is fine.
 
 **A 2026-11-07 sweep of 3,483 deployed hooks (31 DLLs) found these framework seats
 covering a direct branch target.** ⚠ Reachability unchecked: a handler that never

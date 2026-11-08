@@ -148,6 +148,80 @@ objdump of vanilla gamemd.exe at `0x668F55–0x668F95`.
 
 ---
 
+### `0x679CAF` — RulesData_LoadAfterTypeData  ⚠ fires 3× per launch; a `Clear()` here wipes your own earlier passes
+
+**Framework names**
+| Framework | Function name | Stolen | Source file |
+|---|---|---|---|
+| Antares | `RulesData_LoadAfterTypeData` | 0x5 | src/Ext/Rules/Hooks.cpp |
+| Antares | `RulesClass_LoadAfterTypeData_CompleteInitialization` | 0x5 | src/Ext/Rules/Hooks.cpp |
+| Ares | `RulesData_LoadAfterTypeData` | 0x5 | — |
+| Ares | `RulesClass_LoadAfterTypeData_CompleteInitialization` | 0x5 | — |
+| Phobos | `RulesData_LoadAfterTypeData` | 0x5 | src/Ext/Rules/Body.cpp |
+| Phobos | `RulesClass_LoadAfterTypeData_CompleteInitialization` | 0x5 | src/Ext/Rules/Body.cpp |
+
+**What it does.** Epilogue of `LoadAfterTypeData`, reached once **every** type
+array has been populated while the pass's `CCINIClass` is still in hand. That
+combination is what makes it the natural seat for cross-referencing work: you
+can resolve a tag that names other types, because they all exist by now.
+
+**Register / calling convention.** `ESI = CCINIClass*` (the current pass's INI).
+`return 0` to chain — all three frameworks sit here, twice each.
+
+**What it does *not* do — the trap.** It fires **three times per launch**
+(measured: rules, then the scenario INI, then once more), and *the later passes
+hand you an INI that contains none of your sections*. The well-known hazard at
+`0x668BF0` above is non-idempotent **reads**; this one is sharper, because the
+obvious handler shape is destructive:
+
+```cpp
+MyState::Clear();              // <-- pass 2 and 3 wipe everything pass 1 built
+MyState::LoadFrom(pINI);       // <-- and find nothing to rebuild it from
+```
+
+The DLL then loads, logs, and reports success while holding **empty** state.
+Observed end to end in CountryLimitExt: the parse pass recorded 13 label sets,
+passes 2 and 3 emptied the table, and the buildability gate at `0x4F8361` passed
+everything because it had no data left. In-game this is indistinguishable from
+"the hook never ran" — and the log actively misleads, because each pass prints a
+plausible summary of its own (empty) state.
+
+**How to tell the rules pass apart.** `CCINIClass::INI_Rules` is a
+`CCINIClass*` at **`0x887048`** (YRpp `DEFINE_REFERENCE`). Compare it:
+
+```cpp
+const bool freshRules = (pINI == CCINIClass::INI_Rules);
+if (freshRules) MyState::Clear();   // reset ONLY on a genuine rules load
+MyState::LoadFrom(pINI);            // additive otherwise
+```
+
+Treating the later passes as **additive** is not merely a workaround — it is the
+correct semantics, because pass 2 is how a map overrides a rules value. An
+absent key is then a no-op and a pass that declares nothing changes nothing,
+while an override updates exactly the entry it names. If your table keys on
+`(section, tag)`, make the override path **erase** a stale entry when the new
+value needs no special handling, or the rules value keeps shadowing it.
+
+**Diagnosis checklist** (the symptom is "DLL loads, logs, does nothing"):
+1. Does the summary line appear **more than once** in `debug.log`? If yes, you
+   have three passes, not one.
+2. Do the later summaries report **smaller** counts than the first? That is the
+   wipe, not a quiet pass.
+3. Log the **live table size**, not a per-pass counter. A counter that resets to
+   `0` each pass reads as "nothing to do here" and hides an emptied table behind
+   a believable zero.
+
+**Used by / interactions.** Six framework hooks (table above) plus arbitrary
+third-party ones; ten-plus co-resident DLLs verified at this address in one
+install. Order between DLLs follows Syringe load order — do not depend on it.
+
+**Confirmed via.** Live `debug.log` from a 95-country install with 34 injected
+DLLs (three summary lines per launch, counts 13/0/0), the fix verified against
+the same install; YRpp `CCINIClass.h:340` for the `INI_Rules` address;
+`registry/conflicts.md` for the framework hook list.
+
+---
+
 ## Type identity: `GetArrayIndex()` is per-subclass  ⚠ silent cross-category collisions
 
 Not a hook — a data fact that bites any DLL storing parsed INI type lists.

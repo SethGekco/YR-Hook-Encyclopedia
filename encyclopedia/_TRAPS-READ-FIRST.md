@@ -236,8 +236,10 @@ calling `TechnoClass::Deactivate()` (`0x70FC90`) skipped:
 * `ObjectClass::Unselect` (vtable `+0x150`) — so the unit stayed **selected
   while deactivated**, which is the documented precondition for the `0x740805`
   click crash in trap 9 above,
-* the stop-and-park virtual (`+0x3D0`) — so the locomotor kept its last move
-  and hover units never settled,
+* `FootClass::Locomotor->Power_Off()` — so hover units never settled and a
+  "deactivated" tank kept drifting (⚠ corrected: this lives in **Antares'**
+  replacement of the function, not in vanilla's `+0x3D0` stop-and-park, which
+  only forces `Mission::Guard`),
 * the power-down sound (`TechnoTypeClass +0x5AC`),
 * and a **refusal path** that returns without touching the byte for a unit
   docked at the building on its own cell — bypassing it froze units in the war
@@ -248,7 +250,14 @@ and `Reactivate` had real addresses in YRpp the entire time.
 
 The tell is asymmetry: if your code writes a field that the engine only ever
 writes at the end of a longer routine, you are re-implementing that routine
-badly. Also check the inverse — nothing clears a field you latch unless you
+badly.
+
+⚠ And once you have found the routine, apply **trap 1 to it as well**. Both
+`Deactivate` and `Reactivate` are completely replaced by Antares (size-6 entry
+hooks at `0x70FC90` / `0x70FBE0`), so a reconstruction from `gamemd.exe` is not
+what runs — the first revision of the page below made exactly that mistake and
+mis-attributed the hovering to a vanilla virtual. Disassembling the original is
+how you learn the slots; the framework's source is how you learn the behaviour. Also check the inverse — nothing clears a field you latch unless you
 clear it, and `Deactivated` had **no** code path writing `false`, which is how
 "powers off and never comes back" shipped.
 

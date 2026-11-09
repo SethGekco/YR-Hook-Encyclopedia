@@ -300,9 +300,20 @@ time, so that the aiming code sees `Turret=yes` too — plausible from the
 mechanism, since the facing object exists on every `TechnoClass`, but **not
 verified**: nothing has yet driven a turret onto a `Turret=no` object this way.
 
-**The mapping travels with the count.** If you drop `TurretCount` from a
-synthesised type, drop its per-weapon turret mapping too. The engine validates
-the two against each other and says so in its own log:
+**The mapping travels with the count — but dropping BOTH is worse.**
+**CORRECTED 2026-11-09.** This section first said to drop the per-weapon
+mapping along with `TurretCount`. That was tried and measured, and it is wrong:
+
+| clone state | warnings |
+|---|---|
+| `TurretCount` dropped, mapping kept (indices 0, 2, 1, 1) | **4** |
+| `TurretCount` dropped, mapping dropped (index `-1`) | **17** — one per weapon |
+
+A `Gunner=yes` type needs a turret index for **every weapon it declares**, so an
+absent mapping is *less* valid than a stale one. `-1` is the unset value and the
+engine rejects it for all 17 slots.
+
+The engine validates count against mapping and says so in its own log:
 
 ```
 Weapon 1 on [FV$C4] has an invalid turret index of 0.
@@ -314,9 +325,18 @@ onto a clone whose `TurretCount=4` had been removed so it could wear
 single-turret art. Antares spells this surface as `<Name>TurretIndex=` /
 `<Name>TurretWeapon=` over the IFV name list rather than as a fixed set of keys
 (see `0x7178B0` above), so a copier has to match the **suffix** — enumerating
-`WeaponTurretIndex1..4` misses all of it. An out-of-range index is read during
-drawing, past `ChargerTurrets[]`, so these warnings are worth acting on rather
-than filtering out.
+`WeaponTurretIndex1..4` misses all of it.
+
+**What actually fixes it is a count the mapping can index into**, which means
+deciding whether a clone wearing single-turret art keeps the base's turret
+count. That trades directly against the draw incoherence that dropping the
+count was introduced to fix (a four-turret type wearing a one-turret voxel),
+and the trade has **not been measured** — so the honest state is: keep the
+mapping, accept the smaller warning count, and do not claim it is solved.
+
+An out-of-range index is read during drawing, past `ChargerTurrets[]`, so this
+is worth returning to rather than filtering out — but note no visual or
+gameplay symptom was ever reported from it, only the engine's own warning.
 
 **The symmetric trap.** Stripping the turret on a *failed art lookup* produces
 the opposite bug — a turretless hull on a unit that should have one — and that

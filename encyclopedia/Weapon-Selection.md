@@ -247,6 +247,21 @@ one worth preserving if this page is ever used as evidence. Call-site counts for
 either address are **not** recorded; cite the call tree instead of inventing
 them.
 
+**The fork-join half IS corroborated in game**, and it is worth separating from
+the reachability claim above. A 300-second stress match under heavy paradrop
+load, with an extension hooking `0x70E140` and `0x740FD0` and keeping no lock on
+the per-unit maps its game thread writes, logged **57,352 candidate walks all
+forked to 4 workers, 61,973,735 target checks, 0 mismatches, 0 worker
+mismatches, 0 redos and no crash** (PerfExt `docs/lane3-plan.md` §20, commit
+`d6a7a1e`, 2026-11-09). The framework re-ran stock `CanAutoTargetObject` at
+serve time and compared.
+
+Read that for what it is: strong evidence that the fork-join ordering holds and
+that unlocked reads are correct under it. It is **not** evidence about
+reachability, and a mismatch count cannot rule out a rare
+use-after-rehash — it compares results, not memory safety. The reason no such
+race exists here is the scheduling argument, not the zero.
+
 ### The real rule: the weapon declaration must be COMPLETE on the type
 
 **CORRECTED 2026-09-24.** An earlier revision of this section claimed

@@ -192,6 +192,61 @@ Note `Primary=` is usually still *present* on these types (the IFV has
 `Primary=HoverMissile`), so "the key exists in the section" is not evidence that
 it is used. Check `WeaponCount`, not `Primary`.
 
+## `0x70E140` — `TechnoClass::GetWeapon(int)`, and the thread it may run on
+
+The accessor that takes the **instance** in `ECX`, not the type. That is the
+whole reason weapons can be made to vary per unit while `Cost` and `Armor`
+cannot: those are only ever asked of the shared `TechnoTypeClass`.
+
+33 instructions, and in a RELEASE-channel build nothing in Phobos/Antares hooks
+it. Returning a different weapon needs a flow-replacing jump, and the epilogue
+pops first, so hook the **entry**: nothing is pushed yet, `ESP` already points
+at the return address, and `0x70E151` is a bare `ret 4`.
+
+Elite selection happens off the instance too —
+`Veterancy.IsElite() ? EliteWeapon[i] : Weapon[i]`, a hard pick with no fallback
+between the arrays (see the elite section above).
+
+### ⚠ It is in `CanAutoTargetObject`'s call tree, so it can leave the game thread
+
+`0x70E140` sits in the **first-pass call tree of `TechnoClass::CanAutoTargetObject`
+(`0x6F7CA0`)**. That matters because a framework may move target selection onto
+worker threads: PerfExt's "lane 3" parallelises `FootClass::GreatestThreat`'s
+candidate loop, and every candidate's `CanAutoTargetObject` then runs off the
+game thread. Anything you hook at `0x70E140` runs there too.
+
+`UnitClass::GetFireError` (`0x740FD0`, 306 instructions) is in the same pass-1
+tree, reached through the `UnitClass` vtable slot `0x7F6030 + 0x3C0` rather than
+by a direct call, and Phobos wraps it first.
+
+**Consequences for a hook at either address.** Keep it read-only, or make its
+state thread-local or locked. Specifically:
+
+* A `static` log-once flag or `std::unordered_set` probe is a data race. It
+  *looks* harmless because it only writes once — but "once" is decided by
+  several threads at the same time, and `Debug::Log` formats into a shared
+  buffer besides.
+* State written on the **game thread** and read here is a different question,
+  and the answer depends on the framework's scheduling rather than on your code.
+  Under a fork-join design — the game thread enters the pool from inside one
+  `GreatestThreat` call, takes a share of the jobs, and leaves only when the
+  done counter says all are finished, running no game logic in between — a
+  per-unit map written from `TechnoClass::Update` **cannot** be written while a
+  worker reads it, and concurrent reads of an `unordered_map` are safe. Adding a
+  lock for that case is not free: a shared SRW acquire is an interlocked write
+  to one lock word, so N workers bounce that cache line in the game's hottest
+  loop. **Check the framework's scheduling before guarding.**
+
+**Confirmed via.** The static call tree in PerfExt's own audit of a clean
+`gamemd.exe` (`PerfExt/docs/lane3-audit-gamemd.md`, rows `0x70e140` and
+`0x740fd0`, both pass 1). ⚠ **This is static reachability, not an observed
+call.** A "GetWeapon hook reached" line from a live game does *not* establish
+that the parallel phase reached it, because `GetWeapon` has many callers — a
+distinction the PerfExt session raised against its own earlier wording, and the
+one worth preserving if this page is ever used as evidence. Call-site counts for
+either address are **not** recorded; cite the call tree instead of inventing
+them.
+
 ### The real rule: the weapon declaration must be COMPLETE on the type
 
 **CORRECTED 2026-09-24.** An earlier revision of this section claimed

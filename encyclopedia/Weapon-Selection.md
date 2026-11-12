@@ -75,27 +75,84 @@ error prompted this page.
 
 ---
 
-## Wrapping it safely: the four vtable slots  ✅ verified in use
+## Wrapping it safely: the SIX vtable slots, with THREE different originals
 
-`SelectWeapon` is virtual (`YRpp/TechnoClass.h:227`) and `0x6F3330` is referenced
-by exactly four `.rdata` vtable slots, one per TechnoClass subclass:
+❌ **This section said "the four vtable slots … one per TechnoClass subclass" and
+was marked ✅ verified from 2026-09 to 2026-11-11. It was wrong, and it cost a
+feature two months of silent no-ops.** Corrected below; the post-mortem is the
+next section and is the more useful half.
 
-| slot | notes |
-|---|---|
-| `0x7E2588` | |
-| `0x7E41A0` | |
-| `0x7E8F78` | |
-| `0x7F4C44` | |
+`SelectWeapon` is virtual (`YRpp/TechnoClass.h:227`). The slot is
+`AbsVTable + 0x2E4`. Dumped out of `gamemd-spawn.exe` (ImageBase `0x400000`,
+`.rdata` VA `0x7E1000` raw `0x3E1000`):
 
-All four are unclaimed by Phobos, Antares and the registry. They are confirmed
-real vtable entries rather than raw bytes equal to `0x6F3330`: every neighbouring
-word at each address is a valid `.text` pointer, and all four are followed by the
-same next virtual (`0x6F3820`). `AircraftClass::AbsVTable` is `0x7E22A4`.
+| class | `AbsVTable` | slot | holds | live? |
+|---|---|---|---|---|
+| `AircraftClass`  | `0x7E22A4` | `0x7E2588` | `0x6F3330` `TechnoClass::SelectWeapon` | yes |
+| `BuildingClass`  | `0x7E3EBC` | `0x7E41A0` | `0x6F3330` | yes |
+| `FootClass`      | `0x7E8C94` | `0x7E8F78` | `0x6F3330` | **no — abstract** |
+| `TechnoClass`    | `0x7F4960` | `0x7F4C44` | `0x6F3330` | **no — abstract** |
+| `InfantryClass`  | `0x7EB058` | `0x7EB33C` | **`0x5218E0`** `InfantryClass::SelectWeapon` | yes |
+| `UnitClass`      | `0x7F5C70` | `0x7F5F54` | **`0x746CD0`** `UnitClass::SelectWeapon` | yes |
+
+**`UnitClass` and `InfantryClass` override `SelectWeapon`.** Their slots do not
+contain `0x6F3330`. Both overrides call `0x6F3330` themselves, which is why the
+in-body Phobos/Antares hooks still run for vehicles and infantry.
+
+⚠ **Each slot must call ITS OWN original.** Wrapping the `UnitClass` slot and
+then calling `0x6F3330` skips `UnitClass::SelectWeapon` entirely. Write one thin
+wrapper per original, differing only in the address it calls.
+
+⚠ **Two of the six are inert.** `FootClass` and `TechnoClass` are abstract; no
+live object dispatches through their vtables. Patch them if you like — harmless,
+and correct if anything ever does — but they buy nothing. **The two that matter
+most are the two the reference search cannot find.**
+
+All six are unclaimed by Phobos, Antares and the registry. They are confirmed
+real vtable entries rather than raw bytes: every neighbouring word is a valid
+`.text` pointer, and the four `0x6F3330` ones are each followed by the same next
+virtual (`0x6F3820`).
 
 Replacing these slots is the **only** safe way to influence weapon choice without
 disabling somebody else's work: the wrapper calls the original, so all nine
 Phobos and two Antares in-body hooks still run and decide, and you adjust their
 answer afterwards.
+
+## ⚠ Post-mortem: how "four slots" passed for verified  (2026-11-11)
+
+The original method was: search the binary for references to `0x6F3330`, find
+exactly four `.rdata` slots, conclude "one per TechnoClass subclass".
+
+**That search cannot answer that question.** Searching for references to a base
+implementation finds precisely the classes that do *not* override it. The count
+of four was not evidence of coverage; it was the number of non-overriding
+classes, and it was read as confirmation because four is also how many concrete
+`TechnoClass` subclasses a person tends to list from memory
+(Aircraft/Building/Infantry/Unit). The two names that *would* have falsified it
+were the two the search structurally omitted.
+
+**The symptom was visible for two months and misread.** `SuperWeaponExt`'s
+`Weapon.VsInhibitor` / `WhileNearInhibitor` were configured on `[MTNK]`, a
+`UnitClass`. No test game ever produced a `weapon N -> M` line. That was logged
+repeatedly as "the feature is armed but has never fired — needs a test setup
+that triggers it", i.e. blamed on the fixture, for weeks. The wrapper had never
+been on a vehicle's dispatch path at all. Found by the PerfExt session reading
+the slot list, not by any amount of re-reading the rules.
+
+**The checks that did not catch it.** `check_hook_bounds` and
+`check_hook_overlap` both pass clean: they validate `DEFINE_HOOK` sites against
+`.text` and against the registry, and `DEFINE_FUNCTION_JUMP` vtable patches are
+outside their scope entirely. A green hook-tooling run says nothing about
+whether a vtable patch is on the right slot.
+
+**The method that works.** For any virtual you intend to wrap, enumerate
+`AbsVTable + <slot offset>` for every concrete subclass and dump what each slot
+actually holds. Derive the slot offset once from a class you know
+(`0x7E2588 - 0x7E22A4 = 0x2E4`), then read the others. Never infer the slot set
+from references to the base implementation.
+
+Corollary worth generalising: **"N references found" is never evidence that N is
+all of them** unless you can state why a reference must exist for each case.
 
 ### ⚠ The wrapper MUST be `__fastcall` with a dummy EDX parameter
 
@@ -191,6 +248,47 @@ weapon keys should check the target for `WeaponCount` and say so.
 Note `Primary=` is usually still *present* on these types (the IFV has
 `Primary=HoverMissile`), so "the key exists in the section" is not evidence that
 it is used. Check `WeaponCount`, not `Primary`.
+
+## ⚠ A per-frame cache inside SelectWeapon is a DESYNC, not an optimisation
+
+Weapon choice is called from targeting, threat evaluation, firing — **and from
+cursor drawing**. That last caller is what makes the obvious optimisation unsafe.
+
+If your wrapper needs anything beyond type data — the positions of other objects,
+say, to answer "is this unit standing near X" — the tempting shape is a list
+rebuilt once per frame, lazily, on the first call of that frame:
+
+```cpp
+if (g_frame == Unsorted::CurrentFrame) return;   // ⚠ DESYNC
+g_frame = Unsorted::CurrentFrame;
+RebuildFromObjectArray();
+```
+
+The list's *contents* are synced. The **instant it is sampled is not.** On a
+client whose mouse is hovering a unit, cursor drawing calls `SelectWeapon` before
+the object-update loop and the snapshot is taken pre-loop. On a client whose
+mouse is over empty ground, the first call comes from combat, part-way through
+the loop — after some units have moved or died. Same frame, different positions,
+different weapon chosen, desync. **It is driven by mouse position, so it will not
+reproduce for you and will not look like a weapon bug when it bites.**
+
+Fix: build the snapshot at a fixed point in the frame — the post-loop seat in
+`LogicClass::AI` (`0x55B6B3`, see the Logic-Frame-Update page) — and have the
+wrapper only ever read it. Frame N's loop then reads the snapshot taken at the
+end of frame N-1, which every client took at the same place. Costs one frame of
+warm-up at scenario start, which is itself identical on every client because it
+is keyed to the frame loop.
+
+The same reasoning forbids lazy *initialisation* anywhere in this function once
+anything runs target checks on worker threads (PerfExt lane 3 does): "build it on
+first use" is a write, and the first user may be another thread. Build at the
+tick, read in the wrapper, and keep any diagnostic log behind a lock held across
+the write so two threads cannot interleave half-lines into the log file.
+
+Verified by construction in `SuperWeaponExt` 2026-11-11; the latent version
+shipped for two months without triggering, because the only types configured with
+a position-dependent rule were vehicles, and a separate bug (see the post-mortem
+above) meant the wrapper never ran for vehicles at all.
 
 ## `0x70E140` — `TechnoClass::GetWeapon(int)`, and the thread it may run on
 

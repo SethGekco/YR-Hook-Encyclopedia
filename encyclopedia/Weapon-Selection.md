@@ -290,6 +290,56 @@ shipped for two months without triggering, because the only types configured wit
 a position-dependent rule were vehicles, and a separate bug (see the post-mortem
 above) meant the wrapper never ran for vehicles at all.
 
+## ⚠ What a stress game can and cannot verify here  (2026-11-12)
+
+A 300 s AI stress game is the natural place to prove a `SelectWeapon` wrapper is
+*safe* — it drives this function tens of thousands of times a second across
+several threads. It is close to worthless for proving the wrapper's **rules** are
+correct, and the two are easy to confuse when the log comes back empty.
+
+Measured in `SuperWeaponExt`: two 300 s games, 29 AIs, ~1000 units, with an
+`MTNK` rule set to switch weapons when the target is a power plant
+(`VsInhibitor`) or when the firer stands within 4 cells of one
+(`WhileNearInhibitor`).
+
+| log evidence | count |
+|---|---|
+| `MTNK` kill / ace / probe lines | ~4,700 |
+| `GAPOWR` / `NAPOWR` / `YAPOWR` lines **after** rules-parse | **0** |
+| weapon-override lines | **0** |
+
+Zero overrides — and the configuration predicts exactly zero, because **both
+rules are gated on a power plant and the map had none.** The harness
+force-produces units through a prerequisite bypass (`PREREQ-BYPASS
+missing=[GAWEAP]`, `missing=[GAPILE]`), so the AIs fielded tanks and infantry
+without ever building the base that normally comes with them. The only things
+that died all game were `E1`, `MTNK`, and one civilian structure.
+
+What to take from that:
+
+- **An empty override log in an AI stress game is not evidence of a dead hook.**
+  Before reading it as one, check that the *triggering object type* appears in
+  the log at all after rules-parse. A type can be listed in the rules, parsed,
+  cached, binary-searchable — and never instantiated. Parse-time log lines prove
+  only that the rule was read.
+- **What the same game does prove** is the half that genuinely needs a stress
+  game: the newly-wrapped `UnitClass` slot (`0x7F5F54`) carried continuous fire
+  for two full games on lane 3's worker threads, one of them under PerfExt's
+  Verify — 31,666 walks, 0 mismatches, 0 redos, no crash. The wrapper is stable
+  under load; it was simply never given a reason to fire.
+- **A firer-side rule needs a hand-driven test.** "Park one unit beside one
+  building and shoot something ordinary" is unreachable for an AI that has no
+  such building. Keep a skirmish fixture for the rules and a stress game for the
+  threading, and do not expect either to answer the other's question.
+
+Possible second oracle, unconfirmed: a per-shot probe log of the shape
+`[WeaponExt][probe N] firer=… target=… weapon=N(name)` reported `weapon=0(105mm)`
+for every `MTNK` shot in both games, consistent with no override. Reading the
+chosen index from *outside* the wrapper is the only way to distinguish "the
+override did not fire" from "the override fired and its own log line was
+dropped" — but confirm where such a probe samples before trusting it for that,
+since a probe upstream of this function would show weapon 0 either way.
+
 ## `0x70E140` — `TechnoClass::GetWeapon(int)`, and the thread it may run on
 
 The accessor that takes the **instance** in `ECX`, not the type. That is the

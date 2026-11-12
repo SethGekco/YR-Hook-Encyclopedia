@@ -332,13 +332,35 @@ What to take from that:
   such building. Keep a skirmish fixture for the rules and a stress game for the
   threading, and do not expect either to answer the other's question.
 
-Possible second oracle, unconfirmed: a per-shot probe log of the shape
-`[WeaponExt][probe N] firer=… target=… weapon=N(name)` reported `weapon=0(105mm)`
-for every `MTNK` shot in both games, consistent with no override. Reading the
-chosen index from *outside* the wrapper is the only way to distinguish "the
-override did not fire" from "the override fired and its own log line was
-dropped" — but confirm where such a probe samples before trusting it for that,
-since a probe upstream of this function would show weapon 0 either way.
+### Second oracle: read the index from outside the wrapper  ✅ confirmed 2026-11-12
+
+A wrapper that logs its own decisions cannot distinguish "the override did not
+fire" from "the override fired and its own log line was dropped". Something
+downstream of this function can.
+
+`WeaponExt`'s frame probe is one: `DEFINE_HOOK(0x6FE8EE, ...)`, inside
+`TechnoClass::Fire` (which begins at `0x6FDD50`), logging `firer` from `ESI`,
+target from `[ebp+0x8]` and **the weapon index `Fire` was actually called with**
+from `[ebp+0xC]`. Whatever index the caller settled on after
+`SelectWeapon`/`GetWeapon` is the one it prints, so it reads this function's
+outcome without trusting any wrapper on it. In the 2026-11-12 games it printed
+`weapon=0(105mm)` for every `MTNK` shot — agreeing with the absent override, from
+a second direction.
+
+Two limits before leaning on it:
+
+- **It is a sample, not a census.** Rate-limited, with a split
+  scattered/unscattered budget plus a per-weapon cap; an unscattered weapon like
+  `105mm` gets roughly 40 lines. A count needs a counter, not the log.
+- **A `0` is much weaker evidence than a `1`.** A probe line showing the
+  overridden index is conclusive. Showing the original proves only that *this*
+  shot used it — not every `Fire` call site necessarily took its index from
+  `SelectWeapon`.
+
+Frame map per `WeaponExt/src/Hooks.FrameProbe.cpp`, confirmed in-game over four
+runs. Note it is `EBP`-relative and **not** `ESP`-relative: `TechnoClass::Fire`
+does `and esp,0xFFFFFFF8` at `0x6FDD53`, so `ebp-esp` is a runtime value and the
+arguments cannot be reached from `ESP` at all.
 
 ## `0x70E140` — `TechnoClass::GetWeapon(int)`, and the thread it may run on
 

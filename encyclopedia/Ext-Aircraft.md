@@ -220,7 +220,12 @@ already dropped 3. "Partial payload" and "hover" are one event, as predicted.
 f100920, came around, found a usable cell at f101034 and finished its stick. The
 other 14 left the overfly trace entirely after being refused and never came
 back; that log cannot say whether they were shot down, retreated, or stalled in
-`Mission_ParadropApproach` (mission 26, a different function, not instrumented).
+`Mission_ParadropApproach` (mission 26, a different function).
+
+> **Followed up 2026-11-11:** mission 26 turned out to have a stall of its own,
+> unrelated to this gate — see the `0x4158E0` entry below. If a plane vanishes
+> from the overfly trace and never returns, check mission 26 before assuming it
+> died.
 
 **The repair, if you need one.** Do not try to force the drop — `Paradrop`
 releases at the plane's own position and that position is the thing the gate
@@ -243,6 +248,134 @@ three `IsWithinUsableArea` overloads and `0x87F7E8` as `MapClass::Instance`,
 matching the `mov ecx,0x87F7E8` in the call site; and the in-game log above,
 from a diagnostic that evaluates the same predicate one hook earlier in the same
 tick.
+
+---
+
+### `0x4158E0` — AircraftClass::Mission_ParaDropApproach  ⚠ a stale Destination parks the plane for ever
+
+✅ CONFIRMED FROM 24 OF 24 IN-GAME STALLS, 2026-11-11. Repaired in SuperWeaponExt
+at seat `0x415934`.
+
+The sibling of the overfly gate above, and a **second, unrelated way a paradrop
+plane hangs**. The usable-area gate hovers a plane in mission 27 with its drop
+refused; this one parks it in mission 26 and never moves it again. If you are
+chasing a stuck paradrop, you need to know which of the two you have — the
+mission number tells them apart instantly.
+
+The whole function is 128 bytes (`0x4158E0`–`0x41595C`):
+
+```
+4158E0:  push esi
+4158E1:  mov  esi,ecx
+4158E3:  mov  eax,[esi+0x2B4]      ; this->Target
+4158E9:  test eax,eax
+4158EB:  jne  0x41590E             ; have a target -> B
+;   --- A: no target ---
+4158F3:  call [eax+0x480]          ; SetDestination(nullptr, true)
+415901:  call [edx+0x1E8]          ; QueueMission(4 = Retreat, false)
+415907:  mov  eax,3 ; ret
+;   --- B ---
+41590E:  mov  ecx,[esi+0x5A4]      ; this->Destination
+415914:  test ecx,ecx
+415916:  jne  0x41592C             ; ALREADY SET -> C, skipping the setter
+41591F:  call [edx+0x480]          ; SetDestination(Target, true)  <-- THE ONLY SETTER
+415925:  mov  eax,3 ; ret
+;   --- C: destination already set ---
+41592F:  call 0x5F6440             ; DistanceFrom(Target)
+415934:  mov  ecx,0x8871E0         ; RulesClass::Instance   <-- 6 bytes, free seat
+41593A:  cmp  eax,[ecx+0x54C]      ; vs [General]ParadropRadius
+415940:  jg   0x415956             ; TOO FAR -> return 3, and DO NOTHING AT ALL
+415942:  call [edx+0x1E8]          ; QueueMission(0x1B = 27 ParadropOverfly, false)
+415950:  decb [esi+0x6D3]          ; --NumParadropsLeft
+415956:  mov  eax,3 ; ret
+```
+
+**The trap.** The approach points the plane at its target **only when
+`Destination` is null**. A plane that enters the approach holding a stale
+non-null `Destination` is never pointed at its target at all: it flies to that
+stale destination, arrives, and then the mission returns 3 for ever. The
+distance to the target cannot change, because the plane is not moving; and the
+only code that would re-point it sits behind the `Destination == null` test it
+just failed. **Both exits of the comparison at `0x415940` are dead ends** — one
+queues the overfly, the other does nothing — so there is no path from "arrived
+somewhere useless" back to "fly to the target".
+
+The symptom is a plane with its payload, its mission and 100% throttle, going
+nowhere:
+
+```
+para STALLED f20220 plane=158C3CA8 PDPLANE: still at (49,80) for 90 frames.
+  mission=26(ParadropApproach) pax=8 h=1500 passes=5 locked=0 usable=1
+  speed=100% dest=(49,80) target=(37,77) land=0(Clear) level=4
+```
+
+`pax=8` is a full stick never delivered; `pax=1` also occurs, because
+`Mission_ParadropOverfly` queues `0x1A` (26) to come around between drops, so
+the dead end is reachable once per pass. `(66,85) -> (64,103)` recurred across
+three different planes, so it is a repeatable geometry, not one unlucky plane.
+
+**Who leaves the stale Destination is not established.** Several systems write
+an aircraft's `Destination`, Phobos' Retreat edge-cell pick at `0x415A7A` among
+them — two instructions past the end of this function. The repair below does not
+depend on knowing which, which is the point of fixing it here.
+
+**The repair.** At `0x415934`, replace the radius comparison and make the "too
+far" exit stop being a dead end: if the plane has arrived at the destination it
+was given and is still too far to drop, call `SetDestination(Target, true)` —
+exactly what `0x41591F` would have done had it been reachable. Do not invent a
+destination and do not touch the mission.
+
+⚠ **Gate it on "cannot be making progress"**, not on "destination differs from
+target". A plane still travelling toward a deliberately-chosen waypoint must be
+left alone, and an unconditional re-point would fight whoever set it, every
+frame. "Arrived" as Chebyshev ≤ 1 cell cannot be confused with flight here: the
+stalls sit 12–18 cells from their target. Once `Destination` is the `Target` the
+guard makes the repair a no-op, so it costs one virtual call per stale
+destination rather than one per frame.
+
+⚠ **`0x415934` is a 6-byte instruction** (`8b 0d e0 71 88 00`), so a 6-byte steal
+is exact. Both return addresses (`0x415942` drop-run, `0x415956` return-3) are
+past the comparison the stolen instruction feeds, so the decision must be made
+entirely in the handler. Clear of Phobos' `0x415A00` and `0x415A7A`.
+
+⚠ **Use the same radius here as in the overfly.** These two comparisons decide
+related questions — "start the drop run" and "drop now". If the approach reads
+`[General]ParadropRadius` while the overfly applies a per-type override, a plane
+can queue the overfly only to be told it is too far and sent round again, for
+ever. Two different hardcoded reads of `RulesClass+0x54C` in two functions is a
+loop waiting to happen.
+
+**Locating a mission function in general.** Do not hunt for it by address. The
+`Mission_*` handlers are virtuals on `MissionClass`, so take one you already
+know and count slots: `Mission_ParaDropOverfly` (`0x415960`) is **slot 153** in
+`AircraftClass::AbsVTable` (`0x7E22A4`), and `MissionClass` declares
+`Mission_ParaDropApproach` immediately before it, so slot 152 holds `0x4158E0`.
+The neighbours fall out for free and are worth recording:
+
+| slot | virtual | AircraftClass |
+|---|---|---|
+| 151 | `Mission_Patrol` | `0x417300` |
+| 152 | `Mission_ParaDropApproach` | `0x4158E0` |
+| 153 | `Mission_ParaDropOverfly` | `0x415960` |
+| 154 | `Mission_Wait` | `0x5B2FA0` |
+| 155 | `Mission_SpyPlaneApproach` | `0x4155F0` |
+| 156 | `Mission_SpyPlaneOverfly` | `0x4157C0` |
+
+Same method as the SelectWeapon slot table in `Weapon-Selection.md`, and the same
+warning applies: read the slot, do not infer it.
+
+**Confirmed via.** objdump of `gamemd-spawn.exe` at every address quoted; the
+vtable dump above; `[esi+0x2B4]` as `this->Target` and `[edx+0x1E8]` as
+`QueueMission`, both already established in the `0x415960` entry; and 24 of 24
+in-game stalls from `SweepStalledPlanes`.
+
+**Method note.** This was found by instrumenting the SYMPTOM — a sweep over
+`AircraftClass::Array` for planes that have not moved, run from a per-frame tick
+— after three successive attempts to guess the faulty function landed on
+unreachable paths. A stall detector that reports mission, destination, target
+and payload located it in one game. Worth reaching for earlier than feels
+natural: "which function is wrong" is a much harder question than "which plane
+stopped moving, and what did it think it was doing".
 
 ---
 
